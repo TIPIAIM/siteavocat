@@ -1,0 +1,126 @@
+/* Homefond.css */
+
+/* Utilisation de flexbox pour la mise en page */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.bg-gray-900 {
+  background-color: #1a202c; /* Couleur de fond sombre */
+}
+
+.text-white {
+  color: #fff; /* Couleur du texte blanc */
+}
+
+/* MarqueeText.css */
+
+/* Ajout de préfixes vendeurs pour background-clip */
+.text-gradient {
+  background: linear-gradient(to right, rgb(120, 255, 232), #00f);
+  -webkit-background-clip: text;  /* Préfixe pour Webkit (Chrome, Safari, etc.) */
+  background-clip: text;          /* Propriété standard */
+  color: transparent;             /* Rendre le texte transparent pour voir le fond */
+}
+
+
+/* Ombre portée large */
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Bordure arrondie */
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+/* Conteneur principal avec largeur maximale */
+.container {
+  width: 100%;
+  max-width: 1200px; /* Limite de largeur */
+  margin: 0 auto; /* Centrage horizontal */
+}
+
+/* Espacement */
+.mt-8 {
+  margin-top: 2rem; /* Espacement supérieur */
+}
+
+.p-6 {
+  padding: 1.5rem; /* Espacement intérieur */
+}
+
+/* Tailles de texte */
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+/* Poids de la police */
+.font-bold {
+  font-weight: 700; /* Gras */
+}
+
+.font-semibold {
+  font-weight: 600; /* Semi-gras */
+}
+
+.font-serif {
+  font-family: serif; /* Police avec empattements */
+}
+
+/* Marges */
+.mb-4 {
+  margin-bottom: 1rem; /* Marge inférieure */
+}
+
+.mt-1 {
+  margin-top: 0.25rem; /* Petite marge supérieure */
+}
+
+/* Couleurs de texte */
+.text-gray-600 {
+  color: #718096; /* Gris clair */
+}
+
+.text-blue-500 {
+  color: #4299e1; /* Bleu clair */
+}
+
+/* Transition d'opacité */
+.transition-opacity {
+  transition-property: opacity;
+}
+
+.duration-500 {
+  transition-duration: 500ms; /* Durée de la transition */
+}
+
+.ease-in-out {
+  transition-timing-function: ease-in-out; /* Fonction de transition fluide */
+}
+
+.opacity-100 {
+  opacity: 1; /* Opacité pleine */
+}
+
+/* Effet au survol */
+.hover\:opacity-75:hover {
+  opacity: 0.75; /* Réduction de l'opacité au survol */
+}

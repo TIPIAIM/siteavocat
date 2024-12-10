@@ -32,7 +32,7 @@ const Composant = () => {
         animate={{ scale: 1 }}
         transition={{ delay: 0.2, duration: 1 }}
       >
-        RIGUEUR
+        Rigueur
       </motion.h1>
       <motion.h1
         style={{ color: "rgba(10,34,64,1)" }}
@@ -41,7 +41,7 @@ const Composant = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
       >
-        LOYAUTE
+        Loyauté
       </motion.h1>
 
       {/* Section supplémentaire */}

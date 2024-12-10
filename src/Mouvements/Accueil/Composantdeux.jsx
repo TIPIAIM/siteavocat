@@ -7,6 +7,7 @@ const Container = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,10 +23,46 @@ const Container = styled.div`
   }
 `;
 
+// Conteneur pour l'image et le conteneur droit
+const TopSection = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.1rem;
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: static; // Permet de ne plus avoir une position absolue
+    margin-top: 2.5rem;
+  }
+`;
+
+// Conteneur pour le contenu supplémentaire à droite
+const RightContainer = styled.div`
+  background-color: rgba(255, 255, 255, 0.1);
+  border: px solid rgba(255, 255, 255, 0.3);
+  padding: 0.4rem;
+  border-radius: 15px;
+  box-shadow:10px 10px 0px rgba(0, 0, 0, 0.2);
+  color: white;
+  max-width: 450px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    text-align: center;
+  }
+`;
+
 // Texte superposé
 const Title = styled(motion.h1)`
-  font-size: 2rem;
-  margin: 1rem 0;
+  font-size: 0rem;
+  margin: 0rem 0;
   color: rgba(255, 255, 255, 0.9);
   font-family: serif;
   font-weight: bold;
@@ -33,17 +70,23 @@ const Title = styled(motion.h1)`
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 
   @media (min-width: 768px) {
-    font-size: 4rem;
+    font-size: 1rem;
   }
 `;
 
 const AdditionalSection = styled.div`
   position: absolute;
   bottom: 10%;
+
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    position: relative; // Déplace Fond sous le texte
+    margin-top: 2rem; // Ajoute un peu de marge entre le texte et Fond
+  }
 `;
 
 const Composantdeux = () => {
@@ -52,23 +95,52 @@ const Composantdeux = () => {
       {/* Overlay */}
       <div className="overlay"></div>
 
+      {/* Section du haut avec image et conteneur droit */}
+      <TopSection>
+        {/* Image ou contenu à gauche */}
+        <motion.img
+          src="/img/affaire.jpg" // Remplacez par votre URL d'image
+          alt="Example"
+          style={{
+            borderRadius: "50%",
+            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
+            width: "50px", // Réduisez la taille selon vos besoins
+            height: "50px", // Assurez-vous que la hauteur soit égale à la largeur pour garder une forme circulaire
+          }}
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
+        />
+
+        {/* Conteneur supplémentaire à droite */}
+        <RightContainer>
+          <motion.h3
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+          >
+            Nos prestations
+          </motion.h3>
+          <p>
+            Notre cabinet d’avocats est spécialisé dans les services juridiques
+            complets et de haute qualité à nos clients...
+          </p>
+        </RightContainer>
+      </TopSection>
+
       {/* Animations des titres */}
       <Title
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-      >
-        RIGUEUR
-      </Title>
+      ></Title>
       <Title
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
-      >
-        LOYAUTÉ
-      </Title>
+      ></Title>
 
-      {/* Section supplémentaire */}
+      {/* Section supplémentaire avec Fond déplacé en bas sur les petits écrans */}
       <AdditionalSection>
         <motion.div
           initial={{ opacity: 0 }}

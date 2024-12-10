@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"; // Assurez-vous que Framer Motion est installé
-import fondhome2 from "../assets/Image/fondhome2.jpg";
+import fondhome2 from "../../assets/Image/fondhome2.jpg";
 import Fond from "./Fond";
 
 const Composant = () => {
@@ -26,6 +26,7 @@ const Composant = () => {
         {" "}
       </motion.div>
       <motion.h1
+        style={{ color: "rgba(10,34,64,1)" }}
         className="text-2xl mx-2 mt-6 font-serif font-bold md:text-6xl drop-shadow-lg"
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
@@ -34,7 +35,8 @@ const Composant = () => {
         RIGUEUR
       </motion.h1>
       <motion.h1
-        className="text-2xl font-serif mx-2 font-bold md:text-6xl drop-shadow-lg"
+        style={{ color: "rgba(10,34,64,1)" }}
+        className="text-2xl font-serif mx-2 mt-5 font-bold md:text-6xl drop-shadow-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
@@ -54,31 +56,13 @@ const Composant = () => {
       </div>
       <div className=" text-white">
         <motion.h3
-          className=" mx-4 text-cyan-500 font-serif md:text-6xl drop-shadow-lg"
+          style={{ color: "#0488b2" }}
+          className=" mx-4  font-serif md:text-xl md:text-center drop-shadow-lg"
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, duration: 1 }}
-        >
-          CABINET DAVOCAT
-        </motion.h3>
-        <motion.h3
-          className=" mx-4 text-cyan-500 font-serif md:text-6xl drop-shadow-lg"
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.2, duration: 1 }}
-        >
-          SPECIALISE DANS
-        </motion.h3>
-        <motion.h3
-          className=" font-serif text-cyan-500 mx-4  md:text-6xl drop-shadow-lg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-        >
-          LE DROIT DES AFFAIRES
-        </motion.h3>
+        ></motion.h3>
       </div>
-      
     </div>
   );
 };

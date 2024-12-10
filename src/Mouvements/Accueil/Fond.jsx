@@ -4,9 +4,8 @@ import { useInView } from "react-intersection-observer";
 import { animate } from "popmotion";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "./Homefond.css";
 import "./MarqueeText.css";
-import fondhome from "../assets/Image/fondhome.jpg";
+import fondhome from "../../assets/Image/fondhome.jpg";
 
 export default function Fond() {
   useEffect(() => {
@@ -39,7 +38,7 @@ const MarqueeText = () => {
   }, [inView]);
 
   return (
-    <div ref={ref} className=" flex-col  bg-gray- items-center ">
+    <div ref={ref} className=" flex-col  items-center ">
       {/* Image */}
       <motion.div
         className=" lg:flex w-full  items-center justify-center p- mt-8"
@@ -78,7 +77,7 @@ const ScrollText = () => {
         transition={{ duration: 0.6 }}
       >
         <DefilTextBoucle />
-        <p className="text-lg md:text-sm text-gray-90">
+        <p className="text-lg md:text-sm ">
           Nos services exceptionnels
         </p>
       </motion.div>

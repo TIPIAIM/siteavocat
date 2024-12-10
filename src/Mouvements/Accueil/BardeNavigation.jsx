@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import logoAODnoir from "../../assets/Logos/logoAODnoir.png";
 import Composant from "./Composant";
+import Composantdeux from "./Composantdeux";
 
+// Conteneur principal de la navigation
 // Conteneur principal de la navigation
 const Nav = styled.nav`
   position: fixed;
@@ -13,7 +15,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0rem rem;
+  padding: 0.5rem 1rem;
   z-index: 1000;
   font-weight: bold;
   transition: background-color 1.3s ease-in-out, box-shadow 1.3s ease-in-out;
@@ -22,15 +24,16 @@ const Nav = styled.nav`
     props.isScrolled
       ? `
     background-color:rgba(10, 34, 64, 1.9);
-    box-shadow: 18px 4px 18px rgba(8, 6, 8, 8.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   `
       : `
     background-color: transparent;
-    box-shadow:500px 500px 500px rgba(10, 86, 153, 8.8); ;
+    box-shadow: none;
   `}
 
   @media (max-width: 768px) {
     flex-wrap: wrap;
+    padding: 0.5rem;
   }
 `;
 
@@ -42,15 +45,20 @@ const Logo = styled.div`
   font-weight: bold;
 
   img {
-    height: 100px;
-    margin-right: 0.1rem;
+    height: 80px;
+    margin-right: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      height: 60px;
+    }
   }
 `;
 
 // Menu principal
 const Menu = styled.div`
   display: flex;
-
   align-items: center;
 
   @media (max-width: 768px) {
@@ -61,6 +69,7 @@ const Menu = styled.div`
     padding: 1rem 0;
     max-height: 80vh;
     overflow-y: auto;
+    transition: all 0.3s ease-in-out;
   }
 `;
 
@@ -112,19 +121,28 @@ const NavLink = styled.a`
     text-align: center;
   }
 `;
+
+// Sous-menu
 const SubMenu = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  
-  background-color:rgba(10, 86, 153, 0.5);
+  background-color: rgba(10, 86, 153, 0.9);
   display: none;
   flex-direction: column;
-  padding: 0rem;
-  box-shadow: 2px 4px 3px 2px rgba(10, 86, 153, 8.8);
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
 
   ${NavLink}:hover & {
     display: flex;
+  }
+
+  @media (max-width: 768px) {
+    position: static;
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+    width: 100%;
+    box-shadow: none;
   }
 `;
 
@@ -213,7 +231,8 @@ export default function BardeNavigation() {
 
       {/* Contenu principal */}
       <main style={{ paddingTop: "140px" }}>
-        <Composant />
+      
+        <Composantdeux/>  <Composant />
       </main>
     </>
   );

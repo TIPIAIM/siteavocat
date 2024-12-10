@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"; // Assurez-vous que Framer Motion est installé
 import fondhome2 from "../../assets/Image/fondhome2.jpg";
-import Fond from "./Fond";
+import Fondcomp from "./Fondcomp";
+import EnhancedComponent from "./Composatexte";
 
 const Composant = () => {
   return (
@@ -25,6 +26,7 @@ const Composant = () => {
       >
         {" "}
       </motion.div>
+
       <motion.h1
         style={{ color: "rgba(10,34,64,1)" }}
         className="text-2xl mx-2 mt-6 font-serif font-bold md:text-6xl drop-shadow-lg"
@@ -32,8 +34,9 @@ const Composant = () => {
         animate={{ scale: 1 }}
         transition={{ delay: 0.2, duration: 1 }}
       >
-        Rigueur
+        
       </motion.h1>
+
       <motion.h1
         style={{ color: "rgba(10,34,64,1)" }}
         className="text-2xl font-serif mx-2 mt-5 font-bold md:text-6xl drop-shadow-lg"
@@ -41,7 +44,7 @@ const Composant = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
       >
-        Loyauté
+        
       </motion.h1>
 
       {/* Section supplémentaire */}
@@ -51,7 +54,7 @@ const Composant = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
         >
-          <Fond />
+          <Fondcomp />
         </motion.div>
       </div>
       <div className=" text-white">
@@ -63,6 +66,7 @@ const Composant = () => {
           transition={{ delay: 0.2, duration: 1 }}
         ></motion.h3>
       </div>
+      <EnhancedComponent/>
     </div>
   );
 };

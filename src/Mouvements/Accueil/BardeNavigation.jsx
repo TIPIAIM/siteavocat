@@ -238,6 +238,7 @@ export default function BardeNavigation() {
       <main style={{ paddingTop: "70px" }}>
         <Composantdeux />
         <Composant />
+      
       </main>
     </>
   );

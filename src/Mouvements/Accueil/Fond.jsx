@@ -13,7 +13,7 @@ export default function Fond() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center bg-gray-90 text-white min-h-screen">
+    <div className="flex items-center justify-center  text-white min-h-screen">
       <MarqueeText />
     </div>
   );
@@ -38,10 +38,10 @@ const MarqueeText = () => {
   }, [inView]);
 
   return (
-    <div ref={ref} className=" flex-col  items-center ">
+    <div ref={ref} className="flex flex-col items-center justify-center text-center">
       {/* Image */}
       <motion.div
-        className=" lg:flex w-full  items-center justify-center p- mt-8"
+        className="w-full items-center justify-center mt-8"
         style={{ maxWidth: "1000px", maxHeight: "400px" }} // Dimensions fixes
         whileHover={{ scale: 1.05 }}
       >
@@ -55,10 +55,7 @@ const MarqueeText = () => {
       </motion.div>
 
       {/* Texte */}
-      <div
-        className=" p-1 font-serif text-center "
-        style={{ maxWidth: "400px" }} // Dimensions fixes pour le texte
-      >
+      <div className="p-1 font-serif text-center" style={{ maxWidth: "400px" }}> {/* Taille maximale du texte */}
         <ScrollText />
       </div>
     </div>
@@ -77,9 +74,7 @@ const ScrollText = () => {
         transition={{ duration: 0.6 }}
       >
         <DefilTextBoucle />
-        <p className="text-lg md:text-sm ">
-          Nos services exceptionnels
-        </p>
+        <p className="text-lg md:text-sm">Nos services exceptionnels</p>
       </motion.div>
     </div>
   );

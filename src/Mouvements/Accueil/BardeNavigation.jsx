@@ -156,7 +156,6 @@ const SubNavLink = styled.a`
   }
 `;
 
-
 export default function BardeNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -175,7 +174,7 @@ export default function BardeNavigation() {
 
   return (
     <>
-    <Nav isScrolled={isScrolled}>
+      <Nav isScrolled={isScrolled}>
         {/* Logo */}
         <Logo>
           <img
@@ -187,18 +186,20 @@ export default function BardeNavigation() {
         </Logo>
 
         {/* Bouton pour le menu hamburger */}
-           <HamburgerButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <HamburgerButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           ☰
         </HamburgerButton>
 
         {/* Menu principal */}
         <Menu isOpen={isMenuOpen}>
-          <NavLink style={{ color: "#0488b2" }}  href="/contact">Contact</NavLink>
+          <NavLink style={{ color: "#0488b2" }} href="/contact">
+            Contact
+          </NavLink>
 
-          <NavLink style={{ color: "#0488b2" }}  href="#">
+          <NavLink style={{ color: "#0488b2" }} href="#">
             Savoir-faire
             <SubMenu>
-              <SubNavLink  href="/asistance">Assistance juridique</SubNavLink>{" "}
+              <SubNavLink href="/asistance">Assistance juridique</SubNavLink>{" "}
               <SubNavLink href="/conseil">Conseils juridique</SubNavLink>{" "}
               <SubNavLink href="/audit">Audit juridique</SubNavLink>{" "}
               <SubNavLink href="/contentieux">Contentieux</SubNavLink>{" "}
@@ -206,7 +207,7 @@ export default function BardeNavigation() {
             </SubMenu>
           </NavLink>
 
-          <NavLink style={{ color: "#0488b2" }}  href="#">
+          <NavLink style={{ color: "#0488b2" }} href="#">
             Expertises
             <SubMenu>
               <SubNavLink href="/nosexpertises">Nos-expertises</SubNavLink>
@@ -223,16 +224,20 @@ export default function BardeNavigation() {
               <SubNavLink href="/propriete">Défence pénale</SubNavLink>
             </SubMenu>
           </NavLink>
-          <NavLink style={{ color: "#0488b2" }}  href="/article">Articles</NavLink>
+          <NavLink style={{ color: "#0488b2" }} href="/article">
+            Articles
+          </NavLink>
 
-          <NavLink style={{ color: "#0488b2" }}  href="/apropos">À propos</NavLink>
+          <NavLink style={{ color: "#0488b2" }} href="/apropos">
+            À propos
+          </NavLink>
         </Menu>
       </Nav>
 
       {/* Contenu principal */}
       <main style={{ paddingTop: "70px" }}>
-      
-        <Composantdeux/>  <Composant />
+        <Composantdeux />
+        <Composant />
       </main>
     </>
   );

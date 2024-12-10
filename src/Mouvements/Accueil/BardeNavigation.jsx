@@ -5,7 +5,7 @@ import Composant from "./Composant";
 import Composantdeux from "./Composantdeux";
 
 // Conteneur principal de la navigation
-// Conteneur principal de la navigation
+
 const Nav = styled.nav`
   position: fixed;
   top: 0;
@@ -230,7 +230,7 @@ export default function BardeNavigation() {
       </Nav>
 
       {/* Contenu principal */}
-      <main style={{ paddingTop: "140px" }}>
+      <main style={{ paddingTop: "70px" }}>
       
         <Composantdeux/>  <Composant />
       </main>

@@ -5,7 +5,7 @@ import { animate } from "popmotion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./MarqueeText.css";
-import fondhome from "../../assets/Image/fondhome.jpg";
+import Maitre4 from "../../assets/Image/Maitre4.jpg";
 
 export default function Fond() {
   useEffect(() => {
@@ -39,6 +39,11 @@ const MarqueeText = () => {
 
   return (
     <div ref={ref} className="flex flex-col items-center justify-center text-center">
+     <div>
+     <div className="p-1 font-serif text-center" style={{ maxWidth: "400px" }}> {/* Taille maximale du texte */}
+        <ScrollText />
+      </div>
+     </div>
       {/* Image */}
       <motion.div
         className="w-full items-center justify-center mt-8"
@@ -46,7 +51,7 @@ const MarqueeText = () => {
         whileHover={{ scale: 1.05 }}
       >
         <img
-          src={fondhome}
+          src={Maitre4}
           alt="À propos"
           id="marquee-image"
           className="w-full h-auto rounded-lg shadow-lg object-cover"
@@ -55,9 +60,7 @@ const MarqueeText = () => {
       </motion.div>
 
       {/* Texte */}
-      <div className="p-1 font-serif text-center" style={{ maxWidth: "400px" }}> {/* Taille maximale du texte */}
-        <ScrollText />
-      </div>
+   
     </div>
   );
 };
@@ -89,8 +92,8 @@ const DefilTextBoucle = () => {
     "Droit Minier",
     "Droit Fiscal",
     "Droit Social",
-    "Droit de la Sécurité Sociale",
-    "Droit de l'Environnement",
+    "Sécurité Sociale",
+    "Environnementale",
   ];
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 

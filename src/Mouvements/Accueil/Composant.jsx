@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"; // Assurez-vous que Framer Motion est installé
-import fondhome2 from "../../assets/Image/fondhome2.jpg";
+import mitre71 from "../../assets/Image/mitre71.jpg";
 import Fondcomp from "./Fondcomp";
 import EnhancedComponent from "./Composatexte";
 
@@ -8,7 +8,7 @@ const Composant = () => {
     <div
       className="relative mb-1 h-screen w-full bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url(${fondhome2})`,
+        backgroundImage: `url(${mitre71})`,
         backgroundSize: "contain", // ou 'contain'
         backgroundAttachment: "fixed", // ou 'scroll'
         backgroundPosition: "center center", // ou 'top left'

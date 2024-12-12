@@ -3,6 +3,9 @@ import styled from "styled-components";
 import logoAODnoir from "../../assets/Logos/logoAODnoir.png";
 import Composant from "./Composant";
 import Composantdeux from "./Composantdeux";
+import Petitecrandeux from "./Petitecrandeux";
+import Composantfinal from "./Composantfinal";
+import Footer from "./Footerr";
 
 // Conteneur principal de la navigation
 
@@ -127,7 +130,7 @@ const SubMenu = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: rgba(10, 86, 153, 0.9);
+  background-color: rgba(10, 86, 153, 0.6);
   display: none;
   flex-direction: column;
   padding: 0.5rem 0;
@@ -238,7 +241,9 @@ export default function BardeNavigation() {
       <main style={{ paddingTop: "70px" }}>
         <Composantdeux />
         <Composant />
-      
+        <Petitecrandeux />
+        <Composantfinal />
+        <Footer />
       </main>
     </>
   );

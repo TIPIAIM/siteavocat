@@ -7,13 +7,13 @@ import "aos/dist/aos.css";
 import "./MarqueeText.css";
 import Maitre4 from "../../assets/Image/Maitre4.jpg";
 
-export default function Fond() {
+export default function Petitecranzero() {
   useEffect(() => {
     AOS.init({ duration: 1200 });
   }, []);
 
   return (
-    <div className="flex items-center justify-center  text-white min-h-screen">
+    <div className="flex items-center justify-center  text-blue-500 font-serif font-bold min-h-screen">
       <MarqueeText />
     </div>
   );
@@ -38,12 +38,23 @@ const MarqueeText = () => {
   }, [inView]);
 
   return (
-    <div ref={ref} className="flex flex-col items-center justify-center text-center">
-     <div>
-     <div className="p-1 font-serif text-center" style={{ maxWidth: "400px" }}> {/* Taille maximale du texte */}
-        <ScrollText />
+    <div
+      ref={ref}
+      className="flex flex-col items-center justify-center text-center"
+    >
+      <div>
+        <div
+          className="p-1 font-serif text-center"
+          style={{
+            maxWidth: "400px",
+            textShadow: "4px 2px 5px rgba(0, 0, 0, 1.7)", // Ombre noire subtile
+          }}
+        >
+          {" "}
+          {/* Taille maximale du texte */}
+          <ScrollText />
+        </div>
       </div>
-     </div>
       {/* Image */}
       <motion.div
         className="w-full items-center justify-center mt-8"
@@ -58,9 +69,6 @@ const MarqueeText = () => {
           style={{ width: "100%", height: "auto", maxHeight: "300px" }} // Taille fixe responsive
         />
       </motion.div>
-
-      {/* Texte */}
-   
     </div>
   );
 };

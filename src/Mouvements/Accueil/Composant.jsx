@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"; // Assurez-vous que Framer Motion est installé
 import mitre71 from "../../assets/Image/mitre71.jpg";
-import Fondcomp from "./Fondcomp";
 import EnhancedComponent from "./Composatexte";
+import Petitecranun from "./Petitecranun";
 
 const Composant = () => {
   return (
@@ -33,9 +33,7 @@ const Composant = () => {
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
         transition={{ delay: 0.2, duration: 1 }}
-      >
-        
-      </motion.h1>
+      ></motion.h1>
 
       <motion.h1
         style={{ color: "rgba(10,34,64,1)" }}
@@ -43,9 +41,7 @@ const Composant = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
-      >
-        
-      </motion.h1>
+      ></motion.h1>
 
       {/* Section supplémentaire */}
       <div className="absolute bottom-10 mt-8 w-full flex justify-center">
@@ -54,7 +50,7 @@ const Composant = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
         >
-          <Fondcomp />
+          <Petitecranun />
         </motion.div>
       </div>
       <div className=" text-white">
@@ -66,7 +62,7 @@ const Composant = () => {
           transition={{ delay: 0.2, duration: 1 }}
         ></motion.h3>
       </div>
-      <EnhancedComponent/>
+      <EnhancedComponent />
     </div>
   );
 };

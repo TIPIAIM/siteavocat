@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import Fond from "./Fond";
+import Fond from "./Petitecranzero";
 
 // Conteneur principal avec un fond dégradé
 const Container = styled.div`
@@ -12,14 +12,13 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #0488b2, #0f172a, #000);
+  background: linear-gradient(to bottom, #000, #0f172a, #0488b2);
   color: white;
   overflow: hidden;
 
   .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
   }
 `;
 
@@ -45,12 +44,12 @@ const TopSection = styled.div`
 
 // Conteneur pour le contenu supplémentaire à droite
 const RightContainer = styled.div`
-  background-color: rgba(255, 255, 255, 0.1);
-  border: px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(#0488b2, #0f172a, #000 0.1);
+  border: px solid rgba(50, 250, 250, 0.3);
   padding: 0.4rem;
   border-radius: 15px;
-  box-shadow:10px 10px 0px rgba(0, 0, 0, 0.2);
-  color: white;
+  box-shadow: 10px 5px 2px rgba(50, 250, 250, 0.2);
+  color: rgba(00, 160, 200 );
   max-width: 450px;
 
   @media (max-width: 768px) {
@@ -63,11 +62,11 @@ const RightContainer = styled.div`
 const Title = styled(motion.h1)`
   font-size: 0rem;
   margin: 0rem 0;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(50, 250, 250, 0.9);
   font-family: serif;
   font-weight: bold;
   text-align: center;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 4px 4px rgba(50, 250, 250, 0.8);
 
   @media (min-width: 768px) {
     font-size: 1rem;
@@ -115,13 +114,14 @@ const Composantdeux = () => {
         {/* Conteneur supplémentaire à droite */}
         <RightContainer>
           <motion.h3
+            className=" font-serif text-center font-bold"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
             Nos prestations
           </motion.h3>
-          <p>
+          <p className=" font-serif text-center">
             Notre cabinet d’avocats est spécialisé dans les services juridiques
             complets et de haute qualité à nos clients...
           </p>

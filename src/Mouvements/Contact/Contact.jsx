@@ -19,7 +19,7 @@ const ContactContainer = styled.div`
 
 const ImageSection = styled.div`
   flex: 1;
-  background-image: url("src/assets/Image/keitaseul2.jpg");
+  background-image: url("/img/keitaseul2.jpg");
   background-size: cover;
   background-position: center;
   min-height: 400px;
@@ -155,10 +155,10 @@ export default function Contact() {
 
   return (
     <div>
-      <BardeNavigationpublic/>
+      <BardeNavigationpublic />
       <ContactContainer className=" mb-7">
         <ImageSection data-aos="fade-right" />
-        <FormSection data-aos="fade-left" >
+        <FormSection data-aos="fade-left">
           <Title>Contactez-nous</Title>
           <Description>
             Si vous avez des questions, des commentaires ou des préoccupations,

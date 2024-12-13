@@ -11,7 +11,7 @@ import styled from "styled-components";
 // Styled Components
 const FooterContainer = styled.footer`
   width: 100%;
-  background: linear-gradient(to bottom, #000, #0f172a, #0488b2);
+  background: linear-gradient(to bottom, #000, #0f172a, #000);
   color: white;
   padding: 30px 20px;
   box-sizing: border-box;
@@ -49,7 +49,17 @@ const FooterLinks = styled.div`
   display: flex;
   justify-content: center;
   gap: 20px;
+  underline : none
   margin-bottom: 30px;
+  a {
+    text-decoration: none; /* Retire le soulignement */
+    color: #color: #0488b2; /* Change la couleur du lien, remplacez par la couleur souhaitée */
+    transition: color 0.3s ease; /* Ajoute une transition pour un effet agréable */
+
+    &:hover {
+      color: white; /* Change la couleur au survol */
+    }
+  }
 `;
 
 const SocialIconsContainer = styled.div`
@@ -59,12 +69,12 @@ const SocialIconsContainer = styled.div`
   margin-top: 1px;
 
   & > a {
-    color: white;
-    font-size: 1.5rem;
+    color: #0488b2;
+    font-size: 1.4rem;
     transition: color 0.3s ease;
 
     &:hover {
-      color: #0488b2; /* Couleur d'hover */
+      color: white; /* Couleur d'hover */
     }
   }
 `;
@@ -104,8 +114,11 @@ export default function Footer() {
 
           {/* Liens de contact */}
           <FooterLinks>
-            <motion.a href="mailto:: amadou.diallo@aod-avocats.com">
-              Email: : amadou.diallo@aod-avocats.com
+            <motion.a
+              className="  "
+              href="mailto:: amadou.diallo@aod-avocats.com"
+            >
+              amadou.diallo@aod-avocats.com
             </motion.a>
             <motion.a href="tel:+224622253536">Tél: +2 246 222 53536</motion.a>
           </FooterLinks>

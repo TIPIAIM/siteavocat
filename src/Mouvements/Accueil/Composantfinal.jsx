@@ -19,11 +19,12 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+    margin-top: 40px;
   color: #0f172a;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   @media (max-width: 768px) {

@@ -1,12 +1,19 @@
 //import './App.css'
-
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import BardeNavigation from "./Mouvements/Accueil/BardeNavigation";
+import Contact from "./Mouvements/Contact/Contact";
 
 function App() {
   return (
-    <>
-      <BardeNavigation />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<BardeNavigation />} />
+        {/** <Route path="*" element={<Orror />} />
+      pour */}
+
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

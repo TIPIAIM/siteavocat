@@ -85,10 +85,10 @@ const Card = styled.div`
 const CardImage = styled.img`
   width: 100%;
   height: 250px;
-  max-height: 200px;
+  max-height: 250px;
   object-fit: cover;
   border-radius: px;
-  margin-bottom: 1px;
+  margin-bottom: px;
 
   @media (max-width: 768px) {
     max-height: 150px;
@@ -98,7 +98,7 @@ const CardImage = styled.img`
 const CardTitle = styled.h3`
   font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
   color: #ffffff;
 
   @media (max-width: 768px) {
@@ -108,9 +108,9 @@ const CardTitle = styled.h3`
 `;
 
 const CardDescription = styled.p`
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.4;
+  line-height: 1.5;
   text-align: justify;
 
   @media (max-width: 768px) {
@@ -154,7 +154,7 @@ const EnhancedComponent = () => {
     {
       title: "DROIT DES AFFAIRES",
       description: `Au sein de notre cabinet, nous comprenons que le droit des affaires ne se résume pas simplement à la rédaction de contrats ou à la résolution de litiges. Il s'agit d'un levier essentiel pour la réussite de votre entreprise. Notre rôle est de mettre notre expertise juridique au service de votre savoir-faire pour vous fournir des solutions pratiques et stratégiques. Que vous cherchiez à nouer de nouveaux partenariats, à élaborer des projets ambitieux ou à sécuriser vos contrats, nous vous accompagnons à chaque étape avec des conseils éclairés et personnalisés. Notre objectif est de vous offrir une sécurité juridique optimale, tout en vous permettant de vous concentrer sur la croissance de votre activité.`,
-      image: "/img/maitre7.jpg",
+      image: "/img/MOE_0400.jpg",
     },
     {
       title: "DROIT DE TRAVAIL",
@@ -164,7 +164,7 @@ const EnhancedComponent = () => {
     {
       title: "DROIT FISCAL",
       description: `Le Code Général des Impôts évolue sans cesse avec de nouvelles dispositions. Il concerne tout particulier et toute entreprise, et il faut être au fait de ces différents changements pour conseiller et assister tout contribuable pour tout ce qui concerne le côté imposable en cas de cession d’un bien immeuble ou d’un fonds de commerce, en cas de redressement fiscal, ou d’une imposition que le contribuable ne trouve pas légitime, en cas de besoin d’un quitus fiscal pour les expatriés, ou autres. Le cabinet peut vous conseiller efficacement, vous assister auprès de la Direction des Impôts directs et indirects, en clair, vous faciliter la tâche, en vous trouvant des solutions rapides et appropriées.`,
-      image: "/img/fiscal.png",
+      image: "/img/maitaction.jpg",
     },
     {
       title: "DROIT MINIER ET ENVIRONNEMENTALE",
@@ -174,7 +174,7 @@ const EnhancedComponent = () => {
     {
       title: "DROIT SOCIALE ET SECURITE SOCIALE",
       description: `Le droit social et la sécurité sociale ne sont pas de simples concepts juridiques. Ils incarnent la justice et l'équité dans le monde du travail. Ils assurent un équilibre entre les intérêts des employeurs et des travailleurs, tout en protégeant les plus vulnérables de notre société. En tant qu’avocat, je m’efforce de défendre ces principes, que ce soit en conseillant mes clients, en négociant pour eux ou en plaidant en leur nom devant les juridictions compétentes. Ces branches du droit, dynamiques et en constante évolution, reflètent notre engagement collectif pour une société où chacun a droit à la dignité et à la sécurité. Notre mission est de garantir que ces droits soient respectés et appliqués avec rigueur et humanité.`,
-      image: "/img/securitesocial.png",
+      image: "/img/MOE_0384.jpg",
     },
     {
       title: "DROIT DE LA FAMILLE",

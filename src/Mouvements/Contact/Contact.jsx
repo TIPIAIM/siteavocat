@@ -53,22 +53,21 @@ const Title = styled.h1`
   color: #0488b2;
   margin-bottom: 10px;
   font-weight: bold;
-  text-shadow: 0px 6px 6px rgba(0, 0, 0, 0.8);
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8);
 
   @media (max-width: 768px) {
     font-size: 1.8rem; /* Réduire la taille de police sur petits écrans */
   }
 `;
-
 const Description = styled.p`
   font-size: 1.02rem;
   font-family: "Times New Roman", serif;
   color: #0f172a;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: flex; /* Alignement à droite */
 
   @media (max-width: 768px) {
-    font-size: 0.9rem; /* Réduire la taille de police sur petits écrans */
+    font-size: 0.9rem; /* Optionnel : ajuster la taille pour les petits écrans */
   }
 `;
 
@@ -169,10 +168,28 @@ export default function Contact() {
             avoir sur notre entreprise et nos services. Merci de votre confiance
             et nous avons hâte de discuter avec vous bientôt.{" "}
           </Description>
-          <Form>
-            <Input type="text" placeholder="Votre nom" required />
-            <Input type="email" placeholder="Votre adresse email" required />
-            <Textarea rows="5" placeholder="Votre message" required />
+          <Form
+            action="https://getform.io/f/bnllyvmb" // Remplacez par l'URL fournie
+            method="POST"
+          >
+            <Input
+              type="text"
+              name="name" // Obligatoire pour Getform
+              placeholder="Votre nom"
+              required
+            />
+            <Input
+              type="email"
+              name="email" // Obligatoire pour Getform
+              placeholder="Votre email"
+              required
+            />
+            <Textarea
+              name="message" // Obligatoire pour Getform
+              rows="5"
+              placeholder="Votre message"
+              required
+            />
             <Button type="submit">Envoyer</Button>
           </Form>
         </FormSection>

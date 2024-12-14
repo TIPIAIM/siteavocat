@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import logoAODnoir from "../../assets/Logos/logoAODnoir.png";
-import Contact from "../Contact/Contact";
 
 // Conteneur principal de la navigation
-
 const Nav = styled.nav`
   position: fixed;
   top: 0;
@@ -14,25 +12,16 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   z-index: 1000;
   font-weight: bold;
-  transition: background-color 1.3s ease-in-out, box-shadow 1.3s ease-in-out;
-
-  ${(props) =>
-    props.isScrolled
-      ? `
-    background-color:rgba(10, 34, 64, 1.9);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  `
-      : `
-    background-color: transparent;
-    box-shadow: none;
-  `}
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: ${({ isScrolled }) => (isScrolled ? 'rgba(10, 34, 64, 0.9)' : 'transparent')};
+  box-shadow: ${({ isScrolled }) => (isScrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none')};
 
   @media (max-width: 768px) {
     flex-wrap: wrap;
-    padding: 0.5rem;
+    padding: 1rem;
   }
 `;
 
@@ -40,12 +29,13 @@ const Nav = styled.nav`
 const Logo = styled.div`
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
+  color: white;
 
   img {
     height: 80px;
-    margin-right: 0.5rem;
+    margin-right: 0.8rem;
   }
 
   @media (max-width: 768px) {
@@ -78,11 +68,20 @@ const HamburgerButton = styled.button`
   background: none;
   border: none;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
+  transition: transform 0.3s ease;
 
   @media (max-width: 768px) {
     display: block;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transform: scale(1.2);
   }
 `;
 
@@ -90,13 +89,15 @@ const HamburgerButton = styled.button`
 const NavLink = styled.a`
   color: white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.2rem;
   position: relative;
   transition: all 0.3s ease;
   white-space: nowrap;
+  font-size: 1.1rem;
 
   &:hover {
     background-color: #1e293b;
+    border-radius: 4px;
   }
 
   &::before {
@@ -106,16 +107,16 @@ const NavLink = styled.a`
     left: 0;
     width: 0%;
     height: 3px;
-    background-color: blue;
+    background-color: #0488b2;
     transition: width 0.3s ease;
   }
 
   &:hover::before {
-    width: 50%;
+    width: 100%;
   }
 
   @media (max-width: 768px) {
-    padding: 0.5rem;
+    padding: 1rem;
     width: 100%;
     text-align: center;
   }
@@ -126,7 +127,7 @@ const SubMenu = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: rgba(10, 86, 153, 0.6);
+  background-color: rgba(10, 86, 153, 0.9);
   display: none;
   flex-direction: column;
   padding: 0.5rem 0;
@@ -148,10 +149,11 @@ const SubMenu = styled.div`
 const SubNavLink = styled.a`
   color: white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.2rem;
 
   &:hover {
     background-color: #1e293b;
+    border-radius: 4px;
   }
 `;
 
@@ -179,7 +181,7 @@ export default function BardeNavigationpublic() {
           <img
             src={logoAODnoir}
             alt="Logo du Cabinet"
-            className=" font-serif font-extrabold text-xl"
+            className="font-serif font-extrabold text-xl"
           />
           AOD AVOCATS SCPA
         </Logo>
@@ -191,53 +193,40 @@ export default function BardeNavigationpublic() {
 
         {/* Menu principal */}
         <Menu isOpen={isMenuOpen}>
-          <NavLink style={{ color: "#0488b2" }} href="/contact">
-            Contact
-          </NavLink>
-
-          <NavLink style={{ color: "#0488b2" }} href="#">
+          <NavLink href="/contact">Contact</NavLink>
+          <NavLink href="#">
             Savoir-faire
-            <SubMenu>
-              <SubNavLink href="/asistance">Assistance juridique</SubNavLink>{" "}
-              <SubNavLink href="/conseil">Conseils juridique</SubNavLink>{" "}
-              <SubNavLink href="/audit">Audit juridique</SubNavLink>{" "}
-              <SubNavLink href="/contentieux">Contentieux</SubNavLink>{" "}
-              {/* Autres sous-liens */}
+            <SubMenu isOpen={isMenuOpen}>
+              <SubNavLink href="/asistance">Assistance juridique</SubNavLink>
+              <SubNavLink href="/conseil">Conseils juridique</SubNavLink>
+              <SubNavLink href="/audit">Audit juridique</SubNavLink>
+              <SubNavLink href="/contentieux">Contentieux</SubNavLink>
             </SubMenu>
           </NavLink>
 
-          <NavLink style={{ color: "#0488b2" }} href="#">
+          <NavLink href="#">
             Expertises
-            <SubMenu>
-              <SubNavLink href="/nosexpertises">Nos-expertises</SubNavLink>
-              <SubNavLink href="/commerciale">Droit fiscale</SubNavLink>
+            <SubMenu isOpen={isMenuOpen}>
+              <SubNavLink href="/nosexpertises">Nos expertises</SubNavLink>
+              <SubNavLink href="/commerciale">Droit fiscal</SubNavLink>
               <SubNavLink href="/affaires">Droit des affaires</SubNavLink>
               <SubNavLink href="/minier">Minier et environnementale</SubNavLink>
-              <SubNavLink href="/affaires">
-                Sociale et Securité sociale
-              </SubNavLink>
+              <SubNavLink href="/affaires">Sociale et sécurité sociale</SubNavLink>
               <SubNavLink href="/famille">Droit de la famille</SubNavLink>
               <SubNavLink href="/travail">Droit du travail</SubNavLink>
               <SubNavLink href="/personnel">Droit du sport</SubNavLink>
               <SubNavLink href="/public">Arbitrage</SubNavLink>
-              <SubNavLink href="/propriete">Défence pénale</SubNavLink>
+              <SubNavLink href="/propriete">Défense pénale</SubNavLink>
             </SubMenu>
           </NavLink>
-          <NavLink style={{ color: "#0488b2" }} href="/article">
-            Articles
-          </NavLink>
 
-          <NavLink style={{ color: "#0488b2" }} href="/apropos">
-            À propos
-          </NavLink>
+          <NavLink href="/article">Articles</NavLink>
+          <NavLink href="/apropos">À propos</NavLink>
         </Menu>
       </Nav>
 
       {/* Contenu principal */}
-      <main  className="" style={{ paddingTop: "150px" }}>
-
-
-      </main>
+      <main style={{ paddingTop: "150px" }}></main>
     </>
   );
 }

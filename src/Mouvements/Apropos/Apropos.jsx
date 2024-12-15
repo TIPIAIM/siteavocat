@@ -162,6 +162,7 @@ const Title = styled.h3`
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
+    color: #0488b2;
 `;
 
 const Description = styled.p`

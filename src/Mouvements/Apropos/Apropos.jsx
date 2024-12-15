@@ -42,7 +42,7 @@ const images = [
       "Notre identité est également marquée par notre engagement envers l’éthique et l’intégrité. Les Avocats veillent à respecter les normes déontologiques les plus strictes, tout en offrant des services juridiques de qualité dans le respect des Lois et règlements en vigueur.",
     email: "Engagement envers l’éthique et l’intégrité",
     city: "Conakry",
-    phone: "456123789",
+    phone: "624138395",
   },
   {
     src: image8,
@@ -56,7 +56,7 @@ const images = [
   },
   {
     src: image2,
-    title: "NOS VALEURS ",
+    title: "NOTRE STRATEGIE ",
     description:
       "Nous posons un diagnostic complet, clair et précis dès le départ afin d’exposer à nos clients les tenants et aboutissants de leur dossier. Nous cernons rapidement les enjeux légaux et d’affaires,les points forts et les points faibles, ainsi que les coûts afférents, et les exposons à nos clients de manière transparente, et objective",
     email:
@@ -75,7 +75,7 @@ const images = [
   },
   {
     src: image10,
-    title: "NOS VALEURS ",
+    title: "NOTRE PPROCHE ",
     description:
       "Nous nous distinguons par notre approche stratégique et transparente centrée sur l’obtention de résultats tangibles. Notre action est orientée vers la réalisation d’objectifs concrets et de résultats satisfaisants",
     email: "Une approche stratégique",

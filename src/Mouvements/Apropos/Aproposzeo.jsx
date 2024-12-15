@@ -78,6 +78,7 @@ const Card = styled(motion.div)`
 
 const CardTitle = styled.h3`
   font-size: 1.6rem;
+  
   font-weight: bold;
   margin-bottom: 10px;
   color: #ffffff;
@@ -130,7 +131,7 @@ const Aproposzeo = () => {
       phone: "123456789",
     },
     {
-      title: "NOS VALEURS",
+      title: "CONSEIL",
       description:
         "Nous apportons une valeur ajoutée dans le traitement des demandes de nos clients tout en les conseillant avec indépendance, objectivité, et ce, dès la première rencontre.",
       email:
@@ -139,7 +140,7 @@ const Aproposzeo = () => {
       phone: "987654321",
     },
     {
-      title: "NOS VALEURS",
+      title: "IDENTITE",
       description:
         "Notre identité est également marquée par notre engagement envers l’éthique et l’intégrité. Les Avocats veillent à respecter les normes déontologiques les plus strictes, tout en offrant des services juridiques de qualité.",
       email: "Engagement envers l’éthique et l’intégrité",
@@ -147,7 +148,7 @@ const Aproposzeo = () => {
       phone: "456123789",
     },
     {
-      title: "NOS VALEURS",
+      title: "TRAVAIL",
       description:
         "Nous travaillons constamment à améliorer nos compétences et nos avocats suivent régulièrement des formations professionnelles pour se maintenir à la fine pointe du droit.",
       email:
@@ -194,8 +195,8 @@ const Aproposzeo = () => {
             <CardDescription>{value.description}</CardDescription>
             <ContactInfo>
               <span>-: {value.email}</span>
-              <span>-: {value.city}</span>
-              <span>-: {value.phone}</span>
+            { /* <span>-: {value.city}</span>
+              <span>-: {value.phone}</span>*/}
             </ContactInfo>
           </Card>
         ))}

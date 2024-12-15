@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import image2 from "./../../assets/Image/maitreetblouz.jpg"; // Chemin d'image
+import image2 from "./../../assets/Image/maitre13.jpg"; // Chemin d'image
 
 // Container principal
 const CarouselContainer = styled.div`
@@ -95,7 +95,7 @@ const Back = styled.div`
 const AboutSection = styled.div`
   flex: 1;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #0f172a;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   color: white;

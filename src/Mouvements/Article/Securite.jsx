@@ -225,7 +225,7 @@ const Securite = () => {
           </Title>
 
           <Section data-aos="fade-up" data-aos-delay="300">
-            <Image src="/img/international.jpg" alt="Illustration" />
+            <Image src="/img/trav.jpeg" alt="Illustration" />
             <TextContainer>
               <Paragraph>
                 Découvrez en détail comment la sécurité sociale et le droit du

@@ -10,6 +10,7 @@ import Penal from "./Mouvements/Article/Penal";
 import Fiscalite from "./Mouvements/Article/Fiscalite";
 import Minier from "./Mouvements/Article/MinierEnviron";
 import Famille from "./Mouvements/Article/Famille";
+import Nosexpertise from "./Mouvements/Savoirfaire/Nos-Domaines";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
         <Route path="/fiscalite" element={<Fiscalite />} />
         <Route path="/minier" element={<Minier />} />
         <Route path="/famille" element={<Famille />} />
+
+        <Route path="/nosexpertises" element={<Nosexpertise />} />
 
 
       </Routes>

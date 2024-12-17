@@ -24,9 +24,9 @@ const ArticlesContainer = styled.div`
 
 // Titre de la section
 const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: 2.1rem;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   color: #ffffff;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
 
@@ -165,31 +165,7 @@ const cardVariants = {
 
 const Articles = () => {
   const articles = [
-    {
-      title: "Importance des contrats en droit des affaires",
-      description:
-        "Découvrez comment un contrat bien rédigé peut protéger vos intérêts juridiques et économiques.",
-      mediaType: "image",
-      mediaSrc: commercial,
-      link: "affaire",
-    },
-    {
-      title: "La sécurité sociale et le droit du travail",
-      description:
-        "Une analyse approfondie de la protection des employés en matière de sécurité sociale.",
-      mediaType: "image",
-      mediaSrc: traval,
-      link: "securite",
-    },
-    {
-      title: "Le droit pénal et la défense des victimes",
-      description:
-        "Les procédures juridiques pour garantir justice aux victimes de crimes.",
-      mediaType: "video",
-      mediaSrc: articleVideo,
-
-      link: "penal",
-    },
+    
     {
       title: "L'impact de la fiscalité sur les entreprises",
       description:
@@ -213,16 +189,40 @@ const Articles = () => {
       mediaSrc: videohomemoury,
       link: "famille",
     },
+    {
+        title: "Importance des contrats en droit des affaires",
+        description:
+          "Découvrez comment un contrat bien rédigé peut protéger vos intérêts juridiques et économiques.",
+        mediaType: "image",
+        mediaSrc: commercial,
+        link: "affaire",
+      },
+      {
+        title: "La sécurité sociale et le droit du travail",
+        description:
+          "Une analyse approfondie de la protection des employés en matière de sécurité sociale.",
+        mediaType: "image",
+        mediaSrc: traval,
+        link: "securite",
+      },
+      {
+        title: "Le droit pénal et la défense des victimes",
+        description:
+          "Les procédures juridiques pour garantir justice aux victimes de crimes.",
+        mediaType: "video",
+        mediaSrc: articleVideo,
+  
+        link: "penal",
+      },
   ];
 
   return (
     <div>
       <BardeNavigationpublic />
       <ArticlesContainer>
-        <StyledLink to="/article">
-          <FaArrowLeft size={20} />
-        </StyledLink>
-        <SectionTitle>Nos Articles</SectionTitle>
+        <SectionTitle>
+          Les articles du Code civil  ne sont pas des règles fixes et immuables
+        </SectionTitle>
         <ArticlesGrid>
           {articles.map((article, index) => (
             <ArticleCard

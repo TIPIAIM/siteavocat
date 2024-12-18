@@ -102,17 +102,24 @@ const Card = styled(motion.div)`
 export default function Nosexpertise() {
   const images = [
     {
+        src: "img/maitre7.jpg",
+        alt: "Droit des affaires",
+        text: "Droit des affaires",
+        link: "/affairee",
+      },
+    {
+        src: "img/familled.png",
+        alt: "Droit de la Famille",
+        text: "Droit de la Famille",
+        link: "/famillee",
+      },
+    {
       src: "img/affaire.jpg",
       alt: "Droit fiscal",
       text: "Droit fiscal",
       link: "/fiscalitee",
     },
-    {
-      src: "img/maitre7.jpg",
-      alt: "Droit des affaires",
-      text: "Droit des affaires",
-      link: "/affairee",
-    },
+ 
     {
       src: "img/maitreri.jpg",
       alt: "Minier",
@@ -131,12 +138,7 @@ export default function Nosexpertise() {
       text: "Droit du Travail ",
       link: "/travail",
     },
-    {
-      src: "img/familled.png",
-      alt: "Droit de la Famille",
-      text: "Droit de la Famille",
-      link: "/famillee",
-    },
+  
     {
       src: "img/ecrant.jpg",
       alt: "penal",

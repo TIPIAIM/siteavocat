@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import articleImage from "./../../assets/Image/avoc3.jpg"; // Image spécifique à l'article
-import { FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import Footer from "../Accueil/Footerr";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import Affair from "../Savoirfaire/Affair";
+import Affair from "./Affair";
+import Affairfinal from "./Affairfinal";
 
 // Conteneur principal
 const AffairesContainer = styled.div`
@@ -124,50 +123,14 @@ const ReadMoreButton = styled.a`
     text-decoration: underline;
   }
 `;
-const StyledLink = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border-radius: 12px; /* Coins arrondis */
-  padding: 0.5rem; /* Espacement interne */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
-  animation: pulse 1.5s infinite; /* Animation pulsation */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  
-  /* Style au survol */
-  &:hover {
-    transform: scale(1.1); /* Légère mise en avant */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Ombre plus forte */
-  }
 
-  /* Focus clavier pour accessibilité */
-  &:focus {
-    outline: 2px solid #3182ce; /* Bordure de focus */
-    outline-offset: 2px;
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    50% {
-      transform: scale(1.05);
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-    }
-  }
-`;
-
-const Affaires = () => {
+const Affairee = () => {
   return (
     <div>
-        <BardeNavigationpublic/>
-        <Affair/>
+      <BardeNavigationpublic />
+      <Affairfinal />
+      <Affair />
       <AffairesContainer>
-      <StyledLink to="/article">
-            <FaArrowLeft size={20} />
-          </StyledLink>
         <SectionTitle>
           L'importance des contrats en droit des affaires
         </SectionTitle>
@@ -232,14 +195,14 @@ const Affaires = () => {
               </ul>
             </ArticleDescription>
             <ReadMoreButton href="https://aurelienbamde.com/2020/10/15/les-conditions-de-la-gestion-daffaires/">
-              Plus loin +
+              +
             </ReadMoreButton>
           </ArticleContent>
         </ArticleCard>
       </AffairesContainer>
-   <Footer/>
+      <Footer />
     </div>
   );
 };
 
-export default Affaires;
+export default Affairee;

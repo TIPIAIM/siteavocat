@@ -11,6 +11,7 @@ import Fiscalite from "./Mouvements/Article/Fiscalite";
 import Minier from "./Mouvements/Article/MinierEnviron";
 import Famille from "./Mouvements/Article/Famille";
 import Nosexpertise from "./Mouvements/Savoirfaire/Nos-Domaines";
+import Affairee from "./Mouvements/Savoirfaire/Affairee";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/famille" element={<Famille />} />
 
         <Route path="/nosexpertises" element={<Nosexpertise />} />
+        <Route path="/affairee" element={<Affairee />} />
 
 
       </Routes>

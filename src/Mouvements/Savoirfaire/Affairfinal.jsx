@@ -34,7 +34,7 @@ const ContentContainer = styled.div`
 `;
 
 const Title = styled(motion.h1)`
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
   color: #4ea8ff;
   margin-bottom: 2rem;
@@ -111,7 +111,7 @@ export default function Affairfinal() {
           variants={textVariants}
           ref={ref}
         >
-          Pourquoi choisir notre cabinet ?
+          Le droit des affaires
         </Title>
         <Divider />
         <Paragraph variants={textVariants} initial="hidden" animate={controls}>

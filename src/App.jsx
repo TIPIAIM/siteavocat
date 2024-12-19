@@ -12,6 +12,14 @@ import Minier from "./Mouvements/Article/MinierEnviron";
 import Famille from "./Mouvements/Article/Famille";
 import Nosexpertise from "./Mouvements/Savoirfaire/Nos-Domaines";
 import Affairee from "./Mouvements/Savoirfaire/Affairee";
+import Famillee from "./Mouvements/Savoirfaire/Famillee";
+import Fiscalitee from "./Mouvements/Savoirfaire/Fiscalitee";
+import MinierEnvironn from "./Mouvements/Savoirfaire/MinierEnvironn";
+import Securitee from "./Mouvements/Savoirfaire/Securitee";
+import Travail from "./Mouvements/Savoirfaire/Travaill";
+import Penall from "./Mouvements/Savoirfaire/Penall";
+import Sport from "./Mouvements/Savoirfaire/Sport";
+import Arbitrage from "./Mouvements/Savoirfaire/Arbitrage";
 
 function App() {
   return (
@@ -32,7 +40,14 @@ function App() {
 
         <Route path="/nosexpertises" element={<Nosexpertise />} />
         <Route path="/affairee" element={<Affairee />} />
-
+        <Route path="/famillee" element={<Famillee />} />
+        <Route path="/fiscalitee" element={<Fiscalitee />} />
+        <Route path="/minierr" element={<MinierEnvironn />} />
+        <Route path="/securitee" element={<Securitee />} />
+        <Route path="/travail" element={<Travail />} />
+        <Route path="/penall" element={<Penall />} />
+        <Route path="/sport" element={<Sport />} />
+        <Route path="/arbitrage" element={<Arbitrage />} />
 
       </Routes>
     </BrowserRouter>

@@ -61,7 +61,7 @@ const Card = styled(motion.div)`
   background: #ffffff;
   border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0px 4px 6px rgba(0, 50,50, 0.8);
+  box-shadow: 0px 4px 6px rgba(0, 50,50, 0.3);
   transition: transform 0.3s ease;
 
   &:hover {
@@ -89,8 +89,9 @@ const Card = styled(motion.div)`
     }
 
     a {
+     font-size: 1.5rem;
       font-weight: bold;
-      color: #4ea8ff;
+      color: #;
       text-decoration: none;
       &:hover {
         text-decoration: underline;
@@ -102,7 +103,7 @@ const Card = styled(motion.div)`
 export default function Nosexpertise() {
   const images = [
     {
-        src: "img/maitre7.jpg",
+        src: "img/affair.jpeg",
         alt: "Droit des affaires",
         text: "Droit des affaires",
         link: "/affairee",
@@ -114,45 +115,45 @@ export default function Nosexpertise() {
         link: "/famillee",
       },
     {
-      src: "img/affaire.jpg",
+      src: "img/fisc.png",
       alt: "Droit fiscal",
       text: "Droit fiscal",
       link: "/fiscalitee",
     },
  
     {
-      src: "img/maitreri.jpg",
+      src: "img/envir.jpeg",
       alt: "Minier",
       text: "Minier et Environnementale",
       link: "/minierr",
     },
     {
-      src: "img/mine.png",
+      src: "img/securitesocial.png",
       alt: "Sociale et Securité sociale",
       text: "Sociale et Securité sociale ",
       link: "/securitee",
     },
     {
-      src: "img/FISCAL.jpg",
+      src: "img/travail.jpg",
       alt: "Droit du Travail",
       text: "Droit du Travail ",
       link: "/travail",
     },
   
     {
-      src: "img/ecrant.jpg",
+      src: "img/image.png",
       alt: "penal",
       text: "Droit Pénal",
-      link: "/penal",
+      link: "/penall",
     },
     {
-      src: "img/image.png",
+      src: "img/AFFF.webp",
       alt: "sport",
       text: "Droit du Sport",
       link: "/sport",
     },
     {
-        src: "img/image.png",
+        src: "img/arbitra.png",
         alt: "arbit",
         text: "Arbitrage",
         link: "/arbitrage",
@@ -160,6 +161,7 @@ export default function Nosexpertise() {
   ];
 
   return (
+    <div>
     <BackgroundContainer>
       {/* Couche transparente */}
       <Overlay />
@@ -176,13 +178,13 @@ export default function Nosexpertise() {
               key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: index * 0.2 }}
+              transition={{ duration: 1, delay: index * 0.8 }}
             >
               <img src={image.src} alt={image.alt} />
               <div className="info">
                 <h3>{image.text}</h3>
                 <a href={image.link} target="_blank" rel="noopener noreferrer">
-                  Voir
+                  Voir +
                 </a>
               </div>
             </Card>
@@ -191,7 +193,10 @@ export default function Nosexpertise() {
       </ContentContainer>
 
       {/* Footer */}
-      <Footer />
+     
     </BackgroundContainer>
+   
+       <Footer />
+    </div>
   );
 }

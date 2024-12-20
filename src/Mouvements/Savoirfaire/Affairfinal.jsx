@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/maitaction.jpg");
+  background-image: url("img/logoAODnoir.png");
   background-size: cover;
-  background-position: top;
+  background-position: center;
   background-attachment: fixed;
 `;
 
@@ -100,11 +100,11 @@ export default function Affairfinal() {
   return (
     <BackgroundContainer>
       <Overlay />{" "}
-     <BackButton to="/nosexpertises" data-aos="fade-right">
+      
+      <BardeNavigationpublic />
+      <ContentContainer><BackButton to="/nosexpertises" data-aos="fade-right">
         <FaArrowLeft size={20} />
       </BackButton>
-      <BardeNavigationpublic />
-      <ContentContainer> 
         <Title
           initial="hidden"
           animate={controls}
@@ -115,15 +115,15 @@ export default function Affairfinal() {
         </Title>
         <Divider />
         <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          Notre cabinet est composé d'avocats spécialisés en droit des affaires,
-          dotés de plusieurs années d'expérience dans le domaine. Nous
+          Notre cabinet est composé d`avocats spécialisés en droit des affaires,
+          dotés de plusieurs années d`expérience dans le domaine. Nous
           maîtrisons les complexités juridiques des entreprises et sommes à jour
           sur les évolutions légales et réglementaires. Que ce soit pour la
           rédaction de contrats, la gestion de litiges ou des conseils
           stratégiques, nous avons les compétences pour défendre vos intérêts.
         </Paragraph>
         <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          Nous comprenons que chaque entreprise a des besoins uniques. C'est
+          Nous comprenons que chaque entreprise a des besoins uniques. C`est
           pourquoi nous proposons des solutions juridiques sur mesure, adaptées
           à vos objectifs commerciaux. Notre approche centrée sur le client
           garantit une attention particulière à vos attentes et un suivi
@@ -131,7 +131,7 @@ export default function Affairfinal() {
         </Paragraph>
         <Paragraph variants={textVariants} initial="hidden" animate={controls}>
           Dans le monde des affaires, le temps est précieux. Notre équipe
-          s'engage à répondre rapidement à vos demandes et à anticiper les
+          s`engage à répondre rapidement à vos demandes et à anticiper les
           risques pour minimiser les imprévus. Nous sommes disponibles à tout
           moment pour vous accompagner dans vos démarches juridiques.
         </Paragraph>
@@ -139,7 +139,7 @@ export default function Affairfinal() {
           En choisissant notre cabinet, vous optez pour un partenaire engagé,
           professionnel et déterminé à défendre vos intérêts avec excellence.
           Faites confiance à notre expertise pour protéger vos droits et assurer
-          la pérennité de vos affaires. Contactez-nous dès aujourd'hui pour une
+          la pérennité de vos affaires. Contactez-nous dès aujourd`hui pour une
           consultation personnalisée.
         </Paragraph>
       </ContentContainer>

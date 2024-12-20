@@ -132,7 +132,7 @@ const StyledLink = styled(Link)`
   border-radius: 12px; /* Coins arrondis */
   padding: 0.5rem; /* Espacement interne */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
-  animation: pulse 1.5s infinite; /* Animation pulsation */
+  animation: pulse 0.5s infinite; /* Animation pulsation */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   
   /* Style au survol */

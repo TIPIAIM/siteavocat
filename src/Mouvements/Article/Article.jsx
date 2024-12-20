@@ -8,7 +8,6 @@ import techno from "./../../assets/Image/technologie.jpg"; // Exemple de vidéo
 import Footer from "../Accueil/Footerr";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { Link } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
 
 // Conteneur principal
 const ArticlesContainer = styled.div`

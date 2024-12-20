@@ -10,7 +10,7 @@ const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: url("/img/logoAODnoir.png") center/cover no-repeat;
+  background: url("/img/envir.jpeg") center/cover no-repeat;
   background-attachment: fixed;
   background-size: ;
   color: #fff;
@@ -67,7 +67,7 @@ const Title = styled.h1`
 
 // Sous-titres
 const Subtitle = styled.h2`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: black;
   margin-bottom: 1rem;
@@ -156,11 +156,11 @@ const Minier2 = () => {
           <Title data-aos="fade-up">Droit Minier et Environnemental</Title>
           <section data-aos="fade-up" data-aos-delay="300">
             <Paragraph>
-              Le droit minier et le droit de l'environnement sont étroitement
+              Le droit minier et le droit de l`environnement sont étroitement
               liés, car les activités minières ont souvent des impacts
-              significatifs sur l'environnement. Une réforme du code minier vise
+              significatifs sur l`environnement. Une réforme du code minier vise
               à mieux intégrer les considérations environnementales dans les
-              procédures d'octroi de titres miniers et à renforcer l'évaluation
+              procédures d`octroi de titres miniers et à renforcer l`évaluation
               des impacts écologiques des projets miniers.
             </Paragraph>
             <Paragraph>
@@ -198,26 +198,26 @@ const Minier2 = () => {
             <Paragraph>
               Les litiges miniers et environnementaux sont souvent complexes et
               nécessitent une attention particulière pour minimiser les risques
-              juridiques et protéger l'environnement. Dans ce contexte, il est
+              juridiques et protéger l`environnement. Dans ce contexte, il est
               essentiel de prendre en compte plusieurs aspects légaux et
               environnementaux qui peuvent affecter les entreprises opérant dans
               le secteur minier.
             </Paragraph>
             <Paragraph>
               Nos objectifs sont de fournir des conseils juridiques stratégiques
-              afin d'aider les entreprises à :
+              afin d`aider les entreprises à :
             </Paragraph>
             <List>
               <ListItem>
-                Gérer les conflits liés à l'extraction minière et à l'impact
+                Gérer les conflits liés à l`extraction minière et à l`impact
                 environnemental.
               </ListItem>
               <ListItem>
                 Conformité avec les régulations locales et internationales
-                concernant l'exploitation des ressources naturelles.
+                concernant l`exploitation des ressources naturelles.
               </ListItem>
               <ListItem>
-                Minimiser les risques d'amendes et de sanctions pour non-respect
+                Minimiser les risques d`amendes et de sanctions pour non-respect
                 des normes environnementales.
               </ListItem>
               <ListItem>
@@ -238,8 +238,8 @@ const Minier2 = () => {
             </Paragraph>
             <List>
               <ListItem>Extraction illégale de ressources</ListItem>
-              <ListItem>Violation des contrats d'exploitation</ListItem>
-              <ListItem>Non-respect des permis d'exploitation minière</ListItem>
+              <ListItem>Violation des contrats d`exploitation</ListItem>
+              <ListItem>Non-respect des permis d`exploitation minière</ListItem>
               <ListItem>
                 Domages environnementaux causés par les activités minières
               </ListItem>
@@ -249,14 +249,14 @@ const Minier2 = () => {
             <Subtitle>2. Les Risques Juridiques Associés</Subtitle>
             <Paragraph>
               Ces litiges peuvent entraîner des conséquences juridiques graves,
-              notamment des amendes, des arrêts d'activités, ou des poursuites
+              notamment des amendes, des arrêts d`activités, ou des poursuites
               judiciaires.
             </Paragraph>
           </section>
           <section data-aos="fade-up" data-aos-delay="900">
             <Subtitle>3. Les Stratégies de Défense et de Résolution</Subtitle>
             <Paragraph>
-              Il est essentiel d'évaluer les risques juridiques et de chercher à
+              Il est essentiel d`évaluer les risques juridiques et de chercher à
               résoudre les conflits de manière stratégique, en privilégiant la
               médiation ou les solutions amiables.
             </Paragraph>

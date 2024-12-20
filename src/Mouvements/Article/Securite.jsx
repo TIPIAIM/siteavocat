@@ -11,7 +11,7 @@ AOS.init();
 
 const PageWrapper = styled.div`
   position: relative;
-  background-image: url("/img/MOE_0384.jpg"); /* Remplacez par votre image de fond */
+  background-image: url("/img/logoAODnoir.png"); /* Remplacez par votre image de fond */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -30,7 +30,7 @@ const PageWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 250, 0.1); /* Couleur noire avec transparence */
+    background: rgba(0, 0, 0, 0.8); /* Couleur noire avec transparence */
     z-index: 1;
   }
 `;
@@ -38,10 +38,10 @@ const PageWrapper = styled.div`
 const ContentContainer = styled.div`
   position: relative;
   z-index: 2;
-  max-width: 1300px;
+  max-width: 1290px;
   margin: 0 auto;
   padding: rem;
-  background: rgba(255, 255, 255, 0.2); /* Couleur blanche avec transparence */
+  background: rgba(0, 0, 0, 0.2); /* Couleur blanche avec transparence */
   border-radius: 0px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -51,10 +51,10 @@ const Title = styled.h1`
   font-size: 2.5rem;
   padding: 1.5rem;
   border-left: 4px solid #2c5282;
-  background: rgba(0, 255, 255, 0.2); /* Couleur blanche avec transparence */
+  background: rgba(0, 0, 0, 0); /* Couleur blanche avec transparence */
 
   font-weight: bold;
-  color: black;
+  color: white;
 
   text-align: center;
   margin-bottom: 2rem;
@@ -73,7 +73,7 @@ const Section = styled(motion.section)`
   gap: 2rem;
   padding: 1.5rem;
   border-left: 4px solid #2c5282;
-  background-color: rgba(237, 242, 247, 0.8); /* Couleur avec transparence */
+  background-color: rgba(0, 0, 0, 0.7); /* Couleur avec transparence */
   border-radius: 8px;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -94,10 +94,10 @@ const TextContainer = styled.div`
 const Image = styled(motion.img)`
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 50%;
   object-fit: cover;
   max-width: 600px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(20, 20, 20, 0.9);
   transition: transform 0.3s ease;
   &:hover {
     transform: scale(1.05);
@@ -110,7 +110,7 @@ const Image = styled(motion.img)`
 const Subtitle = styled.h2`
   font-size: 2rem;
   font-weight: 600;
-  color: #2d3748;
+  color: white;
   margin-bottom: 1rem;
   position: relative;
   &::before {
@@ -130,7 +130,7 @@ const Subtitle = styled.h2`
 
 const Paragraph = styled.p`
   font-size: 1.125rem;
-  color: #4a5568;
+  color: white;
   line-height: 1.8;
   margin-bottom: 1.5rem;
   text-align: justify;
@@ -147,7 +147,7 @@ const List = styled.ul`
 
 const ListItem = styled(motion.li)`
   font-size: 1.125rem;
-  color: #4a5568;
+  color: white;
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
@@ -156,9 +156,9 @@ const ListItem = styled(motion.li)`
     font-size: 1rem;
   }
   &:before {
-    content: "✔";
+    content: "✔ ";
     color: #2c5282;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
 `;
 
@@ -174,11 +174,11 @@ const StyledLink = styled(Link)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: ;
   border-radius: 12px; /* Coins arrondis */
   padding: 0.5rem; /* Espacement interne */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
-  animation: pulse 1.5s infinite; /* Animation pulsation */
+  animation: pulse 1.9s infinite; /* Animation pulsation */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   /* Style au survol */
@@ -189,7 +189,7 @@ const StyledLink = styled(Link)`
 
   /* Focus clavier pour accessibilité */
   &:focus {
-    outline: 2px solid #3182ce; /* Bordure de focus */
+    outline: 1px solid #3182ce; /* Bordure de focus */
     outline-offset: 2px;
   }
 
@@ -197,11 +197,11 @@ const StyledLink = styled(Link)`
     0%,
     100% {
       transform: scale(1);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(255, 250, 250, 0.9);
     }
     50% {
       transform: scale(1.05);
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.9);
     }
   }
 `;

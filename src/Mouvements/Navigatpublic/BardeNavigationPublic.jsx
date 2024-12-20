@@ -208,15 +208,15 @@ export default function BardeNavigationpublic() {
             Expertises
             <SubMenu isOpen={isMenuOpen}>
               <SubNavLink href="/nosexpertises">Nos expertises</SubNavLink>
-              <SubNavLink href="/commerciale">Droit fiscal</SubNavLink>
-              <SubNavLink href="/affaires">Droit des affaires</SubNavLink>
-              <SubNavLink href="/minier">Minier et environnementale</SubNavLink>
-              <SubNavLink href="/affaires">Sociale et sécurité sociale</SubNavLink>
-              <SubNavLink href="/famille">Droit de la famille</SubNavLink>
+              <SubNavLink href="/fiscalitee">Droit fiscal</SubNavLink>
+              <SubNavLink href="/affairee">Droit des affaires</SubNavLink>
+              <SubNavLink href="/minierr">Minier et environnementale</SubNavLink>
+              <SubNavLink href="/securitee">Sociale et sécurité sociale</SubNavLink>
+              <SubNavLink href="/famillee">Droit de la famille</SubNavLink>
               <SubNavLink href="/travail">Droit du travail</SubNavLink>
-              <SubNavLink href="/personnel">Droit du sport</SubNavLink>
-              <SubNavLink href="/public">Arbitrage</SubNavLink>
-              <SubNavLink href="/propriete">Défense pénale</SubNavLink>
+              <SubNavLink href="/sport">Droit du sport</SubNavLink>
+              <SubNavLink href="/arbitrage">Arbitrage</SubNavLink>
+              <SubNavLink href="/penall">Défense pénale</SubNavLink>
             </SubMenu>
           </NavLink>
 
@@ -226,7 +226,9 @@ export default function BardeNavigationpublic() {
       </Nav>
 
       {/* Contenu principal */}
-      <main style={{ paddingTop: "150px" }}></main>
+      <main style={{ paddingTop: "150px" }}>
+        
+      </main>
     </>
   );
 }

@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import { FaArrowLeft } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
 import Footer from "../Accueil/Footerr";
-import { Link } from "react-router-dom";
 
 AOS.init(); // Initialisation de AOS dans le composant
 

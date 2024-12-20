@@ -11,9 +11,9 @@ import Fiscalitee2 from "./Fiscalitee2";
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/maitaction.jpg");
+  background-image: url("img/logoAODnoir.png");
   background-size: cover;
-  background-position: top;
+  background-position:center;
   background-attachment: fixed;
 `;
 
@@ -138,7 +138,7 @@ export default function Fiscalitee() {
             fiscalité tout en respectant strictement les lois en vigueur. Notre
             expertise inclut la planification fiscale, la gestion des audits,
             les contentieux fiscaux et la conformité réglementaire, vous
-            garantissant une tranquillité d'esprit totale.
+            garantissant une tranquillité d`esprit totale.
           </Paragraph>
           <Paragraph
             variants={textVariants}

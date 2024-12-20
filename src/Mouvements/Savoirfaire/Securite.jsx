@@ -2,14 +2,13 @@ import styled from "styled-components";
 import { motion } from "framer-motion"; // Framer Motion pour des animations avancées
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+
 
 AOS.init();
 
 const PageWrapper = styled.div`
   position: relative;
-  background-image: url("/img/MOE_0384.jpg"); /* Remplacez par votre image de fond */
+  background-image: url("/img/logoAOD.png"); /* Remplacez par votre image de fond */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -187,7 +186,7 @@ const Securite = () => {
             <Paragraph>
               Découvrez en détail comment la sécurité sociale et le droit du
               travail interagissent pour garantir le bien-être des travailleurs.
-              Pour plus d'informations, consultez{" "}
+              Pour plus d’informations, consultez{" "}
               <ExternalLink
                 href="https://journals.openedition.org/rdctss/"
                 target="_blank"
@@ -241,7 +240,7 @@ const Securite = () => {
             Le droit du travail est la branche du droit qui régit les relations
             entre employeurs et employés. Il vise à équilibrer les rapports de
             pouvoir entre les deux parties en protégeant les droits des salariés
-            tout en permettant aux employeurs d'exercer leur activité.
+            tout en permettant aux employeurs d’exercer leur activité.
           </Paragraph>
           <Paragraph>
             <strong>
@@ -250,8 +249,8 @@ const Securite = () => {
           </Paragraph>
           <List>
             <ListItem>
-              Le contrat de travail : il encadre les obligations de l'employeur
-              et de l'employé, les modalités de rupture du contrat, etc.
+              Le contrat de travail : il encadre les obligations de l’employeur
+              et de l’employé, les modalités de rupture du contrat, etc.
             </ListItem>
             <ListItem>
               Les conditions de travail : cela inclut la durée du travail, la
@@ -270,7 +269,7 @@ const Securite = () => {
             <ListItem>
               La négociation collective : les conventions collectives permettent
               de définir des droits supplémentaires ou spécifiques aux employés
-              d'un secteur donné.
+              d’un secteur donné.
             </ListItem>
           </List>
         </Section>

@@ -20,6 +20,10 @@ import Travail from "./Mouvements/Savoirfaire/Travaill";
 import Penall from "./Mouvements/Savoirfaire/Penall";
 import Sport from "./Mouvements/Savoirfaire/Sport";
 import Arbitrage from "./Mouvements/Savoirfaire/Arbitrage";
+import Contentieux from "./Mouvements/Savoirfaire/Savoir-faire/Contentieux";
+import AuditJuridique from "./Mouvements/Savoirfaire/Savoir-faire/Auditjurique";
+import Conseiljuri from "./Mouvements/Savoirfaire/Savoir-faire/Conseiljuri";
+import Assistance from "./Mouvements/Savoirfaire/Savoir-faire/Assistance";
 
 function App() {
   return (
@@ -48,7 +52,10 @@ function App() {
         <Route path="/penall" element={<Penall />} />
         <Route path="/sport" element={<Sport />} />
         <Route path="/arbitrage" element={<Arbitrage />} />
-
+        <Route path="/contentieux" element={<Contentieux />} />
+        <Route path="/audit" element={<AuditJuridique />} />
+        <Route path="/conseil" element={<Conseiljuri />} />
+        <Route path="/asistance" element={<Assistance />} />
       </Routes>
     </BrowserRouter>
   );

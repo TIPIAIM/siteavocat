@@ -1,9 +1,8 @@
-
 import logoAODnoir from "../../assets/Logos/logoAODnoir.png";
 import Composant from "./Composant";
 import Composantdeux from "./Composantdeux";
 import Petitecrandeux from "./Petitecrandeux";
-import Composantfinal from "./Composantfinal";
+import Composantfinal from "./Horaire";
 import Footer from "./Footerr";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
@@ -22,8 +21,10 @@ const Nav = styled.nav`
   z-index: 1000;
   font-weight: bold;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  background-color: ${({ isScrolled }) => (isScrolled ? 'rgba(10, 34, 64, 0.9)' : 'transparent')};
-  box-shadow: ${({ isScrolled }) => (isScrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none')};
+  background-color: ${({ isScrolled }) =>
+    isScrolled ? "rgba(10, 34, 64, 0.9)" : "transparent"};
+  box-shadow: ${({ isScrolled }) =>
+    isScrolled ? "0 4px 6px rgba(0, 119, 182, 1,)" : "none"};
 
   @media (max-width: 768px) {
     flex-wrap: wrap;
@@ -181,7 +182,7 @@ export default function BardeNavigation() {
 
   return (
     <>
-     <Nav isScrolled={isScrolled}>
+      <Nav isScrolled={isScrolled}>
         {/* Logo */}
         <Logo>
           <img
@@ -216,8 +217,12 @@ export default function BardeNavigation() {
               <SubNavLink href="/nosexpertises">Nos expertises</SubNavLink>
               <SubNavLink href="/fiscalitee">Droit fiscal</SubNavLink>
               <SubNavLink href="/affairee">Droit des affaires</SubNavLink>
-              <SubNavLink href="/minierr">Minier et environnementale</SubNavLink>
-              <SubNavLink href="/securitee">Sociale et sécurité sociale</SubNavLink>
+              <SubNavLink href="/minierr">
+                Minier et environnementale
+              </SubNavLink>
+              <SubNavLink href="/securitee">
+                Sociale et sécurité sociale
+              </SubNavLink>
               <SubNavLink href="/famillee">Droit de la famille</SubNavLink>
               <SubNavLink href="/travail">Droit du travail</SubNavLink>
               <SubNavLink href="/sport">Droit du sport</SubNavLink>
@@ -231,14 +236,14 @@ export default function BardeNavigation() {
         </Menu>
       </Nav>
 
-    {/* Contenu principal */}
-    <main style={{ paddingTop: "150px" }}>
-    <Composantdeux />
-      <Composant />
-      <Petitecrandeux />
-      <Composantfinal />
-      <Footer />
-    </main>
-  </>
+      {/* Contenu principal */}
+      <main style={{ paddingTop: "150px" }}>
+        <Composantdeux />
+        <Composant />
+        <Petitecrandeux />
+        <Composantfinal />
+        <Footer />
+      </main>
+    </>
   );
 }

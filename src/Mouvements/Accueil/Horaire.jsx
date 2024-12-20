@@ -11,9 +11,9 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #0488b2, #0f172a, #000);
+  background: linear-gradient(to bottom, #0f172a, #0f172a, #0f172a);
   color: white;
-  padding: 20px;
+  padding: 0px;
   box-sizing: border-box;
   overflow: hidden;
 `;
@@ -24,8 +24,8 @@ const Title = styled.h1`
   font-weight: bold;
   text-align: center;
   margin-bottom: 40px;
-    margin-top: 40px;
-  color: #0f172a;
+  margin-top: 40px;
+  color: #0488b2;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -59,17 +59,6 @@ const Card = styled.div`
   }
   @media (max-width: 768px) {
     padding: 10px;
-  }
-`;
-
-const CardImage = styled.img`
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 2px;
-  margin-bottom: 1px;
-  @media (max-width: 768px) {
-    height: 150px;
   }
 `;
 
@@ -107,20 +96,20 @@ const Composantfinal = {
   },
 };
 
-export default function ProfessionalComponent() {
+export default function Horaire() {
   const sections = [
     { title: "Honoraires:", description: " ?" },
     {
-        title: "L’honoraire au temps passé",
-        description:
-          "L’avocat et son client se mettent d’accord dés le début sur une rémunération horaire. L’honoraire définitif sera calculé par l’avocat en fin de dossier.",
-      },
+      title: "L’honoraire au temps passé",
+      description:
+        "L’avocat et son client se mettent d’accord dés le début sur une rémunération horaire. L’honoraire définitif sera calculé par l’avocat en fin de dossier.",
+    },
     {
       title: "L’honoraire forfaitaire",
       description:
         "L’avocat et son client se mettent dés le début de leur relation d’accord sur une rémunération globale pour la prestation définie entre eux. Au-delà, toute prestation non prévue fera l’objet d’une nouvelle rémunération",
     },
-   
+
     {
       title: "L’honoraire de résultat",
       description:
@@ -134,10 +123,10 @@ export default function ProfessionalComponent() {
   ];
 
   return (
-    <Container>
+    <Container className=" mt-2">
       {/* Contenu principal */}
       <motion.div {...Composantfinal.fadeInUp}>
-        <Title>HONORAIRES : COMBIEN COÛTE UN AVOCAT ?</Title>
+        <Title> COMBIEN COÛTE UN AVOCAT ?</Title>
         <Description>
           Les honoraires de l’avocat sont libres et fixés en accord avec le
           client. Il n’existe pas de barème indicatif. Il est donc nécessaire
@@ -159,9 +148,6 @@ export default function ProfessionalComponent() {
       </AnimatePresence>
 
       {/* Image centrée */}
-      <motion.div className="photoContainer" {...Composantfinal.fadeInUp}>
-        <CardImage src="/img/logoAODnoir.png" alt="Centré" />
-      </motion.div>
     </Container>
   );
 }

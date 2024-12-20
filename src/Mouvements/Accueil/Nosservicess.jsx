@@ -13,7 +13,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #0488b2, #0f172a, #000);
+  background: linear-gradient(to bottom, #0488b2, #, #000);
   color: white;
   padding: 20px;
   box-sizing: border-box;
@@ -35,13 +35,13 @@ const Title = styled.h1`
 `;
 
 const Description = styled.p`
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-align: center;
   font-family: "Times New Roman", Times, serif;
   margin-bottom: 25px;
   max-width: 900px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.8);
+  color: #0f172a;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -65,11 +65,11 @@ const Grid = styled.div`
 
 const Card = styled.div`
   background: rgba(10, 34, 64, 1.9);
-  border-radius: 1px;
-  padding: px;
+  border-radius: 2px;
+  padding: 4px;
   font-family: "Times New Roman", Times, serif;
   text-align: center;
-  box-shadow: -2px -2px 1px rgba(0, 0, 0, 0.8);
+  box-shadow: -2px -2px 1px rgba(0, 0, 0, 0.2);
   transition: transform 0.5s ease;
   overflow: hidden;
 
@@ -88,7 +88,7 @@ const CardImage = styled.img`
   max-height: 250px;
   object-fit: cover;
   border-radius: px;
-  margin-bottom: px;
+  margin-bottom: 10px;
 
   @media (max-width: 768px) {
     max-height: 150px;
@@ -109,7 +109,7 @@ const CardTitle = styled.h3`
 
 const CardDescription = styled.p`
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255);
   line-height: 1.5;
   text-align: justify;
 
@@ -135,7 +135,7 @@ const AnimatedCard = ({ title, description, image }) => {
 };
 
 // Enhanced Component
-const EnhancedComponent = () => {
+const Nosservicess = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -207,4 +207,4 @@ const EnhancedComponent = () => {
   );
 };
 
-export default EnhancedComponent;
+export default Nosservicess;

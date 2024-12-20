@@ -55,7 +55,7 @@ const MarqueeText = () => {
           <ScrollText />
         </div>
       </div>
-      {/* Image */}
+      {/* Image 
       <motion.div
         className="w-full items-center justify-center mt-8"
         style={{ maxWidth: "1000px", maxHeight: "400px" }} // Dimensions fixes
@@ -68,7 +68,7 @@ const MarqueeText = () => {
           className="w-full h-auto rounded-lg shadow-lg object-cover"
           style={{ width: "100%", height: "auto", maxHeight: "300px" }} // Taille fixe responsive
         />
-      </motion.div>
+      </motion.div>*/}
     </div>
   );
 };

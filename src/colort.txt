@@ -1,0 +1,32 @@
+couleur : 
+RGBA :rgba(3, 4, 94, 1)
+rgba(10, 34, 64, 0.9)
+className="bg-[rgba(10,34,64,0.9)]" tailwind
+03045e
+RGBA :rgba(0, 119, 182, 1)
+0077b6
+RGBA :rgba(0, 180, 216, 1, 0.9)
+00b4d8
+
+texte: 
+rgba(144, 224, 239, 1)
+90e0ef
+RGBA :rgba(202, 240, 248, 1)
+caf0f8
+
+
+
+
+
+03045e
+023047
+023e8a
+023e8a
+0096c7
+00b4d8
+48cae4
+90e0ef
+ade8f4
+caf0f8
+
+

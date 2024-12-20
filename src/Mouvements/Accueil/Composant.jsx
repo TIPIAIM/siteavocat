@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"; // Assurez-vous que Framer Motion est installé
 import mitre71 from "../../assets/Image/mitre71.jpg";
-import EnhancedComponent from "./Composatexte";
+import EnhancedComponent from "./Nosservicess";
 import Petitecranun from "./Petitecranun";
 
 const Composant = () => {

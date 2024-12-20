@@ -24,6 +24,8 @@ import Contentieux from "./Mouvements/Savoirfaire/Savoir-faire/Contentieux";
 import AuditJuridique from "./Mouvements/Savoirfaire/Savoir-faire/Auditjurique";
 import Conseiljuri from "./Mouvements/Savoirfaire/Savoir-faire/Conseiljuri";
 import Assistance from "./Mouvements/Savoirfaire/Savoir-faire/Assistance";
+import Accuei from "./Mouvements/Accueil/Accueil";
+import Accueil from "./Mouvements/Accueil/Accueil";
 
 function App() {
   return (
@@ -41,6 +43,9 @@ function App() {
         <Route path="/fiscalite" element={<Fiscalite />} />
         <Route path="/minier" element={<Minier />} />
         <Route path="/famille" element={<Famille />} />
+        <Route path="/accueil" element={<Accueil />} />
+
+
 
         <Route path="/nosexpertises" element={<Nosexpertise />} />
         <Route path="/affairee" element={<Affairee />} />

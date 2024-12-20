@@ -238,11 +238,7 @@ export default function BardeNavigation() {
 
       {/* Contenu principal */}
       <main style={{ paddingTop: "150px" }}>
-        <Composantdeux />
-        <Composant />
-        <Petitecrandeux />
-        <Composantfinal />
-        <Footer />
+       
       </main>
     </>
   );

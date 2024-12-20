@@ -24,16 +24,15 @@ import Contentieux from "./Mouvements/Savoirfaire/Savoir-faire/Contentieux";
 import AuditJuridique from "./Mouvements/Savoirfaire/Savoir-faire/Auditjurique";
 import Conseiljuri from "./Mouvements/Savoirfaire/Savoir-faire/Conseiljuri";
 import Assistance from "./Mouvements/Savoirfaire/Savoir-faire/Assistance";
-import Accuei from "./Mouvements/Accueil/Accueil";
 import Accueil from "./Mouvements/Accueil/Accueil";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<BardeNavigation />} />
+        <Route index element={<Accueil />} />
         {/** <Route path="*" element={<Orror />} />
-      pour */}
+      pour */}  <Route path="/accueil" element={< Accueil/>} />
         <Route path="/apropos" element={<Apropos />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/article" element={<Articles />} />
@@ -43,7 +42,7 @@ function App() {
         <Route path="/fiscalite" element={<Fiscalite />} />
         <Route path="/minier" element={<Minier />} />
         <Route path="/famille" element={<Famille />} />
-        <Route path="/accueil" element={<Accueil />} />
+      
 
 
 

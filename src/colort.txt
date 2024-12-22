@@ -12,7 +12,7 @@ RGBA : rgba(0, 180, 216, 1)
 
 texte: 
 rgba(144, 224, 239, 1)
-90e0ef
+90e0ef   Pour les texte
 RGBA :rgba(202, 240, 248, 1)
 caf0f8
 

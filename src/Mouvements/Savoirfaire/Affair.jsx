@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import { FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 // Conteneur principal avec image d'arrière-plan fixe
 const BackgroundContainer = styled.div`
@@ -22,7 +20,7 @@ const Overlay = styled.div`
   background: linear-gradient(
     to bottom,
     rgba(0, 50, 50, 0.7),
-    rgba(0, 0, 0, 0.9)
+    rgba(0, 0, 0, 0.2)
   );
 `;
 
@@ -41,7 +39,7 @@ const ContentContainer = styled.div`
 // Titre principal avec style et animation
 const Title = styled(motion.h1)`
   font-size: 3rem;
-  color: #4ea8ff;
+  color: #90e0ef;
   margin-bottom: 2rem;
   font-weight: bold;
 
@@ -57,7 +55,7 @@ const Title = styled(motion.h1)`
 // Sous-titre pour contextualiser
 const SubTitle = styled(motion.h2)`
   font-size: 1.5rem;
-  color: #ffffff;
+  color: #90e0ef;
   margin-bottom: 1.5rem;
   font-weight: 300;
   opacity: 0.8;
@@ -115,11 +113,11 @@ const Description = styled(motion.p)`
 // Bouton interactif
 const ActionButton = styled(motion.a)`
   margin-top: 1.5rem;
-  padding: 0.8rem 1.5rem;
+  padding: 0.5rem 0.8rem;
   font-size: 1rem;
-  color: #ffffff;
-  background-color: #4ea8ff;
-  border-radius: 5px;
+  color: #03045e;
+  background-color: #90e0ef;
+  border-radius: 200px;
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
@@ -149,7 +147,7 @@ export default function Affair() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          Le Droit des Affaires
+        Expertises
         </Title>
 
         {/* Sous-titre */}

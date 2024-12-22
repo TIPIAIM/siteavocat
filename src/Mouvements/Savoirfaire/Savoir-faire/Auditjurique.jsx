@@ -35,7 +35,7 @@ const ContentContainer = styled.div`
 const Title = styled(motion.h1)`
   font-size: 2.5rem;
   font-weight: bold;
-  color: #4ea8ff;
+  color: #90e0ef;
   margin-bottom: 2rem;
 `;
 
@@ -53,8 +53,8 @@ const ParagraphWrapper = styled.div`
 `;
 
 const ParagraphImage = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -93,7 +93,7 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  max-width: 300px;
+  max-width: 200px;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 `;
@@ -148,7 +148,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong>1. Une analyse approfondie et stratégique :</strong> Notre
+              <strong style={{ color: '#90e0ef'}}>1. Une analyse approfondie et stratégique :</strong> Notre
               équipe procède à une évaluation complète de vos documents
               juridiques, tels que contrats, statuts, accords de partenariat, et
               politiques internes. Nous identifions non seulement les zones de
@@ -163,7 +163,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong>2. Une expertise multidisciplinaire unique :</strong> Nos
+              <strong style={{ color: '#90e0ef'}}>2. Une expertise multidisciplinaire unique :</strong> Nos
               avocats spécialisés couvrent plusieurs branches du droit,
               notamment le droit des affaires, le droit du travail, le droit
               fiscal, et le droit commercial. Cette diversité garantit une
@@ -177,7 +177,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong>
+              <strong style={{ color: '#90e0ef'}}>
                 3. Une conformité avec les normes en constante évolution :
               </strong>
               Les lois et réglementations changent rapidement. Nous veillons à
@@ -193,7 +193,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong>4. Une prévention proactive des risques :</strong> Un
+              <strong style={{ color: '#90e0ef'}}>4. Une prévention proactive des risques :</strong> Un
               audit juridique efficace vous permet de prévoir et d’éviter des
               problèmes avant qu’ils ne surviennent. Notre approche proactive
               inclut des recommandations précises pour corriger les anomalies
@@ -207,7 +207,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong>5. Un accompagnement sur mesure :</strong> Au-delà de
+              <strong style={{ color: '#90e0ef'}}>5. Un accompagnement sur mesure :</strong> Au-delà de
               l’audit, nous vous assistons dans la mise en œuvre des solutions
               proposées. Que ce soit pour la révision de vos contrats, la
               restructuration juridique ou la négociation de clauses, notre
@@ -221,7 +221,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong>
+              <strong style={{ color: '#90e0ef'}}>
                 6. Des avantages concrets pour votre organisation :
               </strong>
               <ul>
@@ -247,7 +247,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong>7. Une relation de confiance :</strong> Notre engagement
+              <strong style={{ color: '#90e0ef'}}>7. Une relation de confiance :</strong> Notre engagement
               repose sur la transparence, la discrétion, et une écoute active de
               vos besoins. Chaque client bénéficie d’un suivi personnalisé, car
               nous comprenons que chaque situation est unique.

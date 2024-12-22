@@ -35,7 +35,7 @@ const ContentContainer = styled.div`
 const Title = styled(motion.h1)`
   font-size: 2.5rem;
   font-weight: bold;
-  color: #4ea8ff;
+  color: #90e0ef;
   margin-bottom: 2rem;
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 `;

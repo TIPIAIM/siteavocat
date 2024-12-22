@@ -30,7 +30,7 @@ const Container = styled.div`
 const Title = styled(motion.h2)`
   font-size: 2.5rem;
   font-weight: bold;
-  color: #4ea8ff;
+  color: #90e0ef;
   margin-bottom: 3rem;
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   z-index: 10;
@@ -45,15 +45,15 @@ const PointsList = styled.div`
 
 const Point = styled(motion.div)`
   margin-bottom: 1.8rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   line-height: 1.8;
-  color: #ddd;
+  color: #cf0f8;
   padding-left: 2rem;
   position: relative;
 
   &::before {
     content: "✔";
-    color: #4ea8ff;
+     color: #90e0ef;
     position: absolute;
     left: 0;
     font-size: 1.5rem;
@@ -80,28 +80,58 @@ const Conseiljuri = () => {
         </Title>
         <PointsList>
           <Point initial="hidden" animate="visible" variants={textVariants}>
-            <strong>Expertise et expérience reconnue :</strong> Notre équipe de juristes et d'avocats est spécialisée dans de nombreux domaines du droit, vous offrant des solutions adaptées à vos besoins. Nous nous engageons à vous fournir des conseils de haute qualité.
+            <strong style={{ color: "#90e0ef" }}>
+              Expertise et expérience reconnue :
+            </strong>{" "}
+            Notre équipe de juristes et d'avocats est spécialisée dans de
+            nombreux domaines du droit, vous offrant des solutions adaptées à
+            vos besoins. Nous nous engageons à vous fournir des conseils de
+            haute qualité.
           </Point>
           <Point initial="hidden" animate="visible" variants={textVariants}>
-            <strong>Approche proactive et stratégique :</strong> Nous anticipons les défis et élaborons des stratégies adaptées pour minimiser les risques et maximiser vos chances de succès. Cela inclut une analyse approfondie de vos besoins spécifiques.
+            <strong style={{ color: "#90e0ef" }}>
+              Approche proactive et stratégique :
+            </strong>{" "}
+            Nous anticipons les défis et élaborons des stratégies adaptées pour
+            minimiser les risques et maximiser vos chances de succès. Cela
+            inclut une analyse approfondie de vos besoins spécifiques.
           </Point>
           <Point initial="hidden" animate="visible" variants={textVariants}>
-            <strong>Engagement envers vos intérêts :</strong> Nous défendons vos droits avec rigueur et professionnalisme, en vous apportant les meilleures solutions possibles. Votre satisfaction est au cœur de nos priorités.
+            <strong style={{ color: "#90e0ef" }}>
+              Engagement envers vos intérêts :
+            </strong>{" "}
+            Nous défendons vos droits avec rigueur et professionnalisme, en vous
+            apportant les meilleures solutions possibles. Votre satisfaction est
+            au cœur de nos priorités.
           </Point>
           <Point initial="hidden" animate="visible" variants={textVariants}>
-            <strong>Communication claire et transparente :</strong> Nous vous tenons informé à chaque étape du processus, garantissant une collaboration efficace et une totale compréhension de votre dossier. Une information précise est notre priorité.
+            <strong style={{ color: '#90e0ef'}}>Communication claire et transparente :</strong> Nous vous
+            tenons informé à chaque étape du processus, garantissant une
+            collaboration efficace et une totale compréhension de votre dossier.
+            Une information précise est notre priorité.
           </Point>
           <Point initial="hidden" animate="visible" variants={textVariants}>
-            <strong>Résultats probants :</strong> Notre expérience dans la résolution de contentieux complexes nous permet d'obtenir des résultats concrets et satisfaisants pour nos clients. Nous avons à cœur de vous apporter des solutions concrètes.
+            <strong style={{ color: '#90e0ef'}}>Résultats probants :</strong> Notre expérience dans la
+            résolution de contentieux complexes nous permet d'obtenir des
+            résultats concrets et satisfaisants pour nos clients. Nous avons à
+            cœur de vous apporter des solutions concrètes.
           </Point>
           <Point initial="hidden" animate="visible" variants={textVariants}>
-            <strong>Discrétion et confidentialité :</strong> Votre confiance est primordiale. Nous garantissons la protection de vos informations et la confidentialité totale de vos dossiers, avec un respect absolu de vos droits.
+            <strong style={{ color: '#90e0ef'}}>Discrétion et confidentialité :</strong> Votre confiance est
+            primordiale. Nous garantissons la protection de vos informations et
+            la confidentialité totale de vos dossiers, avec un respect absolu de
+            vos droits.
+          </Point>
+          <Point  initial="hidden" animate="visible" variants={textVariants}>
+            <strong style={{ color: '#90e0ef'}}>Accompagnement sur mesure :</strong> Nous traitons chaque
+            dossier avec soin et attention, vous offrant des conseils adaptés à
+            votre situation spécifique, quel que soit le degré de complexité.
           </Point>
           <Point initial="hidden" animate="visible" variants={textVariants}>
-            <strong>Accompagnement sur mesure :</strong> Nous traitons chaque dossier avec soin et attention, vous offrant des conseils adaptés à votre situation spécifique, quel que soit le degré de complexité.
-          </Point>
-          <Point initial="hidden" animate="visible" variants={textVariants}>
-            <strong>Accessibilité et réactivité :</strong> Nous répondons rapidement à vos questions et préoccupations, en veillant à vous apporter un service de qualité à tout moment. Votre satisfaction est notre priorité.
+            <strong style={{ color: '#90e0ef'}}>Accessibilité et réactivité :</strong> Nous répondons
+            rapidement à vos questions et préoccupations, en veillant à vous
+            apporter un service de qualité à tout moment. Votre satisfaction est
+            notre priorité.
           </Point>
         </PointsList>
       </Container>

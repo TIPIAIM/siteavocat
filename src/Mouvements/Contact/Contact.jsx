@@ -167,7 +167,7 @@ export default function Contact() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left max-w-screen-md">
-          <h1 className="text-3xl sm:text-5xl font-bold  mb-4 sm:mb-6" style={{ color: '#00b4d8'}}>
+          <h1 className="text-3xl sm:text-5xl font-bold  mb-4 sm:mb-6" style={{ color: '#90e0ef'}}>
             Cabinet AOD-AVOCATS-SCPA
           </h1>
          

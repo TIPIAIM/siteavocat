@@ -36,7 +36,7 @@ const ContentContainer = styled.div`
 const Title = styled(motion.h1)`
   font-size: 3rem;
   font-weight: bold;
-  color: #4ea8ff;
+  color: #90e0ef;
   margin-bottom: 2rem;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 
@@ -150,7 +150,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong>Une expertise reconnue dans le domaine juridique :</strong> 
+              <strong style={{ color: '#90e0ef'}}>Une expertise reconnue dans le domaine juridique :</strong> 
               Notre équipe regroupe des avocats et juristes expérimentés,
               spécialisés en droit civil, commercial, fiscal, du travail, et
               administratif. Nous avons l’expérience et les compétences
@@ -166,7 +166,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong>Accompagnement dans la régulation :</strong>
+              <strong style={{ color: '#90e0ef'}}>Accompagnement dans la régulation :</strong>
               Nous vous assistons dans vos démarches administratives et
               réglementaires pour garantir la conformité de vos activités avec
               les lois en vigueur. Cela inclut l’élaboration des documents requis,
@@ -181,7 +181,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong>Consultations personnalisées :</strong>
+              <strong style={{ color: '#90e0ef'}}>Consultations personnalisées :</strong>
               Nos experts sont à votre écoute pour vous fournir des solutions
               adaptées à vos besoins spécifiques, que ce soit pour des
               conseils, des analyses ou des recommandations stratégiques.
@@ -196,7 +196,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong>Formations spécialisées :</strong>
+              <strong style={{ color: '#90e0ef'}}>Formations spécialisées :</strong>
               Nous proposons des programmes de formation adaptés pour vous
               aider à mieux comprendre et gérer les aspects juridiques de vos
               projets. Ces formations couvrent des sujets variés allant de la
@@ -210,7 +210,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong>Protection juridique :</strong>
+              <strong style={{ color: '#90e0ef'}}>Protection juridique :</strong>
               Nous vous offrons une assistance pour anticiper et gérer les
               litiges, en assurant une protection efficace de vos droits.
               Notre approche proactive vise à réduire les risques légaux

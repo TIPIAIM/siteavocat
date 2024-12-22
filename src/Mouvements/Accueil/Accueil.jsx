@@ -59,7 +59,7 @@ export default function Accueil() {
                 key={i}
                 className="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow @container"
               >
-                <service.icon className="w-10 sm:w-12 h-10 sm:h-12 text-blue-950 mb-3" />
+                <service.icon style={{ color : '#0077b6'}} className="w-10 sm:w-12 h-10 sm:h-12 text-blue-950 mb-3" />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">
                   {service.title}
                 </h3>
@@ -89,14 +89,14 @@ export default function Accueil() {
 
               <div className="flex flex-wrap gap-6">
                 <div>
-                  <Award className="w-10 sm:w-12 h-10 sm:h-12 text-amber-600 mb-2" />
+                  <Award className="w-10 sm:w-12 h-10 sm:h-12  mb-2"style={{ color : '#0077b6'}} />
                   <div className="font-bold text-lg sm:text-2xl">6+</div>
                   <div className="text-gray-600 text-sm">
                     Années d'expérience
                   </div>
                 </div>
                 <div>
-                  <Users className="w-10 sm:w-12 h-10 sm:h-12 text-amber-600 mb-2" />
+                  <Users className="w-10 sm:w-12 h-10 sm:h-12 mb-2"style={{ color : '#0077b6'}} />
                   <div className="font-bold text-lg sm:text-2xl">100+</div>
                   <div className="text-gray-600 text-sm">
                     Clients satisfaits

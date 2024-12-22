@@ -7,7 +7,7 @@ className="bg-[rgba(10,34,64,0.9)]" tailwind
 
 RGBA :rgba(0, 119, 182, 1)
 0077b6
-RGBA :rgba(0, 180, 216, 1, 0.9)
+RGBA : rgba(0, 180, 216, 1, 0.9)
 00b4d8                         
 
 texte: 
@@ -17,6 +17,7 @@ RGBA :rgba(202, 240, 248, 1)
 caf0f8
 
 
+  font-family: "Times New Roman", Times, serif;
 
 
 

@@ -66,10 +66,10 @@ const Grid = styled.div`
 const Card = styled.div`
   background: rgba(10, 34, 64, 1.9);
   border-radius: 2px;
-  padding: 4px;
+  padding: 8px;
   font-family: "Times New Roman", Times, serif;
   text-align: center;
-  box-shadow: -2px -2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -2px -2px 1px rgba(0, 180, 216, 1);
   transition: transform 0.5s ease;
   overflow: hidden;
 
@@ -96,10 +96,10 @@ const CardImage = styled.img`
 `;
 
 const CardTitle = styled.h3`
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #00b4d8;
 
   @media (max-width: 768px) {
     font-size: 1rem;

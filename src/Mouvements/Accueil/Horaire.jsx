@@ -13,7 +13,7 @@ const Container = styled.div`
   align-items: center;
   background: linear-gradient(to bottom, #0f172a, #0f172a, #0f172a);
   color: white;
-  padding: 0px;
+  padding: px;
   box-sizing: border-box;
   overflow: hidden;
 `;
@@ -25,7 +25,7 @@ const Title = styled.h1`
   text-align: center;
   margin-bottom: 40px;
   margin-top: 40px;
-  color: #0488b2;
+  color: #00b4d8;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -47,11 +47,11 @@ const Description = styled.p`
 
 const Card = styled.div`
   background: linear-gradient(to bottom, #, #0f172a, #0488b2);
-  border-radius: 1px;
+  border-radius: 12px;
   padding: 10px;
   font-family: "Times New Roman", Times, serif;
   text-align: center;
-  box-shadow: -12px -1px 2px rgba(255, 255, 255, 0.8);
+  box-shadow: -12px -1px 2px rgba(0, 180, 216,1);
   transition: transform 0.5s ease;
   overflow: hidden;
   &:hover {
@@ -63,10 +63,10 @@ const Card = styled.div`
 `;
 
 const CardTitle = styled.h3`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
   margin-bottom: 8px;
-  color: #ffffff;
+  color: #00b4d8;
   @media (max-width: 768px) {
     font-size: 1rem;
   }
@@ -179,8 +179,8 @@ const Section = ({ title, description, index }) => {
       className="mb-8"
       style={{ opacity: inView ? 1 : 0 }} // Affichage conditionnel basé sur la visibilité
     >
-      <Card>
-        <CardTitle>{title}</CardTitle>
+      <Card >
+        <CardTitle >{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </Card>
     </motion.div>

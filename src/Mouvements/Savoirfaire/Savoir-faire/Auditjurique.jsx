@@ -118,7 +118,7 @@ export default function AuditJuridique() {
       <BackgroundContainer>
         <Overlay />
         <BardeNavigationpublic />
-        <ContentContainer>
+        <ContentContainer className=" font-serif">
           <Title
             initial="hidden"
             animate={controls}

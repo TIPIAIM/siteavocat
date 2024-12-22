@@ -73,58 +73,39 @@ const textVariants = {
 const Conseiljuri = () => {
   return (
     <div>
-    <Container>
-        <BardeNavigationpublic/>
-      <Title initial="hidden" animate="visible" variants={textVariants}>
-        Conseils juridiques ?
-      </Title>
-      <PointsList>
-        <Point initial="hidden" animate="visible" variants={textVariants}>
-          <strong>Expertise et expérience reconnue :</strong> Notre équipe de
-          juristes et d'avocats est spécialisée dans de nombreux domaines du
-          droit, vous offrant des solutions adaptées à vos besoins.
-        </Point>
-        <Point initial="hidden" animate="visible" variants={textVariants}>
-          <strong>Approche proactive et stratégique :</strong> Nous anticipons
-          les défis et élaborons des stratégies adaptées pour minimiser les
-          risques et maximiser vos chances de succès.
-        </Point>
-        <Point initial="hidden" animate="visible" variants={textVariants}>
-          <strong>Engagement envers vos intérêts :</strong> Nous défendons vos
-          droits avec rigueur et professionnalisme, en vous apportant les
-          meilleures solutions possibles.
-        </Point>
-        <Point initial="hidden" animate="visible" variants={textVariants}>
-          <strong>Communication claire et transparente :</strong> Nous vous
-          tenons informé à chaque étape du processus, garantissant une
-          collaboration efficace et une totale compréhension de votre dossier.
-        </Point>
-        <Point initial="hidden" animate="visible" variants={textVariants}>
-          <strong>Résultats probants :</strong> Notre expérience dans la
-          résolution de contentieux complexes nous permet d'obtenir des
-          résultats concrets et satisfaisants pour nos clients.
-        </Point>
-        <Point initial="hidden" animate="visible" variants={textVariants}>
-          <strong>Discrétion et confidentialité :</strong> Votre confiance est
-          primordiale. Nous garantissons la protection de vos informations et la
-          confidentialité totale de vos dossiers.
-        </Point>
-        <Point initial="hidden" animate="visible" variants={textVariants}>
-          <strong>Accompagnement sur mesure :</strong> Nous traitons chaque
-          dossier avec soin et attention, vous offrant des conseils adaptés à
-          votre situation spécifique.
-        </Point>
-        <Point initial="hidden" animate="visible" variants={textVariants}>
-          <strong>Accessibilité et réactivité :</strong> Nous répondons
-          rapidement à vos questions et préoccupations, en veillant à vous
-          apporter un service de qualité à tout moment.
-        </Point>
-      </PointsList>
-     
-    </Container>
-   
-
-        <Footer/> 
+      <Container>
+        <BardeNavigationpublic />
+        <Title initial="hidden" animate="visible" variants={textVariants}>
+          Conseils juridiques ?
+        </Title>
+        <PointsList>
+          <Point initial="hidden" animate="visible" variants={textVariants}>
+            <strong>Expertise et expérience reconnue :</strong> Notre équipe de juristes et d'avocats est spécialisée dans de nombreux domaines du droit, vous offrant des solutions adaptées à vos besoins. Nous nous engageons à vous fournir des conseils de haute qualité.
+          </Point>
+          <Point initial="hidden" animate="visible" variants={textVariants}>
+            <strong>Approche proactive et stratégique :</strong> Nous anticipons les défis et élaborons des stratégies adaptées pour minimiser les risques et maximiser vos chances de succès. Cela inclut une analyse approfondie de vos besoins spécifiques.
+          </Point>
+          <Point initial="hidden" animate="visible" variants={textVariants}>
+            <strong>Engagement envers vos intérêts :</strong> Nous défendons vos droits avec rigueur et professionnalisme, en vous apportant les meilleures solutions possibles. Votre satisfaction est au cœur de nos priorités.
+          </Point>
+          <Point initial="hidden" animate="visible" variants={textVariants}>
+            <strong>Communication claire et transparente :</strong> Nous vous tenons informé à chaque étape du processus, garantissant une collaboration efficace et une totale compréhension de votre dossier. Une information précise est notre priorité.
+          </Point>
+          <Point initial="hidden" animate="visible" variants={textVariants}>
+            <strong>Résultats probants :</strong> Notre expérience dans la résolution de contentieux complexes nous permet d'obtenir des résultats concrets et satisfaisants pour nos clients. Nous avons à cœur de vous apporter des solutions concrètes.
+          </Point>
+          <Point initial="hidden" animate="visible" variants={textVariants}>
+            <strong>Discrétion et confidentialité :</strong> Votre confiance est primordiale. Nous garantissons la protection de vos informations et la confidentialité totale de vos dossiers, avec un respect absolu de vos droits.
+          </Point>
+          <Point initial="hidden" animate="visible" variants={textVariants}>
+            <strong>Accompagnement sur mesure :</strong> Nous traitons chaque dossier avec soin et attention, vous offrant des conseils adaptés à votre situation spécifique, quel que soit le degré de complexité.
+          </Point>
+          <Point initial="hidden" animate="visible" variants={textVariants}>
+            <strong>Accessibilité et réactivité :</strong> Nous répondons rapidement à vos questions et préoccupations, en veillant à vous apporter un service de qualité à tout moment. Votre satisfaction est notre priorité.
+          </Point>
+        </PointsList>
+      </Container>
+      <Footer />
     </div>
   );
 };

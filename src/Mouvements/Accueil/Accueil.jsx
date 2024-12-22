@@ -3,6 +3,7 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import Accueilfooter from "./Accueilfooter";
 import Horaire from "./Horaire";
 import Nosservicess from "./Nosservicess";
+import { Link } from "react-router-dom";
 
 export default function Accueil() {
   return (
@@ -23,10 +24,10 @@ export default function Accueil() {
           <p className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-8 max-w-lg mx-auto sm:mx-0">
             Engagement personnel pour vous défendre et protéger
           </p>
-          <button className="bg-[rgba(10,34,64,0.9)] animate-pulse hover:bg-[rgba(0,119,182,1)] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-md inline-flex items-center w-fit mx-auto sm:mx-0">
+          <Link to="/contact" className="bg-[rgba(10,34,64,0.9)] animate-pulse hover:bg-[rgba(0,119,182,1)] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-md inline-flex items-center w-fit mx-auto sm:mx-0">
             Consultation
             <ChevronRight className="ml-2 h-5 w-5" />
-          </button>
+          </Link>
         </div>
       </header>
 

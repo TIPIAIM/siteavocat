@@ -9,7 +9,7 @@ import Footer from "../../Accueil/Footerr";
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/confience.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("img/confience.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -18,7 +18,6 @@ const BackgroundContainer = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
 `;
 
 const ContentContainer = styled.div`
@@ -30,21 +29,32 @@ const ContentContainer = styled.div`
   align-items: center;
   text-align: center;
   color: white;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const Title = styled(motion.h1)`
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   color: #4ea8ff;
   margin-bottom: 2rem;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const ParagraphWrapper = styled.div`
   display: flex;
   align-items: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   max-width: 1000px;
-  gap: 1rem;
+  gap: 2rem;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -53,15 +63,14 @@ const ParagraphWrapper = styled.div`
 `;
 
 const ParagraphImage = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 10%;
-  
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -69,17 +78,17 @@ const Paragraph = styled(motion.p)`
   font-size: 1.2rem;
   line-height: 1.8rem;
   text-align: justify;
-  margin: 20px;
+  color: #e0e0e0;
 
   @media (max-width: 480px) {
     font-size: 1rem;
-    line-height: 1.4;
+    line-height: 1.6rem;
   }
 `;
 
 const Divider = styled.div`
-  height: 2px;
-  width: 150px;
+  height: 3px;
+  width: 200px;
   background: #4ea8ff;
   margin: 2rem 0;
 `;
@@ -95,8 +104,13 @@ const ImageContainer = styled.div`
 const Image = styled.img`
   width: 100%;
   max-width: 300px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
 `;
 
 export default function AuditJuridique() {
@@ -119,7 +133,7 @@ export default function AuditJuridique() {
       <BackgroundContainer>
         <Overlay />
         <BardeNavigationpublic />
-        <ContentContainer>
+        <ContentContainer className=" font-serif">
           <Title
             initial="hidden"
             animate={controls}
@@ -136,124 +150,77 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong> Une expertise reconnue dans le domaine juridique </strong> 
+              <strong>Une expertise reconnue dans le domaine juridique :</strong> 
               Notre équipe regroupe des avocats et juristes expérimentés,
               spécialisés en droit civil, commercial, fiscal, du travail, et
               administratif. Nous avons l’expérience et les compétences
               nécessaires pour résoudre vos problématiques juridiques, quelles
-              qu’elles soient.Grâce à une veille juridique continue, nous
-              restons à jour sur les évolutions législatives et réglementaires,
-              vous garantissant des solutions toujours adaptées à la situation
-              actuelle.
+              qu’elles soient. Nous mettons à votre disposition un accompagnement
+              sur mesure pour chaque situation.
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/regulat.jpg" alt="Stratégie" />
+            <ParagraphImage src="img/regulat.jpg" alt="Régulation" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
               animate={controls}
             >
-              <strong>Un accompagnement sur mesure </strong>
-              Chaque client est unique. Nous prenons le temps d’étudier en
-              profondeur votre situation pour construire une stratégie juridique
-              parfaitement adaptée à vos besoins.Vous bénéficiez d’un
-              interlocuteur dédié qui vous accompagne à chaque étape, en vous
-              tenant informé de l’évolution de votre dossier et des démarches en
-              cours. Notre approche consiste non seulement à gérer les litiges,
-              mais aussi à anticiper les risques juridiques. Nous travaillons
-              pour sécuriser vos contrats et pratiques afin de prévenir
-              d’éventuels conflits.
+              <strong>Accompagnement dans la régulation :</strong>
+              Nous vous assistons dans vos démarches administratives et
+              réglementaires pour garantir la conformité de vos activités avec
+              les lois en vigueur. Cela inclut l’élaboration des documents requis,
+              la représentation auprès des autorités compétentes, et le suivi des
+              modifications législatives.
             </Paragraph>
-            <Paragraph></Paragraph>
-            <Paragraph></Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/affaire.jpg" alt="Expertise" />
+            <ParagraphImage src="img/MOE_0400.jpg" alt="Consultation" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
               animate={controls}
             >
-              <strong>Une défense efficace et stratégique </strong>
-              Nous avons une longue expérience dans la représentation de clients
-              devant les tribunaux. Nos arguments sont toujours fondés sur des
-              faits solides et une compréhension stratégique des enjeux. Nous
-              veillons à ce que vous compreniez chaque étape du processus
-              juridique. Aucune décision n’est prise sans votre consentement
-              éclairé. Nous savons que les urgences juridiques peuvent survenir
-              à tout moment. Notre équipe est toujours prête à répondre à vos
-              besoins rapidement et efficacement.
-            </Paragraph> 
-            <Paragraph></Paragraph>
-            <Paragraph></Paragraph>
+              <strong>Consultations personnalisées :</strong>
+              Nos experts sont à votre écoute pour vous fournir des solutions
+              adaptées à vos besoins spécifiques, que ce soit pour des
+              conseils, des analyses ou des recommandations stratégiques.
+              Nous abordons chaque cas avec une attention particulière pour
+              offrir un service réellement personnalisé.
+            </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/conf.jpeg" alt="Conformité" />
+            <ParagraphImage src="img/enfamiavoc.jpg" alt="Formation" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
               animate={controls}
             >
-              <strong>Nos domaines d’intervention</strong>
-              <strong>Audit juridique :</strong> Nous vérifions vos contrats,
-              politiques internes et pratiques commerciales pour vous protéger
-              des risques légaux.
-              <strong>Rédaction et sécurisation de contrats : </strong> Nous vous
-              aidons à rédiger et sécuriser vos contrats, garantissant qu’ils
-              protègent vos intérêts de manière claire et conforme aux
-              réglementations.<strong>Gestion des litiges :</strong> En cas de
-              conflit, nous mobilisons toute notre expertise pour défendre vos
-              droits devant les tribunaux. Nous élaborons une stratégie basée
-              sur une analyse minutieuse des faits et des lois applicables.{" "}
-              <strong>
-                Accompagnement dans les démarches administratives :
-              </strong>
-              Nous vous assistons dans vos relations avec les autorités
-              administratives et vous accompagnons pour toutes vos obligations
-              légales.<strong> Conseils stratégiques : </strong> Nous vous aidons
-              à prendre les meilleures décisions juridiques pour atteindre vos
-              objectifs et protéger vos intérêts à long terme.
+              <strong>Formations spécialisées :</strong>
+              Nous proposons des programmes de formation adaptés pour vous
+              aider à mieux comprendre et gérer les aspects juridiques de vos
+              projets. Ces formations couvrent des sujets variés allant de la
+              gestion des contrats à la prévention des litiges.
             </Paragraph>
-            <Paragraph></Paragraph>
-            <Paragraph></Paragraph>
-            <Paragraph></Paragraph>
-            <Paragraph></Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/PREV.jpeg" alt="Prévention" />
+            <ParagraphImage src="img/envir.jpeg" alt="Protection" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
               animate={controls}
             >
-              <strong>Notre engagement : votre succès 
-              En choisissant notre cabinet, vous optez pour: </strong>
-              <ul>
-                <li>
-                  Une équipe passionnée et déterminée à défendre vos droits.
-                </li>
-                <li>
-                  Une approche personnalisée et proactive pour résoudre vos
-                  problématiques juridiques.
-                </li>
-                <li>
-                  Un partenariat basé sur la confiance, la transparence, et des
-                  résultats tangibles.
-                </li>
-              </ul>{" "}
-              Contactez-nous dès aujourd’hui pour bénéficier d’une assistance
-              juridique à la hauteur de vos attentes. Ensemble, nous protégerons
-              vos intérêts avec rigueur et efficacité.
+              <strong>Protection juridique :</strong>
+              Nous vous offrons une assistance pour anticiper et gérer les
+              litiges, en assurant une protection efficace de vos droits.
+              Notre approche proactive vise à réduire les risques légaux
+              et à sécuriser vos intérêts sur le long terme.
             </Paragraph>
-            <Paragraph></Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper></ParagraphWrapper>
-
           <ImageContainer>
             <Image src="img/analysejuri.jpg" alt="Analyse juridique" />
-            <Image src="img/regulat.jpg" alt="regulat" />
-            <Image src="img/MOE_0400.jpg" alt="Équipe d'experts" />
+            <Image src="img/regulat.jpg" alt="Régulation" />
+            <Image src="img/PREV.jpeg" alt="Équipe d'experts" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

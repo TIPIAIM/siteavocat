@@ -27,14 +27,14 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 
   h1 {
     font-size: 2.5rem;
+    color: #90e0ef;
     margin-bottom: 0.5rem;
-   background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
-  
-    margin-bottom: 30px
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+
+    margin-bottom: 30px;
   }
 `;
 
@@ -58,10 +58,10 @@ const GridContainer = styled.div`
 // Carte individuelle
 const Card = styled(motion.div)`
   position: relative;
-  background: #ffffff;
+  background: #03045e;
   border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0px 4px 6px rgba(0, 50,50, 0.3);
+  box-shadow: 0px 4px 6px rgba(0, 50, 50, 0.3);
   transition: transform 0.3s ease;
 
   &:hover {
@@ -89,12 +89,11 @@ const Card = styled(motion.div)`
     }
 
     a {
-     font-size: 1.5rem;
+      font-size: 1rem;
       font-weight: bold;
-      color: #;
+      color: #90e0ef;
       text-decoration: none;
       &:hover {
-        text-decoration: underline;
       }
     }
   }
@@ -103,24 +102,24 @@ const Card = styled(motion.div)`
 export default function Nosexpertise() {
   const images = [
     {
-        src: "img/affair.jpeg",
-        alt: "Droit des affaires",
-        text: "Droit des affaires",
-        link: "/affairee",
-      },
+      src: "img/affair.jpeg",
+      alt: "Droit des affaires",
+      text: "Droit des affaires",
+      link: "/affairee",
+    },
     {
-        src: "img/familled.png",
-        alt: "Droit de la Famille",
-        text: "Droit de la Famille",
-        link: "/famillee",
-      },
+      src: "img/familled.png",
+      alt: "Droit de la Famille",
+      text: "Droit de la Famille",
+      link: "/famillee",
+    },
     {
       src: "img/fisc.png",
       alt: "Droit fiscal",
       text: "Droit fiscal",
       link: "/fiscalitee",
     },
- 
+
     {
       src: "img/envir.jpeg",
       alt: "Minier",
@@ -139,7 +138,7 @@ export default function Nosexpertise() {
       text: "Droit du Travail ",
       link: "/travail",
     },
-  
+
     {
       src: "img/image.png",
       alt: "penal",
@@ -153,50 +152,55 @@ export default function Nosexpertise() {
       link: "/sport",
     },
     {
-        src: "img/arbitra.png",
-        alt: "arbit",
-        text: "Arbitrage",
-        link: "/arbitrage",
-      },
+      src: "img/arbitra.png",
+      alt: "arbit",
+      text: "Arbitrage",
+      link: "/arbitrage",
+    },
   ];
 
   return (
     <div>
-    <BackgroundContainer>
-      {/* Couche transparente */}
-      <Overlay />
+      <BackgroundContainer>
+        {/* Couche transparente */}
+        <Overlay />
 
-      {/* Contenu principal */}
-      <ContentContainer>
-        <BardeNavigationpublic />
-        <h1 className="text-4xl  font-bold mb-8" style={{ color: '#4ea8ff' }}>Nos Expertises</h1>
+        {/* Contenu principal */}
+        <ContentContainer>
+          <BardeNavigationpublic />
+          <h1 className=" font-serif text-4xl font-bold mb-8" style={{ color: "#90e0ef" }}>
+            Nos Expertises
+          </h1>
 
-        {/* Grille d'expertise */}
-        <GridContainer>
-          {images.map((image, index) => (
-            <Card
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: index * 0.8 }}
-            >
-              <img src={image.src} alt={image.alt} />
-              <div className="info">
-                <h3>{image.text}</h3>
-                <a href={image.link} target="_blank" rel="noopener noreferrer">
-                  Voir +
-                </a>
-              </div>
-            </Card>
-          ))}
-        </GridContainer>
-      </ContentContainer>
+          {/* Grille d'expertise */}
+          <GridContainer>
+            {images.map((image, index) => (
+              <Card
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: index * 0.8 }}
+              >
+                <img src={image.src} alt={image.alt} />
+                <div className="info">
+                  <h3>{image.text}</h3>
+                  <a
+                    href={image.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Voir detail ...
+                  </a>
+                </div>
+              </Card>
+            ))}
+          </GridContainer>
+        </ContentContainer>
 
-      {/* Footer */}
-     
-    </BackgroundContainer>
-   
-       <Footer />
+        {/* Footer */}
+      </BackgroundContainer>
+
+      <Footer />
     </div>
   );
 }

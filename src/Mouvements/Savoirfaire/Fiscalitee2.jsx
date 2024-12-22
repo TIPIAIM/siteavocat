@@ -27,7 +27,7 @@ const ContentWrapper = styled.div`
   margin: 2rem auto;
   padding: 4rem;
   background-color: rgba(255, 255, 255, 0.6); /* Fond semi-transparent */
-  border-radius: 15px;
+  border-radius: px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(8px); /* Flou pour un effet moderne */
 
@@ -224,10 +224,10 @@ const Fiscalitee2 = () => {
             </Paragraph>
           </section>
         
-        </ContentWrapper>
+        </ContentWrapper><Footer />
       </BackgroundContainer>
       
-      <Footer />
+      
     </div>
   );
 };

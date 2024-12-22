@@ -32,7 +32,8 @@ function App() {
       <Routes>
         <Route index element={<Accueil />} />
         {/** <Route path="*" element={<Orror />} />
-      pour */}  <Route path="/accueil" element={< Accueil/>} />
+      pour */}{" "}
+        <Route path="/accueil" element={<Accueil />} />
         <Route path="/apropos" element={<Apropos />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/article" element={<Articles />} />
@@ -42,10 +43,6 @@ function App() {
         <Route path="/fiscalite" element={<Fiscalite />} />
         <Route path="/minier" element={<Minier />} />
         <Route path="/famille" element={<Famille />} />
-      
-
-
-
         <Route path="/nosexpertises" element={<Nosexpertise />} />
         <Route path="/affairee" element={<Affairee />} />
         <Route path="/famillee" element={<Famillee />} />

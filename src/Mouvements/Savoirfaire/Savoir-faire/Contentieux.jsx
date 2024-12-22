@@ -55,17 +55,16 @@ const ParagraphContainer = styled.div`
   }
 `;
 
-const Image = styled.img`
+const StyledImage = styled(motion.img)`
   width: 200px;
   height: auto;
-   object-fit: cover;
+  object-fit: cover;
   border-radius: 10%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   flex-shrink: 0;
 
   @media (max-width: 768px) {
-   
-     margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 `;
 
@@ -80,8 +79,6 @@ const Divider = styled.div`
   background: #4ea8ff;
   margin: 2rem 0;
 `;
-
-
 
 export default function Contentieux() {
   const controls = useAnimation();
@@ -98,94 +95,131 @@ export default function Contentieux() {
     visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
   };
 
-  return (
-     <div>
-    <BackgroundContainer>
-      <Overlay />
-      
-      <BardeNavigationpublic />
-      <ContentContainer>
-        <Title
-          initial="hidden"
-          animate={controls}
-          variants={textVariants}
-          ref={ref}
-        >
-          Le droit de contentieux ?
-        </Title>
-        <Divider />
-        <ParagraphContainer>
-          <Image src="img/analysejuri.jpg" alt="Illustration 1" />
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            Notre cabinet dispose d’une équipe de juristes et d’avocats
-            expérimentés, spécialisés dans la gestion des litiges complexes.
-            Nous maîtrisons les procédures judiciaires , garantissant une
-            représentation solide et stratégique à chaque étape de votre
-            dossier.
-          </Paragraph>
-        </ParagraphContainer>
-        <ParagraphContainer>
-          <Image src="img/keitaseul2.jpg" alt="Illustration 2" />
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            Chaque contentieux est unique. Nous analysons minutieusement votre
-            situation pour élaborer des stratégies adaptées à vos besoins
-            spécifiques. Notre approche proactive vise à résoudre les différends
-            de manière rapide et efficace, tout en minimisant les risques.
-          </Paragraph>
-        </ParagraphContainer>
-        <ParagraphContainer>
-          <Image src="img/technologie.jpg" alt="Illustration 3" />
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            Nous sommes déterminés à protéger vos droits et à défendre vos
-            intérêts avec rigueur et professionnalisme. Que ce soit pour des
-            litiges commerciaux, civils, ou administratifs, notre équipe se
-            consacre entièrement à obtenir les meilleurs résultats possibles
-            pour vous.
-          </Paragraph>
-        </ParagraphContainer>
-        <ParagraphContainer>
-          <Image src="img/travail.png" alt="Illustration 4" />
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            Nous croyons en une communication claire et continue avec nos
-            clients. Vous serez informé à chaque étape du processus, et nous
-            travaillerons en collaboration étroite avec vous pour garantir une
-            gestion optimale de votre dossier.
-          </Paragraph>
-        </ParagraphContainer>
-        <ParagraphContainer>
-          <Image src="img/sttis.webp" alt="Illustration 5" />
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            Notre cabinet est reconnu pour sa capacité à résoudre des
-            contentieux complexes avec succès. Nos résultats et la satisfaction
-            de nos clients témoignent de notre engagement envers l’excellence et
-            la justice.
-          </Paragraph>
-        </ParagraphContainer>
-      </ContentContainer>
-    </BackgroundContainer>
-   
+  const imageVariants = {
+    hidden: { scale: 0.9, opacity: 0 },
+    visible: { scale: 1, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
+  };
 
-      <Footer/>
+  return (
+    <div>
+      <BackgroundContainer className=" font-serif">
+        <Overlay />
+        <BardeNavigationpublic />
+        <ContentContainer>
+          <Title
+            initial="hidden"
+            animate={controls}
+            variants={textVariants}
+            ref={ref}
+           className=" font-serif">
+            Le droit de contentieux ?
+          </Title>
+          <Divider />
+          {/* Section 1 */}
+          <ParagraphContainer>
+            <StyledImage
+              src="img/analysejuri.jpg"
+              alt="Illustration 1"
+              variants={imageVariants}
+              initial="hidden"
+              animate={controls}
+            />
+            <Paragraph
+              variants={textVariants}
+              initial="hidden"
+              animate={controls}
+            >
+              Notre cabinet dispose d’une équipe de juristes et d’avocats
+              expérimentés, spécialisés dans la gestion des litiges complexes.
+              Nous maîtrisons les procédures judiciaires, garantissant une
+              représentation solide et stratégique à chaque étape de votre
+              dossier.
+            </Paragraph>
+          </ParagraphContainer>
+          {/* Section 2 */}
+          <ParagraphContainer>
+            <StyledImage
+              src="img/keitaseul2.jpg"
+              alt="Illustration 2"
+              variants={imageVariants}
+              initial="hidden"
+              animate={controls}
+            />
+            <Paragraph
+              variants={textVariants}
+              initial="hidden"
+              animate={controls}
+            >
+              Chaque contentieux est unique. Nous analysons minutieusement votre
+              situation pour élaborer des stratégies adaptées à vos besoins
+              spécifiques. Notre approche proactive vise à résoudre les différends
+              de manière rapide et efficace, tout en minimisant les risques.
+            </Paragraph>
+          </ParagraphContainer>
+          {/* Section 3 */}
+          <ParagraphContainer>
+            <StyledImage
+              src="img/technologie.jpg"
+              alt="Illustration 3"
+              variants={imageVariants}
+              initial="hidden"
+              animate={controls}
+            />
+            <Paragraph
+              variants={textVariants}
+              initial="hidden"
+              animate={controls}
+            >
+              Nous sommes déterminés à protéger vos droits et à défendre vos
+              intérêts avec rigueur et professionnalisme. Que ce soit pour des
+              litiges commerciaux, civils, ou administratifs, notre équipe se
+              consacre entièrement à obtenir les meilleurs résultats possibles
+              pour vous.
+            </Paragraph>
+          </ParagraphContainer>
+          {/* Section 4 */}
+          <ParagraphContainer>
+            <StyledImage
+              src="img/travail.png"
+              alt="Illustration 4"
+              variants={imageVariants}
+              initial="hidden"
+              animate={controls}
+            />
+            <Paragraph
+              variants={textVariants}
+              initial="hidden"
+              animate={controls}
+            >
+              Nous croyons en une communication claire et continue avec nos
+              clients. Vous serez informé à chaque étape du processus, et nous
+              travaillerons en collaboration étroite avec vous pour garantir une
+              gestion optimale de votre dossier.
+            </Paragraph>
+          </ParagraphContainer>
+          {/* Section 5 */}
+          <ParagraphContainer>
+            <StyledImage
+              src="img/sttis.webp"
+              alt="Illustration 5"
+              variants={imageVariants}
+              initial="hidden"
+              animate={controls}
+            />
+            <Paragraph
+              variants={textVariants}
+              initial="hidden"
+              animate={controls}
+            >
+              Notre cabinet est reconnu pour sa capacité à résoudre des
+              contentieux complexes avec succès. Nos résultats et la satisfaction
+              de nos clients témoignent de notre engagement envers l’excellence et
+              la justice.
+            </Paragraph>
+          </ParagraphContainer>
+        </ContentContainer>
+      </BackgroundContainer>
+      <Footer />
     </div>
   );
 }

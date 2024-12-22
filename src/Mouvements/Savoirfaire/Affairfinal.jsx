@@ -50,7 +50,7 @@ const Paragraph = styled(motion.p)`
 
 const Divider = styled.div`
   height: 2px;
-  width: 150px;
+ 
   background: #4ea8ff;
   margin: 2rem 0;
 `;
@@ -99,12 +99,15 @@ export default function Affairfinal() {
 
   return (
     <BackgroundContainer>
-      <Overlay />{" "}
-      
-      <BardeNavigationpublic />
-      <ContentContainer><BackButton to="/nosexpertises" data-aos="fade-right">
-        <FaArrowLeft size={20} />
-      </BackButton>
+      <Overlay />
+      <ContentContainer>
+
+        <BardeNavigationpublic />
+
+        <BackButton to="/nosexpertises" data-aos="fade-right">
+          <FaArrowLeft size={20} />
+        </BackButton>
+        
         <Title
           initial="hidden"
           animate={controls}

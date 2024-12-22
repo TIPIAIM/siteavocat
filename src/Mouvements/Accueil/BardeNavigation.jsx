@@ -190,7 +190,7 @@ export default function BardeNavigation() {
             alt="Logo du Cabinet"
             className="font-serif font-extrabold text-xl"
           />
-          AOD AVOCATS SCPA
+         
         </Logo>
 
         {/* Bouton pour le menu hamburger */}
@@ -200,6 +200,7 @@ export default function BardeNavigation() {
 
         {/* Menu principal */}
         <Menu isOpen={isMenuOpen}>
+        <NavLink href="/accueil">Home</NavLink>
           <NavLink href="/contact">Contact</NavLink>
           <NavLink href="#">
             Savoir-faire

@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 export default function Accueilfooter() {
   return (
     <div className=" bg-white">
@@ -20,9 +21,12 @@ export default function Accueilfooter() {
                 <Mail className="w-8 h-8 text-amber-600" />
                 <div>
                   <div className="font-semibold">Email</div>
-                  <div className="text-gray-300">
-                    contact@martin-associes.fr
-                  </div>
+                  <Link
+                    to="mailto:: amadou.diallo@aod-avocats.com"
+                    className=" no-underline text-gray-300"
+                  >
+                    amadou.diallo@aod-avocats.com
+                  </Link>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -30,11 +34,13 @@ export default function Accueilfooter() {
                 <div>
                   <div className="font-semibold">Adresse</div>
                   <div className="text-gray-300">
-                    123 Avenue des Champs-Élysées, Paris
+                    Immeuble Yansané,
+                    , Commune de Dixinn, Conakry
                   </div>
                 </div>
               </div>
             </div>
+        
           </div>
         </section>
 

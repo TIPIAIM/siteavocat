@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import articleImage from "./../../assets/Image/avoc3.jpg"; // Image spécifique à l'article
 import Footer from "../Accueil/Footerr";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import Affair from "./Affair";
 import Affairfinal from "./Affairfinal";
 
@@ -10,7 +9,7 @@ import Affairfinal from "./Affairfinal";
 const AffairesContainer = styled.div`
   width: 100%;
   padding: 50px 20px;
-  background: linear-gradient(to bottom, #0369a1, #0f172a);
+  background: linear-gradient(to bottom, #, #0f172a );
   color: white;
   display: flex;
   flex-direction: column;
@@ -24,7 +23,7 @@ const SectionTitle = styled.h2`
   font-size: 2.8rem;
   font-weight: bold;
   margin-bottom: 40px;
-  color: #ffffff;
+  color: #0369a1;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
 
   @media (max-width: 768px) {
@@ -127,11 +126,11 @@ const ReadMoreButton = styled.a`
 const Affairee = () => {
   return (
     <div>
-      <BardeNavigationpublic />
+    
       <Affairfinal />
       <Affair />
       <AffairesContainer>
-        <SectionTitle>
+        <SectionTitle  className=" font-serif">
           L`importance des contrats en droit des affaires
         </SectionTitle>
         <ArticleCard

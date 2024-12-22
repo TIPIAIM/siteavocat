@@ -1,13 +1,13 @@
 couleur : 
 RGBA :rgba(3, 4, 94, 1)
+03045e
 rgba(10, 34, 64, 0.9)
-
 className="bg-[rgba(10,34,64,0.9)]" tailwind
 03045e
 
 RGBA :rgba(0, 119, 182, 1)
 0077b6
-RGBA : rgba(0, 180, 216, 1, 0.9)
+RGBA : rgba(0, 180, 216, 1)
 00b4d8                         
 
 texte: 

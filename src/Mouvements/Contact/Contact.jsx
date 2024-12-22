@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import Footer from "../Accueil/Footerr";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { Link } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ChevronsLeftRight } from "lucide-react";
 const ContactContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -52,17 +52,17 @@ const FormSection = styled.div`
 const Title = styled.h1`
   font-size: 2.3rem;
   font-family: "Times New Roman", serif;
-  color: #0488b2;
+  color: #00b4d8;
   margin-bottom: 10px;
   font-weight: bold;
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8);
+  text-shadow: 0px 1px 2px rgba(0, 180, 216, );
 
   @media (max-width: 768px) {
     font-size: 1.8rem; /* Réduire la taille de police sur petits écrans */
   }
 `;
 const Description = styled.p`
-  font-size: 1.02rem;
+  font-size: 1.03rem;
   font-family: "Times New Roman", serif;
   color: #0f172a;
   margin-bottom: 20px;
@@ -88,11 +88,11 @@ const Form = styled.form`
 const Input = styled.input`
   padding: 12px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #00b4d8;
   border-radius: 5px;
   outline: none;
   transition: border-color 0.3s ease;
-  box-shadow: 0 4px 6px rgba(1, 100, 100, 0.75);
+  box-shadow: 0 4px 1px #00b4d8;
 
   &:focus {
     border-color: #007bff;
@@ -114,12 +114,12 @@ const FooterWrapper = styled.div`
 const Textarea = styled.textarea`
   padding: 12px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #00b4d8;
   border-radius: 5px;
   outline: none;
   transition: border-color 0.3s ease;
   resize: none;
-  box-shadow: 0 4px 6px rgba(1, 100, 100, 0.75);
+  box-shadow: 0 4px 1px #00b4d8;
 
   &:focus {
     border-color: #007bff;
@@ -133,8 +133,9 @@ const Textarea = styled.textarea`
 const Button = styled.button`
   padding: 12px;
   font-size: 1rem;
-  color: #fff;
-  background-color: #007bff;
+  color: #00b4d8;
+  font: bold;
+  background-color: rgba(10, 34, 64);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -166,13 +167,13 @@ export default function Contact() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left max-w-screen-md">
-          <h1 className="text-3xl sm:text-5xl font-bold text-white mb-4 sm:mb-6">
+          <h1 className="text-3xl sm:text-5xl font-bold  mb-4 sm:mb-6" style={{ color: '#00b4d8'}}>
             Cabinet AOD-AVOCATS-SCPA
           </h1>
          
-          <Link to='/accueil' className="bg-[rgba(10,34,64,0.9)] animate-pulse hover:bg-[rgba(0,119,182,1)] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-md inline-flex items-center w-fit mx-auto sm:mx-0">
+          <Link to='/accueil' className="bg-[rgba(10,34,64,0.9)] no-underline animate-pulse hover:bg-[rgba(0,119,182,1)]  px-6 sm:px-8 py-2 sm:py-3 rounded-md inline-flex items-center w-fit mx-auto sm:mx-0" style={{ color: '#00b4d8'}}>
             Retourner
-            <ChevronRight className="ml-2 h-5 w-5" />
+            <ChevronsLeftRight  className="ml-2 h-5 w-5" />
           </Link>
         </div>
         

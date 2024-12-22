@@ -1,8 +1,4 @@
-import {
-  FaFileDownload,
-  FaGithubSquare,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaFileDownload, FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import { MdContactMail } from "react-icons/md";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 

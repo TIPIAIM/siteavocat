@@ -175,6 +175,7 @@ export default function Contact() {
             <ChevronRight className="ml-2 h-5 w-5" />
           </Link>
         </div>
+        
       </header>
 
       <ContactContainer className=" mb-7"> 

@@ -14,7 +14,7 @@ export default function Accueilfooter() {
                 <Phone className="w-8 h-8 text-amber-600" />
                 <div>
                   <div className="font-semibold">Téléphone</div>
-                  <div className="text-gray-300">+33 1 23 45 67 89</div>
+                  <div className="text-gray-300">+00 224 622 253 536</div>
                 </div>
               </div>
               <div className="flex items-center gap-4">

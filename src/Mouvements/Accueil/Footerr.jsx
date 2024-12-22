@@ -12,7 +12,6 @@ const FooterContainer = styled.footer`
   text-align: center;
 `;
 
-
 const Composantfinal = {
   fadeInUp: {
     initial: { opacity: 0, y: 50 },
@@ -26,10 +25,7 @@ export default function Footer() {
   return (
     <FooterContainer>
       <motion.div {...Composantfinal.fadeInUp}>
-      
-
-         <Accueilfooter/>
-      
+        <Accueilfooter />
       </motion.div>
     </FooterContainer>
   );

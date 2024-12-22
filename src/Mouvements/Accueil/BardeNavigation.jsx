@@ -6,6 +6,7 @@ import Composantfinal from "./Horaire";
 import Footer from "./Footerr";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import SocialLinks from "../Lienlateral/SocialLinks";
 
 // Conteneur principal de la navigation
 const Nav = styled.nav`
@@ -190,7 +191,6 @@ export default function BardeNavigation() {
             alt="Logo du Cabinet"
             className="font-serif font-extrabold text-xl"
           />
-         
         </Logo>
 
         {/* Bouton pour le menu hamburger */}
@@ -200,7 +200,7 @@ export default function BardeNavigation() {
 
         {/* Menu principal */}
         <Menu isOpen={isMenuOpen}>
-        <NavLink href="/accueil">Home</NavLink>
+          <NavLink href="/accueil">Home</NavLink>
           <NavLink href="/contact">Contact</NavLink>
           <NavLink href="#">
             Savoir-faire
@@ -239,7 +239,7 @@ export default function BardeNavigation() {
 
       {/* Contenu principal */}
       <main style={{ paddingTop: "150px" }}>
-       
+        <SocialLinks />
       </main>
     </>
   );

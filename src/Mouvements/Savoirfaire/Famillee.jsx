@@ -38,7 +38,7 @@ const ContentContainer = styled.div`
 const Title = styled(motion.h1)`
   font-size: 2.5rem;
   font-weight: bold;
-  color: #4ea8ff;
+  color: #90e0ef;
   margin-bottom: 2rem;
 `;
 
@@ -52,8 +52,8 @@ const Paragraph = styled(motion.p)`
 
 const Divider = styled.div`
   height: 2px;
-  width: 150px;
-  background: #4ea8ff;
+  width: 300px;
+  background: #90e0ef;
   margin: 2rem 0;
 `;
 const BackButton = styled(Link)`
@@ -64,7 +64,7 @@ const BackButton = styled(Link)`
   height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px #90e0ef;
   color: ;
   margin-bottom: 0rem;
   transition: background-color 0.3s ease;

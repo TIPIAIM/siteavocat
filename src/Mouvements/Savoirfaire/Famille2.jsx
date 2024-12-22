@@ -25,7 +25,7 @@ const ContentWrapper = styled.div`
   max-width: 1350px;
   margin: 2rem auto;
   padding: 4rem;
-  background-color: rgba(255, 255, 255,0.2); /* Fond semi-transparent */
+  background-color: rgba(0, 0, 0,0.7); /* Fond semi-transparent */
 
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(8px); /* Flou pour un effet moderne */
@@ -47,7 +47,7 @@ const ContentWrapper = styled.div`
 const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: 700;
-  color: black;
+  color: #90e0ef;
   text-align: center;
   margin-bottom: 3rem;
 
@@ -65,10 +65,10 @@ const ArticleSection = styled.div`
   margin-bottom: 2rem;
   padding: 2rem;
   font-size: 1.2rem;
+color: #caf0f8;
+  background-color: rgba();
 
-  background-color: rgba(255, 255, 255, 0.8);
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px #90e0ef;
   backdrop-filter: blur(6px);
 
   @media (max-width: 768px) {
@@ -78,7 +78,7 @@ const ArticleSection = styled.div`
 
 // Lien de l'article
 const ArticleLink = styled.a`
-  color: #0073e6;
+  color: #90e0ef;
   text-decoration: none;
   font-weight: bold;
   &:hover {
@@ -95,11 +95,11 @@ const Famille2 = () => {
         <ContentWrapper>
           
           <Title>
-            Articles Pertinents sur le Droit de la Famille et la Médiation
+            Articles Pertinents
           </Title>
 
           <ArticleSection>
-            <h2>
+            <h2 style={{color: "#90e0ef"}}>
               La médiation familiale : un outil clé pour résoudre les conflits
               familiaux
             </h2>

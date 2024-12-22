@@ -13,7 +13,7 @@ export default function Accueilfooter() {
               <div className="flex items-center gap-4">
                 <Phone className="w-8 h-8 " style={{ color : '#90e0ef'}} />
                 <div>
-                  <div className="font-semibold">Téléphone</div>
+                  <div className="font-semibold" style={{ color : '#90e0ef'}}>Téléphone</div>
                   <div className="text-gray-300">+00 224 622 253 536</div>
                 </div>
               </div>
@@ -32,7 +32,7 @@ export default function Accueilfooter() {
               <div className="flex items-center gap-4">
                 <MapPin className="w-8 h-8 "  style={{ color : '#90e0ef'}}/>
                 <div>
-                  <div className="font-semibold">Adresse</div>
+                  <div className="font-semibold" style={{ color : '#90e0ef'}}>Adresse</div>
                   <div className="text-gray-300">
                     Immeuble Yansané,
                     , Commune de Dixinn, Conakry

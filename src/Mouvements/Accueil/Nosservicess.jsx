@@ -13,11 +13,12 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #0488b2, #, #000);
+  //background: linear-gradient(to bottom, #0488b2, #000);
   color: white;
   padding: 20px;
   box-sizing: border-box;
   overflow: hidden;
+  text-align: center;
 `;
 
 const Title = styled.h1`
@@ -30,7 +31,7 @@ const Title = styled.h1`
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
 
   @media (max-width: 768px) {
-    font-size: 1.5rem; /* Réduction de la taille du titre sur les petits écrans */
+    font-size: 1.5rem;
   }
 `;
 
@@ -42,6 +43,7 @@ const Description = styled.p`
   max-width: 900px;
   line-height: 1.5;
   color: #0f172a;
+  font-weight: 400;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -58,18 +60,18 @@ const Grid = styled.div`
   box-sizing: border-box;
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; /* Une seule colonne sur petits écrans */
-    gap: 20px; /* Espacement réduit sur petits écrans */
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 `;
 
 const Card = styled.div`
-  background: rgba(10, 34, 64, 1.9);
-  border-radius: 2px;
-  padding: 8px;
+  background: rgba(10, 34, 64, 0.9);
+  border-radius: 8px;
+  padding: 16px;
   font-family: "Times New Roman", Times, serif;
   text-align: center;
-  box-shadow: -2px -2px 1px rgba(0, 180, 216, 1);
+  box-shadow: -2px -2px 10px rgba(0, 180, 216, 0.7);
   transition: transform 0.5s ease;
   overflow: hidden;
 
@@ -78,7 +80,7 @@ const Card = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 4px;
+    padding: 8px;
   }
 `;
 
@@ -87,7 +89,7 @@ const CardImage = styled.img`
   height: 250px;
   max-height: 250px;
   object-fit: cover;
-  border-radius: px;
+  border-radius: 8px;
   margin-bottom: 10px;
 
   @media (max-width: 768px) {
@@ -109,9 +111,10 @@ const CardTitle = styled.h3`
 
 const CardDescription = styled.p`
   font-size: 1.1rem;
-  color: rgba(255, 255, 255);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.5;
-  text-align: justify;
+  text-align: center;
+  font-weight: 300;
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
@@ -121,13 +124,13 @@ const CardDescription = styled.p`
 // Individual Card with Intersection Observer
 const AnimatedCard = ({ title, description, image }) => {
   const { ref, inView } = useInView({
-    triggerOnce: true, // Trigger the animation only once
-    threshold: 0.2, // Start the animation when 20% of the element is visible
+    triggerOnce: true,
+    threshold: 0.2,
   });
 
   return (
     <Card ref={ref} data-aos={inView ? "fade-up" : ""} data-aos-duration="1000">
-      <CardImage src={image} alt={title} />
+      <CardImage src={image} alt={title || "Card Image"} onError={(e) => (e.target.src = "/img/placeholder.png")} />
       <CardTitle>{title}</CardTitle>
       <CardDescription>{description}</CardDescription>
     </Card>
@@ -185,14 +188,10 @@ const Nosservicess = () => {
 
   return (
     <Container>
-      {/* Titre principal */}
       <Title>Bienvenue à Notre Service</Title>
       <Description>
-        Notre objectif est de résoudre les problèmes juridiques de nos clients
-        avec rigueur et professionnalisme.
+        Notre cabinet offre des services juridiques de qualité dans divers domaines, avec une expertise reconnue et une approche humaine pour répondre à vos besoins spécifiques.
       </Description>
-
-      {/* Grille de services */}
       <Grid>
         {services.map((service, index) => (
           <AnimatedCard

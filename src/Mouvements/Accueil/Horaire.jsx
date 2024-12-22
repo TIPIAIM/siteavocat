@@ -11,21 +11,20 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #0f172a, #0f172a, #0f172a);
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
   color: white;
-  padding: px;
+  padding: 20px;
   box-sizing: border-box;
   overflow: hidden;
 `;
 
 const Title = styled.h1`
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 40px;
-  margin-top: 40px;
-  color: #00b4d8;
+  margin: 40px 0;
+  color: #90e0ef;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -33,51 +32,54 @@ const Title = styled.h1`
 `;
 
 const Description = styled.p`
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-align: center;
   font-family: "Times New Roman", Times, serif;
-  margin-bottom: 25px;
-  max-width: 900px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  max-width: 800px;
+  line-height: 1.8;
+  color: #caf0f8;
   @media (max-width: 768px) {
     font-size: 1rem;
+    line-height: 1.6;
   }
 `;
 
 const Card = styled.div`
-  background: linear-gradient(to bottom, #, #0f172a, #0488b2);
+  background: linear-gradient(to bottom, #90e0ef, #);
   border-radius: 12px;
-  padding: 10px;
+  padding: 20px;
   font-family: "Times New Roman", Times, serif;
   text-align: center;
-  box-shadow: -12px -1px 2px rgba(0, 180, 216,1);
-  transition: transform 0.5s ease;
+  box-shadow: 1px 8px 1px #90e0ef;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
   &:hover {
-    transform: scale(0.9);
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6);
   }
   @media (max-width: 768px) {
-    padding: 10px;
+    padding: 15px;
   }
 `;
 
 const CardTitle = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 8px;
-  color: #00b4d8;
+  margin-bottom: 10px;
+  color: #90e0ef;
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 `;
 
 const CardDescription = styled.p`
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.4;
+  font-size: 1.1rem;
+  font-family: "Times New Roman", Times, serif;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
   @media (max-width: 768px) {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 `;
 
@@ -86,13 +88,13 @@ const Composantfinal = {
     initial: { opacity: 0, y: 50 },
     animate: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: -50 },
-    transition: { duration: 1 },
+    transition: { duration: 0.8 },
   },
   fadeInLeft: {
     initial: { opacity: 0, x: -50 },
     animate: { opacity: 1, x: 0 },
     exit: { opacity: 0, x: 50 },
-    transition: { duration: 1 },
+    transition: { duration: 0.8 },
   },
 };
 
@@ -123,8 +125,7 @@ export default function Horaire() {
   ];
 
   return (
-    <Container className=" mt-2">
-      {/* Contenu principal */}
+    <Container className="mt-2">
       <motion.div {...Composantfinal.fadeInUp}>
         <Title> COMBIEN COÛTE UN AVOCAT ?</Title>
         <Description>
@@ -135,7 +136,6 @@ export default function Horaire() {
         </Description>
       </motion.div>
 
-      {/* Sections avec animations */}
       <AnimatePresence>
         {sections.map((section, index) => (
           <Section
@@ -146,27 +146,17 @@ export default function Horaire() {
           />
         ))}
       </AnimatePresence>
-
-      {/* Image centrée */}
     </Container>
   );
 }
 
-// Section Component with different animations based on index
 const Section = ({ title, description, index }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  // Dynamically set animation based on the section index
   let animation;
   switch (index % 4) {
     case 0:
       animation = Composantfinal.fadeInLeft;
-      break;
-    case 1:
-      animation = Composantfinal.fadeInRight;
-      break;
-    case 2:
-      animation = Composantfinal.fadeInUp;
       break;
     default:
       animation = Composantfinal.fadeInUp;
@@ -177,10 +167,10 @@ const Section = ({ title, description, index }) => {
       ref={ref}
       {...animation}
       className="mb-8"
-      style={{ opacity: inView ? 1 : 0 }} // Affichage conditionnel basé sur la visibilité
+      style={{ opacity: inView ? 1 : 0 }}
     >
-      <Card >
-        <CardTitle >{title}</CardTitle>
+      <Card>
+        <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </Card>
     </motion.div>

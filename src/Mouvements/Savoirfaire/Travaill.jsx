@@ -51,7 +51,7 @@ const Paragraph = styled(motion.p)`
 
 const Divider = styled.div`
   height: 2px;
-  width: 150px;
+  width: 300px;
   background: #4ea8ff;
   margin: 2rem 0;
 `;
@@ -63,10 +63,10 @@ const BackButton = styled(Link)`
   height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px #caf0f8;
   color: ;
   margin-bottom: 0rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 
   &:hover {
     background-color: #e2e8f0;
@@ -100,62 +100,84 @@ export default function Travail() {
 
   return (
     <div>
-    <BackgroundContainer>
-      <Overlay />
-    
-      <BardeNavigationpublic />
-      <ContentContainer>  <BackButton to="/nosexpertises" data-aos="fade-right">
-        <FaArrowLeft size={20} />
-      </BackButton>
-        <Title
-          initial="hidden"
-          animate={controls}
-          variants={textVariants}
-          ref={ref}
-        >
-          Le droit de travail
-        </Title>
-        <Divider />
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          Notre cabinet est composé de juristes et d’avocats hautement
-          qualifiés, spécialisés en droit du travail. Nous comprenons les enjeux
-          complexes des relations employeur-employé, et notre expertise couvre
-          une large gamme de problématiques liées à l’emploi, y compris les
-          contrats de travail, la gestion des conflits et les licenciements.
-        </Paragraph>
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          Nous nous engageons à fournir des solutions juridiques sur mesure
-          adaptées à votre situation spécifique. Que vous soyez employeur ou
-          salarié, nous analysons vos besoins pour proposer des stratégies qui
-          protègent vos droits tout en favorisant une résolution rapide et
-          efficace des différends.
-        </Paragraph>
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          Le droit du travail évolue constamment, et les litiges nécessitent
-          souvent une réponse rapide. Notre équipe est disponible et réactive
-          pour répondre à vos préoccupations, vous accompagner dans les
-          négociations, et vous représenter devant les juridictions compétentes.
-        </Paragraph>
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          Pour les entreprises, nous mettons un point d’honneur à prévenir les
-          litiges en veillant à ce que vos politiques internes, contrats de
-          travail et pratiques RH soient conformes aux dernières
-          réglementations. Pour les salariés, nous veillons à ce que vos droits
-          soient respectés et défendus avec diligence.
-        </Paragraph>
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          En choisissant notre cabinet, vous bénéficiez d’un partenaire
-          juridique qui place vos intérêts au cœur de son action. Nous vous
-          apportons une expertise de pointe, un accompagnement humain et une
-          défense acharnée pour atteindre des résultats concrets et
-          satisfaisants.
-        </Paragraph>
-      </ContentContainer>
-     
-     
-    </BackgroundContainer>
-     <Travail2/>
-         <Footer/>
+      <BackgroundContainer>
+        <Overlay />
+
+        <BardeNavigationpublic />
+        <ContentContainer className=" font-serif">
+          {" "}
+          <BackButton to="/nosexpertises" data-aos="fade-right">
+            <FaArrowLeft size={20} />
+          </BackButton>
+          <Title
+            initial="hidden"
+            animate={controls}
+            variants={textVariants}
+            ref={ref}
+          >
+            Le droit de travail
+          </Title>
+          <Divider />
+          <Paragraph
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            Notre cabinet est composé de juristes et d’avocats hautement
+            qualifiés, spécialisés en droit du travail. Nous comprenons les
+            enjeux complexes des relations employeur-employé, et notre expertise
+            couvre une large gamme de problématiques liées à l’emploi, y compris
+            les contrats de travail, la gestion des conflits et les
+            licenciements.
+          </Paragraph>
+          <Paragraph
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            Nous nous engageons à fournir des solutions juridiques sur mesure
+            adaptées à votre situation spécifique. Que vous soyez employeur ou
+            salarié, nous analysons vos besoins pour proposer des stratégies qui
+            protègent vos droits tout en favorisant une résolution rapide et
+            efficace des différends.
+          </Paragraph>
+          <Paragraph
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            Le droit du travail évolue constamment, et les litiges nécessitent
+            souvent une réponse rapide. Notre équipe est disponible et réactive
+            pour répondre à vos préoccupations, vous accompagner dans les
+            négociations, et vous représenter devant les juridictions
+            compétentes.
+          </Paragraph>
+          <Paragraph
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            Pour les entreprises, nous mettons un point d’honneur à prévenir les
+            litiges en veillant à ce que vos politiques internes, contrats de
+            travail et pratiques RH soient conformes aux dernières
+            réglementations. Pour les salariés, nous veillons à ce que vos
+            droits soient respectés et défendus avec diligence.
+          </Paragraph>
+          <Paragraph
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            En choisissant notre cabinet, vous bénéficiez d’un partenaire
+            juridique qui place vos intérêts au cœur de son action. Nous vous
+            apportons une expertise de pointe, un accompagnement humain et une
+            défense acharnée pour atteindre des résultats concrets et
+            satisfaisants.
+          </Paragraph>
+        </ContentContainer>
+      </BackgroundContainer>
+      <Travail2 />
+      <Footer />
     </div>
   );
 }

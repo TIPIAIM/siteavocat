@@ -51,7 +51,7 @@ const Paragraph = styled(motion.p)`
 
 const Divider = styled.div`
   height: 2px;
-  width: 150px;
+  width: 300px;
   background: #4ea8ff;
   margin: 2rem 0;
 `;
@@ -63,7 +63,7 @@ const BackButton = styled(Link)`
   height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px #90e0ef;
   color: ;
   margin-bottom: 0rem;
   transition: background-color 0.3s ease;
@@ -109,7 +109,7 @@ export default function Fiscalitee() {
         <BackButton to="/nosexpertises" data-aos="fade-right">
           <FaArrowLeft size={20} />
         </BackButton>
-          <Title
+          <Title className=" font-serif"
             initial="hidden"
             animate={controls}
             variants={textVariants}

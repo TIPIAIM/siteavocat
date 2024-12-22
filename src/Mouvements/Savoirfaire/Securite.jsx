@@ -35,23 +35,22 @@ const PageWrapper = styled.div`
 const ContentContainer = styled.div`
   position: relative;
   z-index: 2;
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: rem;
-  background: rgba(255, 255, 255, 0.2); /* Couleur blanche avec transparence */
-  border-radius: 0px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 0.2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px ;
   text-align: center;
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   padding: 1.5rem;
-  border-left: 4px solid #2c5282;
-  background: rgba(0, 255, 255, 0.2); /* Couleur blanche avec transparence */
+  border-left: 4px solid #e2e8f0;
+  background: ; /* Couleur blanche avec transparence */
 
   font-weight: bold;
-  color: black;
+  color: #90e0ef;
 
   text-align: center;
   margin-bottom: 2rem;
@@ -69,8 +68,8 @@ const Section = styled(motion.section)`
   margin-bottom: 2rem;
   gap: 2rem;
   padding: 1.5rem;
-  border-left: 4px solid #2c5282;
-  background-color: rgba(237, 242, 247, 0.8); /* Couleur avec transparence */
+  border-left: 4px solid #0077b6;
+  background-color: rgba(0, 0, 0, 0.8); /* Couleur avec transparence */
   border-radius: 8px;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -79,7 +78,7 @@ const Section = styled(motion.section)`
 
 const TextContainer = styled.div`
   flex: 1;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
   &:hover {
     transform: translateX(5px);
   }
@@ -94,7 +93,7 @@ const Image = styled(motion.img)`
   border-radius: 8px;
   object-fit: cover;
   max-width: 600px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px #0077b6;
   transition: transform 0.3s ease;
   &:hover {
     transform: scale(1.05);
@@ -107,7 +106,7 @@ const Image = styled(motion.img)`
 const Subtitle = styled.h2`
   font-size: 2rem;
   font-weight: 600;
-  color: #2d3748;
+  color: #00b4d8;
   margin-bottom: 1rem;
   position: relative;
   &::before {
@@ -127,7 +126,7 @@ const Subtitle = styled.h2`
 
 const Paragraph = styled.p`
   font-size: 1.125rem;
-  color: #4a5568;
+  color: #caf0f8;
   line-height: 1.8;
   margin-bottom: 1.5rem;
   text-align: justify;
@@ -144,7 +143,7 @@ const List = styled.ul`
 
 const ListItem = styled(motion.li)`
   font-size: 1.125rem;
-  color: #4a5568;
+  color: #90e0ef;
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
@@ -154,13 +153,13 @@ const ListItem = styled(motion.li)`
   }
   &:before {
     content: "✔";
-    color: #2c5282;
+    color: #caf0f8;
     font-size: 1.5rem;
   }
 `;
 
 const ExternalLink = styled.a`
-  color: #3182ce;
+  color: #90e0ef;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
@@ -175,8 +174,8 @@ const Securite = () => {
 
   return (
     <PageWrapper>
-      <ContentContainer>
-        <Title data-aos="fade-up">
+      <ContentContainer className=" font-serif">
+        <Title data-aos="fade-up" >
           La Sécurité Sociale et le Droit du Travail
         </Title>
 

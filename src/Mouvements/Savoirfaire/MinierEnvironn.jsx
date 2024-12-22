@@ -31,7 +31,7 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: white;
+  color: #caf0f8;
 
   @media (max-width: 768px) {
     padding: 3rem 1.5rem;
@@ -77,8 +77,8 @@ const Paragraph = styled(motion.p)`
 
 const Divider = styled.div`
   height: 2px;
-  width: 150px;
-  background: #4ea8ff;
+  width: 300px;
+  background: #00b4d8;
   margin: 2rem 0;
 
   @media (max-width: 480px) {
@@ -93,10 +93,10 @@ const BackButton = styled(Link)`
   height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px #e2e8f0;
   color: ;
   margin-bottom: 0rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 
   &:hover {
     background-color: #e2e8f0;
@@ -137,7 +137,7 @@ export default function MinierEnvironn() {
           <BackButton to="/nosexpertises" data-aos="fade-right">
             <FaArrowLeft size={20} />
           </BackButton>
-          <Title
+          <Title className=" font-serif"
             initial="hidden"
             animate={controls}
             variants={textVariants}

@@ -10,7 +10,7 @@ const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: url("/img/MOE_0384.jpg") center/cover no-repeat;
+  background: url("/img/envir.jpeg") center/cover no-repeat;
   background-attachment: fixed;
   background-size: cover;
   color: #fff;
@@ -26,9 +26,9 @@ const ContentWrapper = styled.div`
   max-width: 1350px;
   margin: 2rem auto;
   padding: 4rem;
-  background-color: rgba(255, 255, 255, 0.6); /* Fond semi-transparent */
+  background-color: rgba(0, 0, 0, 0.9); /* Fond semi-transparent */
   border-radius: px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 20px #90e0ef;
   backdrop-filter: blur(8px); /* Flou pour un effet moderne */
 
   @media (max-width: 1024px) {
@@ -48,7 +48,7 @@ const ContentWrapper = styled.div`
 const Title = styled.h1`
   font-size: 3.5rem;
   font-weight: 700;
-  color: black;
+  color: #00b4d8;
   text-align: center;
   margin-bottom: 3rem;
 
@@ -67,9 +67,9 @@ const Title = styled.h1`
 
 // Sous-titres
 const Subtitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 600;
-  color: black;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #90e0ef;
   margin-bottom: 1rem;
 
   @media (max-width: 1024px) {
@@ -88,7 +88,7 @@ const Subtitle = styled.h2`
 // Paragraphe avec espacement et lisibilité
 const Paragraph = styled.p`
   font-size: 1.2rem;
-  color: black;
+  color: #caf0f8;
   line-height: 1.8;
   margin-bottom: 2rem;
 
@@ -118,7 +118,8 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   font-size: 1.2rem;
-  color: black;
+    color: #00b4d8;
+
   margin-bottom: 0.75rem;
 
   @media (max-width: 768px) {
@@ -156,7 +157,7 @@ const Fiscalitee2 = () => {
           <OverlayBottom />
         
           <Title data-aos="fade-up">
-            L'Impact de la Fiscalité sur les Entreprises
+            L'Impact de la Fiscalité
           </Title>
           <section data-aos="fade-up" data-aos-delay="300">
             <Paragraph>

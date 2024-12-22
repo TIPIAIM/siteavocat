@@ -9,7 +9,7 @@ AOS.init(); // Initialisation de AOS dans le composant
 const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 65vh;
   background: url("/img/envir.jpeg") center/cover no-repeat;
   background-attachment: fixed;
   background-size: ;
@@ -23,12 +23,12 @@ const BackgroundContainer = styled.div`
 
 // Conteneur du contenu
 const ContentWrapper = styled.div`
-  max-width: 1350px;
+  max-width: 1250px;
   margin: 2rem auto;
   padding: 4rem;
-  background-color: rgba(255, 255, 255, 0.7); /* Fond semi-transparent */
-  border-radius: 0px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+  border-radius: 20px;
+  box-shadow: 0 6px 20px #00b4d8;
   backdrop-filter: blur(8px); /* Flou pour un effet moderne */
 
   @media (max-width: 1024px) {
@@ -46,11 +46,11 @@ const ContentWrapper = styled.div`
 
 // Titre principal
 const Title = styled.h1`
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: black;
+  color: #00b4d8;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
 
   @media (max-width: 1024px) {
     font-size: 3rem;
@@ -69,7 +69,7 @@ const Title = styled.h1`
 const Subtitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 600;
-  color: black;
+  color: #90e0ef;
   margin-bottom: 1rem;
 
   @media (max-width: 1024px) {
@@ -88,7 +88,7 @@ const Subtitle = styled.h2`
 // Paragraphe avec espacement et lisibilité
 const Paragraph = styled.p`
   font-size: 1.2rem;
-  color: black;
+  color: #caf0f8;
   line-height: 1.8;
   margin-bottom: 2rem;
 
@@ -118,7 +118,7 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   font-size: 1.2rem;
-  color: #4a5568;
+  color: #caf0f8;
   margin-bottom: 0.75rem;
 
   @media (max-width: 768px) {
@@ -132,7 +132,7 @@ const OverlayTop = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(100, 100, 100, 0.4); /* Fond noir semi-transparent */
+  background: rgba(0, 0, 0, 0.5); /* Fond noir semi-transparent */
 `;
 
 const OverlayBottom = styled.div`
@@ -141,7 +141,7 @@ const OverlayBottom = styled.div`
   left: 0;
   width: 100%;
   height: 0%;
-  background: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
+  background: #00b4d8; /* Fond noir semi-transparent */
 `;
 
 const Minier2 = () => {

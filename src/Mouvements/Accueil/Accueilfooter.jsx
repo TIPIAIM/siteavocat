@@ -2,9 +2,9 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 export default function Accueilfooter() {
   return (
-    <div className=" bg-white">
-      <footer className="bg-gray-900 text-gray-400 py-6 sm:py-8 border-t border-gray-800">
-        <section className="bg-gray-900 text-white py-12 sm:py-20">
+    <div className=" ">
+      <footer className="bg-[rgba(10,34,64)] text-gray-300 py-6 sm:py-8 border-t border-gray-800">
+        <section className="bg-[rgba(10,34,64)] text-white py-12 sm:py-20">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12 sm:mb-16">
               Contactez-nous

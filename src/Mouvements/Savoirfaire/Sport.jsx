@@ -88,12 +88,12 @@ const BackButton = styled(Link)`
   justify-content: center;
   width: 50px;
   height: 50px;
-  background-color: #1e293b;
+  background-color: ;
   border-radius: 50%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px #caf0f8;
   color: white;
   margin-bottom: 1rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 
   &:hover {
     background-color: #4ea8ff;
@@ -132,7 +132,7 @@ export default function Sport() {
       <Overlay />
 
       <BardeNavigationpublic />
-      <ContentContainer>
+      <ContentContainer className=" font-serif">
         {" "}
         <BackButton to="/nosexpertises" data-aos="fade-right">
           <FaArrowLeft size={20} />

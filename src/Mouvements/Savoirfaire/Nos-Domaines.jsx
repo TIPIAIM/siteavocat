@@ -62,7 +62,7 @@ const Card = styled(motion.div)`
   border-radius: 1.5rem;
   overflow: hidden;
   box-shadow: 0px 4px 6px rgba(0, 50, 50, 0.3);
-  transition: transform 0.3s ease;
+  transition: transform 0.1s ease;
 
   &:hover {
     transform: scale(1.05);

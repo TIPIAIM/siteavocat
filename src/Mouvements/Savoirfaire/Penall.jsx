@@ -51,7 +51,7 @@ const Paragraph = styled(motion.p)`
 
 const Divider = styled.div`
   height: 2px;
-  width: 150px;
+  width: 300px;
   background: #4ea8ff;
   margin: 2rem 0;
 `;
@@ -63,10 +63,10 @@ const BackButton = styled(Link)`
   height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px  #caf0f8;
   color: ;
   margin-bottom: 0rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 
   &:hover {
     background-color: #e2e8f0;
@@ -104,7 +104,7 @@ export default function Penall() {
       <Overlay />
 
       <BardeNavigationpublic />
-      <ContentContainer>
+      <ContentContainer className=" font-serif">
         {" "}
         <BackButton to="/nosexpertises" data-aos="fade-right">
           <FaArrowLeft size={20} />

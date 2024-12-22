@@ -6,20 +6,21 @@ import Footer from "../Accueil/Footerr";
 // Styled Components
 const PenalContainer = styled.div`
   width: 100%;
-  padding: 10px;
+  padding: 20px;
   background: linear-gradient(to bottom, #0369a1, #0f172a);
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  line-height: 1.5;
 `;
 
 const SectionTitle = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 50px;
-  color: #0369a;
+  margin-bottom: 20px;
+  color: #ffffff;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
 
   @media (max-width: 768px) {
@@ -27,9 +28,17 @@ const SectionTitle = styled.h2`
   }
 `;
 
+const Description = styled.p`
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  max-width: 800px;
+`;
+
 const PenalGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 20px;
   width: 100%;
   max-width: 1200px;
@@ -51,11 +60,15 @@ const PenalCard = styled(motion.div)`
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   }
+
+  &:focus {
+    outline: 2px solid #00bfff;
+  }
 `;
 
 const MediaWrapper = styled.div`
   width: 100%;
-  height: 400px;
+  height: 300px;
   overflow: hidden;
   background: black;
 
@@ -86,7 +99,7 @@ const PenalDescription = styled.p`
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 
   @media (max-width: 768px) {
     font-size: 0.95rem;
@@ -106,7 +119,6 @@ const ReadMoreButton = styled.a`
     text-decoration: underline;
   }
 `;
-
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -153,13 +165,12 @@ const Penal2 = () => {
   return (
     <div>
       <PenalContainer>
-       
         <SectionTitle>Exploration du Droit Pénal</SectionTitle>
-        <p>
+        <Description>
           Le droit pénal réprime les infractions pour protéger l'ordre public et
           la sécurité. Il définit les comportements interdits, les sanctions, et
-          régule les relations entre l`individu et la société.
-        </p>
+          régule les relations entre l'individu et la société.
+        </Description>
         <PenalGrid>
           {penalArticles.map((article, index) => (
             <PenalCard
@@ -168,18 +179,21 @@ const Penal2 = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
+              tabIndex={0}
             >
               <MediaWrapper>
                 {article.mediaType === "image" ? (
                   <img src={article.mediaSrc} alt={article.title} />
                 ) : (
-                  <video src={article.mediaSrc} controls />
+                  <video src={article.mediaSrc} controls poster="img/video_poster.png" />
                 )}
               </MediaWrapper>
               <PenalContent>
                 <PenalTitle>{article.title}</PenalTitle>
                 <PenalDescription>{article.description}</PenalDescription>
-                <ReadMoreButton href={article.link}>Lire plus</ReadMoreButton>
+                <ReadMoreButton href={article.link} target="_blank" rel="noopener noreferrer">
+                  Lire plus
+                </ReadMoreButton>
               </PenalContent>
             </PenalCard>
           ))}

@@ -180,13 +180,14 @@ const Minier = () => {
   return (
     <div>
       <BackgroundContainer>
-        <BardeNavigationpublic />
+        <BardeNavigationpublic /> 
         <Overlay />
-        <OverlayBottom />
+         <OverlayBottom />
+    
         <ContentWrapper>
-          <BackButton to="/nosexpertises" data-aos="fade-right">
-            <FaArrowLeft size={10} />
-          </BackButton>
+            <BackButton to="/nosexpertises" data-aos="fade-right">
+                      <FaArrowLeft size={20} />
+                    </BackButton>
           <Title data-aos="fade-up">Droit Minier et Environnemental</Title>
           <section data-aos="fade-up" data-aos-delay="300">
             <Paragraph>

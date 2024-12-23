@@ -6,14 +6,13 @@ import commercial from "./../../assets/Image/travail.png"; // Exemple de vidéo
 import traval from "./../../assets/Image/travail.jpg"; // Exemple de vidéo
 import techno from "./../../assets/Image/technologie.jpg"; // Exemple de vidéo
 import Footer from "../Accueil/Footerr";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import { Link } from "react-router-dom";
+import Headerr from "../Headerr/Header";
 
 // Conteneur principal
 const ArticlesContainer = styled.div`
   width: 100%;
   padding: 50px;
-  background: linear-gradient(to bottom, #0369a1, #0f172a);
+  background: linear-gradient(to bottom, #, #0f172a);
   color: white;
   display: flex;
   flex-direction: column;
@@ -26,11 +25,13 @@ const SectionTitle = styled.h2`
   font-size: 2.1rem;
   font-weight: bold;
   margin-bottom: 50px;
-  color: #ffffff;
-  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  color: #0077b6;
+  text-shadow: px 4px 2px #90e0ef;
+  font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
     font-size: 2rem;
+    align-items: center;
   }
 `;
 
@@ -41,6 +42,7 @@ const ArticlesGrid = styled.div`
   gap: 20px;
   width: 100%;
   max-width: 1200px;
+font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -120,41 +122,6 @@ const ReadMoreButton = styled.a`
     text-decoration: underline;
   }
 `;
-const StyledLink = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border-radius: 12px; /* Coins arrondis */
-  padding: 0.5rem; /* Espacement interne */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
-  animation: pulse 1.5s infinite; /* Animation pulsation */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-  /* Style au survol */
-  &:hover {
-    transform: scale(1.1); /* Légère mise en avant */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Ombre plus forte */
-  }
-
-  /* Focus clavier pour accessibilité */
-  &:focus {
-    outline: 2px solid #3182ce; /* Bordure de focus */
-    outline-offset: 2px;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      transform: scale(1);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    50% {
-      transform: scale(1.05);
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-    }
-  }
-`;
 
 // Animation des cartes
 const cardVariants = {
@@ -164,7 +131,6 @@ const cardVariants = {
 
 const Articles = () => {
   const articles = [
-    
     {
       title: "L'impact de la fiscalité sur les entreprises",
       description:
@@ -189,39 +155,37 @@ const Articles = () => {
       link: "famille",
     },
     {
-        title: "Importance des contrats en droit des affaires",
-        description:
-          "Découvrez comment un contrat bien rédigé peut protéger vos intérêts juridiques et économiques.",
-        mediaType: "image",
-        mediaSrc: commercial,
-        link: "affaire",
-      },
-      {
-        title: "La sécurité sociale et le droit du travail",
-        description:
-          "Une analyse approfondie de la protection des employés en matière de sécurité sociale.",
-        mediaType: "image",
-        mediaSrc: traval,
-        link: "securite",
-      },
-      {
-        title: "Le droit pénal et la défense des victimes",
-        description:
-          "Les procédures juridiques pour garantir justice aux victimes de crimes.",
-        mediaType: "video",
-        mediaSrc: articleVideo,
-  
-        link: "penal",
-      },
+      title: "Importance des contrats en droit des affaires",
+      description:
+        "Découvrez comment un contrat bien rédigé peut protéger vos intérêts juridiques et économiques.",
+      mediaType: "image",
+      mediaSrc: commercial,
+      link: "affaire",
+    },
+    {
+      title: "La sécurité sociale et le droit du travail",
+      description:
+        "Une analyse approfondie de la protection des employés en matière de sécurité sociale.",
+      mediaType: "image",
+      mediaSrc: traval,
+      link: "securite",
+    },
+    {
+      title: "Le droit pénal et la défense des victimes",
+      description:
+        "Les procédures juridiques pour garantir justice aux victimes de crimes.",
+      mediaType: "video",
+      mediaSrc: articleVideo,
+
+      link: "penal",
+    },
   ];
 
   return (
     <div>
-      <BardeNavigationpublic />
+      <Headerr />
       <ArticlesContainer>
-        <SectionTitle>
-          Les articles du Code civil  ne sont pas des règles fixes et immuables
-        </SectionTitle>
+        <SectionTitle>Le Code civil</SectionTitle>
         <ArticlesGrid>
           {articles.map((article, index) => (
             <ArticleCard

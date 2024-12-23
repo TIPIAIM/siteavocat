@@ -29,6 +29,7 @@ const Title = styled.h1`
   margin-bottom: 20px;
   color: #0f172a;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -44,6 +45,7 @@ const Description = styled.p`
   line-height: 1.5;
   color: #0f172a;
   font-weight: 400;
+font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -102,6 +104,7 @@ const CardTitle = styled.h3`
   font-weight: bold;
   margin-bottom: 20px;
   color: #00b4d8;
+font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -115,6 +118,7 @@ const CardDescription = styled.p`
   line-height: 1.5;
   text-align: center;
   font-weight: 300;
+font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
     font-size: 0.9rem;

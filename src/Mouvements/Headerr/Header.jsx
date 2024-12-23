@@ -1,4 +1,4 @@
-import { ChevronRight, ChevronsLeftRight } from "lucide-react";
+import {  ChevronsLeftRight } from "lucide-react";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 
 import { Link } from "react-router-dom";

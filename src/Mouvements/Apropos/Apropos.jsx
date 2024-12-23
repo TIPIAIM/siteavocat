@@ -157,6 +157,8 @@ const Title = styled.h3`
   margin: 0;
   font-size: 1.8rem;
   font-weight: bold;
+  font-family: "Georgia", serif;
+
   color: #0488b2;
 `;
 
@@ -164,6 +166,8 @@ const Description = styled.p`
   margin: 10px 0;
   font-size: 1rem;
   line-height: 1.5;
+  font-family: "Roboto Slab", serif;
+
 `;
 
 const Email = styled.a`

@@ -26,7 +26,7 @@ const Title = styled.h1`
   margin-bottom: 20px;
   color: #023047;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
-  font-family: "Times New Roman", Times, serif;
+font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -39,9 +39,9 @@ const SubTitle = styled.h2`
   margin-bottom: 30px;
 
   max-width: 800px;
-  line-height: 1.6;
-  font-family: "Times New Roman", Times, serif;
-  color: #03045e;
+  line-height: 1.3;
+font-family: "Georgia", serif;
+  color: #023047;
   @media (max-width: 768px) {
     font-size: 1.2rem;
     margin-bottom: 20px;
@@ -82,7 +82,8 @@ const Card = styled(motion.div)`
 
 const CardTitle = styled.h3`
   font-size: 1.6rem;
-  
+  font-family: "Georgia", serif;
+
   font-weight: bold;
   margin-bottom: 10px;
   color: #90e0ef;
@@ -97,6 +98,7 @@ const CardDescription = styled.p`
   color:white;
   line-height: 1.6;
   margin-bottom: 15px;
+font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
     font-size: 0.95rem;

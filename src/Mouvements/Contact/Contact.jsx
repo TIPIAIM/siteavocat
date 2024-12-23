@@ -17,7 +17,6 @@ const ContactContainer = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 15px;
-    
   }
 `;
 
@@ -33,7 +32,6 @@ const ImageSection = styled.div`
   @media (max-width: 768px) {
     min-height: 250px;
     margin-bottom: 20px;
-
   }
 `;
 
@@ -50,8 +48,9 @@ const FormSection = styled.div`
 
   @media (max-width: 768px) {
     padding: 20px;
-      text-align: center;  /* Centrer le contenu du formulaire sur les petits écrans */
-  }
+    text-align: center; /* Centrer le contenu du formulaire sur les petits écrans */
+  
+    }
 `;
 
 const Title = styled.h1`
@@ -61,10 +60,11 @@ const Title = styled.h1`
   margin-bottom: 15px;
   font-weight: bold;
   text-shadow: 0px 2px 4px #;
+  font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
     font-size: 1.8rem;
-      text-align: center;  /* Centrer le contenu du formulaire sur les petits écrans */
+    text-align: center; /* Centrer le contenu du formulaire sur les petits écrans */
   }
 `;
 
@@ -74,10 +74,11 @@ const Description = styled.p`
   color: #caf0f8;
   margin-bottom: 20px;
   text-align: justify;
+  font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
     font-size: 1rem;
-      text-align: center;  /* Centrer le contenu du formulaire sur les petits écrans */
+    text-align: center; /* Centrer le contenu du formulaire sur les petits écrans */
   }
 `;
 
@@ -90,7 +91,7 @@ const Form = styled.form`
 
   @media (max-width: 768px) {
     gap: 15px;
-      text-align: center;  /* Centrer le contenu du formulaire sur les petits écrans */
+    text-align: center; /* Centrer le contenu du formulaire sur les petits écrans */
   }
 `;
 
@@ -148,6 +149,7 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: "Roboto Slab", serif;
 
   &:hover {
     background-color: #caf0f8;
@@ -175,7 +177,10 @@ export default function Contact() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left max-w-screen-md">
-          <h1 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6" style={{ color: "#90e0ef" }}>
+          <h1
+            className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"
+            style={{ color: "#90e0ef" }}
+          >
             Cabinet AOD-AVOCATS-SCPA
           </h1>
           <Link
@@ -194,16 +199,28 @@ export default function Contact() {
         <FormSection data-aos="fade-left">
           <Title>Contactez-nous</Title>
           <Description>
-            Si vous avez des questions, des commentaires ou des préoccupations, n’hésitez pas à nous contacter en
-            utilisant le formulaire ci-dessous. Nous ferons de notre mieux pour répondre à votre demande dans les plus
-            brefs délais. Votre satisfaction est notre priorité absolue, et nous apprécions tous les commentaires que
-            vous pourriez avoir sur notre entreprise et nos services. Merci de votre confiance et nous avons hâte de
-            discuter avec vous bientôt.
+            Si vous avez des questions, des commentaires ou des préoccupations,
+            n’hésitez pas à nous contacter en utilisant le formulaire
+            ci-dessous. Nous ferons de notre mieux pour répondre à votre demande
+            dans les plus brefs délais. Votre satisfaction est notre priorité
+            absolue, et nous apprécions tous les commentaires que vous pourriez
+            avoir sur notre entreprise et nos services. Merci de votre confiance
+            et nous avons hâte de discuter avec vous bientôt.
           </Description>
           <Form action="https://getform.io/f/bnllyvmb" method="POST">
             <Input type="text" name="name" placeholder="Votre nom" required />
-            <Input type="email" name="email" placeholder="Votre email" required />
-            <Textarea name="message" rows="5" placeholder="Votre message" required />
+            <Input
+              type="email"
+              name="email"
+              placeholder="Votre email"
+              required
+            />
+            <Textarea
+              name="message"
+              rows="5"
+              placeholder="Votre message"
+              required
+            />
             <Button type="submit">Envoyer</Button>
           </Form>
         </FormSection>

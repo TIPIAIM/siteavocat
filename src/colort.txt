@@ -31,4 +31,50 @@ caf0f8
 ade8f4
 caf0f8
 
+Ecriture : 
+1. Géorgie, serif
+Description : Une police serif traditionnelle, élégante et facile à lire.
+Elle est parfaite pour des sites formels comme un cabinet d'avocats, car elle dégage un sentiment de sophistication.
+Utilisation :
+css
+
+Pour les titre
+font-family: "Georgia", serif;
+
+Pour les paragr
+font-family: "Roboto Slab", serif;
+
+
+2. Roboto Slab, serif
+Description : Une police serif moderne et propre, conçue pour être lisible à l'écran tout en conservant une touche de classicisme.
+Idéale pour les titres ou les paragraphes courts.
+Lien pour l'intégration via Google Fonts : Ajoutez ceci dans votre <head>:
+html
+
+Copier le code
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+Utilisation :
+css
+
+Pour les paragr
+font-family: "Roboto Slab", serif;
+
+Comment les intégrer dans votre site ?
+Importez-les dans votre projet :
+
+Soit via Google Fonts avec <link>dans le fichier index.html.
+Soit en particulier les politiques et en les incluant dans votre projet.
+Appliquez-les dans vos styles CSS :
+
+css
+
+Copier le code
+body {
+    font-family: "Georgia", serif; /* Texte principal */
+}
+
+h1, h2, h3 {
+    font-family: "Roboto Slab", serif; /* Titres élégants */
+}
+Ces deux politiques garantiront que votre site d'avocats soit à la fois professionnel et agréable à lire .
 

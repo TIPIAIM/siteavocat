@@ -63,6 +63,7 @@ const ImageCard = styled(motion.div)`
 // Face avant de l'image
 const Front = styled.div`
   position: absolute;
+  
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
@@ -75,6 +76,8 @@ const Front = styled.div`
 const Back = styled.div`
   position: absolute;
   width: 100%;
+  font-family: "Georgia", serif;
+
   height: 100%;
   backface-visibility: hidden;
   transform: rotateY(180deg);
@@ -98,10 +101,10 @@ const Back = styled.div`
 // Section "À propos" à gauche
 const AboutSection = styled.div`
   flex: 1;
-  font-family: "Times New Roman", Times, serif;
+font-family: "Georgia", serif;
 
   padding: 20px;
-  background: #0f172a;
+  background: #023047;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   color: white;
@@ -115,6 +118,8 @@ const AboutSection = styled.div`
 
 const AboutTitle = styled.h2`
   font-size: 2rem;
+  font-family: "Georgia", serif;
+
   font-weight: bold;
   margin-bottom: 20px;
   color: #90e0ef;
@@ -134,7 +139,7 @@ const AboutDescription = styled.div`
   max-height: ${({ expanded }) => (expanded ? "none" : "9.6em")};
   overflow: hidden;
   text-overflow: ellipsis;
-font-family: "Times New Roman", Times, serif;
+font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
@@ -158,6 +163,8 @@ const ReadMoreButton = styled.button`
 // Titre et description de la face arrière
 const Title = styled.h3`
   margin-bottom: 20px;
+ font-family: "Georgia", serif;
+
   font-size: 1.8rem;
   font-weight: bold;
   text-align: center;
@@ -169,6 +176,7 @@ const Description = styled.p`
   max-width: 280px;
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
+font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
     font-size: 0.9rem;

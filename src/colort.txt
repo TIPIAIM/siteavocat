@@ -4,6 +4,7 @@ RGBA :rgba(3, 4, 94, 1)
 rgba(10, 34, 64, 0.9)
 className="bg-[rgba(10,34,64,0.9)]" tailwind
 03045e
+023047
 
 RGBA :rgba(0, 119, 182, 1)
 0077b6
@@ -18,8 +19,6 @@ caf0f8
 
 
   font-family: "Times New Roman", Times, serif;
-
-caf0f8
 
 03045e
 023047

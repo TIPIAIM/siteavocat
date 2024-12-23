@@ -13,7 +13,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom, #0369a1, #0f172a);
+  background: linear-gradient(to bottom, 0369a1, #0f172a);
   color: white;
   padding: 60px 20px;
   box-sizing: border-box;
@@ -21,24 +21,27 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #023047;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+  font-family: "Times New Roman", Times, serif;
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
+    
   }
 `;
 
 const SubTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.8);
+
   max-width: 800px;
   line-height: 1.6;
-
+  font-family: "Times New Roman", Times, serif;
+  color: #03045e;
   @media (max-width: 768px) {
     font-size: 1.2rem;
     margin-bottom: 20px;
@@ -51,18 +54,19 @@ const Grid = styled.div`
   gap: 30px;
   width: 100%;
   max-width: 1200px;
-
+font-family: "Times New Roman", Times, serif;
+ 
   @media (max-width: 768px) {
     gap: 20px;
   }
 `;
 
 const Card = styled(motion.div)`
-  background: rgba(10, 34, 64, 0.9);
+  background: #023047;
   border-radius: 10px;
   padding: 20px;
   text-align: left;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 12px #caf0f8;
   overflow: hidden;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 
@@ -81,7 +85,7 @@ const CardTitle = styled.h3`
   
   font-weight: bold;
   margin-bottom: 10px;
-  color: #ffffff;
+  color: #90e0ef;
 
   @media (max-width: 768px) {
     font-size: 1.4rem;
@@ -90,7 +94,7 @@ const CardTitle = styled.h3`
 
 const CardDescription = styled.p`
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color:white;
   line-height: 1.6;
   margin-bottom: 15px;
 
@@ -195,8 +199,6 @@ const Aproposzeo = () => {
             <CardDescription>{value.description}</CardDescription>
             <ContactInfo>
               <span>-: {value.email}</span>
-            { /* <span>-: {value.city}</span>
-              <span>-: {value.phone}</span>*/}
             </ContactInfo>
           </Card>
         ))}

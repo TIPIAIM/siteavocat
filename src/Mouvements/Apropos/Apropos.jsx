@@ -9,10 +9,10 @@ import image7 from "./../../assets/Image/keitaseul2.jpg";
 import image8 from "./../../assets/Image/naroumb.jpg";
 import image9 from "./../../assets/Image/MOE_0400.jpg";
 import image10 from "./../../assets/Image/MOE_0311.jpg";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import Footer from "../Accueil/Footerr";
 import Aproposdeux from "./Apropos2";
 import Aproposzeo from "./Aproposzeo";
+import Headerr from "../Headerr/Header";
 
 // Images de démonstration
 const images = [
@@ -32,7 +32,7 @@ const images = [
       "Nous apportons une valeur ajoutée dans le traitement des demandes de nos clients tout en les conseillant avec indépendance, objectivité, et ce,dès la première rencontre.",
     email:
       "Conseiller nos clients en toute indépendance, objectivité, efficacité et rigueur",
-    city: "Conkry",
+    city: "Conakry",
     phone: "00224624138395",
   },
   {
@@ -61,21 +61,21 @@ const images = [
       "Nous posons un diagnostic complet, clair et précis dès le départ afin d’exposer à nos clients les tenants et aboutissants de leur dossier. Nous cernons rapidement les enjeux légaux et d’affaires,les points forts et les points faibles, ainsi que les coûts afférents, et les exposons à nos clients de manière transparente, et objective",
     email:
       "Une approche stratégique et transparente axée sur l’atteinte de résultat et la communication",
-    city: "Conkry",
+    city: "Conakry",
     phone: "624138395",
   },
   {
     src: image7,
     title: "Chez AOD Avocats ",
     description:
-      " Que vous soyez un particulier ou une entreprise, et quel que soit la nature ou l’ampleur du mandat qui nous est confié, vous bénéficiez d’un service de premier plan et aucun compromis n’est fait au niveau de la qualité de notre travail.Nous nous engageons à vous livrer des résultats satisfaisants dans les délais suivant la complexité du dossier.",
+      "Que vous soyez un particulier ou une entreprise, et quel que soit la nature ou l’ampleur du mandat qui nous est confié, vous bénéficiez d’un service de premier plan et aucun compromis n’est fait au niveau de la qualité de notre travail.Nous nous engageons à vous livrer des résultats satisfaisants dans les délais suivant la complexité du dossier.",
     email: "Chez AOD Avocats, le client est au centre de nos préoccupations ",
     city: "Conakry",
     phone: "00224624138395",
   },
   {
     src: image10,
-    title: "NOTRE PPROCHE ",
+    title: "NOTRE APPROCHE ",
     description:
       "Nous nous distinguons par notre approche stratégique et transparente centrée sur l’obtention de résultats tangibles. Notre action est orientée vers la réalisation d’objectifs concrets et de résultats satisfaisants",
     email: "Une approche stratégique",
@@ -86,7 +86,7 @@ const images = [
     src: image3,
     title: "NOS VALEURS ",
     description:
-      " Que vous soyez un particulier ou une entreprise, et quel que soit la nature ou l’ampleur du mandat qui nous est confié, vous bénéficiez d’un service de premier plan et aucun compromis n’est fait au niveau de la qualité de notre travail.Nous nous engageons à vous livrer des résultats satisfaisants dans les délais suivant la complexité du dossier.",
+      "Que vous soyez un particulier ou une entreprise, et quel que soit la nature ou l’ampleur du mandat qui nous est confié, vous bénéficiez d’un service de premier plan et aucun compromis n’est fait au niveau de la qualité de notre travail.Nous nous engageons à vous livrer des résultats satisfaisants dans les délais suivant la complexité du dossier.",
     email: "Chez AOD Avocats, le client est au centre de nos préoccupations :",
     city: "Conakry",
     phone: "369258147",
@@ -100,10 +100,8 @@ const CarouselContainer = styled.div`
   width: 100%;
   padding: 0px;
   background: linear-gradient(120deg, #0f172a 60%, #0369a1 80%);
-
-  border-radius: 5px;
-  background-color: #;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   @media (max-width: 768px) {
     padding: 10px;
   }
@@ -121,7 +119,6 @@ const ImageCard = styled(motion.div)`
   transform-style: preserve-3d;
   transition: transform 1.5s ease-in-out;
   cursor: pointer;
-
   &:hover {
     transform: rotateY(180deg);
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
@@ -135,47 +132,44 @@ const Front = styled.div`
   backface-visibility: hidden;
   background-size: cover;
   background-position: center;
-  border-radius: 5px;
+  border-radius: 10px;
 `;
 
-// Face arrière avec fond gris et texte
 const Back = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-
   backface-visibility: hidden;
   transform: rotateY(180deg);
   background: linear-gradient(135deg, #0f172a 50%, #0488b2 50%);
-  color: black;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
-  padding: 60px;
-  font-size: 1rem;
+  padding: 30px;
   text-align: center;
+  font-size: 1rem;
 `;
 
 const Title = styled.h3`
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-    color: #0488b2;
+  color: #0488b2;
 `;
 
 const Description = styled.p`
   margin: 10px 0;
-  font-size: 0.8rem;
-  color: white;
+  font-size: 1rem;
+  line-height: 1.5;
 `;
 
 const Email = styled.a`
-  color: black;
-  text-decoration: none;
+  color: white;
   font-size: 1rem;
-
+  text-decoration: none;
   &:hover {
     text-decoration: underline;
   }
@@ -183,21 +177,19 @@ const Email = styled.a`
 
 const ControlButton = styled.button`
   position: absolute;
-  bottom: 9px;
-  right: 5px;
-  padding: 1px 1px;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px 15px;
   background-color: #0488b2;
-  color: black;
+  color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.3s;
-
   &:hover {
-    background-color: #45a049;
+    background-color: #023047;
   }
-
   &:focus {
     outline: none;
   }
@@ -221,7 +213,7 @@ const ScrollWrapper = styled(motion.div)`
 
 const IndicatorWrapper = styled.div`
   position: absolute;
-  bottom: 15px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -229,11 +221,11 @@ const IndicatorWrapper = styled.div`
 `;
 
 const Indicator = styled.div`
-  width: 10px;
-  height: 10px;
-  margin: 0 10px;
+  width: 12px;
+  height: 12px;
+  margin: 0 12px;
   border-radius: 50%;
-  background-color: ${({ active }) => (active ? "#0488b2" : "#ffff")};
+  background-color: ${({ active }) => (active ? "#0488b2" : "#ffffff")};
   transition: background-color 0.3s;
 `;
 
@@ -258,7 +250,7 @@ const Apropos = () => {
 
   return (
     <div>
-      <BardeNavigationpublic />{" "}
+      <Headerr />
       <CarouselContainer>
         <ScrollWrapper isPaused={isPaused}>
           {infiniteImages.map((item, index) => (
@@ -276,7 +268,7 @@ const Apropos = () => {
         </ScrollWrapper>
 
         <ControlButton onClick={handleButtonClick}>
-          {isPaused ? "R" : "p"}
+          {isPaused ? "Play" : "Reset"}
         </ControlButton>
 
         <IndicatorWrapper>

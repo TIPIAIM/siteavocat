@@ -34,7 +34,7 @@ export default function Accueilfooter() {
                 <MapPin className="w-8 h-8" style={{ color : '#90e0ef'}} />
                 <div>
                   <div className="font-semibold" style={{ color : '#90e0ef'}}>Adresse</div>
-                  <div className="text-gray-500">
+                  <div className="text-gray-300">
                     Immeuble Yansané, Commune de Dixinn, Conakry
                   </div>
                 </div>

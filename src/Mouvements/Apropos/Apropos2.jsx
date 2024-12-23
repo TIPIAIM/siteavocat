@@ -89,11 +89,17 @@ const Back = styled.div`
   font-size: 1rem;
   text-align: center;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 // Section "À propos" à gauche
 const AboutSection = styled.div`
   flex: 1;
+  font-family: "Times New Roman", Times, serif;
+
   padding: 20px;
   background: #0f172a;
   border-radius: 10px;
@@ -103,6 +109,7 @@ const AboutSection = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
+    text-align: center;
   }
 `;
 
@@ -110,11 +117,13 @@ const AboutTitle = styled.h2`
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #90e0ef;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+font-family: "Times New Roman", Times, serif;
 
   @media (max-width: 768px) {
     font-size: 1.8rem;
+    text-align: center;
   }
 `;
 
@@ -125,9 +134,11 @@ const AboutDescription = styled.div`
   max-height: ${({ expanded }) => (expanded ? "none" : "9.6em")};
   overflow: hidden;
   text-overflow: ellipsis;
+font-family: "Times New Roman", Times, serif;
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
+    text-align: center;
   }
 `;
 
@@ -149,6 +160,7 @@ const Title = styled.h3`
   margin-bottom: 20px;
   font-size: 1.8rem;
   font-weight: bold;
+  text-align: center;
 `;
 
 const Description = styled.p`
@@ -156,6 +168,7 @@ const Description = styled.p`
   line-height: 1.6;
   max-width: 280px;
   color: rgba(255, 255, 255, 0.9);
+  text-align: center;
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
@@ -202,9 +215,7 @@ const Aproposdeux = () => {
       <ContentWrapper>
         <AboutSection>
           <AboutTitle>AOD AVOCATS SCPA</AboutTitle>
-          <AboutDescription expanded={expanded}>
-            {description}
-          </AboutDescription>
+          <AboutDescription expanded={expanded}>{description}</AboutDescription>
           <ReadMoreButton onClick={() => setExpanded(!expanded)}>
             {expanded ? "moins" : "plus"}
           </ReadMoreButton>
@@ -222,10 +233,8 @@ const Aproposdeux = () => {
           </ImageCard>
         </ImageWrapper>
       </ContentWrapper>
-      
     </CarouselContainer>
   );
 };
 
 export default Aproposdeux;
-

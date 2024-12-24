@@ -17,9 +17,6 @@ rgba(144, 224, 239, 1)
 RGBA :rgba(202, 240, 248, 1)
 caf0f8
 
-
-  font-family: "Times New Roman", Times, serif;
-
 03045e
 023047
 023e8a

@@ -18,6 +18,8 @@ const ArticlesContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  
 `;
 
 // Titre de la section

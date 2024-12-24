@@ -13,15 +13,17 @@ const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   min-height: 100vh;
+  
   background: url("/img/MOE_0384.jpg") center/cover no-repeat;
   background-attachment: fixed;
   background-size: cover;
   color: black;
-  font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
     background-attachment: scroll;
-  }
+   text-align: center;
+
+    }
 `;
 
 // Conteneur du contenu
@@ -29,7 +31,7 @@ const ContentWrapper = styled.div`
   max-width: 1350px;
   margin: 2rem auto;
   padding: 4rem;
-  background-color: rgba(255, 255, 255,0.2); /* Fond semi-transparent */
+  background-color: rgba(1, 1, 1, 0.8); /* Fond semi-transparent */
 
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(8px); /* Flou pour un effet moderne */
@@ -51,7 +53,9 @@ const ContentWrapper = styled.div`
 const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: 700;
-  color: black;
+  color: #00b4d8;
+  font-family: "Georgia", serif;
+
   text-align: center;
   margin-bottom: 3rem;
 
@@ -69,10 +73,11 @@ const ArticleSection = styled.div`
   margin-bottom: 2rem;
   padding: 2rem;
   font-size: 1.2rem;
+  font-family: "Roboto Slab", serif;
+  color: #caf0f8;
+  background-color: rgba(255, 255, 255, 0.2);
 
-  background-color: rgba(255, 255, 255, 0.8);
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 2px 1px #00b4d8;
   backdrop-filter: blur(6px);
 
   @media (max-width: 768px) {
@@ -82,11 +87,13 @@ const ArticleSection = styled.div`
 
 // Lien de l'article
 const ArticleLink = styled.a`
-  color: #0073e6;
+  color: #00b4d8;
   text-decoration: none;
   font-weight: bold;
+  font-family: "Roboto Slab", serif;
+
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 `;
 
@@ -94,22 +101,22 @@ const StyledLink = styled(Link)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  border-radius: 12px; /* Coins arrondis */
+  background-color: ;
+  border-radius: 20px; /* Coins arrondis */
   padding: 0.5rem; /* Espacement interne */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  box-shadow: 12px 4px 6px #0077b6;
   animation: pulse 0.5s infinite; /* Animation pulsation */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-
+  color: white;
   /* Style au survol */
   &:hover {
     transform: scale(1.1); /* Légère mise en avant */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Ombre plus forte */
+    box-shadow: 0 6px 10px #0077b6; /* Ombre plus forte */
   }
 
   /* Focus clavier pour accessibilité */
   &:focus {
-    outline: 2px solid #3182ce; /* Bordure de focus */
+    outline: 2px solid #00b4d8; /* Bordure de focus */
     outline-offset: 2px;
   }
 
@@ -117,27 +124,37 @@ const StyledLink = styled(Link)`
     0%,
     100% {
       transform: scale(1);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px #caf0f8;
     }
     50% {
       transform: scale(1.05);
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 10px #0077b6;
     }
   }
 `;
+
+const OverlayTop = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 34, 64, 0.9); /* Fond noir semi-transparent */
+`;
+
 const Famille = () => {
   return (
-    <div>
-      <BardeNavigationpublic />
+    <div> <OverlayTop /> 
+           <BardeNavigationpublic />
 
       <BackgroundContainer>
+     
+
         <ContentWrapper>
           <StyledLink to="/article">
             <FaArrowLeft size={20} />
           </StyledLink>
-          <Title>
-            Articles Pertinents sur le Droit de la Famille et la Médiation
-          </Title>
+          <Title>Droit de la Famille et la Médiation</Title>
 
           <ArticleSection>
             <h2>

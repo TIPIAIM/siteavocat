@@ -3,8 +3,8 @@ import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
 import Footer from "../Accueil/Footerr";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import { Link } from "lucide-react";
 import { FaArrowLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 AOS.init(); // Initialisation de AOS dans le composant
 
@@ -20,6 +20,7 @@ const BackgroundContainer = styled.div`
 
   @media (max-width: 768px) {
     background-attachment: scroll;
+    text-align: center;
   }
 `;
 
@@ -104,10 +105,12 @@ const Paragraph = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1rem;
+    align-items: center;
   }
 
   @media (max-width: 480px) {
     font-size: 0.9rem;
+    align-items: center;
   }
 `;
 
@@ -120,6 +123,7 @@ const List = styled.ul`
 
   @media (max-width: 768px) {
     padding-left: 1.5rem;
+    align-items: center;
   }
 `;
 
@@ -130,6 +134,7 @@ const ListItem = styled.li`
 
   @media (max-width: 768px) {
     font-size: 1rem;
+    align-items: center;
   }
 `;
 
@@ -148,13 +153,13 @@ const BackButton = styled(Link)`
   height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 2px #e2e8f0;
+  box-shadow: 1px 1px 5px #90e0ef;
   color: ;
   margin-bottom: 0rem;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #00b4d8;
+    background-color: #e2e8f0;
   }
 
   @media (max-width: 768px) {
@@ -167,13 +172,14 @@ const BackButton = styled(Link)`
     height: 35px;
   }
 `;
+
 const OverlayBottom = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 0%;
-  background: #00b4d8; /* Fond noir semi-transparent */
+  background: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
 `;
 
 const Minier = () => {
@@ -184,8 +190,8 @@ const Minier = () => {
         <Overlay />
         <OverlayBottom />
         <ContentWrapper>
-          <BackButton to="/nosexpertises" data-aos="fade-right">
-            <FaArrowLeft size={10} />
+          <BackButton to="/article" data-aos="fade-right">
+            <FaArrowLeft size={20} />
           </BackButton>
           <Title data-aos="fade-up">Droit Minier et Environnemental</Title>
           <section data-aos="fade-up" data-aos-delay="300">

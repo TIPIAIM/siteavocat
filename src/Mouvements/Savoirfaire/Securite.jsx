@@ -3,7 +3,6 @@ import { motion } from "framer-motion"; // Framer Motion pour des animations ava
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-
 AOS.init();
 
 const PageWrapper = styled.div`
@@ -39,7 +38,7 @@ const ContentContainer = styled.div`
   margin: 0 auto;
   padding: 0.2rem;
   border-radius: 10px;
-  box-shadow: 0 8px 20px ;
+  box-shadow: 0 8px 20px;
   text-align: center;
 `;
 
@@ -48,6 +47,7 @@ const Title = styled.h1`
   padding: 1.5rem;
   border-left: 4px solid #e2e8f0;
   background: ; /* Couleur blanche avec transparence */
+  font-family: "Georgia", serif;
 
   font-weight: bold;
   color: #90e0ef;
@@ -175,7 +175,7 @@ const Securite = () => {
   return (
     <PageWrapper>
       <ContentContainer className=" font-serif">
-        <Title data-aos="fade-up" >
+        <Title data-aos="fade-up">
           La Sécurité Sociale et le Droit du Travail
         </Title>
 
@@ -190,7 +190,7 @@ const Securite = () => {
                 href="https://journals.openedition.org/rdctss/"
                 target="_blank"
               >
-                 +
+                +
               </ExternalLink>
               .
             </Paragraph>

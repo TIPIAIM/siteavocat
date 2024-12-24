@@ -184,7 +184,7 @@ const Travail2 = () => {
             <ListItem>
               La négociation collective : les conventions collectives permettent
               de définir des droits supplémentaires ou spécifiques aux employés
-              d'un secteur donné.
+              d`un secteur donné.
             </ListItem>
           </List>
         </Section>

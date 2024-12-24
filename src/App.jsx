@@ -1,6 +1,5 @@
 //import './App.css'
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import BardeNavigation from "./Mouvements/Accueil/BardeNavigation";
 import Contact from "./Mouvements/Contact/Contact";
 import Apropos from "./Mouvements/Apropos/Apropos";
 import Articles from "./Mouvements/Article/Article";

@@ -10,7 +10,6 @@ export default function Accueilfooter() {
             <h2
               style={{ fontFamily: "Georgia, serif" }}
               className="text-2xl sm:text-3xl font-serif font-bold text-center mb-12 sm:mb-16"
-              style={{ color: "90e0ef" }}
             >
               Contactez-nous
             </h2>

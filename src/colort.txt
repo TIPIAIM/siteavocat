@@ -1,6 +1,6 @@
 couleur : 
 RGBA :rgba(3, 4, 94, 1)
-03045e
+
 rgba(10, 34, 64, 0.9)
 className="bg-[rgba(10,34,64,0.9)]" tailwind
 03045e
@@ -17,16 +17,15 @@ rgba(144, 224, 239, 1)
 RGBA :rgba(202, 240, 248, 1)
 caf0f8
 
-03045e
 023047
 023e8a
 023e8a
 0096c7
-00b4d8
+
 48cae4
 90e0ef
 ade8f4
-caf0f8
+
 
 Ecriture : 
 1. Géorgie, serif

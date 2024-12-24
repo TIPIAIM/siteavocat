@@ -21,7 +21,8 @@ const BackgroundContainer = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(10, 34, 64, 0.9)
+;
 `;
 
 const ContentContainer = styled.div`
@@ -40,6 +41,8 @@ const Title = styled(motion.h1)`
   font-weight: bold;
   color: #4ea8ff;
   margin-bottom: 2rem;
+  font-family: "Georgia", serif;
+
 `;
 
 const Paragraph = styled(motion.p)`
@@ -103,7 +106,7 @@ export default function Securitee() {
     <div>
     <BackgroundContainer>
       <Overlay />
-      <BardeNavigationpublic />{" "}
+      <BardeNavigationpublic />
       <ContentContainer className=" font-serif">
         <BackButton to="/nosexpertises" data-aos="fade-right">
           <FaArrowLeft size={20} />

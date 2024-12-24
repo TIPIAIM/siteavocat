@@ -40,6 +40,7 @@ const ContentContainer = styled.div`
   z-index: 2;
   max-width: 1290px;
   margin: 0 auto;
+
   padding: rem;
   background: rgba(0, 0, 0, 0.2); /* Couleur blanche avec transparence */
   border-radius: 0px;
@@ -48,20 +49,23 @@ const ContentContainer = styled.div`
 `;
 
 const Title = styled.h1`
+  font-family: "Georgia", serif;
+
   font-size: 2.5rem;
   padding: 1.5rem;
   border-left: 4px solid #2c5282;
-  background: rgba(0, 0, 0, 0); /* Couleur blanche avec transparence */
+  background: #; /* Couleur blanche avec transparence */
 
   font-weight: bold;
-  color: white;
+  color: #00b4d8;
 
   text-align: center;
   margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 1.4rem;
+    text-align: center;
   }
 `;
 
@@ -77,6 +81,7 @@ const Section = styled(motion.section)`
   border-radius: 8px;
   @media (max-width: 768px) {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -87,14 +92,25 @@ const TextContainer = styled.div`
     transform: translateX(5px);
   }
   @media (max-width: 768px) {
-    flex: none;
+    font-size: 1rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 1.75rem; /* Taille de police ajustée pour les petits écrans */
+    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
+    text-align: left; /* Alignement du texte à gauche */
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem; /* Réduction supplémentaire pour très petits écrans */
+    padding-left: 0.5rem; /* Espacement optimisé */
+    text-align: left; /* Alignement du texte à gauche */
   }
 `;
 
 const Image = styled(motion.img)`
   width: 100%;
   height: auto;
-  border-radius: 50%;
+  border-radius: 0%;
   object-fit: cover;
   max-width: 600px;
   box-shadow: 0 4px 10px rgba(20, 20, 20, 0.9);
@@ -109,33 +125,59 @@ const Image = styled(motion.img)`
 
 const Subtitle = styled.h2`
   font-size: 2rem;
+  font-family: "Georgia", serif;
   font-weight: 600;
-  color: white;
+  color: #00b4d8;
   margin-bottom: 1rem;
+  text-align: left; /* Alignement du texte à gauche */
   position: relative;
+  padding-left: 1rem; /* Ajout d'espacement pour compenser le pseudo-élément */
+
   &::before {
     content: "";
     position: absolute;
-    left: -20px;
+    left: 0; /* Ajusté pour suivre l'alignement gauche */
     top: 50%;
     transform: translateY(-50%);
     width: 6px;
     height: 100%;
     background-color: #2c5282;
   }
+
   @media (max-width: 768px) {
-    font-size: 1.75rem;
+    font-size: 1.75rem; /* Taille de police ajustée pour les petits écrans */
+    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
+    text-align: left; /* Alignement du texte à gauche */
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem; /* Réduction supplémentaire pour très petits écrans */
+    padding-left: 0.5rem; /* Espacement optimisé */
+    text-align: left; /* Alignement du texte à gauche */
   }
 `;
 
 const Paragraph = styled.p`
   font-size: 1.125rem;
   color: white;
+  font-family: "Roboto Slab", serif;
+
   line-height: 1.8;
   margin-bottom: 1.5rem;
   text-align: justify;
   @media (max-width: 768px) {
     font-size: 1rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 1.75rem; /* Taille de police ajustée pour les petits écrans */
+    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
+    text-align: left; /* Alignement du texte à gauche */
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem; /* Réduction supplémentaire pour très petits écrans */
+    padding-left: 0.5rem; /* Espacement optimisé */
+    text-align: left; /* Alignement du texte à gauche */
   }
 `;
 
@@ -143,10 +185,25 @@ const List = styled.ul`
   list-style: none;
   padding-left: 1.5rem;
   margin-bottom: 1.5rem;
+  font-family: "Georgia", serif;
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem; /* Taille de police ajustée pour les petits écrans */
+    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
+    text-align: left; /* Alignement du texte à gauche */
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem; /* Réduction supplémentaire pour très petits écrans */
+    padding-left: 0.5rem; /* Espacement optimisé */
+    text-align: left; /* Alignement du texte à gauche */
+  }
 `;
 
 const ListItem = styled(motion.li)`
   font-size: 1.125rem;
+  font-family: "Georgia", serif;
+
   color: white;
   margin-bottom: 0.75rem;
   display: flex;
@@ -159,6 +216,18 @@ const ListItem = styled(motion.li)`
     content: "✔ ";
     color: #2c5282;
     font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem; /* Taille de police ajustée pour les petits écrans */
+    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
+    text-align: left; /* Alignement du texte à gauche */
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem; /* Réduction supplémentaire pour très petits écrans */
+    padding-left: 0.5rem; /* Espacement optimisé */
+    text-align: left; /* Alignement du texte à gauche */
   }
 `;
 
@@ -175,9 +244,9 @@ const StyledLink = styled(Link)`
   align-items: center;
   justify-content: center;
   background-color: ;
-  border-radius: 12px; /* Coins arrondis */
+  border-radius: 20px; /* Coins arrondis */
   padding: 0.5rem; /* Espacement interne */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9); /* Ombre légère */
   animation: pulse 1.9s infinite; /* Animation pulsation */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
@@ -214,8 +283,9 @@ const Securite = () => {
 
   return (
     <div>
-      <BardeNavigationpublic />
       <PageWrapper>
+        {" "}
+        <BardeNavigationpublic />
         <ContentContainer>
           <StyledLink to="/article">
             <FaArrowLeft size={20} />
@@ -225,7 +295,7 @@ const Securite = () => {
           </Title>
 
           <Section data-aos="fade-up" data-aos-delay="300">
-            <Image src="/img/trav.jpeg" alt="Illustration" />
+            <Image src="/img/sttis.webp" alt="Illustration" />
             <TextContainer>
               <Paragraph>
                 Découvrez en détail comment la sécurité sociale et le droit du

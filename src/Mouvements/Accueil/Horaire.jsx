@@ -37,20 +37,13 @@ const Description = styled.p`
   margin-bottom: 30px;
   max-width: 800px;
   line-height: 1.8;
+
   color: white;
   @media (max-width: 768px) {
-    line-height: 1.6;
-
-    padding-left: 1rem; /* Espacement réduit pour harmoniser */
     font-size: 1rem;
-    text-align: justify; /* Justification également sur les petits écrans */
+    line-height: 1.6;
+    padding-left: 1.5rem; /* Espacement réduit pour harmoniser */
     text-align: left; /* Alignement du texte à gauche */
-    width: 100%; /* Le texte occupe tout l'espace du conteneur */
-    box-sizing: border-box;
-    white-space: normal; /* Les sauts de ligne automatiques sont autorisés */
-    overflow-wrap: anywhere; /* Les mots peuvent être coupés n'importe où */
-    word-break: break-word; /* Coupe les mots pour éviter des espaces vides */
-    hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
   }
 `;
 
@@ -84,23 +77,15 @@ const CardTitle = styled.h3`
 
 const CardDescription = styled.p`
   font-size: 1.1rem;
-  color: white
-;
+  color: rgba(255, 255, 255, 0.9);
 
   line-height: 1.6;
   @media (max-width: 768px) {
-      padding-left: 1rem; /* Espacement réduit pour harmoniser */
-
     font-size: 1rem;
-     text-justify: inter-word;
-    text-align: left; /* Alignement à gauche pour les petits écrans */
-    width: 100%; /* Le texte occupe tout l'espace du conteneur */
-    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
-    white-space: pre-wrap; /* Préserve les espaces sur les petits écrans */
-    word-break: break-word; /* Coupe les mots longs pour éviter les débordements */
-    white-space: normal; /* Permet des retours à la ligne automatiques */
-    hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
-    
+
+    padding-left: 1rem; /* Espacement réduit pour harmoniser */
+    text-align: left; /* Alignement du texte à gauche */
+  }
 `;
 
 const Composantfinal = {
@@ -150,7 +135,7 @@ export default function Horaire() {
         <Title> COMBIEN COÛTE UN AVOCAT ?</Title>
         <Description>
           Les honoraires de l’avocat sont libres et fixés en accord avec le
-          client . Il n’existe pas de barème indicatif. Il est donc nécessaire
+          client. Il n’existe pas de barème indicatif. Il est donc nécessaire
           d’aborder avec votre avocat les modalités qui permettent de déterminer
           le montant des honoraires.
         </Description>

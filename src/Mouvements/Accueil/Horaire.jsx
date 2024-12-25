@@ -52,8 +52,7 @@ const Description = styled.p`
     overflow-wrap: anywhere; /* Les mots peuvent être coupés n'importe où */
     word-break: break-word; /* Coupe les mots pour éviter des espaces vides */
     hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
-  
-    }
+  }
 `;
 
 const Card = styled.div`
@@ -152,7 +151,7 @@ export default function Horaire() {
         <Title> COMBIEN COÛTE UN AVOCAT ?</Title>
         <Description>
           Les honoraires de l’avocat sont libres et fixés en accord avec le
-          client. Il n’existe pas de barème indicatif. Il est donc nécessaire
+          client . Il n’existe pas de barème indicatif. Il est donc nécessaire
           d’aborder avec votre avocat les modalités qui permettent de déterminer
           le montant des honoraires.
         </Description>

@@ -23,14 +23,13 @@ const Container = styled.div`
 
 const Title = styled.h1`
   font-size: 2rem;
-  font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
   color: #0f172a;
-  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
-font-family: "Georgia", serif;
 
+  text-shadow: ;
+  font-family: "Helvetica55Roman", Arial, sans-serif;
   @media (max-width: 768px) {
     font-size: 1.5rem;
   }
@@ -39,16 +38,16 @@ font-family: "Georgia", serif;
 const Description = styled.p`
   font-size: 1.2rem;
   text-align: center;
-  font-family: "Times New Roman", Times, serif;
   margin-bottom: 25px;
   max-width: 900px;
   line-height: 1.5;
   color: #0f172a;
   font-weight: 400;
-font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
     font-size: 1rem;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 10px;
   }
 `;
 
@@ -69,11 +68,10 @@ const Grid = styled.div`
 
 const Card = styled.div`
   background: rgba(10, 34, 64, 0.9);
-  border-radius: 8px;
-  padding: 16px;
-  font-family: "Times New Roman", Times, serif;
+  border-radius: 12px;
+  padding: 0px;
   text-align: center;
-  box-shadow: -2px -2px 10px rgba(0, 180, 216, 0.7);
+  box-shadow: -2px -2px 10px;
   transition: transform 0.5s ease;
   overflow: hidden;
 
@@ -82,7 +80,8 @@ const Card = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 8px;
+    padding: 0px;
+    margin: 10px;
   }
 `;
 
@@ -100,28 +99,31 @@ const CardImage = styled.img`
 `;
 
 const CardTitle = styled.h3`
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   color: #00b4d8;
-font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
-    font-size: 1rem;
-    margin-bottom: 8px;
+    font-size: 1.3rem;
+    margin-bottom: 0px;
   }
 `;
 
 const CardDescription = styled.p`
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.5;
-  text-align: center;
   font-weight: 300;
-font-family: "Roboto Slab", serif;
+  text-align: left; /* Alignement du texte à gauche */
+
+  padding: 20px;
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
+    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 30px;
   }
 `;
 
@@ -134,7 +136,11 @@ const AnimatedCard = ({ title, description, image }) => {
 
   return (
     <Card ref={ref} data-aos={inView ? "fade-up" : ""} data-aos-duration="1000">
-      <CardImage src={image} alt={title || "Card Image"} onError={(e) => (e.target.src = "/img/placeholder.png")} />
+      <CardImage
+        src={image}
+        alt={title || "Card Image"}
+        onError={(e) => (e.target.src = "/img/placeholder.png")}
+      />
       <CardTitle>{title}</CardTitle>
       <CardDescription>{description}</CardDescription>
     </Card>
@@ -194,7 +200,9 @@ const Nosservicess = () => {
     <Container>
       <Title>Bienvenue à Notre Service</Title>
       <Description>
-        Notre cabinet offre des services juridiques de qualité dans divers domaines, avec une expertise reconnue et une approche humaine pour répondre à vos besoins spécifiques.
+        Notre cabinet offre des services juridiques de qualité dans divers
+        domaines, avec une expertise reconnue et une approche humaine pour
+        répondre à vos besoins spécifiques.
       </Description>
       <Grid>
         {services.map((service, index) => (

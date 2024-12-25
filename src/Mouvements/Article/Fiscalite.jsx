@@ -92,7 +92,7 @@ const Subtitle = styled.h2`
 
 // Paragraphe avec espacement et lisibilité
 const Paragraph = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #caf0f8;
   line-height: 1.8;
   margin-bottom: 2rem;
@@ -105,9 +105,16 @@ const Paragraph = styled.p`
   @media (max-width: 768px) {
     font-size: 1rem;
   }
+     @media (max-width: 768px) {
+    font-size: 1.75rem; /* Taille de police ajustée pour les petits écrans */
+    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
+    text-align: left; /* Alignement du texte à gauche */
+  }
 
-  @media (max-width: 480px) {
-    font-size: 0.9rem;
+    @media (max-width: 480px) {
+    font-size: 1.2rem; /* Réduction supplémentaire pour très petits écrans */
+    padding-left: 0.5rem; /* Espacement optimisé */
+    text-align: left; /* Alignement du texte à gauche */
   }
 `;
 
@@ -119,7 +126,7 @@ const List = styled.ul`
   font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
-    padding-left: 1.5rem;
+    padding-left: 1.2rem;
   }
 `;
 
@@ -193,16 +200,16 @@ const Fiscalite = () => {
 
           <OverlayBottom />
 
-          <Title data-aos="fade-up">L'Impact de la Fiscalité</Title>
+          <Title data-aos="fade-up">L’Impact de la Fiscalité</Title>
           <section data-aos="fade-up" data-aos-delay="300">
             <Paragraph>
               La fiscalité occupe une place centrale dans la gestion des
               entreprises, déterminant en grande partie leur rentabilité et leur
               capacité à se développer. Elle agit comme un levier financier
-              capable d'encourager ou de freiner l'investissement, l'innovation
+              capable d’encourager ou de freiner l’investissement, l’innovation
               et la croissance économique. Une incitation fiscale bien conçue
               peut offrir des incitations favorables aux entreprises, stimulant
-              la recherche et le développement ou facilitant l'accès à de
+              la recherche et le développement ou facilitant l’accès à de
               nouveaux marchés. En revanche, une charge fiscale excessive ou mal
               adaptée peut nuire à la compétitivité des entreprises,
               particulièrement dans les secteurs sensibles à la concurrence
@@ -211,9 +218,9 @@ const Fiscalite = () => {
               publiques et à la redistribution des richesses. Les entreprises
               doivent donc concilier leur responsabilité fiscale avec leurs
               objectifs de performance financière. Il est essentiel pour les
-              dirigeants d'entreprises de comprendre les implications fiscales
+              dirigeants d’entreprises de comprendre les implications fiscales
               sur leurs activités, notamment en matière de gestion des coûts, de
-              conformité aux lois en vigueur, et d'optimisation fiscale légale.
+              conformité aux lois en vigueur, et d’optimisation fiscale légale.
               Pour mieux appréhender ces dynamiques et explorer les stratégies
               possibles, consultez ces articles :
               <a
@@ -252,8 +259,8 @@ const Fiscalite = () => {
                 obligations fiscales.
               </ListItem>
               <ListItem>
-                Profiter des avantages fiscaux tels que les crédits d'impôt pour
-                la recherche et l'innovation.
+                Profiter des avantages fiscaux tels que les crédits d’impôt pour
+                la recherche et l’innovation.
               </ListItem>
               <ListItem>
                 Élaborer des stratégies fiscales alignées avec leurs objectifs
@@ -262,9 +269,9 @@ const Fiscalite = () => {
             </List>
           </section>
           <section data-aos="fade-up" data-aos-delay="500">
-            <Subtitle>1. Les Types d'Impôts</Subtitle>
+            <Subtitle>1. Les Types d’Impôts</Subtitle>
             <Paragraph>
-              Les entreprises doivent s'acquitter de divers types d'impôts,
+              Les entreprises doivent s’acquitter de divers types d’impôts,
               notamment :
             </Paragraph>
             <List>
@@ -282,10 +289,10 @@ const Fiscalite = () => {
             </Paragraph>
           </section>
           <section data-aos="fade-up" data-aos-delay="900">
-            <Subtitle>3. Impact sur l'Innovation</Subtitle>
+            <Subtitle>3. Impact sur l’Innovation</Subtitle>
             <Paragraph>
-              Une fiscalité incitative, comme les crédits d'impôt pour la
-              recherche, peut encourager l'innovation et stimuler la croissance
+              Une fiscalité incitative, comme les crédits d’impôt pour la
+              recherche, peut encourager l’innovation et stimuler la croissance
               économique.
             </Paragraph>
           </section>

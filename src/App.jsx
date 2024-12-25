@@ -24,11 +24,13 @@ import AuditJuridique from "./Mouvements/Savoirfaire/Savoir-faire/Auditjurique";
 import Conseiljuri from "./Mouvements/Savoirfaire/Savoir-faire/Conseiljuri";
 import Assistance from "./Mouvements/Savoirfaire/Savoir-faire/Assistance";
 import Accueil from "./Mouvements/Accueil/Accueil";
+import GlobalStyle from "./Styles/Globalstylehelve";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <GlobalStyle />
+    <Routes>
         <Route index element={<Accueil />} />
         {/** <Route path="*" element={<Orror />} />
       pour */}{" "}

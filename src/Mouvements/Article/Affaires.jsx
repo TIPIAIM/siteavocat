@@ -157,7 +157,7 @@ const Affairee = () => {
       <AffairesContainer>
         <ContentWrapper>
           <SectionTitle className="font-serif">
-            L'importance des contrats en droit des affaires
+            L’importance des contrats en droit des affaires
           </SectionTitle>
           <ArticleCard
             initial={{ opacity: 0, y: 50 }}
@@ -197,7 +197,7 @@ const Affairee = () => {
                     confiance entre les parties.
                   </li>
                   <li>
-                    Gestion des risques : Permet d'anticiper et limiter les
+                    Gestion des risques : Permet d’anticiper et limiter les
                     problèmes potentiels.
                   </li>
                   <li>

@@ -160,7 +160,6 @@ const Subtitle = styled.h2`
 const Paragraph = styled.p`
   font-size: 1.125rem;
   color: white;
-  font-family: "Roboto Slab", serif;
 
   line-height: 1.8;
   margin-bottom: 1.5rem;
@@ -300,7 +299,7 @@ const Securite = () => {
               <Paragraph>
                 Découvrez en détail comment la sécurité sociale et le droit du
                 travail interagissent pour garantir le bien-être des
-                travailleurs. Pour plus d'informations, consultez{" "}
+                travailleurs. Pour plus d’informations, consultez{" "}
                 <ExternalLink
                   href="https://journals.openedition.org/rdctss/"
                   target="_blank"
@@ -355,7 +354,7 @@ const Securite = () => {
               Le droit du travail est la branche du droit qui régit les
               relations entre employeurs et employés. Il vise à équilibrer les
               rapports de pouvoir entre les deux parties en protégeant les
-              droits des salariés tout en permettant aux employeurs d'exercer
+              droits des salariés tout en permettant aux employeurs d’exercer
               leur activité.
             </Paragraph>
             <Paragraph>
@@ -366,7 +365,7 @@ const Securite = () => {
             <List>
               <ListItem>
                 Le contrat de travail : il encadre les obligations de
-                l'employeur et de l'employé, les modalités de rupture du
+                l’employeur et de l’employé, les modalités de rupture du
                 contrat, etc.
               </ListItem>
               <ListItem>
@@ -386,7 +385,7 @@ const Securite = () => {
               <ListItem>
                 La négociation collective : les conventions collectives
                 permettent de définir des droits supplémentaires ou spécifiques
-                aux employés d'un secteur donné.
+                aux employés d’un secteur donné.
               </ListItem>
             </List>
           </Section>

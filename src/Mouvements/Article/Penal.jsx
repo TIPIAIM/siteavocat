@@ -214,9 +214,9 @@ const Penal = () => {
         </StyledLink>
         <SectionTitle>Exploration du Droit Pénal</SectionTitle>
         <p style={{ fontFamily: "Roboto Slab"}}>
-          Le droit pénal réprime les infractions pour protéger l'ordre public et
+          Le droit pénal réprime les infractions pour protéger l’ordre public et
           la sécurité. Il définit les comportements interdits, les sanctions, et
-          régule les relations entre l'individu et la société.
+          régule les relations entre l’individu et la société.
         </p>
         <PenalGrid>
           {penalArticles.map((article, index) => (

@@ -163,10 +163,10 @@ const Famille = () => {
             </h2>
             <p>
               La médiation familiale est une méthode de résolution des conflits
-              qui permet aux membres d'une famille de discuter de manière
+              qui permet aux membres d’une famille de discuter de manière
               constructive des différends les opposant. Elle est souvent
               utilisée dans des situations telles que le divorce, la garde des
-              enfants ou les questions patrimoniales. L'objectif est d'éviter
+              enfants ou les questions patrimoniales. Lobjectif est d’éviter
               une procédure judiciaire longue et coûteuse en favorisant un
               dialogue ouvert et respectueux. Ce processus aide également à
               préserver les relations familiales en réduisant les tensions
@@ -177,7 +177,7 @@ const Famille = () => {
               href="https://aurore-avocats.fr/actualites-droit-personne-famille-patrimoine/qu-est-ce-que-la-mediation-familiale/?utm_source=chatgpt.com"
               target="_blank"
             >
-              Lire plus d'article
+              Lire plus d’article
             </ArticleLink>
           </ArticleSection>
 
@@ -187,71 +187,71 @@ const Famille = () => {
               savoir
             </h2>
             <p>
-              Lors d'un divorce, la question des droits des enfants est
-              primordiale. Il est essentiel que le bien-être de l'enfant soit au
+              Lors d’un divorce, la question des droits des enfants est
+              primordiale. Il est essentiel que le bien-être de l’enfant soit au
               cœur des préoccupations des parents et des tribunaux. Les parents
               doivent prendre des décisions concernant la garde, la résidence et
               le droit de visite de manière responsable et respectueuse des
               besoins de leurs enfants. Les tribunaux interviennent lorsque les
               parents ne parviennent pas à un accord, et ils déterminent des
-              arrangements qui respectent les droits de l'enfant. Ce processus
+              arrangements qui respectent les droits de l’enfant. Ce processus
               peut être facilité par la médiation familiale, qui offre un cadre
-              de discussion pour parvenir à un consensus avant d'aller devant le
+              de discussion pour parvenir à un consensus avant d’aller devant le
               juge.
             </p>
             <ArticleLink
               href="https://www.justifit.fr/b/guides/droit-famille/"
               target="_blank"
             >
-              Lire plus d'article{" "}
+              Lire plus d’article{" "}
             </ArticleLink>
           </ArticleSection>
 
           <ArticleSection>
             <h2>
               Les implications légales de la médiation dans les affaires de
-              garde d'enfants
+              garde d’enfants
             </h2>
             <p>
               La médiation joue un rôle crucial dans les affaires de garde
-              d'enfants, permettant aux parents de trouver des solutions
+              d’enfants, permettant aux parents de trouver des solutions
               adaptées aux besoins de leurs enfants. En France, elle est souvent
-              recommandée avant d'engager une procédure judiciaire. Ce processus
-              permet de définir les modalités de garde, de visite et d'éducation
+              recommandée avant d’engager une procédure judiciaire. Ce processus
+              permet de définir les modalités de garde, de visite et d’éducation
               dans un cadre amiable et respectueux. En impliquant les parents,
-              la médiation assure que les décisions prises sont dans l'intérêt
-              supérieur de l'enfant. De plus, elle permet de réduire les
-              tensions et d'éviter des décisions imposées par un tribunal,
+              la médiation assure que les décisions prises sont dans l’intérêt
+              supérieur de l’enfant. De plus, elle permet de réduire les
+              tensions et d’éviter des décisions imposées par un tribunal,
               souvent perçues comme plus conflictuelles.
             </p>
             <ArticleLink
               href="https://www.example.com/article3"
               target="_blank"
             >
-              Lire plus d'article
+              Lire plus d’article
             </ArticleLink>
           </ArticleSection>
 
           <ArticleSection>
-            <h2>Les conséquences d'un divorce non médiatisé</h2>
+            <h2>Les conséquences d’un divorce non médiatisé</h2>
             <p>
               Un divorce non médiatisé peut avoir des conséquences lourdes, tant
-              sur le plan juridique qu'émotionnel. En l'absence de médiation,
-              les conflits peuvent s'intensifier, ce qui peut mener à des
+              sur le plan juridique qu’émotionnel. En l’absence de médiation,
+              les conflits peuvent s’intensifier, ce qui peut mener à des
               décisions judiciaires rigides et moins adaptées aux besoins des
               parties, en particulier des enfants. La médiation, en revanche,
               permet de trouver des solutions plus personnalisées et moins
               conflictuelles. De plus, un divorce litigieux peut avoir un impact
               négatif sur les relations familiales à long terme, en créant des
-              divisions permanentes entre les membres de la famille. C'est
-              pourquoi il est fortement recommandé d'explorer la médiation avant
+              divisions permanentes entre les membres de la famille. C’est
+              pourquoi il est fortement recommandé d’explorer la médiation avant
               de prendre des mesures judiciaires.
             </p>
             <ArticleLink
               href="https://demarchesadministratives.fr/demarches/faire-appel-a-un-mediateur-familial"
               target="_blank"
             >
-              Lire plus d'article
+              Lire plus d’article
             </ArticleLink>
           </ArticleSection>
         </ContentWrapper>

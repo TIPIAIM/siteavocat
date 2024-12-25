@@ -16,44 +16,43 @@ const Container = styled.div`
   padding: 20px;
   box-sizing: border-box;
   overflow: hidden;
+  
 `;
 
 const Title = styled.h1`
   font-size: 2rem;
-  font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   text-align: center;
   margin: 40px 0;
   color: #90e0ef;
-  font-family: "Georgia", serif;
 
-  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 `;
 
 const Description = styled.p`
   font-size: 1.2rem;
   text-align: center;
-  font-family: "Times New Roman", Times, serif;
   margin-bottom: 30px;
   max-width: 800px;
   line-height: 1.8;
-  font-family: "Roboto Slab", serif;
 
   color: #caf0f8;
   @media (max-width: 768px) {
     font-size: 1rem;
     line-height: 1.6;
-  }
+     padding-left:1.5rem; /* Espacement réduit pour harmoniser */
+    text-align: left; /* Alignement du texte à gauche */
+
+    }
 `;
 
 const Card = styled.div`
   background: linear-gradient(to bottom, #90e0ef, #);
   border-radius: 12px;
   padding: 20px;
-  font-family: "Times New Roman", Times, serif;
   text-align: center;
   box-shadow: 1px 8px 1px #90e0ef;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -63,7 +62,7 @@ const Card = styled.div`
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6);
   }
   @media (max-width: 768px) {
-    padding: 15px;
+    padding: 20px;
   }
 `;
 
@@ -72,22 +71,22 @@ const CardTitle = styled.h3`
   font-weight: bold;
   margin-bottom: 10px;
   color: #90e0ef;
-  font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 `;
 
 const CardDescription = styled.p`
   font-size: 1.1rem;
-  font-family: "Times New Roman", Times, serif;
   color: rgba(255, 255, 255, 0.9);
-  font-family: "Roboto Slab", serif;
 
   line-height: 1.6;
   @media (max-width: 768px) {
     font-size: 1rem;
+        padding-left: 1rem; /* Espacement réduit pour harmoniser */
+    text-align: left; /* Alignement du texte à gauche */
+
   }
 `;
 

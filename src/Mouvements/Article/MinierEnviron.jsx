@@ -87,7 +87,7 @@ const Subtitle = styled.h2`
   }
 
   @media (max-width: 480px) {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -105,7 +105,7 @@ const Paragraph = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1rem;
-    align-items: center;
+    align-items: left;
   }
 
   @media (max-width: 480px) {

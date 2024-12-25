@@ -55,20 +55,21 @@ const ParagraphWrapper = styled.div`
 `;
 
 const ParagraphImage = styled.img`
-  width: 150px;
-  height: 150px;
-  
+  width: 180px;
+  height: auto;
+  text-align: center; /* Alignement du texte à gauche */
+margin : 2rem;
   object-fit: cover;
   border-radius: 5%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
     border-radius: 2%;
-     width: 400px;
+    margin : 0rem;
+    width: 400px;
     height: 250px;
     margin-bottom: rem;
     text-align: center; /* Alignement du texte à gauche */
-  
   }
 `;
 
@@ -80,7 +81,7 @@ const Paragraph = styled(motion.p)`
 
   @media (max-width: 480px) {
     font-size: 1rem;
-   padding : 20px;
+    padding: 20px;
     line-height: 1.4;
     text-align: left; /* Alignement du texte à gauche */
   }
@@ -245,20 +246,19 @@ export default function AuditJuridique() {
               <strong style={{ color: "#90e0ef" }}>
                 6. Des avantages concrets pour votre organisation :
               </strong>
-              
-                <li>
-                  Réduction des coûts liés aux litiges grâce à une prévention
-                  efficace.
-                </li>
-                <li>
-                  Amélioration de la crédibilité de votre entreprise vis-à-vis
-                  de vos partenaires et investisseurs.
-                </li>
-                <li>
-                  Optimisation de vos processus internes pour une gestion plus
-                  fluide et sécurisée.
-                </li>
-              
+
+              <li>
+                Réduction des coûts liés aux litiges grâce à une prévention
+                efficace.
+              </li>
+              <li>
+                Amélioration de la crédibilité de votre entreprise vis-à-vis de
+                vos partenaires et investisseurs.
+              </li>
+              <li>
+                Optimisation de vos processus internes pour une gestion plus
+                fluide et sécurisée.
+              </li>
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>

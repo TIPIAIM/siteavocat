@@ -16,7 +16,6 @@ const Container = styled.div`
   padding: 20px;
   box-sizing: border-box;
   overflow: hidden;
-  
 `;
 
 const Title = styled.h1`
@@ -41,11 +40,19 @@ const Description = styled.p`
 
   color: #caf0f8;
   @media (max-width: 768px) {
-    font-size: 1rem;
     line-height: 1.6;
-     padding-left:1.5rem; /* Espacement réduit pour harmoniser */
-    text-align: left; /* Alignement du texte à gauche */
 
+    padding-left: 1rem; /* Espacement réduit pour harmoniser */
+    font-size: 1rem;
+    text-align: justify; /* Justification également sur les petits écrans */
+    text-align: left; /* Alignement du texte à gauche */
+    width: 100%; /* Le texte occupe tout l'espace du conteneur */
+    box-sizing: border-box;
+    white-space: normal; /* Les sauts de ligne automatiques sont autorisés */
+    overflow-wrap: anywhere; /* Les mots peuvent être coupés n'importe où */
+    word-break: break-word; /* Coupe les mots pour éviter des espaces vides */
+    hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
+  
     }
 `;
 
@@ -84,9 +91,17 @@ const CardDescription = styled.p`
   line-height: 1.6;
   @media (max-width: 768px) {
     font-size: 1rem;
-        padding-left: 1rem; /* Espacement réduit pour harmoniser */
-    text-align: left; /* Alignement du texte à gauche */
 
+    padding-left: 1rem; /* Espacement réduit pour harmoniser */
+    font-size: 1rem;
+    text-align: justify; /* Justification également sur les petits écrans */
+    text-align: left; /* Alignement du texte à gauche */
+    width: 100%; /* Le texte occupe tout l'espace du conteneur */
+    box-sizing: border-box;
+    white-space: normal; /* Les sauts de ligne automatiques sont autorisés */
+    overflow-wrap: anywhere; /* Les mots peuvent être coupés n'importe où */
+    word-break: break-word; /* Coupe les mots pour éviter des espaces vides */
+    hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
   }
 `;
 

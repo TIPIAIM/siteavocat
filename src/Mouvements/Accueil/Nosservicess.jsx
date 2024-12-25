@@ -45,9 +45,18 @@ const Description = styled.p`
   font-weight: 400;
 
   @media (max-width: 768px) {
+    padding: 15px;
+        line-height: 1.6;
     font-size: 1rem;
+    text-align: justify; /* Justification également sur les petits écrans */
     text-align: left; /* Alignement du texte à gauche */
-    padding: 10px;
+    width: 100%; /* Le texte occupe tout l'espace du conteneur */
+    box-sizing: border-box;
+    white-space: normal; /* Les sauts de ligne automatiques sont autorisés */
+    overflow-wrap: anywhere; /* Les mots peuvent être coupés n'importe où */
+    word-break: break-word; /* Coupe les mots pour éviter des espaces vides */
+    hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
+  
   }
 `;
 
@@ -121,9 +130,19 @@ const CardDescription = styled.p`
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
-    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
+    padding: 35px;
+        line-height: 1.6;
+
+    font-size: 1rem;
+    text-align: justify; /* Justification également sur les petits écrans */
     text-align: left; /* Alignement du texte à gauche */
-    padding: 30px;
+    width: 100%; /* Le texte occupe tout l'espace du conteneur */
+    box-sizing: border-box;
+    white-space: normal; /* Les sauts de ligne automatiques sont autorisés */
+    overflow-wrap: anywhere; /* Les mots peuvent être coupés n'importe où */
+    word-break: break-word; /* Coupe les mots pour éviter des espaces vides */
+    hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
+  
   }
 `;
 

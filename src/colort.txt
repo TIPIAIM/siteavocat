@@ -74,3 +74,17 @@ h1, h2, h3 {
 }
 Ces deux politiques garantiront que votre site d'avocats soit à la fois professionnel et agréable à lire .
 
+
+aligne le texte a gauche et justify pour ne pas laisser desp
+
+    padding-left: 1rem; /* Espacement réduit pour harmoniser */
+    font-size: 1rem;
+    text-align: justify; /* Justification également sur les petits écrans */
+    text-align: left; /* Alignement du texte à gauche */
+    width: 100%; /* Le texte occupe tout l'espace du conteneur */
+    box-sizing: border-box;
+    white-space: normal; /* Les sauts de ligne automatiques sont autorisés */
+    overflow-wrap: anywhere; /* Les mots peuvent être coupés n'importe où */
+    word-break: break-word; /* Coupe les mots pour éviter des espaces vides */
+    hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
+  

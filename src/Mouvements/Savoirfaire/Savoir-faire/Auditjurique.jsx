@@ -18,7 +18,7 @@ const BackgroundContainer = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
 `;
 
 const ContentContainer = styled.div`
@@ -41,6 +41,8 @@ const Title = styled(motion.h1)`
 
 const ParagraphWrapper = styled.div`
   display: flex;
+  background: rgba(10, 34, 64, 0.4);
+  border-radius: 52px;
   align-items: flex-start;
   margin-bottom: 1rem;
   max-width: 1000px;
@@ -55,24 +57,32 @@ const ParagraphWrapper = styled.div`
 const ParagraphImage = styled.img`
   width: 150px;
   height: 150px;
+  padding: 10px;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
-    margin-bottom: 0.5rem;
+    width: 100%;
+    height: 250px;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 20%;
+    
   }
 `;
 
 const Paragraph = styled(motion.p)`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 2;
   text-align: justify;
   margin: 20px;
 
   @media (max-width: 480px) {
     font-size: 1rem;
+   padding : 20px;
     line-height: 1.4;
+    text-align: left; /* Alignement du texte à gauche */
   }
 `;
 
@@ -118,7 +128,10 @@ export default function AuditJuridique() {
       <BackgroundContainer>
         <Overlay />
         <BardeNavigationpublic />
-        <ContentContainer className=" font-serif">
+        <ContentContainer
+          style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
+          className=" font-serif"
+        >
           <Title
             initial="hidden"
             animate={controls}
@@ -129,7 +142,7 @@ export default function AuditJuridique() {
           </Title>
           <Divider />
           <ParagraphWrapper>
-            <ParagraphImage src="img/analysejuri.jpg" alt="Analyse" />
+            <ParagraphImage src="img/jurid.jpg" alt="Analyse" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -142,14 +155,16 @@ export default function AuditJuridique() {
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/regulat.jpg" alt="Stratégie" />
+            <ParagraphImage src="img/jurid1.avif" alt="Stratégie" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
               animate={controls}
             >
-              <strong style={{ color: '#90e0ef'}}>1. Une analyse approfondie et stratégique :</strong> Notre
-              équipe procède à une évaluation complète de vos documents
+              <strong style={{ color: "#90e0ef" }}>
+                1. Une analyse approfondie et stratégique :
+              </strong>{" "}
+              Notre équipe procède à une évaluation complète de vos documents
               juridiques, tels que contrats, statuts, accords de partenariat, et
               politiques internes. Nous identifions non seulement les zones de
               risque, mais aussi les opportunités pour optimiser vos pratiques
@@ -163,8 +178,10 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong style={{ color: '#90e0ef'}}>2. Une expertise multidisciplinaire unique :</strong> Nos
-              avocats spécialisés couvrent plusieurs branches du droit,
+              <strong style={{ color: "#90e0ef" }}>
+                2. Une expertise multidisciplinaire unique :
+              </strong>{" "}
+              Nos avocats spécialisés couvrent plusieurs branches du droit,
               notamment le droit des affaires, le droit du travail, le droit
               fiscal, et le droit commercial. Cette diversité garantit une
               vision globale et cohérente de votre environnement juridique.
@@ -177,7 +194,7 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong style={{ color: '#90e0ef'}}>
+              <strong style={{ color: "#90e0ef" }}>
                 3. Une conformité avec les normes en constante évolution :
               </strong>
               Les lois et réglementations changent rapidement. Nous veillons à
@@ -193,8 +210,10 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong style={{ color: '#90e0ef'}}>4. Une prévention proactive des risques :</strong> Un
-              audit juridique efficace vous permet de prévoir et d’éviter des
+              <strong style={{ color: "#90e0ef" }}>
+                4. Une prévention proactive des risques :
+              </strong>{" "}
+              Un audit juridique efficace vous permet de prévoir et d’éviter des
               problèmes avant qu’ils ne surviennent. Notre approche proactive
               inclut des recommandations précises pour corriger les anomalies
               identifiées et protéger vos intérêts.
@@ -207,10 +226,12 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong style={{ color: '#90e0ef'}}>5. Un accompagnement sur mesure :</strong> Au-delà de
-              l’audit, nous vous assistons dans la mise en œuvre des solutions
-              proposées. Que ce soit pour la révision de vos contrats, la
-              restructuration juridique ou la négociation de clauses, notre
+              <strong style={{ color: "#90e0ef" }}>
+                5. Un accompagnement sur mesure :
+              </strong>{" "}
+              Au-delà de l’audit, nous vous assistons dans la mise en œuvre des
+              solutions proposées. Que ce soit pour la révision de vos contrats,
+              la restructuration juridique ou la négociation de clauses, notre
               équipe est à vos côtés à chaque étape.
             </Paragraph>
           </ParagraphWrapper>
@@ -221,10 +242,10 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong style={{ color: '#90e0ef'}}>
+              <strong style={{ color: "#90e0ef" }}>
                 6. Des avantages concrets pour votre organisation :
               </strong>
-              <ul>
+              
                 <li>
                   Réduction des coûts liés aux litiges grâce à une prévention
                   efficace.
@@ -237,7 +258,7 @@ export default function AuditJuridique() {
                   Optimisation de vos processus internes pour une gestion plus
                   fluide et sécurisée.
                 </li>
-              </ul>
+              
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
@@ -247,16 +268,16 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong style={{ color: '#90e0ef'}}>7. Une relation de confiance :</strong> Notre engagement
-              repose sur la transparence, la discrétion, et une écoute active de
-              vos besoins. Chaque client bénéficie d’un suivi personnalisé, car
-              nous comprenons que chaque situation est unique.
+              <strong style={{ color: "#90e0ef" }}>
+                7. Une relation de confiance :
+              </strong>{" "}
+              Notre engagement repose sur la transparence, la discrétion, et une
+              écoute active de vos besoins. Chaque client bénéficie d’un suivi
+              personnalisé, car nous comprenons que chaque situation est unique.
             </Paragraph>
           </ParagraphWrapper>
           <ImageContainer>
-            <Image src="img/analysejuri.jpg" alt="Analyse juridique" />
-            <Image src="img/regulat.jpg" alt="regulat" />
-            <Image src="img/MOE_0400.jpg" alt="Équipe d'experts" />
+            <Image src="img/logoAODnoir.png" alt="Analyse juridique" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

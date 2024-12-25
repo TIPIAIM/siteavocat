@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 export default function Accueilfooter() {
   return (
     <div className="">
-      <footer
-        className="bg-[rgba(10,34,64)] text-gray-300 py-6 sm:py-8 border-t border-gray-800"
-      >
+      <footer className="bg-[rgba(10,34,64)] text-gray-300 py-6 sm:py-8 border-t border-gray-800">
         <section className="bg-[rgba(10,34,64)] text-white py-12 sm:py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl sm:text-3xl  font-bold text-center mb-12 sm:mb-16">
+            <h2
+              style={{
+                color: "#90e0ef",
+              }}
+              className="text-2xl sm:text-3xl  font-bold text-center mb-12 sm:mb-16"
+            >
               Contactez-nous
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">

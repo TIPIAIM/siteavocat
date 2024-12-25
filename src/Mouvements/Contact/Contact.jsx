@@ -27,9 +27,7 @@ const ImageSection = styled.div`
   background-position: center;
   min-height: 400px;
   border-radius: 0px;
-  box-shadow: 0 4px 6px #90e0ef;
-
-  @media (max-width: 768px) {
+  box-shadow: @media (max-width: 768px) {
     min-height: 250px;
     margin-bottom: 20px;
   }
@@ -43,42 +41,38 @@ const FormSection = styled.div`
   align-items: center;
   padding: 40px;
   background: #1e293b;
-  box-shadow: 0 4px 6px #90e0ef;
+  box-shadow:
   border-radius: 0px;
 
   @media (max-width: 768px) {
     padding: 20px;
     text-align: center; /* Centrer le contenu du formulaire sur les petits écrans */
-  
-    }
+  }
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
-  font-family: "Times New Roman", serif;
   color: #00b4d8;
   margin-bottom: 15px;
   font-weight: bold;
   text-shadow: 0px 2px 4px #;
-  font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     text-align: center; /* Centrer le contenu du formulaire sur les petits écrans */
   }
 `;
 
 const Description = styled.p`
   font-size: 1.1rem;
-  font-family: "Times New Roman", serif;
   color: #caf0f8;
   margin-bottom: 20px;
   text-align: justify;
-  font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
     font-size: 1rem;
-    text-align: center; /* Centrer le contenu du formulaire sur les petits écrans */
+    text-align: left; /* Centrer le contenu du formulaire sur les petits écrans */
+    padding: 20px;
   }
 `;
 
@@ -91,6 +85,7 @@ const Form = styled.form`
 
   @media (max-width: 768px) {
     gap: 15px;
+    padding: 20px;
     text-align: center; /* Centrer le contenu du formulaire sur les petits écrans */
   }
 `;
@@ -98,18 +93,18 @@ const Form = styled.form`
 const Input = styled.input`
   padding: 12px;
   font-size: 1rem;
-  border: 1px solid #00b4d8;
+  border: 1px solid 00b4d;
   border-radius: 5px;
   outline: none;
   transition: border-color 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0);
 
   &:focus {
     border-color: #007bff;
   }
 
   @media (max-width: 768px) {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 `;
 
@@ -124,12 +119,12 @@ const FooterWrapper = styled.div`
 const Textarea = styled.textarea`
   padding: 12px;
   font-size: 1rem;
-  border: 1px solid #00b4d8;
+  border: 1px solid 00b4d8;
   border-radius: 5px;
   outline: none;
   transition: border-color 0.3s ease;
   resize: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(, 0, 0, 0.2);
 
   &:focus {
     border-color: #007bff;
@@ -137,6 +132,8 @@ const Textarea = styled.textarea`
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
+    text-align: left; /* Centrer le contenu du formulaire sur les petits écrans */
+    padding: 10px;
   }
 `;
 
@@ -149,15 +146,14 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-family: "Roboto Slab", serif;
 
   &:hover {
-    background-color: #caf0f8;
+    background-color: white;
   }
 
   @media (max-width: 768px) {
-    font-size: 0.9rem;
-    padding: 10px;
+    font-size: 1rem;
+    padding: 20px;
   }
 `;
 
@@ -167,7 +163,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <div>
+    <div style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
       <header className="relative h-[400px] sm:h-[400px] mb-20 overflow-hidden">
         <BardeNavigationpublic />
         <div className="absolute inset-0 bg-black/50 z-10" />

@@ -35,6 +35,12 @@ const Title = styled(motion.h2)`
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   z-index: 10;
   max-width: 800px;
+
+   @media (max-width: 768px) {
+    font-size: 2rem;
+      text-align: center;;
+
+  }
 `;
 
 const PointsList = styled.div`
@@ -62,6 +68,8 @@ const Point = styled(motion.div)`
 
   @media (max-width: 768px) {
     font-size: 1.1rem;
+      text-align: left;;
+
   }
 `;
 
@@ -73,7 +81,10 @@ const textVariants = {
 const Conseiljuri = () => {
   return (
     <div>
-      <Container>
+      <Container
+            style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
+
+      >
         <BardeNavigationpublic />
         <Title initial="hidden" animate="visible" variants={textVariants}>
           Conseils juridiques ?

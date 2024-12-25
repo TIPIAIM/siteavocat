@@ -9,7 +9,8 @@ import Footer from "../../Accueil/Footerr";
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("img/confience.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("img/confience.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -28,7 +29,7 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: white;
+  color: black;
   max-width: 1200px;
   margin: 0 auto;
 `;
@@ -41,7 +42,7 @@ const Title = styled(motion.h1)`
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -53,12 +54,13 @@ const ParagraphWrapper = styled.div`
   gap: 2rem;
   border-radius: 8px;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(10, 34, 64, 0.9);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
     flex-direction: column;
-    align-items: center;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 0rem;
   }
 `;
 
@@ -66,11 +68,15 @@ const ParagraphImage = styled.img`
   width: 180px;
   height: 180px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 5%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
-    margin-bottom: 1rem;
+    border-radius: 0%;
+    width: 400px;
+    height: 250px;
+    margin-bottom: rem;
+    text-align: center; /* Alignement du texte à gauche */
   }
 `;
 
@@ -83,6 +89,8 @@ const Paragraph = styled(motion.p)`
   @media (max-width: 480px) {
     font-size: 1rem;
     line-height: 1.6rem;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 2rem;
   }
 `;
 
@@ -133,7 +141,10 @@ export default function AuditJuridique() {
       <BackgroundContainer>
         <Overlay />
         <BardeNavigationpublic />
-        <ContentContainer className=" font-serif">
+        <ContentContainer
+          style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
+          className=" font-serif"
+        >
           <Title
             initial="hidden"
             animate={controls}
@@ -144,34 +155,38 @@ export default function AuditJuridique() {
           </Title>
           <Divider />
           <ParagraphWrapper>
-            <ParagraphImage src="img/analysejuri.jpg" alt="Analyse" />
+            <ParagraphImage src="img/commercial.jpeg" alt="Analyse" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
               animate={controls}
             >
-              <strong style={{ color: '#90e0ef'}}>Une expertise reconnue dans le domaine juridique :</strong> 
+              <strong style={{ color: "#90e0ef" }}>
+                Une expertise reconnue dans le domaine juridique :
+              </strong>
               Notre équipe regroupe des avocats et juristes expérimentés,
               spécialisés en droit civil, commercial, fiscal, du travail, et
               administratif. Nous avons l’expérience et les compétences
               nécessaires pour résoudre vos problématiques juridiques, quelles
-              qu’elles soient. Nous mettons à votre disposition un accompagnement
-              sur mesure pour chaque situation.
+              qu’elles soient. Nous mettons à votre disposition un
+              accompagnement sur mesure pour chaque situation.
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/regulat.jpg" alt="Régulation" />
+            <ParagraphImage src="img/EVOL.jpeg" alt="Régulation" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
               animate={controls}
             >
-              <strong style={{ color: '#90e0ef'}}>Accompagnement dans la régulation :</strong>
+              <strong style={{ color: "#90e0ef" }}>
+                Accompagnement dans la régulation :
+              </strong>
               Nous vous assistons dans vos démarches administratives et
               réglementaires pour garantir la conformité de vos activités avec
-              les lois en vigueur. Cela inclut l’élaboration des documents requis,
-              la représentation auprès des autorités compétentes, et le suivi des
-              modifications législatives.
+              les lois en vigueur. Cela inclut l’élaboration des documents
+              requis, la représentation auprès des autorités compétentes, et le
+              suivi des modifications législatives.
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
@@ -181,12 +196,14 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong style={{ color: '#90e0ef'}}>Consultations personnalisées :</strong>
+              <strong style={{ color: "#90e0ef" }}>
+                Consultations personnalisées :
+              </strong>
               Nos experts sont à votre écoute pour vous fournir des solutions
-              adaptées à vos besoins spécifiques, que ce soit pour des
-              conseils, des analyses ou des recommandations stratégiques.
-              Nous abordons chaque cas avec une attention particulière pour
-              offrir un service réellement personnalisé.
+              adaptées à vos besoins spécifiques, que ce soit pour des conseils,
+              des analyses ou des recommandations stratégiques. Nous abordons
+              chaque cas avec une attention particulière pour offrir un service
+              réellement personnalisé.
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
@@ -196,11 +213,13 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong style={{ color: '#90e0ef'}}>Formations spécialisées :</strong>
-              Nous proposons des programmes de formation adaptés pour vous
-              aider à mieux comprendre et gérer les aspects juridiques de vos
-              projets. Ces formations couvrent des sujets variés allant de la
-              gestion des contrats à la prévention des litiges.
+              <strong style={{ color: "#90e0ef" }}>
+                Formations spécialisées :
+              </strong>
+              Nous proposons des programmes de formation adaptés pour vous aider
+              à mieux comprendre et gérer les aspects juridiques de vos projets.
+              Ces formations couvrent des sujets variés allant de la gestion des
+              contrats à la prévention des litiges.
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
@@ -210,16 +229,17 @@ export default function AuditJuridique() {
               initial="hidden"
               animate={controls}
             >
-              <strong style={{ color: '#90e0ef'}}>Protection juridique :</strong>
+              <strong style={{ color: "#90e0ef" }}>
+                Protection juridique :
+              </strong>
               Nous vous offrons une assistance pour anticiper et gérer les
-              litiges, en assurant une protection efficace de vos droits.
-              Notre approche proactive vise à réduire les risques légaux
-              et à sécuriser vos intérêts sur le long terme.
+              litiges, en assurant une protection efficace de vos droits. Notre
+              approche proactive vise à réduire les risques légaux et à
+              sécuriser vos intérêts sur le long terme.
             </Paragraph>
           </ParagraphWrapper>
           <ImageContainer>
             <Image src="img/analysejuri.jpg" alt="Analyse juridique" />
-            <Image src="img/regulat.jpg" alt="Régulation" />
             <Image src="img/PREV.jpeg" alt="Équipe d'experts" />
           </ImageContainer>
         </ContentContainer>

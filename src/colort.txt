@@ -88,3 +88,4 @@ aligne le texte a gauche et justify pour ne pas laisser desp
     word-break: break-word; /* Coupe les mots pour éviter des espaces vides */
     hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
   
+      style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}

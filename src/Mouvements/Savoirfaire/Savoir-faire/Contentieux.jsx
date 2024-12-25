@@ -9,7 +9,8 @@ import Footer from "../../Accueil/Footerr";
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/MOE_0400.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("img/confience.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -18,11 +19,10 @@ const BackgroundContainer = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
 `;
 
 const ContentContainer = styled.div`
-  position: relative;
+   position: relative;
   z-index: 10;
   padding: 4rem 2rem;
   display: flex;
@@ -30,47 +30,68 @@ const ContentContainer = styled.div`
   align-items: center;
   text-align: center;
   color: white;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const Title = styled(motion.h1)`
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   color: #90e0ef;
   margin-bottom: 2rem;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const ParagraphContainer = styled.div`
-  display: flex;
+display: flex;
   align-items: flex-start;
   margin-bottom: 2rem;
-  gap: 1rem;
-  max-width: 800px;
-  text-align: justify;
+  max-width: 1000px;
+  gap: 2rem;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: rgba(10, 34, 64, 0.9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 0rem;
   }
 `;
 
 const StyledImage = styled(motion.img)`
-  width: 200px;
-  height: auto;
+  width: 180px;
+  height: auto
   object-fit: cover;
-  border-radius: 10%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  flex-shrink: 0;
+  border-radius: 5%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
-    margin-bottom: 0.5rem;
+    border-radius: 0%;
+    width: 400px;
+    height: 250px;
+    margin-bottom: rem;
+    text-align: center; /* Alignement du texte à gauche */
   }
 `;
 
 const Paragraph = styled(motion.p)`
   font-size: 1.2rem;
-  line-height: 2;
+  line-height: 1.8rem;
+  text-align: justify;
+  color: #e0e0e0;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 2rem;
+  }
 `;
 
 const Divider = styled.div`
@@ -97,7 +118,11 @@ export default function Contentieux() {
 
   const imageVariants = {
     hidden: { scale: 0.9, opacity: 0 },
-    visible: { scale: 1, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   return (
@@ -111,14 +136,15 @@ export default function Contentieux() {
             animate={controls}
             variants={textVariants}
             ref={ref}
-           className=" font-serif">
+            className=" font-serif"
+          >
             Le droit de contentieux ?
           </Title>
           <Divider />
           {/* Section 1 */}
           <ParagraphContainer>
             <StyledImage
-              src="img/analysejuri.jpg"
+              src="img/arbitra.png"
               alt="Illustration 1"
               variants={imageVariants}
               initial="hidden"
@@ -139,7 +165,7 @@ export default function Contentieux() {
           {/* Section 2 */}
           <ParagraphContainer>
             <StyledImage
-              src="img/keitaseul2.jpg"
+              src="img/FISCAL.jpg"
               alt="Illustration 2"
               variants={imageVariants}
               initial="hidden"
@@ -152,14 +178,15 @@ export default function Contentieux() {
             >
               Chaque contentieux est unique. Nous analysons minutieusement votre
               situation pour élaborer des stratégies adaptées à vos besoins
-              spécifiques. Notre approche proactive vise à résoudre les différends
-              de manière rapide et efficace, tout en minimisant les risques.
+              spécifiques. Notre approche proactive vise à résoudre les
+              différends de manière rapide et efficace, tout en minimisant les
+              risques.
             </Paragraph>
           </ParagraphContainer>
           {/* Section 3 */}
           <ParagraphContainer>
             <StyledImage
-              src="img/technologie.jpg"
+              src="img/logoAODnoir.png"
               alt="Illustration 3"
               variants={imageVariants}
               initial="hidden"
@@ -200,7 +227,7 @@ export default function Contentieux() {
           {/* Section 5 */}
           <ParagraphContainer>
             <StyledImage
-              src="img/sttis.webp"
+              src="img/image.png"
               alt="Illustration 5"
               variants={imageVariants}
               initial="hidden"
@@ -212,9 +239,9 @@ export default function Contentieux() {
               animate={controls}
             >
               Notre cabinet est reconnu pour sa capacité à résoudre des
-              contentieux complexes avec succès. Nos résultats et la satisfaction
-              de nos clients témoignent de notre engagement envers l’excellence et
-              la justice.
+              contentieux complexes avec succès. Nos résultats et la
+              satisfaction de nos clients témoignent de notre engagement envers
+              l’excellence et la justice.
             </Paragraph>
           </ParagraphContainer>
         </ContentContainer>

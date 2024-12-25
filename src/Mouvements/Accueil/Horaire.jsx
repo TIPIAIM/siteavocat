@@ -37,8 +37,7 @@ const Description = styled.p`
   margin-bottom: 30px;
   max-width: 800px;
   line-height: 1.8;
-
-  color: #caf0f8;
+  color: white;
   @media (max-width: 768px) {
     line-height: 1.6;
 
@@ -85,23 +84,23 @@ const CardTitle = styled.h3`
 
 const CardDescription = styled.p`
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: white
+;
 
   line-height: 1.6;
   @media (max-width: 768px) {
-    font-size: 1rem;
+      padding-left: 1rem; /* Espacement réduit pour harmoniser */
 
-    padding-left: 1rem; /* Espacement réduit pour harmoniser */
     font-size: 1rem;
-    text-align: justify; /* Justification également sur les petits écrans */
-    text-align: left; /* Alignement du texte à gauche */
+     text-justify: inter-word;
+    text-align: left; /* Alignement à gauche pour les petits écrans */
     width: 100%; /* Le texte occupe tout l'espace du conteneur */
-    box-sizing: border-box;
-    white-space: normal; /* Les sauts de ligne automatiques sont autorisés */
-    overflow-wrap: anywhere; /* Les mots peuvent être coupés n'importe où */
-    word-break: break-word; /* Coupe les mots pour éviter des espaces vides */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+    white-space: pre-wrap; /* Préserve les espaces sur les petits écrans */
+    word-break: break-word; /* Coupe les mots longs pour éviter les débordements */
+    white-space: normal; /* Permet des retours à la ligne automatiques */
     hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
-  }
+    
 `;
 
 const Composantfinal = {

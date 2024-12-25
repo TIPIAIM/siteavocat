@@ -42,7 +42,7 @@ const Title = styled(motion.h1)`
 const ParagraphWrapper = styled.div`
   display: flex;
   background: rgba(10, 34, 64, 0.4);
-  border-radius: 52px;
+  border-radius: 2px;
   align-items: flex-start;
   margin-bottom: 1rem;
   max-width: 1000px;
@@ -57,18 +57,18 @@ const ParagraphWrapper = styled.div`
 const ParagraphImage = styled.img`
   width: 150px;
   height: 150px;
-  padding: 10px;
+  
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 5%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
-    width: 100%;
+    border-radius: 2%;
+     width: 400px;
     height: 250px;
-    max-height: 250px;
-    object-fit: cover;
-    border-radius: 20%;
-    
+    margin-bottom: rem;
+    text-align: center; /* Alignement du texte à gauche */
+  
   }
 `;
 

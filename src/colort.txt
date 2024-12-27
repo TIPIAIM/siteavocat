@@ -91,3 +91,6 @@ aligne le texte a gauche et justify pour ne pas laisser desp
       style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
 
   justify-content: center;
+
+mrgin : pour eloigner au bordure de l'ecrant
+WebP

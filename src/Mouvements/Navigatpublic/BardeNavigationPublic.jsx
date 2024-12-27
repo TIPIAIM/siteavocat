@@ -193,7 +193,7 @@ export default function BardeNavigationpublic() {
 
         {/* Menu principal */}
         <Menu isOpen={isMenuOpen}>
-        <NavLink href="/accueil">Home</NavLink>
+        <NavLink href="/accueil">Accueil</NavLink>
           <NavLink href="/contact">Contact</NavLink>
           <NavLink href="#">
             Savoir-faire

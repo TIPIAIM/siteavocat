@@ -40,7 +40,7 @@ const ContentContainer = styled.div`
 `;
 
 const Title = styled(motion.h1)`
-    font-size: 3rem;
+  font-size: 3rem;
   font-weight: bold;
   color: #90e0ef;
   margin-bottom: 2rem;
@@ -93,15 +93,14 @@ const ParagraphImage = styled.img`
   }
   @media (max-width: 1024px) {
     width: 400px;
-   
+
     height: 200px;
     margin: 0 auto;
-    
   }
 `;
 
 const Paragraph = styled(motion.p)`
- font-size: 1.2rem;
+  font-size: 1.2rem;
   line-height: 1.8rem;
   text-align: left;
   color: #e0e0e0;
@@ -113,13 +112,12 @@ const Paragraph = styled(motion.p)`
     padding: 2rem;
   }
   @media (max-width: 1024px) {
-    font-size : 1.1rem;
+    font-size: 1.1rem;
     line-height: 1.7rem;
     text-align: left;
-  justify-content: left;
+    justify-content: left;
 
-    padding: 0rem;
-
+    margin: 0rem;
   }
 `;
 
@@ -154,7 +152,8 @@ const Image = styled.img`
   }
   @media (max-width: 1024px) {
     max-width: 250px;
-  }`;
+  }
+`;
 
 export default function AuditJuridique() {
   const controls = useAnimation();
@@ -190,7 +189,7 @@ export default function AuditJuridique() {
           </Title>
           <Divider />
           <ParagraphWrapper>
-          <ParagraphImage src="img/jurid.jpg" alt="Analyse" />
+            <ParagraphImage src="img/jurid.jpg" alt="Analyse" />
 
             <Paragraph
               variants={textVariants}
@@ -202,17 +201,15 @@ export default function AuditJuridique() {
               vos activités et la conformité de vos pratiques. Notre cabinet se
               distingue par son expertise et son approche personnalisée.
             </Paragraph>
-
           </ParagraphWrapper>
           <ParagraphWrapper>
-          <ParagraphImage src="img/jurid1.avif" alt="Stratégie" />
+            <ParagraphImage src="img/jurid1.avif" alt="Stratégie" />
 
             <Paragraph
               variants={textVariants}
               initial="hidden"
               animate={controls}
             >
-
               <strong style={{ color: "#90e0ef" }}>
                 1. Une analyse approfondie et stratégique :
               </strong>{" "}
@@ -222,10 +219,9 @@ export default function AuditJuridique() {
               risque, mais aussi les opportunités pour optimiser vos pratiques
               et renforcer votre position juridique.
             </Paragraph>
-
           </ParagraphWrapper>
           <ParagraphWrapper>
-          <ParagraphImage src="img/affaire.jpg" alt="Expertise" />
+            <ParagraphImage src="img/affaire.jpg" alt="Expertise" />
 
             <Paragraph
               variants={textVariants}
@@ -240,10 +236,9 @@ export default function AuditJuridique() {
               fiscal, et le droit commercial. Cette diversité garantit une
               vision globale et cohérente de votre environnement juridique.
             </Paragraph>
-
           </ParagraphWrapper>
           <ParagraphWrapper>
-          <ParagraphImage src="img/conf.jpeg" alt="Conformité" />
+            <ParagraphImage src="img/conf.jpeg" alt="Conformité" />
 
             <Paragraph
               variants={textVariants}
@@ -258,10 +253,9 @@ export default function AuditJuridique() {
               exigences légales, réduisant ainsi les risques de sanctions
               administratives ou de litiges.
             </Paragraph>
-
           </ParagraphWrapper>
           <ParagraphWrapper>
-          <ParagraphImage src="img/PREV.jpeg" alt="Prévention" />
+            <ParagraphImage src="img/PREV.jpeg" alt="Prévention" />
 
             <Paragraph
               variants={textVariants}
@@ -276,10 +270,9 @@ export default function AuditJuridique() {
               inclut des recommandations précises pour corriger les anomalies
               identifiées et protéger vos intérêts.
             </Paragraph>
-
           </ParagraphWrapper>
           <ParagraphWrapper>
-          <ParagraphImage src="img/EVOL.jpeg" alt="Accompagnement" />
+            <ParagraphImage src="img/EVOL.jpeg" alt="Accompagnement" />
 
             <Paragraph
               variants={textVariants}
@@ -294,10 +287,9 @@ export default function AuditJuridique() {
               la restructuration juridique ou la négociation de clauses, notre
               équipe est à vos côtés à chaque étape.
             </Paragraph>
-
           </ParagraphWrapper>
           <ParagraphWrapper>
-          <ParagraphImage src="img/sttis.webp" alt="Avantages" />
+            <ParagraphImage src="img/sttis.webp" alt="Avantages" />
 
             <Paragraph
               variants={textVariants}
@@ -321,7 +313,6 @@ export default function AuditJuridique() {
                 fluide et sécurisée.
               </li>
             </Paragraph>
-
           </ParagraphWrapper>
           <ParagraphWrapper>
             <Paragraph

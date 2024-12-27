@@ -155,7 +155,7 @@ const Travail2 = () => {
             Le droit du travail est la branche du droit qui régit les relations
             entre employeurs et employés. Il vise à équilibrer les rapports de
             pouvoir entre les deux parties en protégeant les droits des salariés
-            tout en permettant aux employeurs d'exercer leur activité.
+            tout en permettant aux employeurs d’exercer leur activité.
           </Paragraph>
           <Paragraph>
             <strong>
@@ -164,8 +164,8 @@ const Travail2 = () => {
           </Paragraph>
           <List>
             <ListItem>
-              Le contrat de travail : il encadre les obligations de l'employeur
-              et de l'employé, les modalités de rupture du contrat, etc.
+              Le contrat de travail : il encadre les obligations de l’employeur
+              et de l’employé, les modalités de rupture du contrat, etc.
             </ListItem>
             <ListItem>
               Les conditions de travail : cela inclut la durée du travail, la

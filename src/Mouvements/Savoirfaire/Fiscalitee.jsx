@@ -20,7 +20,7 @@ const BackgroundContainer = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
 `;
 
 const ContentContainer = styled.div`
@@ -46,7 +46,23 @@ const Paragraph = styled(motion.p)`
   line-height: 2;
   margin-bottom: 2rem;
   max-width: 800px;
-  text-align: justify;
+  text-align: left;
+
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 2rem;
+  }
+  @media (max-width: 1024px) {
+    font-size : 1.1rem;
+    line-height: 1.7rem;
+    text-align: left;
+  justify-content: left;
+
+
+  }
 `;
 
 const Divider = styled.div`
@@ -63,7 +79,7 @@ const BackButton = styled(Link)`
   height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 15px #90e0ef;
+  box-shadow: 0 4px 1px #90e0ef;
   color: ;
   margin-bottom: 0rem;
   transition: background-color 0.3s ease;
@@ -82,7 +98,6 @@ const BackButton = styled(Link)`
     height: 35px;
   }
 `;
-
 
 export default function Fiscalitee() {
   const controls = useAnimation();
@@ -109,7 +124,7 @@ export default function Fiscalitee() {
         <BackButton to="/nosexpertises" data-aos="fade-right">
           <FaArrowLeft size={20} />
         </BackButton>
-          <Title className=" font-serif"
+          <Title 
             initial="hidden"
             animate={controls}
             variants={textVariants}

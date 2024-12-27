@@ -44,23 +44,25 @@ const BackButton = styled(Link)`
   height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 15px #caf0f8;
-  color: white;
-  margin-bottom: 1rem;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 1px #90e0ef;
+  color: ;
+  margin-bottom: 0rem;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #ffffff;
-    color: #4ea8ff;
-    transform: scale(1.1);
+    background-color: #e2e8f0;
   }
 
-  &:focus {
-    outline: 3px solid #ffffff;
-    outline-offset: 4px;
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media (max-width: 480px) {
+    width: 35px;
+    height: 35px;
   }
 `;
-
 const Title = styled(motion.h1)`
   font-size: 3rem;
   font-weight: bold;

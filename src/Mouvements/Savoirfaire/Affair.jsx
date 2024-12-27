@@ -19,8 +19,8 @@ const Overlay = styled.div`
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 50, 50, 0.7),
-    rgba(0, 0, 0, 0.2)
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 1)
   );
 `;
 
@@ -73,8 +73,8 @@ const SubTitle = styled(motion.h2)`
 const ScrollAnimation = styled.div`
   overflow-y: auto;
   max-height: calc(100vh - 250px);
-  padding: 1rem;
-  margin: 1rem 0;
+  padding: 1.9rem;
+  margin: 1.5rem 0;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.1); /* Légère transparence */
   backdrop-filter: blur(20px); /* Effet de flou */
@@ -88,6 +88,12 @@ const ScrollAnimation = styled.div`
   &::-webkit-scrollbar-thumb {
     background-color: #4ea8ff;
     border-radius: 10px;
+  }
+      @media (max-width: 480px) {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 2.1rem;
   }
 `;
 
@@ -112,7 +118,7 @@ const Description = styled(motion.p)`
 
 // Bouton interactif
 const ActionButton = styled(motion.a)`
-  margin-top: 1.5rem;
+  margin-bottom: 1rem;
   padding: 0.5rem 0.8rem;
   font-size: 1rem;
   color: #03045e;
@@ -212,7 +218,7 @@ export default function Affair() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          +
+          Voir +
         </ActionButton>
       </ContentContainer>
     </BackgroundContainer>

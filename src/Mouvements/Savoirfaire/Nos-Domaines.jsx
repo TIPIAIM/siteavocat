@@ -7,7 +7,7 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/MOE_0384.jpg");
+  background-image: url("img/logoAODnoir.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Rend l'arrière-plan fixe */
@@ -34,7 +34,7 @@ const ContentContainer = styled.div`
     margin-bottom: 0.5rem;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
 
-    margin-bottom: 30px;
+    margin-bottom: 6rem;
   }
 `;
 
@@ -45,10 +45,12 @@ const GridContainer = styled.div`
   gap: 1.5rem;
   width: 100%;
   max-width: 1200px;
+      margin-bottom: 10rem;
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-  }
+  padding: 1.5rem
+    }
 
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
@@ -59,9 +61,9 @@ const GridContainer = styled.div`
 const Card = styled(motion.div)`
   position: relative;
   background: #03045e;
-  border-radius: 1.5rem;
+  border-radius: 1.rem;
   overflow: hidden;
-  box-shadow: 0px 4px 6px rgba(0, 50, 50, 0.3);
+  box-shadow: 0px 4px 0px rgba(144, 224, 239, 1);
   transition: transform 0.1s ease;
 
   &:hover {
@@ -80,11 +82,12 @@ const Card = styled(motion.div)`
     left: 0;
     right: 0;
     padding: 1rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3));
-    color: #4ea8ff;
+
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(144, 224, 239, 0.2));
+    color: #90e0ef;
 
     h3 {
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-bottom: 0.5rem;
     }
 
@@ -168,7 +171,7 @@ export default function Nosexpertise() {
         {/* Contenu principal */}
         <ContentContainer>
           <BardeNavigationpublic />
-          <h1 className=" font-serif text-4xl font-bold mb-8" style={{ color: "#90e0ef" }}>
+          <h1 className="  text-4xl font-bold mb-8" style={{ color: "#90e0ef" }}>
             Nos Expertises
           </h1>
 

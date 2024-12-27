@@ -93,10 +93,10 @@ const BackButton = styled(Link)`
   height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 15px #e2e8f0;
+  box-shadow: 0 4px 1px #90e0ef;
   color: ;
   margin-bottom: 0rem;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease;
 
   &:hover {
     background-color: #e2e8f0;

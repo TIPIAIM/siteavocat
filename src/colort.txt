@@ -2,6 +2,7 @@ couleur :
 RGBA :rgba(3, 4, 94, 1)
 
 rgba(10, 34, 64, 0.9)
+023e8a
 className="bg-[rgba(10,34,64,0.9)]" tailwind
 03045e
 023047
@@ -13,18 +14,19 @@ RGBA : rgba(0, 180, 216, 1)
 
 texte: 
 rgba(144, 224, 239, 1)
-90e0ef   Pour les texte
+90e0ef 
+ade8f4
+48cae4  Pour les texte
 RGBA :rgba(202, 240, 248, 1)
 caf0f8
 
-023047
-023e8a
-023e8a
+
+
+
 0096c7
 
-48cae4
-90e0ef
-ade8f4
+
+
 
 
 Ecriture : 
@@ -94,3 +96,15 @@ aligne le texte a gauche et justify pour ne pas laisser desp
 
 mrgin : pour eloigner au bordure de l'ecrant
 WebP
+
+  @media (max-width: 1024px) {
+    padding: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem;
+  }

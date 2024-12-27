@@ -29,7 +29,6 @@ const AffairesContainer = styled.div`
   }
 `;
 
-
 const ContentWrapper = styled.div`
   position: relative;
   z-index: 2;
@@ -86,7 +85,7 @@ const MediaWrapper = styled.div`
 // Contenu d'article
 const ArticleContent = styled.div`
   padding: 20px;
-  text-align: justify;
+  text-align: left;
   color: rgba(255, 255, 255, 0.85);
 `;
 
@@ -99,13 +98,17 @@ const ArticleTitle = styled.h3`
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
+    text-align: left;
+ 
+
+   
   }
 `;
 
 // Description d'article
 const ArticleDescription = styled.p`
   font-size: 1rem;
-    font-weight: bold;
+  font-weight: bold;
   line-height: 1.8;
   margin-bottom: 20px;
 
@@ -126,6 +129,9 @@ const ArticleDescription = styled.p`
 
   @media (max-width: 768px) {
     font-size: 0.95rem;
+    line-height: 1.5rem;
+
+    padding: 2rem;
   }
 `;
 
@@ -151,9 +157,7 @@ const Affairee = () => {
       <Affair />
       <AffairesContainer>
         <ContentWrapper>
-          <SectionTitle className="font-serif">
-            L'importance des contrats en droit des affaires
-          </SectionTitle>
+          <SectionTitle>L'importances</SectionTitle>
           <ArticleCard
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}

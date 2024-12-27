@@ -21,7 +21,7 @@ const BackgroundContainer = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
 `;
 
 const ContentContainer = styled.div`
@@ -44,14 +44,30 @@ const Title = styled(motion.h1)`
 
 const Paragraph = styled(motion.p)`
   font-size: 1.3rem;
-  line-height: 2;
+  line-height: 1.8;
   margin-bottom: 2rem;
   max-width: 800px;
-  text-align: justify;
+  text-align: left;
+
+    @media (max-width: 480px) {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: left; /* Alignement du texte à gauche */
+    margin : 2rem;
+  }
+  @media (max-width: 1024px) {
+    font-size : 1.1rem;
+    line-height: 1.7rem;
+    text-align: left;
+  justify-content: left;
+
+   
+
+  }
 `;
 
 const Divider = styled.div`
-  height: 2px;
+  height: 3px;
   width: 300px;
   background: #90e0ef;
   margin: 2rem 0;
@@ -64,7 +80,7 @@ const BackButton = styled(Link)`
   height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 15px #90e0ef;
+  box-shadow: 0 4px 1px #90e0ef;
   color: ;
   margin-bottom: 0rem;
   transition: background-color 0.3s ease;
@@ -104,10 +120,11 @@ export default function Famillee() {
       <BackgroundContainer>
         <Overlay />
         <BardeNavigationpublic />{" "}
-      
-        <ContentContainer>  <BackButton to="/nosexpertises" data-aos="fade-right">
-          <FaArrowLeft size={20} />
-        </BackButton>
+        <ContentContainer>
+          {" "}
+          <BackButton to="/nosexpertises" data-aos="fade-right">
+            <FaArrowLeft size={20} />
+          </BackButton>
           <Title
             initial="hidden"
             animate={controls}
@@ -150,7 +167,6 @@ export default function Famillee() {
             votre dossier pour vous donner un avantage dans toutes les
             négociations ou audiences.
           </Paragraph>
-
           <Paragraph
             variants={textVariants}
             initial="hidden"
@@ -172,7 +188,6 @@ export default function Famillee() {
             familiales ou défendre vos intérêts, nous faisons toujours preuve
             d’un engagement total.
           </Paragraph>
-
           <Paragraph
             variants={textVariants}
             initial="hidden"

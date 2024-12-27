@@ -88,16 +88,15 @@ const BackButton = styled(Link)`
   justify-content: center;
   width: 50px;
   height: 50px;
-  background-color: ;
+  background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 15px #caf0f8;
-  color: white;
-  margin-bottom: 1rem;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 1px #90e0ef;
+  color: ;
+  margin-bottom: 0rem;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #4ea8ff;
-    transform: scale(1.1);
+    background-color: #e2e8f0;
   }
 
   @media (max-width: 768px) {
@@ -110,7 +109,6 @@ const BackButton = styled(Link)`
     height: 35px;
   }
 `;
-
 export default function Sport() {
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.2 });

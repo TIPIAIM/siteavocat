@@ -19,7 +19,7 @@ const BackgroundContainer = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8); /* Ajustez la transparence ici */
+  background: rgba(0, 0, 0, 0.9); /* Ajustez la transparence ici */
 `;
 
 const ContentContainer = styled.div`
@@ -30,7 +30,7 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: white;
+  color: #ade8f4;
 `;
 
 const Title = styled(motion.h1)`
@@ -46,8 +46,15 @@ const Paragraph = styled(motion.p)`
   line-height: 1.8;
   margin-bottom: 1.5rem;
   max-width: 800px;
-  text-align: justify;
-  color: #edf2f7;
+  text-align: left;
+  color: white;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 2rem;
+  }
 `;
 
 const Divider = styled.div`
@@ -63,7 +70,7 @@ const BackButton = styled(Link)`
   justify-content: center;
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg,);
+  background: linear-gradient(135deg);
   border-radius: 50%;
   box-shadow: 0 4px 8px #90e0ef;
   color: white;
@@ -118,30 +125,42 @@ export default function Affairfinal() {
           <FaArrowLeft size={24} />
         </BackButton>
 
-        <Title className=" font-serif" initial="hidden" animate={controls} variants={textVariants} ref={ref}>
+        <Title
+          initial="hidden"
+          animate={controls}
+          variants={textVariants}
+          ref={ref}
+        >
           Le droit des affaires
         </Title>
         <Divider />
         <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          Notre cabinet est composé d’avocats spécialisés en droit des affaires, dotés de plusieurs années
-          d’expérience dans le domaine. Nous maîtrisons les complexités juridiques des entreprises et sommes
-          à jour sur les évolutions légales et réglementaires. Que ce soit pour la rédaction de contrats,
-          la gestion de litiges ou des conseils stratégiques, nous avons les compétences pour défendre vos intérêts.
+          Notre cabinet est composé d’avocats spécialisés en droit des affaires,
+          dotés de plusieurs années d’expérience dans le domaine. Nous
+          maîtrisons les complexités juridiques des entreprises et sommes à jour
+          sur les évolutions légales et réglementaires. Que ce soit pour la
+          rédaction de contrats, la gestion de litiges ou des conseils
+          stratégiques, nous avons les compétences pour défendre vos intérêts.
         </Paragraph>
         <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          Nous comprenons que chaque entreprise a des besoins uniques. C’est pourquoi nous proposons des solutions
-          juridiques sur mesure, adaptées à vos objectifs commerciaux. Notre approche centrée sur le client garantit
-          une attention particulière à vos attentes et un suivi rigoureux de votre dossier.
+          Nous comprenons que chaque entreprise a des besoins uniques. C’est
+          pourquoi nous proposons des solutions juridiques sur mesure, adaptées
+          à vos objectifs commerciaux. Notre approche centrée sur le client
+          garantit une attention particulière à vos attentes et un suivi
+          rigoureux de votre dossier.
         </Paragraph>
         <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          Dans le monde des affaires, le temps est précieux. Notre équipe s’engage à répondre rapidement à vos
-          demandes et à anticiper les risques pour minimiser les imprévus. Nous sommes disponibles à tout moment
-          pour vous accompagner dans vos démarches juridiques.
+          Dans le monde des affaires, le temps est précieux. Notre équipe
+          s’engage à répondre rapidement à vos demandes et à anticiper les
+          risques pour minimiser les imprévus. Nous sommes disponibles à tout
+          moment pour vous accompagner dans vos démarches juridiques.
         </Paragraph>
         <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          En choisissant notre cabinet, vous optez pour un partenaire engagé, professionnel et déterminé à défendre
-          vos intérêts avec excellence. Faites confiance à notre expertise pour protéger vos droits et assurer la
-          pérennité de vos affaires. Contactez-nous dès aujourd’hui pour une consultation personnalisée.
+          En choisissant notre cabinet, vous optez pour un partenaire engagé,
+          professionnel et déterminé à défendre vos intérêts avec excellence.
+          Faites confiance à notre expertise pour protéger vos droits et assurer
+          la pérennité de vos affaires. Contactez-nous dès aujourd’hui pour une
+          consultation personnalisée.
         </Paragraph>
       </ContentContainer>
     </BackgroundContainer>

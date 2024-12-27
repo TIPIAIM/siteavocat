@@ -91,7 +91,7 @@ const Section = styled(motion.div)`
   }
 
   @media (max-width: 480px) {
-    padding: 2rem;
+    padding: 1rem;
     
   }
 `;

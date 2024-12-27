@@ -56,6 +56,7 @@ const Title = styled(motion.h1)`
 
   @media (max-width: 480px) {
     font-size: 2rem;
+   
   }
 `;
 
@@ -64,7 +65,7 @@ const Paragraph = styled(motion.p)`
   line-height: 2;
   margin-bottom: 2rem;
   max-width: 800px;
-  text-align: justify;
+  text-align: left;
 
   @media (max-width: 768px) {
     font-size: 1.1rem;
@@ -72,6 +73,8 @@ const Paragraph = styled(motion.p)`
 
   @media (max-width: 480px) {
     font-size: 1rem;
+     text-align: left;
+     padding : 3rem
   }
 `;
 
@@ -126,69 +129,93 @@ export default function Sport() {
 
   return (
     <div>
-    <BackgroundContainer>
-      <Overlay />
+      <BackgroundContainer>
+        <Overlay />
 
-      <BardeNavigationpublic />
-      <ContentContainer className=" font-serif">
-        {" "}
-        <BackButton to="/nosexpertises" data-aos="fade-right">
-          <FaArrowLeft size={20} />
-        </BackButton>
-        <Title
-          initial="hidden"
-          animate={controls}
-          variants={textVariants}
-          ref={ref}
-        >
-          Le droit et sport ?
-        </Title>
-        <Divider />
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          Notre cabinet est la solution idéale pour tous vos besoins juridiques
-          dans le domaine du droit du sport. Nous comprenons que le monde
-          sportif est complexe et nécessite une expertise pointue pour protéger
-          les intérêts des athlètes, clubs, fédérations, et autres acteurs du
-          secteur.
-        </Paragraph>
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          <strong>Expertise spécialisée :</strong> Notre équipe d’avocats est
-          hautement qualifiée dans le domaine du droit du sport. Nous avons une
-          connaissance approfondie des réglementations nationales et
-          internationales, ainsi qu’une expérience pratique dans la résolution
-          des litiges sportifs.
-        </Paragraph>
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          <strong>Accompagnement personnalisé :</strong> Nous offrons un service
-          sur mesure pour répondre à vos besoins spécifiques, que ce soit pour
-          la négociation de contrats, la gestion de transferts, ou encore la
-          représentation en cas de contentieux.
-        </Paragraph>
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          <strong>Protection juridique complète :</strong> Nous veillons à ce
-          que vos droits soient protégés à chaque étape, en vous apportant des
-          solutions juridiques adaptées et en anticipant les éventuels problèmes
-          pouvant survenir.
-        </Paragraph>
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          <strong>Engagement et réactivité :</strong> Notre priorité est votre
-          satisfaction. Nous sommes disponibles à tout moment pour répondre à
-          vos questions et agir rapidement afin de protéger vos intérêts, qu’il
-          s’agisse de questions contractuelles, disciplinaires, ou liées au
-          dopage.
-        </Paragraph>
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
-          En choisissant notre cabinet, vous optez pour un partenaire fiable et
-          dévoué, prêt à défendre vos droits avec passion et professionnalisme.
-          Nous mettons notre expertise au service de votre réussite dans le
-          respect des normes juridiques et éthiques. Contactez-nous dès
-          aujourd’hui pour bénéficier d’un accompagnement personnalisé.
-        </Paragraph>
-      </ContentContainer>
-    </BackgroundContainer>
- 
+        <BardeNavigationpublic />
+        <ContentContainer className=" font-serif">
+          {" "}
+          <BackButton to="/nosexpertises" data-aos="fade-right">
+            <FaArrowLeft size={20} />
+          </BackButton>
+          <Title
+            initial="hidden"
+            animate={controls}
+            variants={textVariants}
+            ref={ref}
+          >
+            Le droit et sport ?
+          </Title>
+          <Divider />
+          <Paragraph
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            Notre cabinet est la solution idéale pour tous vos besoins
+            juridiques dans le domaine du droit du sport. Nous comprenons que le
+            monde sportif est complexe et nécessite une expertise pointue pour
+            protéger les intérêts des athlètes, clubs, fédérations, et autres
+            acteurs du secteur.
+          </Paragraph>
+          <Paragraph
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            <strong>Expertise spécialisée :</strong> Notre équipe d’avocats est
+            hautement qualifiée dans le domaine du droit du sport. Nous avons
+            une connaissance approfondie des réglementations nationales et
+            internationales, ainsi qu’une expérience pratique dans la résolution
+            des litiges sportifs.
+          </Paragraph>
+          <Paragraph
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            <strong>Accompagnement personnalisé :</strong> Nous offrons un
+            service sur mesure pour répondre à vos besoins spécifiques, que ce
+            soit pour la négociation de contrats, la gestion de transferts, ou
+            encore la représentation en cas de contentieux.
+          </Paragraph>
+          <Paragraph
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            <strong>Protection juridique complète :</strong> Nous veillons à ce
+            que vos droits soient protégés à chaque étape, en vous apportant des
+            solutions juridiques adaptées et en anticipant les éventuels
+            problèmes pouvant survenir.
+          </Paragraph>
+          <Paragraph
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            <strong>Engagement et réactivité :</strong> Notre priorité est votre
+            satisfaction. Nous sommes disponibles à tout moment pour répondre à
+            vos questions et agir rapidement afin de protéger vos intérêts,
+            qu’il s’agisse de questions contractuelles, disciplinaires, ou liées
+            au dopage.
+          </Paragraph>
+          <Paragraph
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            En choisissant notre cabinet, vous optez pour un partenaire fiable
+            et dévoué, prêt à défendre vos droits avec passion et
+            professionnalisme. Nous mettons notre expertise au service de votre
+            réussite dans le respect des normes juridiques et éthiques.
+            Contactez-nous dès aujourd’hui pour bénéficier d’un accompagnement
+            personnalisé.
+          </Paragraph>
+        </ContentContainer>
+      </BackgroundContainer>
 
-        <Footer/>
+      <Footer />
     </div>
   );
 }

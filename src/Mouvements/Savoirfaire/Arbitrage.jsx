@@ -91,7 +91,8 @@ const Section = styled(motion.div)`
   }
 
   @media (max-width: 480px) {
-    padding: 1rem;
+    padding: 2rem;
+    
   }
 `;
 
@@ -100,6 +101,8 @@ const SectionTitle = styled.h2`
   font-weight: bold;
   color: #03045e;
   margin-bottom: 1rem;
+      text-align: center;
+
 `;
 
 const Paragraph = styled.p`
@@ -107,6 +110,11 @@ const Paragraph = styled.p`
   line-height: 1.8;
   text-align: justify;
   margin-bottom: 1rem;
+      text-align: left;
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+    
+  }
 
   &:last-child {
     margin-bottom: 0;

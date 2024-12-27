@@ -36,7 +36,9 @@ const ContentContainer = styled.div`
   @media (max-width: 1024px) {
     padding: 2rem 1rem;
     text-align: center; /* Alignement du texte à gauche */
-  }
+     margin: 1rem;
+
+    }
 `;
 
 const Title = styled(motion.h1)`

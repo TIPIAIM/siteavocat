@@ -36,7 +36,9 @@ const ContentContainer = styled.div`
   @media (max-width: 1024px) {
     padding: 2rem 1rem;
     text-align: center; /* Alignement du texte à gauche */
-  }
+    margin: 1rem;
+
+    }
 `;
 
 const Title = styled(motion.h1)`
@@ -70,6 +72,7 @@ const ParagraphWrapper = styled.div`
     flex-direction: column;
     text-align: flex; /* Alignement du texte à gauche */
     padding: 0rem;
+    
   }
   @media (max-width: 1024px) {
     flex-direction: column;
@@ -117,7 +120,7 @@ const Paragraph = styled(motion.p)`
     text-align: left;
     justify-content: left;
 
-    margin: 0rem;
+    margin: 0.5rem;
   }
 `;
 

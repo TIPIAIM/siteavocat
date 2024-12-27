@@ -34,9 +34,11 @@ const ContentContainer = styled.div`
   margin: 0 auto;
 
   @media (max-width: 1024px) {
-    padding: 2rem 1rem;
-    text-align: center; /* Alignement du texte à gauche */
-  }
+    padding: 1rem 1rem;
+    text-align: left; /* Alignement du texte à gauche */
+      margin: 1rem;
+
+    }
 `;
 
 const Title = styled(motion.h1)`
@@ -102,7 +104,7 @@ const StyledImage = styled(motion.img)`
 const Paragraph = styled(motion.p)`
   font-size: 1.2rem;
   line-height: 1.8rem;
-  text-align: justify;
+  text-align: left;
   color: #e0e0e0;
 
   @media (max-width: 480px) {
@@ -116,8 +118,9 @@ const Paragraph = styled(motion.p)`
     line-height: 1.7rem;
     text-align: left;
     justify-content: left;
+    margin: 0.5rem;
 
-    padding: 3rem;
+
   }
 `;
 

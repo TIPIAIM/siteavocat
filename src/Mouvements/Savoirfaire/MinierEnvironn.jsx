@@ -38,7 +38,7 @@ const ContentContainer = styled.div`
   }
 
   @media (max-width: 480px) {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
   }
 `;
 
@@ -53,30 +53,46 @@ const Title = styled(motion.h1)`
   }
 
   @media (max-width: 480px) {
-    font-size: 2rem;
+    font-size: 3rem;
+  }
+      @media (max-width: 1024px) {
+    padding: 3rem;
   }
 `;
 
 const Paragraph = styled(motion.p)`
   font-size: 1.3rem;
   line-height: 2;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   max-width: 800px;
-  text-align: justify;
+  text-align: left;
+
+  @media (max-width: 1024px) {
+    font-size : 1.1rem;
+    line-height: 1.7rem;
+    text-align: left;
+    padding: 3rem;
+  justify-content: left;
+  }
 
   @media (max-width: 768px) {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size : 1.1rem;
+    line-height: 1.7rem;
+    text-align: left;
+    padding: 2rem;
+  justify-content: left;
   }
 
   @media (max-width: 480px) {
-    font-size: 1rem;
-    line-height: 1.6;
+  font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 3rem;
   }
 `;
 
 const Divider = styled.div`
-  height: 2px;
+  height: 3px;
   width: 300px;
   background: #00b4d8;
   margin: 2rem 0;
@@ -137,7 +153,7 @@ export default function MinierEnvironn() {
           <BackButton to="/nosexpertises" data-aos="fade-right">
             <FaArrowLeft size={20} />
           </BackButton>
-          <Title className=" font-serif"
+          <Title
             initial="hidden"
             animate={controls}
             variants={textVariants}

@@ -82,6 +82,7 @@ const Subtitle = styled.h2`
 
   @media (max-width: 480px) {
     font-size: 1.4rem;
+     margin-top : 2rem;
   }
 `;
 

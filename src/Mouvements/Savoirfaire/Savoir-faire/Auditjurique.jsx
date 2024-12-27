@@ -29,26 +29,49 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: white;
+  color: black;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    padding: 2rem 1rem;
+    text-align: center; /* Alignement du texte à gauche */
+  }
 `;
 
 const Title = styled(motion.h1)`
-  font-size: 2.5rem;
+    font-size: 3rem;
   font-weight: bold;
   color: #90e0ef;
   margin-bottom: 2rem;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const ParagraphWrapper = styled.div`
   display: flex;
-  background: rgba(10, 34, 64, 0.4);
-  border-radius: 2px;
   align-items: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   max-width: 1000px;
-  gap: 1rem;
+  gap: 2rem;
+  border-radius: 0px;
+  padding: 1.5rem;
+  background: rgba(10, 34, 64, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: flex; /* Alignement du texte à gauche */
+    padding: 0rem;
+  }
+  @media (max-width: 1024px) {
     flex-direction: column;
     align-items: center;
   }
@@ -56,40 +79,53 @@ const ParagraphWrapper = styled.div`
 
 const ParagraphImage = styled.img`
   width: 180px;
-  height: auto;
-  text-align: center; /* Alignement du texte à gauche */
-margin : 2rem;
+  height: 180px;
   object-fit: cover;
   border-radius: 5%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
-    border-radius: 2%;
-    margin : 0rem;
+    border-radius: 0%;
     width: 400px;
     height: 250px;
-    margin-bottom: rem;
+    margin-bottom: 1rem;
     text-align: center; /* Alignement du texte à gauche */
+  }
+  @media (max-width: 1024px) {
+    width: 400px;
+   
+    height: 200px;
+    margin: 0 auto;
+    
   }
 `;
 
 const Paragraph = styled(motion.p)`
-  font-size: 1.2rem;
-  line-height: 2;
-  text-align: justify;
-  margin: 20px;
+ font-size: 1.2rem;
+  line-height: 1.8rem;
+  text-align: left;
+  color: #e0e0e0;
 
   @media (max-width: 480px) {
     font-size: 1rem;
-    padding: 20px;
-    line-height: 1.4;
+    line-height: 1.6rem;
     text-align: left; /* Alignement du texte à gauche */
+    padding: 2rem;
+  }
+  @media (max-width: 1024px) {
+    font-size : 1.1rem;
+    line-height: 1.7rem;
+    text-align: left;
+  justify-content: left;
+
+    padding: 0rem;
+
   }
 `;
 
 const Divider = styled.div`
-  height: 2px;
-  width: 150px;
+  height: 3px;
+  width: 300px;
   background: #4ea8ff;
   margin: 2rem 0;
 `;
@@ -100,14 +136,25 @@ const ImageContainer = styled.div`
   gap: 1rem;
   justify-content: center;
   margin-top: 2rem;
+
+  @media (max-width: 1024px) {
+    gap: 0.5rem;
+  }
 `;
 
 const Image = styled.img`
   width: 100%;
-  max-width: 200px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-`;
+  max-width: 300px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+  @media (max-width: 1024px) {
+    max-width: 250px;
+  }`;
 
 export default function AuditJuridique() {
   const controls = useAnimation();
@@ -143,7 +190,8 @@ export default function AuditJuridique() {
           </Title>
           <Divider />
           <ParagraphWrapper>
-            <ParagraphImage src="img/jurid.jpg" alt="Analyse" />
+          <ParagraphImage src="img/jurid.jpg" alt="Analyse" />
+
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -154,14 +202,17 @@ export default function AuditJuridique() {
               vos activités et la conformité de vos pratiques. Notre cabinet se
               distingue par son expertise et son approche personnalisée.
             </Paragraph>
+
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/jurid1.avif" alt="Stratégie" />
+          <ParagraphImage src="img/jurid1.avif" alt="Stratégie" />
+
             <Paragraph
               variants={textVariants}
               initial="hidden"
               animate={controls}
             >
+
               <strong style={{ color: "#90e0ef" }}>
                 1. Une analyse approfondie et stratégique :
               </strong>{" "}
@@ -171,9 +222,11 @@ export default function AuditJuridique() {
               risque, mais aussi les opportunités pour optimiser vos pratiques
               et renforcer votre position juridique.
             </Paragraph>
+
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/affaire.jpg" alt="Expertise" />
+          <ParagraphImage src="img/affaire.jpg" alt="Expertise" />
+
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -187,9 +240,11 @@ export default function AuditJuridique() {
               fiscal, et le droit commercial. Cette diversité garantit une
               vision globale et cohérente de votre environnement juridique.
             </Paragraph>
+
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/conf.jpeg" alt="Conformité" />
+          <ParagraphImage src="img/conf.jpeg" alt="Conformité" />
+
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -203,9 +258,11 @@ export default function AuditJuridique() {
               exigences légales, réduisant ainsi les risques de sanctions
               administratives ou de litiges.
             </Paragraph>
+
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/PREV.jpeg" alt="Prévention" />
+          <ParagraphImage src="img/PREV.jpeg" alt="Prévention" />
+
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -219,9 +276,11 @@ export default function AuditJuridique() {
               inclut des recommandations précises pour corriger les anomalies
               identifiées et protéger vos intérêts.
             </Paragraph>
+
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/EVOL.jpeg" alt="Accompagnement" />
+          <ParagraphImage src="img/EVOL.jpeg" alt="Accompagnement" />
+
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -235,9 +294,11 @@ export default function AuditJuridique() {
               la restructuration juridique ou la négociation de clauses, notre
               équipe est à vos côtés à chaque étape.
             </Paragraph>
+
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/sttis.webp" alt="Avantages" />
+          <ParagraphImage src="img/sttis.webp" alt="Avantages" />
+
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -260,9 +321,9 @@ export default function AuditJuridique() {
                 fluide et sécurisée.
               </li>
             </Paragraph>
+
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/confience.jpg" alt="Confiance" />
             <Paragraph
               variants={textVariants}
               initial="hidden"

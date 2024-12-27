@@ -89,3 +89,5 @@ aligne le texte a gauche et justify pour ne pas laisser desp
     hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
   
       style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
+
+  justify-content: center;

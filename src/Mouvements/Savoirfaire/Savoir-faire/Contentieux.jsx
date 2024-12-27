@@ -22,16 +22,21 @@ const Overlay = styled.div`
 `;
 
 const ContentContainer = styled.div`
-   position: relative;
+  position: relative;
   z-index: 10;
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: white;
+  color: black;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    padding: 2rem 1rem;
+    text-align: center; /* Alignement du texte à gauche */
+  }
 `;
 
 const Title = styled(motion.h1)`
@@ -44,29 +49,37 @@ const Title = styled(motion.h1)`
   @media (max-width: 768px) {
     font-size: 1.5rem;
   }
+
+  @media (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const ParagraphContainer = styled.div`
-display: flex;
+  display: flex;
   align-items: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   max-width: 1000px;
   gap: 2rem;
-  border-radius: 8px;
+  border-radius: 0px;
   padding: 1.5rem;
-  background: rgba(10, 34, 64, 0.9);
+  background: rgba(10, 34, 64, 0.5);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
     flex-direction: column;
-    text-align: left; /* Alignement du texte à gauche */
+    text-align: center; /* Alignement du texte à gauche */
     padding: 0rem;
+  }
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
 const StyledImage = styled(motion.img)`
   width: 180px;
-  height: auto
+  height: 180px;
   object-fit: cover;
   border-radius: 5%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -75,8 +88,14 @@ const StyledImage = styled(motion.img)`
     border-radius: 0%;
     width: 400px;
     height: 250px;
-    margin-bottom: rem;
+    margin-bottom: 1rem;
     text-align: center; /* Alignement du texte à gauche */
+  }
+  @media (max-width: 1024px) {
+    width: 400px;
+
+    height: 200px;
+    margin: 0 auto;
   }
 `;
 
@@ -92,15 +111,47 @@ const Paragraph = styled(motion.p)`
     text-align: left; /* Alignement du texte à gauche */
     padding: 2rem;
   }
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+    text-align: left;
+    justify-content: left;
+
+    padding: 3rem;
+  }
 `;
 
 const Divider = styled.div`
-  height: 2px;
-  width: 150px;
+  height: 3px;
+  width: 300px;
   background: #4ea8ff;
   margin: 2rem 0;
 `;
+const ImageContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
 
+  @media (max-width: 1024px) {
+    gap: 0.5rem;
+  }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+  @media (max-width: 1024px) {
+    max-width: 250px;
+  }`;
 export default function Contentieux() {
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.2 });
@@ -130,26 +181,22 @@ export default function Contentieux() {
       <BackgroundContainer className=" font-serif">
         <Overlay />
         <BardeNavigationpublic />
-        <ContentContainer>
+        <ContentContainer
+          style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
+        >
           <Title
             initial="hidden"
             animate={controls}
             variants={textVariants}
             ref={ref}
-            className=" font-serif"
+           
           >
             Le droit de contentieux ?
           </Title>
           <Divider />
           {/* Section 1 */}
           <ParagraphContainer>
-            <StyledImage
-              src="img/arbitra.png"
-              alt="Illustration 1"
-              variants={imageVariants}
-              initial="hidden"
-              animate={controls}
-            />
+            
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -186,7 +233,7 @@ export default function Contentieux() {
           {/* Section 3 */}
           <ParagraphContainer>
             <StyledImage
-              src="img/logoAODnoir.png"
+              src="img/arbitra.png"
               alt="Illustration 3"
               variants={imageVariants}
               initial="hidden"
@@ -244,6 +291,9 @@ export default function Contentieux() {
               l’excellence et la justice.
             </Paragraph>
           </ParagraphContainer>
+          <ImageContainer>
+            <Image src="img/logoAODnoir.png" alt="Analyse juridique" />
+          </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>
       <Footer />

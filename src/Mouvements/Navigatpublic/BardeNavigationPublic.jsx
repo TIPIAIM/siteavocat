@@ -199,9 +199,9 @@ export default function BardeNavigationpublic() {
             Savoir-faire
             <SubMenu isOpen={isMenuOpen}>
               <SubNavLink href="/asistance">Assistance juridique</SubNavLink>
-              <SubNavLink href="/conseil">Conseils juridique</SubNavLink>
               <SubNavLink href="/audit">Audit juridique</SubNavLink>
               <SubNavLink href="/contentieux">Contentieux</SubNavLink>
+              <SubNavLink href="/conseil">Conseils juridique</SubNavLink>
             </SubMenu>
           </NavLink>
 

@@ -32,6 +32,11 @@ const ContentContainer = styled.div`
   color: black;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    padding: 2rem 1rem;
+    text-align: center; /* Alignement du texte à gauche */
+  }
 `;
 
 const Title = styled(motion.h1)`
@@ -44,23 +49,31 @@ const Title = styled(motion.h1)`
   @media (max-width: 768px) {
     font-size: 1.5rem;
   }
+
+  @media (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const ParagraphWrapper = styled.div`
   display: flex;
   align-items: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   max-width: 1000px;
   gap: 2rem;
-  border-radius: 8px;
+  border-radius: 0px;
   padding: 1.5rem;
   background: rgba(10, 34, 64, 0.9);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
     flex-direction: column;
-    text-align: left; /* Alignement du texte à gauche */
+    text-align: center; /* Alignement du texte à gauche */
     padding: 0rem;
+  }
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -75,8 +88,15 @@ const ParagraphImage = styled.img`
     border-radius: 0%;
     width: 400px;
     height: 250px;
-    margin-bottom: rem;
+    margin-bottom: 1rem;
     text-align: center; /* Alignement du texte à gauche */
+  }
+  @media (max-width: 1024px) {
+    width: 400px;
+   
+    height: 200px;
+    margin: 0 auto;
+    
   }
 `;
 
@@ -92,14 +112,17 @@ const Paragraph = styled(motion.p)`
     text-align: left; /* Alignement du texte à gauche */
     padding: 2rem;
   }
+  @media (max-width: 1024px) {
+    font-size : 1.1rem;
+    line-height: 1.7rem;
+    text-align: left;
+  justify-content: left;
+
+    padding: 30px;
+
+  }
 `;
 
-const Divider = styled.div`
-  height: 3px;
-  width: 200px;
-  background: #4ea8ff;
-  margin: 2rem 0;
-`;
 
 const ImageContainer = styled.div`
   display: flex;
@@ -107,6 +130,10 @@ const ImageContainer = styled.div`
   gap: 1rem;
   justify-content: center;
   margin-top: 2rem;
+
+  @media (max-width: 1024px) {
+    gap: 0.5rem;
+  }
 `;
 
 const Image = styled.img`
@@ -119,8 +146,16 @@ const Image = styled.img`
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   }
+  @media (max-width: 1024px) {
+    max-width: 250px;
+  }
 `;
-
+const Divider = styled.div`
+  height: 3px;
+  width: 200px;
+  background: #4ea8ff;
+  margin: 2rem 0;
+`;
 export default function AuditJuridique() {
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.2 });
@@ -155,7 +190,6 @@ export default function AuditJuridique() {
           </Title>
           <Divider />
           <ParagraphWrapper>
-            <ParagraphImage src="img/commercial.jpeg" alt="Analyse" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -171,9 +205,10 @@ export default function AuditJuridique() {
               qu’elles soient. Nous mettons à votre disposition un
               accompagnement sur mesure pour chaque situation.
             </Paragraph>
+            <ParagraphImage src="img/commercial.jpeg" alt="Analyse" />
+
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/EVOL.jpeg" alt="Régulation" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -188,9 +223,10 @@ export default function AuditJuridique() {
               requis, la représentation auprès des autorités compétentes, et le
               suivi des modifications législatives.
             </Paragraph>
+            <ParagraphImage src="img/EVOL.jpeg" alt="Régulation" />
+
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/MOE_0400.jpg" alt="Consultation" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -205,9 +241,10 @@ export default function AuditJuridique() {
               chaque cas avec une attention particulière pour offrir un service
               réellement personnalisé.
             </Paragraph>
+            <ParagraphImage src="img/MOE_0400.jpg" alt="Consultation" />
+
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/enfamiavoc.jpg" alt="Formation" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -221,9 +258,10 @@ export default function AuditJuridique() {
               Ces formations couvrent des sujets variés allant de la gestion des
               contrats à la prévention des litiges.
             </Paragraph>
+            <ParagraphImage src="img/enfamiavoc.jpg" alt="Formation" />
+
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/envir.jpeg" alt="Protection" />
             <Paragraph
               variants={textVariants}
               initial="hidden"
@@ -237,10 +275,11 @@ export default function AuditJuridique() {
               approche proactive vise à réduire les risques légaux et à
               sécuriser vos intérêts sur le long terme.
             </Paragraph>
+{ /*           <ParagraphImage src="img/envir.jpeg" alt="Protection" />
+*/}
           </ParagraphWrapper>
           <ImageContainer>
-            <Image src="img/analysejuri.jpg" alt="Analyse juridique" />
-            <Image src="img/PREV.jpeg" alt="Équipe d'experts" />
+            <Image src="img/logoAODnoir.png" alt="Analyse juridique" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

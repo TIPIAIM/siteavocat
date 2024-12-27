@@ -31,53 +31,44 @@ const PageWrapper = styled.div`
   }
 `;
 
-
 const ContentContainer = styled.div`
   position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.2rem;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px ;
+  z-index: 10;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  color: white;
 `;
-
-
 
 const Title = styled.h1`
   font-size: 2.3rem;
   padding: 1.5rem;
   border-left: 4px solid #e2e8f0;
-  background: ; /* Couleur blanche avec transparence */
 
+   font-size: 2.5rem;
   font-weight: bold;
-  color: #90e0ef;
-
-  text-align: center;
+  color: #4ea8ff;
   margin-bottom: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   @media (max-width: 768px) {
     font-size: 1rem;
   }
 `;
 const Section = styled(motion.section)`
   display: flex;
-  align-items: center;
+  align-items: left;
   flex-wrap: wrap;
   margin-bottom: 2rem;
   gap: 2rem;
   padding: 1.5rem;
-  border-left: 4px solid #0077b6;
-  background-color: rgba(0, 0, 0, 0.8); /* Couleur avec transparence */
-  border-radius: 8px;
+  border-right: 1px solid #0077b6;
+  background-color: rgba(0, 0, 0, 0.); /* Couleur avec transparence */
+  border-radius: 1px;
   @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
-
-
 
 const Subtitle = styled.h2`
   font-size: 2rem;
@@ -103,23 +94,38 @@ const Paragraph = styled.p`
   font-size: 1.125rem;
   color: #caf0f8;
   line-height: 1.8;
-  margin-bottom: 1.5rem;
-  text-align: justify;
-  @media (max-width: 768px) {
+  margin-bottom: 0.5rem;
+  text-align: left;
+  @media (max-width: 480px) {
     font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 2rem;
+  }
+  @media (max-width: 1024px) {
+    font-size : 1rem;
+    line-height: 1.7rem;
+    text-align: left;
+  justify-content: left;
+
+
   }
 `;
 
 const List = styled.ul`
-  list-style: none;
-  padding-left: 1.5rem;
-  margin-bottom: 1.5rem;
+  list-style-type: disc;
+  padding-left: 1rem;
+    text-align: left;
+
+  @media (max-width: 768px) {
+    margin : 0.5rem;
+  }
 `;
 
 const ListItem = styled(motion.li)`
   font-size: 1.125rem;
-  color: #caf0f8;
-  margin-bottom: 0.75rem;
+  color: #90e0ef;
+  
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -129,10 +135,13 @@ const ListItem = styled(motion.li)`
   &:before {
     content: "✔";
     color: #caf0f8;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+  }
+      @media (max-width: 768px) {
+    font-size: 1rem;
+     margin : 0.5rem;
   }
 `;
-
 
 
 const Travail2 = () => {
@@ -143,11 +152,8 @@ const Travail2 = () => {
 
   return (
     <PageWrapper>
-      <ContentContainer className=" font-serif">
-        <Title data-aos="fade-up">
-          Le Droit du Travail
-        </Title>
-
+      <ContentContainer >
+        <Title data-aos="fade-up">Le Droit</Title>
 
         <Section data-aos="fade-up" data-aos-delay="900">
           <Subtitle>-. Le Droit du Travail</Subtitle>

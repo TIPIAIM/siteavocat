@@ -25,6 +25,8 @@ const SectionTitle = styled.h2`
 
   @media (max-width: 768px) {
     font-size: 2rem;
+        text-align: center; /* Alignement du texte à gauche */
+
   }
 `;
 
@@ -32,8 +34,10 @@ const Description = styled.p`
   margin-bottom: 30px;
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.9);
-  text-align: center;
+  text-align: left;
   max-width: 800px;
+      padding: 2rem;
+
 `;
 
 const PenalGrid = styled.div`
@@ -46,6 +50,8 @@ const PenalGrid = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 15px;
+        padding: 2rem;
+
   }
 `;
 
@@ -88,10 +94,13 @@ const PenalTitle = styled.h3`
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #ffffff;
+  color: #00bfff;
 
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+        text-align: center; /* Alignement du texte à gauche */
+  
+
   }
 `;
 
@@ -103,6 +112,8 @@ const PenalDescription = styled.p`
 
   @media (max-width: 768px) {
     font-size: 0.95rem;
+        padding: 1.5rem;
+
   }
 `;
 

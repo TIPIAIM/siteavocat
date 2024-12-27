@@ -33,6 +33,8 @@ const PageWrapper = styled.div`
 
 const ContentContainer = styled.div`
   position: relative;
+    max-width: 900px;
+
   z-index: 10;
   padding: 4rem 2rem;
   display: flex;
@@ -83,7 +85,7 @@ const TextContainer = styled.div`
 `;
 
 const Image = styled(motion.img)`
-  width: 100%;
+  width: 50%;
   height: auto;
   border-radius: 8px;
   object-fit: cover;

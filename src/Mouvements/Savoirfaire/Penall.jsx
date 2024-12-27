@@ -11,7 +11,7 @@ import Penal2 from "./Penal2";
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/image.png");
+  background-image: url("img/logoAODnoir.png");
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
@@ -42,12 +42,19 @@ const Title = styled(motion.h1)`
 `;
 
 const Paragraph = styled(motion.p)`
-  font-size: 1.3rem;
+  font-size: 1rem;
   line-height: 2;
   margin-bottom: 2rem;
   max-width: 800px;
-  text-align: justify;
+  text-align: left;
+   @media (max-width: 480px) {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 1rem;
+  }
 `;
+
 
 const Divider = styled.div`
   height: 2px;
@@ -104,7 +111,7 @@ export default function Penall() {
       <Overlay />
 
       <BardeNavigationpublic />
-      <ContentContainer className=" font-serif">
+      <ContentContainer className=" ">
         {" "}
         <BackButton to="/nosexpertises" data-aos="fade-right">
           <FaArrowLeft size={20} />

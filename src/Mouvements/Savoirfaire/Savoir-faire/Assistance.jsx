@@ -140,14 +140,17 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  max-width: 300px;
+  max-width:200px;
+    background: rgba(250, 250, 250, 0.8);
+margin-top: 4rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  }
+      background: rgba(250, 250, 250, 0.3);
+    }
   @media (max-width: 1024px) {
     max-width: 250px;
   }

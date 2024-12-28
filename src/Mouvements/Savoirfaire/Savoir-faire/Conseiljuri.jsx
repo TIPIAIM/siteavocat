@@ -36,10 +36,9 @@ const Title = styled(motion.h2)`
   z-index: 10;
   max-width: 800px;
 
-   @media (max-width: 768px) {
+  @media (max-width: 768px) {
     font-size: 2rem;
-      text-align: center;;
-
+    text-align: center;
   }
 `;
 
@@ -49,6 +48,30 @@ const PointsList = styled.div`
   z-index: 10;
 `;
 
+const ImageContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+
+  @media (max-width: 1024px) {
+    gap: 0.5rem;
+  }
+`;
+const Image = styled.img`
+  width: 100%;
+  max-width: 200px;
+  background: rgba(250, 250, 250, 1);
+  margin-top: 4rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  @media (max-width: 1024px) {
+    max-width: 250px;
+  }
+`;
 const Point = styled(motion.div)`
   margin-bottom: 1.8rem;
   font-size: 1.3rem;
@@ -59,7 +82,7 @@ const Point = styled(motion.div)`
 
   &::before {
     content: "✔";
-     color: #90e0ef;
+    color: #90e0ef;
     position: absolute;
     left: 0;
     font-size: 1.5rem;
@@ -68,8 +91,7 @@ const Point = styled(motion.div)`
 
   @media (max-width: 768px) {
     font-size: 1.1rem;
-      text-align: left;;
-
+    text-align: left;
   }
 `;
 
@@ -81,10 +103,7 @@ const textVariants = {
 const Conseiljuri = () => {
   return (
     <div>
-      <Container
-            style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
-
-      >
+      <Container style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
         <BardeNavigationpublic />
         <Title initial="hidden" animate="visible" variants={textVariants}>
           Conseils juridiques ?
@@ -116,35 +135,47 @@ const Conseiljuri = () => {
             au cœur de nos priorités.
           </Point>
           <Point initial="hidden" animate="visible" variants={textVariants}>
-            <strong style={{ color: '#90e0ef'}}>Communication claire et transparente :</strong> Nous vous
-            tenons informé à chaque étape du processus, garantissant une
-            collaboration efficace et une totale compréhension de votre dossier.
-            Une information précise est notre priorité.
+            <strong style={{ color: "#90e0ef" }}>
+              Communication claire et transparente :
+            </strong>{" "}
+            Nous vous tenons informé à chaque étape du processus, garantissant
+            une collaboration efficace et une totale compréhension de votre
+            dossier. Une information précise est notre priorité.
           </Point>
           <Point initial="hidden" animate="visible" variants={textVariants}>
-            <strong style={{ color: '#90e0ef'}}>Résultats probants :</strong> Notre expérience dans la
-            résolution de contentieux complexes nous permet d'obtenir des
-            résultats concrets et satisfaisants pour nos clients. Nous avons à
-            cœur de vous apporter des solutions concrètes.
+            <strong style={{ color: "#90e0ef" }}>Résultats probants :</strong>{" "}
+            Notre expérience dans la résolution de contentieux complexes nous
+            permet d'obtenir des résultats concrets et satisfaisants pour nos
+            clients. Nous avons à cœur de vous apporter des solutions concrètes.
           </Point>
           <Point initial="hidden" animate="visible" variants={textVariants}>
-            <strong style={{ color: '#90e0ef'}}>Discrétion et confidentialité :</strong> Votre confiance est
-            primordiale. Nous garantissons la protection de vos informations et
-            la confidentialité totale de vos dossiers, avec un respect absolu de
-            vos droits.
-          </Point>
-          <Point  initial="hidden" animate="visible" variants={textVariants}>
-            <strong style={{ color: '#90e0ef'}}>Accompagnement sur mesure :</strong> Nous traitons chaque
-            dossier avec soin et attention, vous offrant des conseils adaptés à
-            votre situation spécifique, quel que soit le degré de complexité.
+            <strong style={{ color: "#90e0ef" }}>
+              Discrétion et confidentialité :
+            </strong>{" "}
+            Votre confiance est primordiale. Nous garantissons la protection de
+            vos informations et la confidentialité totale de vos dossiers, avec
+            un respect absolu de vos droits.
           </Point>
           <Point initial="hidden" animate="visible" variants={textVariants}>
-            <strong style={{ color: '#90e0ef'}}>Accessibilité et réactivité :</strong> Nous répondons
-            rapidement à vos questions et préoccupations, en veillant à vous
-            apporter un service de qualité à tout moment. Votre satisfaction est
-            notre priorité.
+            <strong style={{ color: "#90e0ef" }}>
+              Accompagnement sur mesure :
+            </strong>{" "}
+            Nous traitons chaque dossier avec soin et attention, vous offrant
+            des conseils adaptés à votre situation spécifique, quel que soit le
+            degré de complexité.
+          </Point>
+          <Point initial="hidden" animate="visible" variants={textVariants}>
+            <strong style={{ color: "#90e0ef" }}>
+              Accessibilité et réactivité :
+            </strong>{" "}
+            Nous répondons rapidement à vos questions et préoccupations, en
+            veillant à vous apporter un service de qualité à tout moment. Votre
+            satisfaction est notre priorité.
           </Point>
         </PointsList>
+        <ImageContainer>
+          <Image src="img/logoAODnoir.png" alt="Analyse juridique" />
+        </ImageContainer>
       </Container>
       <Footer />
     </div>

@@ -181,7 +181,7 @@ export default function BardeNavigationpublic() {
           <img
             src={logoAODnoir}
             alt="Logo du Cabinet"
-            className="font-serif font-extrabold text-xl"
+            className=" font-extrabold text-xl"
           />
          
         </Logo>

@@ -19,7 +19,7 @@ const BackgroundContainer = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8); /* Ajustez la transparence ici */
+  background: rgba(0, 0, 0, 0.9); /* Ajustez la transparence ici */
 `;
 
 const ContentContainer = styled.div`
@@ -30,8 +30,7 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: white;
-
+  color: #ade8f4;
 `;
 
 const Title = styled(motion.h1)`
@@ -40,7 +39,6 @@ const Title = styled(motion.h1)`
   color: #63b3ed;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   margin-bottom: 1.5rem;
-  font-family: "Georgia", serif;
 `;
 
 const Paragraph = styled(motion.p)`
@@ -48,13 +46,14 @@ const Paragraph = styled(motion.p)`
   line-height: 1.8;
   margin-bottom: 1.5rem;
   max-width: 800px;
-  text-align: justify;
-  color: #edf2f7;
-  font-family: "Roboto Slab", serif;
+  text-align: left;
+  color: white;
 
-    @media (max-width: 768px) {
+  @media (max-width: 480px) {
     font-size: 1rem;
-    text-align: center; /* Centrer le contenu du formulaire sur les petits écrans */
+    line-height: 1.6rem;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 2rem;
   }
 `;
 
@@ -127,7 +126,7 @@ export default function Affairpart1() {
         </BackButton>
 
         <Title
-          className=" font-serif"
+          
           initial="hidden"
           animate={controls}
           variants={textVariants}

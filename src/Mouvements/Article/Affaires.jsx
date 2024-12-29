@@ -6,6 +6,7 @@ import Affairpart1 from "./Affairpart1";
 import Affairpart2 from "./Affairpart2";
 
 // Conteneur principal avec superposition
+// Conteneur principal avec superposition
 const AffairesContainer = styled.div`
   width: 100%;
   min-height: 100vh;
@@ -45,21 +46,19 @@ const SectionTitle = styled.h2`
   font-weight: bold;
   margin-bottom: 40px;
   color: #90e0ef;
-  font-family: "Georgia", serif;
-
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
 
   @media (max-width: 768px) {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 `;
 
 // Carte d'article
 const ArticleCard = styled(motion.div)`
   background: rgba(10, 34, 64, 0.7);
-  border-radius: 15px;
+  border-radius: 1px;
   overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 12px 12px 10px 
   width: 100%;
   max-width: 900px;
   margin: 20px 0;
@@ -67,7 +66,7 @@ const ArticleCard = styled(motion.div)`
 
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7);
+    box-shadow: 3px 3px 2px rgba(144, 224, 239);
   }
 `;
 
@@ -87,7 +86,7 @@ const MediaWrapper = styled.div`
 // Contenu d'article
 const ArticleContent = styled.div`
   padding: 20px;
-  text-align: justify;
+  text-align: left;
   color: rgba(255, 255, 255, 0.85);
 `;
 
@@ -97,21 +96,21 @@ const ArticleTitle = styled.h3`
   font-weight: bold;
   margin-bottom: 15px;
   color: #90e0ef;
-  font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
-    font-size: 1.4rem;
-    text-align: center;
+    font-size: 1.5rem;
+    text-align: left;
+ 
+
+   
   }
 `;
 
 // Description d'article
 const ArticleDescription = styled.p`
   font-size: 1rem;
-  font-weight: bold;
   line-height: 1.8;
   margin-bottom: 20px;
-  font-family: "Roboto Slab", serif;
 
   ul {
     list-style: none;
@@ -129,8 +128,10 @@ const ArticleDescription = styled.p`
   }
 
   @media (max-width: 768px) {
-    font-size: 0.98rem;
-      text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5rem;
+
+    padding: 2rem;
   }
 `;
 
@@ -148,7 +149,6 @@ const ReadMoreButton = styled.a`
     text-decoration: underline;
   }
 `;
-
 const Affairee = () => {
   return (
     <div>

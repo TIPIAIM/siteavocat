@@ -16,45 +16,41 @@ const BackgroundContainer = styled.div`
   background: url("/img/logoAODnoir.png") center/cover no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  color: #fff;
-  font-family: "Georgia", serif;
+  color: #ffff;
 
   @media (max-width: 768px) {
     background-attachment: scroll;
-    text-align: center;
   }
 `;
-
 // Conteneur du contenu
 const ContentWrapper = styled.div`
-  max-width: 1350px;
+  max-width: 900px;
   margin: 2rem auto;
   padding: 4rem;
   background-color: rgba(0, 0, 0, 0.9); /* Fond semi-transparent */
   border-radius: px;
-  box-shadow: 0 6px 20px #90e0ef;
-  backdrop-filter: blur(8px); /* Flou pour un effet moderne */
+  box-shadow: 0 0px 0px #90e0ef;
+  backdrop-filter: blur(0px); /* Flou pour un effet moderne */
 
   @media (max-width: 1024px) {
     padding: 3rem;
   }
 
   @media (max-width: 768px) {
-    padding: 1.5rem;
+    padding: 2rem;
   }
 
   @media (max-width: 480px) {
-    padding: 1rem;
+    padding: 2rem;
   }
 `;
-
 // Titre principal
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #00b4d8;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 
   @media (max-width: 1024px) {
     font-size: 3rem;
@@ -68,17 +64,17 @@ const Title = styled.h1`
     font-size: 2rem;
   }
 `;
-
 // Sous-titres
 const Subtitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 500;
   color: #90e0ef;
-  margin-bottom: 1rem;
-  font-family: "Georgia", serif;
+  margin-bottom:1rem;
+  
 
   @media (max-width: 1024px) {
     font-size: 1.8rem;
+    padding-left : 2rem;
   }
 
   @media (max-width: 768px) {
@@ -87,58 +83,52 @@ const Subtitle = styled.h2`
 
   @media (max-width: 480px) {
     font-size: 1.4rem;
+     margin-top : 2rem;
   }
 `;
-
 // Paragraphe avec espacement et lisibilité
 const Paragraph = styled.p`
-  font-size: 1rem;
+
   color: #caf0f8;
+
+  font-size: 1.3rem;
   line-height: 1.8;
-  margin-bottom: 2rem;
-  font-family: "Roboto Slab", serif;
 
-  @media (max-width: 1024px) {
-    font-size: 1.1rem;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-     @media (max-width: 768px) {
-    font-size: 1.75rem; /* Taille de police ajustée pour les petits écrans */
-    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
-    text-align: left; /* Alignement du texte à gauche */
-  }
+  max-width: 800px;
+  text-align: left;
 
     @media (max-width: 480px) {
-    font-size: 1.2rem; /* Réduction supplémentaire pour très petits écrans */
-    padding-left: 0.5rem; /* Espacement optimisé */
+    font-size: 1rem;
+    line-height: 1.6rem;
     text-align: left; /* Alignement du texte à gauche */
+    margin : 2rem;
   }
-`;
+  @media (max-width: 1024px) {
+    font-size : 1.1rem;
+    line-height: 1.7rem;
+    text-align: left;
+  justify-content: left;
 
+`;
 // Liste stylisée
 const List = styled.ul`
   list-style-type: disc;
   padding-left: 2rem;
   margin-bottom: 2rem;
-  font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
-    padding-left: 1.2rem;
+    margin : 0.5rem;
   }
 `;
 
 const ListItem = styled.li`
   font-size: 1.2rem;
-  color: #00b4d8;
-  font-family: "Roboto Slab", serif;
+    color: #00b4d8;
 
-  margin-bottom: 0.75rem;
-
+ 
   @media (max-width: 768px) {
     font-size: 1rem;
+     margin : 0.5rem;
   }
 `;
 const BackButton = styled(Link)`
@@ -175,7 +165,7 @@ const OverlayTop = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 34, 64, 0.9); /* Fond noir semi-transparent */
+  background: rgba(0, 0, 0, 0.4); /* Fond noir semi-transparent */
 `;
 
 const OverlayBottom = styled.div`
@@ -186,15 +176,14 @@ const OverlayBottom = styled.div`
   height: 0%;
   background: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
 `;
-
 const Fiscalite = () => {
   return (
-    <div>
-      <OverlayTop />
+    <div className=" bg-gray-900">
+      <OverlayTop />             <BardeNavigationpublic />
+
       <BackgroundContainer>
-        <BardeNavigationpublic />
         <ContentWrapper>
-          <BackButton to="/article" data-aos="fade-right">
+     <BackButton to="/article" data-aos="fade-right">
             <FaArrowLeft size={20} />
           </BackButton>
 

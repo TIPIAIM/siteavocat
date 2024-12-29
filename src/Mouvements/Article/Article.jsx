@@ -18,18 +18,16 @@ const ArticlesContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  
 `;
 
 // Titre de la section
 const SectionTitle = styled.h2`
-  font-size: 2.1rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 50px;
+  
   color: #0077b6;
   text-shadow: px 4px 2px #90e0ef;
-  font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
     font-size: 2rem;
@@ -44,20 +42,19 @@ const ArticlesGrid = styled.div`
   gap: 20px;
   width: 100%;
   max-width: 1200px;
-font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 35px;
   }
 `;
 
 // Carte d'article
 const ArticleCard = styled(motion.div)`
   background: rgba(10, 34, 64, 0.9);
-  border-radius: 10px;
+  border-radius: 2px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 180, 216, 1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
@@ -83,30 +80,36 @@ const MediaWrapper = styled.div`
 
 // Contenu d'article
 const ArticleContent = styled.div`
-  padding: 20px;
+  padding:20px;
+  
 `;
 
 // Titre d'article
 const ArticleTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #ffffff;
-
+  color: #90e0ef;
+  margin-top: 10px;
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+        font-size: 1.1rem;
+    line-height: 1.7rem;
+    text-align: left;
+     margin-left : 1.2rem
+
   }
 `;
 
 // Description d'article
 const ArticleDescription = styled.p`
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
   line-height: 1.5;
   margin-bottom: 10px;
 
   @media (max-width: 768px) {
     font-size: 0.95rem;
+    margin-left : 1.2rem
   }
 `;
 
@@ -114,11 +117,14 @@ const ArticleDescription = styled.p`
 const ReadMoreButton = styled.a`
   font-size: 1rem;
   font-weight: bold;
-  color: #00bfff;
+  color: #90e0ef;
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
-
+ @media (max-width: 768px) {
+    font-size: 0.95rem;
+    margin-left : 1.2rem
+  }
   &:hover {
     color: #ffffff;
     text-decoration: underline;

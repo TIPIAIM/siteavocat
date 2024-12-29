@@ -21,7 +21,7 @@ const BackgroundContainer = styled.div`
 
   @media (max-width: 768px) {
     background-attachment: scroll;
-   text-align: center;
+   text-align: left;
 
     }
 `;
@@ -41,11 +41,23 @@ const ContentWrapper = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 1.5rem;
+    padding: 2rem;
   }
 
   @media (max-width: 480px) {
-    padding: 1rem;
+    padding: 2rem;
+  }
+    
+  @media (max-width: 1024px) {
+    padding: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem;
   }
 `;
 
@@ -54,14 +66,14 @@ const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: 700;
   color: #00b4d8;
-  font-family: "Georgia", serif;
 
   text-align: center;
   margin-bottom: 3rem;
 
   @media (max-width: 1024px) {
     font-size: 3rem;
-  }
+ margin-top : 1.5rem;
+    }
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -73,15 +85,17 @@ const ArticleSection = styled.div`
   margin-bottom: 2rem;
   padding: 2rem;
   font-size: 1.2rem;
-  font-family: "Roboto Slab", serif;
   color: #caf0f8;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.6);
 
   box-shadow: 1px 2px 1px #00b4d8;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(0px);
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 2.3rem;
+  font-size: 1.1rem;
+    line-height: 1.6rem;
+
   }
 `;
 
@@ -89,8 +103,6 @@ const ArticleSection = styled.div`
 const ArticleLink = styled.a`
   color: #00b4d8;
   text-decoration: none;
-  font-weight: bold;
-  font-family: "Roboto Slab", serif;
 
   &:hover {
     text-decoration: none;
@@ -157,7 +169,9 @@ const Famille = () => {
           <Title>Droit de la Famille et la Médiation</Title>
 
           <ArticleSection>
-            <h2>
+            <h2 className="  p-2 "
+            style={{color : "#00b4d8"}}
+            >
               La médiation familiale : un outil clé pour résoudre les conflits
               familiaux
             </h2>
@@ -182,7 +196,9 @@ const Famille = () => {
           </ArticleSection>
 
           <ArticleSection>
-            <h2>
+          <h2 className="  p-2 "
+            style={{color : "#00b4d8"}}
+            >
               Les droits des enfants en cas de divorce : ce que vous devez
               savoir
             </h2>
@@ -208,7 +224,9 @@ const Famille = () => {
           </ArticleSection>
 
           <ArticleSection>
-            <h2>
+          <h2 className="  p-2 "
+            style={{color : "#00b4d8"}}
+            >
               Les implications légales de la médiation dans les affaires de
               garde d’enfants
             </h2>
@@ -233,7 +251,10 @@ const Famille = () => {
           </ArticleSection>
 
           <ArticleSection>
-            <h2>Les conséquences d’un divorce non médiatisé</h2>
+          <h2 className="  p-2 "
+            style={{color : "#00b4d8"}}
+            >
+              Les conséquences d’un divorce non médiatisé</h2>
             <p>
               Un divorce non médiatisé peut avoir des conséquences lourdes, tant
               sur le plan juridique qu’émotionnel. En l’absence de médiation,

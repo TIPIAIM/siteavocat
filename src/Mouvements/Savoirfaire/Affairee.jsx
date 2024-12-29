@@ -55,9 +55,9 @@ const SectionTitle = styled.h2`
 // Carte d'article
 const ArticleCard = styled(motion.div)`
   background: rgba(10, 34, 64, 0.7);
-  border-radius: 15px;
+  border-radius: 1px;
   overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 12px 12px 10px 
   width: 100%;
   max-width: 900px;
   margin: 20px 0;
@@ -65,7 +65,7 @@ const ArticleCard = styled(motion.div)`
 
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7);
+    box-shadow: 3px 3px 3px rgba(144, 224, 239);
   }
 `;
 
@@ -157,7 +157,7 @@ const Affairee = () => {
       <Affair />
       <AffairesContainer>
         <ContentWrapper>
-          <SectionTitle>L'importances</SectionTitle>
+          <SectionTitle>L’importances</SectionTitle>
           <ArticleCard
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -196,7 +196,7 @@ const Affairee = () => {
                     confiance entre les parties.
                   </li>
                   <li>
-                    Gestion des risques : Permet d'anticiper et limiter les
+                    Gestion des risques : Permet d’anticiper et limiter les
                     problèmes potentiels.
                   </li>
                   <li>

@@ -19,7 +19,6 @@ const BackgroundContainer = styled.div`
     background-attachment: scroll;
   }
 `;
-
 // Conteneur du contenu
 const ContentWrapper = styled.div`
   max-width: 900px;
@@ -42,7 +41,6 @@ const ContentWrapper = styled.div`
     padding: 2rem;
   }
 `;
-
 // Titre principal
 const Title = styled.h1`
   font-size: 3rem;
@@ -63,7 +61,6 @@ const Title = styled.h1`
     font-size: 2rem;
   }
 `;
-
 // Sous-titres
 const Subtitle = styled.h2`
   font-size: 1.5rem;
@@ -85,7 +82,6 @@ const Subtitle = styled.h2`
      margin-top : 2rem;
   }
 `;
-
 // Paragraphe avec espacement et lisibilité
 const Paragraph = styled.p`
 
@@ -110,7 +106,6 @@ const Paragraph = styled.p`
   justify-content: left;
 
 `;
-
 // Liste stylisée
 const List = styled.ul`
   list-style-type: disc;

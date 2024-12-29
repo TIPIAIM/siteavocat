@@ -7,31 +7,28 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 AOS.init(); // Initialisation de AOS dans le composant
-
 // Conteneur principal avec fond fixe
 const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
-  min-height: 65vh;
+  min-height: 100vh;
   background: url("/img/logoAODnoir.png") center/cover no-repeat;
   background-attachment: fixed;
-  background-size: ;
+  background-size: cover;
   color: #fff;
 
   @media (max-width: 768px) {
     background-attachment: scroll;
-    text-align: center;
   }
 `;
-
 // Conteneur du contenu
 const ContentWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 900px;
   margin: 2rem auto;
-  padding: 8rem;
+  padding: 4rem;
   background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
-  border-radius: 0px;
-  box-shadow: 0 6px px #00b4d8;
+  border-radius: px;
+  box-shadow: 0 0px 0px #90e0ef;
   backdrop-filter: blur(8px); /* Flou pour un effet moderne */
 
   @media (max-width: 1024px) {
@@ -39,23 +36,22 @@ const ContentWrapper = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 1.5rem;
+    padding: 2rem;
   }
 
   @media (max-width: 480px) {
-    padding: 1rem;
+    padding: 2rem;
   }
 `;
+
 
 // Titre principal
 const Title = styled.h1`
   font-size: 2.5rem;
-  font-family: "Georgia", serif;
-
   font-weight: 700;
   color: #00b4d8;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 
   @media (max-width: 1024px) {
     font-size: 3rem;
@@ -69,17 +65,16 @@ const Title = styled.h1`
     font-size: 2rem;
   }
 `;
-
 // Sous-titres
 const Subtitle = styled.h2`
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #90e0ef;
-  margin-bottom: 1rem;
-  font-family: "Georgia", serif;
+  
 
   @media (max-width: 1024px) {
     font-size: 1.8rem;
+    padding-left : 2rem;
   }
 
   @media (max-width: 768px) {
@@ -87,54 +82,55 @@ const Subtitle = styled.h2`
   }
 
   @media (max-width: 480px) {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+     margin-top : 2rem;
   }
 `;
 
 // Paragraphe avec espacement et lisibilité
 const Paragraph = styled.p`
-  font-size: 1.2rem;
+
   color: #caf0f8;
+
+  font-size: 1.3rem;
   line-height: 1.8;
-  margin-bottom: 2rem;
-  font-family: "Roboto Slab", serif;
 
-  @media (max-width: 1024px) {
-    font-size: 1.1rem;
-  }
+  max-width: 800px;
+  text-align: left;
 
-  @media (max-width: 768px) {
+    @media (max-width: 480px) {
     font-size: 1rem;
-    align-items: left;
+    line-height: 1.6rem;
+    text-align: left; /* Alignement du texte à gauche */
+    margin : 2rem;
   }
+  @media (max-width: 1024px) {
+    font-size : 1.1rem;
+    line-height: 1.7rem;
+    text-align: left;
+  justify-content: left;
 
-  @media (max-width: 480px) {
-    font-size: 0.9rem;
-    align-items: center;
-  }
 `;
 
 // Liste stylisée
 const List = styled.ul`
   list-style-type: disc;
   padding-left: 2rem;
-  margin-bottom: 1rem;
-  font-family: "Roboto Slab", serif;
+  margin-bottom: 2rem;
 
   @media (max-width: 768px) {
-    padding-left: 1.5rem;
-    align-items: center;
+    margin : 0.5rem;
   }
 `;
 
 const ListItem = styled.li`
   font-size: 1.2rem;
-  color: #caf0f8;
-  margin-bottom: 0.85rem;
+    color: #caf0f8;
 
+ 
   @media (max-width: 768px) {
     font-size: 1rem;
-    align-items: center;
+     margin : 0.5rem;
   }
 `;
 
@@ -142,9 +138,8 @@ const Overlay = styled.div`
   position: absolute;
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
 `;
-
 const BackButton = styled(Link)`
   display: flex;
   align-items: center;
@@ -155,7 +150,7 @@ const BackButton = styled(Link)`
   border-radius: 50%;
   box-shadow: 1px 1px 5px #90e0ef;
   color: ;
-  margin-bottom: 0rem;
+  margin-bottom: 1rem;
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -179,12 +174,11 @@ const OverlayBottom = styled.div`
   left: 0;
   width: 100%;
   height: 0%;
-  background: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
+  background: #00b4d8; /* Fond noir semi-transparent */
 `;
-
 const Minier = () => {
   return (
-    <div>
+    <div className="">
       <BackgroundContainer>
         <BardeNavigationpublic />
         <Overlay />

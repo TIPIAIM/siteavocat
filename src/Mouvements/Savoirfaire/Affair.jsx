@@ -65,8 +65,9 @@ const SubTitle = styled(motion.h2)`
   }
 
   @media (max-width: 480px) {
-    font-size: 1rem;
-  }
+    font-size: 1.3rem;
+  margin:1rem;
+    }
 `;
 
 // Texte défilant
@@ -74,7 +75,7 @@ const ScrollAnimation = styled.div`
   overflow-y: auto;
   max-height: calc(100vh - 250px);
   padding: 1.9rem;
-  margin: 1.5rem 0;
+  margin: 1.5rem ;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.1); /* Légère transparence */
   backdrop-filter: blur(20px); /* Effet de flou */
@@ -93,7 +94,7 @@ const ScrollAnimation = styled.div`
     font-size: 1rem;
     line-height: 1.6rem;
     text-align: left; /* Alignement du texte à gauche */
-    padding: 2.1rem;
+    padding: 2rem;
   }
 `;
 
@@ -111,8 +112,10 @@ const Description = styled(motion.p)`
   }
 
   @media (max-width: 480px) {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     line-height: 1.4;
+        padding: 1rem;
+
   }
 `;
 

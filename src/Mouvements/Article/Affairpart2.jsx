@@ -19,8 +19,8 @@ const Overlay = styled.div`
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 50, 50, 0.9),
-    rgba(0, 0, 0, 0.5)
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 1)
   );
 `;
 
@@ -38,11 +38,10 @@ const ContentContainer = styled.div`
 
 // Titre principal avec style et animation
 const Title = styled(motion.h1)`
-  font-size: 2.8rem;
-  color: #0077b6;
+  font-size: 3rem;
+  color: #90e0ef;
   margin-bottom: 2rem;
   font-weight: bold;
-  font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -60,25 +59,25 @@ const SubTitle = styled(motion.h2)`
   margin-bottom: 1.5rem;
   font-weight: 300;
   opacity: 0.8;
-  font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
     font-size: 1.3rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 1rem;
-  }
+    font-size: 1.3rem;
+  margin:1rem;
+    }
 `;
 
 // Texte défilant
 const ScrollAnimation = styled.div`
   overflow-y: auto;
   max-height: calc(100vh - 250px);
-  padding: 1rem;
-  margin: 1rem 0;
+  padding: 1.9rem;
+  margin: 1.5rem ;
   border-radius: 10px;
-  background: rgba(0, 0, 0, 0.5); /* Légère transparence */
+  background: rgba(255, 255, 255, 0.1); /* Légère transparence */
   backdrop-filter: blur(20px); /* Effet de flou */
   scrollbar-width: thin; /* Barres de défilement fines */
   scrollbar-color: #4ea8ff transparent;
@@ -91,6 +90,12 @@ const ScrollAnimation = styled.div`
     background-color: #4ea8ff;
     border-radius: 10px;
   }
+      @media (max-width: 480px) {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: left; /* Alignement du texte à gauche */
+    padding: 2rem;
+  }
 `;
 
 // Texte descriptif avec animation et espacement
@@ -100,7 +105,6 @@ const Description = styled(motion.p)`
   max-width: 800px;
   margin: 0 auto 1.5rem auto;
   color: #e0e0e0;
-  font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -108,14 +112,16 @@ const Description = styled(motion.p)`
   }
 
   @media (max-width: 480px) {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.4;
+        padding: 1rem;
+
   }
 `;
 
 // Bouton interactif
 const ActionButton = styled(motion.a)`
-  margin-top: 1.5rem;
+  margin-bottom: 1rem;
   padding: 0.5rem 0.8rem;
   font-size: 1rem;
   color: #03045e;
@@ -130,6 +136,7 @@ const ActionButton = styled(motion.a)`
     background-color: #3a8dd0;
   }
 `;
+
 
 export default function Affairpart2() {
   return (

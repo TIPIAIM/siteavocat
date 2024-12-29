@@ -45,7 +45,7 @@ const ContentWrapper = styled.div`
 
 // Titre principal
 const Title = styled.h1`
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #00b4d8;
   text-align: center;

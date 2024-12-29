@@ -38,7 +38,7 @@ const PageWrapper = styled.div`
 const ContentContainer = styled.div`
   position: relative;
   z-index: 2;
-  max-width: 1290px;
+  max-width: 1000px;
   margin: 0 auto;
 
   padding: rem;
@@ -53,7 +53,7 @@ const Title = styled.h1`
 
   font-size: 2.5rem;
   padding: 1.5rem;
-  border-left: 4px solid #2c5282;
+  border-left: 4px solid #;
   background: #; /* Couleur blanche avec transparence */
 
   font-weight: bold;
@@ -64,7 +64,7 @@ const Title = styled.h1`
   text-transform: uppercase;
   letter-spacing: 1px;
   @media (max-width: 768px) {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     text-align: center;
   }
 `;
@@ -76,12 +76,14 @@ const Section = styled(motion.section)`
   margin-bottom: 2rem;
   gap: 2rem;
   padding: 1.5rem;
-  border-left: 4px solid #2c5282;
+  border-left: 4px solid #00b4d8;
   background-color: rgba(0, 0, 0, 0.7); /* Couleur avec transparence */
   border-radius: 8px;
   @media (max-width: 768px) {
     flex-direction: column;
-    align-items: center;
+    align-items: left;
+    text-align: left;
+
   }
 `;
 
@@ -93,6 +95,8 @@ const TextContainer = styled.div`
   }
   @media (max-width: 768px) {
     font-size: 1rem;
+        text-align: left;
+
   }
   @media (max-width: 768px) {
     font-size: 1.75rem; /* Taille de police ajustée pour les petits écrans */
@@ -108,7 +112,7 @@ const TextContainer = styled.div`
 `;
 
 const Image = styled(motion.img)`
-  width: 100%;
+  width: 50%;
   height: auto;
   border-radius: 0%;
   object-fit: cover;
@@ -125,7 +129,6 @@ const Image = styled(motion.img)`
 
 const Subtitle = styled.h2`
   font-size: 2rem;
-  font-family: "Georgia", serif;
   font-weight: 600;
   color: #00b4d8;
   margin-bottom: 1rem;
@@ -163,7 +166,7 @@ const Paragraph = styled.p`
 
   line-height: 1.8;
   margin-bottom: 1.5rem;
-  text-align: justify;
+  text-align: left;
   @media (max-width: 768px) {
     font-size: 1rem;
   }
@@ -184,7 +187,6 @@ const List = styled.ul`
   list-style: none;
   padding-left: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "Georgia", serif;
 
   @media (max-width: 768px) {
     font-size: 1.75rem; /* Taille de police ajustée pour les petits écrans */
@@ -206,7 +208,7 @@ const ListItem = styled(motion.li)`
   color: white;
   margin-bottom: 0.75rem;
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 0.5rem;
   @media (max-width: 768px) {
     font-size: 1rem;

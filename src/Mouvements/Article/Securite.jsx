@@ -41,16 +41,14 @@ const ContentContainer = styled.div`
   max-width: 1000px;
   margin: 0 auto;
 
-  padding: rem;
+  padding: 2rem;
   background: rgba(0, 0, 0, 0.2); /* Couleur blanche avec transparence */
   border-radius: 0px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 8px 20px rgba(0, 180, 216, 1)
   text-align: center;
 `;
 
 const Title = styled.h1`
-  font-family: "Georgia", serif;
-
   font-size: 2.5rem;
   padding: 1.5rem;
   border-left: 4px solid #;
@@ -64,7 +62,7 @@ const Title = styled.h1`
   text-transform: uppercase;
   letter-spacing: 1px;
   @media (max-width: 768px) {
-    font-size: 1.8rem;
+    font-size: 2rem;
     text-align: center;
   }
 `;
@@ -79,11 +77,12 @@ const Section = styled(motion.section)`
   border-left: 4px solid #00b4d8;
   background-color: rgba(0, 0, 0, 0.7); /* Couleur avec transparence */
   border-radius: 8px;
+
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: left;
-    text-align: left;
-
+    text-align: center;
+    pading: 2rem;
   }
 `;
 
@@ -95,18 +94,17 @@ const TextContainer = styled.div`
   }
   @media (max-width: 768px) {
     font-size: 1rem;
-        text-align: left;
-
+    text-align: left;
   }
   @media (max-width: 768px) {
     font-size: 1.75rem; /* Taille de police ajustée pour les petits écrans */
-    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
+    padding: 1rem; /* Espacement réduit pour harmoniser */
     text-align: left; /* Alignement du texte à gauche */
   }
 
   @media (max-width: 480px) {
     font-size: 1.2rem; /* Réduction supplémentaire pour très petits écrans */
-    padding-left: 0.5rem; /* Espacement optimisé */
+    padding-left: 1rem; /* Espacement optimisé */
     text-align: left; /* Alignement du texte à gauche */
   }
 `;
@@ -132,7 +130,7 @@ const Subtitle = styled.h2`
   font-weight: 600;
   color: #00b4d8;
   margin-bottom: 1rem;
-  text-align: left; /* Alignement du texte à gauche */
+  text-align: center; /* Alignement du texte à gauche */
   position: relative;
   padding-left: 1rem; /* Ajout d'espacement pour compenser le pseudo-élément */
 
@@ -144,24 +142,24 @@ const Subtitle = styled.h2`
     transform: translateY(-50%);
     width: 6px;
     height: 100%;
-    background-color: #2c5282;
+    background-color: #90e0ef;
   }
 
   @media (max-width: 768px) {
-    font-size: 1.75rem; /* Taille de police ajustée pour les petits écrans */
-    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
-    text-align: left; /* Alignement du texte à gauche */
+    font-size: 1rem; /* Taille de police ajustée pour les petits écrans */
+    padding-left: 2.75rem; /* Espacement réduit pour harmoniser */
+    text-align: center; /* Alignement du texte à gauche */
   }
 
   @media (max-width: 480px) {
     font-size: 1.5rem; /* Réduction supplémentaire pour très petits écrans */
-    padding-left: 0.5rem; /* Espacement optimisé */
-    text-align: left; /* Alignement du texte à gauche */
+    padding: 0.5rem; /* Espacement optimisé */
+    text-align: center; /* Alignement du texte à gauche */
   }
 `;
 
 const Paragraph = styled.p`
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: white;
 
   line-height: 1.8;
@@ -178,7 +176,7 @@ const Paragraph = styled.p`
 
   @media (max-width: 480px) {
     font-size: 1.2rem; /* Réduction supplémentaire pour très petits écrans */
-    padding-left: 0.5rem; /* Espacement optimisé */
+    padding-left: 1.8rem; /* Espacement optimisé */
     text-align: left; /* Alignement du texte à gauche */
   }
 `;
@@ -190,20 +188,19 @@ const List = styled.ul`
 
   @media (max-width: 768px) {
     font-size: 1.75rem; /* Taille de police ajustée pour les petits écrans */
-    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
+    padding-left: 1.75rem; /* Espacement réduit pour harmoniser */
     text-align: left; /* Alignement du texte à gauche */
   }
 
   @media (max-width: 480px) {
     font-size: 1.2rem; /* Réduction supplémentaire pour très petits écrans */
-    padding-left: 0.5rem; /* Espacement optimisé */
+    padding-left: 1.5rem; /* Espacement optimisé */
     text-align: left; /* Alignement du texte à gauche */
   }
 `;
 
 const ListItem = styled(motion.li)`
   font-size: 1.125rem;
-  font-family: "Georgia", serif;
 
   color: white;
   margin-bottom: 0.75rem;
@@ -226,8 +223,8 @@ const ListItem = styled(motion.li)`
   }
 
   @media (max-width: 480px) {
-    font-size: 1.2rem; /* Réduction supplémentaire pour très petits écrans */
-    padding-left: 0.5rem; /* Espacement optimisé */
+    font-size: 1rem; /* Réduction supplémentaire pour très petits écrans */
+    padding-left: 0.5rem 0.2rem; /* Espacement optimisé */
     text-align: left; /* Alignement du texte à gauche */
   }
 `;
@@ -278,8 +275,8 @@ const StyledLink = styled(Link)`
 
 const Securite = () => {
   const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    hidden: { opacity: 0, y: 120 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
   };
 
   return (
@@ -295,8 +292,18 @@ const Securite = () => {
             La Sécurité Sociale et le Droit du Travail
           </Title>
 
-          <Section data-aos="fade-up" data-aos-delay="300">
-            <Image src="/img/sttis.webp" alt="Illustration" />
+          <Section
+            data-aos="fade-up"
+            data-aos-delay="300"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+          >
+            <Image
+              src="/img/CaptureAOD.PNG"
+              alt="Illustration"
+              variants={fadeIn}
+            />
             <TextContainer>
               <Paragraph>
                 Découvrez en détail comment la sécurité sociale et le droit du

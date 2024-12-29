@@ -44,7 +44,6 @@ const ContentWrapper = styled.div`
   }
 `;
 
-
 // Titre principal
 const Title = styled.h1`
   font-size: 2.5rem;
@@ -70,11 +69,10 @@ const Subtitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 500;
   color: #90e0ef;
-  
 
   @media (max-width: 1024px) {
     font-size: 1.8rem;
-    padding-left : 2rem;
+    padding-left: 2rem;
   }
 
   @media (max-width: 768px) {
@@ -83,7 +81,7 @@ const Subtitle = styled.h2`
 
   @media (max-width: 480px) {
     font-size: 1.4rem;
-     margin-top : 2rem;
+    margin-top: 2rem;
   }
 `;
 
@@ -119,18 +117,17 @@ const List = styled.ul`
   margin-bottom: 2rem;
 
   @media (max-width: 768px) {
-    margin : 0.5rem;
+    margin: 0.5rem;
   }
 `;
 
 const ListItem = styled.li`
   font-size: 1.2rem;
-    color: #caf0f8;
+  color: #caf0f8;
 
- 
   @media (max-width: 768px) {
     font-size: 1rem;
-     margin : 0.5rem;
+    margin: 0.5rem;
   }
 `;
 

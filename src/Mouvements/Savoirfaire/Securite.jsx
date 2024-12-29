@@ -195,8 +195,13 @@ const Securite = () => {
           La Sécurité Sociale et le Droit du Travail
         </Title>
 
-        <Section data-aos="fade-up" data-aos-delay="300">
-          <Image src="/img/securitesocial.png" alt="Illustration" />
+        <Section
+         variants={fadeIn}
+         data-aos="fade-up"
+          data-aos-delay="300"
+          >
+          <Image
+           variants={fadeIn} src="/img/securitesocial.png" alt="Illustration" />
           <TextContainer>
             <Paragraph>
               Découvrez en détail comment la sécurité sociale et le droit du

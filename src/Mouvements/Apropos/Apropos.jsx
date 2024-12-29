@@ -167,7 +167,6 @@ const Description = styled.p`
   font-size: 1rem;
   line-height: 1.5;
   font-family: "Roboto Slab", serif;
-
 `;
 
 const Email = styled.a`

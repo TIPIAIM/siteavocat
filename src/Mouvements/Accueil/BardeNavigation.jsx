@@ -1,9 +1,4 @@
 import logoAODnoir from "../../assets/Logos/logoAODnoir.png";
-import Composant from "./Composant";
-import Composantdeux from "./Composantdeux";
-import Petitecrandeux from "./Petitecrandeux";
-import Composantfinal from "./Horaire";
-import Footer from "./Footerr";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import SocialLinks from "../Lienlateral/SocialLinks";

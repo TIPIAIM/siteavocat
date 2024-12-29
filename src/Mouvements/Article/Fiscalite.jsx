@@ -69,12 +69,11 @@ const Subtitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 500;
   color: #90e0ef;
-  margin-bottom:1rem;
-  
+  margin-bottom: 1rem;
 
   @media (max-width: 1024px) {
     font-size: 1.8rem;
-    padding-left : 2rem;
+    padding-left: 2rem;
   }
 
   @media (max-width: 768px) {
@@ -83,7 +82,7 @@ const Subtitle = styled.h2`
 
   @media (max-width: 480px) {
     font-size: 1.4rem;
-     margin-top : 2rem;
+    margin-top: 2rem;
   }
 `;
 // Paragraphe avec espacement et lisibilité
@@ -117,18 +116,17 @@ const List = styled.ul`
   margin-bottom: 2rem;
 
   @media (max-width: 768px) {
-    margin : 0.5rem;
+    margin: 0.5rem;
   }
 `;
 
 const ListItem = styled.li`
   font-size: 1.2rem;
-    color: #00b4d8;
+  color: #00b4d8;
 
- 
   @media (max-width: 768px) {
     font-size: 1rem;
-     margin : 0.5rem;
+    margin: 0.5rem;
   }
 `;
 const BackButton = styled(Link)`
@@ -179,11 +177,10 @@ const OverlayBottom = styled.div`
 const Fiscalite = () => {
   return (
     <div className=" bg-gray-900">
-      <OverlayTop />             <BardeNavigationpublic />
-
+      <OverlayTop /> <BardeNavigationpublic />
       <BackgroundContainer>
         <ContentWrapper>
-     <BackButton to="/article" data-aos="fade-right">
+          <BackButton to="/article" data-aos="fade-right">
             <FaArrowLeft size={20} />
           </BackButton>
 

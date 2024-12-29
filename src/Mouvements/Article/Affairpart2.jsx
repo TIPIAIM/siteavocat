@@ -17,11 +17,7 @@ const BackgroundContainer = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 1)
-  );
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
 `;
 
 // Conteneur de contenu principal
@@ -66,8 +62,8 @@ const SubTitle = styled(motion.h2)`
 
   @media (max-width: 480px) {
     font-size: 1.3rem;
-  margin:1rem;
-    }
+    margin: 1rem;
+  }
 `;
 
 // Texte défilant
@@ -75,7 +71,7 @@ const ScrollAnimation = styled.div`
   overflow-y: auto;
   max-height: calc(100vh - 250px);
   padding: 1.9rem;
-  margin: 1.5rem ;
+  margin: 1.5rem;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.1); /* Légère transparence */
   backdrop-filter: blur(20px); /* Effet de flou */
@@ -90,7 +86,7 @@ const ScrollAnimation = styled.div`
     background-color: #4ea8ff;
     border-radius: 10px;
   }
-      @media (max-width: 480px) {
+  @media (max-width: 480px) {
     font-size: 1rem;
     line-height: 1.6rem;
     text-align: left; /* Alignement du texte à gauche */
@@ -114,8 +110,7 @@ const Description = styled(motion.p)`
   @media (max-width: 480px) {
     font-size: 1.2rem;
     line-height: 1.4;
-        padding: 1rem;
-
+    padding: 1rem;
   }
 `;
 
@@ -136,7 +131,6 @@ const ActionButton = styled(motion.a)`
     background-color: #3a8dd0;
   }
 `;
-
 
 export default function Affairpart2() {
   return (

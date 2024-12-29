@@ -25,7 +25,7 @@ const SectionTitle = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 50px;
-  
+
   color: #0077b6;
   text-shadow: px 4px 2px #90e0ef;
 
@@ -80,8 +80,7 @@ const MediaWrapper = styled.div`
 
 // Contenu d'article
 const ArticleContent = styled.div`
-  padding:20px;
-  
+  padding: 20px;
 `;
 
 // Titre d'article
@@ -92,11 +91,10 @@ const ArticleTitle = styled.h3`
   color: #90e0ef;
   margin-top: 10px;
   @media (max-width: 768px) {
-        font-size: 1.1rem;
+    font-size: 1.1rem;
     line-height: 1.7rem;
     text-align: left;
-     margin-left : 1.2rem
-
+    margin-left: 1.2rem;
   }
 `;
 
@@ -109,7 +107,7 @@ const ArticleDescription = styled.p`
 
   @media (max-width: 768px) {
     font-size: 0.95rem;
-    margin-left : 1.2rem
+    margin-left: 1.2rem;
   }
 `;
 
@@ -121,9 +119,9 @@ const ReadMoreButton = styled.a`
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
- @media (max-width: 768px) {
+  @media (max-width: 768px) {
     font-size: 0.95rem;
-    margin-left : 1.2rem
+    margin-left: 1.2rem;
   }
   &:hover {
     color: #ffffff;

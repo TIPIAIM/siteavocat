@@ -13,7 +13,7 @@ const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  
+
   background: url("/img/MOE_0384.jpg") center/cover no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -21,9 +21,8 @@ const BackgroundContainer = styled.div`
 
   @media (max-width: 768px) {
     background-attachment: scroll;
-   text-align: left;
-
-    }
+    text-align: left;
+  }
 `;
 
 // Conteneur du contenu
@@ -47,7 +46,7 @@ const ContentWrapper = styled.div`
   @media (max-width: 480px) {
     padding: 2rem;
   }
-    
+
   @media (max-width: 1024px) {
     padding: 3rem;
   }
@@ -72,8 +71,8 @@ const Title = styled.h1`
 
   @media (max-width: 1024px) {
     font-size: 3rem;
- margin-top : 1.5rem;
-    }
+    margin-top: 1.5rem;
+  }
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -93,9 +92,8 @@ const ArticleSection = styled.div`
 
   @media (max-width: 768px) {
     padding: 2.3rem;
-  font-size: 1.1rem;
+    font-size: 1.1rem;
     line-height: 1.6rem;
-
   }
 `;
 
@@ -156,12 +154,11 @@ const OverlayTop = styled.div`
 
 const Famille = () => {
   return (
-    <div> <OverlayTop /> 
-           <BardeNavigationpublic />
-
+    <div>
+      {" "}
+      <OverlayTop />
+      <BardeNavigationpublic />
       <BackgroundContainer>
-     
-
         <ContentWrapper>
           <StyledLink to="/article">
             <FaArrowLeft size={20} />
@@ -169,9 +166,7 @@ const Famille = () => {
           <Title>Droit de la Famille et la Médiation</Title>
 
           <ArticleSection>
-            <h2 className="  p-2 "
-            style={{color : "#00b4d8"}}
-            >
+            <h2 className="  p-2 " style={{ color: "#00b4d8" }}>
               La médiation familiale : un outil clé pour résoudre les conflits
               familiaux
             </h2>
@@ -180,12 +175,12 @@ const Famille = () => {
               qui permet aux membres d’une famille de discuter de manière
               constructive des différends les opposant. Elle est souvent
               utilisée dans des situations telles que le divorce, la garde des
-              enfants ou les questions patrimoniales. Lobjectif est d’éviter
-              une procédure judiciaire longue et coûteuse en favorisant un
-              dialogue ouvert et respectueux. Ce processus aide également à
-              préserver les relations familiales en réduisant les tensions
-              émotionnelles. Enfin, il permet aux parties de trouver des
-              solutions personnalisées et adaptées à leurs besoins spécifiques.
+              enfants ou les questions patrimoniales. Lobjectif est d’éviter une
+              procédure judiciaire longue et coûteuse en favorisant un dialogue
+              ouvert et respectueux. Ce processus aide également à préserver les
+              relations familiales en réduisant les tensions émotionnelles.
+              Enfin, il permet aux parties de trouver des solutions
+              personnalisées et adaptées à leurs besoins spécifiques.
             </p>
             <ArticleLink
               href="https://aurore-avocats.fr/actualites-droit-personne-famille-patrimoine/qu-est-ce-que-la-mediation-familiale/?utm_source=chatgpt.com"
@@ -196,9 +191,7 @@ const Famille = () => {
           </ArticleSection>
 
           <ArticleSection>
-          <h2 className="  p-2 "
-            style={{color : "#00b4d8"}}
-            >
+            <h2 className="  p-2 " style={{ color: "#00b4d8" }}>
               Les droits des enfants en cas de divorce : ce que vous devez
               savoir
             </h2>
@@ -224,9 +217,7 @@ const Famille = () => {
           </ArticleSection>
 
           <ArticleSection>
-          <h2 className="  p-2 "
-            style={{color : "#00b4d8"}}
-            >
+            <h2 className="  p-2 " style={{ color: "#00b4d8" }}>
               Les implications légales de la médiation dans les affaires de
               garde d’enfants
             </h2>
@@ -251,10 +242,9 @@ const Famille = () => {
           </ArticleSection>
 
           <ArticleSection>
-          <h2 className="  p-2 "
-            style={{color : "#00b4d8"}}
-            >
-              Les conséquences d’un divorce non médiatisé</h2>
+            <h2 className="  p-2 " style={{ color: "#00b4d8" }}>
+              Les conséquences d’un divorce non médiatisé
+            </h2>
             <p>
               Un divorce non médiatisé peut avoir des conséquences lourdes, tant
               sur le plan juridique qu’émotionnel. En l’absence de médiation,
@@ -277,7 +267,6 @@ const Famille = () => {
           </ArticleSection>
         </ContentWrapper>
       </BackgroundContainer>
-
       <Footer />
     </div>
   );

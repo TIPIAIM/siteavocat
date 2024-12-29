@@ -100,9 +100,6 @@ const ArticleTitle = styled.h3`
   @media (max-width: 768px) {
     font-size: 1.5rem;
     text-align: left;
- 
-
-   
   }
 `;
 

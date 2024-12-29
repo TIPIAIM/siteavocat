@@ -10,9 +10,8 @@ import { Link } from "react-router-dom";
 const PenalContainer = styled.div`
   width: 100%;
   padding: 20px;
-  background: linear-gradient(to top, #0d3b66, #0f172a);
+  background: linear-gradient(to bottom, #0d3b66, #14213d);
   color: #f0f4f8;
-  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,8 +25,7 @@ const PenalContainer = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Couleur noire avec transparence */
-
+    background: rgba(0, 0, 0, 0.6);
     z-index: -1;
   }
 `;
@@ -38,24 +36,38 @@ const SectionTitle = styled.h2`
   margin-bottom: 30px;
   color: #00b4d8;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
-  font-family: "Georgia", serif;
   text-align: center;
 
   @media (max-width: 768px) {
     font-size: 2rem;
+    margin-top: 4rem;
+  }
+`;
+
+const Description = styled.p`
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 20px;
+  margin: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    text-align: left;
   }
 `;
 
 const PenalGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   width: 100%;
   max-width: 1200px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 15px;
+    padding: 2rem;
   }
 `;
 
@@ -74,7 +86,7 @@ const PenalCard = styled(motion.div)`
 
 const MediaWrapper = styled.div`
   width: 100%;
-  height: 400px;
+  height: 200px;
   overflow: hidden;
   background: black;
 
@@ -94,11 +106,11 @@ const PenalTitle = styled.h3`
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #caf0f8;
-  font-family: "Georgia", serif;
-
+  color: #00b4d8;
+  margin: 1rem;
   @media (max-width: 768px) {
     font-size: 1.2rem;
+    text-align: center;
   }
 `;
 
@@ -107,10 +119,10 @@ const PenalDescription = styled.p`
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
   margin-bottom: 10px;
-  font-family: "Roboto Slab", serif;
 
   @media (max-width: 768px) {
     font-size: 1rem;
+    padding-left: 2rem;
   }
 `;
 
@@ -125,41 +137,32 @@ const ReadMoreButton = styled.a`
   &:hover {
     color: #00b4d8;
     text-decoration: underline;
+    padding-left: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    padding-left: 2rem;
   }
 `;
-const StyledLink = styled(Link)`
+
+const BackButton = styled(Link)`
+  position: absolute;
+  top: 20px;
+  left: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: ;
-  border-radius: 20px; /* Coins arrondis */
-  padding: 0.5rem; /* Espacement interne */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
-  animation: pulse 0.5s infinite; /* Animation pulsation */
+  background-color: #;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: white;
+  box-shadow: 0 4px 6px #00b4d8;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-  /* Style au survol */
   &:hover {
-    transform: scale(1.1); /* Légère mise en avant */
-    box-shadow: 0 6px 10px #00b4d8; /* Ombre plus forte */
-  }
-
-  /* Focus clavier pour accessibilité */
-  &:focus {
-    outline: 2px solid #3182ce; /* Bordure de focus */
-    outline-offset: 2px;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      transform: scale(1);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    50% {
-      transform: scale(1.05);
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-    }
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px #00b4d8;
   }
 `;
 
@@ -206,18 +209,19 @@ const Penal = () => {
   ];
 
   return (
-    <div>
-     
-      <PenalContainer> <BardeNavigationpublic />
-        <StyledLink to="/article">
+    <div className=" bg-gray-900">
+      {" "}
+      <BardeNavigationpublic />
+      <PenalContainer>
+        <BackButton to="/article">
           <FaArrowLeft size={20} />
-        </StyledLink>
+        </BackButton>
         <SectionTitle>Exploration du Droit Pénal</SectionTitle>
-        <p style={{ fontFamily: "Roboto Slab"}}>
+        <Description>
           Le droit pénal réprime les infractions pour protéger l’ordre public et
           la sécurité. Il définit les comportements interdits, les sanctions, et
           régule les relations entre l’individu et la société.
-        </p>
+        </Description>
         <PenalGrid>
           {penalArticles.map((article, index) => (
             <PenalCard
@@ -237,7 +241,13 @@ const Penal = () => {
               <PenalContent>
                 <PenalTitle>{article.title}</PenalTitle>
                 <PenalDescription>{article.description}</PenalDescription>
-                <ReadMoreButton href={article.link}>Lire plus</ReadMoreButton>
+                <ReadMoreButton
+                  href={article.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Lire plus
+                </ReadMoreButton>
               </PenalContent>
             </PenalCard>
           ))}

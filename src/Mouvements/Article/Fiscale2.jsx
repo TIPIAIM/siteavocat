@@ -5,7 +5,7 @@ const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100vh; /* Couverture totale de l'écran */
-  background: url('/img/MOE_0384.jpg') center/cover no-repeat;
+  background: url("/img/MOE_0384.jpg") center/cover no-repeat;
   background-attachment: fixed; /* Fixe l'image lors du défilement */
 
   /* Media queries pour assurer la responsivité */
@@ -109,12 +109,10 @@ const Fiscal2 = () => {
         <Title></Title>
 
         {/* Texte principal */}
-        <Paragraph>
-       </Paragraph>
+        <Paragraph></Paragraph>
 
         {/* Liste des points */}
-        <List>
-        </List>
+        <List></List>
       </Content>
     </BackgroundContainer>
   );

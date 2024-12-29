@@ -108,3 +108,7 @@ WebP
   @media (max-width: 480px) {
     padding: 2rem;
   }
+
+    display: inline-flex;
+  align-items: center;
+  justify-content: center;

@@ -49,7 +49,7 @@ const RightContainer = styled.div`
   padding: 0.4rem;
   border-radius: 15px;
   box-shadow: 10px 5px 2px rgba(50, 250, 250, 0.2);
-  color: rgba(00, 160, 200 );
+  color: rgba(00, 160, 200);
   max-width: 450px;
 
   @media (max-width: 768px) {

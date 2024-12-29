@@ -46,7 +46,7 @@ const Description = styled.p`
 
   @media (max-width: 768px) {
     padding: 15px;
-        line-height: 1.6;
+    line-height: 1.6;
     font-size: 1rem;
     text-align: justify; /* Justification également sur les petits écrans */
     text-align: left; /* Alignement du texte à gauche */
@@ -56,7 +56,6 @@ const Description = styled.p`
     overflow-wrap: anywhere; /* Les mots peuvent être coupés n'importe où */
     word-break: break-word; /* Coupe les mots pour éviter des espaces vides */
     hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
-  
   }
 `;
 
@@ -138,17 +137,21 @@ const CardDescription = styled.p`
 
 // Individual Card with Intersection Observer
 const AnimatedCard = ({ title, description, image }) => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
-    <Card ref={ref} data-aos={inView ? "fade-up" : ""} data-aos-duration="1000">
+    <Card
+      ref={ref}
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? "none" : "translateY(50px)",
+        transition: "all 0.5s ease-in-out",
+      }}
+    >
       <CardImage
         src={image}
         alt={title || "Card Image"}
-        onError={(e) => (e.target.src = "/img/placeholder.png")}
+   
       />
       <CardTitle>{title}</CardTitle>
       <CardDescription>{description}</CardDescription>
@@ -159,7 +162,10 @@ const AnimatedCard = ({ title, description, image }) => {
 // Enhanced Component
 const Nosservicess = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({
+      duration: 1000,
+      once: true, // L'animation ne se répète pas après la première exécution
+    });
   }, []);
 
   const services = [

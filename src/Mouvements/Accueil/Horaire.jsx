@@ -25,7 +25,7 @@ const Title = styled.h1`
   margin: 40px 0;
   color: #90e0ef;
 
-  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   @media (max-width: 768px) {
     font-size: 1.3rem;
   }

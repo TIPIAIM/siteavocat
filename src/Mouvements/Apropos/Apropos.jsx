@@ -117,11 +117,11 @@ const ImageCard = styled(motion.div)`
   height: 450px;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 1.5s ease-in-out;
+  transition: transform 0.8s ease-in-out;
   cursor: pointer;
   &:hover {
     transform: rotateY(180deg);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 5px 15px rgba(0, 180, 216, 1);
   }
 `;
 
@@ -141,7 +141,7 @@ const Back = styled.div`
   height: 100%;
   backface-visibility: hidden;
   transform: rotateY(180deg);
-  background: linear-gradient(135deg, #0f172a 50%, #0488b2 50%);
+  background: linear-gradient(135deg, #0f172a 50%, #0f172a 50%);
   color: white;
   display: flex;
   flex-direction: column;
@@ -157,7 +157,6 @@ const Title = styled.h3`
   margin: 0;
   font-size: 1.8rem;
   font-weight: bold;
-  font-family: "Georgia", serif;
 
   color: #0488b2;
 `;
@@ -166,7 +165,6 @@ const Description = styled.p`
   margin: 10px 0;
   font-size: 1rem;
   line-height: 1.5;
-  font-family: "Roboto Slab", serif;
 `;
 
 const Email = styled.a`
@@ -180,14 +178,14 @@ const Email = styled.a`
 
 const ControlButton = styled.button`
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  padding: 10px 15px;
+  bottom: 6px;
+  right: 20px;
+  padding: 5px 7px;
   background-color: #0488b2;
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 1.1rem;
+  font-size: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s;
   &:hover {

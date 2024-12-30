@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import logoAODnoir from "../../assets/Logos/logoAODnoir.png";
 
 // Conteneur principal de la navigation
 const Nav = styled.nav`
@@ -176,16 +175,17 @@ export default function BardeNavigationpublic() {
   return (
     <>
       <Nav isScrolled={isScrolled}>
-        {/* Logo */}
+      <NavLink href="/accueil">
+
         <Logo>
           <img
-            src={logoAODnoir}
+            src="/img/aodblanc.png"
             alt="Logo du Cabinet"
             className=" font-extrabold text-xl"
           />
          
         </Logo>
-
+        </NavLink>
         {/* Bouton pour le menu hamburger */}
         <HamburgerButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           ☰

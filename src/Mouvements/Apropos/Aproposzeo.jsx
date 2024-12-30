@@ -17,7 +17,6 @@ const Container = styled.div`
   color: white;
   padding: 60px 20px;
   box-sizing: border-box;
-  text-align: center;
 `;
 
 const Title = styled.h1`
@@ -25,26 +24,27 @@ const Title = styled.h1`
   font-weight: bold;
   margin-bottom: 20px;
   color: #023047;
-  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
-font-family: "Georgia", serif;
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  text-align: center; /* Alignement du texte à gauche */
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
-    
+    font-size: 2.1rem;
   }
 `;
 
 const SubTitle = styled.h2`
   font-size: 1.4rem;
   margin-bottom: 30px;
+    text-align: center; /* Alignement du texte à gauche */
 
   max-width: 800px;
   line-height: 1.3;
-font-family: "Georgia", serif;
   color: #023047;
   @media (max-width: 768px) {
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    margin-bottom: 20px
+    text-align: left; /* Alignement du texte à gauche */
+padding:2rem;
   }
 `;
 
@@ -54,10 +54,10 @@ const Grid = styled.div`
   gap: 30px;
   width: 100%;
   max-width: 1200px;
-font-family: "Times New Roman", Times, serif;
- 
+
   @media (max-width: 768px) {
-    gap: 20px;
+    gap: 40px;
+    margin: 2rem;
   }
 `;
 
@@ -76,32 +76,35 @@ const Card = styled(motion.div)`
   }
 
   @media (max-width: 768px) {
-    padding: 15px;
+    padding: 1.2rem;
   }
 `;
 
 const CardTitle = styled.h3`
   font-size: 1.6rem;
-  font-family: "Georgia", serif;
-
+  align-text: center;
   font-weight: bold;
   margin-bottom: 10px;
   color: #90e0ef;
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+ text-align: center;
 
   @media (max-width: 768px) {
     font-size: 1.4rem;
+    text-align: center;
   }
 `;
 
 const CardDescription = styled.p`
   font-size: 1rem;
-  color:white;
+  color: white;
   line-height: 1.6;
   margin-bottom: 15px;
-font-family: "Roboto Slab", serif;
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
 
   @media (max-width: 768px) {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    padding: 1rem;
   }
 `;
 

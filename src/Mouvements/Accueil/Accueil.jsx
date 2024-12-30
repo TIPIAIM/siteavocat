@@ -4,6 +4,7 @@ import Horaire from "./Horaire";
 import Nosservicess from "./Nosservicess";
 import { Link } from "react-router-dom";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
+import SEO from "../../DynamicSeo";
 
 export default function Accueil() {
   return (
@@ -11,6 +12,33 @@ export default function Accueil() {
       className=""
       style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
     >
+      <SEO
+        title="AOD AVOCATS SCPA : Cabinet d'avocats - Expertise juridique et services personnalisés"
+        description="Notre cabinet 
+        d'avocats offre des services
+         juridiques d'excellence grâce à une
+          équipe d'avocats expérimentés. Nous
+           combinons expertise juridique,
+            conseils personnalisés et 
+            solutions juridiques adaptées pour
+             répondre à vos besoins. Faites
+              confiance à notre approche 
+              professionnelle pour vos 
+              dossiers juridiques et 
+              gratuitement d'une assistance 
+              juridique sur mesure."
+        keywords="Cabinet d'avocats,
+Services juridiques,
+Avocats expérimentés,
+Expertise juridique,
+Approche personnalisée,
+Excellence juridique,
+Assistance juridique,
+Conseils juridiques,
+Dossiers juridiques,
+Équipe d'avocats,
+Solutions juridiques adaptées"
+      />
       {/* Hero Section */}
       <header className="relative h-[400px] sm:h-[600px] overflow-hidden">
         <BardeNavigationpublic />

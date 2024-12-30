@@ -25,11 +25,13 @@ import Conseiljuri from "./Mouvements/Savoirfaire/Savoir-faire/Conseiljuri";
 import Assistance from "./Mouvements/Savoirfaire/Savoir-faire/Assistance";
 import Accueil from "./Mouvements/Accueil/Accueil";
 import GlobalStyle from "./Styles/Globalstylehelve";
+import StructuredData from "./Donnestructure";
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
+      <StructuredData/>
     <Routes>
         <Route index element={<Accueil />} />
         {/** <Route path="*" element={<Orror />} />

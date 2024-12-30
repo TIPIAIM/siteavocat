@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import SocialLinks from "../Lienlateral/SocialLinks";
 
-// Conteneur principal de la navigation
+// Conçu par l'entreprise TIPTAMCODE
 const Nav = styled.nav`
   position: fixed;
   top: 0;
@@ -177,7 +177,7 @@ export default function BardeNavigation() {
   }, []);
 
   return (
-    <>
+    <div className="partenaires alpha ousmane marietou">
       <Nav isScrolled={isScrolled}>
         {/* Logo */}
         <Logo>
@@ -236,6 +236,6 @@ export default function BardeNavigation() {
       <main style={{ paddingTop: "150px" }}>
         <SocialLinks />
       </main>
-    </>
+    </div>
   );
 }

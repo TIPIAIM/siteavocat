@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export default function Accueilfooter() {
   return (
-    <div className="">
+    <div className="TIPTAMcode">
       <footer className="bg-[rgba(10,34,64)] text-gray-300 py-6 sm:py-8 border-t border-gray-800">
         <section className="bg-[rgba(10,34,64)] text-white py-12 sm:py-20">
-          <div className="container mx-auto px-4">
+          <div className="container  mx-auto px-4">
             <h2
               style={{
                 color: "#90e0ef",

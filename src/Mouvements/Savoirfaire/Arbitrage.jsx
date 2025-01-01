@@ -7,11 +7,12 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "../Accueil/Footerr";
+//  background-image: url("img/arbitra.avif"); /* Image optimisée */
 
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/arbitra.png"); /* Image optimisée */
+  background-image: url("./src/assets/Image/keitaseul2.avif");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -92,7 +93,6 @@ const Section = styled(motion.div)`
 
   @media (max-width: 480px) {
     padding: 1rem;
-    
   }
 `;
 
@@ -101,8 +101,7 @@ const SectionTitle = styled.h2`
   font-weight: bold;
   color: #03045e;
   margin-bottom: 1rem;
-      text-align: center;
-
+  text-align: center;
 `;
 
 const Paragraph = styled.p`
@@ -110,10 +109,9 @@ const Paragraph = styled.p`
   line-height: 1.8;
   text-align: justify;
   margin-bottom: 1rem;
-      text-align: left;
+  text-align: left;
   @media (max-width: 480px) {
     padding: 1.5rem;
-    
   }
 
   &:last-child {
@@ -162,7 +160,10 @@ export default function Arbitrage() {
           initial="hidden"
           animate="visible"
         >
-          <BackButton to="/nosexpertises" aria-label="Retour à la page des expertises">
+          <BackButton
+            to="/nosexpertises"
+            aria-label="Retour à la page des expertises"
+          >
             <FaArrowLeft size={20} />
           </BackButton>
           <Title variants={textVariants} ref={ref}>
@@ -171,10 +172,10 @@ export default function Arbitrage() {
           <Section variants={textVariants}>
             <SectionTitle>Expertise reconnue dans l’arbitrage</SectionTitle>
             <Paragraph>
-              Notre cabinet est composé de spécialistes chevronnés dans le domaine
-              de l’arbitrage. Nous avons une maîtrise approfondie des procédures
-              nationales et internationales, garantissant une gestion optimale de
-              vos litiges en dehors des tribunaux traditionnels.
+              Notre cabinet est composé de spécialistes chevronnés dans le
+              domaine de l’arbitrage. Nous avons une maîtrise approfondie des
+              procédures nationales et internationales, garantissant une gestion
+              optimale de vos litiges en dehors des tribunaux traditionnels.
             </Paragraph>
           </Section>
           <Section variants={textVariants}>
@@ -191,26 +192,26 @@ export default function Arbitrage() {
             <Paragraph>
               Chaque conflit est unique, et notre équipe adopte une méthode
               personnalisée pour garantir des solutions qui protègent vos
-              intérêts. Nous collaborons étroitement avec vous à chaque étape pour
-              maximiser les chances de succès.
+              intérêts. Nous collaborons étroitement avec vous à chaque étape
+              pour maximiser les chances de succès.
             </Paragraph>
           </Section>
           <Section variants={textVariants}>
             <SectionTitle>Connaissance des industries variées</SectionTitle>
             <Paragraph>
               Que ce soit dans les secteurs commerciaux, technologiques, ou
-              industriels, notre expérience diversifiée nous permet de comprendre
-              les spécificités de votre domaine et d’apporter des réponses
-              précises à vos problématiques.
+              industriels, notre expérience diversifiée nous permet de
+              comprendre les spécificités de votre domaine et d’apporter des
+              réponses précises à vos problématiques.
             </Paragraph>
           </Section>
           <Section variants={textVariants}>
             <SectionTitle>Engagement pour votre succès</SectionTitle>
             <Paragraph>
-              En choisissant notre cabinet, vous optez pour une équipe passionnée,
-              rigoureuse et déterminée à défendre vos droits. Nous transformons
-              les litiges complexes en opportunités de résolution claire et
-              favorable.
+              En choisissant notre cabinet, vous optez pour une équipe
+              passionnée, rigoureuse et déterminée à défendre vos droits. Nous
+              transformons les litiges complexes en opportunités de résolution
+              claire et favorable.
             </Paragraph>
           </Section>
         </ContentWrapper>

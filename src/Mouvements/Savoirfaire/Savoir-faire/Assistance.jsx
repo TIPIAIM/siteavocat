@@ -5,12 +5,17 @@ import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import BardeNavigationpublic from "../../Navigatpublic/BardeNavigationPublic";
 import Footer from "../../Accueil/Footerr";
+import EVOL from "./../../../assets/Image/EVOL.avif"
+import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif"
+import commercial from "../../../assets/Image/commercial.avif"
+import MOE_0400 from "../../../assets/Image/MOE_0400.avif"
+import enfamiavoc from "../../../assets/Image/enfamiavoc.avif"
 
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("img/confience.jpg");
+    url("img/confience.avif");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -183,7 +188,7 @@ export default function AuditJuridique() {
         <BardeNavigationpublic />
         <ContentContainer
           style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
-          className=" font-serif"
+        
         >
           <Title
             initial="hidden"
@@ -210,7 +215,7 @@ export default function AuditJuridique() {
               qu’elles soient. Nous mettons à votre disposition un
               accompagnement sur mesure pour chaque situation.
             </Paragraph>
-            <ParagraphImage src="img/commercial.jpeg" alt="Analyse" />
+            <ParagraphImage src={commercial} alt="Analyse" />
 
           </ParagraphWrapper>
           <ParagraphWrapper>
@@ -228,7 +233,7 @@ export default function AuditJuridique() {
               requis, la représentation auprès des autorités compétentes, et le
               suivi des modifications législatives.
             </Paragraph>
-            <ParagraphImage src="img/EVOL.jpeg" alt="Régulation" />
+            <ParagraphImage src={EVOL} alt="Régulation" />
 
           </ParagraphWrapper>
           <ParagraphWrapper>
@@ -246,7 +251,7 @@ export default function AuditJuridique() {
               chaque cas avec une attention particulière pour offrir un service
               réellement personnalisé.
             </Paragraph>
-            <ParagraphImage src="img/MOE_0400.jpg" alt="Consultation" />
+            <ParagraphImage src={MOE_0400} alt="Consultation" />
 
           </ParagraphWrapper>
           <ParagraphWrapper>
@@ -263,7 +268,7 @@ export default function AuditJuridique() {
               Ces formations couvrent des sujets variés allant de la gestion des
               contrats à la prévention des litiges.
             </Paragraph>
-            <ParagraphImage src="img/enfamiavoc.jpg" alt="Formation" />
+            <ParagraphImage src={enfamiavoc} alt="Formation" />
 
           </ParagraphWrapper>
           <ParagraphWrapper>
@@ -284,7 +289,7 @@ export default function AuditJuridique() {
 */}
           </ParagraphWrapper>
           <ImageContainer>
-            <Image src="img/logoAODnoir.png" alt="Analyse juridique" />
+            <Image src={logoAODnoir} alt="Analyse juridique" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

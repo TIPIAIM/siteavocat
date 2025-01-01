@@ -5,11 +5,19 @@ import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import BardeNavigationpublic from "../../Navigatpublic/BardeNavigationPublic";
 import Footer from "../../Accueil/Footerr";
+import EVOL from "./../../../assets/Image/EVOL.avif"
+import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif"
+import sttis from "./../../../assets/Image/sttis.avif"
+import PREV from "./../../../assets/Image/PREV.avif"
+import conf from "./../../../assets/Image/conf.avif"
+import affaire from "./../../../assets/Image/affaire.avif"
+import jurid1 from "./../../../assets/Image/jurid1.avif"
+import jurid from "./../../../assets/Image/jurid.avif"
 
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/confience.jpg");
+  background-image: url("img/confience.avif");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -183,7 +191,6 @@ export default function AuditJuridique() {
         <BardeNavigationpublic />
         <ContentContainer
           style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
-          className=" font-serif"
         >
           <Title
             initial="hidden"
@@ -195,7 +202,7 @@ export default function AuditJuridique() {
           </Title>
           <Divider />
           <ParagraphWrapper>
-            <ParagraphImage src="img/jurid.jpg" alt="Analyse" />
+            <ParagraphImage src={jurid} alt="Analyse" />
 
             <Paragraph
               variants={textVariants}
@@ -209,7 +216,7 @@ export default function AuditJuridique() {
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/jurid1.avif" alt="Stratégie" />
+            <ParagraphImage src={jurid1} alt="Stratégie" />
 
             <Paragraph
               variants={textVariants}
@@ -227,7 +234,7 @@ export default function AuditJuridique() {
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/affaire.jpg" alt="Expertise" />
+            <ParagraphImage src={affaire} alt="Expertise" />
 
             <Paragraph
               variants={textVariants}
@@ -244,7 +251,7 @@ export default function AuditJuridique() {
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/conf.jpeg" alt="Conformité" />
+            <ParagraphImage src={conf} alt="Conformité" />
 
             <Paragraph
               variants={textVariants}
@@ -261,7 +268,7 @@ export default function AuditJuridique() {
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/PREV.jpeg" alt="Prévention" />
+            <ParagraphImage src={PREV} alt="Prévention" />
 
             <Paragraph
               variants={textVariants}
@@ -278,7 +285,7 @@ export default function AuditJuridique() {
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/EVOL.jpeg" alt="Accompagnement" />
+            <ParagraphImage src={EVOL} alt="Accompagnement" />
 
             <Paragraph
               variants={textVariants}
@@ -295,7 +302,7 @@ export default function AuditJuridique() {
             </Paragraph>
           </ParagraphWrapper>
           <ParagraphWrapper>
-            <ParagraphImage src="img/sttis.webp" alt="Avantages" />
+            <ParagraphImage src={sttis} alt="Avantages" />
 
             <Paragraph
               variants={textVariants}
@@ -335,7 +342,7 @@ export default function AuditJuridique() {
             </Paragraph>
           </ParagraphWrapper>
           <ImageContainer>
-            <Image src="img/logoAODnoir.png" alt="Analyse juridique" />
+            <Image src={logoAODnoir} alt="Analyse juridique" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

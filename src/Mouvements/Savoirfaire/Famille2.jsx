@@ -9,7 +9,7 @@ const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: url("/img/MOE_0384.jpg") center/cover no-repeat;
+  background: url("/img/MOE_0384.avif") center/cover no-repeat;
   background-attachment: fixed;
   background-size: cover;
   color: black;

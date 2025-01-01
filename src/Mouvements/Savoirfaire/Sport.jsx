@@ -11,7 +11,7 @@ import Footer from "../Accueil/Footerr";
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/sport.png");
+  background-image: url("img/sport.avif");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

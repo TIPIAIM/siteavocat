@@ -1,4 +1,3 @@
-import logoAODnoir from "../../assets/Logos/logoAODnoir.png";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import SocialLinks from "../Lienlateral/SocialLinks";
@@ -182,7 +181,7 @@ export default function BardeNavigation() {
         {/* Logo */}
         <Logo>
           <img
-            src={logoAODnoir}
+            src="/img/logoAODnoir.avif"
             alt="Logo du Cabinet"
             className="font-serif font-extrabold text-xl"
           />

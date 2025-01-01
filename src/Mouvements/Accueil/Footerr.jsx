@@ -22,11 +22,14 @@ const Composantfinal = {
 };
 
 export default function Footer() {
+  
   return (
     <FooterContainer>
-      <motion.div {...Composantfinal.fadeInUp}>
-        <Accueilfooter />
-      </motion.div>
+      <footer>
+        <motion.div {...Composantfinal.fadeInUp}>
+          <Accueilfooter />
+        </motion.div>
+      </footer>
     </FooterContainer>
   );
 }

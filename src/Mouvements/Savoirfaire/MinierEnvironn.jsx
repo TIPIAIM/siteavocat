@@ -11,7 +11,7 @@ import Minier2 from "./MinierEnviron2";
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/logoAODnoir.png");
+  background-image: url("img/logoAODnoir.avif");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

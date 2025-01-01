@@ -2,6 +2,9 @@ import { memo } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Footer from "../Accueil/Footerr";
+import image from './../../assets/Image/image.avif'
+import assistance from './../../assets/Image/assistance.avif'
+import categor from './../../assets/Image/categor.avif'
 
 // Styled Components
 const PenalContainer = styled.div`
@@ -143,7 +146,7 @@ const Penal2 = () => {
       description:
         "Découvrez les bases du droit pénal et ses objectifs pour maintenir l'ordre public.",
       mediaType: "image",
-      mediaSrc: "img/image.png",
+      mediaSrc: image,
       link: "https://derechos.org/intlaw/doc/gin1.html",
     },
     {
@@ -152,7 +155,7 @@ const Penal2 = () => {
       description:
         "Le droit pénal vise la prévention des actes nuisibles à la société, leur répression, et la réinsertion des condamnés.",
       mediaType: "image",
-      mediaSrc: "img/assistance.jpg",
+      mediaSrc: assistance,
       link: "https://interfacelonny.com/documents/do-1600922216",
     },
     {
@@ -160,7 +163,7 @@ const Penal2 = () => {
       description:
         "Les infractions sont classées selon leur gravité : contraventions, délits, et crimes, chacune avec des peines adaptées.",
       mediaType: "image",
-      mediaSrc: "img/categor.jpg",
+      mediaSrc: categor,
       link: "https://derechos.org/intlaw/doc/gin1.html",
     },
     {

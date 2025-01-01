@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import  aodblanc from "./../../assets/Image/aodblanc.avif"; // Exemple de vidéo
 
 // Conteneur principal de la navigation
 const Nav = styled.nav`
@@ -179,7 +180,7 @@ export default function BardeNavigationpublic() {
 
         <Logo>
           <img
-            src="/img/aodblanc.png"
+            src= {aodblanc}
             alt="Logo du Cabinet"
             className=" font-extrabold text-xl"
           />

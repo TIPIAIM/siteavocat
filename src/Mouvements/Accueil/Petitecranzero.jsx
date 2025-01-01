@@ -5,7 +5,6 @@ import { animate } from "popmotion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./MarqueeText.css";
-import Maitre4 from "../../assets/Image/Maitre4.jpg";
 
 export default function Petitecranzero() {
   useEffect(() => {
@@ -55,20 +54,6 @@ const MarqueeText = () => {
           <ScrollText />
         </div>
       </div>
-      {/* Image 
-      <motion.div
-        className="w-full items-center justify-center mt-8"
-        style={{ maxWidth: "1000px", maxHeight: "400px" }} // Dimensions fixes
-        whileHover={{ scale: 1.05 }}
-      >
-        <img
-          src={Maitre4}
-          alt="À propos"
-          id="marquee-image"
-          className="w-full h-auto rounded-lg shadow-lg object-cover"
-          style={{ width: "100%", height: "auto", maxHeight: "300px" }} // Taille fixe responsive
-        />
-      </motion.div>*/}
     </div>
   );
 };

@@ -121,7 +121,7 @@ const Composantdeux = () => {
           >
             Nos prestations
           </motion.h3>
-          <p className=" font-serif text-center">
+          <p className="  text-center">
             Notre cabinet d’avocats est spécialisé dans les services juridiques
             complets et de haute qualité à nos clients...
           </p>

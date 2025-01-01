@@ -2,12 +2,21 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import Footer from "../Accueil/Footerr";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
+import affair from "./../../assets/Image/affair.avif"
+import familled from "./../../assets/Image/familled.avif"
+import fisc from "./../../assets/Image/fisc.avif"
+import envir from "./../../assets/Image/envir.avif"
+import securitesocial from "./../../assets/Image/securitesocial.avif"
+import travail from "./../../assets/Image/travail.avif"
+import image from "./../../assets/Image/image.avif"
+import AFFF from "./../../assets/Image/AFFF.webp"
+import arbitra from "./../../assets/Image/arbitra.avif"
 
 // Conteneur principal avec l'image d'arrière-plan
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/logoAODnoir.png");
+  background-image: url("img/logoAODnoir.avif");
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Rend l'arrière-plan fixe */
@@ -105,57 +114,57 @@ const Card = styled(motion.div)`
 export default function Nosexpertise() {
   const images = [
     {
-      src: "img/affair.jpeg",
+      src: affair,
       alt: "Droit des affaires",
       text: "Droit des affaires",
       link: "/affairee",
     },
     {
-      src: "img/familled.png",
+      src: familled,
       alt: "Droit de la Famille",
       text: "Droit de la Famille",
       link: "/famillee",
     },
     {
-      src: "img/fisc.png",
+      src: fisc,
       alt: "Droit fiscal",
       text: "Droit fiscal",
       link: "/fiscalitee",
     },
 
     {
-      src: "img/envir.jpeg",
+      src: envir,
       alt: "Minier",
       text: "Minier et Environnementale",
       link: "/minierr",
     },
     {
-      src: "img/securitesocial.png",
+      src: securitesocial,
       alt: "Sociale et Securité sociale",
       text: "Sociale et Securité sociale ",
       link: "/securitee",
     },
     {
-      src: "img/travail.jpg",
+      src: travail,
       alt: "Droit du Travail",
       text: "Droit du Travail ",
       link: "/travail",
     },
 
     {
-      src: "img/image.png",
+      src: image,
       alt: "penal",
       text: "Droit Pénal",
       link: "/penall",
     },
     {
-      src: "img/AFFF.webp",
+      src: AFFF,
       alt: "sport",
       text: "Droit du Sport",
       link: "/sport",
     },
     {
-      src: "img/arbitra.png",
+      src: arbitra,
       alt: "arbit",
       text: "Arbitrage",
       link: "/arbitrage",

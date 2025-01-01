@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import image2 from "./../../assets/Image/maitre13.jpg"; // Chemin d'image
+import image2 from "./../../assets/Image/maitre13.avif"; // Chemin d'image
 
 // Container principal
 const CarouselContainer = styled.div`

@@ -10,7 +10,7 @@ const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: url("/img/logoODnoir.png") center/cover no-repeat;
+  background: url("/img/logoODnoir.avif") center/cover no-repeat;
   background-attachment: fixed;
   background-size: cover;
   color: #fff;

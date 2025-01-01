@@ -5,7 +5,7 @@ import Nosservicess from "./Nosservicess";
 import { Link } from "react-router-dom";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import SEO from "../../DynamicSeo";
-
+import Image7 from "../../assets/Image/maitre7.avif";
 export default function Accueil() {
   return (
     <div
@@ -161,7 +161,7 @@ Solutions juridiques adaptées"
             </div>
             <div className="flex-1">
               <img
-                src="/img/maitre7.jpg"
+                src={Image7}
                 alt="Notre équipe"
                 className="rounded-lg shadow-xl mb-6  w-full"
               />

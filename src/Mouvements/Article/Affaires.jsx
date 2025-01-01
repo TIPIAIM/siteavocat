@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import articleImage from "./../../assets/Image/avoc3.jpg"; // Image spécifique à l'article
+import articleImage from "./../../assets/Image/avoc3.avif"; // Image spécifique à l'article
 import Footer from "../Accueil/Footerr";
 import Affairpart1 from "./Affairpart1";
 import Affairpart2 from "./Affairpart2";
@@ -12,7 +12,7 @@ const AffairesContainer = styled.div`
   min-height: 100vh;
   padding: 50px 20px;
   position: relative;
-  background: url("img/logoAODnoir.png") center/cover no-repeat;
+  background: url("img/logoAODnoir.avif") center/cover no-repeat;
   background-attachment: fixed; /* Image d'arrière-plan fixe */
   display: flex;
   flex-direction: column;

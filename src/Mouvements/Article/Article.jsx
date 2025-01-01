@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import videohomemoury from "./../../assets/Video/videohomemoury.mp4"; // Exemple d'image
 import articleVideo from "./../../assets/Video/feuillevid.mp4"; // Exemple de vidéo
-import commercial from "./../../assets/Image/travail.png"; // Exemple de vidéo
-import traval from "./../../assets/Image/travail.jpg"; // Exemple de vidéo
-import techno from "./../../assets/Image/technologie.jpg"; // Exemple de vidéo
+import commercial from "./../../assets/Image/travaiil.avif"; // Exemple de vidéo
+import traval from "./../../assets/Image/travail.avif"; // Exemple de vidéo
+import techno from "./../../assets/Image/technologie.avif"; // Exemple de vidéo
 import Footer from "../Accueil/Footerr";
 import Headerr from "../Headerr/Header";
 

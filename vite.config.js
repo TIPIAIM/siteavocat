@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import sitemap from 'vite-plugin-sitemap';
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [ sitemap({
@@ -23,12 +24,11 @@ export default defineConfig({
       '/contentieux',
       '/audit',
       '/conseil',
-      '/asistance',
-     
-
-
-    ]
+      '/asistance', ]
   }),react()],
+  
+
+  //
 
   build: {
     outDir: "dist", // Assurez-vous que la sortie est "dist"

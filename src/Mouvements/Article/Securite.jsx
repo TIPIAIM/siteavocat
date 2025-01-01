@@ -6,12 +6,13 @@ import Footer from "../Accueil/Footerr";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import CaptureAOD from "./../../assets/Image/CaptureAOD.avif";
 
 AOS.init();
 
 const PageWrapper = styled.div`
   position: relative;
-  background-image: url("/img/logoAODnoir.png"); /* Remplacez par votre image de fond */
+  background-image: url("/img/logoAODnoir.avif"); /* Remplacez par votre image de fond */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -299,11 +300,7 @@ const Securite = () => {
             animate="visible"
             variants={fadeIn}
           >
-            <Image
-              src="/img/CaptureAOD.PNG"
-              alt="Illustration"
-              variants={fadeIn}
-            />
+            <Image src={CaptureAOD} alt="Illustration" variants={fadeIn} />
             <TextContainer>
               <Paragraph>
                 Découvrez en détail comment la sécurité sociale et le droit du
@@ -431,6 +428,7 @@ const Securite = () => {
 
           <Section data-aos="fade-up" data-aos-delay="1500">
             <Subtitle>En somme</Subtitle>
+
             <Paragraph>
               En résumé, la sécurité sociale et le droit du travail sont deux
               éléments essentiels du système de protection sociale. Tandis que

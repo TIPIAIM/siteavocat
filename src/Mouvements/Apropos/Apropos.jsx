@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import image2 from "./../../assets/Image/Maitre3.jpg";
-import image3 from "./../../assets/Image/Maitre1.jpg";
-import image5 from "./../../assets/Image/mbangou.jpg";
-import image6 from "./../../assets/Image/maitre13.jpg";
-import image7 from "./../../assets/Image/keitaseul2.jpg";
-import image8 from "./../../assets/Image/naroumb.jpg";
-import image9 from "./../../assets/Image/MOE_0400.jpg";
-import image10 from "./../../assets/Image/MOE_0311.jpg";
+import image2 from "./../../assets/Image/Maitre3.avif";
+import image3 from "./../../assets/Image/Maitre1.avif";
+import image5 from "./../../assets/Image/mbangou.avif";
+import image6 from "./../../assets/Image/maitre13.avif";
+import image7 from "./../../assets/Image/keitaseul2.avif";
+import image8 from "./../../assets/Image/naroumb.avif";
+import image9 from "./../../assets/Image/MOE_0400.avif";
+import image10 from "./../../assets/Image/MOE_0311.avif";
+
 import Footer from "../Accueil/Footerr";
 import Aproposdeux from "./Apropos2";
 import Aproposzeo from "./Aproposzeo";

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import technologie from "../../assets/Image/technologie.avif";
 
 // Styles définis comme un objet constant
 const styles = {
@@ -25,7 +26,7 @@ export default function Petitecrandeux() {
     <div
       className={styles.container}
       style={{
-        backgroundImage: `url('/img/technologie.jpg')`, // Chemin vers l'image dans le dossier public/img
+        backgroundImage:  `url(${technologie})`, // Chemin vers l'image dans le dossier public/img
         backgroundAttachment: "fixed", // Effet de défilement sur l'image
       }}
     >

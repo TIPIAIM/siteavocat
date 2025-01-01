@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion"; // Framer Motion pour des animations avancées
 import AOS from "aos";
 import "aos/dist/aos.css";
+import securitesocial from "./../../assets/Image/securitesocial.avif"
 
 AOS.init();
 
@@ -201,7 +202,7 @@ const Securite = () => {
           data-aos-delay="300"
           >
           <Image
-           variants={fadeIn} src="/img/securitesocial.png" alt="Illustration" />
+           variants={fadeIn} src={securitesocial} alt="Illustration" />
           <TextContainer>
             <Paragraph>
               Découvrez en détail comment la sécurité sociale et le droit du

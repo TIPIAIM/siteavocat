@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import BardeNavigationpublic from "../../Navigatpublic/BardeNavigationPublic";
 import Footer from "../../Accueil/Footerr";
+import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif"
 
 // Container principal avec fond d'image et dégradé pour la lisibilité
 const Container = styled.div`
-  background: url("img/confience.jpg") no-repeat center center/cover;
+  background: url("img/confience.avif") no-repeat center center/cover;
   padding: 5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -113,7 +114,7 @@ const Conseiljuri = () => {
             <strong style={{ color: "#90e0ef" }}>
               Expertise et expérience reconnue :
             </strong>{" "}
-            Notre équipe de juristes et d'avocats est spécialisée dans de
+            Notre équipe de juristes et d`avocats est spécialisée dans de
             nombreux domaines du droit, vous offrant des solutions adaptées à
             vos besoins. Nous nous engageons à vous fournir des conseils de
             haute qualité.
@@ -145,7 +146,7 @@ const Conseiljuri = () => {
           <Point initial="hidden" animate="visible" variants={textVariants}>
             <strong style={{ color: "#90e0ef" }}>Résultats probants :</strong>{" "}
             Notre expérience dans la résolution de contentieux complexes nous
-            permet d'obtenir des résultats concrets et satisfaisants pour nos
+            permet d`obtenir des résultats concrets et satisfaisants pour nos
             clients. Nous avons à cœur de vous apporter des solutions concrètes.
           </Point>
           <Point initial="hidden" animate="visible" variants={textVariants}>
@@ -174,7 +175,7 @@ const Conseiljuri = () => {
           </Point>
         </PointsList>
         <ImageContainer>
-          <Image src="img/logoAODnoir.png" alt="Analyse juridique" />
+          <Image src={logoAODnoir} alt="Analyse juridique" />
         </ImageContainer>
       </Container>
       <Footer />

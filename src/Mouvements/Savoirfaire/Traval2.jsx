@@ -7,7 +7,7 @@ AOS.init();
 
 const PageWrapper = styled.div`
   position: relative;
-  background-image: url("/img/logoAODnoir.png"); /* Remplacez par votre image de fond */
+  background-image: url("/img/logoAODnoir.avif"); /* Remplacez par votre image de fond */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -145,14 +145,13 @@ const ListItem = styled(motion.li)`
 
 
 const Travail2 = () => {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
+  
 
   return (
     <PageWrapper>
-      <ContentContainer >
+      <ContentContainer
+      
+      >
         <Title data-aos="fade-up">Le Droit</Title>
 
         <Section data-aos="fade-up" data-aos-delay="900">

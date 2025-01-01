@@ -5,6 +5,12 @@ import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import BardeNavigationpublic from "../../Navigatpublic/BardeNavigationPublic";
 import Footer from "../../Accueil/Footerr";
+import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif"
+import FISCAL from "./../../../assets/Image/FISCAL.avif"
+import arbitra from "./../../../assets/Image/arbitra.avif"
+import travail from "./../../../assets/Image/travail.avif"
+import image from "./../../../assets/Image/FISCAL.avif"
+
 
 const BackgroundContainer = styled.div`
   position: relative;
@@ -185,7 +191,7 @@ export default function Contentieux() {
 
   return (
     <div>
-      <BackgroundContainer className=" font-serif">
+      <BackgroundContainer >
         <Overlay />
         <BardeNavigationpublic />
         <ContentContainer
@@ -219,7 +225,7 @@ export default function Contentieux() {
           {/* Section 2 */}
           <ParagraphContainer>
             <StyledImage
-              src="img/FISCAL.jpg"
+              src={FISCAL}
               alt="Illustration 2"
               variants={imageVariants}
               initial="hidden"
@@ -240,7 +246,7 @@ export default function Contentieux() {
           {/* Section 3 */}
           <ParagraphContainer>
             <StyledImage
-              src="img/arbitra.png"
+              src={arbitra}
               alt="Illustration 3"
               variants={imageVariants}
               initial="hidden"
@@ -261,7 +267,7 @@ export default function Contentieux() {
           {/* Section 4 */}
           <ParagraphContainer>
             <StyledImage
-              src="img/travail.png"
+              src={travail}
               alt="Illustration 4"
               variants={imageVariants}
               initial="hidden"
@@ -281,7 +287,7 @@ export default function Contentieux() {
           {/* Section 5 */}
           <ParagraphContainer>
             <StyledImage
-              src="img/image.png"
+              src={image}
               alt="Illustration 5"
               variants={imageVariants}
               initial="hidden"
@@ -299,7 +305,7 @@ export default function Contentieux() {
             </Paragraph>
           </ParagraphContainer>
           <ImageContainer>
-            <Image src="img/logoAODnoir.png" alt="Analyse juridique" />
+            <Image src={logoAODnoir} alt="Analyse juridique" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

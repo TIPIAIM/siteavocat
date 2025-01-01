@@ -6,7 +6,7 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/MOE_0384.jpg");
+  background-image: url("img/MOE_0384.avif");
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Fond fixe */

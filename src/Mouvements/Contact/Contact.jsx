@@ -152,7 +152,7 @@ export default function Contact() {
         <div className="absolute inset-0 bg-black/50 z-10" />
         <LazyLoad height={400} offset={100} debounce={300} once>
           {!imageLoaded && !imageError && (
-            <Placeholder>Loading image...</Placeholder>
+            <Placeholder>TIPTAM ...</Placeholder>
           )}
           {!imageError ? (
             <img

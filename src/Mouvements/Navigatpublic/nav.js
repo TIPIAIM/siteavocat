@@ -1,232 +1,260 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import aodblanc from "./../../assets/Image/aodblanc.avif"; // Exemple de vidéo
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Footer from "../Accueil/Footerr";
+import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
+import { Link } from "react-router-dom";
+import { ChevronsLeftRight } from "lucide-react";
+import LazyLoad from "react-lazyload";
+import photoaccueil from "../../assets/Image/photo-accueil.avif";
 
-// Conteneur principal de la navigation
-const Nav = styled.nav`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+const ContactContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  z-index: 1000;
-  font-weight: bold;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  background-color: ${({ isScrolled }) => (isScrolled ? 'rgba(10, 34, 64, 0.9)' : 'transparent')};
-  box-shadow: ${({ isScrolled }) => (isScrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none')};
+  flex-wrap: wrap;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(to bottom, #, #, #);
 
   @media (max-width: 768px) {
-    padding: 0.8rem 1.2rem;
-  }
-`;
-
-// Logo
-const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: white;
-
-  img {
-    height: 80px;
-    margin-right: 0.8rem;
-    cursor: pointer;
-  }
-
-  @media (max-width: 768px) {
-    img {
-      height: 60px;
-    }
-  }
-`;
-
-// Menu principal
-const Menu = styled.div`
-  display: flex;
-  align-items: center;
-  transition: all 0.3s ease-in-out;
-
-  @media (max-width: 768px) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
     flex-direction: column;
-    justify-content: center;
-    background-color: rgba(15, 23, 42, 0.95);
-    transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(100%)")};
-    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-    pointer-events: ${({ isOpen }) => (isOpen ? "auto" : "none")};
+    padding: 15px;
   }
 `;
 
-// Bouton pour menu hamburger
-const HamburgerButton = styled.button`
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 1100;
+const ImageSection = styled.div`
+  flex: 1;
+  background-image: url("img/keitaseul2.avif");
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
 
   @media (max-width: 768px) {
-    display: block;
+    min-height: 250px;
+    margin-bottom: 20px;
   }
+`;
+
+const FormSection = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: #1e293b;
+  border-radius: 0px;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    text-align: center;
+  }
+`;
+
+const Title = styled.h1`
+  font-size: 2.5rem;
+  color: #00b4d8;
+  margin-bottom: 15px;
+  font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+`;
+
+const Description = styled.p`
+  font-size: 1.1rem;
+  color: #caf0f8;
+  margin-bottom: 20px;
+  text-align: justify;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    text-align: left;
+    padding: 20px;
+  }
+`;
+
+const Form = styled.form`
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    gap: 15px;
+    padding: 20px;
+    text-align: center;
+  }
+`;
+
+const Input = styled.input`
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid 00b4d;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0);
 
   &:focus {
-    outline: none;
-  }
-
-  &:hover {
-    transform: scale(1.2);
-  }
-`;
-
-// Style pour les liens principaux
-const NavLink = styled.a`
-  color: white;
-  text-decoration: none;
-  padding: 0.8rem 1.2rem;
-  position: relative;
-  font-size: 1.1rem;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: #00b4d8;
-    border-radius: 4px;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0%;
-    height: 2px;
-    background-color: #0488b2;
-    transition: width 0.3s ease;
-  }
-
-  &:hover::after {
-    width: 80%;
+    border-color: #007bff;
   }
 
   @media (max-width: 768px) {
-    font-size: 1.4rem;
-    text-align: center;
-    width: 100%;
+    font-size: 1rem;
   }
 `;
 
-// Sous-menu
-const SubMenu = styled.div`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display: none;
-  flex-direction: column;
-  background-color: rgba(15, 23, 42, 0.95);
+const FooterWrapper = styled.div`
+  margin-top: 60px;
+
+  @media (max-width: 768px) {
+    margin-top: 30px;
+  }
+`;
+
+const Textarea = styled.textarea`
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid 00b4d8;
   border-radius: 5px;
-  padding: 0.5rem 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: border-color 0.3s ease;
+  resize: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0.2);
 
-  ${NavLink}:hover & {
-    display: flex;
+  &:focus {
+    border-color: #007bff;
   }
 
   @media (max-width: 768px) {
-    position: static;
-    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
-    width: 100%;
-    padding: 0;
+    font-size: 0.9rem;
+    padding: 10px;
   }
 `;
 
-const SubNavLink = styled.a`
-  color: white;
-  text-decoration: none;
-  padding: 0.8rem 1.2rem;
-  font-size: 0.9rem;
+const Button = styled.button`
+  padding: 12px;
+  font-size: 1rem;
+  color: #00b4d8;
+  background-color: #0a223f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #1e293b;
-    border-radius: 4px;
+    background-color: white;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 20px;
   }
 `;
+const Placeholder = styled.div`
+  background-color: #00b4d8;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #023e8a;
+`;
 
-export default function BardeNavigationpublic() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  // Gérer le défilement
+export default function Contact() {
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    AOS.init({ duration: 1200 });
   }, []);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
+  const handleImageLoad = () => setImageLoaded(true);
+  const handleImageError = () => setImageError(true);
   return (
-    <>
-      <Nav isScrolled={isScrolled}>
-        <Logo onClick={() => (window.location.href = "/accueil")}>
-          <img src={aodblanc} alt="Logo du Cabinet" />
-        </Logo>
+    <div style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
+      <header className="relative h-[400px] sm:h-[400px] mb-20 overflow-hidden">
+        <BardeNavigationpublic />
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <LazyLoad
+          height={400}
+          offset={100} // Décalage pour charger avant que l'image ne soit visible
+          debounce={300} // Optimisation du défilement
+          once // Charge une seule fois
+        >
+          {!imageLoaded && !imageError && (
+            <Placeholder>TIPTAIM Cabinet AOD-AVOCATS-SCPA</Placeholder>
+          )}
+          {!imageError ? (
+            <img
+              src={photoaccueil}
+              alt="Cabinet d'avocats"
+              className="absolute inset-0 w-full h-full object-cover"
+              onLoad={handleImageLoad}
+              onError={handleImageError}
+              style={imageLoaded ? { display: "block" } : { display: "none" }}
+            />
+          ) : (
+            <Placeholder>Image non disponible</Placeholder>
+          )}
+        </LazyLoad>
+        <div className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left max-w-screen-md">
+          <h1
+            className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"
+            style={{ color: "#90e0ef" }}
+          >
+            Cabinet AOD-AVOCATS-SCPA
+          </h1>
+          <Link
+            to="/accueil"
+            className="bg-[rgba(10,34,64,0.9)] no-underline animate-pulse hover:bg-[rgba(0,119,182,1)] px-6 sm:px-8 py-2 sm:py-3 rounded-md inline-flex items-center w-fit mx-auto sm:mx-0"
+            style={{ color: "#00b4d8" }}
+          >
+            Retourner
+            <ChevronsLeftRight className="ml-2 h-5 w-5" />
+          </Link>
+        </div>
+      </header>
 
-        {/* Bouton pour le menu hamburger */}
-        <HamburgerButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          ☰
-        </HamburgerButton>
+      <ContactContainer className="mb-7">
+        <ImageSection data-aos="fade-right" />
 
-        {/* Menu principal */}
-        <Menu isOpen={isMenuOpen}>
-          <NavLink href="/accueil">Accueil</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
-          <NavLink href="#">
-            Savoir-faire
-            <SubMenu isOpen={isMenuOpen}>
-              <SubNavLink href="/asistance">Assistance juridique</SubNavLink>
-              <SubNavLink href="/audit">Audit juridique</SubNavLink>
-              <SubNavLink href="/contentieux">Contentieux</SubNavLink>
-              <SubNavLink href="/conseil">Conseils juridique</SubNavLink>
-            </SubMenu>
-          </NavLink>
-
-          <NavLink href="#">
-            Expertises
-            <SubMenu isOpen={isMenuOpen}>
-            <SubNavLink href="/nosexpertises">Nos expertises</SubNavLink>
-              <SubNavLink href="/fiscalitee">Droit fiscal</SubNavLink>
-              <SubNavLink href="/affairee">Droit des affaires</SubNavLink>
-              <SubNavLink href="/minierr">Minier et environnementale</SubNavLink>
-              <SubNavLink href="/securitee">Sociale et sécurité sociale</SubNavLink>
-              <SubNavLink href="/famillee">Droit de la famille</SubNavLink>
-              <SubNavLink href="/travail">Droit du travail</SubNavLink>
-              <SubNavLink href="/sport">Droit du sport</SubNavLink>
-              <SubNavLink href="/arbitrage">Arbitrage</SubNavLink>
-              <SubNavLink href="/penall">Défense pénale</SubNavLink>
-            </SubMenu>
-          </NavLink>
-
-          <NavLink href="/article">Articles</NavLink>
-          <NavLink href="/apropos">À propos</NavLink>
-        </Menu>
-      </Nav>
-      <main style={{ paddingTop: "150px" }}>
-        
-        </main>
-    </>
+        <FormSection data-aos="fade-down">
+          <Title>Contactez-nous</Title>
+          <Description>
+            Si vous avez des questions, des commentaires ou des préoccupations,
+            n’hésitez pas à nous contacter en utilisant le formulaire
+            ci-dessous. Nous ferons de notre mieux pour répondre à votre demande
+            dans les plus brefs délais. Votre satisfaction est notre priorité
+            absolue, et nous apprécions tous les commentaires que vous pourriez
+            avoir sur notre entreprise et nos services. Merci de votre confiance
+            et nous avons hâte de discuter avec vous bientôt.
+          </Description>
+          <Form action="https://getform.io/f/bnllyvmb" method="POST">
+            <Input type="text" name="name" placeholder="Votre nom" required />
+            <Input
+              type="email"
+              name="email"
+              placeholder="Votre email"
+              required
+            />
+            <Textarea
+              name="message"
+              rows="5"
+              placeholder="Votre message"
+              required
+            />
+            <Button type="submit">Envoyer</Button>
+          </Form>
+        </FormSection>
+      </ContactContainer>
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
+    </div>
   );
 }

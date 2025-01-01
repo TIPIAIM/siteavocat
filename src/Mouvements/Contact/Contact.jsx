@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -9,12 +9,12 @@ import { ChevronsLeftRight } from "lucide-react";
 import LazyLoad from "react-lazyload";
 import photoaccueil from "../../assets/Image/photo-accueil.avif";
 
+// Styled Components
 const ContactContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   min-height: 100vh;
   padding: 20px;
-  background: linear-gradient(to bottom, #, #, #);
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -37,17 +37,15 @@ const ImageSection = styled.div`
 
 const FormSection = styled.div`
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 40px;
   background: #1e293b;
-  border-radius: 0px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media (max-width: 768px) {
     padding: 20px;
-    text-align: center;
   }
 `;
 
@@ -56,14 +54,12 @@ const Title = styled.h1`
   color: #00b4d8;
   margin-bottom: 15px;
   font-weight: bold;
-  text-shadow: 0px 2px 4px #;
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
     text-align: center;
   }
 `;
-
 const Description = styled.p`
   font-size: 1.1rem;
   color: #caf0f8;
@@ -76,7 +72,6 @@ const Description = styled.p`
     padding: 20px;
   }
 `;
-
 const Form = styled.form`
   width: 100%;
   max-width: 500px;
@@ -85,55 +80,32 @@ const Form = styled.form`
   gap: 20px;
 
   @media (max-width: 768px) {
-    gap: 15px;
-    padding: 20px;
-    text-align: center;
+    padding: 10px;
   }
 `;
 
 const Input = styled.input`
   padding: 12px;
   font-size: 1rem;
-  border: 1px solid 00b4d;
+  border: 1px solid #00b4d8;
   border-radius: 5px;
   outline: none;
-  transition: border-color 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0);
 
   &:focus {
     border-color: #007bff;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
-const FooterWrapper = styled.div`
-  margin-top: 60px;
-
-  @media (max-width: 768px) {
-    margin-top: 30px;
   }
 `;
 
 const Textarea = styled.textarea`
   padding: 12px;
   font-size: 1rem;
-  border: 1px solid 00b4d8;
+  border: 1px solid #00b4d8;
   border-radius: 5px;
   outline: none;
-  transition: border-color 0.3s ease;
   resize: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0.2);
 
   &:focus {
     border-color: #007bff;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
-    padding: 10px;
   }
 `;
 
@@ -145,21 +117,15 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: white;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    padding: 20px;
+    background-color: #0077b6;
   }
 `;
+
 const Placeholder = styled.div`
   background-color: #00b4d8;
   height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,47 +133,42 @@ const Placeholder = styled.div`
   color: #023e8a;
 `;
 
+// Memoized Footer
+const MemoizedFooter = memo(Footer);
+
+// Main Component
 export default function Contact() {
   useEffect(() => {
-    AOS.init({ duration: 1200 });
+    AOS.init({ duration: 1000 });
   }, []);
+
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
-  const handleImageLoad = () => setImageLoaded(true);
-  const handleImageError = () => setImageError(true);
   return (
-    <div style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
+    <div style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
       <header className="relative h-[400px] sm:h-[400px] mb-20 overflow-hidden">
         <BardeNavigationpublic />
         <div className="absolute inset-0 bg-black/50 z-10" />
-        <LazyLoad
-          height={400}
-          offset={100} // Décalage pour charger avant que l'image ne soit visible
-          debounce={300} // Optimisation du défilement
-          once // Charge une seule fois
-        >
+        <LazyLoad height={400} offset={100} debounce={300} once>
           {!imageLoaded && !imageError && (
-            <Placeholder>TIPTAIM Cabinet AOD-AVOCATS-SCPA</Placeholder>
+            <Placeholder>Loading image...</Placeholder>
           )}
           {!imageError ? (
             <img
               src={photoaccueil}
               alt="Cabinet d'avocats"
               className="absolute inset-0 w-full h-full object-cover"
-              onLoad={handleImageLoad}
-              onError={handleImageError}
+              onLoad={() => setImageLoaded(true)}
+              onError={() => setImageError(true)}
               style={imageLoaded ? { display: "block" } : { display: "none" }}
             />
           ) : (
-            <Placeholder>Image non disponible</Placeholder>
+            <Placeholder>Image not available</Placeholder>
           )}
         </LazyLoad>
-        <div className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left max-w-screen-md">
-          <h1
-            className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"
-            style={{ color: "#90e0ef" }}
-          >
+        <div className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left">
+          <h1 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6" style={{ color: "#90e0ef" }}>
             Cabinet AOD-AVOCATS-SCPA
           </h1>
           <Link
@@ -221,9 +182,8 @@ export default function Contact() {
         </div>
       </header>
 
-      <ContactContainer className="mb-7">
+      <ContactContainer>
         <ImageSection data-aos="fade-right" />
-
         <FormSection data-aos="fade-down">
           <Title>Contactez-nous</Title>
           <Description>
@@ -237,25 +197,13 @@ export default function Contact() {
           </Description>
           <Form action="https://getform.io/f/bnllyvmb" method="POST">
             <Input type="text" name="name" placeholder="Votre nom" required />
-            <Input
-              type="email"
-              name="email"
-              placeholder="Votre email"
-              required
-            />
-            <Textarea
-              name="message"
-              rows="5"
-              placeholder="Votre message"
-              required
-            />
+            <Input type="email" name="email" placeholder="Votre email" required />
+            <Textarea name="message" rows="5" placeholder="Votre message" required />
             <Button type="submit">Envoyer</Button>
           </Form>
         </FormSection>
       </ContactContainer>
-      <FooterWrapper>
-        <Footer />
-      </FooterWrapper>
+      <MemoizedFooter />
     </div>
   );
 }

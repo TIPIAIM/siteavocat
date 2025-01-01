@@ -22,7 +22,7 @@ const ContactContainer = styled.div`
 
 const ImageSection = styled.div`
   flex: 1;
-  background-image: url("./src/assets/Image/keitaseul2.avif");
+  background-image: url("img/keitaseul2.avif");
   background-size: cover;
   background-position: center;
   min-height: 400px;

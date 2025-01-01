@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -6,6 +6,8 @@ import Footer from "../Accueil/Footerr";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { Link } from "react-router-dom";
 import { ChevronsLeftRight } from "lucide-react";
+import LazyLoad from "react-lazyload";
+import photoaccueil from "../../assets/Image/photo-accueil.avif";
 
 const ContactContainer = styled.div`
   display: flex;
@@ -26,8 +28,8 @@ const ImageSection = styled.div`
   background-size: cover;
   background-position: center;
   min-height: 400px;
-  border-radius: 0px;
-  box-shadow: @media (max-width: 768px) {
+
+  @media (max-width: 768px) {
     min-height: 250px;
     margin-bottom: 20px;
   }
@@ -41,12 +43,11 @@ const FormSection = styled.div`
   align-items: center;
   padding: 40px;
   background: #1e293b;
-  box-shadow:
   border-radius: 0px;
 
   @media (max-width: 768px) {
     padding: 20px;
-    text-align: center; /* Centrer le contenu du formulaire sur les petits écrans */
+    text-align: center;
   }
 `;
 
@@ -59,7 +60,7 @@ const Title = styled.h1`
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
-    text-align: center; /* Centrer le contenu du formulaire sur les petits écrans */
+    text-align: center;
   }
 `;
 
@@ -71,7 +72,7 @@ const Description = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1rem;
-    text-align: left; /* Centrer le contenu du formulaire sur les petits écrans */
+    text-align: left;
     padding: 20px;
   }
 `;
@@ -86,7 +87,7 @@ const Form = styled.form`
   @media (max-width: 768px) {
     gap: 15px;
     padding: 20px;
-    text-align: center; /* Centrer le contenu du formulaire sur les petits écrans */
+    text-align: center;
   }
 `;
 
@@ -124,7 +125,7 @@ const Textarea = styled.textarea`
   outline: none;
   transition: border-color 0.3s ease;
   resize: none;
-  box-shadow: 0 2px 4px rgba(, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0.2);
 
   &:focus {
     border-color: #007bff;
@@ -132,7 +133,6 @@ const Textarea = styled.textarea`
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
-    text-align: left; /* Centrer le contenu du formulaire sur les petits écrans */
     padding: 10px;
   }
 `;
@@ -156,22 +156,53 @@ const Button = styled.button`
     padding: 20px;
   }
 `;
+const Placeholder = styled.div`
+  background-color: #00b4d8;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #023e8a;
+`;
 
 export default function Contact() {
   useEffect(() => {
     AOS.init({ duration: 1200 });
   }, []);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
+  const handleImageLoad = () => setImageLoaded(true);
+  const handleImageError = () => setImageError(true);
   return (
     <div style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
       <header className="relative h-[400px] sm:h-[400px] mb-20 overflow-hidden">
         <BardeNavigationpublic />
         <div className="absolute inset-0 bg-black/50 z-10" />
-        <img
-          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80"
-          alt="Cabinet d'avocats"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <LazyLoad
+          height={400}
+          offset={100} // Décalage pour charger avant que l'image ne soit visible
+          debounce={300} // Optimisation du défilement
+          once // Charge une seule fois
+        >
+          {!imageLoaded && !imageError && (
+            <Placeholder>TIPTAIM Cabinet AOD-AVOCATS-SCPA</Placeholder>
+          )}
+          {!imageError ? (
+            <img
+              src={photoaccueil}
+              alt="Cabinet d'avocats"
+              className="absolute inset-0 w-full h-full object-cover"
+              onLoad={handleImageLoad}
+              onError={handleImageError}
+              style={imageLoaded ? { display: "block" } : { display: "none" }}
+            />
+          ) : (
+            <Placeholder>Image non disponible</Placeholder>
+          )}
+        </LazyLoad>
         <div className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left max-w-screen-md">
           <h1
             className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"
@@ -192,7 +223,8 @@ export default function Contact() {
 
       <ContactContainer className="mb-7">
         <ImageSection data-aos="fade-right" />
-        <FormSection data-aos="fade-left">
+
+        <FormSection data-aos="fade-down">
           <Title>Contactez-nous</Title>
           <Description>
             Si vous avez des questions, des commentaires ou des préoccupations,

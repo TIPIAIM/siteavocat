@@ -57,13 +57,11 @@ const Menu = styled.div`
     height: 100%;
     width: 100%;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     background-color: rgba(15, 23, 42, 0.95);
     transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(100%)")};
     opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
     pointer-events: ${({ isOpen }) => (isOpen ? "auto" : "none")};
-    overflow-y: auto; /* Ajout du défilement vertical */
-    padding-top: 4rem; /* Espace en haut pour le bouton hamburger */
   }
 `;
 
@@ -149,11 +147,8 @@ const SubMenu = styled.div`
     display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
     width: 100%;
     padding: 0;
-    overflow-y: auto; /* Défilement si le contenu dépasse */
-    max-height: 50vh; /* Limite la hauteur pour éviter de déborder */
   }
 `;
-
 
 const SubNavLink = styled.a`
   color: white;

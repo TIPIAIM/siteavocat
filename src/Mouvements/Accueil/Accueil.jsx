@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import SEO from "../../DynamicSeo";
 import Image7 from "../../assets/Image/maitre7.avif";
+import photoaccueil from "../../assets/Image/photo-accueil.avif";
+
 export default function Accueil() {
   return (
     <div
@@ -44,7 +46,7 @@ Solutions juridiques adaptées"
         <BardeNavigationpublic />
         <div className="absolute inset-0 bg-black/50 z-10" />
         <img
-          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80"
+          src={photoaccueil}
           alt="Cabinet d'avocats"
           className="absolute inset-0 w-full h-full object-cover"
         />

@@ -33,28 +33,38 @@ const Overlay = styled.div`
 const ContentContainer = styled.div`
   position: relative;
   z-index: 10;
-  padding: 4rem 1rem;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #90e0ef;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.5rem;
+    }
   }
 `;
 
 // Grille d'éléments
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
   width: 100%;
   max-width: 1200px;
-  margin-bottom: 10rem;
-  padding: 1rem;
+  margin-bottom: 6rem;
+  padding: 0.5rem;
+
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+  }
 `;
 
 // Carte individuelle
@@ -72,7 +82,7 @@ const Card = styled(motion.div)`
 
   img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
   }
 
@@ -81,23 +91,41 @@ const Card = styled(motion.div)`
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 1rem;
+    padding: 0.8rem;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(144, 224, 239, 0.2));
     color: #90e0ef;
 
     h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
     }
 
     a {
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: bold;
       color: #90e0ef;
       text-decoration: none;
 
       &:hover {
         text-decoration: underline;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    img {
+      height: 150px;
+    }
+
+    .info {
+      padding: 0.5rem;
+
+      h3 {
+        font-size: 0.9rem;
+      }
+
+      a {
+        font-size: 0.8rem;
       }
     }
   }
@@ -134,7 +162,7 @@ export default function Nosexpertise() {
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
                 aria-label={image.text}
               >
                 <img src={image.src} alt={image.alt} loading="lazy" />

@@ -8,7 +8,7 @@ AOS.init();
 
 const PageWrapper = styled.div`
   position: relative;
-  background-image: url("/img/logoAOD.png"); /* Remplacez par votre image de fond */
+  background-image: url("/img/logoAODnoir.avi"); /* Remplacez par votre image de fond */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -191,9 +191,11 @@ const Securite = () => {
 
   return (
     <PageWrapper>
-      <ContentContainer className=" font-serif">
+      <ContentContainer 
+       
+      >
         <Title data-aos="fade-up">
-          La Sécurité Sociale et le Droit du Travail
+          La Sécurité
         </Title>
 
         <Section

@@ -100,33 +100,7 @@ const Divider = styled.div`
   background: #4ea8ff;
   margin: 2rem 0;
 `;
-const BackButton = styled(Link)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background-color: #;
-  border-radius: 50%;
-  box-shadow: 0 4px 1px #90e0ef;
-  color: ;
-  margin-bottom: 0rem;
-  transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: #e2e8f0;
-  }
-
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
-  }
-
-  @media (max-width: 480px) {
-    width: 35px;
-    height: 35px;
-  }
-`;
 export default function Securitee() {
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.2 });
@@ -155,10 +129,10 @@ export default function Securitee() {
             ref={ref}
           >
             {" "}
-            <BackButton to="/nosexpertises" data-aos="fade-right">
+           {/* <BackButton to="/nosexpertises" data-aos="fade-right">
               <FaArrowLeft size={20} />
             </BackButton>
-            Sécurité et sécurité sociale ?
+            Sécurité et sécurité sociale ?*/}
           </Title>
           <Divider />
           <Paragraph

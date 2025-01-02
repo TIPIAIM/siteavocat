@@ -60,7 +60,7 @@ export default function Accueilfooter() {
         </section>
 
         <div className="container mx-auto px-4 text-center sm:text-left">
-          <p>© 2024 AOD AVOCATS SCPA. Tous droits réservés.</p>
+          <p>© 2025 AOD AVOCATS SCPA. Tous droits réservés.</p>
         </div>
       </footer>
     </div>

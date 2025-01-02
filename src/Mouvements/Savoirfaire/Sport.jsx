@@ -133,7 +133,7 @@ export default function Sport() {
         <Overlay />
 
         <BardeNavigationpublic />
-        <ContentContainer className=" font-serif">
+        <ContentContainer >
           {" "}
           <BackButton to="/nosexpertises" data-aos="fade-right">
             <FaArrowLeft size={20} />

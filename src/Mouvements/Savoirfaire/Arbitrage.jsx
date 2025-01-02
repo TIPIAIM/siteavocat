@@ -7,6 +7,7 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "../Accueil/Footerr";
+import Famillee from "./Famillee";
 //  background-image: url("img/arbitra.avif"); /* Image optimisée */
 
 const BackgroundContainer = styled.div`
@@ -214,7 +215,8 @@ export default function Arbitrage() {
               claire et favorable.
             </Paragraph>
           </Section>
-        </ContentWrapper>
+        
+        </ContentWrapper>  <Famillee/>
       </BackgroundContainer>
       <Footer />
     </div>

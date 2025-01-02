@@ -55,13 +55,13 @@ Solutions juridiques adaptées"
             className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"
             style={{ color: "#90e0ef" }}
           >
-            Cabinet AOD-AVOCATS-SCPA
+            CABINET AOD AVOCATS SCPA
           </h1>
           <p
             className="text-lg sm:text-xl mb-6 sm:mb-8 max-w-lg mx-auto sm:mx-0"
             style={{ color: "#90e0ef" }}
           >
-            Engagement personnel pour vous défendre et protéger
+            S’Engager pour protéger vos droits et intérêts{" "}
           </p>
           <Link
             to="/contact"

@@ -121,10 +121,10 @@ export default function Famillee() {
         <Overlay />
         <BardeNavigationpublic />{" "}
         <ContentContainer>
-          {" "}
+          {/*
           <BackButton to="/nosexpertises" data-aos="fade-right">
             <FaArrowLeft size={20} />
-          </BackButton>
+          </BackButton>*/}
           <Title
             initial="hidden"
             animate={controls}
@@ -201,7 +201,7 @@ export default function Famillee() {
         <Famille2 />
       </BackgroundContainer>
 
-      <Footer />
+     { /*<Footer />*/}
     </div>
   );
 }

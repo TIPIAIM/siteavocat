@@ -8,6 +8,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Travail2 from "./Traval2";
 import Footer from "../Accueil/Footerr";
+import Securitee from "./Securitee";
 
 const BackgroundContainer = styled.div`
   position: relative;
@@ -217,7 +218,9 @@ export default function Travail() {
           </Paragraph>
         </ContentContainer>
       </BackgroundContainer>
-      <Travail2 />
+    <Securitee/>
+      {/*<Travail2 />*/}
+     { /**/}
       <Footer />
     </div>
   );

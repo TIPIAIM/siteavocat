@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import { FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+//import { FaArrowLeft } from "react-icons/fa";
+//import { Link } from "react-router-dom";
 import Securite from "./Securite";
 import Footer from "../Accueil/Footerr";
 

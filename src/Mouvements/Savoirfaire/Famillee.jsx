@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import { FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+//import { FaArrowLeft } from "react-icons/fa";
+//import { Link } from "react-router-dom";
 import Famille2 from "./Famille2";
-import Footer from "../Accueil/Footerr";
+//import Footer from "../Accueil/Footerr";
 
 const BackgroundContainer = styled.div`
   position: relative;

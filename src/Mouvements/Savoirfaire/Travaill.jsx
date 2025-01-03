@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Travail2 from "./Traval2";
+//import Travail2 from "./Traval2";
 import Footer from "../Accueil/Footerr";
 import Securitee from "./Securitee";
 

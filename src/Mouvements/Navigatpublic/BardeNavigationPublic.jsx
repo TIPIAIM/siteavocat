@@ -201,7 +201,7 @@ export default function BardeNavigationpublic() {
         <Menu isOpen={isMenuOpen}>
           <NavLink href="/">Accueil</NavLink>
           <NavLink href="/contact">Contact</NavLink>
-          <NavLink href="#">
+          <NavLink>
             Savoir-faire
             <SubMenu isOpen={isMenuOpen}>
               <SubNavLink href="/asistance">Assistance juridique</SubNavLink>
@@ -211,7 +211,7 @@ export default function BardeNavigationpublic() {
             </SubMenu>
           </NavLink>
 
-          <NavLink href="#">
+          <NavLink >
             Expertises
             <SubMenu isOpen={isMenuOpen}>
               <SubNavLink href="/nosexpertises">Nos expertises</SubNavLink>

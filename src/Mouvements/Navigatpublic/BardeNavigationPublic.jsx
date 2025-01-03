@@ -15,8 +15,10 @@ const Nav = styled.nav`
   z-index: 1000;
   font-weight: bold;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  background-color: ${({ isScrolled }) => (isScrolled ? 'rgba(10, 34, 64, 0.9)' : 'transparent')};
-  box-shadow: ${({ isScrolled }) => (isScrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none')};
+  background-color: ${({ isScrolled }) =>
+    isScrolled ? "rgba(10, 34, 64, 0.9)" : "transparent"};
+  box-shadow: ${({ isScrolled }) =>
+    isScrolled ? "0 4px 6px rgba(0, 0, 0, 0.1)" : "none"};
 
   @media (max-width: 768px) {
     padding: 0.8rem 1.2rem;
@@ -59,7 +61,8 @@ const Menu = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     background-color: rgba(15, 23, 42, 0.95);
-    transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(100%)")};
+    transform: ${({ isOpen }) =>
+      isOpen ? "translateX(0)" : "translateX(100%)"};
     opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
     pointer-events: ${({ isOpen }) => (isOpen ? "auto" : "none")};
     overflow-y: auto; /* Ajout du défilement vertical */
@@ -154,7 +157,6 @@ const SubMenu = styled.div`
   }
 `;
 
-
 const SubNavLink = styled.a`
   color: white;
   text-decoration: none;
@@ -186,7 +188,7 @@ export default function BardeNavigationpublic() {
   return (
     <>
       <Nav isScrolled={isScrolled}>
-        <Logo onClick={() => (window.location.href = "/accueil")}>
+        <Logo onClick={() => (window.location.href = "/")}>
           <img src={aodblanc} alt="Logo du Cabinet" />
         </Logo>
 
@@ -197,7 +199,7 @@ export default function BardeNavigationpublic() {
 
         {/* Menu principal */}
         <Menu isOpen={isMenuOpen}>
-          <NavLink href="/accueil">Accueil</NavLink>
+          <NavLink href="/">Accueil</NavLink>
           <NavLink href="/contact">Contact</NavLink>
           <NavLink href="#">
             Savoir-faire
@@ -212,16 +214,21 @@ export default function BardeNavigationpublic() {
           <NavLink href="#">
             Expertises
             <SubMenu isOpen={isMenuOpen}>
-            <SubNavLink href="/nosexpertises">Nos expertises</SubNavLink>
+              <SubNavLink href="/nosexpertises">Nos expertises</SubNavLink>
               <SubNavLink href="/fiscalitee">Le droit fiscal</SubNavLink>
               <SubNavLink href="/affairee">Le droit des affaires</SubNavLink>
-              <SubNavLink href="/minierr">Le droit minier et environnementale</SubNavLink>
+              <SubNavLink href="/minierr">
+                Le droit minier et environnementale
+              </SubNavLink>
               {/*  <SubNavLink href="/securitee">Sociale et sécurité sociale</SubNavLink>
             <SubNavLink href="/famillee">Droit de la famille</SubNavLink>*/}
-              <SubNavLink href="/travail">Le droit de travail et sécurité social
-            </SubNavLink>
+              <SubNavLink href="/travail">
+                Le droit de travail et sécurité social
+              </SubNavLink>
               <SubNavLink href="/sport">Le droit du sport</SubNavLink>
-              <SubNavLink href="/arbitrage">Le droit d’rbitrage et médiation</SubNavLink>
+              <SubNavLink href="/arbitrage">
+                Le droit d’rbitrage et médiation
+              </SubNavLink>
               <SubNavLink href="/penall">La défense pénale</SubNavLink>
             </SubMenu>
           </NavLink>
@@ -230,9 +237,7 @@ export default function BardeNavigationpublic() {
           <NavLink href="/apropos">À propos</NavLink>
         </Menu>
       </Nav>
-      <main style={{ paddingTop: "150px" }}>
-        
-        </main>
+      <main style={{ paddingTop: "150px" }}></main>
     </>
   );
 }

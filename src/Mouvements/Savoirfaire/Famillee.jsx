@@ -68,37 +68,11 @@ const Paragraph = styled(motion.p)`
 
 const Divider = styled.div`
   height: 3px;
-  width: 300px;
+  width 300px;
   background: #90e0ef;
   margin: 2rem 0;
 `;
-const BackButton = styled(Link)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background-color: #;
-  border-radius: 50%;
-  box-shadow: 0 4px 1px #90e0ef;
-  color: ;
-  margin-bottom: 0rem;
-  transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: #e2e8f0;
-  }
-
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
-  }
-
-  @media (max-width: 480px) {
-    width: 35px;
-    height: 35px;
-  }
-`;
 
 export default function Famillee() {
   const controls = useAnimation();

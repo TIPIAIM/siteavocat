@@ -9,7 +9,8 @@ import EVOL from "./../../../assets/Image/EVOL.avif"
 import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif"
 import commercial from "../../../assets/Image/commercial.avif"
 import MOE_0400 from "../../../assets/Image/MOE_0400.avif"
-import codeabdoul from "../../../assets/Image/codeabdoul.avif"
+//import enfamiavoc from "../../../assets/Image/enfamiavoc.avif"
+import jurid from "../../../assets/Image/jurid.avif"
 
 const BackgroundContainer = styled.div`
   position: relative;
@@ -268,7 +269,7 @@ export default function AuditJuridique() {
               Ces formations couvrent des sujets variés allant de la gestion des
               contrats à la prévention des litiges.
             </Paragraph>
-            <ParagraphImage src={codeabdoul} alt="Formation" />
+            <ParagraphImage src={jurid} alt="Formation" />
 
           </ParagraphWrapper>
           <ParagraphWrapper>

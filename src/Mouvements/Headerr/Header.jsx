@@ -30,7 +30,7 @@ export default function Headerr() {
           style={imageLoaded ? { display: "block" } : { display: "none" }}
         />
       ) : (
-        <Placeholder>Image n'est pas trouvable</Placeholder>
+        <Placeholder>Image n`est pas trouvable</Placeholder>
       )}
     </LazyLoad>
     <div className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left">

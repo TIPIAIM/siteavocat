@@ -86,16 +86,19 @@ Solutions juridiques adaptées"
                 icon: Scale,
                 title: "Droit des Affaires",
                 desc: "Conseil juridique pour entreprises et entrepreneurs",
+                link: "/affairee",
               },
               {
                 icon: Shield,
                 title: "Droit Civil",
                 desc: "Protection des droits et intérêts personnels",
+                link: "/affairee",
               },
               {
                 icon: Users,
                 title: "Droit de la Famille",
                 desc: "Accompagnement dans les affaires familiales",
+                link: "/arbitrage",
               },
             ].map((service, i) => (
               <div
@@ -107,7 +110,13 @@ Solutions juridiques adaptées"
                   className="w-10 sm:w-12 h-10 sm:h-12 text-blue-950 mb-3"
                 />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                  {service.title}
+                  <a className=" no-underline"
+                    href={service.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {service.title}
+                  </a>
                 </h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   {service.desc}
@@ -142,10 +151,7 @@ Solutions juridiques adaptées"
                     style={{ color: "#0077b6" }}
                   />
                   <div className="font-bold text-lg sm:text-2xl">6+</div>
-                  <div
-                    className="text-gray-600 text-sm"
-                    style={{ fontFamily: "Georgia, serif" }}
-                  >
+                  <div className="text-gray-600 text-sm">
                     Années d’expérience
                   </div>
                 </div>

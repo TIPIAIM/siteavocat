@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import image2 from "./../../assets/Image/Maitre3.avif";
+//import image2 from "./../../assets/Image/Maitre3.avif";
 import image3 from "./../../assets/Image/Maitre1.avif";
 import image5 from "./../../assets/Image/mbangou.avif";
 import image6 from "./../../assets/Image/maitre13.avif";
@@ -9,6 +9,7 @@ import image7 from "./../../assets/Image/keitaseul2.avif";
 import image8 from "./../../assets/Image/naroumb.avif";
 import image9 from "./../../assets/Image/MOE_0400.avif";
 import image10 from "./../../assets/Image/MOE_0311.avif";
+import image11 from "./../../assets/Image/abdoulayeavoc.avif";
 
 import Footer from "../Accueil/Footerr";
 import Aproposdeux from "./Apropos2";
@@ -56,16 +57,6 @@ const images = [
     phone: "00224624138395",
   },
   {
-    src: image2,
-    title: "NOTRE STRATEGIE ",
-    description:
-      "Nous posons un diagnostic complet, clair et précis dès le départ afin d’exposer à nos clients les tenants et aboutissants de leur dossier. Nous cernons rapidement les enjeux légaux et d’affaires,les points forts et les points faibles, ainsi que les coûts afférents, et les exposons à nos clients de manière transparente, et objective",
-    email:
-      "Une approche stratégique et transparente axée sur l’atteinte de résultat et la communication",
-    city: "Conakry",
-    phone: "624138395",
-  },
-  {
     src: image7,
     title: "Chez AOD Avocats ",
     description:
@@ -75,13 +66,24 @@ const images = [
     phone: "00224624138395",
   },
   {
+    src: image11,
+    title: "NOTRE STRATEGIE ",
+    description:
+      "Nous posons un diagnostic complet, clair et précis dès le départ afin d’exposer à nos clients les tenants et aboutissants de leur dossier. Nous cernons rapidement les enjeux légaux et d’affaires,les points forts et les points faibles, ainsi que les coûts afférents, et les exposons à nos clients de manière transparente, et objective",
+    email:
+      "Une approche stratégique et transparente axée sur l’atteinte de résultat et la communication",
+    city: "Conakry",
+    phone: "624138395",
+  },
+
+  {
     src: image10,
     title: "NOTRE APPROCHE ",
     description:
       "Nous nous distinguons par notre approche stratégique et transparente centrée sur l’obtention de résultats tangibles. Notre action est orientée vers la réalisation d’objectifs concrets et de résultats satisfaisants",
     email: "Une approche stratégique",
     city: "Conakry",
-    phone: "147258369",
+    phone: "622253536",
   },
   {
     src: image3,
@@ -90,7 +92,7 @@ const images = [
       "Que vous soyez un particulier ou une entreprise, et quel que soit la nature ou l’ampleur du mandat qui nous est confié, vous bénéficiez d’un service de premier plan et aucun compromis n’est fait au niveau de la qualité de notre travail.Nous nous engageons à vous livrer des résultats satisfaisants dans les délais suivant la complexité du dossier.",
     email: "Chez AOD Avocats, le client est au centre de nos préoccupations :",
     city: "Conakry",
-    phone: "369258147",
+    phone: "622253536",
   },
 ];
 
@@ -241,6 +243,11 @@ const Apropos = () => {
     setIsPaused(!isPaused);
   };
 
+  const handleIndicatorClick = (index) => {
+    setIsPaused(true); // Stop l'animation automatique lors d'un clic
+    setCurrentIndex(index);
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isPaused) {
@@ -254,7 +261,10 @@ const Apropos = () => {
     <div>
       <Headerr />
       <CarouselContainer>
-        <ScrollWrapper isPaused={isPaused}>
+        <ScrollWrapper
+          isPaused={isPaused}
+          style={{ transform: `translateX(-${currentIndex * 350}px)` }}
+        >
           {infiniteImages.map((item, index) => (
             <ImageWrapper key={index}>
               <ImageCard>
@@ -274,8 +284,12 @@ const Apropos = () => {
         </ControlButton>
 
         <IndicatorWrapper>
-          {infiniteImages.map((_, index) => (
-            <Indicator key={index} active={index === currentIndex} />
+          {images.map((_, index) => (
+            <Indicator
+              key={index}
+              active={index === currentIndex}
+              onClick={() => handleIndicatorClick(index)}
+            />
           ))}
         </IndicatorWrapper>
       </CarouselContainer>
@@ -285,5 +299,6 @@ const Apropos = () => {
     </div>
   );
 };
+
 
 export default Apropos;

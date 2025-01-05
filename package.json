@@ -57,7 +57,7 @@
     "react-table": "^7.8.0",
     "react-toastify": "^10.0.5",
     "react-tooltip": "^5.27.0",
-    "recharts": "^2.12.7",
+    "recharts": "^2.15.0",
     "scroll-parallax": "^3.0.3",
     "scrollmagic": "^2.0.8",
     "slick-carousel": "^1.8.1",

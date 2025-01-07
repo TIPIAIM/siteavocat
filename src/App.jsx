@@ -26,6 +26,8 @@ import Assistance from "./Mouvements/Savoirfaire/Savoir-faire/Assistance";
 import Accueil from "./Mouvements/Accueil/Accueil";
 import GlobalStyle from "./Styles/Globalstylehelve";
 import StructuredData from "./Donnestructure";
+import Contact2 from "./Mouvements/Contact2/Contact2";
+import ContactList from "./Mouvements/Contact2/Listecontact";
 
 function App() {
   return (
@@ -36,6 +38,10 @@ function App() {
         <Route index element={<Accueil />} />
         {/** <Route path="*" element={<Orror />} />
       pour */}{" "}
+
+<Route path="/contact2" element={<Contact2 />} />
+<Route path="/listec" element={<ContactList />} />
+
         <Route path="/accueil" element={<Accueil />} />
         <Route path="/apropos" element={<Apropos />} />
         <Route path="/contact" element={<Contact />} />

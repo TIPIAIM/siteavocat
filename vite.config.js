@@ -12,7 +12,7 @@ export default defineConfig({
         "/accueil",
         "/apropos",
         "/contact",
-        "/contact2",
+        //"/contact2",
         "/article",
         "/affairee",
         "/securitee",

@@ -62,8 +62,8 @@ export default function Contact2() {
     try {
       const result = await axios.post(
         //`${VITE_APIserveur}/contactenvoye`,
-        //"http://localhost:2025/contactenvoye",
-        "https://avocatdusiteback.onrender.com/contactenvoye",
+        "http://localhost:2025/contactenvoye",
+        //"https://avocatdusiteback.onrender.com/contactenvoye",
         sanitizedValues,
         { timeout: 5000 } // Timeout pour éviter les requêtes bloquées
       );

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import aodblanc from "./../../assets/Image/aodblanc.avif"; // Exemple de vidéo
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ContactList() {
   const [contacts, setContacts] = useState([]);
@@ -20,6 +21,9 @@ export default function ContactList() {
         console.error("Erreur lors de la récupération des contacts :", err);
         setError(
           "Impossible de charger les contacts. Veuillez réessayer plus tard."
+        );
+        toast.error(
+          "Erreur de connexion au serveur. Veuillez réessayer plus tard."
         );
       }
     };
@@ -41,51 +45,44 @@ export default function ContactList() {
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce contact ?")) {
-      return;
-    }
     try {
-      await axios.delete(`http://localhost:2025/contact/${id}`);
+      await axios.delete(`http://localhost:2025/deletecontact/${id}`);
       setContacts((prev) => prev.filter((contact) => contact._id !== id));
       setFilteredContacts((prev) =>
         prev.filter((contact) => contact._id !== id)
       );
+      toast.success("Contact supprimé avec succès !");
     } catch (err) {
       console.error("Erreur lors de la suppression du contact :", err);
-      alert("Impossible de supprimer ce contact. Veuillez réessayer.");
+      toast.error("Impossible de supprimer ce contact. Veuillez réessayer.");
     }
   };
 
   const handleEdit = (id) => {
-    alert(`Modifier le contact avec l'ID : ${id}`);
+    toast.info(`Modification demandée pour le contact ID : ${id}`);
   };
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-6">
-        {/* En-tête avec le logo */}
-        <div className="flex items-center mb-6">
-          <img
-            src={aodblanc} // Remplacez par le chemin de votre logo
-            alt="Logo"
-            className="w-12 h-12 mr-4"
-          />
-          <h1 className="text-3xl font-bold text-gray-800">
-            Gestion des Contacts
-          </h1>
-        </div>
+        {/* Toast Container */}
+        <ToastContainer />
 
-        {/* Barre de recherche */}
-        <div className="mb-6 flex justify-end">
+        {/* En-tête */}
+        <div className="flex flex-col md:flex-row justify-between items-center mb-6">
+          <h1 className="text-2xl font-bold text-gray-800 mb-4 md:mb-0">
+            Gestion des Contacts ({filteredContacts.length})
+          </h1>
           <input
             type="text"
             value={searchTerm}
             onChange={handleSearch}
             placeholder="Rechercher..."
-            className="w-64 p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-48 md:w-64 p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
+        {/* Table */}
         {error ? (
           <div className="text-red-600 font-semibold">{error}</div>
         ) : (

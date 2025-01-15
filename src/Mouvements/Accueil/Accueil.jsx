@@ -7,6 +7,7 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import SEO from "../../DynamicSeo";
 import Image7 from "../../assets/Image/maitre7.avif";
 import photoaccueil from "../../assets/Image/photo-accueil.avif";
+import SocialLinks from "../Lienlateral/SocialLinks";
 
 export default function Accueil() {
   return (
@@ -41,6 +42,7 @@ Dossiers juridiques,
 Équipe d'avocats,
 Solutions juridiques adaptées"
       />
+
       {/* Hero Section */}
       <header className="relative h-[400px] sm:h-[600px] overflow-hidden">
         <BardeNavigationpublic />
@@ -110,7 +112,8 @@ Solutions juridiques adaptées"
                   className="w-10 sm:w-12 h-10 sm:h-12 text-blue-950 mb-3"
                 />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                  <a className=" no-underline"
+                  <a
+                    className=" no-underline"
                     href={service.link}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -178,8 +181,15 @@ Solutions juridiques adaptées"
         </div>
         <Horaire />
       </section>
-
+  {/* Social Links */}
+  <section className="py-12 sm:py-20 bg-gray-100">
+        <div className="container mx-auto px-4 max-w-screen-lg flex flex-col items-center sm:flex-row justify-center gap-6 sm:gap-12">
+          <SocialLinks />
+        </div>
+      </section>
       <Accueilfooter />
+
+    
     </div>
   );
 }

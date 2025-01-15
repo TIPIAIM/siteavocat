@@ -1,6 +1,5 @@
-import { FaFileDownload, FaGithubSquare, FaLinkedin } from "react-icons/fa";
-import { MdContactMail } from "react-icons/md";
-import { AiOutlineWhatsApp } from "react-icons/ai";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { MdMessage } from "react-icons/md";
 
 export default function SocialLinks() {
   //pour les quatitre lien gauche
@@ -10,11 +9,10 @@ export default function SocialLinks() {
       id: 1,
       child: (
         <>
-          LinkedIn
-          <FaLinkedin size={30} />
+          <FaInstagram size={25} />
         </>
       ), //on met le lien ou il sera diriger sil clic sur le loglinkdin apre on copie colle 4 fois pour nos besoins
-      href: "https://www.linkedin.com/in/alphaousmane-diallo-guinea14?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      href: "https://www.instagram.com/aod.avocats.scpa/",
       style: "rounded-tr-md",
     },
     {
@@ -22,64 +20,51 @@ export default function SocialLinks() {
       id: 2,
       child: (
         <>
-          GhitHub
-          <FaGithubSquare size={30} />
+          <FaFacebook size={25} />
         </>
       ), //on met le lien ou il sera diriger sil clic sur le loglinkdin apre on copie colle 4 fois pour nos besoins
-      href: "https://github.com/TIPIAIM",
+      href: "https://www.facebook.com/profile.php?id=61569855070493&mibextid=ZbWKwL",
     },
     {
       //child es la proprio enfant qui sera un jsx il ya plusieur maniere
       id: 3,
       child: (
         <>
-          E-mail
-          <MdContactMail size={30} />
+          <MdMessage size={25} />
         </>
       ), //on met le lien ou il sera diriger sil clic sur le loglinkdin apre on copie colle 4 fois pour nos besoins
-      href: "mailto:alphaousmaneousmane@gmail.com",
+      href: "mailto:amadou.diallo@aod-avocats.com",
     },
     {
+      /* {
       //child es la proprio enfant qui sera un jsx il ya plusieur maniere
       id: 4,
       child: (
         <>
-          C-Watchap
-          <AiOutlineWhatsApp size={30} />
+     
+          <FaLinkedin size={25} />
         </>
       ), //on met le lien ou il sera diriger sil clic sur le loglinkdin apre on copie colle 4 fois pour nos besoins
-      href: "https://call.whatsapp.com/voice/6BltD24KmGj7ymIleODD5N",
-      style: "rounded-tr-md",
-    },
-    {
-      //child es la proprio enfant qui sera un jsx il ya plusieur maniere
-      id: 5,
-      child: (
-        <>
-          ResumeCV
-          <FaFileDownload size={30} />
-        </>
-      ), //on met le lien ou il sera diriger sil clic sur le loglinkdin apre on copie colle 4 fois pour nos besoins
-      href: "/alphaousmane23.pdf",
-      style: "rounded-tr-md",
-      download: true,
+      href: "",
+      style: "",
+    },*/
     },
   ];
   return (
-    <div className=" hidden lg:flex flex-col top-[15%] left-0 fixed">
+    <div className=" hidden lg:flex flex-col top-[40%] left-0 fixed">
       <ul>
         {links.map(({ id, child, href, style, download }) => (
           <li
             key={id}
             className={
-              "flex bg-gradient-to- to-gray-900 via-green-300 from-black  justify-between items-center w-40 h-12 px-1 ml-[-145px] hover:ml-[-130px] hover:rounded-md duration-300 " +
+              "flex bg-gradient-to-ll to-gray-900 via-cyan-400 from-cyan-50  justify-between items-center w-40 h-12 px-1 ml-[-19px] hover:ml-[-30px] hover:rounded-md duration-300 " +
               " " +
               style
             }
           >
             <a
               href={href}
-              className="flex justify-between items-center w-full text-green-900 font-bold hover:text-blue-900 hover:underline transition-all duration-200"
+              className="flex justify-between items-center w-full text-cyan-600 font-bold hover:text-cyan-500 hover:underline transition-all duration-200"
               download={download}
               target="_blank"
               rel="noopener noreferrer"

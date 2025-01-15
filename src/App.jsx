@@ -28,19 +28,27 @@ import GlobalStyle from "./Styles/Globalstylehelve";
 import StructuredData from "./Donnestructure";
 import Contact2 from "./Mouvements/Contact2/Contact2";
 import ContactList from "./Mouvements/Contact2/Listecontact";
+import ElementList from "./Mouvements/Contact2/Listeapi";
+//import Login from "./Midentification/Seconnect";
+//import Senregistrer from "./Midentification/Senregistrer";
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <StructuredData/>
-    <Routes>
+      <StructuredData />
+      <Routes>
         <Route index element={<Accueil />} />
         {/** <Route path="*" element={<Orror />} />
-      pour */}{" "}
+      pour {" "}
+<Route path="/inscription" element={<Senregistrer />} />
+<Route path="/Login" element={<Login />} />*/}
 
-<Route path="/contact2" element={<Contact2 />} />
-<Route path="/listec" element={<ContactList />} />
+        {/**donnee prisent dns le serveur  suprimer pres */}
+        <Route path="/elementList" element={<ElementList />} />
+        {/**donnee des commentires public reçu */}
+        <Route path="/contact2" element={<Contact2 />} />
+        <Route path="/listec" element={<ContactList />} />
 
         <Route path="/accueil" element={<Accueil />} />
         <Route path="/apropos" element={<Apropos />} />

@@ -9,6 +9,20 @@ export default function ContactList() {
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(null);
 
+  // Fonction pour formater la date
+  const formatDateTime = (dateString) => {
+    const date = new Date(dateString);
+    const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+    const timeOptions = {
+      hour: "2-digit",
+      minute: "2-digit",
+    };
+
+    const formattedDate = date.toLocaleDateString("fr-FR", options);
+    const formattedTime = date.toLocaleTimeString("fr-FR", timeOptions);
+    return `${formattedDate} à ${formattedTime.replace(":", "h")}`;
+  };
+
   useEffect(() => {
     const fetchContacts = async () => {
       try {
@@ -39,7 +53,8 @@ export default function ContactList() {
         (contact) =>
           contact.nom.toLowerCase().includes(value) ||
           contact.email.toLowerCase().includes(value) ||
-          contact.message.toLowerCase().includes(value)
+          contact.message.toLowerCase().includes(value) ||
+          formatDateTime(contact.dateajout).toLowerCase().includes(value) // Recherche dans le champ date formaté
       )
     );
   };
@@ -93,9 +108,8 @@ export default function ContactList() {
                   <th className="px-6 py-3 text-left font-semibold">Nom</th>
                   <th className="px-6 py-3 text-left font-semibold">Email</th>
                   <th className="px-6 py-3 text-left font-semibold">Message</th>
-                  <th className="px-6 py-3 text-center font-semibold">
-                    Actions
-                  </th>
+                  <th className="px-6 py-3 text-left font-semibold">Date d`ajout</th>
+                  <th className="px-6 py-3 text-center font-semibold">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -113,6 +127,9 @@ export default function ContactList() {
                       </td>
                       <td className="px-6 py-3 text-gray-800">
                         {contact.message}
+                      </td>
+                      <td className="px-6 py-3 text-gray-800">
+                        {formatDateTime(contact.dateajout)}
                       </td>
                       <td className="px-6 py-3 text-center">
                         <div className="flex justify-center space-x-2">
@@ -135,7 +152,7 @@ export default function ContactList() {
                 ) : (
                   <tr>
                     <td
-                      colSpan="4"
+                      colSpan="5"
                       className="px-6 py-4 text-center text-gray-500"
                     >
                       Aucun contact trouvé.

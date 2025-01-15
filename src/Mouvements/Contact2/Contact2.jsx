@@ -1,35 +1,46 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { motion } from "framer-motion";
 import { FcAdvance } from "react-icons/fc";
+
 export default function Contact2() {
   const [values, setValues] = useState({
     nom: "",
     email: "",
     message: "",
+    dateajout: "", // Initialisé à vide
   });
-  //const VITE_APIserveur = import.meta.env.NEXT_PUBLIC_API_URL;
-  const [errors, setErrors] = useState({}); // État pour stocker les erreurs de validation
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  // Fonction améliorée pour nettoyer les entrées utilisateur
+
+  // Fonction pour récupérer la date actuelle au format "YYYY-MM-DD"
+  const getCurrentDate = () => {
+    const date = new Date();
+    return date.toLocaleDateString("fr-FR").replace(/\//g, "-");
+  };
+
+  // Initialiser la date d'ajout lorsque le composant est monté
+  useEffect(() => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      dateajout: getCurrentDate(),
+    }));
+  }, []);
+
   const sanitizeInput = (input) => {
-    // Remplace les balises HTML
     let sanitized = input.replace(/<[^>]*>?/gm, "");
-    // Supprime les caractères potentiellement dangereux
     sanitized = sanitized.replace(/["'`;|\\]/g, "");
-    // Limite les espaces multiples à un seul
     sanitized = sanitized.replace(/\s+/g, " ");
     return sanitized;
   };
-  // Validation des champs avant l'envoi
+
   const validateFields = () => {
     const newErrors = {};
 
     if (!values.nom.trim()) {
       newErrors.nom = "Le nom est obligatoire.";
     } else if (values.nom.length > 30) {
-      newErrors.nom = "Le nom ne doit pas dépasser 50 caractères.";
+      newErrors.nom = "Le nom ne doit pas dépasser 30 caractères.";
     }
 
     if (!values.email.trim()) {
@@ -41,7 +52,7 @@ export default function Contact2() {
     if (!values.message.trim()) {
       newErrors.message = "Le message est requis.";
     } else if (values.message.length > 300) {
-      newErrors.message = "Le message ne doit pas dépasser 500 caractères.";
+      newErrors.message = "Le message ne doit pas dépasser 400 caractères.";
     }
 
     setErrors(newErrors);
@@ -51,12 +62,13 @@ export default function Contact2() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateFields()) return; // Si la validation échoue, arrête l'exécution
+    if (!validateFields()) return;
 
     const sanitizedValues = {
       nom: sanitizeInput(values.nom),
       email: sanitizeInput(values.email),
       message: sanitizeInput(values.message),
+      dateajout: sanitizeInput(values.dateajout),
     };
 
     try {
@@ -64,27 +76,34 @@ export default function Contact2() {
         //`${VITE_APIserveur}/contactenvoye`,
         "http://localhost:2025/contactenvoye",
         //"https://avocatdusiteback.onrender.com/contactenvoye",
+
         sanitizedValues,
-        { timeout: 5000 } // Timeout pour éviter les requêtes bloquées
+        { timeout: 5000 }
       );
       console.log(result);
       navigate("/listec");
     } catch (err) {
       console.error("Erreur lors de l'envoi :", err);
-      alert("Une erreur est survenue. Veuillez réessayer.");
+      alert(
+        "Une erreur est survenue.Le nom doit etre superieur a 5 lettres et le message 10."
+      );
     }
   };
 
   return (
     <div className="relative min-h-screen bg-gray-900">
       <div className="relative z-10 min-h-screen flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="bg-gradient-to-br from-gray-200 p-4 rounded shadow-md"
-        >
+        <div className="bg-gradient-to-br from-gray-200 p-4 rounded shadow-md">
           <form onSubmit={handleSubmit} noValidate>
+            <div className="mb-4">
+              <input
+                type="text"
+                id="dateajout"
+                className="bg-red-50 text-sm text-center font-semibold text-blue-800 mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring focus:border-blue-500"
+                value={values.dateajout}
+                readOnly
+              />
+            </div>
             <div className="mb-4">
               <input
                 type="text"
@@ -92,7 +111,7 @@ export default function Contact2() {
                 className="bg-red-50 text-sm text-center font-semibold text-blue-800 mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring focus:border-blue-500"
                 required
                 placeholder="Nom"
-                maxLength={50}
+                maxLength={30}
                 value={values.nom}
                 onChange={(e) =>
                   setValues({ ...values, nom: sanitizeInput(e.target.value) })
@@ -141,12 +160,12 @@ export default function Contact2() {
             </div>
             <button
               type="submit"
-              className="bg-gray-900 font-serif font-bold text-white py-2 px-4 rounded-md animate-pulse hover:bg-blue-900 focus:outline-none focus:ring focus:border-blue-500"
+              className="bg-gray-900 font-serif font-bold text-white py-2 px-4 rounded-md hover:bg-blue-900 focus:outline-none focus:ring focus:border-blue-500"
             >
               <FcAdvance />
             </button>
           </form>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

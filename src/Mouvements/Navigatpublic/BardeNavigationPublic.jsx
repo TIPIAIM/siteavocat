@@ -34,7 +34,9 @@ const Logo = styled.div`
   color: white;
 
   img {
-    height: 80px;
+    height: 70px;
+      border-radius: 5px;
+
     margin-right: 0.8rem;
     cursor: pointer;
   }
@@ -211,7 +213,7 @@ export default function BardeNavigationpublic() {
             </SubMenu>
           </NavLink>
 
-          <NavLink >
+          <NavLink>
             Expertises
             <SubMenu isOpen={isMenuOpen}>
               <SubNavLink href="/nosexpertises">Nos expertises</SubNavLink>

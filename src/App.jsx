@@ -29,6 +29,7 @@ import StructuredData from "./Donnestructure";
 import Contact2 from "./Mouvements/Contact2/Contact2";
 import ContactList from "./Mouvements/Contact2/Listecontact";
 import ElementList from "./Mouvements/Contact2/Listeapi";
+import Adminfils from "./Mouvements/AClient/Adminfils";
 //import Login from "./Midentification/Seconnect";
 //import Senregistrer from "./Midentification/Senregistrer";
 
@@ -74,6 +75,9 @@ function App() {
         <Route path="/audit" element={<AuditJuridique />} />
         <Route path="/conseil" element={<Conseiljuri />} />
         <Route path="/asistance" element={<Assistance />} />
+
+        <Route path="/adminfils" element={<Adminfils />} />
+        {/**page visiteur TIPTAMcode */}
       </Routes>
     </BrowserRouter>
   );

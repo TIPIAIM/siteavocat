@@ -27,6 +27,8 @@ export default defineConfig({
         "/audit",
         "/conseil",
         "/asistance",
+
+        "/adminfils",
       ],
     }),
     react(),

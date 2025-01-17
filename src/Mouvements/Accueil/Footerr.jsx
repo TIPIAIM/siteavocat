@@ -22,7 +22,6 @@ const Composantfinal = {
 };
 
 export default function Footer() {
-  
   return (
     <FooterContainer>
       <footer>

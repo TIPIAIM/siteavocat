@@ -295,7 +295,9 @@ export default function AjouterClient() {
     } else {
       setErrors({});
       axios
-        .post("http://localhost:2025/FClient", formData)
+       // .post("http://localhost:2025/FClient", formData)//local
+        .post("https://avocatdusiteback.onrender.com/FClient", formData)//en ligne
+
         .then((response) => {
           console.log("Données enregistrées :", response.data);
           navigate("/listeCl");
@@ -348,7 +350,7 @@ export default function AjouterClient() {
             {/* Date d'ajout */}
             <StyledLabelWithIcon>
               <FaCalendarAlt />
-              <StyledLabel htmlFor="dateajout">Date d'ajout</StyledLabel>
+              <StyledLabel htmlFor="dateajout">Date d`ajout</StyledLabel>
             </StyledLabelWithIcon>
             <StyledInput
               type="datetime-local"
@@ -377,7 +379,7 @@ export default function AjouterClient() {
             <StyledLabelWithIcon>
               <FaBriefcase />
               <StyledLabel htmlFor="naturedaffaire">
-                Nature d'affaire
+                Nature d`affaire
               </StyledLabel>
             </StyledLabelWithIcon>
             <StyledSelect
@@ -386,7 +388,7 @@ export default function AjouterClient() {
               onChange={handleChange}
             >
               <option value="" disabled>
-                Choisissez une nature d'affaire...
+                Choisissez une nature d`affaire...
               </option>
               <option value="Droit Minier et de l’Environnement">
                 Droit Minier et de l’Environnement

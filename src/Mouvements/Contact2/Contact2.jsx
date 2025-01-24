@@ -39,21 +39,17 @@ export default function Contact2() {
 
     if (!values.nom.trim()) {
       newErrors.nom = "Le nom est obligatoire.";
-    } else if (values.nom.length > 30) {
-      newErrors.nom = "Le nom ne doit pas dépasser 30 caractères.";
     }
+   //  else if (values.nom.length > 30) {  newErrors.nom = "Le nom ne doit pas dépasser 30 caractères.";  }
 
     if (!values.email.trim()) {
       newErrors.email = "L'email est requis.";
-    } else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(values.email)) {
-      newErrors.email = "Veuillez entrer un email valide.";
-    }
+    } else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(values.email)) {      newErrors.email = "Veuillez entrer un email valide.";   }
 
     if (!values.message.trim()) {
       newErrors.message = "Le message est requis.";
-    } else if (values.message.length > 300) {
-      newErrors.message = "Le message ne doit pas dépasser 400 caractères.";
     }
+    // else if (values.message.length > 300) {      newErrors.message = "Le message ne doit pas dépasser 400 caractères.";    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

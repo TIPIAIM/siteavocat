@@ -12,7 +12,7 @@ export default defineConfig({
         "/accueil",
         "/apropos",
         "/contact",
-        //"/contact2",
+
         "/article",
         "/affairee",
         "/securitee",
@@ -29,12 +29,12 @@ export default defineConfig({
         "/asistance",
 
         "/adminfils",
-
+        "/contact2",
 
         "/adminmere",
-        "/comptecl",
-        "/listeCl",
-        "/miseajourAclientRecup/:id"
+        "/comptecl",//L'utilisateur client
+        "/listeCl",//liste
+        "/miseajourAclientRecup/:id",
       ],
     }),
     react(),

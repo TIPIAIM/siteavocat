@@ -168,7 +168,7 @@ export default function ListeClients() {
   const handleDelete = (clientId) => {
     if (window.confirm("Êtes-vous sûr de vouloir supprimer ce client ?")) {
       axios
-        .delete(`http://localhost:2025/deleteCl/${clientId}`)
+        .delete(`https://avocatdusiteback.onrender.com/deleteCl/${clientId}`)
         .then(() => {
           setClients(clients.filter((client) => client._id !== clientId));
         })

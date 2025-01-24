@@ -136,9 +136,9 @@ export default function MiseajourAjoutclientRecup() {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  useEffect(() => {
+  useEffect(() => {//recupere
     axios
-      .get(`http://localhost:2025/recupparidclient/${id}`)
+      .get(`https://avocatdusiteback.onrender.com/recupparidclient/${id}`)
       .then((result) => {
         const { name, adresse, numero, naturedaffaire, avocat } = result.data;
         setFormData({
@@ -196,7 +196,10 @@ export default function MiseajourAjoutclientRecup() {
 
     axios
       //  .put(`http://localhost:2025/Metajourlerecuperer/${id}`, sanitizedData)//local
-      .put(`https://avocatdusiteback.onrender.com/Metajourlerecuperer/${id}`, sanitizedData)
+      .put(
+        `https://avocatdusiteback.onrender.com/Metajourlerecuperer/${id}`,
+        sanitizedData
+      )
       .then(() => navigate("/listeCl"))
       .catch((err) => console.log(err));
   };

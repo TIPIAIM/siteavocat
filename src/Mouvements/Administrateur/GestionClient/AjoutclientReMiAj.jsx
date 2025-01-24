@@ -195,148 +195,154 @@ export default function MiseajourAjoutclientRecup() {
     }
 
     axios
-      .put(`http://localhost:2025/Metajourlerecuperer/${id}`, sanitizedData)
+      //  .put(`http://localhost:2025/Metajourlerecuperer/${id}`, sanitizedData)//local
+      .put(`https://avocatdusiteback.onrender.com/Metajourlerecuperer/${id}`, sanitizedData)
       .then(() => navigate("/listeCl"))
       .catch((err) => console.log(err));
   };
 
   return (
-    <div >
-    <Container  data-aos="fade-down">
-      <FormWrapper>
-        <Header>
-          <Title>Mettre à jour le client</Title>
-         { /*<img
+    <div>
+      <Container data-aos="fade-down">
+        <FormWrapper>
+          <Header>
+            <Title>Mettre à jour le client</Title>
+            {/*<img
             src="/img/aodblanc.avif"
             alt="Cabinet"
             style={{ width: "48px", height: "48px" }}
           />*/}
-        </Header>
-        <StyledForm onSubmit={MiseAjour}>
-          <div>
-            <Label htmlFor="name">
-              <AiOutlineUser className="inline mr-2 text-blue-900" size={20} />{" "}
-              Nom et prénom
-            </Label>
-            <Input
-              type="text"
-              id="name"
-              placeholder="Ex: alpha diallo"
-              value={formData.name}
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
-              error={errors.name}
-            />
-            {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
-          </div>
+          </Header>
+          <StyledForm onSubmit={MiseAjour}>
+            <div>
+              <Label htmlFor="name">
+                <AiOutlineUser
+                  className="inline mr-2 text-blue-900"
+                  size={20}
+                />{" "}
+                Nom et prénom
+              </Label>
+              <Input
+                type="text"
+                id="name"
+                placeholder="Ex: alpha diallo"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                error={errors.name}
+              />
+              {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
+            </div>
 
-          <div>
-            <Label htmlFor="adresse">
-              <AiOutlineEnvironment
-                className="inline text-red-600 mr-2"
-                size={20}
-              />{" "}
-              Adresse
-            </Label>
-            <Input
-              type="text"
-              id="adresse"
-              placeholder="Ex: 123 rue Exemple, Paris"
-              value={formData.adresse}
-              onChange={(e) =>
-                setFormData({ ...formData, adresse: e.target.value })
-              }
-              error={errors.adresse}
-            />
-            {errors.adresse && <ErrorMessage>{errors.adresse}</ErrorMessage>}
-          </div>
+            <div>
+              <Label htmlFor="adresse">
+                <AiOutlineEnvironment
+                  className="inline text-red-600 mr-2"
+                  size={20}
+                />{" "}
+                Adresse
+              </Label>
+              <Input
+                type="text"
+                id="adresse"
+                placeholder="Ex: 123 rue Exemple, Paris"
+                value={formData.adresse}
+                onChange={(e) =>
+                  setFormData({ ...formData, adresse: e.target.value })
+                }
+                error={errors.adresse}
+              />
+              {errors.adresse && <ErrorMessage>{errors.adresse}</ErrorMessage>}
+            </div>
 
-          <div>
-            <Label htmlFor="numero">
-              <AiOutlinePhone
-                className="inline mr-2 text-yellow-900"
-                size={20}
-              />{" "}
-              Téléphone
-            </Label>
-            <Input
-              type="tel"
-              id="numero"
-              placeholder="Ex: 0612345678"
-              value={formData.numero}
-              onChange={(e) =>
-                setFormData({ ...formData, numero: e.target.value })
-              }
-              error={errors.numero}
-            />
-            {errors.numero && <ErrorMessage>{errors.numero}</ErrorMessage>}
-          </div>
+            <div>
+              <Label htmlFor="numero">
+                <AiOutlinePhone
+                  className="inline mr-2 text-yellow-900"
+                  size={20}
+                />{" "}
+                Téléphone
+              </Label>
+              <Input
+                type="tel"
+                id="numero"
+                placeholder="Ex: 0612345678"
+                value={formData.numero}
+                onChange={(e) =>
+                  setFormData({ ...formData, numero: e.target.value })
+                }
+                error={errors.numero}
+              />
+              {errors.numero && <ErrorMessage>{errors.numero}</ErrorMessage>}
+            </div>
 
-          <div>
-            <Label htmlFor="avocat">
-              <FaGavel className="inline mr-2 text-blue-950" size={20} /> Avocat
-            </Label>
-            <Select
-              id="avocat"
-              value={formData.avocat}
-              onChange={(e) =>
-                setFormData({ ...formData, avocat: e.target.value })
-              }
-              error={errors.avocat}
-            >
-              <option value="" disabled>
-                Choisissez un avocat...
-              </option>
-              <option value="Maitre Amadou Oury">Maitre Amadou Oury</option>
-              <option value="Maitre Bangoura">Maitre Bangoura</option>
-              <option value="Maitre Keita">Maitre Keita</option>
-            </Select>
-            {errors.avocat && <ErrorMessage>{errors.avocat}</ErrorMessage>}
-          </div>
+            <div>
+              <Label htmlFor="avocat">
+                <FaGavel className="inline mr-2 text-blue-950" size={20} />{" "}
+                Avocat
+              </Label>
+              <Select
+                id="avocat"
+                value={formData.avocat}
+                onChange={(e) =>
+                  setFormData({ ...formData, avocat: e.target.value })
+                }
+                error={errors.avocat}
+              >
+                <option value="" disabled>
+                  Choisissez un avocat...
+                </option>
+                <option value="Maitre Amadou Oury">Maitre Amadou Oury</option>
+                <option value="Maitre Bangoura">Maitre Bangoura</option>
+                <option value="Maitre Keita">Maitre Keita</option>
+              </Select>
+              {errors.avocat && <ErrorMessage>{errors.avocat}</ErrorMessage>}
+            </div>
 
-          <div>
-            <Label htmlFor="naturedaffaire">
-              <AiOutlineBook className="inline mr-2 text-green-900" size={20} />{" "}
-              Nature d`affaire
-            </Label>
-            <Select
-              id="naturedaffaire"
-              value={formData.naturedaffaire}
-              onChange={(e) =>
-                setFormData({ ...formData, naturedaffaire: e.target.value })
-              }
-              error={errors.naturedaffaire}
-            >
-              <option value="" disabled>
-                Sélectionnez une nature...
-              </option>
-              <option value="Droit Minier et de l’Environnement">
-                Droit Minier et de l’Environnement
-              </option>
-              <option value="Droit Sociale et Sécurité Sociale">
-                Droit Sociale et Sécurité Sociale
-              </option>
-              <option value="Droit des Affaires">Droit des Affaires</option>
-              <option value="Droit du Sport">Droit du Sport</option>
-              <option value="Défense Pénale">Défense Pénale</option>
-              <option value="Arbitrage">Arbitrage</option>
-              <option value="Correctionnelle">Correctionnelle</option>
-              <option value="Civile">Civile</option>
-              <option value="Commerciale">Commerciale</option>
-              <option value="Autres">Autres</option>
-            </Select>
-            {errors.naturedaffaire && (
-              <ErrorMessage>{errors.naturedaffaire}</ErrorMessage>
-            )}
-          </div>
+            <div>
+              <Label htmlFor="naturedaffaire">
+                <AiOutlineBook
+                  className="inline mr-2 text-green-900"
+                  size={20}
+                />{" "}
+                Nature d`affaire
+              </Label>
+              <Select
+                id="naturedaffaire"
+                value={formData.naturedaffaire}
+                onChange={(e) =>
+                  setFormData({ ...formData, naturedaffaire: e.target.value })
+                }
+                error={errors.naturedaffaire}
+              >
+                <option value="" disabled>
+                  Sélectionnez une nature...
+                </option>
+                <option value="Droit Minier et de l’Environnement">
+                  Droit Minier et de l’Environnement
+                </option>
+                <option value="Droit Sociale et Sécurité Sociale">
+                  Droit Sociale et Sécurité Sociale
+                </option>
+                <option value="Droit des Affaires">Droit des Affaires</option>
+                <option value="Droit du Sport">Droit du Sport</option>
+                <option value="Défense Pénale">Défense Pénale</option>
+                <option value="Arbitrage">Arbitrage</option>
+                <option value="Correctionnelle">Correctionnelle</option>
+                <option value="Civile">Civile</option>
+                <option value="Commerciale">Commerciale</option>
+                <option value="Autres">Autres</option>
+              </Select>
+              {errors.naturedaffaire && (
+                <ErrorMessage>{errors.naturedaffaire}</ErrorMessage>
+              )}
+            </div>
 
-          <SubmitButton type="submit">Mettre à jour</SubmitButton>
-        </StyledForm>
-      </FormWrapper>
-    </Container>
-
+            <SubmitButton type="submit">Mettre à jour</SubmitButton>
+          </StyledForm>
+        </FormWrapper>
+      </Container>
     </div>
-
   );
 }

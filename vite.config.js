@@ -29,6 +29,12 @@ export default defineConfig({
         "/asistance",
 
         "/adminfils",
+
+
+        "/adminmere",
+        "/comptecl",
+        "/listeCl",
+        "/miseajourAclientRecup/:id"
       ],
     }),
     react(),

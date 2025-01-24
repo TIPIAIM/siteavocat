@@ -1,0 +1,18 @@
+.addcontainer form input{
+    font-size: 16px; 
+}
+.addcontainer form button{
+    font-weight: 500;  
+}
+
+.addcontainer form .close-btn{
+margin-left: auto;
+font-size: 22px;
+width: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 20px;
+border: 1px solid #000;
+cursor: pointer;
+}

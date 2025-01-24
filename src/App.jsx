@@ -30,6 +30,9 @@ import Contact2 from "./Mouvements/Contact2/Contact2";
 import ContactList from "./Mouvements/Contact2/Listecontact";
 import ElementList from "./Mouvements/Contact2/Listeapi";
 import Adminfils from "./Mouvements/AClient/Adminfils";
+import AjouterClient from "./Mouvements/Administrateur/GestionClient/AjouterClient";
+import ListeClients from "./Mouvements/Administrateur/GestionClient/AjoutClientRecupL";
+import MiseajourAjoutclientRecup from "./Mouvements/Administrateur/GestionClient/AjoutclientReMiAj";
 //import Login from "./Midentification/Seconnect";
 //import Senregistrer from "./Midentification/Senregistrer";
 
@@ -75,6 +78,14 @@ function App() {
         <Route path="/audit" element={<AuditJuridique />} />
         <Route path="/conseil" element={<Conseiljuri />} />
         <Route path="/asistance" element={<Assistance />} />
+
+        {/**admin */}
+        <Route path="/comptecl" element={<AjouterClient />} />
+        <Route path="/listeCl" element={<ListeClients />} />
+        <Route path="/miseajourAclientRecup/:id" element={<MiseajourAjoutclientRecup />} />
+
+
+
 
         <Route path="/adminfils" element={<Adminfils />} />
         {/**page visiteur TIPTAMcode */}

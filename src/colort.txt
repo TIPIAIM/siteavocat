@@ -1,5 +1,5 @@
 couleur : 
-RGBA :rgba(3, 4, 94, 1)
+RGBA :rgba(228, 234, 240, 0.48)
 
 rgba(10, 34, 64, 0.9)
 023e8a
@@ -12,7 +12,8 @@ RGBA :rgba(0, 119, 182, 1)
 RGBA : rgba(0, 180, 216, 1)
 00b4d8      
 
-
+rgba(243, 5, 37, 0.98)
+023e8a
 
 
 texte: 

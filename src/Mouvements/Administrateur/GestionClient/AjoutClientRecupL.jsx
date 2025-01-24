@@ -144,7 +144,7 @@ export default function ListeClients() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:2025/FClientl") //local
+      // .get("http://localhost:2025/FClientl") //local
       .get(" https://avocatdusiteback.onrender.com/FClientl") //en ligne
       .then((response) => {
         const sortedClients = response.data.sort(

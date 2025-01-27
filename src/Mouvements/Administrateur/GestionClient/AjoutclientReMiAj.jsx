@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Form from "react-bootstrap/Form";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   AiOutlineUser,
   AiOutlinePhone,
@@ -93,7 +95,6 @@ const ErrorMessage = styled.p`
 
 const SubmitButton = styled.button`
   width: 50%;
-
   padding: 0.75rem;
   font-size: 1rem;
   font-weight: bold;
@@ -136,18 +137,14 @@ export default function MiseajourAjoutclientRecup() {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  useEffect(() => {//recupere
+  const aodb = import.meta.env.VITE_b;
+
+  useEffect(() => {
     axios
-      .get(`https://avocatdusiteback.onrender.com/recupparidclient/${id}`)
+      .get(`${aodb}/recupparidclient/${id}`)
       .then((result) => {
         const { name, adresse, numero, naturedaffaire, avocat } = result.data;
-        setFormData({
-          name,
-          adresse,
-          numero,
-          naturedaffaire,
-          avocat,
-        });
+        setFormData({ name, adresse, numero, naturedaffaire, avocat });
       })
       .catch((err) => console.log(err));
   }, [id]);
@@ -159,21 +156,10 @@ export default function MiseajourAjoutclientRecup() {
     const { name, adresse, numero, naturedaffaire, avocat } = formData;
 
     if (!name.trim()) newErrors.name = "Nom et prénom obligatoire.";
-    else if (name.length > 30)
-      newErrors.name = "Maximum 30 caractères autorisés.";
-
     if (!adresse.trim()) newErrors.adresse = "Adresse obligatoire.";
-    else if (adresse.length > 30)
-      newErrors.adresse = "Maximum 30 caractères autorisés.";
-
     if (!numero.trim()) newErrors.numero = "Numéro de téléphone obligatoire.";
-    else if (!/^[0-9]{8,15}$/.test(numero))
-      newErrors.numero = "Numéro invalide (8 à 15 chiffres).";
-
-    if (!naturedaffaire)
-      newErrors.naturedaffaire = "La nature de l'affaire est obligatoire.";
-
-    if (!avocat) newErrors.avocat = "L'avocat est obligatoire.";
+    if (!naturedaffaire) newErrors.naturedaffaire = "Nature obligatoire.";
+    if (!avocat) newErrors.avocat = "Avocat obligatoire.";
 
     return newErrors;
   };
@@ -191,30 +177,28 @@ export default function MiseajourAjoutclientRecup() {
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      toast.error("Veuillez corriger les erreurs !");
       return;
     }
 
     axios
-      //  .put(`http://localhost:2025/Metajourlerecuperer/${id}`, sanitizedData)//local
-      .put(
-        `https://avocatdusiteback.onrender.com/Metajourlerecuperer/${id}`,
-        sanitizedData
-      )
-      .then(() => navigate("/listeCl"))
-      .catch((err) => console.log(err));
+      .put(`${aodb}/Metajourlerecuperer/${id}`, sanitizedData)
+      .then(() => {
+        toast.success("Mise à jour réussie !");
+        setTimeout(() => navigate("/listeCl"), 2000);
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.error("Erreur les champs sont obligatoires !");
+      });
   };
 
   return (
     <div>
-      <Container data-aos="fade-down">
+      <Container>
         <FormWrapper>
           <Header>
             <Title>Mettre à jour le client</Title>
-            {/*<img
-            src="/img/aodblanc.avif"
-            alt="Cabinet"
-            style={{ width: "48px", height: "48px" }}
-          />*/}
           </Header>
           <StyledForm onSubmit={MiseAjour}>
             <div>
@@ -346,6 +330,53 @@ export default function MiseajourAjoutclientRecup() {
           </StyledForm>
         </FormWrapper>
       </Container>
+      {/* Configuration des notifications avec styles personnalisés */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        toastClassName="custom-toast"
+        bodyClassName="custom-toast-body"
+        progressClassName="custom-progress-bar"
+        closeButtonClassName="custom-close-button"
+      />
+
+      <style>
+        {`
+       .custom-toast {
+  background: #caf0f8 !important; /* Bleu foncé */
+  color: #03045e !important; /* Blanc */
+  border-radius: 1px !important; /* Coins arrondis */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.9) !important; /* Ombre */
+  padding: 4px !important; /* Marges internes */
+}
+
+.custom-toast-body {
+  font-size: 1rem !important; /* Taille de texte */
+  font-weight: bold !important; /* Texte en gras */
+  color: #03045e !important; /* Couleur du texte */
+}
+
+.custom-progress-bar {
+  background: linear-gradient(90deg, #03045e, #03045e) !important; /* Dégradé */
+  height: 4px !important; /* Hauteur */
+}
+
+.custom-close-button {
+  color: #03045e !important; /* Couleur par défaut */
+  background: transparent !important; /* Fond transparent */
+  border: none !important; /* Pas de bordure */
+}
+
+.custom-close-button:hover {
+  color: #03045e !important; /* Rouge clair au survol */
+}
+
+        `}
+      </style>
     </div>
   );
 }

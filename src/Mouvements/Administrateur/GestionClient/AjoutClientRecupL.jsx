@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Footer from "../../Accueil/Footerr";
 import { Link } from "react-router-dom";
 import { ImPencil2 } from "react-icons/im";
 import { MdAutoDelete } from "react-icons/md";
 import { CloseButton } from "react-bootstrap";
+
 const Container = styled.div`
   padding: 2rem;
   background-color: #f9fafb;
@@ -43,7 +46,7 @@ const Th = styled.th`
   text-align: left;
   background: #1e3a8a;
   color: #ffffff;
-  font-size: 0.9rem; /* Taille réduite */
+  font-size: 0.9rem;
 `;
 
 const Td = styled.td`
@@ -51,16 +54,15 @@ const Td = styled.td`
   border-top: 1px solid #e5e7eb;
   text-align: left;
   color: #374151;
-  font-size: 0.85rem; /* Taille réduite */
+  font-size: 0.85rem;
 `;
 
 const Button = styled.button`
-  padding: 0.3rem 0.5rem; /* Augmentation des dimensions pour plus de confort */
+  padding: 0.3rem 0.5rem;
   margin: 0 0.3rem;
   border: none;
-  border-radius: 8px; /* Coins arrondis pour un design plus moderne */
+  border-radius: 8px;
   font-size: 1rem;
-  font-weight: ; /* Texte plus visible */
   cursor: pointer;
   color: #ffffff;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -71,26 +73,22 @@ const Button = styled.button`
   }
 
   &:active {
-    transform: scale(1.2); /* Légère réduction pour simuler un clic */
+    transform: scale(1.2);
   }
 
   &.edit {
     background-color: #2563eb;
-    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
 
     &:hover {
       background-color: #1e3a8a;
-      box-shadow: 0 4px 8px rgba(30, 58, 138, 0.3); /* Effet de survol plus visible */
     }
   }
 
   &.delete {
     background-color: #dc2626;
-    box-shadow: 2px 2px 2px rgba(220, 38, 38, 1);
 
     &:hover {
       background-color: #b91c1c;
-      box-shadow: 0 4px 8px rgba(185, 28, 28, 0.3); /* Effet de survol plus visible */
     }
   }
 `;
@@ -101,39 +99,34 @@ const TotalCount = styled.div`
   font-weight: bold;
   color: #2563eb;
 `;
+
 const ButtonGroup = styled.div`
   display: flex;
-  gap: 0.1rem; /* Espacement entre les boutons */
+  gap: 0.1rem;
 `;
-
 const BackLink = styled(Link)`
   display: inline-block;
-  margin: 1rem 1rem;
-  padding: 0.2rem;
-  font-size: 0.6rem; /* Taille de police augmentée pour une meilleure lisibilité */
-  font-weight: bold; /* Texte en gras */
-  color: #ffffff;
-  background-color: #;
+  margin: 0.5rem ;
+  padding: 0.5rem ;
+  font-size: 0.4rem;
+  font-weight: bold;
+ color: #ffffff;
+  background-color: #ade8f4;
   text-decoration: none;
-  border-radius: 12px; /* Coins plus arrondis */
-  box-shadow: 0 4px 6px rgba(243, 5, 37, 1); /* Légère ombre pour un effet de relief */
-  transition: background-color 0.3s ease, transform 0.2s ease,
-    box-shadow 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 2px 4px 6px rgba(243, 5, 37, 0.6);
+  transition: all 0.3s ease;
 
   &:hover {
-    background-color: rgba(
-      243,
-      5,
-      37,
-      0.98
-    ); /* Couleur plus foncée au survol */
-    transform: translateY(-5px); /* Effet de soulèvement */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée */
+    background-color: #023e8a;
+    color: #caf0f8;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
   }
 
   &:active {
-    transform: translateY(); /* Retour à l'état initial lors du clic */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Réduction de l'ombre */
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -142,20 +135,24 @@ export default function ListeClients() {
   const [search, setSearch] = useState("");
   const [filteredClients, setFilteredClients] = useState([]);
 
-  useEffect(() => {
-    axios
-      // .get("http://localhost:2025/FClientl") //local
-      .get(" https://avocatdusiteback.onrender.com/FClientl") //en ligne
-      .then((response) => {
-        const sortedClients = response.data.sort(
-          (a, b) => new Date(b.dateajout) - new Date(a.dateajout)
-        );
-        setClients(sortedClients);
-        setFilteredClients(sortedClients);
-      })
-      .catch((error) =>
-        console.error("Erreur lors de la récupération :", error)
+  const aodb = import.meta.env.VITE_b;
+
+  const fetchClients = async () => {
+    try {
+      const response = await axios.get(`${aodb}/FClientl`);
+      const sortedClients = response.data.sort(
+        (a, b) => new Date(b.dateajout) - new Date(a.dateajout)
       );
+      setClients(sortedClients);
+      setFilteredClients(sortedClients);
+    } catch (error) {
+      console.error("Erreur lors de la récupération :", error);
+      toast.error("Erreur lors du chargement des clients !");
+    }
+  };
+
+  useEffect(() => {
+    fetchClients();
   }, []);
 
   useEffect(() => {
@@ -165,34 +162,81 @@ export default function ListeClients() {
     setFilteredClients(filtered);
   }, [search, clients]);
 
-  const handleDelete = (clientId) => {
-    if (window.confirm("Êtes-vous sûr de vouloir supprimer ce client ?")) {
-      axios
-        .delete(`https://avocatdusiteback.onrender.com/deleteCl/${clientId}`)
-        .then(() => {
-          setClients(clients.filter((client) => client._id !== clientId));
-        })
-        .catch((error) =>
-          console.error("Erreur lors de la suppression :", error)
-        );
+  const handleDelete = async (clientId) => {
+    try {
+      await axios.delete(`${aodb}/deleteCl/${clientId}`);
+      toast.success("Client supprimé avec succès !");
+      fetchClients(); // Actualiser les données après suppression
+    } catch (error) {
+      console.error("Erreur lors de la suppression :", error);
+      toast.error(
+        "Erreur : impossible de supprimer le client. Vérifiez votre connexion ou contactez l'administrateur."
+      );
     }
   };
 
   return (
     <div>
+      {/* Configuration des notifications avec styles personnalisés */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        toastClassName="custom-toast"
+        bodyClassName="custom-toast-body"
+        progressClassName="custom-progress-bar"
+        closeButtonClassName="custom-close-button"
+      />
+
+      <style>
+        {`
+       .custom-toast {
+  background: #caf0f8 !important; /* Bleu foncé */
+  color: #03045e !important; /* Blanc */
+  border-radius: 1px !important; /* Coins arrondis */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.9) !important; /* Ombre */
+  padding: 4px !important; /* Marges internes */
+}
+
+.custom-toast-body {
+  font-size: 0.9rem !important; /* Taille de texte */
+  text-lign: center !important;/*centrer*/
+  font-weight: bold !important; /* Texte en gras */
+  color: #03045e !important; /* Couleur du texte */
+}
+
+.custom-progress-bar {
+  background: linear-gradient(90deg, #03045e, #03045e) !important; /* Dégradé */
+  height: 4px !important; /* Hauteur */
+}
+
+.custom-close-button {
+  color: #03045e !important; /* Couleur par défaut */
+  background: transparent !important; /* Fond transparent */
+  border: none !important; /* Pas de bordure */
+}
+
+.custom-close-button:hover {
+  color: #03045e !important; /* Rouge clair au survol */
+}
+
+        `}
+      </style>
+
       <BackLink to="/gestclient">
         <CloseButton />
       </BackLink>
-      <Container className=" mt-20" data-aos="fade-down">
+      <Container className="mt-20" data-aos="fade-down">
         <SearchInput
           type="text"
           placeholder="Rechercher par ..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <TotalCount>
-          Nombre total d`enregistrements : {filteredClients.length}
-        </TotalCount>
+        <TotalCount>Enregistrements : {filteredClients.length}</TotalCount>
         <Table>
           <thead>
             <tr>
@@ -237,7 +281,7 @@ export default function ListeClients() {
           </tbody>
         </Table>
       </Container>
-      <div className=" mt-40" data-aos="fade-down">
+      <div className="mt-40" data-aos="fade-down">
         <Footer />
       </div>
     </div>

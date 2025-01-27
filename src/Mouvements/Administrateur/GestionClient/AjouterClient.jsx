@@ -197,35 +197,34 @@ const ErrorMessage = styled.div`
 `;
 const BackLink = styled(Link)`
   display: inline-block;
-  margin: 1rem 1rem;
-  padding: 0.2rem;
-  font-size: 0.6rem; /* Taille de police augmentée pour une meilleure lisibilité */
-  font-weight: bold; /* Texte en gras */
-  color: #ffffff;
-  background-color: #;
+  margin: 0.5rem ;
+  padding: 0.5rem ;
+  font-size: 0.4rem;
+  font-weight: bold;
+ color: #ffffff;
+  background-color: #ade8f4;
   text-decoration: none;
-  border-radius: 12px; /* Coins plus arrondis */
-  box-shadow: 0 4px 6px rgba(243, 5, 37, 1); /* Légère ombre pour un effet de relief */
-  transition: background-color 0.3s ease, transform 0.2s ease,
-    box-shadow 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 2px 4px 6px rgba(243, 5, 37, 0.6);
+  transition: all 0.3s ease;
 
   &:hover {
-    background-color: rgba(
-      243,
-      5,
-      37,
-      0.98
-    ); /* Couleur plus foncée au survol */
-    transform: translateY(-5px); /* Effet de soulèvement */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée */
+    background-color: #023e8a;
+    color: #caf0f8;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
   }
 
   &:active {
-    transform: translateY(); /* Retour à l'état initial lors du clic */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Réduction de l'ombre */
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   }
 `;
+
 export default function AjouterClient() {
+  const aodb = import.meta.env.VITE_b; //e-
+  //const aodbs = import.meta.env.VITE_bs; //e-
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
@@ -294,9 +293,11 @@ export default function AjouterClient() {
       setErrors(validationErrors);
     } else {
       setErrors({});
+
       axios
-       // .post("http://localhost:2025/FClient", formData)//local
-        .post("https://avocatdusiteback.onrender.com/FClient", formData)//en ligne
+        .post(`${aodb}/FClient`, formData) //cal
+        // .post(`${aodbs}/FClient`, formData) //orduc
+        //.post("https://avocatdusiteback.onrender.com/FClient", formData)//en ligne
 
         .then((response) => {
           console.log("Données enregistrées :", response.data);

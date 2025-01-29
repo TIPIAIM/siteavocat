@@ -32,8 +32,9 @@ export default defineConfig({
         "/contact2",
 
         "/adminmere",
-        "/comptecl",//enregistrement des clients L'utilisateur client
-        "/listeCl",//liste
+        "gestclient", //Gestclient
+        "/comptecl", //enregistrement des clients L'utilisateur client
+        "/listeCl", //liste
         "/miseajourAclientRecup/:id",
       ],
     }),

@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import styled from "styled-components";
@@ -21,7 +22,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //background: linear-gradient(to bottom, #0488b2, #000);
   color: white;
   padding: 20px;
   box-sizing: border-box;
@@ -36,8 +36,6 @@ const Title = styled.h1`
   margin-bottom: 20px;
   color: #0f172a;
   text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4);
-
-  text-shadow: ;
   font-family: "Helvetica55Roman", Arial, sans-serif;
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -52,65 +50,62 @@ const Description = styled.p`
   line-height: 1.5;
   color: #0f172a;
   font-weight: 400;
-
   @media (max-width: 768px) {
-    padding: 15px;
-    line-height: 1.6;
     font-size: 1rem;
-    text-align: justify; /* Justification également sur les petits écrans */
-    text-align: left; /* Alignement du texte à gauche */
-    width: 100%; /* Le texte occupe tout l'espace du conteneur */
-    box-sizing: border-box;
-    white-space: normal; /* Les sauts de ligne automatiques sont autorisés */
-    overflow-wrap: anywhere; /* Les mots peuvent être coupés n'importe où */
-    word-break: break-word; /* Coupe les mots pour éviter des espaces vides */
-    hyphens: auto; /* Ajoute des traits d'union pour les mots longs si nécessaire */
   }
 `;
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 25px;
+  gap: 30px;
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;
   box-sizing: border-box;
-  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
-
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
 `;
 
-const Card = styled.div`
-  background: rgba(10, 34, 64, 0.9);
-  border-radius: 12px;
-  padding: 0px;
-  text-align: center;
-  box-shadow: -2px -2px 10px;
-  transition: transform 0.5s ease;
-  overflow: hidden;
+const Card = styled(motion.div)`
+  // Style de base pour la carte
+  background: rgba(10, 34, 64, 0.9); // Fond avec un léger effet de transparence
+  border-radius: 12px; // Coins arrondis pour un aspect doux
+  padding: 0px; // Pas de marge intérieure
+  text-align: center; // Texte centré dans la carte
+  overflow: hidden; // Empêche le débordement du contenu de la carte
+  cursor: pointer; // Change le curseur pour indiquer un élément cliquable
+  position: relative; // Nécessaire pour certains effets d'animation positionnés
 
+ 
   &:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px); // Légère remontée au survol pour plus de dynamisme
+    box-shadow: 0 12px 24px rgba(0, 100, 255, 0.2); // Ombre plus marquée au survol
   }
 
-  @media (max-width: 768px) {
-    padding: 0px;
-    margin: 10px;
+  @keyframes rippleEffect {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 20px rgba(0, 100, 255, 0.2);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 100, 255, 0.5);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 20px rgba(0, 100, 255, 0.2);
+    }
   }
 `;
+
 
 const CardImage = styled.img`
   width: 100%;
   height: 250px;
-  max-height: 250px;
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 10px;
-
   @media (max-width: 768px) {
     max-height: 150px;
   }
@@ -119,12 +114,9 @@ const CardImage = styled.img`
 const CardTitle = styled.h3`
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 0px;
   color: #00b4d8;
-
   @media (max-width: 768px) {
     font-size: 1.3rem;
-    margin-bottom: 0px;
   }
 `;
 
@@ -133,44 +125,44 @@ const CardDescription = styled.p`
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.5;
   font-weight: 300;
-  text-align: left; /* Alignement du texte à gauche */
-
+  text-align: left;
   padding: 20px;
+  max-height: 5em;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
 
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
-    padding-left: 0.75rem; /* Espacement réduit pour harmoniser */
-    text-align: left; /* Alignement du texte à gauche */
-    padding: 30px;
+  &.expanded {
+    max-height: 1000px;
   }
 `;
 
-// Individual Card with Intersection Observer
 const AnimatedCard = ({ title, description, image }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <Card
       ref={ref}
-      style={{
-        opacity: inView ? 1 : 0,
-        transform: inView ? "none" : "translateY(50px)",
-        transition: "all 0.5s ease-in-out",
-      }}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.9 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      whileHover={{ scale: 1.05 }}
+      onClick={() => setExpanded(!expanded)}
     >
       <CardImage src={image} alt={title || "Card Image"} />
       <CardTitle>{title}</CardTitle>
-      <CardDescription>{description}</CardDescription>
+      <CardDescription className={expanded ? "expanded" : ""}>
+        {description}
+      </CardDescription>
     </Card>
   );
 };
 
-// Enhanced Component
 const Nosservicess = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: true, // L'animation ne se répète pas après la première exécution
+      once: true,
     });
   }, []);
 
@@ -217,13 +209,13 @@ const Nosservicess = () => {
     },
   ];
 
+
   return (
     <Container>
-      <Title>Nos services</Title>
+      <Title>Services</Title>
       <Description>
         Notre cabinet offre des services juridiques de qualité dans divers
-        domaines, avec une expertise reconnue et une approche humaine pour
-        répondre à vos besoins spécifiques.
+        domaines, avec une expertise reconnue et une approche humaine.
       </Description>
       <Grid>
         {services.map((service, index) => (

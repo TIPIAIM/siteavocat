@@ -33,6 +33,7 @@ import Adminfils from "./Mouvements/AClient/Adminfils";
 import AjouterClient from "./Mouvements/Administrateur/GestionClient/AjouterClient";
 import ListeClients from "./Mouvements/Administrateur/GestionClient/AjoutClientRecupL";
 import MiseajourAjoutclientRecup from "./Mouvements/Administrateur/GestionClient/AjoutclientReMiAj";
+import Gclient from "./Mouvements/Administrateur/GestionClient/Gclient";
 //import Login from "./Midentification/Seconnect";
 //import Senregistrer from "./Midentification/Senregistrer";
 
@@ -80,6 +81,7 @@ function App() {
         <Route path="/asistance" element={<Assistance />} />
 
         {/**admin */}
+        <Route path="/gestclient" element={<Gclient />} />  
         <Route path="/comptecl" element={<AjouterClient />} />
         <Route path="/listeCl" element={<ListeClients />} />
         <Route path="/miseajourAclientRecup/:id" element={<MiseajourAjoutclientRecup />} />

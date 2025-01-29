@@ -197,11 +197,13 @@ const ErrorMessage = styled.div`
 `;
 const BackLink = styled(Link)`
   display: inline-block;
-  margin: 0.5rem ;
-  padding: 0.5rem ;
+  margin: 0.5rem;
+  padding: 0.5rem;
   font-size: 0.4rem;
   font-weight: bold;
- color: #ffffff;
+  color: #ffffff;
+  margin-top: 2rem;
+  margin-left: 2rem;
   background-color: #ade8f4;
   text-decoration: none;
   border-radius: 12px;
@@ -310,7 +312,7 @@ export default function AjouterClient() {
   };
 
   return (
-    <div>
+    <div className=" bg-teal-50/30 ">
       <BackLink to="/gestclient">
         <CloseButton />
       </BackLink>

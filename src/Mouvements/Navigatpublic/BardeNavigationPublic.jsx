@@ -34,8 +34,8 @@ const Logo = styled.div`
   color: white;
 
   img {
-    height: 70px;
-      border-radius: 5px;
+    height: 50px;
+    border-radius: 5px;
 
     margin-right: 0.8rem;
     cursor: pointer;

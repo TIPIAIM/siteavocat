@@ -23,6 +23,7 @@ const Container = styled.div`
   background: linear-gradient(to right, #f8fafc, #f8fafc);
 `;
 
+
 const FormWrapper = styled.div`
   width: 100%;
   max-width: 500px;
@@ -185,7 +186,7 @@ export default function MiseajourAjoutclientRecup() {
       .put(`${aodb}/Metajourlerecuperer/${id}`, sanitizedData)
       .then(() => {
         toast.success("Mise à jour réussie !");
-        setTimeout(() => navigate("/listeCl"), 2000);
+        setTimeout(() => navigate("/listeCl"), 1000);
       })
       .catch((err) => {
         console.error(err);
@@ -195,8 +196,8 @@ export default function MiseajourAjoutclientRecup() {
 
   return (
     <div>
-      <Container>
-        <FormWrapper>
+      <Container >
+        <FormWrapper className=" mt-40 mb-40">
           <Header>
             <Title>Mettre à jour le client</Title>
           </Header>
@@ -333,7 +334,7 @@ export default function MiseajourAjoutclientRecup() {
       {/* Configuration des notifications avec styles personnalisés */}
       <ToastContainer
         position="top-right"
-        autoClose={3000}
+        autoClose={1000}
         hideProgressBar={false}
         closeOnClick
         pauseOnHover

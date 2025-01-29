@@ -10,7 +10,7 @@ import { MdAutoDelete } from "react-icons/md";
 import { CloseButton } from "react-bootstrap";
 
 const Container = styled.div`
-  padding: 2rem;
+  padding: 4rem;
   background-color: #f9fafb;
   min-height: 100vh;
 `;
@@ -35,7 +35,8 @@ const SearchInput = styled.input`
 
 const Table = styled.table`
   width: 100%;
-  margin: 1rem auto;
+  margin-bottom: 8rem;
+  margin-top: 8rem;
   border-collapse: collapse;
   background: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -104,13 +105,14 @@ const ButtonGroup = styled.div`
   display: flex;
   gap: 0.1rem;
 `;
+
 const BackLink = styled(Link)`
   display: inline-block;
-  margin: 0.5rem ;
-  padding: 0.5rem ;
+  margin: 0.5rem;
+  padding: 0.5rem;
   font-size: 0.4rem;
   font-weight: bold;
- color: #ffffff;
+  color: #ffffff;
   background-color: #ade8f4;
   text-decoration: none;
   border-radius: 12px;
@@ -156,9 +158,11 @@ export default function ListeClients() {
   }, []);
 
   useEffect(() => {
-    const filtered = clients.filter((client) =>
-      client.name.toLowerCase().includes(search.toLowerCase())
-    );
+    const filtered = clients.filter((client) => {
+      return Object.values(client).some((value) =>
+        value.toString().toLowerCase().includes(search.toLowerCase())
+      );
+    });
     setFilteredClients(filtered);
   }, [search, clients]);
 
@@ -177,10 +181,9 @@ export default function ListeClients() {
 
   return (
     <div>
-      {/* Configuration des notifications avec styles personnalisés */}
       <ToastContainer
         position="top-right"
-        autoClose={3000}
+        autoClose={1000}
         hideProgressBar={false}
         closeOnClick
         pauseOnHover
@@ -190,7 +193,6 @@ export default function ListeClients() {
         progressClassName="custom-progress-bar"
         closeButtonClassName="custom-close-button"
       />
-
       <style>
         {`
        .custom-toast {
@@ -202,8 +204,7 @@ export default function ListeClients() {
 }
 
 .custom-toast-body {
-  font-size: 0.9rem !important; /* Taille de texte */
-  text-lign: center !important;/*centrer*/
+  font-size: 1rem !important; /* Taille de texte */
   font-weight: bold !important; /* Texte en gras */
   color: #03045e !important; /* Couleur du texte */
 }
@@ -225,11 +226,10 @@ export default function ListeClients() {
 
         `}
       </style>
-
-      <BackLink to="/gestclient">
-        <CloseButton />
-      </BackLink>
-      <Container className="mt-20" data-aos="fade-down">
+      <Container>
+        <BackLink to="/gestclient">
+          <CloseButton />
+        </BackLink>
         <SearchInput
           type="text"
           placeholder="Rechercher par ..."
@@ -238,7 +238,7 @@ export default function ListeClients() {
         />
         <TotalCount>Enregistrements : {filteredClients.length}</TotalCount>
         <Table>
-          <thead>
+          <thead className="text-center">
             <tr>
               <Th>Identifiants</Th>
               <Th>Noms</Th>
@@ -281,9 +281,7 @@ export default function ListeClients() {
           </tbody>
         </Table>
       </Container>
-      <div className="mt-40" data-aos="fade-down">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

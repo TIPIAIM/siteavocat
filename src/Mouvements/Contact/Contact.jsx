@@ -14,8 +14,8 @@ const ContactContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   min-height: 100vh;
-  padding: 20px;
-
+  padding: 30px;
+  margin: 0.5rem;
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 15px;
@@ -39,7 +39,7 @@ const FormSection = styled.div`
   flex: 1;
   padding: 40px;
   background: #1e293b;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,9 +151,7 @@ export default function Contact() {
         <BardeNavigationpublic />
         <div className="absolute inset-0 bg-black/50 z-10" />
         <LazyLoad height={400} offset={100} debounce={300} once>
-          {!imageLoaded && !imageError && (
-            <Placeholder>TIPTAM ...</Placeholder>
-          )}
+          {!imageLoaded && !imageError && <Placeholder>TIPTAM ...</Placeholder>}
           {!imageError ? (
             <img
               src={photoaccueil}
@@ -168,7 +166,10 @@ export default function Contact() {
           )}
         </LazyLoad>
         <div className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left">
-          <h1 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6" style={{ color: "#90e0ef" }}>
+          <h1
+            className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"
+            style={{ color: "#90e0ef" }}
+          >
             Cabinet AOD-AVOCATS-SCPA
           </h1>
           <Link
@@ -197,13 +198,25 @@ export default function Contact() {
           </Description>
           <Form action="https://getform.io/f/bnllyvmb" method="POST">
             <Input type="text" name="name" placeholder="Votre nom" required />
-            <Input type="email" name="email" placeholder="Votre email" required />
-            <Textarea name="message" rows="5" placeholder="Votre message" required />
+            <Input
+              type="email"
+              name="email"
+              placeholder="Votre email"
+              required
+            />
+            <Textarea
+              name="message"
+              rows="5"
+              placeholder="Votre message"
+              required
+            />
             <Button type="submit">Envoyer</Button>
           </Form>
         </FormSection>
       </ContactContainer>
-      <MemoizedFooter />
+      <div  className=" mt-40">
+        <MemoizedFooter />
+      </div>
     </div>
   );
 }

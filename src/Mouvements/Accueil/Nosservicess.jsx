@@ -117,7 +117,8 @@ const CardDescription = styled(motion.p)`
   font-weight: 300;
   text-align: left;
   padding: 0 20px 20px 20px;
-  max-height: ${({ expanded }) => (expanded ? "1000px" : "4.3em")}; // Hauteur dynamique
+  max-height: ${({ expanded }) =>
+    expanded ? "1000px" : "4.3em"}; // Hauteur dynamique
   overflow: hidden;
   transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
 `;
@@ -145,7 +146,7 @@ const AnimatedCard = ({ title, description, image }) => {
       />
 
       {/* Titre de la carte avec animation de fade */}
-      <CardTitle
+      <CardTitle  data-aos="fade-down"
         initial={{ opacity: 0 }}
         animate={{ opacity: inView ? 1 : 0 }}
         transition={{ duration: 0.5, delay: 0.4 }} // Délai pour un effet séquentiel

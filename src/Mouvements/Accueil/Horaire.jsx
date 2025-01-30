@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer"; // Importation de la bibliothèque pour observer la visibilité des éléments
 import styled from "styled-components";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Styled Components
 const Container = styled.div`
@@ -174,8 +176,8 @@ const Section = ({ title, description, index }) => {
       className="mb-8"
       style={{ opacity: inView ? 1 : 0 }}
     >
-      <Card>
-        <CardTitle>{title}</CardTitle>
+      <Card data-aos="fade-right">
+        <CardTitle data-aos="fade-down">{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </Card>
     </motion.div>

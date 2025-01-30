@@ -6,6 +6,7 @@ import Nosservicess from "./Nosservicess";
 import { Link } from "react-router-dom";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import SEO from "../../DynamicSeo";
+import "aos/dist/aos.css";
 import Image7 from "../../assets/Image/maitre7.avif";
 import photoaccueil from "../../assets/Image/photo-accueil.avif";
 import SocialLinks from "../Lienlateral/SocialLinks";
@@ -97,6 +98,7 @@ export default function Accueil() {
             ].map((service, i) => (
               <motion.div
                 key={i}
+                 data-aos="fade-right"
                 className="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}

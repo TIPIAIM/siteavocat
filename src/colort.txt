@@ -16,6 +16,12 @@ rgba(243, 5, 37, 0.98)
 023e8a
 
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+ data-aos="fade-right"
+data-aos="fade-down"
+
 texte: 
 rgba(144, 224, 239, 1)
 90e0ef 

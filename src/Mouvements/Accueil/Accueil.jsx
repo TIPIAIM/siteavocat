@@ -98,7 +98,7 @@ export default function Accueil() {
             ].map((service, i) => (
               <motion.div
                 key={i}
-                 data-aos="fade-right"
+               
                 className="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -109,6 +109,7 @@ export default function Accueil() {
                 />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">
                   <a
+                   data-aos="fade-down"
                     className="no-underline"
                     href={service.link}
                     target="_blank"
@@ -117,7 +118,8 @@ export default function Accueil() {
                     {service.title}
                   </a>
                 </h3>
-                <p className="text-gray-600 text-sm sm:text-base">
+                <p  data-aos="fade-right"
+                className="text-gray-600 text-sm sm:text-base">
                   {service.desc}
                 </p>
               </motion.div>

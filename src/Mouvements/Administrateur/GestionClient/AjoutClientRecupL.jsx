@@ -10,8 +10,8 @@ import { MdAutoDelete } from "react-icons/md";
 import { CloseButton } from "react-bootstrap";
 
 const Container = styled.div`
-  padding: 4rem;
-  background-color: #f9fafb;
+  padding: 1rem;
+ 
   min-height: 100vh;
 `;
 
@@ -35,8 +35,9 @@ const SearchInput = styled.input`
 
 const Table = styled.table`
   width: 100%;
+  
   margin-bottom: 8rem;
-  margin-top: 8rem;
+  margin-top: 4rem;
   border-collapse: collapse;
   background: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -110,17 +111,20 @@ const BackLink = styled(Link)`
   display: inline-block;
   margin: 0.5rem;
   padding: 0.5rem;
-  font-size: 0.4rem;
+  font-size: 0.6rem;
   font-weight: bold;
   color: #ffffff;
-  background-color: #ade8f4;
+  margin-top: 2rem;
+   margin-bottom: 5rem;
+  margin-left: 0.1rem;
+  background-color: #023e8a;
   text-decoration: none;
-  border-radius: 12px;
-  box-shadow: 2px 4px 6px rgba(243, 5, 37, 0.6);
+  border-radius: 50px;
+  box-shadow: 0px 1px 1px rgba(243, 5, 37, 0.6);
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #023e8a;
+    background-color: #00b4d8;
     color: #caf0f8;
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
@@ -131,6 +135,7 @@ const BackLink = styled(Link)`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   }
 `;
+
 
 export default function ListeClients() {
   const [clients, setClients] = useState([]);
@@ -180,7 +185,7 @@ export default function ListeClients() {
   };
 
   return (
-    <div>
+    <div className=" bg-black/5" >
       <ToastContainer
         position="top-right"
         autoClose={1000}
@@ -232,6 +237,7 @@ export default function ListeClients() {
         </BackLink>
         <SearchInput
           type="text"
+          className=" "
           placeholder="Rechercher par ..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}

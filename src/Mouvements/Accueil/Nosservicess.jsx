@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { useState } from "react";
+import { useInView } from "react-intersection-observer"; // Pour détecter si un élément est visible
+import { motion } from "framer-motion"; // Pour les animations
 import styled from "styled-components";
 import Maitre4 from "./../../assets/Image/Maitre4.avif";
 import affaire from "./../../assets/Image/affaire.avif";
@@ -13,7 +11,7 @@ import MOE_0384 from "./../../assets/Image/MOE_0384.avif";
 import familled from "./../../assets/Image/familled.avif";
 import maitaction from "./../../assets/Image/maitaction.avif";
 
-// Styled Components
+// Style du conteneur principal
 const Container = styled.div`
   position: relative;
   width: 100%;
@@ -29,7 +27,8 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const Title = styled.h1`
+// Style du titre
+const Title = styled(motion.h1)`
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
@@ -42,7 +41,8 @@ const Title = styled.h1`
   }
 `;
 
-const Description = styled.p`
+// Style de la description
+const Description = styled(motion.p)`
   font-size: 1.2rem;
   text-align: center;
   margin-bottom: 25px;
@@ -55,6 +55,7 @@ const Description = styled.p`
   }
 `;
 
+// Style de la grille des cartes
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -68,40 +69,26 @@ const Grid = styled.div`
   }
 `;
 
+// Style de la carte
 const Card = styled(motion.div)`
-  // Style de base pour la carte
-  background: rgba(10, 34, 64, 0.9); // Fond avec un léger effet de transparence
-  border-radius: 12px; // Coins arrondis pour un aspect doux
-  padding: 0px; // Pas de marge intérieure
-  text-align: center; // Texte centré dans la carte
-  overflow: hidden; // Empêche le débordement du contenu de la carte
-  cursor: pointer; // Change le curseur pour indiquer un élément cliquable
-  position: relative; // Nécessaire pour certains effets d'animation positionnés
+  background: rgba(10, 34, 64, 0.9);
+  border-radius: 12px;
+  padding: 0px;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 
- 
   &:hover {
-    transform: translateY(-4px); // Légère remontée au survol pour plus de dynamisme
-    box-shadow: 0 12px 24px rgba(0, 100, 255, 0.2); // Ombre plus marquée au survol
-  }
-
-  @keyframes rippleEffect {
-    0% {
-      transform: scale(1);
-      box-shadow: 0 0 20px rgba(0, 100, 255, 0.2);
-    }
-    50% {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(0, 100, 255, 0.5);
-    }
-    100% {
-      transform: scale(1);
-      box-shadow: 0 0 20px rgba(0, 100, 255, 0.2);
-    }
+    transform: translateY(-5px); // Légère élévation au survol
+    box-shadow: 2px 2px 6px #00b4d8;
   }
 `;
 
-
-const CardImage = styled.img`
+// Style de l'image de la carte
+const CardImage = styled(motion.img)`
   width: 100%;
   height: 250px;
   object-fit: cover;
@@ -111,61 +98,76 @@ const CardImage = styled.img`
   }
 `;
 
-const CardTitle = styled.h3`
+// Style du titre de la carte
+const CardTitle = styled(motion.h3)`
   font-size: 1.5rem;
   font-weight: bold;
   color: #00b4d8;
+  margin: 15px 0;
   @media (max-width: 768px) {
     font-size: 1.3rem;
   }
 `;
 
-const CardDescription = styled.p`
+// Style de la description de la carte
+const CardDescription = styled(motion.p)`
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.5;
   font-weight: 300;
   text-align: left;
-  padding: 20px;
-  max-height: 5em;
+  padding: 0 20px 20px 20px;
+  max-height: ${({ expanded }) => (expanded ? "1000px" : "4.3em")}; // Hauteur dynamique
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
-
-  &.expanded {
-    max-height: 1000px;
-  }
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
 `;
 
+// Composant de carte animée
 const AnimatedCard = ({ title, description, image }) => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const [expanded, setExpanded] = useState(false);
+  const { ref, inView } = useInView({ threshold: 0.2 }); // Détecte si la carte est visible (sans triggerOnce)
+  const [expanded, setExpanded] = useState(false); // État pour gérer l'affichage complet de la description
 
   return (
     <Card
       ref={ref}
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.9 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      whileHover={{ scale: 1.05 }}
-      onClick={() => setExpanded(!expanded)}
+      initial={{ opacity: 0, x: -100 }} // État initial invisible et décalé vers la gauche
+      animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -100 }} // Animation de fade-in et de déplacement
+      transition={{ duration: 0.5, ease: "easeOut" }} // Transition fluide
+      onClick={() => setExpanded(!expanded)} // Basculer l'état de la description au clic
     >
-      <CardImage src={image} alt={title || "Card Image"} />
-      <CardTitle>{title}</CardTitle>
-      <CardDescription className={expanded ? "expanded" : ""}>
+      {/* Image de la carte avec animation de fade */}
+      <CardImage
+        src={image}
+        alt={title || "Card Image"}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: inView ? 1 : 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }} // Délai pour un effet séquentiel
+      />
+
+      {/* Titre de la carte avec animation de fade */}
+      <CardTitle
+        initial={{ opacity: 0 }}
+        animate={{ opacity: inView ? 1 : 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }} // Délai pour un effet séquentiel
+      >
+        {title}
+      </CardTitle>
+
+      {/* Description de la carte avec animation de fade */}
+      <CardDescription
+        expanded={expanded}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: inView ? 1 : 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }} // Délai pour un effet séquentiel
+      >
         {description}
       </CardDescription>
     </Card>
   );
 };
 
+// Composant principal
 const Nosservicess = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
-
   const services = [
     {
       title: "DROIT DES CONTRATS",
@@ -209,11 +211,20 @@ const Nosservicess = () => {
     },
   ];
 
-
   return (
     <Container>
-      <Title>Services</Title>
-      <Description>
+      <Title
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        Services
+      </Title>
+      <Description
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
         Notre cabinet offre des services juridiques de qualité dans divers
         domaines, avec une expertise reconnue et une approche humaine.
       </Description>

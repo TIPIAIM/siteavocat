@@ -39,6 +39,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 6rem;
   min-height: 100vh;
   background-color: rgba(228, 234, 240, 0);
   padding: 2rem;
@@ -97,14 +98,15 @@ const FormWrapper = styled.div`
 
 const FormTitle = styled.h2`
   color: #a9fafb;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0.2rem;
   text-align: center;
 `;
 
 const StyledButton = styled.button`
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.6rem;
   background: linear-gradient(90deg, #1e3a8a, #2563eb);
   color: #ffffff;
   font-size: 1rem;
@@ -115,7 +117,8 @@ const StyledButton = styled.button`
   border-radius: 1px; /* Courbure plus douce */
   cursor: pointer;
   transition: all 0.4s ease;
-  margin-bottom: 0rem;
+  margin-bottom: 2rem;
+   margin-top: 1rem;
   &:hover {
     background: linear-gradient(90deg, #2563eb, #1d4ed8);
     transform: scale(1.05) translateY(-2px);
@@ -183,7 +186,7 @@ const StyledSelect = styled.select`
 
 const StyledLabel = styled.label`
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
@@ -199,19 +202,19 @@ const BackLink = styled(Link)`
   display: inline-block;
   margin: 0.5rem;
   padding: 0.5rem;
-  font-size: 0.4rem;
+  font-size: 0.6rem;
   font-weight: bold;
   color: #ffffff;
   margin-top: 2rem;
   margin-left: 2rem;
-  background-color: #ade8f4;
+  background-color: #023e8a;
   text-decoration: none;
-  border-radius: 12px;
-  box-shadow: 2px 4px 6px rgba(243, 5, 37, 0.6);
+  border-radius: 50px;
+  box-shadow: 0px 1px 1px rgba(243, 5, 37, 0.6);
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #023e8a;
+    background-color: #00b4d8;
     color: #caf0f8;
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
@@ -312,11 +315,11 @@ export default function AjouterClient() {
   };
 
   return (
-    <div className=" bg-teal-50/30 ">
+    <div className=" bg-black/5 ">
       <BackLink to="/gestclient">
         <CloseButton />
       </BackLink>
-      <Container className="mt-10">
+      <Container >
         <ImageWrapper data-aos="fade-up">
           <img src={MOE_0311} alt="Illustration" />
         </ImageWrapper>

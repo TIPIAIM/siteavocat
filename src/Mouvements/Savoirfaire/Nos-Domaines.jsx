@@ -1,16 +1,18 @@
-import { motion } from "framer-motion";
-import styled from "styled-components";
-import Footer from "../Accueil/Footerr";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import affair from "./../../assets/Image/affair.avif";
-import familled from "./../../assets/Image/familled.avif";
-import fisc from "./../../assets/Image/fisc.avif";
-import envir from "./../../assets/Image/envir.avif";
-import securitesocial from "./../../assets/Image/securitesocial.avif";
-import travail from "./../../assets/Image/travail.avif";
-import image from "./../../assets/Image/image.avif";
-import AFFF from "./../../assets/Image/AFFF.webp";
-import arbitra from "./../../assets/Image/arbitra.avif";
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import styled from 'styled-components';
+import Footer from '../Accueil/Footerr';
+import BardeNavigationpublic from '../Navigatpublic/BardeNavigationPublic';
+import affair from './../../assets/Image/affair.avif';
+import familled from './../../assets/Image/familled.avif';
+import fisc from './../../assets/Image/fisc.avif';
+import envir from './../../assets/Image/envir.avif';
+import securitesocial from './../../assets/Image/securitesocial.avif';
+import travail from './../../assets/Image/travail.avif';
+import image from './../../assets/Image/image.avif';
+import AFFF from './../../assets/Image/AFFF.webp';
+import arbitra from './../../assets/Image/arbitra.avif';
 
 // Conteneur principal avec l'image d'arrière-plan
 const BackgroundContainer = styled.div`
@@ -59,7 +61,8 @@ const GridContainer = styled.div`
   gap: 1rem;
   width: 100%;
   max-width: 1200px;
-  margin-bottom: 6rem;
+  margin-bottom: 8rem;
+   margin-top: 5rem;
   padding: 0.5rem;
 
   @media (max-width: 480px) {
@@ -68,7 +71,7 @@ const GridContainer = styled.div`
 `;
 
 // Carte individuelle
-const Card = styled(motion.div)`
+const Card = styled.div`
   position: relative;
   background: #03045e;
   border-radius: 10px;
@@ -84,6 +87,7 @@ const Card = styled(motion.div)`
     width: 100%;
     height: 180px;
     object-fit: cover;
+    loading: lazy; // Chargement différé pour améliorer les performances
   }
 
   .info {
@@ -132,6 +136,15 @@ const Card = styled(motion.div)`
 `;
 
 export default function Nosexpertise() {
+  // Initialisation d'AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false, // Les animations se répètent à chaque fois que l'élément entre dans la vue
+    });
+  }, []);
+
+  // Données des cartes
   const images = [
     { src: affair, alt: "Droit des affaires", text: "Droit des affaires", link: "/affairee" },
     { src: familled, alt: "Droit de la Famille", text: "Droit de la Famille", link: "/famillee" },
@@ -153,16 +166,15 @@ export default function Nosexpertise() {
         {/* Contenu principal */}
         <ContentContainer>
           <BardeNavigationpublic />
-          <h1>Nos Expertises</h1>
+          <h1 data-aos="fade-left">Nos Expertises</h1>
 
           {/* Grille d'expertise */}
           <GridContainer>
             {images.map((image, index) => (
               <Card
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                data-aos="fade-down"
+                data-aos-delay={index * 200} // Délai pour un effet en cascade
                 aria-label={image.text}
               >
                 <img src={image.src} alt={image.alt} loading="lazy" />

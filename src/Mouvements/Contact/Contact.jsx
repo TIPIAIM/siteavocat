@@ -186,7 +186,7 @@ export default function Contact() {
       <ContactContainer>
         <ImageSection data-aos="fade-right" />
         <FormSection data-aos="fade-down">
-          <Title>Contactez-nous</Title>
+          <Title  data-aos="fade-right">Contactez-nous</Title>
           <Description>
             Si vous avez des questions, des commentaires ou des préoccupations,
             n’hésitez pas à nous contacter en utilisant le formulaire

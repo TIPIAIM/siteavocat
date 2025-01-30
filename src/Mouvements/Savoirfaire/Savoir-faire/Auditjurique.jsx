@@ -1,18 +1,17 @@
-import styled from "styled-components";
-import { motion } from "framer-motion";
-import { useEffect } from "react";
-import { useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import BardeNavigationpublic from "../../Navigatpublic/BardeNavigationPublic";
-import Footer from "../../Accueil/Footerr";
-import EVOL from "./../../../assets/Image/EVOL.avif"
-import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif"
-import sttis from "./../../../assets/Image/sttis.avif"
-import PREV from "./../../../assets/Image/PREV.avif"
-import conf from "./../../../assets/Image/conf.avif"
-import affaire from "./../../../assets/Image/affaire.avif"
-import jurid1 from "./../../../assets/Image/jurid1.avif"
-import jurid from "./../../../assets/Image/jurid.avif"
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import styled from 'styled-components';
+import BardeNavigationpublic from '../../Navigatpublic/BardeNavigationPublic';
+import Footer from '../../Accueil/Footerr';
+import EVOL from './../../../assets/Image/EVOL.avif';
+import logoAODnoir from './../../../assets/Image/logoAODnoir.avif';
+import sttis from './../../../assets/Image/sttis.avif';
+import PREV from './../../../assets/Image/PREV.avif';
+import conf from './../../../assets/Image/conf.avif';
+import affaire from './../../../assets/Image/affaire.avif';
+import jurid1 from './../../../assets/Image/jurid1.avif';
+import jurid from './../../../assets/Image/jurid.avif';
 
 const BackgroundContainer = styled.div`
   position: relative;
@@ -43,13 +42,12 @@ const ContentContainer = styled.div`
 
   @media (max-width: 1024px) {
     padding: 2rem 1rem;
-    text-align: center; /* Alignement du texte à gauche */
+    text-align: center;
     margin: 1rem;
-
-    }
+  }
 `;
 
-const Title = styled(motion.h1)`
+const Title = styled.h1`
   font-size: 3rem;
   font-weight: bold;
   color: #90e0ef;
@@ -78,9 +76,8 @@ const ParagraphWrapper = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    text-align: flex; /* Alignement du texte à gauche */
+    text-align: flex;
     padding: 0rem;
-    
   }
   @media (max-width: 1024px) {
     flex-direction: column;
@@ -100,17 +97,16 @@ const ParagraphImage = styled.img`
     width: 400px;
     height: 250px;
     margin-bottom: 1rem;
-    text-align: center; /* Alignement du texte à gauche */
+    text-align: center;
   }
   @media (max-width: 1024px) {
     width: 400px;
-
     height: 200px;
     margin: 0 auto;
   }
 `;
 
-const Paragraph = styled(motion.p)`
+const Paragraph = styled.p`
   font-size: 1.2rem;
   line-height: 1.8rem;
   text-align: left;
@@ -119,7 +115,7 @@ const Paragraph = styled(motion.p)`
   @media (max-width: 480px) {
     font-size: 1rem;
     line-height: 1.6rem;
-    text-align: left; /* Alignement du texte à gauche */
+    text-align: left;
     padding: 2rem;
   }
   @media (max-width: 1024px) {
@@ -127,7 +123,6 @@ const Paragraph = styled(motion.p)`
     line-height: 1.7rem;
     text-align: left;
     justify-content: left;
-
     margin: 0.5rem;
   }
 `;
@@ -153,79 +148,51 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  max-width:200px;
-    background: rgba(250, 250, 250, 0.8);
-margin-top: 4rem;
+  max-width: 200px;
+  background: rgba(250, 250, 250, 0.8);
+  margin-top: 4rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-      background: rgba(250, 250, 250, 0.3);
-    }
+    background: rgba(250, 250, 250, 0.3);
+  }
   @media (max-width: 1024px) {
     max-width: 250px;
   }
 `;
 
 export default function AuditJuridique() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
-
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
-  };
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
 
   return (
     <div>
       <BackgroundContainer>
         <Overlay />
         <BardeNavigationpublic />
-        <ContentContainer
-          style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
-        >
-          <Title
-            initial="hidden"
-            animate={controls}
-            variants={textVariants}
-            ref={ref}
-          >
-            Audit juridiques ?
-          </Title>
+        <ContentContainer style={{ fontFamily: 'Helvetica55Roman, Arial, sans-serif' }}>
+          <Title data-aos="fade-up">Audit juridiques ?</Title>
           <Divider />
-          <ParagraphWrapper>
+          <ParagraphWrapper data-aos="fade-up">
             <ParagraphImage src={jurid} alt="Analyse" />
-
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
+            <Paragraph>
               Dans un environnement juridique de plus en plus complexe, un audit
               juridique rigoureux est essentiel pour garantir la pérennité de
               vos activités et la conformité de vos pratiques. Notre cabinet se
               distingue par son expertise et son approche personnalisée.
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper>
+          <ParagraphWrapper data-aos="fade-right">
             <ParagraphImage src={jurid1} alt="Stratégie" />
-
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
-              <strong style={{ color: "#90e0ef" }}>
-                1. Une analyse approfondie et stratégique :
-              </strong>{" "}
+            <Paragraph>
+              <strong style={{ color: '#90e0ef' }}>1. Une analyse approfondie et stratégique :</strong>{' '}
               Notre équipe procède à une évaluation complète de vos documents
               juridiques, tels que contrats, statuts, accords de partenariat, et
               politiques internes. Nous identifions non seulement les zones de
@@ -233,86 +200,50 @@ export default function AuditJuridique() {
               et renforcer votre position juridique.
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper>
+          <ParagraphWrapper data-aos="fade-left">
             <ParagraphImage src={affaire} alt="Expertise" />
-
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
-              <strong style={{ color: "#90e0ef" }}>
-                2. Une expertise multidisciplinaire unique :
-              </strong>{" "}
+            <Paragraph>
+              <strong style={{ color: '#90e0ef' }}>2. Une expertise multidisciplinaire unique :</strong>{' '}
               Nos avocats spécialisés couvrent plusieurs branches du droit,
               notamment le droit des affaires, le droit du travail, le droit
               fiscal, et le droit commercial. Cette diversité garantit une
               vision globale et cohérente de votre environnement juridique.
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper>
+          <ParagraphWrapper data-aos="fade-right">
             <ParagraphImage src={conf} alt="Conformité" />
-
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
-              <strong style={{ color: "#90e0ef" }}>
-                3. Une conformité avec les normes en constante évolution :
-              </strong>
+            <Paragraph>
+              <strong style={{ color: '#90e0ef' }}>3. Une conformité avec les normes en constante évolution :</strong>
               Les lois et réglementations changent rapidement. Nous veillons à
               ce que vos pratiques soient en adéquation avec les dernières
               exigences légales, réduisant ainsi les risques de sanctions
               administratives ou de litiges.
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper>
+          <ParagraphWrapper data-aos="fade-up">
             <ParagraphImage src={PREV} alt="Prévention" />
-
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
-              <strong style={{ color: "#90e0ef" }}>
-                4. Une prévention proactive des risques :
-              </strong>{" "}
+            <Paragraph>
+              <strong style={{ color: '#90e0ef' }}>4. Une prévention proactive des risques :</strong>{' '}
               Un audit juridique efficace vous permet de prévoir et d’éviter des
               problèmes avant qu’ils ne surviennent. Notre approche proactive
               inclut des recommandations précises pour corriger les anomalies
               identifiées et protéger vos intérêts.
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper>
+          <ParagraphWrapper data-aos="fade-down">
             <ParagraphImage src={EVOL} alt="Accompagnement" />
-
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
-              <strong style={{ color: "#90e0ef" }}>
-                5. Un accompagnement sur mesure :
-              </strong>{" "}
+            <Paragraph>
+              <strong style={{ color: '#90e0ef' }}>5. Un accompagnement sur mesure :</strong>{' '}
               Au-delà de l’audit, nous vous assistons dans la mise en œuvre des
               solutions proposées. Que ce soit pour la révision de vos contrats,
               la restructuration juridique ou la négociation de clauses, notre
               équipe est à vos côtés à chaque étape.
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper>
+          <ParagraphWrapper data-aos="fade-right">
             <ParagraphImage src={sttis} alt="Avantages" />
-
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
-              <strong style={{ color: "#90e0ef" }}>
-                6. Des avantages concrets pour votre organisation :
-              </strong>
-
+            <Paragraph>
+              <strong style={{ color: '#90e0ef' }}>6. Des avantages concrets pour votre organisation :</strong>
               <li>
                 Réduction des coûts liés aux litiges grâce à une prévention
                 efficace.
@@ -327,22 +258,16 @@ export default function AuditJuridique() {
               </li>
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper>
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
-              <strong style={{ color: "#90e0ef" }}>
-                7. Une relation de confiance :
-              </strong>{" "}
+          <ParagraphWrapper data-aos="fade-left">
+            <Paragraph>
+              <strong style={{ color: '#90e0ef' }}>7. Une relation de confiance :</strong>{' '}
               Notre engagement repose sur la transparence, la discrétion, et une
               écoute active de vos besoins. Chaque client bénéficie d’un suivi
               personnalisé, car nous comprenons que chaque situation est unique.
             </Paragraph>
           </ParagraphWrapper>
           <ImageContainer>
-            <Image src={logoAODnoir} alt="Analyse juridique" />
+            <Image src={logoAODnoir} alt="Analyse juridique" data-aos="fade-up" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

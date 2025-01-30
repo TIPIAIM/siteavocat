@@ -1,16 +1,14 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import BardeNavigationpublic from "../../Navigatpublic/BardeNavigationPublic";
 import Footer from "../../Accueil/Footerr";
-import EVOL from "./../../../assets/Image/EVOL.avif"
-import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif"
-import commercial from "../../../assets/Image/commercial.avif"
-import MOE_0400 from "../../../assets/Image/MOE_0400.avif"
-//import enfamiavoc from "../../../assets/Image/enfamiavoc.avif"
-import jurid from "../../../assets/Image/jurid.avif"
+import EVOL from "./../../../assets/Image/EVOL.avif";
+import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif";
+import commercial from "../../../assets/Image/commercial.avif";
+import MOE_0400 from "../../../assets/Image/MOE_0400.avif";
+import jurid from "../../../assets/Image/jurid.avif";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const BackgroundContainer = styled.div`
   position: relative;
@@ -41,13 +39,12 @@ const ContentContainer = styled.div`
 
   @media (max-width: 1024px) {
     padding: 2rem 1rem;
-    text-align: center; /* Alignement du texte à gauche */
-     margin: 1rem;
-
-    }
+    text-align: center;
+    margin: 1rem;
+  }
 `;
 
-const Title = styled(motion.h1)`
+const Title = styled.h1`
   font-size: 3rem;
   font-weight: bold;
   color: #90e0ef;
@@ -76,7 +73,7 @@ const ParagraphWrapper = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    text-align: center; /* Alignement du texte à gauche */
+    text-align: center;
     padding: 0rem;
   }
   @media (max-width: 1024px) {
@@ -97,18 +94,16 @@ const ParagraphImage = styled.img`
     width: 400px;
     height: 250px;
     margin-bottom: 1rem;
-    text-align: center; /* Alignement du texte à gauche */
+    text-align: center;
   }
   @media (max-width: 1024px) {
     width: 400px;
-   
     height: 200px;
     margin: 0 auto;
-    
   }
 `;
 
-const Paragraph = styled(motion.p)`
+const Paragraph = styled.p`
   font-size: 1.2rem;
   line-height: 1.8rem;
   text-align: justify;
@@ -117,20 +112,17 @@ const Paragraph = styled(motion.p)`
   @media (max-width: 480px) {
     font-size: 1rem;
     line-height: 1.6rem;
-    text-align: left; /* Alignement du texte à gauche */
+    text-align: left;
     padding: 2rem;
   }
   @media (max-width: 1024px) {
-    font-size : 1.1rem;
+    font-size: 1.1rem;
     line-height: 1.7rem;
     text-align: left;
-  justify-content: left;
-
+    justify-content: left;
     padding: 30px;
-
   }
 `;
-
 
 const ImageContainer = styled.div`
   display: flex;
@@ -146,41 +138,36 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  max-width:200px;
-    background: rgba(250, 250, 250, 0.8);
-margin-top: 4rem;
+  max-width: 200px;
+  background: rgba(250, 250, 250, 0.8);
+  margin-top: 4rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-      background: rgba(250, 250, 250, 0.3);
-    }
+    background: rgba(250, 250, 250, 0.3);
+  }
   @media (max-width: 1024px) {
     max-width: 250px;
   }
 `;
+
 const Divider = styled.div`
   height: 3px;
   width: 200px;
   background: #4ea8ff;
   margin: 2rem 0;
 `;
+
 export default function AuditJuridique() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
-
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
-  };
+    AOS.init({
+      duration: 1000, // Durée de l'animation
+      once: false, // Animation déclenchée une seule fois
+    });
+  }, []);
 
   return (
     <div>
@@ -189,23 +176,11 @@ export default function AuditJuridique() {
         <BardeNavigationpublic />
         <ContentContainer
           style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
-        
         >
-          <Title
-            initial="hidden"
-            animate={controls}
-            variants={textVariants}
-            ref={ref}
-          >
-            Assistance juridique
-          </Title>
+          <Title data-aos="fade-down">Assistance juridique</Title>
           <Divider />
-          <ParagraphWrapper>
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
+          <ParagraphWrapper data-aos="fade-right">
+            <Paragraph>
               <strong style={{ color: "#90e0ef" }}>
                 Une expertise reconnue dans le domaine juridique :
               </strong>
@@ -217,14 +192,9 @@ export default function AuditJuridique() {
               accompagnement sur mesure pour chaque situation.
             </Paragraph>
             <ParagraphImage src={commercial} alt="Analyse" />
-
           </ParagraphWrapper>
-          <ParagraphWrapper>
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
+          <ParagraphWrapper data-aos="fade-left">
+            <Paragraph>
               <strong style={{ color: "#90e0ef" }}>
                 Accompagnement dans la régulation :
               </strong>
@@ -235,14 +205,9 @@ export default function AuditJuridique() {
               suivi des modifications législatives.
             </Paragraph>
             <ParagraphImage src={EVOL} alt="Régulation" />
-
           </ParagraphWrapper>
-          <ParagraphWrapper>
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
+          <ParagraphWrapper data-aos="fade-right">
+            <Paragraph>
               <strong style={{ color: "#90e0ef" }}>
                 Consultations personnalisées :
               </strong>
@@ -253,14 +218,9 @@ export default function AuditJuridique() {
               réellement personnalisé.
             </Paragraph>
             <ParagraphImage src={MOE_0400} alt="Consultation" />
-
           </ParagraphWrapper>
-          <ParagraphWrapper>
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
+          <ParagraphWrapper data-aos="fade-left">
+            <Paragraph>
               <strong style={{ color: "#90e0ef" }}>
                 Formations spécialisées :
               </strong>
@@ -270,14 +230,9 @@ export default function AuditJuridique() {
               contrats à la prévention des litiges.
             </Paragraph>
             <ParagraphImage src={jurid} alt="Formation" />
-
           </ParagraphWrapper>
-          <ParagraphWrapper>
-            <Paragraph
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
+          <ParagraphWrapper data-aos="fade-right">
+            <Paragraph>
               <strong style={{ color: "#90e0ef" }}>
                 Protection juridique :
               </strong>
@@ -286,11 +241,13 @@ export default function AuditJuridique() {
               approche proactive vise à réduire les risques légaux et à
               sécuriser vos intérêts sur le long terme.
             </Paragraph>
-{ /*           <ParagraphImage src="img/envir.jpeg" alt="Protection" />
-*/}
           </ParagraphWrapper>
           <ImageContainer>
-            <Image src={logoAODnoir} alt="Analyse juridique" />
+            <Image
+              src={logoAODnoir}
+              alt="Analyse juridique"
+              data-aos="zoom-in"
+            />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

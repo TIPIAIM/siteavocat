@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
-import { useEffect } from "react";
-import { useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import AOS from "aos"; // Importation de AOS pour les animations
+import "aos/dist/aos.css"; // Importation du CSS de AOS
+import { useEffect } from "react"; // Pour initialiser AOS
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+// Conteneur principal avec image d'arrière-plan fixe
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
@@ -16,12 +16,14 @@ const BackgroundContainer = styled.div`
   background-attachment: fixed;
 `;
 
+// Couche transparente pour obscurcir le fond
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.9); /* Ajustez la transparence ici */
 `;
 
+// Conteneur de contenu principal
 const ContentContainer = styled.div`
   position: relative;
   z-index: 10;
@@ -31,17 +33,31 @@ const ContentContainer = styled.div`
   align-items: center;
   text-align: center;
   color: #ade8f4;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
 `;
 
-const Title = styled(motion.h1)`
+// Titre principal avec style et animation
+const Title = styled.h1`
   font-size: 2.8rem;
   font-weight: bold;
   color: #63b3ed;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
 `;
 
-const Paragraph = styled(motion.p)`
+// Paragraphe avec style et animation
+const Paragraph = styled.p`
   font-size: 1.2rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
@@ -49,30 +65,39 @@ const Paragraph = styled(motion.p)`
   text-align: left;
   color: white;
 
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+
   @media (max-width: 480px) {
     font-size: 1rem;
     line-height: 1.6rem;
-    text-align: left; /* Alignement du texte à gauche */
-    padding: 2rem;
+    padding: 0 1rem;
   }
 `;
 
+// Diviseur avec dégradé
 const Divider = styled.div`
   height: 3px;
   background: linear-gradient(90deg, #63b3ed 0%, #3182ce 100%);
   width: 80%;
   margin: 1.5rem 0;
+
+  @media (max-width: 480px) {
+    width: 90%;
+  }
 `;
 
+// Bouton de retour
 const BackButton = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg);
+  background: linear-gradient(135deg, #63b3ed, #3182ce);
   border-radius: 50%;
-  box-shadow: 0 4px 8px #90e0ef;
+  box-shadow: 0 4px 8px rgba(144, 224, 239, 0.5);
   color: white;
   font-size: 1.2rem;
   margin-bottom: 2rem;
@@ -101,40 +126,37 @@ const BackButton = styled(Link)`
 `;
 
 export default function Affairfinal() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
-
+  // Initialisation de AOS
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
-  };
+    AOS.init({
+      duration: 1000, // Durée des animations
+      once: true, // Les animations ne se déclenchent qu'une fois
+    });
+  }, []);
 
   return (
     <BackgroundContainer>
+      {/* Couche de transparence */}
       <Overlay />
+
+      {/* Contenu principal */}
       <ContentContainer>
+        {/* Barre de navigation */}
         <BardeNavigationpublic />
 
-        <BackButton to="/nosexpertises" aria-label="Retour aux expertises">
+        {/* Bouton de retour */}
+        <BackButton  data-aos="fade-up" to="/nosexpertises" aria-label="Retour aux expertises">
           <FaArrowLeft size={24} />
         </BackButton>
 
-        <Title
-          initial="hidden"
-          animate={controls}
-          variants={textVariants}
-          ref={ref}
-        >
-          Le droit des affaires
-        </Title>
-        <Divider />
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
+        {/* Titre principal */}
+        <Title data-aos="fade-down">Le droit des affaires</Title>
+
+        {/* Diviseur */}
+        <Divider data-aos="fade-up" data-aos-delay="800" />
+
+        {/* Paragraphes */}
+        <Paragraph data-aos="fade-right" data-aos-delay="400">
           Notre cabinet est composé d’avocats spécialisés en droit des affaires,
           dotés de plusieurs années d’expérience dans le domaine. Nous
           maîtrisons les complexités juridiques des entreprises et sommes à jour
@@ -142,20 +164,20 @@ export default function Affairfinal() {
           rédaction de contrats, la gestion de litiges ou des conseils
           stratégiques, nous avons les compétences pour défendre vos intérêts.
         </Paragraph>
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
+        <Paragraph data-aos="fade-left" data-aos-delay="600">
           Nous comprenons que chaque entreprise a des besoins uniques. C’est
           pourquoi nous proposons des solutions juridiques sur mesure, adaptées
           à vos objectifs commerciaux. Notre approche centrée sur le client
           garantit une attention particulière à vos attentes et un suivi
           rigoureux de votre dossier.
         </Paragraph>
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
+        <Paragraph data-aos="fade-right" data-aos-delay="800">
           Dans le monde des affaires, le temps est précieux. Notre équipe
           s’engage à répondre rapidement à vos demandes et à anticiper les
           risques pour minimiser les imprévus. Nous sommes disponibles à tout
           moment pour vous accompagner dans vos démarches juridiques.
         </Paragraph>
-        <Paragraph variants={textVariants} initial="hidden" animate={controls}>
+        <Paragraph data-aos="fade-left" data-aos-delay="1000">
           En choisissant notre cabinet, vous optez pour un partenaire engagé,
           professionnel et déterminé à défendre vos intérêts avec excellence.
           Faites confiance à notre expertise pour protéger vos droits et assurer

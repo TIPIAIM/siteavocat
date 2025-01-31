@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import AOS from "aos"; // Importation de AOS pour les animations
+import "aos/dist/aos.css"; // Importation du CSS de AOS
+import { useEffect } from "react"; // Pour initialiser AOS
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 
 // Conteneur principal avec image d'arrière-plan fixe
@@ -17,11 +19,7 @@ const BackgroundContainer = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 1)
-  );
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
 `;
 
 // Conteneur de contenu principal
@@ -37,7 +35,7 @@ const ContentContainer = styled.div`
 `;
 
 // Titre principal avec style et animation
-const Title = styled(motion.h1)`
+const Title = styled.h1`
   font-size: 3rem;
   color: #90e0ef;
   margin-bottom: 2rem;
@@ -53,7 +51,7 @@ const Title = styled(motion.h1)`
 `;
 
 // Sous-titre pour contextualiser
-const SubTitle = styled(motion.h2)`
+const SubTitle = styled.h2`
   font-size: 1.5rem;
   color: #90e0ef;
   margin-bottom: 1.5rem;
@@ -65,9 +63,9 @@ const SubTitle = styled(motion.h2)`
   }
 
   @media (max-width: 480px) {
-    font-size: 1.3rem;
-  margin:1rem;
-    }
+    font-size: 1.1rem;
+    margin: 1rem;
+  }
 `;
 
 // Texte défilant
@@ -75,7 +73,7 @@ const ScrollAnimation = styled.div`
   overflow-y: auto;
   max-height: calc(100vh - 250px);
   padding: 1.9rem;
-  margin: 1.5rem ;
+  margin: 1.5rem;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.1); /* Légère transparence */
   backdrop-filter: blur(20px); /* Effet de flou */
@@ -90,16 +88,17 @@ const ScrollAnimation = styled.div`
     background-color: #4ea8ff;
     border-radius: 10px;
   }
-      @media (max-width: 480px) {
+
+  @media (max-width: 480px) {
     font-size: 1rem;
     line-height: 1.6rem;
     text-align: left; /* Alignement du texte à gauche */
-    padding: 2rem;
+    padding: 1rem;
   }
 `;
 
 // Texte descriptif avec animation et espacement
-const Description = styled(motion.p)`
+const Description = styled.p`
   font-size: 1.2rem;
   line-height: 1.8;
   max-width: 800px;
@@ -112,15 +111,14 @@ const Description = styled(motion.p)`
   }
 
   @media (max-width: 480px) {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.4;
-        padding: 1rem;
-
+    padding: 0.5rem;
   }
 `;
 
 // Bouton interactif
-const ActionButton = styled(motion.a)`
+const ActionButton = styled.a`
   margin-bottom: 1rem;
   padding: 0.5rem 0.8rem;
   font-size: 1rem;
@@ -137,45 +135,37 @@ const ActionButton = styled(motion.a)`
   }
 `;
 
-
 export default function Affair() {
+  // Initialisation de AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durée des animations
+      once: true, // Les animations ne se déclenchent qu'une fois
+    });
+  }, []);
+
   return (
     <BackgroundContainer>
-      
       {/* Couche de transparence */}
       <Overlay />
-     
+
       {/* Barre de navigation */}
       <BardeNavigationpublic />
 
       {/* Contenu principal */}
-      <ContentContainer> 
+      <ContentContainer>
         {/* Titre principal */}
-        <Title
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-        >
-        Expertises
-        </Title>
+        <Title data-aos="fade-down">Expertises</Title>
 
         {/* Sous-titre */}
-        <SubTitle
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2 }}
-        >
+        <SubTitle data-aos="fade-up" data-aos-delay="200">
           Une expertise indispensable pour sécuriser vos transactions
           commerciales.
         </SubTitle>
 
         {/* Texte descriptif défilant */}
         <ScrollAnimation>
-          <Description
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.5 }}
-          >
+          <Description data-aos="fade-right" data-aos-delay="200">
             Parmi les composantes essentielles du droit des affaires, on
             retrouve le droit commercial, qui encadre les actes de commerce et
             le statut des commerçants, ainsi que le droit des sociétés, qui
@@ -184,11 +174,7 @@ export default function Affair() {
             permettent aux entrepreneurs de structurer légalement leurs
             activités tout en protégeant leurs intérêts financiers.
           </Description>
-          <Description
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.5, delay: 0.2 }}
-          >
+          <Description data-aos="fade-left" data-aos-delay="400">
             En outre, le droit des affaires s’étend au droit fiscal, aux
             contrats commerciaux, à la propriété intellectuelle, et à la
             concurrence. Par exemple, il garantit une concurrence loyale entre
@@ -197,11 +183,7 @@ export default function Affair() {
             médiation et de règlement des litiges entre les partenaires
             commerciaux, offrant ainsi des solutions rapides et efficaces.
           </Description>
-          <Description
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.5, delay: 0.4 }}
-          >
+          <Description data-aos="fade-right">
             Enfin, le droit des affaires n’est pas seulement une protection pour
             les entreprises, mais aussi un outil stratégique. En anticipant les
             risques juridiques et en respectant les réglementations, les
@@ -217,9 +199,8 @@ export default function Affair() {
           href="https://fr.wikipedia.org/wiki/Droit_des_affaires"
           target="_blank"
           rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          data-aos="fade-up"
+          data-aos-delay="1000"
         >
           Voir +
         </ActionButton>

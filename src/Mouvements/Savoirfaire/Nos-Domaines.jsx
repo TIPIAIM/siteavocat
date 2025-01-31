@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import styled from 'styled-components';
-import Footer from '../Accueil/Footerr';
-import BardeNavigationpublic from '../Navigatpublic/BardeNavigationPublic';
-import affair from './../../assets/Image/affair.avif';
-import familled from './../../assets/Image/familled.avif';
-import fisc from './../../assets/Image/fisc.avif';
-import envir from './../../assets/Image/envir.avif';
-import securitesocial from './../../assets/Image/securitesocial.avif';
-import travail from './../../assets/Image/travail.avif';
-import image from './../../assets/Image/image.avif';
-import AFFF from './../../assets/Image/AFFF.webp';
-import arbitra from './../../assets/Image/arbitra.avif';
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import styled from "styled-components";
+import Footer from "../Accueil/Footerr";
+import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
+import affair from "./../../assets/Image/affair.avif";
+import familled from "./../../assets/Image/familled.avif";
+import fisc from "./../../assets/Image/fisc.avif";
+import envir from "./../../assets/Image/envir.avif";
+import securitesocial from "./../../assets/Image/securitesocial.avif";
+import travail from "./../../assets/Image/travail.avif";
+import image from "./../../assets/Image/image.avif";
+import AFFF from "./../../assets/Image/AFFF.webp";
+import arbitra from "./../../assets/Image/arbitra.avif";
 
 // Conteneur principal avec l'image d'arrière-plan
 const BackgroundContainer = styled.div`
@@ -62,7 +62,7 @@ const GridContainer = styled.div`
   width: 100%;
   max-width: 1200px;
   margin-bottom: 8rem;
-   margin-top: 5rem;
+  margin-top: 5rem;
   padding: 0.5rem;
 
   @media (max-width: 480px) {
@@ -96,7 +96,11 @@ const Card = styled.div`
     left: 0;
     right: 0;
     padding: 0.8rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(144, 224, 239, 0.2));
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9),
+      rgba(144, 224, 239, 0.2)
+    );
     color: #90e0ef;
 
     h3 {
@@ -146,12 +150,42 @@ export default function Nosexpertise() {
 
   // Données des cartes
   const images = [
-    { src: affair, alt: "Droit des affaires", text: "Droit des affaires", link: "/affairee" },
-    { src: familled, alt: "Droit de la Famille", text: "Droit de la Famille", link: "/famillee" },
-    { src: fisc, alt: "Droit fiscal", text: "Droit fiscal", link: "/fiscalitee" },
-    { src: envir, alt: "Minier", text: "Minier et Environnementale", link: "/minierr" },
-    { src: securitesocial, alt: "Sociale et Securité sociale", text: "Sociale et Securité sociale", link: "/securitee" },
-    { src: travail, alt: "Droit du Travail", text: "Droit du Travail", link: "/travail" },
+    {
+      src: affair,
+      alt: "Droit des affaires",
+      text: "Droit des affaires",
+      link: "/affairee",
+    },
+    {
+      src: familled,
+      alt: "Droit de la Famille",
+      text: "Droit de la Famille",
+      link: "/famillee",
+    },
+    {
+      src: fisc,
+      alt: "Droit fiscal",
+      text: "Droit fiscal",
+      link: "/fiscalitee",
+    },
+    {
+      src: envir,
+      alt: "Minier",
+      text: "Minier et Environnementale",
+      link: "/minierr",
+    },
+    {
+      src: securitesocial,
+      alt: "Sociale et Securité sociale",
+      text: "Sociale et Securité sociale",
+      link: "/securitee",
+    },
+    {
+      src: travail,
+      alt: "Droit du Travail",
+      text: "Droit du Travail",
+      link: "/travail",
+    },
     { src: image, alt: "Pénal", text: "Droit Pénal", link: "/penall" },
     { src: AFFF, alt: "Sport", text: "Droit du Sport", link: "/sport" },
     { src: arbitra, alt: "Arbitrage", text: "Arbitrage", link: "/arbitrage" },
@@ -180,7 +214,11 @@ export default function Nosexpertise() {
                 <img src={image.src} alt={image.alt} loading="lazy" />
                 <div className="info">
                   <h3>{image.text}</h3>
-                  <a href={image.link} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={image.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Voir détail ...
                   </a>
                 </div>

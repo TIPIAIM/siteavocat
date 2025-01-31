@@ -34,8 +34,6 @@ import AjouterClient from "./Mouvements/Administrateur/GestionClient/AjouterClie
 import ListeClients from "./Mouvements/Administrateur/GestionClient/AjoutClientRecupL";
 import MiseajourAjoutclientRecup from "./Mouvements/Administrateur/GestionClient/AjoutclientReMiAj";
 import Gclient from "./Mouvements/Administrateur/GestionClient/Gclient";
-//import Login from "./Midentification/Seconnect";
-//import Senregistrer from "./Midentification/Senregistrer";
 
 function App() {
   return (
@@ -46,9 +44,9 @@ function App() {
         <Route index element={<Accueil />} />
         {/** <Route path="*" element={<Orror />} />
       pour {" "}
-<Route path="/inscription" element={<Senregistrer />} />
-<Route path="/Login" element={<Login />} />*/}
-
+   <Route path="/login" element={<LoginForm />} />
+   <Route path="/register" element={<RegisterForm />} />        <Route path="/Logoutdecconnexion" element={<LogoutButton />} />
+ */}
         {/**donnee prisent dns le serveur  suprimer pres */}
         <Route path="/elementList" element={<ElementList />} />
         {/**donnee des commentires public reçu */}
@@ -81,13 +79,13 @@ function App() {
         <Route path="/asistance" element={<Assistance />} />
 
         {/**admin */}
-        <Route path="/gestclient" element={<Gclient />} />  
+        <Route path="/gestclient" element={<Gclient />} />
         <Route path="/comptecl" element={<AjouterClient />} />
         <Route path="/listeCl" element={<ListeClients />} />
-        <Route path="/miseajourAclientRecup/:id" element={<MiseajourAjoutclientRecup />} />
-
-
-
+        <Route
+          path="/miseajourAclientRecup/:id"
+          element={<MiseajourAjoutclientRecup />}
+        />
 
         <Route path="/adminfils" element={<Adminfils />} />
         {/**page visiteur TIPTAMcode */}

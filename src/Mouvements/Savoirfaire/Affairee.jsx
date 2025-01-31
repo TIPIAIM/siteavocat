@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import AOS from "aos"; // Importation de AOS pour les animations
+import "aos/dist/aos.css"; // Importation du CSS de AOS
+import { useEffect } from "react"; // Pour initialiser AOS
 import articleImage from "./../../assets/Image/avoc3.avif"; // Image spécifique à l'article
 import Footer from "../Accueil/Footerr";
 import Affair from "./Affair";
@@ -53,11 +55,11 @@ const SectionTitle = styled.h2`
 `;
 
 // Carte d'article
-const ArticleCard = styled(motion.div)`
+const ArticleCard = styled.div`
   background: rgba(10, 34, 64, 0.7);
   border-radius: 1px;
   overflow: hidden;
-  box-shadow: 12px 12px 10px 
+  box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.4);
   width: 100%;
   max-width: 900px;
   margin: 20px 0;
@@ -65,7 +67,7 @@ const ArticleCard = styled(motion.div)`
 
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 3px 3px 3px rgba(144, 224, 239);
+    box-shadow: 3px 3px 3px rgba(144, 224, 239, 0.6);
   }
 `;
 
@@ -127,7 +129,6 @@ const ArticleDescription = styled.p`
   @media (max-width: 768px) {
     font-size: 0.95rem;
     line-height: 1.5rem;
-
     padding: 2rem;
   }
 `;
@@ -148,31 +149,39 @@ const ReadMoreButton = styled.a`
 `;
 
 const Affairee = () => {
+  // Initialisation de AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durée des animations
+      once: true, // Les animations ne se déclenchent qu'une fois
+    });
+  }, []);
+
   return (
     <div>
       <Affairfinal />
       <Affair />
       <AffairesContainer>
         <ContentWrapper>
-          <SectionTitle>L’importances</SectionTitle>
-          <ArticleCard
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <SectionTitle  data-aos="fade-down">L’importances</SectionTitle>
+          <ArticleCard data-aos="fade-up">
             <MediaWrapper>
-              <img src={articleImage} alt="Contrats en affaires" />
+              <img
+                src={articleImage}
+                alt="Contrats en affaires"
+                data-aos="zoom-in"
+              />
             </MediaWrapper>
             <ArticleContent>
-              <ArticleTitle>
+              <ArticleTitle data-aos="fade-right">
                 Les contrats : une fondation pour les affaires
               </ArticleTitle>
-              <ArticleDescription>
+              <ArticleDescription data-aos="fade-left">
                 Les contrats occupent une place centrale dans le fonctionnement
                 et le développement du monde des affaires. Voici pourquoi leur
                 importance ne peut être sous-estimée :
                 <ul>
-                  <h4>Un outil juridique indispensable</h4>
+                  <h4  data-aos="fade-down">Un outil juridique indispensable</h4>
                   <li>
                     Définition des droits et obligations : Les contrats
                     définissent clairement les engagements des parties.
@@ -187,7 +196,7 @@ const Affairee = () => {
                   </li>
                 </ul>
                 <ul>
-                  <h4>Un outil stratégique pour les entreprises</h4>
+                  <h4  data-aos="fade-down">Un outil stratégique pour les entreprises</h4>
                   <li>
                     Sécurisation des relations commerciales : Renforce la
                     confiance entre les parties.
@@ -202,7 +211,7 @@ const Affairee = () => {
                   </li>
                 </ul>
                 <ul>
-                  <h4>Des applications variées</h4>
+                  <h4  data-aos="fade-down">Des applications variées</h4>
                   <li>
                     Droit des sociétés : Contrats d’association, partenariats.
                   </li>
@@ -212,7 +221,10 @@ const Affairee = () => {
                   </li>
                 </ul>
               </ArticleDescription>
-              <ReadMoreButton href="https://aurelienbamde.com/2020/10/15/les-conditions-de-la-gestion-daffaires/">
+              <ReadMoreButton
+                href="https://aurelienbamde.com/2020/10/15/les-conditions-de-la-gestion-daffaires/"
+                 data-aos="fade-down"
+              >
                 Lire plus
               </ReadMoreButton>
             </ArticleContent>

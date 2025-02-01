@@ -177,7 +177,7 @@ export default function Affairfinal() {
           risques pour minimiser les imprévus. Nous sommes disponibles à tout
           moment pour vous accompagner dans vos démarches juridiques.
         </Paragraph>
-        <Paragraph data-aos="fade-left" data-aos-delay="1000">
+        <Paragraph data-aos="fade-left" >
           En choisissant notre cabinet, vous optez pour un partenaire engagé,
           professionnel et déterminé à défendre vos intérêts avec excellence.
           Faites confiance à notre expertise pour protéger vos droits et assurer

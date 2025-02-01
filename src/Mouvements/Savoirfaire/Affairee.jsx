@@ -1,20 +1,19 @@
-import styled from "styled-components";
-import AOS from "aos"; // Importation de AOS pour les animations
-import "aos/dist/aos.css"; // Importation du CSS de AOS
-import { useEffect } from "react"; // Pour initialiser AOS
-import articleImage from "./../../assets/Image/avoc3.avif"; // Image spécifique à l'article
-import Footer from "../Accueil/Footerr";
-import Affair from "./Affair";
-import Affairfinal from "./Affairfinal";
+import React, { useEffect, Suspense } from 'react';
+import styled from 'styled-components';
+import 'aos/dist/aos.css';
+import articleImage from './../../assets/Image/avoc3.avif';
 
-// Conteneur principal avec superposition
+const Footer = React.lazy(() => import('../Accueil/Footerr'));
+const Affair = React.lazy(() => import('./Affair'));
+const Affairfinal = React.lazy(() => import('./Affairfinal'));
+
 const AffairesContainer = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 50px 20px;
   position: relative;
   background: url("img/logoAODnoir.avif") center/cover no-repeat;
-  background-attachment: fixed; /* Image d'arrière-plan fixe */
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +25,7 @@ const AffairesContainer = styled.div`
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7); /* Superposition sombre */
+    background: rgba(0, 0, 0, 0.7);
     z-index: 1;
   }
 `;
@@ -41,7 +40,6 @@ const ContentWrapper = styled.div`
   align-items: center;
 `;
 
-// Titre de la section
 const SectionTitle = styled.h2`
   font-size: 2.8rem;
   font-weight: bold;
@@ -54,7 +52,6 @@ const SectionTitle = styled.h2`
   }
 `;
 
-// Carte d'article
 const ArticleCard = styled.div`
   background: rgba(10, 34, 64, 0.7);
   border-radius: 1px;
@@ -71,7 +68,6 @@ const ArticleCard = styled.div`
   }
 `;
 
-// Media (image ou vidéo)
 const MediaWrapper = styled.div`
   width: 100%;
   height: 500px;
@@ -82,20 +78,22 @@ const MediaWrapper = styled.div`
     height: 100%;
     object-fit: cover;
   }
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
 `;
 
-// Contenu d'article
 const ArticleContent = styled.div`
   padding: 20px;
   text-align: left;
   color: rgba(255, 255, 255, 0.85);
 `;
 
-// Titre d'article
 const ArticleTitle = styled.h3`
   font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   color: #90e0ef;
 
   @media (max-width: 768px) {
@@ -104,7 +102,6 @@ const ArticleTitle = styled.h3`
   }
 `;
 
-// Description d'article
 const ArticleDescription = styled.p`
   font-size: 1rem;
   font-weight: bold;
@@ -129,11 +126,10 @@ const ArticleDescription = styled.p`
   @media (max-width: 768px) {
     font-size: 0.95rem;
     line-height: 1.5rem;
-    padding: 2rem;
+    padding: 1rem;
   }
 `;
 
-// Bouton "Lire plus"
 const ReadMoreButton = styled.a`
   font-size: 1rem;
   font-weight: bold;
@@ -149,91 +145,95 @@ const ReadMoreButton = styled.a`
 `;
 
 const Affairee = () => {
-  // Initialisation de AOS
   useEffect(() => {
-    AOS.init({
-      duration: 1000, // Durée des animations
-      once: true, // Les animations ne se déclenchent qu'une fois
+    import('aos').then((AOS) => {
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
     });
   }, []);
 
   return (
     <div>
-      <Affairfinal />
-      <Affair />
-      <AffairesContainer>
-        <ContentWrapper>
-          <SectionTitle  data-aos="fade-down">L’importances</SectionTitle>
-          <ArticleCard data-aos="fade-up">
-            <MediaWrapper>
-              <img
-                src={articleImage}
-                alt="Contrats en affaires"
-                data-aos="zoom-in"
-              />
-            </MediaWrapper>
-            <ArticleContent>
-              <ArticleTitle data-aos="fade-right">
-                Les contrats : une fondation pour les affaires
-              </ArticleTitle>
-              <ArticleDescription data-aos="fade-left">
-                Les contrats occupent une place centrale dans le fonctionnement
-                et le développement du monde des affaires. Voici pourquoi leur
-                importance ne peut être sous-estimée :
-                <ul>
-                  <h4  data-aos="fade-down">Un outil juridique indispensable</h4>
-                  <li>
-                    Définition des droits et obligations : Les contrats
-                    définissent clairement les engagements des parties.
-                  </li>
-                  <li>
-                    Base légale pour résoudre les différends : Ils servent de
-                    preuve en cas de conflits.
-                  </li>
-                  <li>
-                    Respect des normes légales : Garantit la conformité avec les
-                    lois.
-                  </li>
-                </ul>
-                <ul>
-                  <h4  data-aos="fade-down">Un outil stratégique pour les entreprises</h4>
-                  <li>
-                    Sécurisation des relations commerciales : Renforce la
-                    confiance entre les parties.
-                  </li>
-                  <li>
-                    Gestion des risques : Permet d’anticiper et limiter les
-                    problèmes potentiels.
-                  </li>
-                  <li>
-                    Flexibilité et adaptabilité : Inclut des clauses ajustables
-                    pour faire face aux changements.
-                  </li>
-                </ul>
-                <ul>
-                  <h4  data-aos="fade-down">Des applications variées</h4>
-                  <li>
-                    Droit des sociétés : Contrats d’association, partenariats.
-                  </li>
-                  <li>Droit commercial : Vente, distribution, franchise.</li>
-                  <li>
-                    Propriété intellectuelle : Licence, cession, exploitation.
-                  </li>
-                </ul>
-              </ArticleDescription>
-              <ReadMoreButton
-                href="https://aurelienbamde.com/2020/10/15/les-conditions-de-la-gestion-daffaires/"
-                 data-aos="fade-down"
-              >
-                Lire plus
-              </ReadMoreButton>
-            </ArticleContent>
-          </ArticleCard>
-        </ContentWrapper>
-      </AffairesContainer>
-      <Footer />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Affairfinal />
+        <Affair />
+        <AffairesContainer>
+          <ContentWrapper>
+            <SectionTitle data-aos="fade-down">L’importances</SectionTitle>
+            <ArticleCard data-aos="fade-up">
+              <MediaWrapper>
+                <img
+                  src={articleImage}
+                  alt="Contrats en affaires"
+                  data-aos="zoom-in"
+                  loading="lazy"
+                />
+              </MediaWrapper>
+              <ArticleContent>
+                <ArticleTitle data-aos="fade-right">
+                  Les contrats : une fondation pour les affaires
+                </ArticleTitle>
+                <ArticleDescription data-aos="fade-left">
+                  Les contrats occupent une place centrale dans le fonctionnement
+                  et le développement du monde des affaires.Voici pourquoi leur
+                  importance ne peut être sous-estimée
+                  <ul>
+                    <h4 data-aos="fade-down">Un outil juridique indispensable</h4>
+                    <li>
+                      Définition des droits et obligations : Les contrats
+                      définissent clairement les engagements des parties.
+                    </li>
+                    <li>
+                      Base légale pour résoudre les différends : Ils servent de
+                      preuve en cas de conflits
+                    </li>
+                    <li>
+                      Respect des normes légales : Garantit la conformité avec les
+                      lois
+                    </li>
+                  </ul>
+                  <ul>
+                    <h4 data-aos="fade-down">Un outil stratégique pour les entreprises</h4>
+                    <li>
+                      Sécurisation des relations commerciales : Renforce la
+                      confiance entre les parties
+                    </li>
+                    <li>
+                      Gestion des risques : Permet d’anticiper et limiter les
+                      problèmes potentiels.
+                    </li>
+                    <li>
+                      Flexibilité et adaptabilité : Inclut des clauses ajustables
+                      pour faire face aux changements.
+                    </li>
+                  </ul>
+                  <ul>
+                    <h4 data-aos="fade-down">Des applications variées</h4>
+                    <li>
+                      Droit des sociétés : Contrats d’association, partenariats.
+                    </li>
+                    <li>Droit commercial : Vente, distribution, franchise.</li>
+                    <li>
+                      Propriété intellectuelle : Licence, cession, exploitation.
+                    </li>
+                  </ul>
+                </ArticleDescription>
+                <ReadMoreButton
+                  href="https://aurelienbamde.com/2020/10/15/les-conditions-de-la-gestion-daffaires/"
+                  data-aos="fade-down"
+                >
+                  Lire plus
+                </ReadMoreButton>
+              </ArticleContent>
+            </ArticleCard>
+          </ContentWrapper>
+        </AffairesContainer>
+        <Footer />
+      </Suspense>
     </div>
   );
 };
 
-export default Affairee;
+export default React.memo(Affairee);

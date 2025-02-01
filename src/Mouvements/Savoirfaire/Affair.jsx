@@ -174,7 +174,7 @@ export default function Affair() {
             permettent aux entrepreneurs de structurer légalement leurs
             activités tout en protégeant leurs intérêts financiers.
           </Description>
-          <Description data-aos="fade-left" data-aos-delay="400">
+          <Description data-aos="fade-left" >
             En outre, le droit des affaires s’étend au droit fiscal, aux
             contrats commerciaux, à la propriété intellectuelle, et à la
             concurrence. Par exemple, il garantit une concurrence loyale entre
@@ -183,7 +183,7 @@ export default function Affair() {
             médiation et de règlement des litiges entre les partenaires
             commerciaux, offrant ainsi des solutions rapides et efficaces.
           </Description>
-          <Description data-aos="fade-right">
+          <Description >
             Enfin, le droit des affaires n’est pas seulement une protection pour
             les entreprises, mais aussi un outil stratégique. En anticipant les
             risques juridiques et en respectant les réglementations, les
@@ -200,7 +200,7 @@ export default function Affair() {
           target="_blank"
           rel="noopener noreferrer"
           data-aos="fade-up"
-          data-aos-delay="1000"
+          data-aos-delay="500"
         >
           Voir +
         </ActionButton>

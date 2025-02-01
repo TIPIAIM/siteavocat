@@ -93,35 +93,27 @@ const BackButton = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #63b3ed, #3182ce);
+  width: 50px;
+  height: 50px;
+  background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(144, 224, 239, 0.5);
-  color: white;
-  font-size: 1.2rem;
+  box-shadow: 0 4px 1px #63b3ed;
+  color: ;
   margin-bottom: 2rem;
-  transition: all 0.3s ease;
-  outline: none;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background: #63b3ed;
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  &:focus {
-    outline: 3px solid #90cdf4;
+    background-color: #e2e8f0;
   }
 
   @media (max-width: 768px) {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 
   @media (max-width: 480px) {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 `;
 
@@ -130,7 +122,7 @@ export default function Affairfinal() {
   useEffect(() => {
     AOS.init({
       duration: 1000, // Durée des animations
-      once: true, // Les animations ne se déclenchent qu'une fois
+      once: false, // Les animations en boucle
     });
   }, []);
 
@@ -156,7 +148,7 @@ export default function Affairfinal() {
         <Divider data-aos="fade-up" data-aos-delay="800" />
 
         {/* Paragraphes */}
-        <Paragraph data-aos="fade-right" data-aos-delay="400">
+        <Paragraph data-aos="fade-down" data-aos-delay="400">
           Notre cabinet est composé d’avocats spécialisés en droit des affaires,
           dotés de plusieurs années d’expérience dans le domaine. Nous
           maîtrisons les complexités juridiques des entreprises et sommes à jour
@@ -164,20 +156,20 @@ export default function Affairfinal() {
           rédaction de contrats, la gestion de litiges ou des conseils
           stratégiques, nous avons les compétences pour défendre vos intérêts.
         </Paragraph>
-        <Paragraph data-aos="fade-left" data-aos-delay="600">
+        <Paragraph data-aos="fade-down" data-aos-delay="600">
           Nous comprenons que chaque entreprise a des besoins uniques. C’est
           pourquoi nous proposons des solutions juridiques sur mesure, adaptées
           à vos objectifs commerciaux. Notre approche centrée sur le client
           garantit une attention particulière à vos attentes et un suivi
           rigoureux de votre dossier.
         </Paragraph>
-        <Paragraph data-aos="fade-right" data-aos-delay="800">
+        <Paragraph data-aos="fade-down" data-aos-delay="800">
           Dans le monde des affaires, le temps est précieux. Notre équipe
           s’engage à répondre rapidement à vos demandes et à anticiper les
           risques pour minimiser les imprévus. Nous sommes disponibles à tout
           moment pour vous accompagner dans vos démarches juridiques.
         </Paragraph>
-        <Paragraph data-aos="fade-left" >
+        <Paragraph data-aos="fade-down" >
           En choisissant notre cabinet, vous optez pour un partenaire engagé,
           professionnel et déterminé à défendre vos intérêts avec excellence.
           Faites confiance à notre expertise pour protéger vos droits et assurer

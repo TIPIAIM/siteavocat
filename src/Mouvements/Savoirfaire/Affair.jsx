@@ -139,8 +139,8 @@ export default function Affair() {
   // Initialisation de AOS
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Durée des animations
-      once: true, // Les animations ne se déclenchent qu'une fois
+      duration: 500, // Durée des animations
+      once: false, // Les animations ne se déclenchent en boucle
     });
   }, []);
 
@@ -165,7 +165,7 @@ export default function Affair() {
 
         {/* Texte descriptif défilant */}
         <ScrollAnimation>
-          <Description data-aos="fade-right" data-aos-delay="200">
+          <Description data-aos="fade-up" data-aos-delay="200">
             Parmi les composantes essentielles du droit des affaires, on
             retrouve le droit commercial, qui encadre les actes de commerce et
             le statut des commerçants, ainsi que le droit des sociétés, qui
@@ -174,7 +174,7 @@ export default function Affair() {
             permettent aux entrepreneurs de structurer légalement leurs
             activités tout en protégeant leurs intérêts financiers.
           </Description>
-          <Description data-aos="fade-left" >
+          <Description data-aos="fade-down" >
             En outre, le droit des affaires s’étend au droit fiscal, aux
             contrats commerciaux, à la propriété intellectuelle, et à la
             concurrence. Par exemple, il garantit une concurrence loyale entre

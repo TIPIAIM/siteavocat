@@ -1,65 +1,75 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import styled from 'styled-components';
-import BardeNavigationpublic from '../../Navigatpublic/BardeNavigationPublic';
-import Footer from '../../Accueil/Footerr';
-import EVOL from './../../../assets/Image/EVOL.avif';
-import logoAODnoir from './../../../assets/Image/logoAODnoir.avif';
-import sttis from './../../../assets/Image/sttis.avif';
-import PREV from './../../../assets/Image/PREV.avif';
-import conf from './../../../assets/Image/conf.avif';
-import affaire from './../../../assets/Image/affaire.avif';
-import jurid1 from './../../../assets/Image/jurid1.avif';
-import jurid from './../../../assets/Image/jurid.avif';
+import React, { useEffect } from "react"; // Importation de React et useEffect
+import AOS from "aos"; // Importation de AOS pour les animations
+import "aos/dist/aos.css"; // Importation du CSS de AOS
+import styled from "styled-components"; // Importation de styled-components pour les styles
+import BardeNavigationpublic from "../../Navigatpublic/BardeNavigationPublic"; // Importation de la barre de navigation publique
+import Footer from "../../Accueil/Footerr"; // Importation du composant Footer
+import EVOL from "./../../../assets/Image/EVOL.avif"; // Importation des images
+import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif";
+import sttis from "./../../../assets/Image/sttis.avif";
+import PREV from "./../../../assets/Image/PREV.avif";
+import conf from "./../../../assets/Image/conf.avif";
+import affaire from "./../../../assets/Image/affaire.avif";
+import jurid1 from "./../../../assets/Image/jurid1.avif";
+import jurid from "./../../../assets/Image/jurid.avif";
 
+// Conteneur principal avec fond fixe
 const BackgroundContainer = styled.div`
   position: relative;
-  min-height: 100vh;
-  background-image: url("img/confience.avif");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-`;
-
-const Overlay = styled.div`
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.9);
-`;
-
-const ContentContainer = styled.div`
-  position: relative;
-  z-index: 10;
-  padding: 4rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: black;
-  max-width: 1200px;
-  margin: 0 auto;
-
-  @media (max-width: 1024px) {
-    padding: 2rem 1rem;
-    text-align: center;
-    margin: 1rem;
-  }
-`;
-
-const Title = styled.h1`
-  font-size: 3rem;
-  font-weight: bold;
-  color: #90e0ef;
-  margin-bottom: 2rem;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  min-height: 100vh; /* Hauteur minimale de la vue */
+  background-image: url("img/confience.avif"); /* Image de fond */
+  background-size: cover; /* Couvre tout l'espace disponible */
+  background-position: center; /* Centre l'image */
+  background-attachment: fixed; /* Fond fixe lors du défilement */
 
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    background-attachment: scroll; /* Désactive le fond fixe sur les petits écrans */
   }
+`;
+
+// Couche transparente
+const Overlay = styled.div`
+  position: absolute;
+  inset: 0; /* Couvre tout l'espace du conteneur parent */
+  background: rgba(0, 0, 0, 0.9); /* Fond noir semi-transparent */
+`;
+
+// Conteneur du contenu
+const ContentContainer = styled.div`
+  position: relative;
+  z-index: 10; /* Positionne au-dessus de la superposition */
+  padding: 4rem 2rem; /* Espacement interne */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre le contenu horizontalement */
+  text-align: center; /* Centrage du texte */
+  color: black; /* Couleur du texte par défaut */
+  max-width: 1200px; /* Largeur maximale du contenu */
+  margin: 0 auto; /* Centrage horizontal */
 
   @media (max-width: 1024px) {
-    font-size: 2.5rem;
+    padding: 2rem 1rem; /* Espacement réduit pour les tablettes */
+  }
+
+  @media (max-width: 768px) {
+    padding: 2.2rem; /* Espacement réduit pour les petits écrans */
+  }
+`;
+
+// Titre principal
+const Title = styled.h1`
+  font-size: 3rem; /* Taille de la police */
+  font-weight: bold; /* Gras */
+  color: #90e0ef; /* Couleur du texte */
+  margin-bottom: 2rem; /* Marge en bas */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Ombre du texte */
+
+  @media (max-width: 1024px) {
+    font-size: 2.5rem; /* Taille de police réduite pour les tablettes */
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem; /* Taille de police réduite pour les petits écrans */
   }
 `;
 
@@ -71,12 +81,12 @@ const ParagraphWrapper = styled.div`
   gap: 2rem;
   border-radius: 0px;
   padding: 1.5rem;
-  background: rgba(10, 34, 64, 0.5);
+  background: rgba(10, 34, 64, 0.9);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
     flex-direction: column;
-    text-align: flex;
+    text-align: center;
     padding: 0rem;
   }
   @media (max-width: 1024px) {
@@ -85,12 +95,14 @@ const ParagraphWrapper = styled.div`
   }
 `;
 
+
+// Image des paragraphes
 const ParagraphImage = styled.img`
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 5%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 180px; /* Largeur fixe */
+  height: 180px; /* Hauteur fixe */
+  object-fit: cover; /* Ajuste l'image pour couvrir le conteneur */
+  border-radius: 5%; /* Bordures arrondies */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre */
 
   @media (max-width: 768px) {
     border-radius: 0%;
@@ -105,83 +117,98 @@ const ParagraphImage = styled.img`
     margin: 0 auto;
   }
 `;
-
+// Paragraphe
 const Paragraph = styled.p`
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-  text-align: left;
-  color: #e0e0e0;
+  font-size: 1.2rem; /* Taille de la police */
+  line-height: 1.8rem; /* Hauteur de ligne */
+  text-align: left; /* Alignement du texte à gauche */
+  color: #e0e0e0; /* Couleur du texte */
 
-  @media (max-width: 480px) {
-    font-size: 1rem;
-    line-height: 1.6rem;
-    text-align: left;
-    padding: 2rem;
-  }
   @media (max-width: 1024px) {
-    font-size: 1.1rem;
-    line-height: 1.7rem;
-    text-align: left;
-    justify-content: left;
-    margin: 0.5rem;
+    font-size: 1.1rem; /* Taille de police réduite pour les tablettes */
+    line-height: 1.7rem; /* Hauteur de ligne réduite */
+    padding: 1rem; /* Espacement interne */
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem; /* Taille de police réduite pour les petits écrans */
+    line-height: 1.6rem; /* Hauteur de ligne réduite */
   }
 `;
 
+// Diviseur
 const Divider = styled.div`
-  height: 3px;
-  width: 300px;
-  background: #4ea8ff;
-  margin: 2rem 0;
+  height: 3px; /* Hauteur du diviseur */
+  width: 300px; /* Largeur du diviseur */
+  background: #4ea8ff; /* Couleur du diviseur */
+  margin: 2rem 0; /* Marge externe */
+
+  @media (max-width: 768px) {
+    width: 200px; /* Largeur réduite pour les petits écrans */
+  }
 `;
 
+// Conteneur des images
 const ImageContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 2rem;
-  margin-bottom:4rem;
+  flex-wrap: wrap; /* Passage à la ligne si nécessaire */
+  gap: 1rem; /* Espacement entre les images */
+  justify-content: center; /* Centrage horizontal */
+  margin-top: 2rem; /* Marge en haut */
+  margin-bottom: 4rem; /* Marge en bas */
+
   @media (max-width: 1024px) {
-    gap: 0.5rem;
+    gap: 0.5rem; /* Espacement réduit pour les tablettes */
   }
 `;
 
+// Image dans le conteneur
 const Image = styled.img`
-  width: 100%;
-  max-width: 200px;
-  background: rgba(250, 250, 250, 0.8);
-  margin-top: 4rem;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Largeur maximale */
+  max-width: 200px; /* Largeur maximale */
+  background: rgba(250, 250, 250, 0.8); /* Fond semi-transparent */
+  margin-top: 4rem; /* Marge en haut */
+  border-radius: 12px; /* Bordures arrondies */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
 
   &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-    background: rgba(250, 250, 250, 0.3);
+    transform: scale(1.05); /* Effet de zoom au survol */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Ombre au survol */
+    background: rgba(250, 250, 250, 0.3); /* Fond semi-transparent au survol */
   }
+
   @media (max-width: 1024px) {
-    max-width: 250px;
+    max-width: 250px; /* Largeur maximale réduite pour les tablettes */
   }
 `;
 
+// Composant principal
 export default function AuditJuridique() {
+  // Initialisation de AOS pour les animations
   useEffect(() => {
     AOS.init({
-      duration: 1000,
-      once: false,
+      duration: 1000, // Durée des animations
+      once: false, // Les animations se répètent à chaque fois que l'élément entre dans la vue
     });
   }, []);
 
   return (
     <div>
+      {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         <Overlay />
+        {/* Barre de navigation publique */}
         <BardeNavigationpublic />
-        <ContentContainer style={{ fontFamily: 'Helvetica55Roman, Arial, sans-serif' }}>
+
+        {/* Contenu principal */}
+        <ContentContainer style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
+          {/* Titre principal avec animation AOS */}
           <Title data-aos="fade-down">Audit juridiques ?</Title>
           <Divider />
+
+          {/* Section 1 : Analyse approfondie */}
           <ParagraphWrapper data-aos="fade-up">
-            <ParagraphImage src={jurid} alt="Analyse" />
+            <ParagraphImage src={jurid} alt="Analyse juridique" />
             <Paragraph>
               Dans un environnement juridique de plus en plus complexe, un audit
               juridique rigoureux est essentiel pour garantir la pérennité de
@@ -189,10 +216,12 @@ export default function AuditJuridique() {
               distingue par son expertise et son approche personnalisée.
             </Paragraph>
           </ParagraphWrapper>
+
+          {/* Section 2 : Analyse stratégique */}
           <ParagraphWrapper data-aos="fade-up">
-            <ParagraphImage src={jurid1} alt="Stratégie" />
+            <ParagraphImage src={jurid1} alt="Stratégie juridique" />
             <Paragraph>
-              <strong style={{ color: '#90e0ef' }}>1. Une analyse approfondie et stratégique :</strong>{' '}
+              <strong style={{ color: "#90e0ef" }}>1. Une analyse approfondie et stratégique :</strong>{" "}
               Notre équipe procède à une évaluation complète de vos documents
               juridiques, tels que contrats, statuts, accords de partenariat, et
               politiques internes. Nous identifions non seulement les zones de
@@ -200,77 +229,95 @@ export default function AuditJuridique() {
               et renforcer votre position juridique.
             </Paragraph>
           </ParagraphWrapper>
+
+          {/* Section 3 : Expertise multidisciplinaire */}
           <ParagraphWrapper data-aos="fade-up">
-            <ParagraphImage src={affaire} alt="Expertise" />
+            <ParagraphImage src={affaire} alt="Expertise juridique" />
             <Paragraph>
-              <strong style={{ color: '#90e0ef' }}>2. Une expertise multidisciplinaire unique :</strong>{' '}
+              <strong style={{ color: "#90e0ef" }}>2. Une expertise multidisciplinaire unique :</strong>{" "}
               Nos avocats spécialisés couvrent plusieurs branches du droit,
               notamment le droit des affaires, le droit du travail, le droit
               fiscal, et le droit commercial. Cette diversité garantit une
               vision globale et cohérente de votre environnement juridique.
             </Paragraph>
           </ParagraphWrapper>
+
+          {/* Section 4 : Conformité */}
           <ParagraphWrapper data-aos="fade-up">
-            <ParagraphImage src={conf} alt="Conformité" />
+            <ParagraphImage src={conf} alt="Conformité juridique" />
             <Paragraph>
-              <strong style={{ color: '#90e0ef' }}>3. Une conformité avec les normes en constante évolution :</strong>
+              <strong style={{ color: "#90e0ef" }}>3. Une conformité avec les normes en constante évolution :</strong>{" "}
               Les lois et réglementations changent rapidement. Nous veillons à
               ce que vos pratiques soient en adéquation avec les dernières
               exigences légales, réduisant ainsi les risques de sanctions
               administratives ou de litiges.
             </Paragraph>
           </ParagraphWrapper>
+
+          {/* Section 5 : Prévention des risques */}
           <ParagraphWrapper data-aos="fade-down">
-            <ParagraphImage src={PREV} alt="Prévention" />
+            <ParagraphImage src={PREV} alt="Prévention juridique" />
             <Paragraph>
-              <strong style={{ color: '#90e0ef' }}>4. Une prévention proactive des risques :</strong>{' '}
+              <strong style={{ color: "#90e0ef" }}>4. Une prévention proactive des risques :</strong>{" "}
               Un audit juridique efficace vous permet de prévoir et d’éviter des
               problèmes avant qu’ils ne surviennent. Notre approche proactive
               inclut des recommandations précises pour corriger les anomalies
               identifiées et protéger vos intérêts.
             </Paragraph>
           </ParagraphWrapper>
+
+          {/* Section 6 : Accompagnement sur mesure */}
           <ParagraphWrapper data-aos="fade-down">
-            <ParagraphImage src={EVOL} alt="Accompagnement" />
+            <ParagraphImage src={EVOL} alt="Accompagnement juridique" />
             <Paragraph>
-              <strong style={{ color: '#90e0ef' }}>5. Un accompagnement sur mesure :</strong>{' '}
+              <strong style={{ color: "#90e0ef" }}>5. Un accompagnement sur mesure :</strong>{" "}
               Au-delà de l’audit, nous vous assistons dans la mise en œuvre des
               solutions proposées. Que ce soit pour la révision de vos contrats,
               la restructuration juridique ou la négociation de clauses, notre
               équipe est à vos côtés à chaque étape.
             </Paragraph>
           </ParagraphWrapper>
+
+          {/* Section 7 : Avantages concrets */}
           <ParagraphWrapper data-aos="fade-up">
-            <ParagraphImage src={sttis} alt="Avantages" />
+            <ParagraphImage src={sttis} alt="Avantages juridiques" />
             <Paragraph>
-              <strong data-aos="fade-down" style={{ color: '#90e0ef' }}>6. Des avantages concrets pour votre organisation :</strong>
-              <li>
-                Réduction des coûts liés aux litiges grâce à une prévention
-                efficace.
-              </li>
-              <li>
-                Amélioration de la crédibilité de votre entreprise vis-à-vis de
-                vos partenaires et investisseurs.
-              </li>
-              <li>
-                Optimisation de vos processus internes pour une gestion plus
-                fluide et sécurisée.
-              </li>
+              <strong style={{ color: "#90e0ef" }}>6. Des avantages concrets pour votre organisation :</strong>
+              <ul>
+                <li>
+                  Réduction des coûts liés aux litiges grâce à une prévention
+                  efficace.
+                </li>
+                <li>
+                  Amélioration de la crédibilité de votre entreprise vis-à-vis de
+                  vos partenaires et investisseurs.
+                </li>
+                <li>
+                  Optimisation de vos processus internes pour une gestion plus
+                  fluide et sécurisée.
+                </li>
+              </ul>
             </Paragraph>
           </ParagraphWrapper>
+
+          {/* Section 8 : Relation de confiance */}
           <ParagraphWrapper data-aos="fade-down">
             <Paragraph>
-              <strong  style={{ color: '#90e0ef' }}>7. Une relation de confiance :</strong>{' '}
+              <strong style={{ color: "#90e0ef" }}>7. Une relation de confiance :</strong>{" "}
               Notre engagement repose sur la transparence, la discrétion, et une
               écoute active de vos besoins. Chaque client bénéficie d’un suivi
               personnalisé, car nous comprenons que chaque situation est unique.
             </Paragraph>
           </ParagraphWrapper>
+
+          {/* Conteneur des images */}
           <ImageContainer>
-            <Image data-aos="zoom-in" src={logoAODnoir} alt="Analyse juridique"  />
+            <Image data-aos="zoom-in" src={logoAODnoir} alt="Logo AOD" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>
+
+      {/* Pied de page */}
       <Footer />
     </div>
   );

@@ -78,7 +78,8 @@ const Paragraph = styled.p`
   @media (max-width: 480px) {
     font-size: 1rem; /* Taille de police réduite pour les petits écrans */
     line-height: 1.6rem; /* Hauteur de ligne réduite */
-    margin: 1rem; /* Marge réduite */
+    margin: 2.1rem; /* Marge réduite */
+   
   }
 `;
 

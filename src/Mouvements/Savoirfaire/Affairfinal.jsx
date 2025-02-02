@@ -72,7 +72,7 @@ const Paragraph = styled.p`
   @media (max-width: 480px) {
     font-size: 1rem;
     line-height: 1.6rem;
-    padding: 0 1rem;
+    padding: 0 2.2rem;
   }
 `;
 

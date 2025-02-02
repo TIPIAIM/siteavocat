@@ -1,10 +1,10 @@
-import  { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import styled from 'styled-components';
-import BardeNavigationpublic from '../../Navigatpublic/BardeNavigationPublic';
-import Footer from '../../Accueil/Footerr';
-import logoAODnoir from './../../../assets/Image/logoAODnoir.avif';
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import styled from "styled-components";
+import BardeNavigationpublic from "../../Navigatpublic/BardeNavigationPublic";
+import Footer from "../../Accueil/Footerr";
+import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif";
 
 // Container principal avec fond d'image et dégradé pour la lisibilité
 const Container = styled.div`
@@ -98,7 +98,16 @@ const Point = styled.div`
     text-align: left;
   }
 `;
+const Divider = styled.div`
+  height: 3px; /* Hauteur du diviseur */
+  width: 500px; /* Largeur du diviseur */
+  background: #4ea8ff; /* Couleur du diviseur */
+  margin: 2rem 0; /* Marge externe */
 
+  @media (max-width: 768px) {
+    width: 200px; /* Largeur réduite pour les petits écrans */
+  }
+`;
 const Conseiljuri = () => {
   useEffect(() => {
     AOS.init({
@@ -109,69 +118,70 @@ const Conseiljuri = () => {
 
   return (
     <div>
-      <Container style={{ fontFamily: 'Helvetica55Roman, Arial, sans-serif' }}>
+      <Container style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
         <BardeNavigationpublic />
         <Title data-aos="fade-down">Conseils juridiques ?</Title>
+        <Divider />
         <PointsList>
           <Point data-aos="fade-down">
-            <strong style={{ color: '#90e0ef' }}>
+            <strong style={{ color: "#90e0ef" }}>
               Expertise et expérience reconnue :
-            </strong>{' '}
+            </strong>
             Notre équipe de juristes et d`avocats est spécialisée dans de
             nombreux domaines du droit, vous offrant des solutions adaptées à
             vos besoins. Nous nous engageons à vous fournir des conseils de
             haute qualité.
           </Point>
           <Point data-aos="fade-up">
-            <strong style={{ color: '#90e0ef' }}>
+            <strong style={{ color: "#90e0ef" }}>
               Approche proactive et stratégique :
-            </strong>{' '}
+            </strong>{" "}
             Nous anticipons les défis et élaborons des stratégies adaptées pour
             minimiser les risques et maximiser vos chances de succès. Cela
             inclut une analyse approfondie de vos besoins spécifiques.
           </Point>
           <Point data-aos="fade-down">
-            <strong style={{ color: '#90e0ef' }}>
+            <strong style={{ color: "#90e0ef" }}>
               Engagement envers vos intérêts :
-            </strong>{' '}
+            </strong>{" "}
             Nous défendons vos droits avec rigueur et professionnalisme, en vous
             apportant les meilleures solutions possibles. Votre satisfaction est
             au cœur de nos priorités.
           </Point>
           <Point data-aos="fade-down">
-            <strong style={{ color: '#90e0ef' }}>
+            <strong style={{ color: "#90e0ef" }}>
               Communication claire et transparente :
-            </strong>{' '}
+            </strong>{" "}
             Nous vous tenons informé à chaque étape du processus, garantissant
             une collaboration efficace et une totale compréhension de votre
             dossier. Une information précise est notre priorité.
           </Point>
           <Point data-aos="fade-down">
-            <strong style={{ color: '#90e0ef' }}>Résultats probants :</strong>{' '}
+            <strong style={{ color: "#90e0ef" }}>Résultats probants :</strong>{" "}
             Notre expérience dans la résolution de contentieux complexes nous
             permet d`obtenir des résultats concrets et satisfaisants pour nos
             clients. Nous avons à cœur de vous apporter des solutions concrètes.
           </Point>
           <Point data-aos="fade-down">
-            <strong style={{ color: '#90e0ef' }}>
+            <strong style={{ color: "#90e0ef" }}>
               Discrétion et confidentialité :
-            </strong>{' '}
+            </strong>{" "}
             Votre confiance est primordiale. Nous garantissons la protection de
             vos informations et la confidentialité totale de vos dossiers, avec
             un respect absolu de vos droits.
           </Point>
           <Point data-aos="fade-down">
-            <strong style={{ color: '#90e0ef' }}>
+            <strong style={{ color: "#90e0ef" }}>
               Accompagnement sur mesure :
-            </strong>{' '}
+            </strong>{" "}
             Nous traitons chaque dossier avec soin et attention, vous offrant
             des conseils adaptés à votre situation spécifique, quel que soit le
             degré de complexité.
           </Point>
           <Point data-aos="fade-down">
-            <strong style={{ color: '#90e0ef' }}>
+            <strong style={{ color: "#90e0ef" }}>
               Accessibilité et réactivité :
-            </strong>{' '}
+            </strong>{" "}
             Nous répondons rapidement à vos questions et préoccupations, en
             veillant à vous apporter un service de qualité à tout moment. Votre
             satisfaction est notre priorité.

@@ -224,7 +224,7 @@ export default function Nosexpertise() {
 
                 {/* Informations de la carte */}
                 <div
-                  data-aos-delay={index * 800}
+                  data-aos-delay={index * 300}
                   data-aos="fade-right"
                   className="info"
                 >

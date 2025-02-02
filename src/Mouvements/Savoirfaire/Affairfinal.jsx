@@ -137,7 +137,11 @@ export default function Affairfinal() {
         <BardeNavigationpublic />
 
         {/* Bouton de retour */}
-        <BackButton  data-aos="fade-up" to="/nosexpertises" aria-label="Retour aux expertises">
+        <BackButton
+          data-aos="fade-up"
+          to="/nosexpertises"
+          aria-label="Retour aux expertises"
+        >
           <FaArrowLeft size={24} />
         </BackButton>
 
@@ -169,7 +173,7 @@ export default function Affairfinal() {
           risques pour minimiser les imprévus. Nous sommes disponibles à tout
           moment pour vous accompagner dans vos démarches juridiques.
         </Paragraph>
-        <Paragraph data-aos="fade-down" >
+        <Paragraph data-aos="fade-down">
           En choisissant notre cabinet, vous optez pour un partenaire engagé,
           professionnel et déterminé à défendre vos intérêts avec excellence.
           Faites confiance à notre expertise pour protéger vos droits et assurer

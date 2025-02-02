@@ -79,7 +79,6 @@ const Paragraph = styled.p`
     font-size: 1rem; /* Taille de police réduite pour les petits écrans */
     line-height: 1.6rem; /* Hauteur de ligne réduite */
     margin: 2.1rem; /* Marge réduite */
-   
   }
 `;
 
@@ -178,13 +177,17 @@ export default function Famillee() {
           <BardeNavigationpublic />
           {/* Contenu principal */}
           <ContentContainer>
-                {/* Bouton de retour */}
-                    <BackButton  data-aos="fade-up" to="/nosexpertises" aria-label="Retour aux expertises">
-                      <FaArrowLeft data-aos-delay="600" size={24} />
-                    </BackButton>
-            
+            {/* Bouton de retour */}
+            <BackButton
+              data-aos="fade-up"
+              to="/nosexpertises"
+              aria-label="Retour aux expertises"
+            >
+              <FaArrowLeft data-aos-delay="600" size={24} />
+            </BackButton>
+
             {/* Titre de la section avec animation AOS */}
-            <Title data-aos="fade-down" >Droit de la Famille</Title>
+            <Title data-aos="fade-down">Droit de la Famille</Title>
 
             {/* Diviseur avec animation AOS */}
             <Divider data-aos="fade-up" data-aos-delay="600" />
@@ -233,8 +236,8 @@ export default function Famillee() {
           {/* Composant Famille2 */}
           <Famille2 />
         </Suspense>
-     
-      </BackgroundContainer>   <Footer/>
+      </BackgroundContainer>{" "}
+      <Footer />
     </div>
   );
 }

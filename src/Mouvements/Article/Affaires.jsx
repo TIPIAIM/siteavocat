@@ -154,7 +154,7 @@ const Affairee = () => {
       <AffairesContainer>
         <ContentWrapper>
           <SectionTitle className="font-serif">
-            L’importance des contrats en droit des affaires
+            L’ventages des contrats en droit des affaires
           </SectionTitle>
           <ArticleCard
             initial={{ opacity: 0, y: 50 }}

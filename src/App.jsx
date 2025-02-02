@@ -10,8 +10,6 @@ import Fiscalite from "./Mouvements/Article/Fiscalite";
 import Minier from "./Mouvements/Article/MinierEnviron";
 import Famille from "./Mouvements/Article/Famille";
 import Nosexpertise from "./Mouvements/Savoirfaire/Nos-Domaines";
-import Affairee from "./Mouvements/Savoirfaire/Affairee";
-import Famillee from "./Mouvements/Savoirfaire/Famillee";
 import Fiscalitee from "./Mouvements/Savoirfaire/Fiscalitee";
 import MinierEnvironn from "./Mouvements/Savoirfaire/MinierEnvironn";
 import Securitee from "./Mouvements/Savoirfaire/Securitee";
@@ -35,6 +33,9 @@ import ListeClients from "./Mouvements/Administrateur/GestionClient/AjoutClientR
 import MiseajourAjoutclientRecup from "./Mouvements/Administrateur/GestionClient/AjoutclientReMiAj";
 import Gclient from "./Mouvements/Administrateur/GestionClient/Gclient";
 
+import Famillee from "./Mouvements/Savoirfaire/Famillee";
+import Affairee from "./Mouvements/Savoirfaire/Affairee";
+
 function App() {
   return (
     <BrowserRouter>
@@ -45,7 +46,8 @@ function App() {
         {/** <Route path="*" element={<Orror />} />
       pour {" "}
    <Route path="/login" element={<LoginForm />} />
-   <Route path="/register" element={<RegisterForm />} />        <Route path="/Logoutdecconnexion" element={<LogoutButton />} />
+   <Route path="/register" element={<RegisterForm />} />  
+         <Route path="/Logoutdecconnexion" element={<LogoutButton />} />
  */}
         {/**donnee prisent dns le serveur  suprimer pres */}
         <Route path="/elementList" element={<ElementList />} />
@@ -58,11 +60,13 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/article" element={<Articles />} />
         <Route path="/affaire" element={<Affaires />} />
+        {/**pour les rticles */}
         <Route path="/securite" element={<Securite />} />
         <Route path="/penal" element={<Penal />} />
         <Route path="/fiscalite" element={<Fiscalite />} />
         <Route path="/minier" element={<Minier />} />
         <Route path="/famille" element={<Famille />} />
+
         <Route path="/nosexpertises" element={<Nosexpertise />} />
         <Route path="/affairee" element={<Affairee />} />
         <Route path="/famillee" element={<Famillee />} />

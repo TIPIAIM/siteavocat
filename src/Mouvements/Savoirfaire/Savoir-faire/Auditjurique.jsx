@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"; // Importation de React et useEffect
+import { useEffect } from "react"; // Importation de React et useEffect
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
 import styled from "styled-components"; // Importation de styled-components pour les styles
@@ -139,8 +139,8 @@ const Paragraph = styled.p`
 // Diviseur
 const Divider = styled.div`
   height: 3px; /* Hauteur du diviseur */
-  width: 300px; /* Largeur du diviseur */
-  background: #4ea8ff; /* Couleur du diviseur */
+  width: 500px; /* Largeur du diviseur */
+  background: #90e0ef; /* Couleur du diviseur */
   margin: 2rem 0; /* Marge externe */
 
   @media (max-width: 768px) {

@@ -167,9 +167,13 @@ const Image = styled.img`
 // Diviseur
 const Divider = styled.div`
   height: 3px; /* Hauteur du diviseur */
-  width: 200px; /* Largeur du diviseur */
+  width: 500px; /* Largeur du diviseur */
   background: #4ea8ff; /* Couleur du diviseur */
   margin: 2rem 0; /* Marge externe */
+
+  @media (max-width: 768px) {
+    width: 200px; /* Largeur réduite pour les petits écrans */
+  }
 `;
 
 // Composant principal

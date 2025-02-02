@@ -111,7 +111,7 @@ const Conseiljuri = () => {
     <div>
       <Container style={{ fontFamily: 'Helvetica55Roman, Arial, sans-serif' }}>
         <BardeNavigationpublic />
-        <Title data-aos="fade-right">Conseils juridiques ?</Title>
+        <Title data-aos="fade-down">Conseils juridiques ?</Title>
         <PointsList>
           <Point data-aos="fade-down">
             <strong style={{ color: '#90e0ef' }}>
@@ -122,7 +122,7 @@ const Conseiljuri = () => {
             vos besoins. Nous nous engageons à vous fournir des conseils de
             haute qualité.
           </Point>
-          <Point data-aos="fade-left">
+          <Point data-aos="fade-up">
             <strong style={{ color: '#90e0ef' }}>
               Approche proactive et stratégique :
             </strong>{' '}

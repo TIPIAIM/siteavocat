@@ -137,7 +137,7 @@ const ImageContainer = styled.div`
   gap: 1rem;
   justify-content: center;
   margin-top: 2rem;
-
+ margin-bottom:4rem;
   @media (max-width: 1024px) {
     gap: 0.5rem;
   }
@@ -178,7 +178,7 @@ export default function Contentieux() {
           <Title data-aos="fade-up">Le droit de contentieux ?</Title>
           <Divider />
           {/* Section 1 */}
-          <ParagraphContainer data-aos="fade-left">
+          <ParagraphContainer data-aos="fade-down">
             <Paragraph>
               Notre cabinet dispose d’une équipe de juristes et d’avocats
               expérimentés, spécialisés dans la gestion des litiges complexes.
@@ -188,7 +188,7 @@ export default function Contentieux() {
             </Paragraph>
           </ParagraphContainer>
           {/* Section 2 */}
-          <ParagraphContainer data-aos="fade-down">
+          <ParagraphContainer data-aos="fade-up">
             <StyledImage data-aos="fade-up" src={FISCAL} alt="Illustration 2" />
             <Paragraph>
               Chaque contentieux est unique. Nous analysons minutieusement votre
@@ -210,7 +210,7 @@ export default function Contentieux() {
             </Paragraph>
           </ParagraphContainer>
           {/* Section 4 */}
-          <ParagraphContainer data-aos="fade-down">
+          <ParagraphContainer data-aos="fade-up">
             <StyledImage  data-aos="fade-up" src={travail} alt="Illustration 4" />
             <Paragraph>
               Nous croyons en une communication claire et continue avec nos
@@ -230,7 +230,7 @@ export default function Contentieux() {
             </Paragraph>
           </ParagraphContainer>
           <ImageContainer>
-            <Image src={logoAODnoir} alt="Analyse juridique" data-aos="fade-up" />
+            <Image src={logoAODnoir} alt="Analyse juridique" data-aos="zoom-in" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

@@ -140,7 +140,7 @@ const ImageContainer = styled.div`
   gap: 1rem;
   justify-content: center;
   margin-top: 2rem;
-
+  margin-bottom:4rem;
   @media (max-width: 1024px) {
     gap: 0.5rem;
   }
@@ -178,7 +178,7 @@ export default function AuditJuridique() {
         <Overlay />
         <BardeNavigationpublic />
         <ContentContainer style={{ fontFamily: 'Helvetica55Roman, Arial, sans-serif' }}>
-          <Title data-aos="fade-up">Audit juridiques ?</Title>
+          <Title data-aos="fade-down">Audit juridiques ?</Title>
           <Divider />
           <ParagraphWrapper data-aos="fade-up">
             <ParagraphImage src={jurid} alt="Analyse" />
@@ -189,7 +189,7 @@ export default function AuditJuridique() {
               distingue par son expertise et son approche personnalisée.
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper data-aos="fade-right">
+          <ParagraphWrapper data-aos="fade-up">
             <ParagraphImage src={jurid1} alt="Stratégie" />
             <Paragraph>
               <strong style={{ color: '#90e0ef' }}>1. Une analyse approfondie et stratégique :</strong>{' '}
@@ -200,7 +200,7 @@ export default function AuditJuridique() {
               et renforcer votre position juridique.
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper data-aos="fade-left">
+          <ParagraphWrapper data-aos="fade-up">
             <ParagraphImage src={affaire} alt="Expertise" />
             <Paragraph>
               <strong style={{ color: '#90e0ef' }}>2. Une expertise multidisciplinaire unique :</strong>{' '}
@@ -210,7 +210,7 @@ export default function AuditJuridique() {
               vision globale et cohérente de votre environnement juridique.
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper data-aos="fade-right">
+          <ParagraphWrapper data-aos="fade-up">
             <ParagraphImage src={conf} alt="Conformité" />
             <Paragraph>
               <strong style={{ color: '#90e0ef' }}>3. Une conformité avec les normes en constante évolution :</strong>
@@ -220,7 +220,7 @@ export default function AuditJuridique() {
               administratives ou de litiges.
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper data-aos="fade-up">
+          <ParagraphWrapper data-aos="fade-down">
             <ParagraphImage src={PREV} alt="Prévention" />
             <Paragraph>
               <strong style={{ color: '#90e0ef' }}>4. Une prévention proactive des risques :</strong>{' '}
@@ -240,10 +240,10 @@ export default function AuditJuridique() {
               équipe est à vos côtés à chaque étape.
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper data-aos="fade-right">
+          <ParagraphWrapper data-aos="fade-up">
             <ParagraphImage src={sttis} alt="Avantages" />
             <Paragraph>
-              <strong style={{ color: '#90e0ef' }}>6. Des avantages concrets pour votre organisation :</strong>
+              <strong data-aos="fade-down" style={{ color: '#90e0ef' }}>6. Des avantages concrets pour votre organisation :</strong>
               <li>
                 Réduction des coûts liés aux litiges grâce à une prévention
                 efficace.
@@ -258,16 +258,16 @@ export default function AuditJuridique() {
               </li>
             </Paragraph>
           </ParagraphWrapper>
-          <ParagraphWrapper data-aos="fade-left">
+          <ParagraphWrapper data-aos="fade-down">
             <Paragraph>
-              <strong style={{ color: '#90e0ef' }}>7. Une relation de confiance :</strong>{' '}
+              <strong  style={{ color: '#90e0ef' }}>7. Une relation de confiance :</strong>{' '}
               Notre engagement repose sur la transparence, la discrétion, et une
               écoute active de vos besoins. Chaque client bénéficie d’un suivi
               personnalisé, car nous comprenons que chaque situation est unique.
             </Paragraph>
           </ParagraphWrapper>
           <ImageContainer>
-            <Image src={logoAODnoir} alt="Analyse juridique" data-aos="fade-up" />
+            <Image data-aos="zoom-in" src={logoAODnoir} alt="Analyse juridique"  />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

@@ -130,7 +130,7 @@ const ImageContainer = styled.div`
   gap: 1rem;
   justify-content: center;
   margin-top: 2rem;
-
+ margin-bottom:4rem;
   @media (max-width: 1024px) {
     gap: 0.5rem;
   }
@@ -177,11 +177,11 @@ export default function AuditJuridique() {
         <ContentContainer
           style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
         >
-          <Title data-aos="fade-down">Assistance juridique</Title>
+          <Title data-aos="fade-down" >Assistance juridique</Title>
           <Divider />
-          <ParagraphWrapper data-aos="fade-right">
+          <ParagraphWrapper data-aos="zoom-in">
             <Paragraph>
-              <strong style={{ color: "#90e0ef" }}>
+              <strong data-aos="fade-down"  data-aos-delay="400" style={{ color: "#90e0ef" }}>
                 Une expertise reconnue dans le domaine juridique :
               </strong>
               Notre équipe regroupe des avocats et juristes expérimentés,
@@ -193,9 +193,9 @@ export default function AuditJuridique() {
             </Paragraph>
             <ParagraphImage src={commercial} alt="Analyse" />
           </ParagraphWrapper>
-          <ParagraphWrapper data-aos="fade-left">
+          <ParagraphWrapper data-aos="fade-up"  data-aos-delay="400">
             <Paragraph>
-              <strong style={{ color: "#90e0ef" }}>
+              <strong data-aos="fade-down" style={{ color: "#90e0ef" }}>
                 Accompagnement dans la régulation :
               </strong>
               Nous vous assistons dans vos démarches administratives et
@@ -206,9 +206,9 @@ export default function AuditJuridique() {
             </Paragraph>
             <ParagraphImage src={EVOL} alt="Régulation" />
           </ParagraphWrapper>
-          <ParagraphWrapper data-aos="fade-right">
+          <ParagraphWrapper data-aos="zoom-in">
             <Paragraph>
-              <strong style={{ color: "#90e0ef" }}>
+              <strong data-aos="fade-down"  data-aos-delay="400" style={{ color: "#90e0ef" }}>
                 Consultations personnalisées :
               </strong>
               Nos experts sont à votre écoute pour vous fournir des solutions
@@ -219,9 +219,9 @@ export default function AuditJuridique() {
             </Paragraph>
             <ParagraphImage src={MOE_0400} alt="Consultation" />
           </ParagraphWrapper>
-          <ParagraphWrapper data-aos="fade-left">
+          <ParagraphWrapper data-aos="fade-up">
             <Paragraph>
-              <strong style={{ color: "#90e0ef" }}>
+              <strong data-aos="fade-down"  data-aos-delay="400" style={{ color: "#90e0ef" }}>
                 Formations spécialisées :
               </strong>
               Nous proposons des programmes de formation adaptés pour vous aider
@@ -231,9 +231,9 @@ export default function AuditJuridique() {
             </Paragraph>
             <ParagraphImage src={jurid} alt="Formation" />
           </ParagraphWrapper>
-          <ParagraphWrapper data-aos="fade-right">
+          <ParagraphWrapper data-aos="fade-down">
             <Paragraph>
-              <strong style={{ color: "#90e0ef" }}>
+              <strong data-aos="fade-down"  data-aos-delay="400" style={{ color: "#90e0ef" }}>
                 Protection juridique :
               </strong>
               Nous vous offrons une assistance pour anticiper et gérer les

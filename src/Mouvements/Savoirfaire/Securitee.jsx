@@ -1,41 +1,44 @@
+import React, { Suspense, useEffect } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-import { useEffect } from "react";
-import { useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Importation du CSS pour AOS
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-//import { FaArrowLeft } from "react-icons/fa";
-//import { Link } from "react-router-dom";
-import Securite from "./Securite";
 import Footer from "../Accueil/Footerr";
+import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
-const BackgroundContainer = styled.div`
+// Chargement différé du composant Securite
+const Securite = React.lazy(() => import("./Securite"));
+
+// Styles
+const BackgroundContainer = styled.section`
   position: relative;
-  width: 100%;
   min-height: 100vh;
-  background: url("/img/logoAODnoir.avif") center/cover no-repeat;
-  background-attachment: fixed;
+  background-image: url("img/logoAODnoir.avif");
   background-size: cover;
-  color: #fff;
+  background-position: center;
+  background-attachment: fixed;
+
 
   @media (max-width: 768px) {
     background-attachment: scroll;
   }
 `;
+
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.8);
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.article`
   max-width: 900px;
   margin: 2rem auto;
   padding: 4rem;
-  background-color: rgba(0, 0, 0, 0); /* Fond semi-transparent */
-  border-radius: px;
-  box-shadow: 0 0px 0px #90e0ef;
-  backdrop-filter: blur(0px); /* Flou pour un effet moderne */
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
 
   @media (max-width: 1024px) {
     padding: 3rem;
@@ -46,153 +49,176 @@ const ContentContainer = styled.div`
   }
 
   @media (max-width: 480px) {
-    padding: 2rem;
+    padding: 0.5rem 2.5rem;
   }
 `;
 
-const Title = styled(motion.h1)`
+const Title = styled.h1`
   font-size: 3rem;
   font-weight: 700;
   color: #00b4d8;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 
   @media (max-width: 1024px) {
-    font-size: 3rem;
-  }
-
-  @media (max-width: 768px) {
     font-size: 2.5rem;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
   }
 `;
 
-const Paragraph = styled(motion.p)`
+const Paragraph = styled.p`
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #caf0f8;
+  margin-bottom: 1.5rem;
 
-color: #caf0f8;
-
-font-size: 1.3rem;
-line-height: 1.8;
-
-max-width: 800px;
-text-align: left;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 
   @media (max-width: 480px) {
-  font-size: 1rem;
-  line-height: 1.6rem;
-  text-align: left; /* Alignement du texte à gauche */
-  margin : 2rem;
-}
-@media (max-width: 1024px) {
-  font-size : 1.1rem;
-  line-height: 1.7rem;
-  text-align: left;
-justify-content: left;
-
+    font-size: 1rem;
+  }
 `;
 
 const Divider = styled.div`
   height: 3px;
-  width: 300px;
+  width: 800px;
   background: #4ea8ff;
-  margin: 2rem 0;
+  margin: 2rem auto;
+
+  @media (max-width: 480px) {
+    width: 150px;
+  }
+`;
+
+const FallbackContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #022026; /* Fond bleu */
+`;
+
+const FallbackLogo = styled.img`
+  width: 150px;
+  height: 150px;
+  animation: pulse 1.5s infinite;
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+`;
+const BackButton = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #;
+  border-radius: 50%;
+  box-shadow: 0 4px 1px #63b3ed;
+  color: ;
+  margin-bottom: 2rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #e2e8f0;
+  }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media (max-width: 480px) {
+    width: 35px;
+    height: 35px;
+  }
 `;
 
 export default function Securitee() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
-
+  // Initialisation de AOS
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
-  };
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
 
   return (
     <div>
       <BackgroundContainer>
-        <Overlay />
+            {/* Suspense pour le chargement différé de Securite */}
+            <Suspense
+          fallback={
+            <FallbackContainer>
+              <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
+            </FallbackContainer>
+          }
+        >
+        <Overlay data-aos-delay="500"/>
         <BardeNavigationpublic />
+      
         <ContentContainer>
-          <Title
-            initial="hidden"
-            animate={controls}
-            variants={textVariants}
-            ref={ref}
+          <BackButton
+            data-aos-delay="300"
+            to="/nosexpertises"
+            data-aos="fade-right"
           >
-            {" "}
-           {/* <BackButton to="/nosexpertises" data-aos="fade-right">
-              <FaArrowLeft size={20} />
-            </BackButton>
-            Sécurité et sécurité sociale ?*/}
-          </Title>
-          <Divider />
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
+            <FaArrowLeft size={20} />
+          </BackButton>
+          <Title data-aos="fade-down">Sécurité et sécurité sociale</Title>
+          <Divider data-aos="fade-up" data-aos-delay="200" />
+          <Paragraph data-aos="fade-up" data-aos-delay="300">
             Notre cabinet se distingue par une expertise approfondie dans le
             domaine du droit de la sécurité et de la sécurité sociale. Nous
             comprenons les défis complexes auxquels vous êtes confrontés, qu’il
             s’agisse de la protection de vos droits en tant qu’employé ou de la
             gestion des obligations légales en tant qu’employeur.
           </Paragraph>
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
+          <Paragraph data-aos="fade-up" data-aos-delay="400">
             Nous restons constamment à jour sur les évolutions des lois
             relatives à la sécurité au travail et à la sécurité sociale. Cela
             nous permet de vous offrir des solutions juridiques adaptées et
             efficaces, répondant aux normes en vigueur.
           </Paragraph>
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
+          <Paragraph data-aos="fade-up" data-aos-delay="500">
             Que ce soit pour des litiges liés aux accidents de travail, la
             négociation de prestations sociales, ou la défense de vos droits
             face à des institutions, nous vous accompagnons à chaque étape. Nous
             élaborons des stratégies personnalisées pour garantir vos intérêts
             et résoudre vos problématiques juridiques.
           </Paragraph>
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
+          <Paragraph data-aos="fade-up" data-aos-delay="600">
             Notre cabinet aide les employeurs à se conformer aux réglementations
             en matière de sécurité et de protection sociale tout en minimisant
             les risques juridiques. Pour les salariés, nous nous assurons que
             vos droits soient respectés, qu’il s’agisse de congés maladie,
             d’indemnités ou de pensions.
           </Paragraph>
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
+          <Paragraph data-aos="fade-up" data-aos-delay="700">
             Nous savons que les questions de sécurité sociale touchent
             directement à la vie quotidienne. C’est pourquoi notre équipe
             s’engage à vous écouter attentivement et à réagir rapidement à vos
             besoins, avec un suivi rigoureux de chaque dossier.
           </Paragraph>
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
+          <Paragraph data-aos="fade-up" data-aos-delay="800">
             En nous choisissant, vous optez pour un cabinet engagé, compétent et
             soucieux de protéger vos droits. Faites confiance à notre
             savoir-faire pour résoudre vos litiges, assurer votre sécurité
@@ -202,7 +228,10 @@ export default function Securitee() {
             excellence.
           </Paragraph>
         </ContentContainer>
-        <Securite />
+
+    
+          <Securite />
+        </Suspense>
       </BackgroundContainer>
       <Footer />
     </div>

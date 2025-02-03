@@ -1,14 +1,15 @@
+import React, { Suspense, useEffect } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-import { useEffect } from "react";
-import { useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Minier2 from "./MinierEnviron2";
+import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
+import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
+const Minier2 = React.lazy(() => import("./MinierEnviron2")); // Chargement différé de Minier2
 
-const BackgroundContainer = styled.div`
+// Styles
+const BackgroundContainer = styled.section`
   position: relative;
   min-height: 100vh;
   background-image: url("img/logoAODnoir.avif");
@@ -23,7 +24,7 @@ const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.8);
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.article`
   position: relative;
   z-index: 10;
   padding: 4rem 2rem;
@@ -33,74 +34,73 @@ const ContentContainer = styled.div`
   text-align: center;
   color: #caf0f8;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 3rem 1.5rem;
   }
 
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
+
   @media (max-width: 480px) {
-    padding: 1rem 1rem;
+    padding: 1rem 2rem;
   }
 `;
 
-const Title = styled(motion.h1)`
+const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
   color: #4ea8ff;
   margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 3rem;
-  }
-      @media (max-width: 1024px) {
-    padding: 3rem;
+    font-size: 1.75rem;
   }
 `;
 
-const Paragraph = styled(motion.p)`
-  font-size: 1.3rem;
-  line-height: 2;
-  margin-bottom: 0rem;
+const Paragraph = styled.p`
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
   max-width: 800px;
   text-align: left;
+  color: #e0f7fa;
 
   @media (max-width: 1024px) {
-    font-size : 1.1rem;
-    line-height: 1.7rem;
-    text-align: left;
-    padding: 3rem;
-  justify-content: left;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    padding: 0 2rem;
   }
 
   @media (max-width: 768px) {
-    font-size : 1.1rem;
-    line-height: 1.7rem;
-    text-align: left;
-    padding: 2rem;
-  justify-content: left;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 1rem;
   }
 
   @media (max-width: 480px) {
-  font-size: 1rem;
-    line-height: 1.6rem;
-    text-align: left; /* Alignement du texte à gauche */
-    padding: 3rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0 0.5rem;
   }
 `;
 
 const Divider = styled.div`
-  height: 3px;
-  width: 300px;
-  background: #00b4d8;
-  margin: 2rem 0;
+  height: 3px; /* Hauteur du diviseur */
+  width: 1000px; /* Largeur du diviseur */
+  background: #90e0ef; /* Couleur du diviseur */
+  margin: 2rem 0; /* Marge externe */
 
   @media (max-width: 480px) {
-    width: 100px;
+    width: 300px; /* Largeur réduite pour les petits écrans */
   }
 `;
+// Bouton de retour
 const BackButton = styled(Link)`
   display: flex;
   align-items: center;
@@ -109,9 +109,9 @@ const BackButton = styled(Link)`
   height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 1px #90e0ef;
+  box-shadow: 0 4px 1px #63b3ed;
   color: ;
-  margin-bottom: 0rem;
+  margin-bottom: 2rem;
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -129,87 +129,94 @@ const BackButton = styled(Link)`
   }
 `;
 
-export default function MinierEnvironn() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
+const FallbackContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #022026; /* Fond bleu */
 
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
+  `;
+
+const FallbackLogo = styled.img`
+  width: 150px;
+  height: 150px;
+  animation: pulse 1.5s infinite;
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
     }
-  }, [controls, inView]);
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+`;
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
-  };
+// Composant principal
+export default function MinierEnvironn() {
+  // Initialisation de AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
 
   return (
-  
-      <BackgroundContainer>
-        <Overlay />
-        <BardeNavigationpublic />{" "}
-        <ContentContainer>
-          <BackButton to="/nosexpertises" data-aos="fade-right">
-            <FaArrowLeft size={20} />
-          </BackButton>
-          <Title
-            initial="hidden"
-            animate={controls}
-            variants={textVariants}
-            ref={ref}
-          >
-            Droit minier et environnemental ?
-          </Title>
-          <Divider />
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            Notre cabinet se distingue par son expertise approfondie en droit
-            minier et environnemental, offrant des solutions juridiques adaptées
-            aux défis complexes de ces secteurs. Nous comprenons l’importance de
-            concilier développement économique et préservation de
-            l’environnement.
-          </Paragraph>
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            Nous accompagnons nos clients dans toutes les étapes de leurs
-            projets miniers, depuis les autorisations légales jusqu’à la gestion
-            des litiges. Grâce à une maîtrise des réglementations
-            environnementales, nous vous aidons à respecter vos obligations tout
-            en maximisant vos opportunités d’investissement.
-          </Paragraph>
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            Face aux enjeux écologiques croissants, notre équipe s’engage à
-            proposer des stratégies juridiques innovantes et responsables. Nous
-            travaillons en étroite collaboration avec vous pour assurer la
-            conformité de vos activités tout en minimisant les risques
-            environnementaux.
-          </Paragraph>
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            En choisissant notre cabinet, vous bénéficiez d’un partenaire
-            engagé, compétent et à l’écoute de vos besoins. Faites confiance à
-            notre savoir-faire pour défendre vos intérêts dans le respect des
-            normes légales et environnementales. Contactez-nous pour un
-            accompagnement personnalisé et efficace.
-          </Paragraph>
-        </ContentContainer>{" "}
+    <BackgroundContainer>
+        <Suspense
+        fallback={
+          <FallbackContainer>
+            {/* Logo de l'entreprise avec animation */}
+            <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
+          </FallbackContainer>
+        }
+      >
+      <Overlay />
+      <BardeNavigationpublic />
+      <ContentContainer>
+        <BackButton  data-aos-delay="300" to="/nosexpertises" data-aos="fade-right">
+          <FaArrowLeft size={20} />
+        </BackButton>
+        <Title data-aos="fade-down"  data-aos-delay="400">Droit minier et environnemental</Title>
+        <Divider data-aos="fade-up" data-aos-delay="200" />
+        <Paragraph data-aos="fade-up" data-aos-delay="300">
+          Notre cabinet se distingue par son expertise approfondie en droit
+          minier et environnemental, offrant des solutions juridiques adaptées
+          aux défis complexes de ces secteurs. Nous comprenons l’importance de
+          concilier développement économique et préservation de l’environnement.
+        </Paragraph>
+        <Paragraph data-aos="fade-up" data-aos-delay="400">
+          Nous accompagnons nos clients dans toutes les étapes de leurs projets
+          miniers, depuis les autorisations légales jusqu’à la gestion des
+          litiges. Grâce à une maîtrise des réglementations environnementales,
+          nous vous aidons à respecter vos obligations tout en maximisant vos
+          opportunités d’investissement.
+        </Paragraph>
+        <Paragraph data-aos="fade-up" data-aos-delay="500">
+          Face aux enjeux écologiques croissants, notre équipe s’engage à
+          proposer des stratégies juridiques innovantes et responsables. Nous
+          travaillons en étroite collaboration avec vous pour assurer la
+          conformité de vos activités tout en minimisant les risques
+          environnementaux.
+        </Paragraph>
+        <Paragraph data-aos="fade-up" data-aos-delay="600">
+          En choisissant notre cabinet, vous bénéficiez d’un partenaire engagé,
+          compétent et à l’écoute de vos besoins. Faites confiance à notre
+          savoir-faire pour défendre vos intérêts dans le respect des normes
+          légales et environnementales. Contactez-nous pour un accompagnement
+          personnalisé et efficace.
+        </Paragraph>
+      </ContentContainer>
+      {/* Suspense pour le chargement différé des composants */}
+    
         <Minier2 />
-      </BackgroundContainer>
+      </Suspense>
       
-
+    </BackgroundContainer>
   );
 }

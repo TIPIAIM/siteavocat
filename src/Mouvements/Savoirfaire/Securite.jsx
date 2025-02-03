@@ -1,14 +1,18 @@
 import styled from "styled-components";
-import { motion } from "framer-motion"; // Framer Motion pour des animations avancées
 import AOS from "aos";
-import "aos/dist/aos.css";
-import securitesocial from "./../../assets/Image/securitesocial.avif"
+import "aos/dist/aos.css"; // Importation du CSS pour AOS
+import securitesocial from "./../../assets/Image/securitesocial.avif";
 
-AOS.init();
+// Initialisation de AOS
+AOS.init({
+  duration: 1000,
+  once: false,
+});
 
-const PageWrapper = styled.div`
+// Styles
+const PageWrapper = styled.section`
   position: relative;
-  background-image: url("/img/logoAODnoir.avi"); /* Remplacez par votre image de fond */
+  background-image: url("/img/logoAODnoir.avif");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -17,7 +21,7 @@ const PageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem rem;
+  padding: 1rem;
 
   /* Masque semi-transparent */
   &::before {
@@ -27,15 +31,18 @@ const PageWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0); /* Couleur noire avec transparence */
+    background: rgba(0, 0, 0, 0.7);
     z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    background-attachment: scroll;
   }
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.article`
   position: relative;
-    max-width: 900px;
-
+  max-width: 900px;
   z-index: 10;
   padding: 4rem 2rem;
   display: flex;
@@ -43,49 +50,60 @@ const ContentContainer = styled.div`
   align-items: center;
   text-align: center;
   color: white;
-`;
 
-const Title = styled.h1`
-  font-size: 2.3rem;
-  padding: 1.5rem;
-  border-left: 4px solid #e2e8f0;
-
-   font-size: 2.5rem;
-  font-weight: bold;
-  color: #4ea8ff;
-  margin-bottom: 2rem;
   @media (max-width: 768px) {
-    font-size: 1rem;
+    padding: 2rem 1rem;
   }
 `;
 
-const Section = styled(motion.section)`
+const Title = styled.h1`
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #4ea8ff;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-left: 4px solid #e2e8f0;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
+`;
+
+const Section = styled.section`
   display: flex;
-  align-items: left;
+  align-items: center;
   flex-wrap: wrap;
   margin-bottom: 2rem;
   gap: 2rem;
   padding: 1.5rem;
   border-right: 1px solid #0077b6;
-  background-color: rgba(0, 0, 0, 0.); /* Couleur avec transparence */
-  border-radius: 1px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+
   @media (max-width: 768px) {
     flex-direction: column;
+    padding: 1rem;
   }
 `;
 
 const TextContainer = styled.div`
   flex: 1;
   transition: transform 0.2s ease;
+
   &:hover {
     transform: translateX(5px);
   }
+
   @media (max-width: 768px) {
     flex: none;
   }
 `;
 
-const Image = styled(motion.img)`
+const Image = styled.img`
   width: 50%;
   height: auto;
   border-radius: 8px;
@@ -93,10 +111,13 @@ const Image = styled(motion.img)`
   max-width: 600px;
   box-shadow: 0 4px 1px #0077b6;
   transition: transform 0.3s ease;
+
   &:hover {
     transform: scale(1.05);
   }
+
   @media (max-width: 768px) {
+    width: 100%;
     max-width: 100%;
   }
 `;
@@ -107,6 +128,7 @@ const Subtitle = styled.h2`
   color: #00b4d8;
   margin-bottom: 1rem;
   position: relative;
+
   &::before {
     content: "";
     position: absolute;
@@ -117,8 +139,13 @@ const Subtitle = styled.h2`
     height: 100%;
     background-color: #2c5282;
   }
+
   @media (max-width: 768px) {
     font-size: 1.75rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
   }
 `;
 
@@ -126,85 +153,58 @@ const Paragraph = styled.p`
   font-size: 1.125rem;
   color: #caf0f8;
   line-height: 1.8;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   text-align: left;
-  @media (max-width: 480px) {
+
+  @media (max-width: 768px) {
     font-size: 1rem;
-    line-height: 1.6rem;
-    text-align: left; /* Alignement du texte à gauche */
-    padding: 2rem;
   }
-  @media (max-width: 1024px) {
-    font-size : 1rem;
-    line-height: 1.7rem;
-    text-align: left;
-  justify-content: left;
 
-
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
   }
 `;
 
 const List = styled.ul`
   list-style-type: disc;
   padding-left: 1rem;
-    text-align: left;
-
-  @media (max-width: 768px) {
-    margin : 0.5rem;
-  }
+  text-align: left;
 `;
 
-const ListItem = styled(motion.li)`
+const ListItem = styled.li`
   font-size: 1.125rem;
   color: #90e0ef;
-  
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-  &:before {
+  margin-bottom: 0.5rem;
+
+  &::before {
     content: "✔";
     color: #caf0f8;
     font-size: 1.2rem;
+    margin-right: 0.5rem;
   }
-      @media (max-width: 768px) {
+
+  @media (max-width: 768px) {
     font-size: 1rem;
-     margin : 0.5rem;
   }
 `;
 
 const ExternalLink = styled.a`
   color: #90e0ef;
   text-decoration: none;
+
   &:hover {
     text-decoration: underline;
   }
 `;
 
 const Securite = () => {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
-
   return (
     <PageWrapper>
-      <ContentContainer 
-       
-      >
-        <Title data-aos="fade-up">
-          La Sécurité
-        </Title>
+      <ContentContainer>
+        <Title data-aos="fade-down">La Sécurité</Title>
 
-        <Section
-         variants={fadeIn}
-         data-aos="fade-up"
-          data-aos-delay="300"
-          >
-          <Image
-           variants={fadeIn} src={securitesocial} alt="Illustration" />
+        <Section data-aos="fade-up" data-aos-delay="300">
+          <Image src={securitesocial} alt="Illustration" />
           <TextContainer>
             <Paragraph>
               Découvrez en détail comment la sécurité sociale et le droit du
@@ -213,6 +213,7 @@ const Securite = () => {
               <ExternalLink
                 href="https://journals.openedition.org/rdctss/"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 +
               </ExternalLink>

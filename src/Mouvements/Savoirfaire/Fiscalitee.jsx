@@ -14,7 +14,8 @@ const FallbackContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #1a1a1a;
+  background-color: #022026; /* Fond bleu */
+
 `;
 
 // Fallback Logo avec votre logo

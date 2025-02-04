@@ -1,15 +1,14 @@
+import { lazy, useEffect } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-import { useEffect } from "react";
-import { useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Importez le CSS de AOS
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "../Accueil/Footerr";
-import Famillee from "./Famillee";
-//  background-image: url("img/arbitra.avif"); /* Image optimisée */
+const ArbitFamillee = lazy(() => import("./ArbitFamillee"));
 
+// Styles
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
@@ -20,6 +19,10 @@ const BackgroundContainer = styled.div`
   color: white;
   overflow-y: auto;
   scroll-behavior: smooth;
+
+  @media (max-width: 768px) {
+    background-attachment: scroll; /* Désactiver l'effet parallaxe sur mobile */
+  }
 `;
 
 const Overlay = styled.div`
@@ -28,7 +31,7 @@ const Overlay = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
 `;
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.main`
   position: relative;
   z-index: 10;
   padding: 2rem;
@@ -36,6 +39,10 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const BackButton = styled(Link)`
@@ -44,11 +51,11 @@ const BackButton = styled(Link)`
   justify-content: center;
   width: 50px;
   height: 50px;
-  background-color: #;
+  background-color: transparent;
   border-radius: 50%;
   box-shadow: 0 4px 1px #90e0ef;
-  color: ;
-  margin-bottom: 0rem;
+  color: white;
+  margin-bottom: 1rem;
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -65,15 +72,24 @@ const BackButton = styled(Link)`
     height: 35px;
   }
 `;
-const Title = styled(motion.h1)`
+
+const Title = styled.h1`
   font-size: 3rem;
   font-weight: bold;
   color: #90e0ef;
   text-align: center;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
 `;
 
-const Section = styled(motion.div)`
+const Section = styled.section`
   background: rgba(255, 255, 255, 0.9);
   color: #2d3142;
   padding: 2rem;
@@ -103,6 +119,14 @@ const SectionTitle = styled.h2`
   color: #03045e;
   margin-bottom: 1rem;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -110,9 +134,10 @@ const Paragraph = styled.p`
   line-height: 1.8;
   text-align: justify;
   margin-bottom: 1rem;
-  text-align: left;
+
   @media (max-width: 480px) {
-    padding: 1.5rem;
+    font-size: 0.9rem;
+    padding: 0 1rem;
   }
 
   &:last-child {
@@ -120,58 +145,39 @@ const Paragraph = styled.p`
   }
 `;
 
+// Composant principal
 export default function Arbitrage() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
-
+  // Initialisation de AOS
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
+    AOS.init({
+      duration: 1000, // Durée des animations
+      once: false, // Les animations ne se déclenchent qu'une fois
+    });
+  }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 1.0, ease: "easeOut" },
-    },
-  };
+  // Titre de la page dynamique
+  useEffect(() => {
+    document.title = "Le droit d’arbitrage | Cabinet Juridique";
+  }, []);
 
   return (
     <div>
       <BackgroundContainer>
-        <Overlay />
+        <Overlay data-aos="fade-rigth"/>
         <BardeNavigationpublic />
-        <ContentWrapper
-          as={motion.div}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <BackButton
+        <ContentWrapper>
+          <BackButton 
             to="/nosexpertises"
             aria-label="Retour à la page des expertises"
+            data-aos="fade-down" // Animation AOS
           >
             <FaArrowLeft size={20} />
           </BackButton>
-          <Title variants={textVariants} ref={ref}>
+          <Title data-aos="fade-down" data-aos-delay="200">
             Le droit d’arbitrage ?
           </Title>
-          <Section variants={textVariants}>
-            <SectionTitle>Expertise reconnue dans l’arbitrage</SectionTitle>
+          <Section data-aos="fade-up" data-aos-delay="300">
+            <SectionTitle data-aos="fade-down">Expertise reconnue dans l’arbitrage</SectionTitle>
             <Paragraph>
               Notre cabinet est composé de spécialistes chevronnés dans le
               domaine de l’arbitrage. Nous avons une maîtrise approfondie des
@@ -179,8 +185,8 @@ export default function Arbitrage() {
               optimale de vos litiges en dehors des tribunaux traditionnels.
             </Paragraph>
           </Section>
-          <Section variants={textVariants}>
-            <SectionTitle>Résolution rapide et efficace</SectionTitle>
+          <Section data-aos="fade-up" data-aos-delay="400">
+            <SectionTitle data-aos="fade-down">Résolution rapide et efficace</SectionTitle>
             <Paragraph>
               L’arbitrage est souvent préféré pour sa rapidité et sa
               confidentialité. Nous nous engageons à réduire les délais et à
@@ -188,8 +194,8 @@ export default function Arbitrage() {
               besoins spécifiques.
             </Paragraph>
           </Section>
-          <Section variants={textVariants}>
-            <SectionTitle>Approche personnalisée et collaborative</SectionTitle>
+          <Section data-aos="fade-up" data-aos-delay="500">
+            <SectionTitle data-aos="fade-down">Approche personnalisée et collaborative</SectionTitle>
             <Paragraph>
               Chaque conflit est unique, et notre équipe adopte une méthode
               personnalisée pour garantir des solutions qui protègent vos
@@ -197,8 +203,8 @@ export default function Arbitrage() {
               pour maximiser les chances de succès.
             </Paragraph>
           </Section>
-          <Section variants={textVariants}>
-            <SectionTitle>Connaissance des industries variées</SectionTitle>
+          <Section data-aos="fade-up" data-aos-delay="600">
+            <SectionTitle data-aos="fade-down">Connaissance des industries variées</SectionTitle>
             <Paragraph>
               Que ce soit dans les secteurs commerciaux, technologiques, ou
               industriels, notre expérience diversifiée nous permet de
@@ -206,8 +212,8 @@ export default function Arbitrage() {
               réponses précises à vos problématiques.
             </Paragraph>
           </Section>
-          <Section variants={textVariants}>
-            <SectionTitle>Engagement pour votre succès</SectionTitle>
+          <Section data-aos="fade-up" data-aos-delay="700">
+            <SectionTitle data-aos="fade-down">Engagement pour votre succès</SectionTitle>
             <Paragraph>
               En choisissant notre cabinet, vous optez pour une équipe
               passionnée, rigoureuse et déterminée à défendre vos droits. Nous
@@ -215,8 +221,8 @@ export default function Arbitrage() {
               claire et favorable.
             </Paragraph>
           </Section>
-        
-        </ContentWrapper>  <Famillee/>
+        </ContentWrapper>
+        <ArbitFamillee />
       </BackgroundContainer>
       <Footer />
     </div>

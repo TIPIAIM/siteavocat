@@ -170,6 +170,68 @@ const SubNavLink = styled.a`
     border-radius: 4px;
   }
 `;
+const RotatingBall = styled.div`
+  position: absolute;
+  top: 23px;
+  right: 12px;
+  width: 45px;
+  height: 45px;
+  background-color: #00b4d8;
+  border-radius: 20%;
+  animation: rotateAndDisappear 10s ease-in-out forwards;
+
+  @keyframes rotateAndDisappear {
+    5% {
+      transform: rotate(0deg);
+      background-color: #00b4d8; /* Bleu clair */
+    }
+    25% {
+      background-color: #90e0ef; /* Rouge */
+    }
+    50% {
+      background-color: #4ecdc4; /* Turquoise */
+    }
+    75% {
+      background-color: #ffe66d; /* Jaune */
+    }
+    100% {
+      transform: rotate(720deg); /* 2 tours complets */
+      background-color: #00b4d8; /* Retour au bleu clair */
+      opacity: 0; /* Disparaît à la fin */
+    }
+  }
+`;
+const RotatingBall2 = styled.div`
+  position: absolute;
+  top: 23px;
+  right: 12px;
+  width: 45px;
+  height: 45px;
+  background-color: #00b4d8;
+  border-radius: 20%;
+  animation: rotateAndDisappear 8s ease-in-out forwards;
+
+  @keyframes rotateAndDisappear {
+    5% {
+      transform: rotate(0deg);
+      background-color: #00b4d8; /* Bleu clair */
+    }
+    25% {
+      background-color: #90e0ef; /* Rouge */
+    }
+    50% {
+      background-color: #4ecdc4; /* Turquoise */
+    }
+    75% {
+      background-color: #ffe66d; /* Jaune */
+    }
+    100% {
+      transform: rotate(720deg); /* 2 tours complets */
+      background-color: #00b4d8; /* Retour au bleu clair */
+      opacity: 0; /* Disparaît à la fin */
+    }
+  }
+`;
 
 export default function BardeNavigationpublic() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -193,12 +255,12 @@ export default function BardeNavigationpublic() {
         <Logo onClick={() => (window.location.href = "/")}>
           <img src={aodblanc} alt="Logo du Cabinet" />
         </Logo>
-
+        <RotatingBall /> {/* Ballon tournant en haut à droite */}
+        <RotatingBall2 />
         {/* Bouton pour le menu hamburger */}
         <HamburgerButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           ☰
         </HamburgerButton>
-
         {/* Menu principal */}
         <Menu isOpen={isMenuOpen}>
           <NavLink href="/">Accueil</NavLink>

@@ -23,6 +23,7 @@ export default function Accueil() {
       {/* Hero Section */}
       <header className="relative h-[400px] sm:h-[600px] overflow-hidden">
         <BardeNavigationpublic />
+
         <div className="absolute inset-0 bg-black/50 z-10" />
         <motion.img
           src={photoaccueil}
@@ -98,7 +99,6 @@ export default function Accueil() {
             ].map((service, i) => (
               <motion.div
                 key={i}
-               
                 className="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -109,7 +109,7 @@ export default function Accueil() {
                 />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">
                   <a
-                   data-aos="fade-down"
+                    data-aos="fade-down"
                     className="no-underline"
                     href={service.link}
                     target="_blank"
@@ -118,8 +118,10 @@ export default function Accueil() {
                     {service.title}
                   </a>
                 </h3>
-                <p  data-aos="fade-right"
-                className="text-gray-600 text-sm sm:text-base">
+                <p
+                  data-aos="fade-right"
+                  className="text-gray-600 text-sm sm:text-base"
+                >
                   {service.desc}
                 </p>
               </motion.div>
@@ -190,9 +192,8 @@ export default function Accueil() {
           </div>
         </motion.div>
         <div className=" mt-40">
-           <Horaire />
+          <Horaire />
         </div>
-       
       </section>
 
       {/* Social Links */}

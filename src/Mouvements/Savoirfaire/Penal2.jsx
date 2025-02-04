@@ -1,13 +1,20 @@
-import { memo } from "react";
+import  {  useEffect } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Importation du CSS pour AOS
 import Footer from "../Accueil/Footerr";
-import image from './../../assets/Image/image.avif'
-import assistance from './../../assets/Image/assistance.avif'
-import categor from './../../assets/Image/categor.avif'
+import image from './../../assets/Image/image.avif';
+import assistance from './../../assets/Image/assistance.avif';
+import categor from './../../assets/Image/categor.avif';
 
-// Styled Components
-const PenalContainer = styled.div`
+// Initialisation de AOS
+AOS.init({
+  duration: 1000,
+  once: false,
+});
+
+// Styles
+const PenalContainer = styled.section`
   width: 100%;
   padding: 20px;
   background: linear-gradient(to bottom, #0369a1, #0f172a);
@@ -17,9 +24,15 @@ const PenalContainer = styled.div`
   align-items: center;
   justify-content: center;
   line-height: 1.5;
+  padding: 5rem;
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+    padding: 1rem;
+  }
 `;
 
-const SectionTitle = styled.h2`
+const SectionTitle = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 20px;
@@ -28,8 +41,7 @@ const SectionTitle = styled.h2`
 
   @media (max-width: 768px) {
     font-size: 2rem;
-        text-align: center; /* Alignement du texte à gauche */
-
+    text-align: center;
   }
 `;
 
@@ -39,31 +51,38 @@ const Description = styled.p`
   color: rgba(255, 255, 255, 0.9);
   text-align: left;
   max-width: 800px;
-      padding: 2rem;
+  padding: 2rem;
 
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 1rem;
+  }
 `;
 
 const PenalGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
   width: 100%;
   max-width: 1200px;
+  margin-bottom: 80px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 15px;
-        padding: 2rem;
-
+    padding: 1rem;
   }
 `;
 
-const PenalCard = styled(motion.div)`
-  background: rgba(10, 34, 64, 0.9);
+const PenalCard = styled.div`
+  background: linear-gradient(to bottom, #0369a1, #0f172a);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 550px; /* Hauteur minimale pour uniformiser les cartes */
 
   &:hover {
     transform: scale(1.05);
@@ -79,21 +98,24 @@ const MediaWrapper = styled.div`
   width: 100%;
   height: 300px;
   overflow: hidden;
-  background: black;
+   background: linear-gradient(to bottom, #0369a1, #0f172a);
 
   img,
   video {
     width: 100%;
-    height: 100%;
+    height: 95%;
     object-fit: cover;
   }
 `;
 
 const PenalContent = styled.div`
   padding: 20px;
+  flex: 1; /* Permet au contenu de remplir l'espace disponible */
+  display: flex;
+  flex-direction: column;
 `;
 
-const PenalTitle = styled.h3`
+const PenalTitle = styled.h2`
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 10px;
@@ -101,9 +123,7 @@ const PenalTitle = styled.h3`
 
   @media (max-width: 768px) {
     font-size: 1.3rem;
-        text-align: center; /* Alignement du texte à gauche */
-  
-
+    text-align: center;
   }
 `;
 
@@ -112,11 +132,11 @@ const PenalDescription = styled.p`
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
   margin-bottom: 15px;
+  flex: 1; /* Permet à la description de remplir l'espace disponible */
 
   @media (max-width: 768px) {
     font-size: 0.95rem;
-        padding: 1.5rem;
-
+    padding: 1rem;
   }
 `;
 
@@ -127,17 +147,14 @@ const ReadMoreButton = styled.a`
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
+  text-align: center; /* Centrer le bouton */
+  margin-top: auto; /* Aligner le bouton en bas */
 
   &:hover {
     color: #ffffff;
     text-decoration: underline;
   }
 `;
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0 },
-};
 
 const Penal2 = () => {
   const penalArticles = [
@@ -150,8 +167,7 @@ const Penal2 = () => {
       link: "https://derechos.org/intlaw/doc/gin1.html",
     },
     {
-      title:
-        "Objectifs du droit pénal : Prévention, Répression, et Réinsertion",
+      title: "Objectifs du droit pénal : Prévention, Répression, et Réinsertion",
       description:
         "Le droit pénal vise la prévention des actes nuisibles à la société, leur répression, et la réinsertion des condamnés.",
       mediaType: "image",
@@ -176,11 +192,15 @@ const Penal2 = () => {
     },
   ];
 
+  useEffect(() => {
+    AOS.refresh(); // Rafraîchir AOS après le rendu
+  }, []);
+
   return (
     <div>
       <PenalContainer>
-        <SectionTitle>Exploration Pénal</SectionTitle>
-        <Description>
+        <SectionTitle data-aos="fade-right">Exploration Pénal</SectionTitle>
+        <Description data-aos="fade-up" data-aos-delay="200">
           Le droit pénal réprime les infractions pour protéger l’ordre public et
           la sécurité. Il définit les comportements interdits, les sanctions, et
           régule les relations entre l’individu et la société.
@@ -189,10 +209,8 @@ const Penal2 = () => {
           {penalArticles.map((article, index) => (
             <PenalCard
               key={index}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+              data-aos="fade-down"
+              data-aos-delay={300 + index * 100}
               tabIndex={0}
             >
               <MediaWrapper>
@@ -205,7 +223,7 @@ const Penal2 = () => {
               <PenalContent>
                 <PenalTitle>{article.title}</PenalTitle>
                 <PenalDescription>{article.description}</PenalDescription>
-                <ReadMoreButton href={article.link} target="_blank" rel="noopener noreferrer">
+                <ReadMoreButton data-aos="fade-down" href={article.link} target="_blank" rel="noopener noreferrer">
                   Lire plus
                 </ReadMoreButton>
               </PenalContent>
@@ -218,4 +236,4 @@ const Penal2 = () => {
   );
 };
 
-export default memo(Penal2);
+export default Penal2;

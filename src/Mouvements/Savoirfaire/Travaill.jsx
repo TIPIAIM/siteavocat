@@ -1,22 +1,37 @@
+import React, { Suspense, useEffect } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-import { useEffect } from "react";
-import { useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Importation du CSS pour AOS
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-//import Travail2 from "./Traval2";
 import Footer from "../Accueil/Footerr";
-import Securitee from "./Securitee";
+import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
 
-const BackgroundContainer = styled.div`
+// Chargement différé du composant TravSecuritee
+const TravSecuritee = React.lazy(() => import("./TravSecuritee"));
+
+// Initialisation de AOS
+AOS.init({
+  duration: 1000,
+  once: false,
+});
+
+// Styles
+const BackgroundContainer = styled.section`
   position: relative;
   min-height: 100vh;
   background-image: url("img/logoAODnoir.avif");
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
+
+  @media (max-width: 768px) {
+    background-attachment: scroll;
+  }
+  @media (max-width: 480px) {
+    padding-left: 1.4rem;
+  }
 `;
 
 const Overlay = styled.div`
@@ -24,7 +39,8 @@ const Overlay = styled.div`
   inset: 0;
   background: rgba(0, 0, 0, 0.9);
 `;
-const ContentContainer = styled.div`
+
+const ContentContainer = styled.article`
   position: relative;
   z-index: 10;
   padding: 4rem 2rem;
@@ -34,7 +50,7 @@ const ContentContainer = styled.div`
   text-align: center;
   color: white;
 
-    @media (max-width: 1024px) {
+  @media (max-width: 1024px) {
     padding: 3rem;
   }
 
@@ -43,60 +59,58 @@ const ContentContainer = styled.div`
   }
 
   @media (max-width: 480px) {
-    padding: 2rem;
+    padding: 3.5rem 2rem;
   }
 `;
 
-const Title = styled(motion.h1)`
+const Title = styled.h1`
   font-size: 3rem;
   font-weight: 700;
   color: #00b4d8;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 
   @media (max-width: 1024px) {
-    font-size: 3rem;
-  }
-
-  @media (max-width: 768px) {
     font-size: 2.5rem;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
   }
 `;
 
-const Paragraph = styled(motion.p)`
+const Paragraph = styled.p`
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #caf0f8;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  text-align: left;
 
-color: #caf0f8;
-
-font-size: 1.3rem;
-line-height: 1.8;
-
-max-width: 800px;
-text-align: left;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 
   @media (max-width: 480px) {
-  font-size: 1rem;
-  line-height: 1.6rem;
-  text-align: left; /* Alignement du texte à gauche */
-  margin : 2rem;
-}
-@media (max-width: 1024px) {
-  font-size : 1.1rem;
-  line-height: 1.7rem;
-  text-align: left;
-justify-content: left;
-
+    font-size: 1rem;
+  }
 `;
 
 const Divider = styled.div`
   height: 3px;
-  width: 300px;
+  width: 1000px;
   background: #4ea8ff;
-  margin: 2rem 0;
+  margin: 2rem auto;
+
+  @media (max-width: 480px) {
+    width: 150px;
+  }
 `;
+
 const BackButton = styled(Link)`
   display: flex;
   align-items: center;
@@ -105,9 +119,9 @@ const BackButton = styled(Link)`
   height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 1px #90e0ef;
+  box-shadow: 0 4px 1px #63b3ed;
   color: ;
-  margin-bottom: 0rem;
+  margin-bottom: 2rem;
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -125,102 +139,96 @@ const BackButton = styled(Link)`
   }
 `;
 
-export default function Travail() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
+const FallbackContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+`;
 
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
+const FallbackLogo = styled.img`
+  width: 150px;
+  height: 150px;
+  animation: pulse 1.5s infinite;
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
     }
-  }, [controls, inView]);
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+`;
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
-  };
+export default function Travail() {
+  useEffect(() => {
+    AOS.refresh(); // Rafraîchir AOS après le rendu
+  }, []);
 
   return (
     <div>
       <BackgroundContainer>
-        <Overlay />
-
-        <BardeNavigationpublic />
-        <ContentContainer >
-          {" "}
-          <BackButton to="/nosexpertises" data-aos="fade-right">
-            <FaArrowLeft size={20} />
-          </BackButton>
-          <Title
-            initial="hidden"
-            animate={controls}
-            variants={textVariants}
-            ref={ref}
-          >
-            Le droit de travail
-          </Title>
-          <Divider />
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            Notre cabinet est composé de juristes et d’avocats hautement
-            qualifiés, spécialisés en droit du travail. Nous comprenons les
-            enjeux complexes des relations employeur-employé, et notre expertise
-            couvre une large gamme de problématiques liées à l’emploi, y compris
-            les contrats de travail, la gestion des conflits et les
-            licenciements.
-          </Paragraph>
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            Nous nous engageons à fournir des solutions juridiques sur mesure
-            adaptées à votre situation spécifique. Que vous soyez employeur ou
-            salarié, nous analysons vos besoins pour proposer des stratégies qui
-            protègent vos droits tout en favorisant une résolution rapide et
-            efficace des différends.
-          </Paragraph>
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            Le droit du travail évolue constamment, et les litiges nécessitent
-            souvent une réponse rapide. Notre équipe est disponible et réactive
-            pour répondre à vos préoccupations, vous accompagner dans les
-            négociations, et vous représenter devant les juridictions
-            compétentes.
-          </Paragraph>
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            Pour les entreprises, nous mettons un point d’honneur à prévenir les
-            litiges en veillant à ce que vos politiques internes, contrats de
-            travail et pratiques RH soient conformes aux dernières
-            réglementations. Pour les salariés, nous veillons à ce que vos
-            droits soient respectés et défendus avec diligence.
-          </Paragraph>
-          <Paragraph
-            variants={textVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            En choisissant notre cabinet, vous bénéficiez d’un partenaire
-            juridique qui place vos intérêts au cœur de son action. Nous vous
-            apportons une expertise de pointe, un accompagnement humain et une
-            défense acharnée pour atteindre des résultats concrets et
-            satisfaisants.
-          </Paragraph>
-        </ContentContainer>
+        <Suspense
+          fallback={
+            <FallbackContainer>
+              <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
+            </FallbackContainer>
+          }
+        >
+          <Overlay />
+          <BardeNavigationpublic />
+          <ContentContainer>
+            <BackButton to="/nosexpertises" data-aos="fade-right">
+              <FaArrowLeft size={20} />
+            </BackButton>
+            <Title data-aos="fade-up">Le droit du travail</Title>
+            <Divider data-aos="fade-up" data-aos-delay="200" />
+            <Paragraph data-aos="fade-up" data-aos-delay="300">
+              Notre cabinet est composé de juristes et d’avocats hautement
+              qualifiés, spécialisés en droit du travail. Nous comprenons les
+              enjeux complexes des relations employeur-employé, et notre
+              expertise couvre une large gamme de problématiques liées à
+              l’emploi, y compris les contrats de travail, la gestion des
+              conflits et les licenciements.
+            </Paragraph>
+            <Paragraph data-aos="fade-up" data-aos-delay="400">
+              Nous nous engageons à fournir des solutions juridiques sur mesure
+              adaptées à votre situation spécifique. Que vous soyez employeur ou
+              salarié, nous analysons vos besoins pour proposer des stratégies
+              qui protègent vos droits tout en favorisant une résolution rapide
+              et efficace des différends.
+            </Paragraph>
+            <Paragraph data-aos="fade-up" data-aos-delay="500">
+              Le droit du travail évolue constamment, et les litiges nécessitent
+              souvent une réponse rapide. Notre équipe est disponible et
+              réactive pour répondre à vos préoccupations, vous accompagner dans
+              les négociations, et vous représenter devant les juridictions
+              compétentes.
+            </Paragraph>
+            <Paragraph data-aos="fade-up" data-aos-delay="600">
+              Pour les entreprises, nous mettons un point d’honneur à prévenir
+              les litiges en veillant à ce que vos politiques internes, contrats
+              de travail et pratiques RH soient conformes aux dernières
+              réglementations. Pour les salariés, nous veillons à ce que vos
+              droits soient respectés et défendus avec diligence.
+            </Paragraph>
+            <Paragraph data-aos="fade-up" data-aos-delay="700">
+              En choisissant notre cabinet, vous bénéficiez d’un partenaire
+              juridique qui place vos intérêts au cœur de son action. Nous vous
+              apportons une expertise de pointe, un accompagnement humain et une
+              défense acharnée pour atteindre des résultats concrets et
+              satisfaisants.
+            </Paragraph>
+          </ContentContainer>
+          <TravSecuritee />
+        </Suspense>
       </BackgroundContainer>
-    <Securitee/>
-      {/*<Travail2 />*/}
-     { /**/}
+
       <Footer />
     </div>
   );

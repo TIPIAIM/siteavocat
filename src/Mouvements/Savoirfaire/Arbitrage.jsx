@@ -132,12 +132,13 @@ const SectionTitle = styled.h2`
 const Paragraph = styled.p`
   font-size: 1rem;
   line-height: 1.8;
-  text-align: justify;
+  text-align: left;
   margin-bottom: 1rem;
 
   @media (max-width: 480px) {
     font-size: 0.9rem;
     padding: 0 1rem;
+  
   }
 
   &:last-child {

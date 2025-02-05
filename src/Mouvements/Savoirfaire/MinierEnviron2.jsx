@@ -82,7 +82,9 @@ const Subtitle = styled.h2`
 
   @media (max-width: 480px) {
     font-size: 1.2rem;
+     padding: 1rem 2rem;
   }
+    
 `;
 
 const Paragraph = styled.p`
@@ -97,7 +99,7 @@ const Paragraph = styled.p`
 
   @media (max-width: 480px) {
     font-size: 1rem;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.9rem;
   }
 `;
 
@@ -109,6 +111,9 @@ const List = styled.ul`
   @media (max-width: 480px) {
     padding: 1rem 2rem;
   }
+         @media (max-width: 480px) {
+    margin-left: 1rem;
+  }
 `;
 
 const ListItem = styled.li`
@@ -119,6 +124,7 @@ const ListItem = styled.li`
   @media (max-width: 768px) {
     font-size: 1rem;
   }
+ 
 `;
 
 const OverlayTop = styled.div`

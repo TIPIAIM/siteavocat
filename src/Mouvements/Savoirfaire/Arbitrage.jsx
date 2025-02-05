@@ -12,7 +12,7 @@ const ArbitFamillee = lazy(() => import("./ArbitFamillee"));
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("./src/assets/Image/keitaseul2.avif");
+  background-image: url("./src/assets/Image/keitaseul22.avif");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -28,7 +28,7 @@ const BackgroundContainer = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6));
 `;
 
 const ContentWrapper = styled.main`

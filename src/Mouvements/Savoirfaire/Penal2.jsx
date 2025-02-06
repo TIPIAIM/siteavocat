@@ -209,7 +209,7 @@ const Penal2 = () => {
           {penalArticles.map((article, index) => (
             <PenalCard
               key={index}
-              data-aos="fade-down"
+              data-aos="zoom-in"
               data-aos-delay={300 + index * 100}
               tabIndex={0}
             >
@@ -223,7 +223,7 @@ const Penal2 = () => {
               <PenalContent>
                 <PenalTitle>{article.title}</PenalTitle>
                 <PenalDescription>{article.description}</PenalDescription>
-                <ReadMoreButton data-aos="fade-down" href={article.link} target="_blank" rel="noopener noreferrer">
+                <ReadMoreButton data-aos="zoom-in" href={article.link} target="_blank" rel="noopener noreferrer">
                   Lire plus
                 </ReadMoreButton>
               </PenalContent>

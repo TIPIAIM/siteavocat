@@ -149,10 +149,10 @@ export default function Affairfinal() {
         <Title data-aos="fade-down">Le droit des affaires</Title>
 
         {/* Diviseur */}
-        <Divider data-aos="fade-up" data-aos-delay="800" />
+        <Divider data-aos="fade-up" data-aos-delay="200" />
 
         {/* Paragraphes */}
-        <Paragraph data-aos="fade-down" data-aos-delay="400">
+        <Paragraph data-aos="fade-up" data-aos-delay="250">
           Notre cabinet est composé d’avocats spécialisés en droit des affaires,
           dotés de plusieurs années d’expérience dans le domaine. Nous
           maîtrisons les complexités juridiques des entreprises et sommes à jour
@@ -160,20 +160,20 @@ export default function Affairfinal() {
           rédaction de contrats, la gestion de litiges ou des conseils
           stratégiques, nous avons les compétences pour défendre vos intérêts.
         </Paragraph>
-        <Paragraph data-aos="fade-down" data-aos-delay="600">
+        <Paragraph data-aos="fade-up" data-aos-delay="300">
           Nous comprenons que chaque entreprise a des besoins uniques. C’est
           pourquoi nous proposons des solutions juridiques sur mesure, adaptées
           à vos objectifs commerciaux. Notre approche centrée sur le client
           garantit une attention particulière à vos attentes et un suivi
           rigoureux de votre dossier.
         </Paragraph>
-        <Paragraph data-aos="fade-down" data-aos-delay="800">
+        <Paragraph data-aos="zoom-in" data-aos-delay="400">
           Dans le monde des affaires, le temps est précieux. Notre équipe
           s’engage à répondre rapidement à vos demandes et à anticiper les
           risques pour minimiser les imprévus. Nous sommes disponibles à tout
           moment pour vous accompagner dans vos démarches juridiques.
         </Paragraph>
-        <Paragraph data-aos="fade-down">
+        <Paragraph data-aos="zoom-in" data-aos-delay="450">
           En choisissant notre cabinet, vous optez pour un partenaire engagé,
           professionnel et déterminé à défendre vos intérêts avec excellence.
           Faites confiance à notre expertise pour protéger vos droits et assurer

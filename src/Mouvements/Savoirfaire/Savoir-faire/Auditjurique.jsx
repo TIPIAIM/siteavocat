@@ -218,7 +218,7 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 2 : Analyse stratégique */}
-          <ParagraphWrapper data-aos="fade-up">
+          <ParagraphWrapper data-aos="zoom-in">
             <ParagraphImage src={jurid1} alt="Stratégie juridique" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>1. Une analyse approfondie et stratégique :</strong>{" "}
@@ -243,7 +243,7 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 4 : Conformité */}
-          <ParagraphWrapper data-aos="fade-up">
+          <ParagraphWrapper data-aos="zoom-in">
             <ParagraphImage src={conf} alt="Conformité juridique" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>3. Une conformité avec les normes en constante évolution :</strong>{" "}
@@ -255,7 +255,7 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 5 : Prévention des risques */}
-          <ParagraphWrapper data-aos="fade-down">
+          <ParagraphWrapper data-aos="fade-up">
             <ParagraphImage src={PREV} alt="Prévention juridique" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>4. Une prévention proactive des risques :</strong>{" "}
@@ -267,7 +267,7 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 6 : Accompagnement sur mesure */}
-          <ParagraphWrapper data-aos="fade-down">
+          <ParagraphWrapper data-aos="zoom-in">
             <ParagraphImage src={EVOL} alt="Accompagnement juridique" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>5. Un accompagnement sur mesure :</strong>{" "}
@@ -301,7 +301,7 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 8 : Relation de confiance */}
-          <ParagraphWrapper data-aos="fade-down">
+          <ParagraphWrapper data-aos="zoom-in">
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>7. Une relation de confiance :</strong>{" "}
               Notre engagement repose sur la transparence, la discrétion, et une

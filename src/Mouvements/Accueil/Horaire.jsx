@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer"; // Importation de la bibliothèque pour observer la visibilité des éléments
 import styled from "styled-components";
-import AOS from "aos";
+
 import "aos/dist/aos.css";
 
 // Styled Components

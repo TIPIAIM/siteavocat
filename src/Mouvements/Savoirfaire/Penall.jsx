@@ -191,14 +191,14 @@ export default function Penall() {
             garantissons une défense rigoureuse, basée sur une analyse approfondie
             de votre dossier et des stratégies juridiques adaptées.
           </Paragraph>
-          <Paragraph data-aos="fade-down" data-aos-delay="400">
+          <Paragraph data-aos="fade-up" data-aos-delay="350">
             Nous comprenons que les affaires pénales sont souvent complexes et
             émotionnellement difficiles. C’est pourquoi nous adoptons une approche
             humaine, en vous écoutant attentivement et en vous accompagnant tout
             au long du processus judiciaire. Chaque client est unique, et nous
             nous engageons à vous offrir un soutien sur mesure.
           </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="500">
+          <Paragraph data-aos="zoom-in" data-aos-delay="400">
             Notre objectif est de protéger vos droits à chaque étape de la
             procédure pénale. Grâce à notre connaissance des lois, des procédures
             et des juridictions, nous anticipons les éventuelles complications et
@@ -206,20 +206,20 @@ export default function Penall() {
             ce soit en négociant une peine réduite ou en plaidant en votre faveur
             devant les tribunaux.
           </Paragraph>
-          <Paragraph data-aos="fade-right" data-aos-delay="600">
+          <Paragraph data-aos="fade-up" data-aos-delay="450">
             Dans les affaires pénales, chaque minute compte. Notre équipe est
             disponible pour répondre rapidement à vos besoins urgents, qu’il
             s’agisse d’une garde à vue, d’une comparution immédiate ou d’une mise
             en détention. Nous sommes à vos côtés pour agir avec efficacité et
             réactivité.
           </Paragraph>
-          <Paragraph data-aos="fade-down" data-aos-delay="700">
+          <Paragraph data-aos="zoom-in" data-aos-delay="500">
             En choisissant notre cabinet, vous faites appel à des professionnels
             engagés, compétents et déterminés à défendre vos intérêts. Faites
             confiance à notre savoir-faire pour vous représenter avec force et
             conviction face à la justice.
           </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="800">
+          <Paragraph data-aos="fade-up" data-aos-delay="550">
             Si vous êtes confronté à une affaire pénale, ne restez pas seul.
             Contactez notre cabinet pour une consultation confidentielle et
             laissez-nous vous accompagner avec professionnalisme et intégrité.

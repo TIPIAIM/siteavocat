@@ -140,7 +140,7 @@ const Conseiljuri = () => {
             minimiser les risques et maximiser vos chances de succès. Cela
             inclut une analyse approfondie de vos besoins spécifiques.
           </Point>
-          <Point data-aos="fade-down">
+          <Point data-aos="zoom-in">
             <strong style={{ color: "#90e0ef" }}>
               Engagement envers vos intérêts :
             </strong>{" "}
@@ -148,7 +148,7 @@ const Conseiljuri = () => {
             apportant les meilleures solutions possibles. Votre satisfaction est
             au cœur de nos priorités.
           </Point>
-          <Point data-aos="fade-down">
+          <Point data-aos="fade-up">
             <strong style={{ color: "#90e0ef" }}>
               Communication claire et transparente :
             </strong>{" "}
@@ -156,13 +156,13 @@ const Conseiljuri = () => {
             une collaboration efficace et une totale compréhension de votre
             dossier. Une information précise est notre priorité.
           </Point>
-          <Point data-aos="fade-down">
+          <Point data-aos="zoom-in">
             <strong style={{ color: "#90e0ef" }}>Résultats probants :</strong>{" "}
             Notre expérience dans la résolution de contentieux complexes nous
             permet d`obtenir des résultats concrets et satisfaisants pour nos
             clients. Nous avons à cœur de vous apporter des solutions concrètes.
           </Point>
-          <Point data-aos="fade-down">
+          <Point data-aos="fade-up">
             <strong style={{ color: "#90e0ef" }}>
               Discrétion et confidentialité :
             </strong>{" "}
@@ -170,7 +170,7 @@ const Conseiljuri = () => {
             vos informations et la confidentialité totale de vos dossiers, avec
             un respect absolu de vos droits.
           </Point>
-          <Point data-aos="fade-down">
+          <Point data-aos="zoom-in">
             <strong style={{ color: "#90e0ef" }}>
               Accompagnement sur mesure :
             </strong>{" "}
@@ -178,7 +178,7 @@ const Conseiljuri = () => {
             des conseils adaptés à votre situation spécifique, quel que soit le
             degré de complexité.
           </Point>
-          <Point data-aos="fade-down">
+          <Point data-aos="fade-up">
             <strong style={{ color: "#90e0ef" }}>
               Accessibilité et réactivité :
             </strong>{" "}

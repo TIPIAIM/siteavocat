@@ -178,7 +178,7 @@ const RotatingBall = styled.div`
   height: 45px;
   background-color: #00b4d8;
   border-radius: 20%;
-  animation: rotateAndDisappear 10s ease-in-out forwards;
+  animation: rotateAndDisappear 5s ease-in-out forwards;
 
   @keyframes rotateAndDisappear {
     5% {
@@ -209,7 +209,7 @@ const RotatingBall2 = styled.div`
   height: 45px;
   background-color: #00b4d8;
   border-radius: 20%;
-  animation: rotateAndDisappear 8s ease-in-out forwards;
+  animation: rotateAndDisappear 4s ease-in-out forwards;
 
   @keyframes rotateAndDisappear {
     5% {

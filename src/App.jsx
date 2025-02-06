@@ -35,6 +35,7 @@ import Gclient from "./Mouvements/Administrateur/GestionClient/Gclient";
 
 import Famillee from "./Mouvements/Savoirfaire/Famillee";
 import Affairee from "./Mouvements/Savoirfaire/Affairee";
+import Petitecrandeux from "./Mouvements/Erreur/Erreur";
 
 function App() {
   return (
@@ -43,8 +44,8 @@ function App() {
       <StructuredData />
       <Routes>
         <Route index element={<Accueil />} />
-        {/** <Route path="*" element={<Orror />} />
-      pour {" "}
+       <Route path="*" element={<Petitecrandeux />} />{/**pge d'erreur */}
+      {/**
    <Route path="/login" element={<LoginForm />} />
    <Route path="/register" element={<RegisterForm />} />  
          <Route path="/Logoutdecconnexion" element={<LogoutButton />} />

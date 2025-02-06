@@ -107,7 +107,7 @@ const Composantfinal = {
 
 export default function Horaire() {
   const sections = [
-    { title: "Honoraires:", description: " ?" },
+    { title: "Honoraires:", description: "Quelle que soit la formule choisie" },
     {
       title: "L’honoraire au temps passé",
       description:

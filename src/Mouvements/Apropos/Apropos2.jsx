@@ -1,10 +1,9 @@
+import React, { useState } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-import { useState } from "react";
 import image2 from "./../../assets/Image/maitre13.avif"; // Chemin d'image
 
 // Container principal
-const CarouselContainer = styled.div`
+const CarouselContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +20,7 @@ const CarouselContainer = styled.div`
 `;
 
 // Conteneur pour l'image et la section "À propos"
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.article`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,13 +47,14 @@ const ImageWrapper = styled.div`
 `;
 
 // Image qui se retourne
-const ImageCard = styled(motion.div)`
+const ImageCard = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.8s ease-in-out;
   cursor: pointer;
+
   &:hover {
     transform: rotateY(180deg);
   }
@@ -63,10 +63,10 @@ const ImageCard = styled(motion.div)`
 // Face avant de l'image
 const Front = styled.div`
   position: absolute;
-
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  background-image: url(${image2});
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -76,7 +76,6 @@ const Front = styled.div`
 const Back = styled.div`
   position: absolute;
   width: 100%;
-
   height: 100%;
   backface-visibility: hidden;
   transform: rotateY(180deg);
@@ -100,7 +99,6 @@ const Back = styled.div`
 // Section "À propos" à gauche
 const AboutSection = styled.div`
   flex: 1;
-
   padding: 20px;
   background: #023047;
   border-radius: 10px;
@@ -111,22 +109,19 @@ const AboutSection = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     text-align: center;
-     
-
   }
 `;
 
 const AboutTitle = styled.h2`
   font-size: 2rem;
-
   font-weight: bold;
   margin-bottom: 20px;
   color: #90e0ef;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
-text-align: center;
+  text-align: center;
+
   @media (max-width: 768px) {
     font-size: 1.8rem;
-    text-align: center;
   }
 `;
 
@@ -134,8 +129,7 @@ const AboutDescription = styled.div`
   font-size: 1rem;
   line-height: 1.6;
   color: white;
-    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
-
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   max-height: ${({ expanded }) => (expanded ? "none" : "9.6em")};
   overflow: hidden;
   text-overflow: ellipsis;
@@ -143,8 +137,7 @@ const AboutDescription = styled.div`
   @media (max-width: 768px) {
     font-size: 1rem;
     text-align: left;
-      padding-left: 20px;
-
+    padding-left: 20px;
   }
 `;
 
@@ -165,7 +158,6 @@ const ReadMoreButton = styled.button`
 const Title = styled.h3`
   margin-bottom: 20px;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
-
   font-size: 1.8rem;
   font-weight: bold;
   text-align: center;
@@ -174,8 +166,7 @@ const Title = styled.h3`
 const Description = styled.p`
   font-size: 1rem;
   line-height: 1.6;
-    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
-
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   max-width: 280px;
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
@@ -190,7 +181,6 @@ const Aproposdeux = () => {
   const [expanded, setExpanded] = useState(false);
 
   const description = `
-
   Avant de fonder le cabinet AOD Avocats, Maître Amadou Oury DIALLO a
   accumulé plusieurs années d’expérience en tant que conseiller
   juridique pour des sociétés opérant dans le secteur minier, et
@@ -218,7 +208,8 @@ const Aproposdeux = () => {
   d’offrir des services efficaces et adaptés aux exigences de ses
   clients. En privilégiant la collaboration et l’excellence dans la
   prestation de services juridiques, la SCPA AOD vise à établir des
-  relations solides inclusives et durables avec sa clientèl  `;
+  relations solides inclusives et durables avec sa clientèle.
+  `;
 
   return (
     <CarouselContainer>
@@ -232,7 +223,7 @@ const Aproposdeux = () => {
         </AboutSection>
         <ImageWrapper>
           <ImageCard>
-            <Front style={{ backgroundImage: `url(${image2})` }} />
+            <Front />
             <Back>
               <Title>NOTRE MISSION</Title>
               <Description>
@@ -247,4 +238,4 @@ const Aproposdeux = () => {
   );
 };
 
-export default Aproposdeux;
+export default React.memo(Aproposdeux);

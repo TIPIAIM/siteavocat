@@ -119,7 +119,7 @@ export default function Accueil() {
                   </a>
                 </h3>
                 <p
-                  data-aos="fade-right"
+                  data-aos="zoom-in"
                   className="text-gray-600 text-sm sm:text-base"
                 >
                   {service.desc}

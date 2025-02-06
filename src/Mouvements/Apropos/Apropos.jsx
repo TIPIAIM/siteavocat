@@ -1,7 +1,5 @@
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-//import image2 from "./../../assets/Image/Maitre3.avif";
 import image3 from "./../../assets/Image/Maitre1.avif";
 import image5 from "./../../assets/Image/mbangou.avif";
 import image6 from "./../../assets/Image/maitre13.avif";
@@ -10,7 +8,6 @@ import image8 from "./../../assets/Image/naroumb.avif";
 import image9 from "./../../assets/Image/MOE_0400.avif";
 import image10 from "./../../assets/Image/MOE_0311.avif";
 import image11 from "./../../assets/Image/abdoulayeavoc.avif";
-
 import Footer from "../Accueil/Footerr";
 import Aproposdeux from "./Apropos2";
 import Aproposzeo from "./Aproposzeo";
@@ -75,7 +72,6 @@ const images = [
     city: "Conakry",
     phone: "624138395",
   },
-
   {
     src: image10,
     title: "NOTRE APPROCHE ",
@@ -96,6 +92,7 @@ const images = [
   },
 ];
 
+// Styles
 const CarouselContainer = styled.div`
   display: flex;
   overflow: hidden;
@@ -105,6 +102,7 @@ const CarouselContainer = styled.div`
   background: linear-gradient(120deg, #0f172a 60%, #0369a1 80%);
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
   @media (max-width: 768px) {
     padding: 10px;
   }
@@ -115,13 +113,14 @@ const ImageWrapper = styled.div`
   margin: 5px;
 `;
 
-const ImageCard = styled(motion.div)`
+const ImageCard = styled.div`
   width: 350px;
   height: 450px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.8s ease-in-out;
   cursor: pointer;
+
   &:hover {
     transform: rotateY(180deg);
     box-shadow: 2px 5px 15px rgba(0, 180, 216, 1);
@@ -160,7 +159,6 @@ const Title = styled.h3`
   margin: 0;
   font-size: 1.8rem;
   font-weight: bold;
-
   color: #0488b2;
 `;
 
@@ -174,6 +172,7 @@ const Email = styled.a`
   color: white;
   font-size: 1rem;
   text-decoration: none;
+
   &:hover {
     text-decoration: underline;
   }
@@ -191,15 +190,17 @@ const ControlButton = styled.button`
   font-size: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s;
+
   &:hover {
     background-color: #023047;
   }
+
   &:focus {
     outline: none;
   }
 `;
 
-const ScrollWrapper = styled(motion.div)`
+const ScrollWrapper = styled.div`
   display: flex;
   transition: transform 1s ease-in-out;
   animation: ${({ isPaused }) =>
@@ -231,8 +232,24 @@ const Indicator = styled.div`
   border-radius: 50%;
   background-color: ${({ active }) => (active ? "#0488b2" : "#ffffff")};
   transition: background-color 0.3s;
+  cursor: pointer;
 `;
 
+// Composant réutilisable pour les cartes
+const Card = React.memo(({ src, title, description, email }) => (
+  <ImageWrapper>
+    <ImageCard>
+      <Front style={{ backgroundImage: `url(${src})` }} />
+      <Back>
+        <Title>{title}</Title>
+        <Description>{description}</Description>
+        <Email href={`mailto:${email}`}>{email}</Email>
+      </Back>
+    </ImageCard>
+  </ImageWrapper>
+));
+
+// Composant principal
 const Apropos = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -261,26 +278,20 @@ const Apropos = () => {
     <div>
       <Headerr />
       <CarouselContainer>
-        <ScrollWrapper
-          isPaused={isPaused}
-          style={{ transform: `translateX(-${currentIndex * 350}px)` }}
-        >
+        <ScrollWrapper isPaused={isPaused}>
           {infiniteImages.map((item, index) => (
-            <ImageWrapper key={index}>
-              <ImageCard>
-                <Front style={{ backgroundImage: `url(${item.src})` }} />
-                <Back>
-                  <Title>{item.title}</Title>
-                  <Description>{item.description}</Description>
-                  <Email href={`mailto:${item.email}`}>{item.email}</Email>
-                </Back>
-              </ImageCard>
-            </ImageWrapper>
+            <Card
+              key={index}
+              src={item.src}
+              title={item.title}
+              description={item.description}
+              email={item.email}
+            />
           ))}
         </ScrollWrapper>
 
         <ControlButton onClick={handleButtonClick}>
-          {isPaused ? "Play" : "Reset"}
+          {isPaused ? "Play" : "Pause"}
         </ControlButton>
 
         <IndicatorWrapper>
@@ -299,6 +310,5 @@ const Apropos = () => {
     </div>
   );
 };
-
 
 export default Apropos;

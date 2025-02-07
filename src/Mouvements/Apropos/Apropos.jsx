@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import image3 from "./../../assets/Image/Maitre1.avif";
 import image5 from "./../../assets/Image/mbangou.avif";
 import image6 from "./../../assets/Image/maitre13.avif";
@@ -8,6 +9,7 @@ import image8 from "./../../assets/Image/naroumb.avif";
 import image9 from "./../../assets/Image/MOE_0400.avif";
 import image10 from "./../../assets/Image/MOE_0311.avif";
 import image11 from "./../../assets/Image/abdoulayeavoc.avif";
+
 import Footer from "../Accueil/Footerr";
 import Aproposdeux from "./Apropos2";
 import Aproposzeo from "./Aproposzeo";
@@ -92,7 +94,6 @@ const images = [
   },
 ];
 
-// Styles
 const CarouselContainer = styled.div`
   display: flex;
   overflow: hidden;
@@ -102,7 +103,6 @@ const CarouselContainer = styled.div`
   background: linear-gradient(120deg, #0f172a 60%, #0369a1 80%);
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
   @media (max-width: 768px) {
     padding: 10px;
   }
@@ -113,14 +113,13 @@ const ImageWrapper = styled.div`
   margin: 5px;
 `;
 
-const ImageCard = styled.div`
+const ImageCard = styled(motion.div)`
   width: 350px;
   height: 450px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.8s ease-in-out;
   cursor: pointer;
-
   &:hover {
     transform: rotateY(180deg);
     box-shadow: 2px 5px 15px rgba(0, 180, 216, 1);
@@ -172,7 +171,6 @@ const Email = styled.a`
   color: white;
   font-size: 1rem;
   text-decoration: none;
-
   &:hover {
     text-decoration: underline;
   }
@@ -190,30 +188,17 @@ const ControlButton = styled.button`
   font-size: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s;
-
   &:hover {
     background-color: #023047;
   }
-
   &:focus {
     outline: none;
   }
 `;
 
-const ScrollWrapper = styled.div`
+const ScrollWrapper = styled(motion.div)`
   display: flex;
-  transition: transform 1s ease-in-out;
-  animation: ${({ isPaused }) =>
-    isPaused ? "none" : "scroll 500s linear infinite"};
-
-  @keyframes scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
+  transition: transform 5.5s ease-in-out;
 `;
 
 const IndicatorWrapper = styled.div`
@@ -235,33 +220,16 @@ const Indicator = styled.div`
   cursor: pointer;
 `;
 
-// Composant réutilisable pour les cartes
-const Card = React.memo(({ src, title, description, email }) => (
-  <ImageWrapper>
-    <ImageCard>
-      <Front style={{ backgroundImage: `url(${src})` }} />
-      <Back>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
-        <Email href={`mailto:${email}`}>{email}</Email>
-      </Back>
-    </ImageCard>
-  </ImageWrapper>
-));
-
-// Composant principal
 const Apropos = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const infiniteImages = [...images, ...images];
 
   const handleButtonClick = () => {
     setIsPaused(!isPaused);
   };
 
   const handleIndicatorClick = (index) => {
-    setIsPaused(true); // Stop l'animation automatique lors d'un clic
+    setIsPaused(true); // Arrêter l'animation automatique
     setCurrentIndex(index);
   };
 
@@ -278,15 +246,20 @@ const Apropos = () => {
     <div>
       <Headerr />
       <CarouselContainer>
-        <ScrollWrapper isPaused={isPaused}>
-          {infiniteImages.map((item, index) => (
-            <Card
-              key={index}
-              src={item.src}
-              title={item.title}
-              description={item.description}
-              email={item.email}
-            />
+        <ScrollWrapper
+          style={{ transform: `translateX(-${currentIndex * 350}px)` }}
+        >
+          {images.map((item, index) => (
+            <ImageWrapper key={index}>
+              <ImageCard>
+                <Front style={{ backgroundImage: `url(${item.src})` }} />
+                <Back>
+                  <Title>{item.title}</Title>
+                  <Description>{item.description}</Description>
+                  <Email href={`mailto:${item.email}`}>{item.email}</Email>
+                </Back>
+              </ImageCard>
+            </ImageWrapper>
           ))}
         </ScrollWrapper>
 

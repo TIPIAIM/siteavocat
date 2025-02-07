@@ -1,145 +1,26 @@
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { FaArrowLeft } from "react-icons/fa";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Importation du CSS pour AOS
+import "aos/dist/aos.css";
 import Footer from "../Accueil/Footerr";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { Link } from "react-router-dom";
 
-AOS.init(); // Initialisation de AOS dans le composant
+// Initialisation de AOS
+AOS.init();
 
-// Conteneur principal avec fond fixe
-const BackgroundContainer = styled.div`
+// Styles
+const BackgroundContainer = styled.main`
   position: relative;
   width: 100%;
   min-height: 100vh;
-
   background: url("/img/MOE_0384.avif") center/cover no-repeat;
   background-attachment: fixed;
-  background-size: cover;
   color: black;
 
   @media (max-width: 768px) {
     background-attachment: scroll;
-    text-align: left;
-  }
-`;
-
-// Conteneur du contenu
-const ContentWrapper = styled.div`
-  max-width: 1350px;
-  margin: 2rem auto;
-  padding: 4rem;
-  background-color: rgba(1, 1, 1, 0.8); /* Fond semi-transparent */
-
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(8px); /* Flou pour un effet moderne */
-
-  @media (max-width: 1024px) {
-    padding: 3rem;
-  }
-
-  @media (max-width: 768px) {
-    padding: 2rem;
-  }
-
-  @media (max-width: 480px) {
-    padding: 2rem;
-  }
-
-  @media (max-width: 1024px) {
-    padding: 3rem;
-  }
-
-  @media (max-width: 768px) {
-    padding: 2rem;
-  }
-
-  @media (max-width: 480px) {
-    padding: 2rem;
-  }
-`;
-
-// Titre principal
-const Title = styled.h1`
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #00b4d8;
-
-  text-align: center;
-  margin-bottom: 3rem;
-
-  @media (max-width: 1024px) {
-    font-size: 3rem;
-    margin-top: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
-  }
-`;
-
-// Section de l'article
-const ArticleSection = styled.div`
-  margin-bottom: 2rem;
-  padding: 2rem;
-  font-size: 1.2rem;
-  color: #caf0f8;
-  background-color: rgba(0, 0, 0, 0.6);
-
-  box-shadow: 1px 2px 1px #00b4d8;
-  backdrop-filter: blur(0px);
-
-  @media (max-width: 768px) {
-    padding: 2.3rem;
-    font-size: 1.1rem;
-    line-height: 1.6rem;
-  }
-`;
-
-// Lien de l'article
-const ArticleLink = styled.a`
-  color: #00b4d8;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: none;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ;
-  border-radius: 20px; /* Coins arrondis */
-  padding: 0.5rem; /* Espacement interne */
-  box-shadow: 12px 4px 6px #0077b6;
-  animation: pulse 0.5s infinite; /* Animation pulsation */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  color: white;
-  /* Style au survol */
-  &:hover {
-    transform: scale(1.1); /* Légère mise en avant */
-    box-shadow: 0 6px 10px #0077b6; /* Ombre plus forte */
-  }
-
-  /* Focus clavier pour accessibilité */
-  &:focus {
-    outline: 2px solid #00b4d8; /* Bordure de focus */
-    outline-offset: 2px;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      transform: scale(1);
-      box-shadow: 0 4px 6px #caf0f8;
-    }
-    50% {
-      transform: scale(1.05);
-      box-shadow: 0 6px 10px #0077b6;
-    }
   }
 `;
 
@@ -152,21 +33,120 @@ const OverlayTop = styled.div`
   background: rgba(10, 34, 64, 0.9); /* Fond noir semi-transparent */
 `;
 
+const ContentWrapper = styled.section`
+  max-width: 1350px;
+  margin: 2rem auto;
+  padding: 4rem;
+  background-color: rgba(1, 1, 1, 0.8);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+
+  @media (max-width: 1024px) {
+    padding: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+  }
+`;
+
+const Title = styled.h1`
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00b4d8;
+  text-align: center;
+  margin-bottom: 3rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+`;
+
+const ArticleSection = styled.article`
+  margin-bottom: 2rem;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #caf0f8;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 2px 1px #00b4d8;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+  }
+`;
+
+const ArticleLink = styled.a`
+  color: #00b4d8;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px #90e0ef;
+  color: #00b4d8;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(144, 224, 239, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media (max-width: 480px) {
+    width: 35px;
+    height: 35px;
+  }
+`;
+
 const Famille = () => {
+  useEffect(() => {
+    // Ajout d'un titre et d'une description pour le SEO
+    document.title = "Droit de la Famille et Médiation | AOD Avocats";
+    const metaDescription = document.createElement("meta");
+    metaDescription.name = "description";
+    metaDescription.content =
+      "Découvrez les avantages de la médiation familiale et les droits des enfants en cas de divorce. Des solutions adaptées pour résoudre les conflits familiaux.";
+    document.head.appendChild(metaDescription);
+
+    return () => {
+      document.head.removeChild(metaDescription);
+    };
+  }, []);
+
   return (
     <div>
-      {" "}
       <OverlayTop />
       <BardeNavigationpublic />
       <BackgroundContainer>
         <ContentWrapper>
-          <StyledLink to="/article">
+          <StyledLink to="/article" aria-label="Retour à la page précédente">
             <FaArrowLeft size={20} />
           </StyledLink>
           <Title>Droit de la Famille et la Médiation</Title>
 
-          <ArticleSection>
-            <h2 className="  p-2 " style={{ color: "#00b4d8" }}>
+          <ArticleSection data-aos="fade-up">
+            <h2 style={{ color: "#00b4d8", marginBottom: "1rem" }}>
               La médiation familiale : un outil clé pour résoudre les conflits
               familiaux
             </h2>
@@ -175,7 +155,7 @@ const Famille = () => {
               qui permet aux membres d’une famille de discuter de manière
               constructive des différends les opposant. Elle est souvent
               utilisée dans des situations telles que le divorce, la garde des
-              enfants ou les questions patrimoniales. Lobjectif est d’éviter une
+              enfants ou les questions patrimoniales. L'objectif est d’éviter une
               procédure judiciaire longue et coûteuse en favorisant un dialogue
               ouvert et respectueux. Ce processus aide également à préserver les
               relations familiales en réduisant les tensions émotionnelles.
@@ -185,15 +165,16 @@ const Famille = () => {
             <ArticleLink
               href="https://aurore-avocats.fr/actualites-droit-personne-famille-patrimoine/qu-est-ce-que-la-mediation-familiale/?utm_source=chatgpt.com"
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="En savoir plus sur la médiation familiale"
             >
               Lire plus d’article
             </ArticleLink>
           </ArticleSection>
 
-          <ArticleSection>
-            <h2 className="  p-2 " style={{ color: "#00b4d8" }}>
-              Les droits des enfants en cas de divorce : ce que vous devez
-              savoir
+          <ArticleSection data-aos="fade-up">
+            <h2 style={{ color: "#00b4d8", marginBottom: "1rem" }}>
+              Les droits des enfants en cas de divorce : ce que vous devez savoir
             </h2>
             <p>
               Lors d’un divorce, la question des droits des enfants est
@@ -211,13 +192,15 @@ const Famille = () => {
             <ArticleLink
               href="https://www.justifit.fr/b/guides/droit-famille/"
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="En savoir plus sur les droits des enfants"
             >
-              Lire plus d’article{" "}
+              Lire plus d’article
             </ArticleLink>
           </ArticleSection>
 
-          <ArticleSection>
-            <h2 className="  p-2 " style={{ color: "#00b4d8" }}>
+          <ArticleSection data-aos="fade-up">
+            <h2 style={{ color: "#00b4d8", marginBottom: "1rem" }}>
               Les implications légales de la médiation dans les affaires de
               garde d’enfants
             </h2>
@@ -236,13 +219,15 @@ const Famille = () => {
             <ArticleLink
               href="https://www.example.com/article3"
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="En savoir plus sur la médiation et la garde d'enfants"
             >
               Lire plus d’article
             </ArticleLink>
           </ArticleSection>
 
-          <ArticleSection>
-            <h2 className="  p-2 " style={{ color: "#00b4d8" }}>
+          <ArticleSection data-aos="fade-up">
+            <h2 style={{ color: "#00b4d8", marginBottom: "1rem" }}>
               Les conséquences d’un divorce non médiatisé
             </h2>
             <p>
@@ -261,6 +246,8 @@ const Famille = () => {
             <ArticleLink
               href="https://demarchesadministratives.fr/demarches/faire-appel-a-un-mediateur-familial"
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="En savoir plus sur les conséquences d'un divorce non médiatisé"
             >
               Lire plus d’article
             </ArticleLink>

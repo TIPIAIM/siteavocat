@@ -1,18 +1,21 @@
+import  { memo } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import videohomemoury from "./../../assets/Video/videohomemoury.mp4"; // Exemple d'image
-import articleVideo from "./../../assets/Video/feuillevid.mp4"; // Exemple de vidéo
-import commercial from "./../../assets/Image/travaiil.avif"; // Exemple de vidéo
-import traval from "./../../assets/Image/travail.avif"; // Exemple de vidéo
-import techno from "./../../assets/Image/technologie.avif"; // Exemple de vidéo
+import videohomemoury from "./../../assets/Video/videohomemoury.mp4";
+import articleVideo from "./../../assets/Video/feuillevid.mp4";
+import commercial from "./../../assets/Image/travaiil.avif";
+import traval from "./../../assets/Image/travail.avif";
+import techno from "./../../assets/Image/technologie.avif";
 import Footer from "../Accueil/Footerr";
 import Headerr from "../Headerr/Header";
 
-// Conteneur principal
-const ArticlesContainer = styled.div`
+// Styles
+const ArticlesContainer = styled.main`
   width: 100%;
   padding: 50px;
-  background: linear-gradient(to bottom, #, #0f172a);
+  margin-top: 8rem;
+  margin-bottom: 10rem;
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
   color: white;
   display: flex;
   flex-direction: column;
@@ -20,23 +23,20 @@ const ArticlesContainer = styled.div`
   justify-content: center;
 `;
 
-// Titre de la section
-const SectionTitle = styled.h2`
+const SectionTitle = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 50px;
-
   color: #0077b6;
-  text-shadow: px 4px 2px #90e0ef;
+  text-shadow: 1px 1px 1px #90e0ef;
+  text-align: center;
 
   @media (max-width: 768px) {
     font-size: 2rem;
-    align-items: center;
   }
 `;
 
-// Grille d'articles
-const ArticlesGrid = styled.div`
+const ArticlesGrid = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
@@ -49,8 +49,7 @@ const ArticlesGrid = styled.div`
   }
 `;
 
-// Carte d'article
-const ArticleCard = styled(motion.div)`
+const ArticleCard = styled(motion.article)`
   background: rgba(10, 34, 64, 0.9);
   border-radius: 2px;
   overflow: hidden;
@@ -63,7 +62,6 @@ const ArticleCard = styled(motion.div)`
   }
 `;
 
-// Image ou vidéo d'article
 const MediaWrapper = styled.div`
   width: 100%;
   height: 200px;
@@ -78,18 +76,17 @@ const MediaWrapper = styled.div`
   }
 `;
 
-// Contenu d'article
 const ArticleContent = styled.div`
   padding: 20px;
 `;
 
-// Titre d'article
-const ArticleTitle = styled.h3`
+const ArticleTitle = styled.h2`
   font-size: 1.3rem;
   font-weight: bold;
   margin-bottom: 10px;
   color: #90e0ef;
   margin-top: 10px;
+
   @media (max-width: 768px) {
     font-size: 1.1rem;
     line-height: 1.7rem;
@@ -98,7 +95,6 @@ const ArticleTitle = styled.h3`
   }
 `;
 
-// Description d'article
 const ArticleDescription = styled.p`
   font-size: 1rem;
   color: rgba(255, 255, 255, 1);
@@ -111,7 +107,6 @@ const ArticleDescription = styled.p`
   }
 `;
 
-// Bouton "Lire plus"
 const ReadMoreButton = styled.a`
   font-size: 1rem;
   font-weight: bold;
@@ -119,13 +114,31 @@ const ReadMoreButton = styled.a`
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
+
   @media (max-width: 768px) {
     font-size: 0.95rem;
     margin-left: 1.2rem;
   }
+
   &:hover {
     color: #ffffff;
     text-decoration: underline;
+  }
+`;
+
+const CodeCivilText = styled.p`
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 80px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0 1px;
+     text-align: left;
+       margin-bottom: 40px;
   }
 `;
 
@@ -135,63 +148,70 @@ const cardVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
+// Données des articles
+const articles = [
+  {
+    title: "L'impact de la fiscalité sur les entreprises",
+    description:
+      "Comprendre les implications fiscales pour une gestion d'entreprise efficace.",
+    mediaType: "image",
+    mediaSrc: techno,
+    link: "fiscalite",
+  },
+  {
+    title: "Les litiges miniers et environnementaux",
+    description: "Un aperçu des défis juridiques dans le secteur minier.",
+    mediaType: "video",
+    mediaSrc: articleVideo,
+    link: "minier",
+  },
+  {
+    title: "Les droits de la famille et la médiation",
+    description:
+      "La médiation : une alternative pour résoudre les conflits familiaux.",
+    mediaType: "video",
+    mediaSrc: videohomemoury,
+    link: "famille",
+  },
+  {
+    title: "Importance des contrats en droit des affaires",
+    description:
+      "Découvrez comment un contrat bien rédigé peut protéger vos intérêts juridiques et économiques.",
+    mediaType: "image",
+    mediaSrc: commercial,
+    link: "affaire",
+  },
+  {
+    title: "La sécurité sociale et le droit du travail",
+    description:
+      "Une analyse approfondie de la protection des employés en matière de sécurité sociale.",
+    mediaType: "image",
+    mediaSrc: traval,
+    link: "securite",
+  },
+  {
+    title: "Le droit pénal et la défense des victimes",
+    description:
+      "Les procédures juridiques pour garantir justice aux victimes de crimes.",
+    mediaType: "video",
+    mediaSrc: articleVideo,
+    link: "penal",
+  },
+];
+
 const Articles = () => {
-  const articles = [
-    {
-      title: "L'impact de la fiscalité sur les entreprises",
-      description:
-        "Comprendre les implications fiscales pour une gestion d'entreprise efficace.",
-      mediaType: "image",
-      mediaSrc: techno,
-      link: "fiscalite",
-    },
-    {
-      title: "Les litiges miniers et environnementaux",
-      description: "Un aperçu des défis juridiques dans le secteur minier.",
-      mediaType: "video",
-      mediaSrc: articleVideo,
-      link: "minier",
-    },
-    {
-      title: "Les droits de la famille et la médiation",
-      description:
-        "La médiation : une alternative pour résoudre les conflits familiaux.",
-      mediaType: "video",
-      mediaSrc: videohomemoury,
-      link: "famille",
-    },
-    {
-      title: "Importance des contrats en droit des affaires",
-      description:
-        "Découvrez comment un contrat bien rédigé peut protéger vos intérêts juridiques et économiques.",
-      mediaType: "image",
-      mediaSrc: commercial,
-      link: "affaire",
-    },
-    {
-      title: "La sécurité sociale et le droit du travail",
-      description:
-        "Une analyse approfondie de la protection des employés en matière de sécurité sociale.",
-      mediaType: "image",
-      mediaSrc: traval,
-      link: "securite",
-    },
-    {
-      title: "Le droit pénal et la défense des victimes",
-      description:
-        "Les procédures juridiques pour garantir justice aux victimes de crimes.",
-      mediaType: "video",
-      mediaSrc: articleVideo,
-
-      link: "penal",
-    },
-  ];
-
   return (
     <div>
       <Headerr />
       <ArticlesContainer>
-        <SectionTitle>Le Code civil</SectionTitle>
+        <SectionTitle>Le Code civil guinéen</SectionTitle>
+        <CodeCivilText>
+          Le Code civil guinéen, inspiré du droit français, régit les relations
+          civiles et commerciales en Guinée. Il couvre des domaines tels que les
+          contrats, la propriété, les successions et les obligations. Ce code est
+          essentiel pour garantir la sécurité juridique et promouvoir la justice
+          sociale dans le pays.
+        </CodeCivilText>
         <ArticlesGrid>
           {articles.map((article, index) => (
             <ArticleCard
@@ -203,9 +223,13 @@ const Articles = () => {
             >
               <MediaWrapper>
                 {article.mediaType === "image" ? (
-                  <img src={article.mediaSrc} alt={article.title} />
+                  <img
+                    src={article.mediaSrc}
+                    alt={article.title}
+                    loading="lazy"
+                  />
                 ) : (
-                  <video src={article.mediaSrc} controls />
+                  <video src={article.mediaSrc} controls aria-label={article.title} />
                 )}
               </MediaWrapper>
               <ArticleContent>
@@ -222,4 +246,4 @@ const Articles = () => {
   );
 };
 
-export default Articles;
+export default memo(Articles);

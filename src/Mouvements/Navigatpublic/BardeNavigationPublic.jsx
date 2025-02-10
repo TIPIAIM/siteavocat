@@ -103,7 +103,7 @@ const NavLink = styled.a`
   position: relative;
   font-size: 1.1rem;
   white-space: nowrap;
-  transition: all 0.3s ease;
+  transition: all 0.8s ease;
 
   &:hover {
     background-color: #0077b6;
@@ -123,7 +123,7 @@ const NavLink = styled.a`
   }
 
   &:hover::after {
-    width: 80%;
+    width: 90%;
   }
 
   @media (max-width: 768px) {
@@ -156,7 +156,7 @@ const SubMenu = styled.div`
     width: 100%;
     padding: 0;
     background-color: rgba(0, 0, 0, 0.2);
-    animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.6s ease-in-out;
     max-height: ${({ isOpen }) => (isOpen ? "500px" : "0")};
     overflow-y: auto;
     transition: max-height 0.3s ease-in-out;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import aodblanc from "./../../assets/Image/aodblanc.avif"; // Exemple de vidéo
+import aodblanc from "./../../assets/Image/aodblanc.avif";
 
 // Conteneur principal de la navigation
 const Nav = styled.nav`
@@ -36,14 +36,13 @@ const Logo = styled.div`
   img {
     height: 50px;
     border-radius: 5px;
-
     margin-right: 0.8rem;
     cursor: pointer;
   }
 
   @media (max-width: 768px) {
     img {
-      height: 60px;
+      height: 40px;
     }
   }
 `;
@@ -58,17 +57,18 @@ const Menu = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: rgba(15, 23, 42, 0.95);
+    background-color: rgba(15, 23, 42, 0.98);
     transform: ${({ isOpen }) =>
-      isOpen ? "translateX(0)" : "translateX(100%)"};
+      isOpen ? "translateX(5%)" : "translateX(100%)"};
     opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
     pointer-events: ${({ isOpen }) => (isOpen ? "auto" : "none")};
-    overflow-y: auto; /* Ajout du défilement vertical */
-    padding-top: 4rem; /* Espace en haut pour le bouton hamburger */
+    overflow-y: auto;
+    padding-top: 2rem;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   }
 `;
 
@@ -106,7 +106,7 @@ const NavLink = styled.a`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #00b4d8;
+    background-color: #0077b6;
     border-radius: 4px;
   }
 
@@ -117,9 +117,9 @@ const NavLink = styled.a`
     left: 50%;
     transform: translateX(-50%);
     width: 0%;
-    height: 2px;
-    background-color: #0488b2;
-    transition: width 0.3s ease;
+    height: 4px;
+    background-color: #90e0ef;
+    transition: width 1.3s ease;
   }
 
   &:hover::after {
@@ -130,6 +130,7 @@ const NavLink = styled.a`
     font-size: 1.4rem;
     text-align: center;
     width: 100%;
+    padding: 1rem;
   }
 `;
 
@@ -141,7 +142,7 @@ const SubMenu = styled.div`
   display: none;
   flex-direction: column;
   background-color: rgba(15, 23, 42, 0.95);
-  border-radius: 5px;
+  border-radius: 1px;
   padding: 0.5rem 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
@@ -154,8 +155,20 @@ const SubMenu = styled.div`
     display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
     width: 100%;
     padding: 0;
-    overflow-y: auto; /* Défilement si le contenu dépasse */
-    max-height: 50vh; /* Limite la hauteur pour éviter de déborder */
+    background-color: rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+    max-height: ${({ isOpen }) => (isOpen ? "500px" : "0")};
+    overflow-y: auto;
+    transition: max-height 0.3s ease-in-out;
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
 `;
 
@@ -169,73 +182,24 @@ const SubNavLink = styled.a`
     background-color: #1e293b;
     border-radius: 4px;
   }
-`;
-const RotatingBall = styled.div`
-  position: absolute;
-  top: 23px;
-  right: 12px;
-  width: 45px;
-  height: 45px;
-  background-color: #00b4d8;
-  border-radius: 20%;
-  animation: rotateAndDisappear 5s ease-in-out forwards;
 
-  @keyframes rotateAndDisappear {
-    5% {
-      transform: rotate(0deg);
-      background-color: #00b4d8; /* Bleu clair */
-    }
-    25% {
-      background-color: #90e0ef; /* Rouge */
-    }
-    50% {
-      background-color: #4ecdc4; /* Turquoise */
-    }
-    75% {
-      background-color: #ffe66d; /* Jaune */
-    }
-    100% {
-      transform: rotate(720deg); /* 2 tours complets */
-      background-color: #00b4d8; /* Retour au bleu clair */
-      opacity: 0; /* Disparaît à la fin */
-    }
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: 1rem;
   }
 `;
-const RotatingBall2 = styled.div`
-  position: absolute;
-  top: 23px;
-  right: 12px;
-  width: 45px;
-  height: 45px;
-  background-color: #00b4d8;
-  border-radius: 20%;
-  animation: rotateAndDisappear 4s ease-in-out forwards;
 
-  @keyframes rotateAndDisappear {
-    5% {
-      transform: rotate(0deg);
-      background-color: #00b4d8; /* Bleu clair */
-    }
-    25% {
-      background-color: #90e0ef; /* Rouge */
-    }
-    50% {
-      background-color: #4ecdc4; /* Turquoise */
-    }
-    75% {
-      background-color: #ffe66d; /* Jaune */
-    }
-    100% {
-      transform: rotate(720deg); /* 2 tours complets */
-      background-color: #00b4d8; /* Retour au bleu clair */
-      opacity: 0; /* Disparaît à la fin */
-    }
-  }
+// Indicateur de sous-menu (flèche)
+const SubMenuIndicator = styled.span`
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+  transform: ${({ isOpen }) => (isOpen ? "rotate(180deg)" : "rotate(0deg)")};
 `;
 
 export default function BardeNavigationpublic() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openSubMenu, setOpenSubMenu] = useState(null);
 
   // Gérer le défilement
   useEffect(() => {
@@ -249,54 +213,62 @@ export default function BardeNavigationpublic() {
     };
   }, []);
 
+  // Gérer l'ouverture/fermeture des sous-menus
+  const toggleSubMenu = (menu) => {
+    setOpenSubMenu(openSubMenu === menu ? null : menu);
+  };
+
   return (
     <>
       <Nav isScrolled={isScrolled}>
         <Logo onClick={() => (window.location.href = "/")}>
           <img src={aodblanc} alt="Logo du Cabinet" />
         </Logo>
-        <RotatingBall /> {/* Ballon tournant en haut à droite */}
-        <RotatingBall2 />
         {/* Bouton pour le menu hamburger */}
-        <HamburgerButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          ☰
+        <HamburgerButton
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+        >
+          {isMenuOpen ? "✕" : "☰"}
         </HamburgerButton>
         {/* Menu principal */}
         <Menu isOpen={isMenuOpen}>
           <NavLink href="/">Accueil</NavLink>
           <NavLink href="/contact">Contact</NavLink>
-          <NavLink>
+          <NavLink onClick={() => toggleSubMenu("savoir-faire")}>
             Savoir-faire
-            <SubMenu isOpen={isMenuOpen}>
+            <SubMenuIndicator isOpen={openSubMenu === "savoir-faire"}>
+              ▼
+            </SubMenuIndicator>
+            <SubMenu isOpen={openSubMenu === "savoir-faire"}>
               <SubNavLink href="/asistance">Assistance juridique</SubNavLink>
               <SubNavLink href="/audit">Audit juridique</SubNavLink>
               <SubNavLink href="/contentieux">Contentieux</SubNavLink>
               <SubNavLink href="/conseil">Conseils juridique</SubNavLink>
             </SubMenu>
           </NavLink>
-
-          <NavLink>
+          <NavLink onClick={() => toggleSubMenu("expertises")}>
             Expertises
-            <SubMenu isOpen={isMenuOpen}>
+            <SubMenuIndicator isOpen={openSubMenu === "expertises"}>
+              ▼
+            </SubMenuIndicator>
+            <SubMenu isOpen={openSubMenu === "expertises"}>
               <SubNavLink href="/nosexpertises">Nos expertises</SubNavLink>
               <SubNavLink href="/fiscalitee">Le droit fiscal</SubNavLink>
               <SubNavLink href="/affairee">Le droit des affaires</SubNavLink>
               <SubNavLink href="/minierr">
                 Le droit minier et environnementale
               </SubNavLink>
-              {/*  <SubNavLink href="/securitee">Sociale et sécurité sociale</SubNavLink>
-            <SubNavLink href="/famillee">Droit de la famille</SubNavLink>*/}
               <SubNavLink href="/travail">
                 Le droit de travail et sécurité social
               </SubNavLink>
               <SubNavLink href="/sport">Le droit du sport</SubNavLink>
               <SubNavLink href="/arbitrage">
-                Le droit d’rbitrage et médiation
+                Le droit d’arbitrage et médiation
               </SubNavLink>
               <SubNavLink href="/penall">La défense pénale</SubNavLink>
             </SubMenu>
           </NavLink>
-
           <NavLink href="/article">Articles</NavLink>
           <NavLink href="/apropos">À propos</NavLink>
         </Menu>

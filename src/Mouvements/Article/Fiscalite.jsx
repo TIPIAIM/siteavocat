@@ -150,7 +150,6 @@ const BackButton = styled(Link)`
   }
 `;
 
-
 const OverlayTop = styled.div`
   position: absolute;
   top: 0;

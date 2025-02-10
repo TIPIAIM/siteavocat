@@ -63,11 +63,11 @@ const Menu = styled.div`
     justify-content: flex-start;
     background-color: rgba(15, 23, 42, 0.98);
     transform: ${({ isOpen }) =>
-      isOpen ? "translateX(5%)" : "translateX(100%)"};
+      isOpen ? "translateX(0%)" : "translateX(100%)"};
     opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
     pointer-events: ${({ isOpen }) => (isOpen ? "auto" : "none")};
     overflow-y: auto;
-    padding-top: 2rem;
+    padding-top: 4rem;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   }
 `;
@@ -107,7 +107,7 @@ const NavLink = styled.a`
 
   &:hover {
     background-color: #0077b6;
-    border-radius: 4px;
+    border-radius: 3px;
   }
 
   &::after {

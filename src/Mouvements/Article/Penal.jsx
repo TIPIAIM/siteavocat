@@ -45,6 +45,7 @@ const SectionTitle = styled.h2`
   @media (max-width: 768px) {
     font-size: 2rem;
     margin-top: 4rem;
+    margin: 2rem;
   }
 `;
 
@@ -59,6 +60,7 @@ const Description = styled.p`
   @media (max-width: 768px) {
     font-size: 1rem;
     text-align: left;
+    margin: 2rem;
   }
 `;
 
@@ -69,7 +71,7 @@ const PenalGrid = styled.div`
   width: 100%;
   max-width: 1200px;
   margin-bottom: 6rem;
- padding: 4rem;
+  padding: 4rem;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     padding: 2rem;
@@ -112,7 +114,7 @@ const PenalTitle = styled.h3`
   font-weight: bold;
   margin-bottom: 10px;
   color: #00b4d8;
-    text-align: center;
+  text-align: center;
   margin: 1rem;
   @media (max-width: 768px) {
     font-size: 1.2rem;
@@ -160,8 +162,8 @@ const BackButton = styled(Link)`
   justify-content: center;
   background-color: #;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   color: white;
   box-shadow: 0 2px 3px #00b4d8;
   transition: transform 0.9s ease, box-shadow 0.2s ease;
@@ -188,8 +190,7 @@ const Penal = () => {
       link: "https://derechos.org/intlaw/doc/gin1.html",
     },
     {
-      title:
-        "Objectifs",
+      title: "Objectifs",
       description:
         "Le droit pénal vise la prévention des actes nuisibles à la société, leur répression, et la réinsertion des condamnés.",
       mediaType: "image",

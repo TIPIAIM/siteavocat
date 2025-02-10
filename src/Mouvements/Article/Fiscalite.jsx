@@ -130,32 +130,26 @@ const ListItem = styled.li`
   }
 `;
 const BackButton = styled(Link)`
-  display: flex;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 1px 1px 5px #90e0ef;
-  color: ;
-  margin-bottom: 0rem;
-  transition: background-color 0.3s ease;
+  width: 40px;
+  height: 40px;
+  color: white;
+  box-shadow: 0 2px 3px #00b4d8;
+  transition: transform 0.9s ease, box-shadow 0.2s ease;
 
   &:hover {
-    background-color: #e2e8f0;
-  }
-
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
-  }
-
-  @media (max-width: 480px) {
-    width: 35px;
-    height: 35px;
+    transform: scale(1.1);
+    box-shadow: 3px 5px #00b4d8;
   }
 `;
+
 
 const OverlayTop = styled.div`
   position: absolute;
@@ -186,7 +180,7 @@ const Fiscalite = () => {
 
           <OverlayBottom />
 
-          <Title data-aos="fade-up">L’Impact de la Fiscalité</Title>
+          <Title data-aos="fade-up">L’impact de la Fiscalité</Title>
           <section data-aos="fade-up" data-aos-delay="300">
             <Paragraph>
               La fiscalité occupe une place centrale dans la gestion des

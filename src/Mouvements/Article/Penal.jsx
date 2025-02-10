@@ -34,10 +34,10 @@ const PenalContainer = styled.div`
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: bold;
-  margin-top: 7rem;
-
+  margin-top: 6rem;
+  margin-bottom: 2rem;
   color: #00b4d8;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   text-align: center;
@@ -50,12 +50,13 @@ const SectionTitle = styled.h2`
 `;
 
 const Description = styled.p`
-  font-size: 1.1rem;
-  line-height: 1.6;
-  text-align: left;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: justify;
   margin-bottom: 20px;
-  margin: 6rem;
+  margin: 4rem;
   color: rgba(255, 255, 255, 0.9);
+  max-width: 900px;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -72,9 +73,10 @@ const PenalGrid = styled.div`
   max-width: 1200px;
   margin-bottom: 6rem;
   padding: 4rem;
+
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    padding: 2rem;
+    padding: 1rem;
   }
 `;
 
@@ -106,31 +108,33 @@ const MediaWrapper = styled.div`
 `;
 
 const PenalContent = styled.div`
-  padding: 20px;
+  margin: 1.5rem;
+  margin-bottom: 2rem;
 `;
 
 const PenalTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   color: #00b4d8;
   text-align: center;
-  margin: 1rem;
+
   @media (max-width: 768px) {
     font-size: 1.2rem;
-    text-align: center;
   }
 `;
 
 const PenalDescription = styled.p`
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.5;
-  margin-bottom: 10px;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: justify;
 
   @media (max-width: 768px) {
     font-size: 1rem;
-    padding-left: 2rem;
+    padding-left: 1rem;
+    text-align: left;
   }
 `;
 
@@ -145,11 +149,10 @@ const ReadMoreButton = styled.a`
   &:hover {
     color: #00b4d8;
     text-decoration: underline;
-    padding-left: 2rem;
   }
 
   @media (max-width: 768px) {
-    padding-left: 2rem;
+    padding-left: 1rem;
   }
 `;
 

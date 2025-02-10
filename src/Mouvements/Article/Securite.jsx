@@ -125,32 +125,26 @@ const FallbackLogo = styled.img`
 `;
 
 const BackButton = styled(Link)`
-  display: flex;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
   background-color: #;
   border-radius: 50%;
-  box-shadow: 0 4px 1px #63b3ed;
-  color: ;
-  margin-bottom: 2rem;
-  transition: background-color 0.3s ease;
+  width: 40px;
+  height: 40px;
+  color: white;
+  box-shadow: 0 2px 3px #00b4d8;
+  transition: transform 0.9s ease, box-shadow 0.2s ease;
 
   &:hover {
-    background-color: #e2e8f0;
-  }
-
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
-  }
-
-  @media (max-width: 480px) {
-    width: 35px;
-    height: 35px;
+    transform: scale(1.1);
+    box-shadow: 3px 5px #00b4d8;
   }
 `;
+
 
 export default function Securite1() {
   // Initialisation de AOS

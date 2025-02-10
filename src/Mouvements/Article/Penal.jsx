@@ -5,9 +5,9 @@ import Footer from "../Accueil/Footerr";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import image from './../../assets/Image/image.avif'
-import assistance from './../../assets/Image/assistance.avif'
-import categor from './../../assets/Image/categor.avif'
+import image from "./../../assets/Image/image.avif";
+import assistance from "./../../assets/Image/assistance.avif";
+import categor from "./../../assets/Image/categor.avif";
 
 // Styled Components
 const PenalContainer = styled.div`
@@ -36,7 +36,8 @@ const PenalContainer = styled.div`
 const SectionTitle = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-top: 7rem;
+
   color: #00b4d8;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   text-align: center;
@@ -50,9 +51,9 @@ const SectionTitle = styled.h2`
 const Description = styled.p`
   font-size: 1.1rem;
   line-height: 1.6;
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
-  margin: 2rem;
+  margin: 6rem;
   color: rgba(255, 255, 255, 0.9);
 
   @media (max-width: 768px) {
@@ -67,7 +68,8 @@ const PenalGrid = styled.div`
   gap: 20px;
   width: 100%;
   max-width: 1200px;
-
+  margin-bottom: 6rem;
+ padding: 4rem;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     padding: 2rem;
@@ -110,6 +112,7 @@ const PenalTitle = styled.h3`
   font-weight: bold;
   margin-bottom: 10px;
   color: #00b4d8;
+    text-align: center;
   margin: 1rem;
   @media (max-width: 768px) {
     font-size: 1.2rem;
@@ -160,12 +163,12 @@ const BackButton = styled(Link)`
   width: 50px;
   height: 50px;
   color: white;
-  box-shadow: 0 4px 6px #00b4d8;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 3px #00b4d8;
+  transition: transform 0.9s ease, box-shadow 0.2s ease;
 
   &:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 10px #00b4d8;
+    box-shadow: 3px 5px #00b4d8;
   }
 `;
 
@@ -177,7 +180,7 @@ const cardVariants = {
 const Penal = () => {
   const penalArticles = [
     {
-      title: "Introduction au droit pénal",
+      title: "Introduction",
       description:
         "Découvrez les bases du droit pénal et ses objectifs pour maintenir l'ordre public.",
       mediaType: "image",
@@ -186,7 +189,7 @@ const Penal = () => {
     },
     {
       title:
-        "Objectifs du droit pénal : Prévention, Répression, et Réinsertion",
+        "Objectifs",
       description:
         "Le droit pénal vise la prévention des actes nuisibles à la société, leur répression, et la réinsertion des condamnés.",
       mediaType: "image",
@@ -202,7 +205,7 @@ const Penal = () => {
       link: "https://derechos.org/intlaw/doc/gin1.html",
     },
     {
-      title: "Les acteurs clés du droit pénal",
+      title: "Les acteurs clés",
       description:
         "Les acteurs principaux incluent le ministère public, le juge d'instruction, les avocats, la police, et les victimes.",
       mediaType: "video",
@@ -212,18 +215,39 @@ const Penal = () => {
   ];
 
   return (
-    <div className=" bg-gray-900">
-      {" "}
+    <div className="bg-gray-900">
       <BardeNavigationpublic />
       <PenalContainer>
-        <BackButton to="/article">
+        <BackButton data-aos="fade-down" to="/article">
           <FaArrowLeft size={20} />
         </BackButton>
-        <SectionTitle>Exploration du Droit Pénal</SectionTitle>
-        <Description>
-          Le droit pénal réprime les infractions pour protéger l’ordre public et
-          la sécurité. Il définit les comportements interdits, les sanctions, et
-          régule les relations entre l’individu et la société.
+        <SectionTitle data-aos="fade-up">
+          Exploration du Droit Pénal
+        </SectionTitle>
+        <Description data-aos="fade-up">
+          Le droit pénal est une branche essentielle du système juridique,
+          chargée de réprimer les infractions pour protéger l’ordre public et la
+          sécurité des citoyens. Il définit les comportements interdits, les
+          sanctions applicables, et régule les relations entre l’individu et la
+          société. En établissant des règles claires, il vise à prévenir les
+          actes criminels, à punir les auteurs d’infractions, et à assurer la
+          réinsertion des condamnés.
+          <br />
+          <br />
+          Le droit pénal couvre un large éventail de domaines, allant des
+          infractions mineures comme les contraventions aux crimes les plus
+          graves tels que les homicides ou les actes de terrorisme. Il s’appuie
+          sur des principes fondamentaux tels que la présomption d’innocence, la
+          légalité des délits et des peines, et le respect des droits de la
+          défense.
+          <br />
+          <br />
+          En explorant ce domaine, vous découvrirez comment le droit pénal
+          interagit avec d’autres branches du droit, comme le droit civil ou le
+          droit administratif, pour garantir une justice équitable et efficace.
+          Que vous soyez étudiant, professionnel du droit, ou simplement
+          curieux, cette exploration vous offrira une compréhension approfondie
+          des enjeux et des mécanismes du droit pénal.
         </Description>
         <PenalGrid>
           {penalArticles.map((article, index) => (

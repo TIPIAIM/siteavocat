@@ -217,8 +217,8 @@ export default function Contentieux() {
           </ParagraphContainer>
 
           {/* Section 3 : Protection des droits */}
-          <ParagraphContainer data-aos="fade-down">
-            <StyledImage data-aos="fade-up" src={arbitra} alt="Protection des droits" />
+          <ParagraphContainer >
+            <StyledImage src={arbitra} alt="Protection des droits" />
             <Paragraph>
               Nous sommes déterminés à protéger vos droits et à défendre vos
               intérêts avec rigueur et professionnalisme. Que ce soit pour des
@@ -229,8 +229,8 @@ export default function Contentieux() {
           </ParagraphContainer>
 
           {/* Section 4 : Communication claire */}
-          <ParagraphContainer data-aos="fade-up">
-            <StyledImage data-aos="fade-up" src={travail} alt="Communication claire" />
+          <ParagraphContainer >
+            <StyledImage src={travail} alt="Communication claire" />
             <Paragraph>
               Nous croyons en une communication claire et continue avec nos
               clients. Vous serez informé à chaque étape du processus, et nous
@@ -240,8 +240,8 @@ export default function Contentieux() {
           </ParagraphContainer>
 
           {/* Section 5 : Résultats probants */}
-          <ParagraphContainer data-aos="fade-down">
-            <StyledImage data-aos="fade-up" src={image} alt="Résultats probants" />
+          <ParagraphContainer >
+            <StyledImage src={image} alt="Résultats probants" />
             <Paragraph>
               Notre cabinet est reconnu pour sa capacité à résoudre des
               contentieux complexes avec succès. Nos résultats et la
@@ -252,7 +252,7 @@ export default function Contentieux() {
 
           {/* Conteneur des images */}
           <ImageContainer>
-            <Image src={logoAODnoir} alt="Logo AOD" data-aos="zoom-in" />
+            <Image src={logoAODnoir} alt="Logo AOD" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

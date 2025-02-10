@@ -44,8 +44,9 @@ function App() {
       <StructuredData />
       <Routes>
         <Route index element={<Accueil />} />
-       <Route path="*" element={<Petitecrandeux />} />{/**pge d'erreur */}
-      {/**
+        <Route path="*" element={<Petitecrandeux />} />
+        {/**pge d'erreur */}
+        {/**
    <Route path="/login" element={<LoginForm />} />
    <Route path="/register" element={<RegisterForm />} />  
          <Route path="/Logoutdecconnexion" element={<LogoutButton />} />

@@ -21,7 +21,8 @@ const Container = styled.section`
 const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  margin-top:4rem;
   color: #;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
   text-align: center;
@@ -53,6 +54,8 @@ const Grid = styled.div`
   gap: 30px;
   width: 100%;
   max-width: 1200px;
+  margin-bottom:60px;
+
 
   @media (max-width: 768px) {
     gap: 40px;

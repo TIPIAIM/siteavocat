@@ -27,7 +27,7 @@ const ContentWrapper = styled.article`
   width: 100%;
   max-width: 1200px;
   gap: 40px;
-
+margin-bottom: 100px;
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 20px;

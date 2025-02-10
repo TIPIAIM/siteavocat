@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import styled from "styled-components";
 import { FaArrowLeft } from "react-icons/fa";
 import AOS from "aos";
@@ -155,7 +155,7 @@ const Famille = () => {
               qui permet aux membres d’une famille de discuter de manière
               constructive des différends les opposant. Elle est souvent
               utilisée dans des situations telles que le divorce, la garde des
-              enfants ou les questions patrimoniales. L'objectif est d’éviter une
+              enfants ou les questions patrimoniales. L’objectif est d’éviter une
               procédure judiciaire longue et coûteuse en favorisant un dialogue
               ouvert et respectueux. Ce processus aide également à préserver les
               relations familiales en réduisant les tensions émotionnelles.

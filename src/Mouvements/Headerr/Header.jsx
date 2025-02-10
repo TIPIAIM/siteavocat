@@ -1,26 +1,16 @@
-import  { useState, lazy, Suspense } from "react";
+import { useState } from "react";
 import { ChevronsLeftRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import photoaccueil from "../../assets/Image/photo-accueil.avif";
-import logo from "../../assets/Image/TIPTAMcode.avif"; // Importez votre logo ici
-
-// Chargement différé de BardeNavigationpublic
-const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
+import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic"; // Chargement direct
 
 export default function Headerr() {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageError, setImageError] = useState(false);
+  const [imageStatus, setImageStatus] = useState("loading"); // "loading", "loaded", "error"
 
   return (
     <header className="relative h-[400px] sm:h-[400px] mb-20 overflow-hidden">
-      {/* Chargement différé de BardeNavigationpublic avec logo comme fallback */}
-      <Suspense fallback={
-        <div className="flex items-center justify-center h-full">
-          <img src={logo} alt="Logo du cabinet" className="w-24 h-24 animate-pulse" />
-        </div>
-      }>
-        <BardeNavigationpublic />
-      </Suspense>
+      {/* Chargement direct de BardeNavigationpublic */}
+      <BardeNavigationpublic />
 
       {/* Overlay sombre */}
       <div className="absolute inset-0 bg-black/50 z-10" />
@@ -31,20 +21,24 @@ export default function Headerr() {
         alt="Cabinet d'avocats"
         className="absolute inset-0 w-full h-full object-cover"
         loading="lazy"
-        onLoad={() => setImageLoaded(true)}
-        onError={() => setImageError(true)}
-        style={{ display: imageLoaded ? "block" : "none" }}
+        onLoad={() => setImageStatus("loaded")}
+        onError={() => setImageStatus("error")}
+        style={{ display: imageStatus === "loaded" ? "block" : "none" }}
       />
 
-      {/* Placeholder en cas d'erreur ou de chargement */}
-      {!imageLoaded && !imageError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-teal-400">
-          <img src={logo} alt="Logo du cabinet" className="w-24 h-24 animate-pulse" />
-        </div>
-      )}
-      {imageError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
-          <p>Image non trouvée</p>
+      {/* Placeholder en cas de chargement ou d'erreur */}
+      {imageStatus !== "loaded" && (
+        <div
+          className="absolute inset-0 flex items-center justify-center"
+          style={{
+            backgroundColor: imageStatus === "error" ? "#f3f4f6" : "#0a223e", // Fond gris en cas d'erreur, foncé pendant le chargement
+          }}
+        >
+          {imageStatus === "error" ? (
+            <p className="text-gray-700">Image non trouvée</p>
+          ) : (
+            <div className="w-24 h-24 bg-teal-950 animate-pulse rounded-full" />
+          )}
         </div>
       )}
 

@@ -37,7 +37,7 @@ export default function Accueil() {
           className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left max-w-screen-md"
           initial={{ y: 90, opacity: 0 }}
           animate={{ y: 25, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 5.8 }}
+          transition={{ delay: 0.3, duration: 3.8 }}
         >
           <h1
             className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"

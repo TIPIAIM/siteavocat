@@ -8,7 +8,6 @@ import MOE_0400 from "./../../assets/Image/MOE_0400.avif";
 import travail from "./../../assets/Image/travail.avif";
 import mine from "./../../assets/Image/mine.avif";
 import MOE_0384 from "./../../assets/Image/MOE_0384.avif";
-import familled from "./../../assets/Image/familled.avif";
 import maitaction from "./../../assets/Image/maitaction.avif";
 
 // Styles
@@ -140,8 +139,10 @@ const ServiceCard = React.memo(({ title, description, image }) => {
 // Données des services
 const services = [
   {
-    title: "DROIT DES CONTRATS",
-    description: `Dans l’élaboration et la rédaction, il ne faut pas perdre de vue deux choses essentielles. Mettre sur papier les demandes d’une manière précise, et prévoir lors de chaque stipulation ou même d’une phrase l’exacte interprétation possible et les situations de conflits qui peuvent en résulter afin de parfaire sa rédaction et prévoir des possibilités de règlement de tout litige éventuel. Le rôle du Cabinet se trouve dans la rigueur de rédaction pour tranquiliser son client.`,
+    title: "L’ESSENTIEL DANS LES CONTRATS ",
+    description: `
+    Dans l’élaboration et la rédaction de contrats, l’intervention d’un avocat est essentielle pour sécuriser les intérêts de chaque partie. Cela permet de garantir une rédaction rigoureuse, d’anticiper les risques de conflits et d’envisager des solutions adaptées en cas de litige. Le rôle du Cabinet est de veiller à une rédaction claire et précise, en protégeant les droits de ses clients tout en leur offrant une tranquillité d’esprit.
+    `,
     image: Maitre4,
   },
   {
@@ -151,18 +152,18 @@ const services = [
   },
   {
     title: "DROIT DES AFFAIRES",
-    description: `Au sein de notre cabinet, nous comprenons que le droit des affaires ne se résume pas simplement à la rédaction de contrats ou à la résolution de litiges. Il s'agit d'un levier essentiel pour la réussite de votre entreprise. Notre rôle est de mettre notre expertise juridique au service de votre savoir-faire pour vous fournir des solutions pratiques et stratégiques. Que vous cherchiez à nouer de nouveaux partenariats, à élaborer des projets ambitieux ou à sécuriser vos contrats, nous vous accompagnons à chaque étape avec des conseils éclairés et personnalisés. Notre objectif est de vous offrir une sécurité juridique optimale, tout en vous permettant de vous concentrer sur la croissance de votre activité.`,
+    description: `
+Au sein de notre cabinet, nous comprenons que le droit des affaires ne se résume pas simplement à la rédaction de contrats ou à la résolution de litiges. Il s'agit d'un levier essentiel pour la réussite de votre entreprise. Notre rôle est de mettre notre expertise juridique au service de votre savoir-faire pour vous fournir des solutions pratiques et stratégiques. Que vous cherchiez à nouer de nouveaux partenariats, à élaborer des projets ambitieux ou à sécuriser vos contrats, nous vous accompagnons à chaque étape avec des conseils éclairés et personnalisés. Notre objectif est de vous offrir une sécurité juridique optimale, tout en vous permettant de vous concentrer sur la croissance de votre activité.    `,
+    image: MOE_0384,
+  },
+  {
+    title: "LE DROIT DU TRVAIL ET SECURITÉ SOCIALE",
+    description: `
+    Le droit du travail est un domaine complexe et en constante évolution. Mon objectif est de vous offrir des conseils clairs, adaptés à votre situation, pour sécuriser vos démarches et préserver vos intérêts, quelle que soit votre position. Pour les Employeurs : Nous vous aidons à prévenir les litiges en mettant en place des pratiques conformes à la loi. En cas de conflit, nous vous représentons avec détermination. Pour les Salariés : nous sommes votre défenseur face à des situations de licenciement abusif, de harcèlement ou d’injustice, pour faire valoir vos droits. Dans le monde du travail, chaque droit compte. Nous sommes là pour nous assurer qu’ils soient respectés.
+En tant qu’avocat, nous nous éfforcons de défendre ces principes, que ce soit en conseillant nos clients, en négociant pour eux ou en plaidant en leur nom devant les juridictions compétentes. 
+Ces branches du droit, dynamiques et en constante évolution, reflètent notre engagement collectif pour une société où chacun a droit à la dignité et à la sécurité. Notre mission est de garantir que ces droits soient respectés et appliqués avec rigueur et humanité.
+`,
     image: MOE_0400,
-  },
-  {
-    title: "DROIT DE TRAVAIL",
-    description: `Le droit du travail est un domaine complexe et en constante évolution. Mon objectif est de vous offrir des conseils clairs, adaptés à votre situation, pour sécuriser vos démarches et préserver vos intérêts, quelle que soit votre position. Pour les Employeurs : Je vous aide à prévenir les litiges en mettant en place des pratiques conformes à la loi. En cas de conflit, je vous représente avec détermination. Pour les Salariés : Je suis votre défenseur face à des situations de licenciement abusif, de harcèlement ou d’injustice, pour faire valoir vos droits. Dans le monde du travail, chaque droit compte. Je suis là pour m’assurer qu’ils soient respectés.`,
-    image: travail,
-  },
-  {
-    title: "DROIT FISCAL",
-    description: `Le Code Général des Impôts évolue sans cesse avec de nouvelles dispositions. Il concerne tout particulier et toute entreprise, et il faut être au fait de ces différents changements pour conseiller et assister tout contribuable pour tout ce qui concerne le côté imposable en cas de cession d’un bien immeuble ou d’un fonds de commerce, en cas de redressement fiscal, ou d’une imposition que le contribuable ne trouve pas légitime, en cas de besoin d’un quitus fiscal pour les expatriés, ou autres. Le cabinet peut vous conseiller efficacement, vous assister auprès de la Direction des Impôts directs et indirects, en clair, vous faciliter la tâche, en vous trouvant des solutions rapides et appropriées.`,
-    image: maitaction,
   },
   {
     title: "DROIT MINIER ET ENVIRONNEMENTALE",
@@ -170,21 +171,18 @@ const services = [
     image: mine,
   },
   {
-    title: "DROIT SOCIALE ET SECURITE SOCIALE",
-    description: `Le droit social et la sécurité sociale ne sont pas de simples concepts juridiques. Ils incarnent la justice et l'équité dans le monde du travail. Ils assurent un équilibre entre les intérêts des employeurs et des travailleurs, tout en protégeant les plus vulnérables de notre société. En tant qu’avocat, je m’efforce de défendre ces principes, que ce soit en conseillant mes clients, en négociant pour eux ou en plaidant en leur nom devant les juridictions compétentes. Ces branches du droit, dynamiques et en constante évolution, reflètent notre engagement collectif pour une société où chacun a droit à la dignité et à la sécurité. Notre mission est de garantir que ces droits soient respectés et appliqués avec rigueur et humanité.`,
-    image: MOE_0384,
+    title: "LE DROIT FISCAL",
+    description: `
+Le Code Général des Impôts évolue sans cesse avec de nouvelles dispositions. Il concerne tout particulier et toute entreprise, et il faut être au fait de ces différents changements pour conseiller et assister tout contribuable pour tout ce qui concerne le côté imposable en cas de cession d’un bien immeuble ou d’un fonds de commerce, en cas de redressement fiscal, ou d’une imposition que le contribuable ne trouve pas légitime, en cas de besoin d’un quitus fiscal pour les expatriés, ou autres. Le cabinet AOD AVOCATS peut vous conseiller efficacement, vous assister auprès de la Direction des Impôts directs et indirects, en clair, vous faciliter la tâche, en vous trouvant des solutions rapides et appropriées.
+    `,
+    image: maitaction,
   },
-  {
-    title: "DROIT DE LA FAMILLE",
-    description: `Le droit de la famille n’est pas qu’une affaire de lois et de règlements. Il est avant tout une question d’humanité. Mon objectif est de vous accompagner avec respect et bienveillance, en trouvant des solutions justes et équitables qui respectent vos droits et vos valeurs. Parce que chaque famille est unique, chaque solution doit l’être aussi. Chaque décision prise dans ce domaine peut avoir des conséquences profondes sur les relations et le bien-être des personnes impliquées, en particulier des enfants. En tant qu’avocat, je suis là pour : Écouter vos besoins avec empathie. Trouver des solutions adaptées à votre situation personnelle. Défendre vos intérêts tout en cherchant à préserver l’harmonie familiale lorsque cela est possible.`,
-    image: familled,
-  },
+
   {
     title: "L'ESSENTIELS DANS LES CONTRATS",
     description: `Dans l’élaboration et la rédaction de contrats, l’intervention d’un avocat est essentielle pour sécuriser les intérêts de chaque partie. Cela permet de garantir une rédaction rigoureuse, d’anticiper les risques de conflits et d’envisager des solutions adaptées en cas de litige. Le rôle du Cabinet est de veiller à une rédaction claire et précise, en protégeant les droits de ses clients tout en leur offrant une tranquillité d’esprit.`,
     image: Maitre4,
-  }
-  
+  },
 ];
 
 // Composant principal

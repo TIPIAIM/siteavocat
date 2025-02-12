@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, ChevronRight, Scale, Shield, Users } from "lucide-react";
+import { Award, ChevronRight, Gavel, Receipt, Scale, Shield, Users } from "lucide-react";
 import Accueilfooter from "./Accueilfooter";
 import Horaire from "./Horaire";
 import Nosservicess from "./Nosservicess";
@@ -85,16 +85,16 @@ export default function Accueil() {
                 link: "/affairee",
               },
               {
-                icon: Shield,
+                icon: Gavel,
                 title: "Droit Civil",
                 desc: "Protection des droits et intérêts personnels",
                 link: "/affairee",
               },
               {
-                icon: Users,
-                title: "Droit de la Famille",
-                desc: "Accompagnement dans les affaires familiales",
-                link: "/arbitrage",
+                icon: Receipt,
+                title: "Droit de la Fiscal",
+                desc: "Encadrement des règles fiscales, des obligations des contribuables et des relations avec l'administration fiscale.",
+                link: "/fiscalitee",
               },
             ].map((service, i) => (
               <motion.div

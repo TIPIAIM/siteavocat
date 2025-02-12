@@ -5,7 +5,7 @@ export default function StructuredData() {
         "@context": "https://schema.org",
         "@type": "Organization",
         name: "AOD AVOCATS SCPA",
-        url: "https://https://aod-avocats.net",
+        url: "https://aod-avocats.net",
         logo: "/img/logonavig.png",
         description:
           " Notre cabinet est spécialisé en droit des affaires, droit civil, droit de la famille.",

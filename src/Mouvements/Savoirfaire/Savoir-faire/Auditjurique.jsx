@@ -218,7 +218,7 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 2 : Analyse stratégique */}
-          <ParagraphWrapper data-aos="zoom-in">
+          <ParagraphWrapper data-aos="fade-up">
             <ParagraphImage src={jurid1} alt="Stratégie juridique" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>1. Une analyse approfondie et stratégique :</strong>{" "}
@@ -231,7 +231,7 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 3 : Expertise multidisciplinaire */}
-          <ParagraphWrapper data-aos="fade-up">
+          <ParagraphWrapper >
             <ParagraphImage src={affaire} alt="Expertise juridique" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>2. Une expertise multidisciplinaire unique :</strong>{" "}

@@ -199,7 +199,7 @@ export default function AuditJuridique() {
           <Divider />
 
           {/* Section 1 : Expertise juridique */}
-          <ParagraphWrapper data-aos="zoom-in">
+          <ParagraphWrapper data-aos="zoom-up">
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>
                 Une expertise reconnue dans le domaine juridique :

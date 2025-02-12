@@ -6,7 +6,7 @@ import sitemap from "vite-plugin-sitemap";
 export default defineConfig({
   plugins: [
     sitemap({
-      hostname: "https://aod-avocats-scpa.vercel.app", // Remplacez par l'URL de votre site
+      hostname: "https://aod-avocats.net", // Remplacez par l'URL de votre site
       routes: [
         "/",
         "/accueil",

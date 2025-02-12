@@ -6,7 +6,7 @@ export default function StructuredData() {
         "@type": "Organization",
         name: "AOD AVOCATS SCPA",
         url: "https://https://aod-avocats.net",
-        logo: "/img/logonavig.avif",
+        logo: "/img/logonavig.png",
         description:
           " Notre cabinet est spécialisé en droit des affaires, droit civil, droit de la famille.",
         sameAs: [

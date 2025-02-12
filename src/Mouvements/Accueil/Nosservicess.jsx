@@ -181,7 +181,7 @@ Le Code Général des Impôts évolue sans cesse avec de nouvelles dispositions.
   {
     title: "L'ESSENTIELS DANS LES CONTRATS",
     description: `Dans l’élaboration et la rédaction de contrats, l’intervention d’un avocat est essentielle pour sécuriser les intérêts de chaque partie. Cela permet de garantir une rédaction rigoureuse, d’anticiper les risques de conflits et d’envisager des solutions adaptées en cas de litige. Le rôle du Cabinet est de veiller à une rédaction claire et précise, en protégeant les droits de ses clients tout en leur offrant une tranquillité d’esprit.`,
-    image: Maitre4,
+    image: travail,
   },
 ];
 

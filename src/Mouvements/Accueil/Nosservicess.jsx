@@ -5,7 +5,7 @@ import "aos/dist/aos.css"; // Importez le CSS de AOS
 import Maitre4 from "./../../assets/Image/Maitre4.avif";
 import affaire from "./../../assets/Image/affaire.avif";
 import MOE_0400 from "./../../assets/Image/MOE_0400.avif";
-import travail from "./../../assets/Image/travail.avif";
+//import travail from "./../../assets/Image/travail.avif";
 import mine from "./../../assets/Image/mine.avif";
 import MOE_0384 from "./../../assets/Image/MOE_0384.avif";
 import maitaction from "./../../assets/Image/maitaction.avif";
@@ -176,12 +176,6 @@ Ces branches du droit, dynamiques et en constante évolution, reflètent notre e
 Le Code Général des Impôts évolue sans cesse avec de nouvelles dispositions. Il concerne tout particulier et toute entreprise, et il faut être au fait de ces différents changements pour conseiller et assister tout contribuable pour tout ce qui concerne le côté imposable en cas de cession d’un bien immeuble ou d’un fonds de commerce, en cas de redressement fiscal, ou d’une imposition que le contribuable ne trouve pas légitime, en cas de besoin d’un quitus fiscal pour les expatriés, ou autres. Le cabinet AOD AVOCATS peut vous conseiller efficacement, vous assister auprès de la Direction des Impôts directs et indirects, en clair, vous faciliter la tâche, en vous trouvant des solutions rapides et appropriées.
     `,
     image: maitaction,
-  },
-
-  {
-    title: "L'ESSENTIELS DANS LES CONTRATS",
-    description: `Dans l’élaboration et la rédaction de contrats, l’intervention d’un avocat est essentielle pour sécuriser les intérêts de chaque partie. Cela permet de garantir une rédaction rigoureuse, d’anticiper les risques de conflits et d’envisager des solutions adaptées en cas de litige. Le rôle du Cabinet est de veiller à une rédaction claire et précise, en protégeant les droits de ses clients tout en leur offrant une tranquillité d’esprit.`,
-    image: travail,
   },
 ];
 

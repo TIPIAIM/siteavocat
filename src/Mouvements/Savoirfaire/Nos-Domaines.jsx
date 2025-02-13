@@ -8,7 +8,7 @@ import affair from "./../../assets/Image/affair.avif"; // Importation des images
 import familled from "./../../assets/Image/familled.avif";
 import fisc from "./../../assets/Image/fisc.avif";
 import envir from "./../../assets/Image/envir.avif";
-import securitesocial from "./../../assets/Image/securitesocial.avif";
+//import securitesocial from "./../../assets/Image/securitesocial.avif";
 import travail from "./../../assets/Image/travail.avif";
 import image from "./../../assets/Image/image.avif";
 import AFFF from "./../../assets/Image/AFFF.webp";
@@ -28,7 +28,7 @@ const BackgroundContainer = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0; /* Couvre tout l'espace du conteneur parent */
-  background: rgba(0, 0, 0, 0.85); /* Fond noir semi-transparent */
+  background: rgba(0, 0, 0, 0.9); /* Fond noir semi-transparent */
 `;
 
 // Contenu principal
@@ -41,15 +41,36 @@ const ContentContainer = styled.div`
   align-items: center; /* Centre le contenu horizontalement */
 
   h1 {
-    font-size: 2rem; /* Taille de la police */
-    color: #90e0ef; /* Couleur du texte */
-    margin-bottom: 2rem; /* Marge en bas */
+    font-size: 2.5rem; /* Taille de la police */
+    color: #00b4d8; /* Couleur du texte */
+    margin-bottom: 1.5rem; /* Marge en bas */
     text-align: center; /* Centrage du texte */
+    text-shadow: 0px 0px 1px rgba(144, 224, 239, 0.9); /* Ombre portée */
+    box-shadow: 0px 4px 10px rgba(144, 224, 239, 0.1); /* Ombre bleue */
+    padding: 0.5rem 1rem; /* Espacement interne */
+    border-radius: 8px; /* Bordures arrondies */
+  }
+
+  p {
+    font-size: 1rem;
+    color: #90e0ef; /* Couleur du texte */
+    text-align: center; /* Centrage du texte */
+    max-width: 800px; /* Largeur maximale */
+    margin-top: 1rem; /* Marge en bas */
+
+    margin-bottom: 1.5rem; /* Marge en bas */
+    line-height: 1.6; /* Hauteur de ligne */
   }
 
   @media (max-width: 480px) {
     h1 {
-      font-size: 1.5rem; /* Taille de police réduite pour les petits écrans */
+      font-size: 2rem; /* Taille de police réduite pour les petits écrans */
+    }
+
+    p {
+      font-size: 1rem; /* Taille de police réduite pour les petits écrans */
+      text-align: left; /* Centrage du texte */
+      padding: 0 2rem;
     }
   }
 `;
@@ -160,12 +181,7 @@ export default function Nosexpertise() {
       text: "Droit des affaires",
       link: "/affairee",
     },
-    {
-      src: familled,
-      alt: "Droit de la Famille",
-      text: "Droit de la Famille",
-      link: "/famillee",
-    },
+
     {
       src: fisc,
       alt: "Droit fiscal",
@@ -178,21 +194,27 @@ export default function Nosexpertise() {
       text: "Minier et Environnementale",
       link: "/minierr",
     },
-    {
-      src: securitesocial,
-      alt: "Sociale et Securité sociale",
-      text: "Sociale et Securité sociale",
-      link: "/securitee",
-    },
+    // {
+    //   src: securitesocial,
+    //   alt: "Sociale et Securité sociale",
+    //   text: "Sociale et Securité sociale",
+    //   link: "/securitee",
+    // },
     {
       src: travail,
-      alt: "Droit du Travail",
-      text: "Droit du Travail",
+      alt: "LE DROIT DU TRVAIL ET SECURITÉ SOCIALE",
+      text: "Droit du Travail et securité socile",
       link: "/travail",
     },
     { src: image, alt: "Pénal", text: "Droit Pénal", link: "/penall" },
     { src: AFFF, alt: "Sport", text: "Droit du Sport", link: "/sport" },
     { src: arbitra, alt: "Arbitrage", text: "Arbitrage", link: "/arbitrage" },
+    {
+      src: familled,
+      alt: "Droit de la Famille",
+      text: "Droit de la Famille",
+      link: "/famillee",
+    },
   ];
 
   return (
@@ -208,7 +230,16 @@ export default function Nosexpertise() {
           <BardeNavigationpublic />
 
           {/* Titre de la section */}
-          <h1 data-aos="fade-up">Nos Expertises</h1>
+          <h1 data-aos="fade-don">Nos Expertises</h1>
+
+          {/* Texte descriptif */}
+          <p data-aos="fade-up" data-aos-delay="100">
+            Forts de notre expérience et de notre engagement, nous offrons à nos
+            clients une expertise juridique de haut niveau. Notre cabinet
+            d`avocats est reconnu pour son professionnalisme, sa rigueur et sa
+            capacité à fournir des solutions sur mesure dans tous les domaines
+            du droit.
+          </p>
 
           {/* Grille d'expertise */}
           <GridContainer>
@@ -216,7 +247,7 @@ export default function Nosexpertise() {
               <Card
                 key={index}
                 data-aos="fade-up"
-                data-aos-delay={index * 100} // Délai pour un effet en cascade
+                data-aos-delay={index * 50} // Délai pour un effet en cascade
                 aria-label={image.text} // Accessibilité
               >
                 {/* Image de la carte */}
@@ -224,7 +255,7 @@ export default function Nosexpertise() {
 
                 {/* Informations de la carte */}
                 <div
-                  data-aos-delay={index * 200}
+                  data-aos-delay={index * 50}
                   data-aos="fade-right"
                   className="info"
                 >
@@ -234,7 +265,7 @@ export default function Nosexpertise() {
                     target="_blank"
                     rel="noopener noreferrer" // Sécurité pour les liens externes
                   >
-                    Voir détail ...
+                    Voir plus ...
                   </a>
                 </div>
               </Card>

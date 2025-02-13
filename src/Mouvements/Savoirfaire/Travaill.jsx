@@ -186,7 +186,7 @@ export default function Travail() {
             <BackButton to="/nosexpertises" data-aos="fade-right">
               <FaArrowLeft size={20} />
             </BackButton>
-            <Title data-aos="fade-up">Le droit du travail</Title>
+            <Title data-aos="fade-up">Le travail et securité sociale</Title>
             <Divider data-aos="fade-up" data-aos-delay="200" />
             <Paragraph data-aos="fade-up" data-aos-delay="300">
               Notre cabinet est composé de juristes et d’avocats hautement

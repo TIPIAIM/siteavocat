@@ -160,25 +160,31 @@ export default function Affairfinal() {
           rédaction de contrats, la gestion de litiges ou des conseils
           stratégiques, nous avons les compétences pour défendre vos intérêts.
         </Paragraph>
-        <Paragraph data-aos="fade-up" data-aos-delay="300">
+        <Paragraph>
           Nous comprenons que chaque entreprise a des besoins uniques. C’est
           pourquoi nous proposons des solutions juridiques sur mesure, adaptées
           à vos objectifs commerciaux. Notre approche centrée sur le client
           garantit une attention particulière à vos attentes et un suivi
           rigoureux de votre dossier.
         </Paragraph>
-        <Paragraph data-aos="zoom-in" data-aos-delay="400">
+        <Paragraph>
           Dans le monde des affaires, le temps est précieux. Notre équipe
           s’engage à répondre rapidement à vos demandes et à anticiper les
           risques pour minimiser les imprévus. Nous sommes disponibles à tout
           moment pour vous accompagner dans vos démarches juridiques.
         </Paragraph>
-        <Paragraph data-aos="zoom-in" data-aos-delay="450">
-          En choisissant notre cabinet, vous optez pour un partenaire engagé,
-          professionnel et déterminé à défendre vos intérêts avec excellence.
-          Faites confiance à notre expertise pour protéger vos droits et assurer
-          la pérennité de vos affaires. Contactez-nous dès aujourd’hui pour une
-          consultation personnalisée.
+        <Paragraph>
+          Au sein de notre cabinet, nous comprenons que le droit des affaires ne
+          se résume pas simplement à la rédaction de contrats ou à la résolution
+          de litiges. Il s`agit d`un levier essentiel pour la réussite de votre
+          entreprise. Notre rôle est de mettre notre expertise juridique au
+          service de votre savoir-faire pour vous fournir des solutions
+          pratiques et stratégiques. Que vous cherchiez à nouer de nouveaux
+          partenariats, à élaborer des projets ambitieux ou à sécuriser vos
+          contrats, nous vous accompagnons à chaque étape avec des conseils
+          éclairés et personnalisés. Notre objectif est de vous offrir une
+          sécurité juridique optimale, tout en vous permettant de vous
+          concentrer sur la croissance de votre activité.
         </Paragraph>
       </ContentContainer>
     </BackgroundContainer>

@@ -1,68 +1,136 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-export default function Accueilfooter() {
+// Styles avec Styled Components
+const FooterContainer = styled.footer`
+  background-color: rgba(10, 34, 64, 1);
+  color: #e5e7eb;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(0, 180, 216, 0.1);
+`;
+
+const ContactSection = styled.section`
+  background-color: rgba(10, 34, 64, 1);
+  color: white;
+  padding: 2rem 0;
+`;
+
+const ContactTitle = styled.h2`
+  color: #90e0ef;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5rem;
+`;
+
+const ContactGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+`;
+
+const ContactCard = styled.div`
+  background-color: rgba(0,0,6,0.1);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 180, 216, 0.1);
+  }
+`;
+
+const IconWrapper = styled.div`
+  color: #90e0ef;
+  margin-bottom: 1rem;
+  text-align: center;
+
+  @media (min-width: 640px) {
+    text-align: left;
+  }
+`;
+
+const ContactText = styled.div`
+  color: #e5e7eb;
+  text-align: center;
+font-size: 0.9rem;
+  @media (min-width: 640px) {
+    text-align: center;
+  }
+`;
+
+const CopyrightSection = styled.div`
+  border-top: 1px solid rgba(0, 180, 216, 0.1);
+  padding-top: 1rem;
+  text-align: center;
+  color: rgba(0, 180, 216, 0.7);
+  font-size: 0.875rem;
+`;
+
+export default function AccueilFooter() {
   return (
-    <div className="TIPTAMcode">
-      <footer className="bg-[rgba(10,34,64)] text-gray-300 py-6 sm:py-8 border-t border-gray-800">
-        <section className="bg-[rgba(10,34,64)] text-white py-12 sm:py-20">
-          <div className="container  mx-auto px-4">
-            <h2
-              style={{
-                color: "#90e0ef",
-              }}
-              className="text-2xl sm:text-3xl  font-bold text-center mb-12 sm:mb-16"
-            >
-              Contactez-nous
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-              <div className="flex items-center gap-4 text-left sm:text-center">
-                <Phone className="w-8 h-8" style={{ color: "#90e0ef" }} />
-                <div>
-                  <div className="font-semibold" style={{ color: "#90e0ef" }}>
-                    Téléphone
-                  </div>
-                  <div className="text-gray-300">+00 224 622 253 536</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 text-left sm:text-center">
-                <Mail className="w-8 h-8" style={{ color: "#90e0ef" }} />
-                <div>
-                  <div
-                    style={{
-                      color: "#90e0ef",
-                    }}
-                    className="font-semibold"
-                  >
-                    Email
-                  </div>
-                  <Link
-                    to="mailto: amadou.diallo@aod-avocats.com"
-                    className="no-underline text-gray-300"
-                  >
-                    amadou.diallo@aod-avocats.com
-                  </Link>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 text-left sm:text-center">
-                <MapPin className="w-8 h-8" style={{ color: "#90e0ef" }} />
-                <div>
-                  <div className="font-semibold" style={{ color: "#90e0ef" }}>
-                    Adresse
-                  </div>
-                  <div className="text-gray-300">
-                    Immeuble Yansané, Commune de Dixinn, Conakry
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    <FooterContainer>
+      <ContactSection>
+        <div className="container mx-auto px-4">
+          <ContactTitle>Contactez-nous</ContactTitle>
+          <ContactGrid>
+            {/* Adresse */}
+            <ContactCard>
+              <IconWrapper>
+                <MapPin className="w-6 h-6 mx-auto sm:mx-0" />
+              </IconWrapper>
+              <ContactText>
+                SIEGE SOCIAL à la Minière Cité 2ème Etage, Immeuble Yansané,
+                derrière la station totale de Commandaya, à côté de la SONAP,
+                Commune de Dixinn, Conakry, République de Guinée
+              </ContactText>
+            </ContactCard>
 
-        <div className="container mx-auto px-4 text-center sm:text-left">
-          <p>© 2025 AOD AVOCATS SCPA. Tous droits réservés.</p>
+            {/* Téléphone */}
+            <ContactCard>
+              <IconWrapper>
+                <Phone className="w-6 h-6 mx-auto sm:mx-0" />
+              </IconWrapper>
+              <ContactText>
+                <div>+224 622 253 536</div>
+                <div>+224 622 253 536</div>
+                <div>+224 622 253 536</div>
+              </ContactText>
+            </ContactCard>
+
+            {/* Email */}
+            <ContactCard>
+              <IconWrapper>
+                <Mail className="w-6 h-6 mx-auto sm:mx-0" />
+              </IconWrapper>
+              <ContactText>
+                <Link
+                  to="mailto:amadou.diallo@aod-avocats.com"
+                  className="no-underline text-gray-300 hover:text-[#90e0ef] transition-colors"
+                >
+                  amadou.diallo@aod-avocats.com
+                </Link>
+              </ContactText>
+            </ContactCard>
+          </ContactGrid>
         </div>
-      </footer>
-    </div>
+      </ContactSection>
+
+      {/* Section Droits d'auteur */}
+      <CopyrightSection>
+        <div className="container mx-auto px-4">
+          © 2025 AOD AVOCATS SCPA. Tous droits réservés.
+        </div>
+      </CopyrightSection>
+    </FooterContainer>
   );
 }

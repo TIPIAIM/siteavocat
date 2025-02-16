@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://www.aod-avocats.net/accueil</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>daily  </changefreq>
+    <priority>1.0</priority>
+  </url>
+ <url>
+    <loc>https://www.aod-avocats.net/</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- À propos -->
+  <url>
+    <loc>https://www.aod-avocats.net/apropos</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://www.aod-avocats.net/contact</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Article -->
+  <url>
+    <loc>https://www.aod-avocats.net/article</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Affaires -->
+  <url>
+    <loc>https://www.aod-avocats.net/affairee</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Sécurité -->
+  <url>
+    <loc>https://www.aod-avocats.net/securitee</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Fiscalité -->
+  <url>
+    <loc>https://www.aod-avocats.net/fiscalitee</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Minier -->
+  <url>
+    <loc>https://www.aod-avocats.net/minierr</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Famille -->
+  <url>
+    <loc>https://www.aod-avocats.net/famillee</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Travail -->
+  <url>
+    <loc>https://www.aod-avocats.net/travail</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Pénal -->
+  <url>
+    <loc>https://www.aod-avocats.net/penall</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Sport -->
+  <url>
+    <loc>https://www.aod-avocats.net/sport</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Arbitrage -->
+  <url>
+    <loc>https://www.aod-avocats.net/arbitrage</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contentieux -->
+  <url>
+    <loc>https://www.aod-avocats.net/contentieux</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Audit -->
+  <url>
+    <loc>https://www.aod-avocats.net/audit</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Conseil -->
+  <url>
+    <loc>https://www.aod-avocats.net/conseil</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Assistance -->
+  <url>
+    <loc>https://www.aod-avocats.net/asistance</loc>
+    <lastmod>2025-16-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

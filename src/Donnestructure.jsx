@@ -8,10 +8,10 @@ export default function StructuredData() {
         url: "https://aod-avocats.net",
       
         description:
-          " Notre cabinet est spécialisé en droit des affaires, droit civil, droit de la famille.",
+          " Notre cabinet est spécialisé en droit des affaires, droit civil, droit minier et environnementle,...",
         sameAs: [
           "https://web.facebook.com/people/AOD-Avocats-SCPA/61569855070493/?rdid=nu1hpcE1e9TKytvQ&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F15poedCHYP%2F%3F_rdc%3D1%26_rdr",
-          "https://www.instagram.com/aod.avocats.scpa/",
+          "https://www.instagram.com/aod.avocats.net/",
         ],
         contactPoint: {
           "@type": "ContactPoint",

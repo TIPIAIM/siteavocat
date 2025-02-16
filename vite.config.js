@@ -41,7 +41,16 @@ export default defineConfig({
     react(),
   ],
 
-  //
+  //canonique
+  server: {
+    proxy: {
+      "/": {
+        target: "https://www.aod-avocats.net",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/www/, ""),
+      },
+    },
+  },
 
   build: {
     outDir: "dist", // Assurez-vous que la sortie est "dist"

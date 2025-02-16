@@ -45,7 +45,7 @@ export default function Headerr() {
       {/* Contenu principal */}
       <div className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left">
         <h1 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6" style={{ color: "#90e0ef" }}>
-          CABINET AOD AVOCATS SCPA
+          CABINET AOD AVOCATS 
         </h1>
         <Link
           to="/accueil"

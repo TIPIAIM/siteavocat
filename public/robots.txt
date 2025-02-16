@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://https://aod-avocats-scpa.vercel.app/sitemap.xml
+Sitemap: https://https://aod-avocats.net/sitemap.xml

@@ -4,7 +4,7 @@ export default function StructuredData() {
       {JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Organization",
-        name: "AOD AVOCATS SCPA",
+        name: "AOD AVOCATS",
         url: "https://aod-avocats.net",
       
         description:

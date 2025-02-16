@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FcAdvance } from "react-icons/fc";
+import CanonicalLink from "../../CanonicalLink";
 
 export default function Contact2() {
   const [values, setValues] = useState({
@@ -88,6 +89,7 @@ export default function Contact2() {
 
   return (
     <div className="relative min-h-screen bg-gray-900">
+        <CanonicalLink url="https://www.aod-avocats.net" />
       <div className="relative z-10 min-h-screen flex items-center justify-center">
         <div className="bg-gradient-to-br from-gray-200 p-4 rounded shadow-md">
           <form onSubmit={handleSubmit} noValidate>

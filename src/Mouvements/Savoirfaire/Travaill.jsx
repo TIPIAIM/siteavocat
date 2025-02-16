@@ -7,6 +7,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "../Accueil/Footerr";
 import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
+import CanonicalLink from "../../CanonicalLink";
 
 // Chargement différé du composant TravSecuritee
 const TravSecuritee = React.lazy(() => import("./TravSecuritee"));
@@ -172,6 +173,7 @@ export default function Travail() {
 
   return (
     <div>
+        <CanonicalLink url="https://www.aod-avocats.net" />
       <BackgroundContainer>
         <Suspense
           fallback={

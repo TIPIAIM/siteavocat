@@ -3,6 +3,7 @@ import styled from "styled-components"; // Importation de styled-components pour
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
 import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
+import CanonicalLink from "../../CanonicalLink";
 
 // Importation dynamique des composants pour le chargement différé (lazy loading)
 
@@ -127,6 +128,7 @@ export default function ArbitFamillee() {
 
   return (
     <div className=" bg-cyan-700">
+        <CanonicalLink url="https://www.aod-avocats.net" />
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         {/* Couche transparente */}

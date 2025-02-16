@@ -6,6 +6,7 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
+import CanonicalLink from "../../CanonicalLink";
 
 // Chargement différé du composant Penal2
 const Penal2 = React.lazy(() => import("./Penal2"));
@@ -167,6 +168,7 @@ export default function Penall() {
 
   return (
     <div>
+        <CanonicalLink url="https://www.aod-avocats.net" />
           {/* Suspense pour le chargement différé de Penal2 */}
           <Suspense
         fallback={

@@ -6,6 +6,7 @@ import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de
 import Footer from "../Accueil/Footerr";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import CanonicalLink from "../../CanonicalLink";
 
 // Importation dynamique des composants pour le chargement différé (lazy loading)
 const BardeNavigationpublic = lazy(() =>
@@ -159,6 +160,7 @@ export default function Famillee() {
 
   return (
     <div className=" bg-cyan-700">
+        <CanonicalLink url="https://www.aod-avocats.net" />
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         {/* Couche transparente */}

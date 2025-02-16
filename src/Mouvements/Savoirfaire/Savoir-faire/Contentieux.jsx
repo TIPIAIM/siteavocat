@@ -9,6 +9,7 @@ import FISCAL from "./../../../assets/Image/FISCAL.avif";
 import arbitra from "./../../../assets/Image/arbitra.avif";
 import travail from "./../../../assets/Image/travail.avif";
 import image from "./../../../assets/Image/FISCAL.avif";
+import CanonicalLink from "../../../CanonicalLink";
 
 // Conteneur principal avec fond fixe
 const BackgroundContainer = styled.div`
@@ -181,6 +182,7 @@ export default function Contentieux() {
 
   return (
     <div>
+        <CanonicalLink url="https://www.aod-avocats.net" />
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         <Overlay />

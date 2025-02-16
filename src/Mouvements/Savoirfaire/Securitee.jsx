@@ -7,6 +7,7 @@ import Footer from "../Accueil/Footerr";
 import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import CanonicalLink from "../../CanonicalLink";
 
 // Chargement différé du composant Securite
 const Securite = React.lazy(() => import("./Securite"));
@@ -163,6 +164,7 @@ export default function Securitee() {
 
   return (
     <div>
+        <CanonicalLink url="https://www.aod-avocats.net" />
       <BackgroundContainer>
             {/* Suspense pour le chargement différé de Securite */}
             <Suspense

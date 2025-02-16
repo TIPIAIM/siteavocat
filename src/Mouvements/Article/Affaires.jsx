@@ -3,6 +3,7 @@ import styled from "styled-components"; // Importation de styled-components pour
 import "aos/dist/aos.css"; // Importation du CSS de AOS pour les animations
 import articleImage from "./../../assets/Image/avoc3.avif"; // Importation de l'image de l'article
 import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
+import CanonicalLink from "../../CanonicalLink";
 
 // Importation dynamique des composants pour le chargement différé (lazy loading)
 const Footer = React.lazy(() => import("../Accueil/Footerr"));
@@ -196,6 +197,7 @@ const Affairee = () => {
 
   return (
     <div>
+        <CanonicalLink url="https://www.aod-avocats.net" />
       {/* Suspense pour le chargement différé des composants */}
       <Suspense
         fallback={

@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { Award, ChevronRight, Gavel, Receipt, Scale, Shield, Users } from "lucide-react";
+import {
+  Award,
+  ChevronRight,
+  Gavel,
+  Receipt,
+  Scale,
+  Users,
+} from "lucide-react";
 import Accueilfooter from "./Accueilfooter";
 import Horaire from "./Horaire";
 import Nosservicess from "./Nosservicess";

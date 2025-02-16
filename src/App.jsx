@@ -36,14 +36,14 @@ import Gclient from "./Mouvements/Administrateur/GestionClient/Gclient";
 import Famillee from "./Mouvements/Savoirfaire/Famillee";
 import Affairee from "./Mouvements/Savoirfaire/Affairee";
 import Petitecrandeux from "./Mouvements/Erreur/Erreur";
-import SEO from "./SEO";
+
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
       <StructuredData />
-      <SEO/>
+    
       <Routes>
         <Route index element={<Accueil />} />
         <Route path="*" element={<Petitecrandeux />} />

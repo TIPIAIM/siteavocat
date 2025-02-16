@@ -6,7 +6,7 @@ export default function StructuredData() {
         "@type": "Organization",
         name: "AOD AVOCATS SCPA",
         url: "https://aod-avocats.net",
-        logo: "/img/logonavig.png",
+      
         description:
           " Notre cabinet est spécialisé en droit des affaires, droit civil, droit de la famille.",
         sameAs: [
@@ -15,7 +15,7 @@ export default function StructuredData() {
         ],
         contactPoint: {
           "@type": "ContactPoint",
-          telephone: "00224622253536",
+          telephone: "+224 622 253 536",
           contactType: "Service Juridique",
         },
       })}

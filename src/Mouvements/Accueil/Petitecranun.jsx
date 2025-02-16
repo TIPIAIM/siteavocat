@@ -86,8 +86,7 @@ const DefilTextBoucle = () => {
     "Nous défendons vos intérêts, pas seulement votre cause.",
     "Pour la justice, pour vos droits.",
     "Confiance et expertise pour des résultats durables.",
-    "L’expérience qui fait la différence dans vos affaires.",
-    "À vos côtés à chaque étape de votre démarche juridique.",
+  
     "Justice, équité, et défense de vos droits.",
   ];
   const [currentTextIndex, setCurrentTextIndex] = useState(0);

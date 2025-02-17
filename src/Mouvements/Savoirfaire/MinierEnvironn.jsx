@@ -6,7 +6,6 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
-import CanonicalLink from "../../CanonicalLink";
 const Minier2 = React.lazy(() => import("./MinierEnviron2")); // Chargement différé de Minier2
 
 // Styles
@@ -169,7 +168,7 @@ export default function MinierEnvironn() {
 
   return (
     <BackgroundContainer>
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
         <Suspense
         fallback={
           <FallbackContainer>

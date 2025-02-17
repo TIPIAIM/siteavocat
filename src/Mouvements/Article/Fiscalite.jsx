@@ -5,7 +5,6 @@ import "aos/dist/aos.css"; // Importation du CSS pour AOS
 import Footer from "../Accueil/Footerr";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import CanonicalLink from "../../CanonicalLink";
 
 AOS.init(); // Initialisation de AOS dans le composant
 
@@ -171,7 +170,7 @@ const OverlayBottom = styled.div`
 const Fiscalite = () => {
   return (
     <div className=" bg-gray-900">
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       <OverlayTop /> <BardeNavigationpublic />
       <BackgroundContainer>
         <ContentWrapper>

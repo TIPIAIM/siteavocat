@@ -5,7 +5,6 @@ import Footer from "../Accueil/Footerr";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import CanonicalLink from "../../CanonicalLink";
 
 AOS.init(); // Initialisation de AOS dans le composant
 // Conteneur principal avec fond fixe
@@ -171,7 +170,7 @@ const OverlayBottom = styled.div`
 const Minier = () => {
   return (
     <div className="">
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       <BackgroundContainer>
         <BardeNavigationpublic />
         <Overlay />

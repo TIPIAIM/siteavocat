@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import image from "./../../assets/Image/image.avif";
 import assistance from "./../../assets/Image/assistance.avif";
 import categor from "./../../assets/Image/categor.avif";
-import CanonicalLink from "../../CanonicalLink";
 
 // Styled Components
 const PenalContainer = styled.div`
@@ -221,7 +220,7 @@ const Penal = () => {
 
   return (
     <div className="bg-gray-900">
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       <BardeNavigationpublic />
       <PenalContainer>
         <BackButton data-aos="fade-down" to="/article">

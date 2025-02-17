@@ -6,7 +6,6 @@ import "aos/dist/aos.css";
 import Footer from "../Accueil/Footerr";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { Link } from "react-router-dom";
-import CanonicalLink from "../../CanonicalLink";
 
 // Initialisation de AOS
 AOS.init();
@@ -131,7 +130,7 @@ const Famille = () => {
 
   return (
     <div>
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       <OverlayTop />
       <BardeNavigationpublic />
       <BackgroundContainer>

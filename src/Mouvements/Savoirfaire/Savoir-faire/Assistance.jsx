@@ -9,7 +9,6 @@ import MOE_0400 from "../../../assets/Image/MOE_0400.avif";
 import jurid from "../../../assets/Image/jurid.avif";
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
-import CanonicalLink from "../../../CanonicalLink";
 
 // Conteneur principal avec fond dégradé et image
 const BackgroundContainer = styled.div`
@@ -185,7 +184,7 @@ export default function AuditJuridique() {
 
   return (
     <div>
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         <Overlay />

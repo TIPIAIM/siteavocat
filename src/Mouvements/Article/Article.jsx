@@ -8,7 +8,6 @@ import traval from "./../../assets/Image/travail.avif";
 import techno from "./../../assets/Image/technologie.avif";
 import Footer from "../Accueil/Footerr";
 import Headerr from "../Headerr/Header";
-import CanonicalLink from "../../CanonicalLink";
 
 // Styles
 const ArticlesContainer = styled.main`
@@ -203,7 +202,7 @@ const articles = [
 const Articles = () => {
   return (
     <div>
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       <Headerr />
       <ArticlesContainer>
         <SectionTitle>Le Code civil guinéen</SectionTitle>

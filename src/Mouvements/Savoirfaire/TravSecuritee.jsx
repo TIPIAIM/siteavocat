@@ -4,7 +4,6 @@ import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
-import CanonicalLink from "../../CanonicalLink";
 
 // Chargement différé du composant Securite
 const Securite = React.lazy(() => import("./Securite"));
@@ -102,7 +101,7 @@ export default function TravSecuritee() {
 
   return (
     <div>
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       <BackgroundContainer>
         {/* Suspense pour le chargement différé de Securite */}
         <Suspense

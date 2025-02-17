@@ -6,7 +6,6 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
-import CanonicalLink from "../../CanonicalLink";
 //import Fiscalitee2 from "././Fiscalitee2";
 
 // Fallback Container for Suspense
@@ -159,7 +158,7 @@ function FiscaliteeWrapper() {
 
   return (
     <div>
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       <BackgroundContainer>
         <Overlay />
         <BardeNavigationpublic />

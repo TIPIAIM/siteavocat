@@ -13,7 +13,6 @@ import travail from "./../../assets/Image/travail.avif";
 import image from "./../../assets/Image/image.avif";
 import AFFF from "./../../assets/Image/AFFF.webp";
 import arbitra from "./../../assets/Image/arbitra.avif";
-import CanonicalLink from "../../CanonicalLink";
 
 // Conteneur principal avec l'image d'arrière-plan
 const BackgroundContainer = styled.div`
@@ -220,7 +219,7 @@ export default function Nosexpertise() {
 
   return (
     <div>
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         {/* Couche transparente */}

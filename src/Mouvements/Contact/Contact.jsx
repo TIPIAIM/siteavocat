@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { ChevronsLeftRight } from "lucide-react";
 import LazyLoad from "react-lazyload";
 import photoaccueil from "../../assets/Image/photo-accueil.avif";
-import CanonicalLink from "../../CanonicalLink";
 
 // Styled Components
 const ContactContainer = styled.div`
@@ -148,7 +147,7 @@ export default function Contact() {
 
   return (
     <div style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       <header className="relative h-[400px] sm:h-[400px] mb-20 overflow-hidden">
         <BardeNavigationpublic />
         <div className="absolute inset-0 bg-black/50 z-10" />

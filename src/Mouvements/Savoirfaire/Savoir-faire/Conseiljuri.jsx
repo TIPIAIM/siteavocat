@@ -5,7 +5,6 @@ import styled from "styled-components";
 import BardeNavigationpublic from "../../Navigatpublic/BardeNavigationPublic";
 import Footer from "../../Accueil/Footerr";
 import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif";
-import CanonicalLink from "../../../CanonicalLink";
 
 // Container principal avec fond d'image et dégradé pour la lisibilité
 const Container = styled.div`
@@ -119,7 +118,7 @@ const Conseiljuri = () => {
 
   return (
     <div>
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       <Container style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
         <BardeNavigationpublic />
         <Title data-aos="fade-down">Conseils juridiques ?</Title>

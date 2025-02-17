@@ -12,7 +12,6 @@ import conf from "./../../../assets/Image/conf.avif";
 import affaire from "./../../../assets/Image/affaire.avif";
 import jurid1 from "./../../../assets/Image/jurid1.avif";
 import jurid from "./../../../assets/Image/jurid.avif";
-import CanonicalLink from "../../../CanonicalLink";
 
 // Conteneur principal avec fond fixe
 const BackgroundContainer = styled.div`
@@ -195,7 +194,7 @@ export default function AuditJuridique() {
 
   return (
     <div>
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         <Overlay />

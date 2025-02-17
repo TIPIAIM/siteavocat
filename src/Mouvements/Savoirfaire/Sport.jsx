@@ -6,7 +6,6 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "../Accueil/Footerr";
-import CanonicalLink from "../../CanonicalLink";
 
 const BackgroundContainer = styled.div`
   position: relative;
@@ -122,7 +121,7 @@ export default function Sport() {
 
   return (
     <div>
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       <BackgroundContainer>
         <Overlay />
         <BardeNavigationpublic />

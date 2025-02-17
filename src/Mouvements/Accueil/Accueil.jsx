@@ -17,12 +17,11 @@ import "aos/dist/aos.css";
 import Image7 from "../../assets/Image/maitre7.avif";
 import photoaccueil from "../../assets/Image/photo-accueil.avif";
 import SocialLinks from "../Lienlateral/SocialLinks";
-import CanonicalLink from "../../CanonicalLink";
 
 export default function Accueil() {
   return (
     <div style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
-        <CanonicalLink url="https://www.aod-avocats.net" />
+      
       <SEO
         title="AOD AVOCATS : Cabinet d'avocats - Expertise juridique et services personnalisés"
         description="Notre cabinet offre des services juridiques d'excellence grâce à une équipe d'avocats expérimentés Nous combinons expertise juridique, conseils personnalisés et solutions juridiques adaptées pour répondre à vos besoins. Faites confiance à notre approche professionnelle pour vos dossiers juridiques et gratuitement d'une assistance juridique sur mesure."

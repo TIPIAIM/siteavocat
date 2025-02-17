@@ -21,11 +21,10 @@ import SocialLinks from "../Lienlateral/SocialLinks";
 export default function Accueil() {
   return (
     <div style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
-      
       <SEO
         title="AOD AVOCATS : Cabinet d'avocats - Expertise juridique et services personnalisés"
         description="Notre cabinet offre des services juridiques d'excellence grâce à une équipe d'avocats expérimentés Nous combinons expertise juridique, conseils personnalisés et solutions juridiques adaptées pour répondre à vos besoins. Faites confiance à notre approche professionnelle pour vos dossiers juridiques et gratuitement d'une assistance juridique sur mesure."
-        keywords="Cabinet d'avocats,avocat,avocats, Services juridiques, Avocats expérimentés, Expertise juridique, Approche personnalisée, Excellence juridique, Assistance juridique, Conseils juridiques, Dossiers juridiques, Équipe d'avocats, Solutions juridiques adaptées"
+        keywords="Cabinet d'avocats,avocat,avocats,aod avocat,aod-avocat,aod avocats,aod-avocats, Services juridiques, Avocats expérimentés, Expertise juridique, Approche personnalisée, Excellence juridique, Assistance juridique, Conseils juridiques, Dossiers juridiques, Équipe d'avocats, Solutions juridiques adaptées"
       />
 
       {/* Hero Section */}

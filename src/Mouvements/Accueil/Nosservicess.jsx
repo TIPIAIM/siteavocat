@@ -32,7 +32,7 @@ const Title = styled.h1`
   text-align: center;
   margin-bottom: 20px;
   color: #0f172a;
-  text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4);
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
   font-family: "Helvetica55Roman", Arial, sans-serif;
 
   @media (max-width: 768px) {

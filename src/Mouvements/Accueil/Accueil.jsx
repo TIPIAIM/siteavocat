@@ -22,9 +22,14 @@ export default function Accueil() {
   return (
     <div style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
       <SEO
-        title="AOD AVOCATS - Cabinet d'avocats - Expertise juridique et services personnalisés" //ui sffiche touten hut de l pge
-        description="Notre cabinet offre des services juridiques d'excellence grâce à une équipe d'avocats expérimentés Nous combinons expertise juridique, conseils personnalisés et solutions juridiques adaptées pour répondre à vos besoins. Faites confiance à notre approche professionnelle pour vos dossiers juridiques et gratuitement d'une assistance juridique sur mesure."
-        keywords="Cabinet d'avocats,avocat,avocats,aod, aod avocat,aod-avocat,aod avocats,aod-avocats, Services juridiques, Avocats expérimentés, Expertise juridique, Approche personnalisée, Excellence juridique, Assistance juridique, Conseils juridiques, Dossiers juridiques, Équipe d'avocats, Solutions juridiques adaptées"
+        title="AOD AVOCATS - Expertise juridique - services personnalisés - Cabinet d'avocats " //le titre sera en haut de la ou il ya url
+        description="Notre cabinet offre des services juridiques d'excellence grâce à une équipe
+         d'avocats expérimentés Nous combinons expertise juridique, conseils personnalisés et 
+         solutions juridiques adaptées pour répondre à vos besoins."
+        keywords="Cabinet d'avocats,avocat,avocats,aod, aod avocat,aod-avocat,aod avocats,
+        aod-avocats, Services juridiques, Avocats expérimentés, Expertise juridique, Approche personnalisée,
+         Excellence juridique, Assistance juridique, Conseils juridiques, Dossiers juridiques, Équipe d'avocats, 
+         Solutions juridiques adaptées"
       />
 
       {/* Hero Section */}
@@ -80,7 +85,7 @@ export default function Accueil() {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl text-cyan-950 sm:text-3xl font-bold text-center mb-12 sm:mb-16">
             Domaines d’expertise ....
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
@@ -110,10 +115,22 @@ export default function Accueil() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <service.icon
-                  style={{ color: "#0077b6" }}
-                  className="w-10 sm:w-12 h-10 sm:h-12 text-blue-950 mb-3"
-                />
+                <motion.div
+                  animate={{
+                    x: [0, 20, 10], // Déplace l'icône à droite puis revient
+                  }}
+                  transition={{
+                    duration: 2, // Durée totale de l'animation
+                    repeat: 4, // Répète l'animation 4 fois
+                    repeatType: "reverse", // Inverse l'animation à chaque répétition
+                    ease: "easeInOut", // Transition fluide
+                  }}
+                >
+                  <service.icon
+                    className="w-10 sm:w-12 h-10 sm:h-12 mb-3"
+                    style={{ color: "#023e8a " }}
+                  />
+                </motion.div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">
                   <a
                     data-aos="fade-down"
@@ -152,7 +169,7 @@ export default function Accueil() {
         >
           <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-12">
             <div className="flex-1">
-              <h2 className="text-2xl text-center sm:text-3xl text-blue-950 font-bold mb-4 sm:mb-6">
+              <h2 className="text-2xl text-cyan-950 text-center sm:text-3xl  font-bold mb-4 sm:mb-6">
                 Notre Cabinet
               </h2>
               <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6 pl-5">
@@ -167,7 +184,7 @@ export default function Accueil() {
                     className="w-10 sm:w-12 h-10 sm:h-12 mb-2"
                     style={{ color: "#0077b6" }}
                   />
-                  <div className="font-bold text-lg sm:text-2xl">6+</div>
+                  <div className="font-bold text-lg  sm:text-2xl">6+</div>
                   <div className="text-gray-600 text-sm">
                     Années d’expérience
                   </div>

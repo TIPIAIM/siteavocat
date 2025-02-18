@@ -1,7 +1,7 @@
 couleur : 
 RGBA :rgba(2, 116, 230, 0.98)
 
-rgba(10, 34, 64, 0.9)
+hsla(213, 73.00%, 14.50%, 0.90)
 023e8a
 className="bg-[rgba(10,34,64,0.9)]" tailwind
 03045e

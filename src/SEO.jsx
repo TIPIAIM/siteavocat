@@ -19,8 +19,8 @@ const SEO = () => {
             "@type": "Organization",
             "url": "https://aod-avocats.net",
             
-            "name": "AOD AVOCATS SCPA",
-            "description": "Cabinet d'avocats spécialisé en droit des affaires, droit civil et droit de la famille."
+            "name": "AOD AVOCATS",
+            "description": "Cabinet d'avocats spécialisé en droit des affaires, droit civil , droit des affaires."
           }
         `}
       </script>

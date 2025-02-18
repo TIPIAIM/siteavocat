@@ -1,4 +1,12 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  HomeIcon,
+  PersonStanding,
+  LampDesk,
+  MapPinHouse,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -39,7 +47,7 @@ const ContactGrid = styled.div`
 `;
 
 const ContactCard = styled.div`
-  background-color: rgba(0,0,6,0.1);
+  background-color: rgba(0, 0, 6, 0.1);
   padding: 1.5rem;
   border-radius: 0.5rem;
   transition: background-color 0.3s ease;
@@ -62,9 +70,14 @@ const IconWrapper = styled.div`
 const ContactText = styled.div`
   color: #e5e7eb;
   text-align: center;
-font-size: 0.9rem;
+  font-size: 0.9rem;
+
   @media (min-width: 640px) {
     text-align: center;
+  }
+
+  &:hover svg {
+    color: #00b4d8; // Changez cette couleur selon vos préférences
   }
 `;
 
@@ -86,12 +99,15 @@ export default function AccueilFooter() {
             {/* Adresse */}
             <ContactCard>
               <IconWrapper>
-                <MapPin className="w-6 h-6 mx-auto sm:mx-0" />
+                <MapPinHouse className="w-6 h-6 mx-auto sm:mx-0" />
               </IconWrapper>
               <ContactText>
-                SIEGE SOCIAL à la Minière Cité 2ème Etage, Immeuble Yansané,
-                derrière la station totale de Commandaya, à côté de la SONAP,
-                Commune de Dixinn, Conakry, République de Guinée
+                <div>
+                  <MapPin className="inline-block w-4 h-4 mr-2" />
+                  SIEGE SOCIAL à la Minière Cité 2ème Etage, Immeuble Yansané,
+                  derrière la station totale de Commandaya, à côté de la SONAP,
+                  Commune de Dixinn, Conakry, République de Guinée
+                </div>
               </ContactText>
             </ContactCard>
 
@@ -101,9 +117,18 @@ export default function AccueilFooter() {
                 <Phone className="w-6 h-6 mx-auto sm:mx-0" />
               </IconWrapper>
               <ContactText>
-                <div>+224 622 253 536</div>
-                <div>+224 622 253 536</div>
-                <div>+224 622 253 536</div>
+                <div>
+                  <HomeIcon className="inline-block w-4 h-4 mr-2" />
+                  : +224 625 292 599
+                </div>
+                <div>
+                  <PersonStanding className="inline-block w-4 h-4 mr-2" />
+                  : +224 612 858 506
+                </div>
+                <div>
+                  <LampDesk className="inline-block w-4 h-4 mr-2" />
+                  : +224 612 858 507
+                </div>
               </ContactText>
             </ContactCard>
 
@@ -117,6 +142,7 @@ export default function AccueilFooter() {
                   to="mailto:amadou.diallo@aod-avocats.com"
                   className="no-underline text-gray-300 hover:text-[#90e0ef] transition-colors"
                 >
+                  <Mail className="inline-block w-4 h-4 mr-2" />
                   amadou.diallo@aod-avocats.com
                 </Link>
               </ContactText>

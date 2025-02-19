@@ -7,7 +7,7 @@ import Footer from "../../Accueil/Footerr";
 import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif";
 
 // Container principal avec fond d'image et dégradé pour la lisibilité
-const Container = styled.div`
+const Container = styled.section` /* Utilisation d'une balise sémantique */
   background: url("img/confience.avif") no-repeat center center/cover;
   padding: 5rem 2rem;
   display: flex;
@@ -30,7 +30,7 @@ const Container = styled.div`
   }
 `;
 
-const Title = styled.h2`
+const Title = styled.h1` /* Utilisation de h1 pour le titre principal (SEO) */
   font-size: 2.5rem;
   font-weight: bold;
   color: #90e0ef;
@@ -45,7 +45,7 @@ const Title = styled.h2`
   }
 `;
 
-const PointsList = styled.div`
+const PointsList = styled.article` /* Utilisation d'une balise sémantique */
   max-width: 800px;
   text-align: left;
   z-index: 10;
@@ -57,7 +57,6 @@ const ImageContainer = styled.div`
   gap: 1rem;
   justify-content: center;
   margin-top: 2rem;
-
   @media (max-width: 1024px) {
     gap: 0.5rem;
   }
@@ -66,11 +65,12 @@ const ImageContainer = styled.div`
 const Image = styled.img`
   width: 100%;
   max-width: 200px;
-  background: rgba(250, 250, 250, 1);
+  background: #fff; /* Suppression de la transparence (remplacé par un fond blanc) */
   margin-top: 4rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
+  image-rendering: crisp-edges; /* Améliore la netteté de l'image */
+  backface-visibility: hidden; /* Améliore la performance et la netteté */
   @media (max-width: 1024px) {
     max-width: 250px;
   }
@@ -98,6 +98,7 @@ const Point = styled.div`
     text-align: left;
   }
 `;
+
 const Divider = styled.div`
   height: 3px; /* Hauteur du diviseur */
   width: 500px; /* Largeur du diviseur */
@@ -108,8 +109,11 @@ const Divider = styled.div`
     width: 200px; /* Largeur réduite pour les petits écrans */
   }
 `;
+
 const Conseiljuri = () => {
+  // Dynamisation du titre de la page pour le SEO
   useEffect(() => {
+    document.title = "Conseils Juridiques - Expertise et Accompagnement sur Mesure";
     AOS.init({
       duration: 1000,
       once: false,
@@ -118,7 +122,11 @@ const Conseiljuri = () => {
 
   return (
     <div>
-      
+      {/* Balise meta pour le SEO */}
+      <meta name="description" content="Obtenez des conseils juridiques professionnels et personnalisés. Notre équipe d'experts vous accompagne dans tous vos projets juridiques." />
+      <meta name="keywords" content="conseils juridiques, avocats, expertise juridique, accompagnement juridique" />
+      <meta name="author" content="Votre Nom ou Entreprise" />
+
       <Container style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
         <BardeNavigationpublic />
         <Title data-aos="fade-down">Conseils juridiques ?</Title>
@@ -128,7 +136,7 @@ const Conseiljuri = () => {
             <strong style={{ color: "#90e0ef" }}>
               Expertise et expérience reconnue :
             </strong>
-            Notre équipe de juristes et d`avocats est spécialisée dans de
+            Notre équipe de juristes et d'avocats est spécialisée dans de
             nombreux domaines du droit, vous offrant des solutions adaptées à
             vos besoins. Nous nous engageons à vous fournir des conseils de
             haute qualité.
@@ -149,7 +157,7 @@ const Conseiljuri = () => {
             apportant les meilleures solutions possibles. Votre satisfaction est
             au cœur de nos priorités.
           </Point>
-          <Point >
+          <Point>
             <strong style={{ color: "#90e0ef" }}>
               Communication claire et transparente :
             </strong>{" "}
@@ -157,13 +165,13 @@ const Conseiljuri = () => {
             une collaboration efficace et une totale compréhension de votre
             dossier. Une information précise est notre priorité.
           </Point>
-          <Point >
+          <Point>
             <strong style={{ color: "#90e0ef" }}>Résultats probants :</strong>{" "}
             Notre expérience dans la résolution de contentieux complexes nous
-            permet d`obtenir des résultats concrets et satisfaisants pour nos
+            permet d'obtenir des résultats concrets et satisfaisants pour nos
             clients. Nous avons à cœur de vous apporter des solutions concrètes.
           </Point>
-          <Point >
+          <Point>
             <strong style={{ color: "#90e0ef" }}>
               Discrétion et confidentialité :
             </strong>{" "}
@@ -171,7 +179,7 @@ const Conseiljuri = () => {
             vos informations et la confidentialité totale de vos dossiers, avec
             un respect absolu de vos droits.
           </Point>
-          <Point >
+          <Point>
             <strong style={{ color: "#90e0ef" }}>
               Accompagnement sur mesure :
             </strong>{" "}
@@ -179,7 +187,7 @@ const Conseiljuri = () => {
             des conseils adaptés à votre situation spécifique, quel que soit le
             degré de complexité.
           </Point>
-          <Point >
+          <Point>
             <strong style={{ color: "#90e0ef" }}>
               Accessibilité et réactivité :
             </strong>{" "}
@@ -189,7 +197,7 @@ const Conseiljuri = () => {
           </Point>
         </PointsList>
         <ImageContainer>
-          <Image src={logoAODnoir} alt="Analyse juridique" />
+          <Image src={logoAODnoir} alt="Logo AOD - Expertise Juridique" />
         </ImageContainer>
       </Container>
       <Footer />

@@ -184,7 +184,7 @@ export default function Penall() {
             <FaArrowLeft size={20} />
           </BackButton>
           <Title data-aos="fade-right">Le droit pénal</Title>
-          <Divider data-aos="fade-down" data-aos-delay="200" />
+          <Divider data-aos="fade-down"  />
           <Paragraph data-aos="fade-up" data-aos-delay="300">
             Notre cabinet possède une expertise approfondie en droit pénal, avec
             une équipe d’avocats expérimentés qui maîtrisent toutes les facettes
@@ -199,7 +199,7 @@ export default function Penall() {
             au long du processus judiciaire. Chaque client est unique, et nous
             nous engageons à vous offrir un soutien sur mesure.
           </Paragraph>
-          <Paragraph data-aos="zoom-in" data-aos-delay="400">
+          <Paragraph data-aos="zoom-in" >
             Notre objectif est de protéger vos droits à chaque étape de la
             procédure pénale. Grâce à notre connaissance des lois, des procédures
             et des juridictions, nous anticipons les éventuelles complications et
@@ -207,20 +207,20 @@ export default function Penall() {
             ce soit en négociant une peine réduite ou en plaidant en votre faveur
             devant les tribunaux.
           </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="450">
+          <Paragraph data-aos="fade-up" >
             Dans les affaires pénales, chaque minute compte. Notre équipe est
             disponible pour répondre rapidement à vos besoins urgents, qu’il
             s’agisse d’une garde à vue, d’une comparution immédiate ou d’une mise
             en détention. Nous sommes à vos côtés pour agir avec efficacité et
             réactivité.
           </Paragraph>
-          <Paragraph data-aos="zoom-in" data-aos-delay="500">
+          <Paragraph data-aos="zoom-in">
             En choisissant notre cabinet, vous faites appel à des professionnels
             engagés, compétents et déterminés à défendre vos intérêts. Faites
             confiance à notre savoir-faire pour vous représenter avec force et
             conviction face à la justice.
           </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="550">
+          <Paragraph data-aos="fade-up" >
             Si vous êtes confronté à une affaire pénale, ne restez pas seul.
             Contactez notre cabinet pour une consultation confidentielle et
             laissez-nous vous accompagner avec professionnalisme et intégrité.

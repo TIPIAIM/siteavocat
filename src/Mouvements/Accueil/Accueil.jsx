@@ -26,6 +26,7 @@ export default function Accueil() {
         description="Notre cabinet offre des services juridiques d'excellence grâce à une équipe
          d'avocats expérimentés Nous combinons expertise juridique, conseils personnalisés et 
          solutions juridiques adaptées pour répondre à vos besoins."
+         
         keywords="Cabinet d'avocats,avocat,avocats,aod, aod avocat,aod-avocat,aod avocats,
         aod-avocats, Services juridiques, Avocats expérimentés, Expertise juridique, Approche personnalisée,
          Excellence juridique, Assistance juridique, Conseils juridiques, Dossiers juridiques, Équipe d'avocats, 

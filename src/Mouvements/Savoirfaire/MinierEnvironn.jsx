@@ -1,14 +1,15 @@
 import React, { Suspense, useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS styles
+import "aos/dist/aos.css"; 
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
-const Minier2 = React.lazy(() => import("./MinierEnviron2")); // Chargement différé de Minier2
+// Utilisation de ton gestionnaire SEO
+import tiptamcode from "./../../assets/Image/tiptamcode.avif"; 
+import SEO from "./Seoglobale";
+const Minier2 = React.lazy(() => import("./MinierEnviron2")); 
 
-// Styles
 const BackgroundContainer = styled.section`
   position: relative;
   min-height: 100vh;
@@ -156,35 +157,36 @@ const FallbackLogo = styled.img`
   }
 `;
 
-// Composant principal
-export default function MinierEnvironn() {
-  // Initialisation de AOS
+
+function MinierEnvironnWrapper() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: false,
+      once: true,
     });
   }, []);
 
   return (
     <BackgroundContainer>
-      
-        <Suspense
-        fallback={
-          <FallbackContainer>
-            {/* Logo de l'entreprise avec animation */}
-            <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
-          </FallbackContainer>
-        }
-      >
+      <SEO
+        title="Droit Minier et Environnemental - AOD Avocats"
+        description="Découvrez notre expertise en droit minier et environnemental. Nous accompagnons nos clients dans la gestion des réglementations et des risques."
+        keywords="Droit minier, Réglementation minière, Avocats environnementaux, Projets miniers, Gestion environnementale"
+        url="https://www.aod-avocats.net/minierr"
+        image="https://www.aod-avocats.net/img/logoAODnoir.avif"
+      />
+
       <Overlay />
       <BardeNavigationpublic />
+
       <ContentContainer>
-        <BackButton  data-aos-delay="300" to="/nosexpertises" data-aos="fade-right">
+        <BackButton to="/nosexpertises" aria-label="Retour aux expertises" data-aos="fade-right">
           <FaArrowLeft size={20} />
         </BackButton>
-        <Title data-aos="fade-down"  data-aos-delay="400">Droit minier et environnemental</Title>
-        <Divider data-aos="fade-up" data-aos-delay="200" />
+
+        <Title data-aos="fade-down">Droit minier et environnemental</Title>
+        <Divider data-aos="fade-up" />
+
         <Paragraph data-aos="fade-up" data-aos-delay="300">
           Notre cabinet se distingue par son expertise approfondie en droit
           minier et environnemental, offrant des solutions juridiques adaptées
@@ -213,11 +215,15 @@ export default function MinierEnvironn() {
           personnalisé et efficace.
         </Paragraph>
       </ContentContainer>
-      {/* Suspense pour le chargement différé des composants */}
-    
-        <Minier2 />
-      </Suspense>
-      
     </BackgroundContainer>
+  );
+}
+
+export default function MinierEnvironn() {
+  return (
+    <Suspense fallback={<FallbackContainer><FallbackLogo src={tiptamcode} alt="Chargement..." /></FallbackContainer>}>
+      <MinierEnvironnWrapper />
+      <Minier2 />
+    </Suspense>
   );
 }

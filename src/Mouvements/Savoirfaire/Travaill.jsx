@@ -7,6 +7,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "../Accueil/Footerr";
 import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
+import SEO from "./Seoglobale";
 
 // Chargement différé du composant TravSecuritee
 const TravSecuritee = React.lazy(() => import("./TravSecuritee"));
@@ -172,7 +173,15 @@ export default function Travail() {
 
   return (
     <div>
-      
+      {/* Intégration du composant SEO */}
+      <SEO
+        title="Le Travail et la Sécurité Sociale - Expertise Juridique"
+        description="Notre cabinet spécialisé en droit du travail vous accompagne dans la gestion des contrats, des conflits et des litiges. Protégez vos droits avec notre expertise."
+        keywords="droit du travail, sécurité sociale, contrats de travail, litiges, expertise juridique"
+        url="https://aod-avocats.net/travail"
+        image="https://votresite.com/img/logoAODnoir.avif"
+      />
+
       <BackgroundContainer>
         <Suspense
           fallback={
@@ -187,7 +196,7 @@ export default function Travail() {
             <BackButton to="/nosexpertises" data-aos="fade-right">
               <FaArrowLeft size={20} />
             </BackButton>
-            <Title data-aos="fade-up">Le travail et securité sociale</Title>
+            <Title data-aos="fade-up">Le travail et sécurité sociale</Title>
             <Divider data-aos="fade-up" data-aos-delay="200" />
             <Paragraph data-aos="fade-up" data-aos-delay="300">
               Notre cabinet est composé de juristes et d’avocats hautement

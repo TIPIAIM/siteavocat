@@ -6,10 +6,12 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "../Accueil/Footerr";
+import SEO from "./Seoglobale";
+
 const ArbitFamillee = lazy(() => import("./ArbitFamillee"));
 
 // Styles
-const BackgroundContainer = styled.div`
+const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh;
   background-image: url("./src/assets/Image/keitaseul22.avif");
@@ -138,7 +140,6 @@ const Paragraph = styled.p`
   @media (max-width: 480px) {
     font-size: 0.9rem;
     padding: 0 1rem;
-  
   }
 
   &:last-child {
@@ -163,12 +164,20 @@ export default function Arbitrage() {
 
   return (
     <div>
-      
+      {/* Intégration du composant SEO */}
+      <SEO
+        title="Droit d'Arbitrage - Expertise Juridique en Résolution de Litiges"
+        description="Notre cabinet spécialisé en droit d'arbitrage vous accompagne dans la résolution rapide et efficace de vos litiges. Protégez vos droits avec notre expertise."
+        keywords="droit d'arbitrage, résolution de litiges, expertise juridique, arbitrage international"
+        url="https://aod-avocats.net/arbitrage"
+        image="https://aod-avocats.net/img/logoAODnoir.avif"
+      />
+
       <BackgroundContainer>
-        <Overlay data-aos="fade-rigth"/>
+        <Overlay data-aos="fade-right" />
         <BardeNavigationpublic />
         <ContentWrapper>
-          <BackButton 
+          <BackButton
             to="/nosexpertises"
             aria-label="Retour à la page des expertises"
             data-aos="fade-down" // Animation AOS

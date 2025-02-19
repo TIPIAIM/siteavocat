@@ -3,6 +3,7 @@ import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
 import Footer from "../Accueil/Footerr";
+import { CheckCheck, Hand, LandPlot } from "lucide-react";
 
 // Initialisation de AOS
 AOS.init({
@@ -30,7 +31,7 @@ const BackgroundContainer = styled.div`
 
   @media (max-width: 768px) {
     background-attachment: scroll;
-     padding: 0rem 0.2rem;
+    
   }
 `;
 
@@ -52,8 +53,7 @@ const ContentWrapper = styled.main`
   margin: 2rem auto;
   padding: 2rem;
   background-color: rgba(0, 0, 0, 0.9); /* Fond semi-transparent */
-  border-radius: 10px;
-  backdrop-filter: blur(3px); /* Effet de flou moderne */
+  
 
   @media (max-width: 1024px) {
     padding: 3rem;
@@ -64,13 +64,13 @@ const ContentWrapper = styled.main`
   }
 
   @media (max-width: 480px) {
-    padding: 1.5rem;
+    padding: 1.6rem;
   }
 `;
 
 // Titre principal
 const Title = styled.h1`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
   color: ${colors.primary};
   text-align: center;
@@ -183,24 +183,27 @@ const Fiscalitee2 = () => {
               entreprises, influençant leur rentabilité, leur compétitivité, et
               leur capacité d’innovation. Pour approfondir ce sujet, consultez
               ces articles :
-              <a
+              <div className="  flex">
+
+              
+              <a className=" ml-8 animate-pulse "
                 href="https://dgi.gov.gn/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: colors.primary, textDecoration: "none" }}
               >
-                ici
-              </a>{" "}
-              et{" "}
-              <a
+                < LandPlot/>
+              </a>
+               
+              <a className="animate-pulse ml-8 "
                 href="https://www.govserv.org/GN/Conakry/1074407922579444/Direction-G%C3%A9n%C3%A9rale-des-Imp%C3%B4ts-de-la-R%C3%A9publique-de-Guin%C3%A9e"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: colors.primary, textDecoration: "none" }}
               >
-                là
+                < Hand/>
               </a>
-              .
+              </div>
             </Paragraph>
             <Paragraph>
               Nos objectifs sont de fournir des conseils juridiques précis et

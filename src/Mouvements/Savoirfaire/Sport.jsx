@@ -6,8 +6,11 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "../Accueil/Footerr";
+import SEO from "./Seoglobale";
+ // Importation du composant SEO
 
-const BackgroundContainer = styled.div`
+// Styles
+const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh;
   background-image: url("img/sport.avif");
@@ -24,7 +27,7 @@ const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.8);
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.article` /* Utilisation d'une balise sémantique */
   position: relative;
   z-index: 10;
   padding: 4rem 2rem;
@@ -82,6 +85,7 @@ const Divider = styled.div`
   background: #4ea8ff;
   margin: 2rem 0;
 `;
+
 const BackButton = styled(Link)`
   display: flex;
   align-items: center;
@@ -110,7 +114,6 @@ const BackButton = styled(Link)`
   }
 `;
 
-
 export default function Sport() {
   useEffect(() => {
     AOS.init({
@@ -120,8 +123,16 @@ export default function Sport() {
   }, []);
 
   return (
-    <div>
-      
+    <div className=" bg-blue-300">
+      {/* Intégration du composant SEO */}
+      <SEO
+        title="Droit du Sport - Expertise Juridique pour les Athlètes et Clubs"
+        description="Notre cabinet spécialisé en droit du sport vous accompagne dans la gestion des contrats, des transferts et des litiges. Protégez vos droits avec notre expertise."
+        keywords="droit du sport, contrats sportifs, transferts, litiges sportifs, expertise juridique"
+        url="https://aod-avocats.net/sport"
+        image="https://aod-avocats.net/img/logoAODnoir.avif"
+      />
+
       <BackgroundContainer>
         <Overlay />
         <BardeNavigationpublic />
@@ -181,6 +192,7 @@ export default function Sport() {
           </Paragraph>
         </ContentContainer>
       </BackgroundContainer>
+      <br/>
       <Footer />
     </div>
   );

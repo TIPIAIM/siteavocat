@@ -203,7 +203,7 @@ const Securite = () => {
       <ContentContainer>
         <Title data-aos="fade-down">La Sécurité</Title>
 
-        <Section data-aos="fade-up" data-aos-delay="300">
+        <Section data-aos="fade-up">
           <Image src={securitesocial} alt="Illustration" />
           <TextContainer>
             <Paragraph>
@@ -222,7 +222,7 @@ const Securite = () => {
           </TextContainer>
         </Section>
 
-        <Section data-aos="fade-up" data-aos-delay="600">
+        <Section data-aos="fade-up">
           <Subtitle>1. La Sécurité Sociale</Subtitle>
           <Paragraph>
             La sécurité sociale est un système public qui vise à protéger les
@@ -258,7 +258,7 @@ const Securite = () => {
           </List>
         </Section>
 
-        <Section data-aos="fade-up" data-aos-delay="900">
+        <Section data-aos="fade-up">
           <Subtitle>2. Le Droit du Travail</Subtitle>
           <Paragraph>
             Le droit du travail est la branche du droit qui régit les relations
@@ -298,7 +298,7 @@ const Securite = () => {
           </List>
         </Section>
 
-        <Section data-aos="fade-up" data-aos-delay="1200">
+        <Section data-aos="fade-up">
           <Subtitle>
             3. Interaction entre la Sécurité Sociale et le Droit du Travail
           </Subtitle>
@@ -328,7 +328,7 @@ const Securite = () => {
           </List>
         </Section>
 
-        <Section data-aos="fade-up" data-aos-delay="1500">
+        <Section data-aos="fade-up">
           <Subtitle>En somme</Subtitle>
           <Paragraph>
             En résumé, la sécurité sociale et le droit du travail sont deux

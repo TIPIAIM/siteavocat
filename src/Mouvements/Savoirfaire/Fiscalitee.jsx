@@ -1,12 +1,15 @@
 import React, { Suspense, useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS styles
+import "aos/dist/aos.css"; 
+import { Helmet } from "react-helmet"; // Ajout pour le SEO
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
-//import Fiscalitee2 from "././Fiscalitee2";
+import tiptamcode from "./../../assets/Image/tiptamcode.avif";
+
+// Chargement asynchrone de Fiscalitee2
+const Fiscalitee2 = React.lazy(() => import("./Fiscalitee2"));
 
 // Fallback Container for Suspense
 const FallbackContainer = styled.div`
@@ -144,75 +147,74 @@ const BackButton = styled(Link)`
   }
 `;
 
-// Composant Fiscaliteee chargé de manière asynchrone
-const Fiscalitee2 = React.lazy(() => import("./Fiscalitee2"));
-
 function FiscaliteeWrapper() {
   useEffect(() => {
     AOS.init({
       duration: 700,
-      once: false,
+      once: true,
     });
-    AOS.refresh();
   }, []);
 
   return (
-    <div>
-      
-      <BackgroundContainer>
-        <Overlay />
-        <BardeNavigationpublic />
-        <ContentContainer>
-          <BackButton to="/nosexpertises" data-aos="fade-up">
-            <FaArrowLeft size={20} />
-          </BackButton>
-          <Title data-aos="fade-down">Le droit fiscal ?</Title>
-          <Divider data-aos="fade-up" />
-          <Paragraph data-aos="fade-down" data-aos-delay="200">
-            Notre cabinet est composé d’experts en droit fiscal, ayant une
-            solide expérience dans la gestion des problématiques fiscales
-            complexes. Que vous soyez une entreprise ou un particulier, nous
-            comprenons les enjeux fiscaux auxquels vous êtes confrontés et nous
-            sommes là pour vous offrir des solutions adaptées.
-          </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="200">
-            Nous offrons un accompagnement personnalisé pour optimiser votre
-            fiscalité tout en respectant strictement les lois en vigueur. Notre
-            expertise inclut la planification fiscale, la gestion des audits,
-            les contentieux fiscaux et la conformité réglementaire, vous
-            garantissant une tranquillité d`esprit totale.
-          </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="200">
-            Grâce à une veille juridique constante, nous restons informés des
-            évolutions fiscales et proposons des stratégies innovantes pour
-            maximiser vos avantages tout en minimisant les risques. Nous sommes
-            votre partenaire de confiance pour vous aider à naviguer dans un
-            environnement fiscal en perpétuelle évolution.
-          </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="200">
-            En choisissant notre cabinet, vous bénéficiez d’une équipe dévouée,
-            rigoureuse et engagée à défendre vos intérêts fiscaux avec
-            professionnalisme et intégrité. Faites le choix de l’excellence pour
-            sécuriser et optimiser votre situation fiscale.
-          </Paragraph>
-        </ContentContainer>
-      </BackgroundContainer>
-    </div>
+    <BackgroundContainer>
+      <Helmet>
+        <title>Droit Fiscal - Optimisation et Gestion des Impôts | AOD Avocats</title>
+        <meta
+          name="description"
+          content="Nos experts en droit fiscal vous accompagnent pour optimiser votre fiscalité en entreprise et gérer les contentieux fiscaux. Contactez-nous dès aujourd'hui."
+        />
+        <meta name="keywords" content="Droit fiscal, Fiscalité entreprise, Avocats fiscaux, Contentieux fiscal, Audit fiscal, Impôts, Conformité fiscale" />
+        <meta property="og:title" content="Droit Fiscal - AOD Avocats" />
+        <meta property="og:description" content="Nos avocats spécialisés vous accompagnent pour optimiser votre fiscalité et sécuriser votre entreprise." />
+        <meta property="og:image" content="https://www.aod-avocats.net/img/logoAODnoir.avif" />
+        <meta property="og:url" content="https://www.aod-avocats.net/fiscalite" />
+      </Helmet>
+
+      <Overlay />
+      <BardeNavigationpublic />
+
+      <ContentContainer>
+        <BackButton to="/nosexpertises" aria-label="Retour aux expertises" data-aos="fade-up">
+          <FaArrowLeft size={20} />
+        </BackButton>
+
+        <Title data-aos="fade-down">Le Droit Fiscal</Title>
+        <Divider data-aos="fade-up" />
+
+        <Paragraph data-aos="fade-up" data-aos-delay="100">
+          Notre cabinet est composé d’experts en droit fiscal ayant une solide expérience 
+          dans la gestion des problématiques fiscales complexes. Que vous soyez une entreprise 
+          ou un particulier, nous comprenons les enjeux fiscaux auxquels vous êtes confrontés et 
+          nous sommes là pour vous offrir des solutions adaptées.
+        </Paragraph>
+
+        <Paragraph data-aos="fade-up" data-aos-delay="200">
+          Nous offrons un accompagnement personnalisé pour optimiser votre fiscalité 
+          tout en respectant strictement les lois en vigueur. Notre expertise inclut 
+          la planification fiscale, la gestion des audits, les contentieux fiscaux et 
+          la conformité réglementaire.
+        </Paragraph>
+
+        <Paragraph data-aos="fade-up" data-aos-delay="300">
+          Grâce à une veille juridique constante, nous restons informés des évolutions fiscales 
+          et proposons des stratégies innovantes pour maximiser vos avantages tout en minimisant les risques.
+        </Paragraph>
+
+        <Paragraph data-aos="fade-up" data-aos-delay="400">
+          En choisissant notre cabinet, vous bénéficiez d’une équipe engagée à défendre vos intérêts fiscaux 
+          avec professionnalisme et intégrité.
+        </Paragraph>
+      </ContentContainer>
+    </BackgroundContainer>
   );
 }
 
-// Wrap the component with Suspense
+// Wrapping avec Suspense pour le chargement asynchrone
 export default function Fiscalitee() {
   return (
-    <Suspense
-      fallback={
-        <FallbackContainer>
-          <FallbackLogo src={tiptamcode} alt="Logo AOD" />
-        </FallbackContainer>
-      }
-    >
+    <Suspense fallback={<FallbackContainer><FallbackLogo src={tiptamcode} alt="Chargement..." /></FallbackContainer>}>
       <FiscaliteeWrapper />
-      <Fiscalitee2/>
+      <Fiscalitee2 />
     </Suspense>
   );
 }

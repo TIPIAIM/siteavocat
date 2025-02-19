@@ -11,7 +11,7 @@ import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
 
 // Conteneur principal avec fond dégradé et image
-const BackgroundContainer = styled.div`
+const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh; /* Hauteur minimale de la vue */
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -28,7 +28,7 @@ const Overlay = styled.div`
 `;
 
 // Conteneur du contenu
-const ContentContainer = styled.div`
+const ContentContainer = styled.article` /* Utilisation d'une balise sémantique */
   position: relative;
   z-index: 10; /* Positionne au-dessus de la superposition */
   padding: 4rem 2rem; /* Espacement interne */
@@ -66,7 +66,7 @@ const Title = styled.h1`
   }
 `;
 
-const ParagraphWrapper = styled.div`
+const ParagraphWrapper = styled.section` /* Utilisation d'une balise sémantique */
   display: flex;
   align-items: flex-start;
   margin-bottom: 0rem;
@@ -182,9 +182,18 @@ export default function AuditJuridique() {
     });
   }, []);
 
+  // Dynamisation du titre de la page pour le SEO
+  useEffect(() => {
+    document.title = "Assistance Juridique - Expertise et Accompagnement sur Mesure";
+  }, []);
+
   return (
     <div>
-      
+      {/* Balise meta pour le SEO */}
+      <meta name="description" content="Obtenez une assistance juridique professionnelle et personnalisée. Notre équipe d'experts vous accompagne dans tous vos projets juridiques." />
+      <meta name="keywords" content="assistance juridique, avocats, expertise juridique, accompagnement juridique" />
+      <meta name="author" content="Votre Nom ou Entreprise" />
+
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         <Overlay />
@@ -212,7 +221,7 @@ export default function AuditJuridique() {
               qu’elles soient. Nous mettons à votre disposition un
               accompagnement sur mesure pour chaque situation.
             </Paragraph>
-            <ParagraphImage src={commercial} alt="Analyse juridique" />
+            <ParagraphImage src={commercial} alt="Expertise juridique - Analyse de documents" />
           </ParagraphWrapper>
 
           {/* Section 2 : Accompagnement dans la régulation */}
@@ -227,7 +236,7 @@ export default function AuditJuridique() {
               requis, la représentation auprès des autorités compétentes, et le
               suivi des modifications législatives.
             </Paragraph>
-            <ParagraphImage src={EVOL} alt="Régulation juridique" />
+            <ParagraphImage src={EVOL} alt="Régulation juridique - Suivi des lois" />
           </ParagraphWrapper>
 
           {/* Section 3 : Consultations personnalisées */}
@@ -242,7 +251,7 @@ export default function AuditJuridique() {
               chaque cas avec une attention particulière pour offrir un service
               réellement personnalisé.
             </Paragraph>
-            <ParagraphImage src={MOE_0400} alt="Consultation juridique" />
+            <ParagraphImage src={MOE_0400} alt="Consultation juridique - Analyse de cas" />
           </ParagraphWrapper>
 
           {/* Section 4 : Formations spécialisées */}
@@ -256,7 +265,7 @@ export default function AuditJuridique() {
               Ces formations couvrent des sujets variés allant de la gestion des
               contrats à la prévention des litiges.
             </Paragraph>
-            <ParagraphImage src={jurid} alt="Formation juridique" />
+            <ParagraphImage src={jurid} alt="Formation juridique - Apprentissage des lois" />
           </ParagraphWrapper>
 
           {/* Section 5 : Protection juridique */}
@@ -274,7 +283,7 @@ export default function AuditJuridique() {
 
           {/* Conteneur des images */}
           <ImageContainer>
-            <Image src={logoAODnoir} alt="Logo AOD"  />
+            <Image src={logoAODnoir} alt="Logo AOD - Expertise Juridique" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

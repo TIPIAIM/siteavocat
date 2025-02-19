@@ -14,7 +14,7 @@ import jurid1 from "./../../../assets/Image/jurid1.avif";
 import jurid from "./../../../assets/Image/jurid.avif";
 
 // Conteneur principal avec fond fixe
-const BackgroundContainer = styled.div`
+const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh; /* Hauteur minimale de la vue */
   background-image: url("img/confience.avif"); /* Image de fond */
@@ -35,7 +35,7 @@ const Overlay = styled.div`
 `;
 
 // Conteneur du contenu
-const ContentContainer = styled.div`
+const ContentContainer = styled.article` /* Utilisation d'une balise sémantique */
   position: relative;
   z-index: 10; /* Positionne au-dessus de la superposition */
   padding: 4rem 2rem; /* Espacement interne */
@@ -73,7 +73,7 @@ const Title = styled.h1`
   }
 `;
 
-const ParagraphWrapper = styled.div`
+const ParagraphWrapper = styled.section` /* Utilisation d'une balise sémantique */
   display: flex;
   align-items: flex-start;
   margin-bottom: 0rem;
@@ -94,7 +94,6 @@ const ParagraphWrapper = styled.div`
     align-items: center;
   }
 `;
-
 
 // Image des paragraphes
 const ParagraphImage = styled.img`
@@ -117,6 +116,7 @@ const ParagraphImage = styled.img`
     margin: 0 auto;
   }
 `;
+
 // Paragraphe
 const Paragraph = styled.p`
   font-size: 1.2rem; /* Taille de la police */
@@ -192,9 +192,18 @@ export default function AuditJuridique() {
     });
   }, []);
 
+  // Dynamisation du titre de la page pour le SEO
+  useEffect(() => {
+    document.title = "Audit Juridique - Expertise et Accompagnement sur Mesure";
+  }, []);
+
   return (
     <div>
-      
+      {/* Balise meta pour le SEO */}
+      <meta name="description" content="Obtenez un audit juridique professionnel et personnalisé. Notre équipe d'experts vous accompagne pour garantir la conformité et la sécurité de vos activités." />
+      <meta name="keywords" content="audit juridique, expertise juridique, conformité, prévention des risques, accompagnement juridique" />
+      <meta name="author" content="Votre Nom ou Entreprise" />
+
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         <Overlay />
@@ -209,7 +218,7 @@ export default function AuditJuridique() {
 
           {/* Section 1 : Analyse approfondie */}
           <ParagraphWrapper data-aos="fade-up">
-            <ParagraphImage src={jurid} alt="Analyse juridique" />
+            <ParagraphImage src={jurid} alt="Analyse juridique - Expertise en droit" />
             <Paragraph>
               Dans un environnement juridique de plus en plus complexe, un audit
               juridique rigoureux est essentiel pour garantir la pérennité de
@@ -220,7 +229,7 @@ export default function AuditJuridique() {
 
           {/* Section 2 : Analyse stratégique */}
           <ParagraphWrapper data-aos="fade-up">
-            <ParagraphImage src={jurid1} alt="Stratégie juridique" />
+            <ParagraphImage src={jurid1} alt="Stratégie juridique - Optimisation des contrats" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>1. Une analyse approfondie et stratégique :</strong>{" "}
               Notre équipe procède à une évaluation complète de vos documents
@@ -232,8 +241,8 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 3 : Expertise multidisciplinaire */}
-          <ParagraphWrapper >
-            <ParagraphImage src={affaire} alt="Expertise juridique" />
+          <ParagraphWrapper>
+            <ParagraphImage src={affaire} alt="Expertise juridique - Droit des affaires" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>2. Une expertise multidisciplinaire unique :</strong>{" "}
               Nos avocats spécialisés couvrent plusieurs branches du droit,
@@ -244,8 +253,8 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 4 : Conformité */}
-          <ParagraphWrapper >
-            <ParagraphImage src={conf} alt="Conformité juridique" />
+          <ParagraphWrapper>
+            <ParagraphImage src={conf} alt="Conformité juridique - Mise à jour des normes" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>3. Une conformité avec les normes en constante évolution :</strong>{" "}
               Les lois et réglementations changent rapidement. Nous veillons à
@@ -256,8 +265,8 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 5 : Prévention des risques */}
-          <ParagraphWrapper >
-            <ParagraphImage src={PREV} alt="Prévention juridique" />
+          <ParagraphWrapper>
+            <ParagraphImage src={PREV} alt="Prévention juridique - Gestion des risques" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>4. Une prévention proactive des risques :</strong>{" "}
               Un audit juridique efficace vous permet de prévoir et d’éviter des
@@ -268,8 +277,8 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 6 : Accompagnement sur mesure */}
-          <ParagraphWrapper >
-            <ParagraphImage src={EVOL} alt="Accompagnement juridique" />
+          <ParagraphWrapper>
+            <ParagraphImage src={EVOL} alt="Accompagnement juridique - Solutions personnalisées" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>5. Un accompagnement sur mesure :</strong>{" "}
               Au-delà de l’audit, nous vous assistons dans la mise en œuvre des
@@ -280,8 +289,8 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 7 : Avantages concrets */}
-          <ParagraphWrapper >
-            <ParagraphImage src={sttis} alt="Avantages juridiques" />
+          <ParagraphWrapper>
+            <ParagraphImage src={sttis} alt="Avantages juridiques - Réduction des coûts" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>6. Des avantages concrets pour votre organisation :</strong>
               <ul>
@@ -302,7 +311,7 @@ export default function AuditJuridique() {
           </ParagraphWrapper>
 
           {/* Section 8 : Relation de confiance */}
-          <ParagraphWrapper >
+          <ParagraphWrapper>
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>7. Une relation de confiance :</strong>{" "}
               Notre engagement repose sur la transparence, la discrétion, et une
@@ -313,7 +322,7 @@ export default function AuditJuridique() {
 
           {/* Conteneur des images */}
           <ImageContainer>
-            <Image src={logoAODnoir} alt="Logo AOD" />
+            <Image src={logoAODnoir} alt="Logo AOD - Expertise Juridique" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

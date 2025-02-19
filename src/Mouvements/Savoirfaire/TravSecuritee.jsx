@@ -32,9 +32,7 @@ const ContentContainer = styled.article`
   max-width: 900px;
   margin: 2rem auto;
   padding: 4rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.9);
 
   @media (max-width: 1024px) {
     padding: 3rem;
@@ -42,12 +40,8 @@ const ContentContainer = styled.article`
 
   @media (max-width: 768px) {
     padding: 2rem;
-    
   }
-
- 
 `;
-
 
 const Paragraph = styled.p`
   font-size: 1.2rem;
@@ -101,7 +95,6 @@ export default function TravSecuritee() {
 
   return (
     <div>
-      
       <BackgroundContainer>
         {/* Suspense pour le chargement différé de Securite */}
         <Suspense
@@ -115,14 +108,14 @@ export default function TravSecuritee() {
           <BardeNavigationpublic />
 
           <ContentContainer>
-            <Paragraph data-aos="fade-up" data-aos-delay="400">
+            <Paragraph data-aos="fade-up">
               Nous restons constamment à jour sur les évolutions des lois
               relatives à la sécurité au travail et à la sécurité sociale. Cela
               nous permet de vous offrir des solutions juridiques adaptées et
               efficaces, répondant aux normes en vigueur.
             </Paragraph>
 
-            <Paragraph data-aos="fade-up" data-aos-delay="600">
+            <Paragraph data-aos="fade-up">
               Notre cabinet aide les employeurs à se conformer aux
               réglementations en matière de sécurité et de protection sociale
               tout en minimisant les risques juridiques. Pour les salariés, nous
@@ -130,7 +123,7 @@ export default function TravSecuritee() {
               congés maladie, d’indemnités ou de pensions.
             </Paragraph>
 
-            <Paragraph data-aos="fade-up" data-aos-delay="800">
+            <Paragraph data-aos="fade-up">
               En nous choisissant, vous optez pour un cabinet engagé, compétent
               et soucieux de protéger vos droits. Faites confiance à notre
               savoir-faire pour résoudre vos litiges, assurer votre sécurité

@@ -15,7 +15,7 @@ const BackgroundContainer = styled.section`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: url("/img/lgoODnoir.avif") center/cover no-repeat;
+  background: url("/img/logoAODnoir.avif") center/cover no-repeat;
   background-attachment: fixed;
   color: #fff;
 
@@ -28,9 +28,7 @@ const ContentWrapper = styled.article`
   max-width: 900px;
   margin: 2rem auto;
   padding: 4rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.9);
 
   @media (max-width: 1024px) {
     padding: 3rem;
@@ -47,7 +45,7 @@ const ContentWrapper = styled.article`
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #00b4d8;
   text-align: center;
@@ -55,6 +53,7 @@ const Title = styled.h1`
 
   @media (max-width: 1024px) {
     font-size: 2.2rem;
+    text-align: center;
   }
 
   @media (max-width: 768px) {
@@ -63,6 +62,7 @@ const Title = styled.h1`
 
   @media (max-width: 480px) {
     font-size: 1.8rem;
+    text-align: center;
   }
 `;
 
@@ -82,9 +82,9 @@ const Subtitle = styled.h2`
 
   @media (max-width: 480px) {
     font-size: 1.2rem;
-     padding: 1rem 2rem;
+    padding: 1rem 1.2rem;
+    text-align: center;
   }
-    
 `;
 
 const Paragraph = styled.p`
@@ -99,19 +99,20 @@ const Paragraph = styled.p`
 
   @media (max-width: 480px) {
     font-size: 1rem;
-    padding: 0.5rem 1.9rem;
+    padding: 0.5rem 1.2rem;
+    padding-left: 2rem;
   }
 `;
 
 const List = styled.ul`
   list-style-type: disc;
   padding-left: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   @media (max-width: 480px) {
     padding: 1rem 2rem;
   }
-         @media (max-width: 480px) {
+  @media (max-width: 480px) {
     margin-left: 1rem;
   }
 `;
@@ -124,7 +125,6 @@ const ListItem = styled.li`
   @media (max-width: 768px) {
     font-size: 1rem;
   }
- 
 `;
 
 const OverlayTop = styled.div`
@@ -156,7 +156,7 @@ const Minier2 = () => {
         <ContentWrapper>
           <OverlayTop />
           <OverlayBottom />
-          <Title data-aos="fade-up">Droit Minier et Environnemental</Title>
+          <Title data-aos="fade-up">Le lien</Title>
           <section data-aos="fade-up" data-aos-delay="300">
             <Paragraph>
               Le droit minier et le droit de l`environnement sont étroitement
@@ -192,9 +192,7 @@ const Minier2 = () => {
 
         <ContentWrapper>
           <OverlayBottom />
-          <Title data-aos="fade-up">
-            Les Litiges Miniers et Environnementaux
-          </Title>
+          <Title data-aos="fade-up">Les Litiges</Title>
           <section data-aos="fade-up" data-aos-delay="300">
             <Paragraph>
               Les litiges miniers et environnementaux sont souvent complexes et

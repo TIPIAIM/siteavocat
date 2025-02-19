@@ -1,4 +1,4 @@
-import  { useEffect } from "react"; // Importation de React et useEffect
+import { useEffect } from "react"; // Importation de React et useEffect
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
 import styled from "styled-components"; // Importation de styled-components pour les styles
@@ -11,7 +11,7 @@ import travail from "./../../../assets/Image/travail.avif";
 import image from "./../../../assets/Image/FISCAL.avif";
 
 // Conteneur principal avec fond fixe
-const BackgroundContainer = styled.div`
+const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh; /* Hauteur minimale de la vue */
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -32,7 +32,7 @@ const Overlay = styled.div`
 `;
 
 // Conteneur du contenu
-const ContentContainer = styled.div`
+const ContentContainer = styled.article` /* Utilisation d'une balise sémantique */
   position: relative;
   z-index: 10; /* Positionne au-dessus de la superposition */
   padding: 4rem 2rem; /* Espacement interne */
@@ -71,7 +71,7 @@ const Title = styled.h1`
 `;
 
 // Conteneur des paragraphes
-const ParagraphContainer = styled.div`
+const ParagraphContainer = styled.section` /* Utilisation d'une balise sémantique */
   display: flex;
   align-items: flex-start; /* Alignement en haut */
   margin-bottom: 2rem; /* Marge en bas */
@@ -179,9 +179,18 @@ export default function Contentieux() {
     });
   }, []);
 
+  // Dynamisation du titre de la page pour le SEO
+  useEffect(() => {
+    document.title = "Droit de Contentieux - Expertise et Gestion des Litiges";
+  }, []);
+
   return (
     <div>
-      
+      {/* Balise meta pour le SEO */}
+      <meta name="description" content="Obtenez une expertise en droit de contentieux. Notre équipe d'avocats expérimentés vous accompagne dans la gestion des litiges complexes." />
+      <meta name="keywords" content="droit de contentieux, gestion des litiges, avocats spécialisés, expertise juridique, résolution de conflits" />
+      <meta name="author" content="Votre Nom ou Entreprise" />
+
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         <Overlay />
@@ -207,7 +216,7 @@ export default function Contentieux() {
 
           {/* Section 2 : Stratégies adaptées */}
           <ParagraphContainer data-aos="fade-up">
-            <StyledImage data-aos="fade-up" src={FISCAL} alt="Stratégies adaptées" />
+            <StyledImage data-aos="fade-up" src={FISCAL} alt="Stratégies adaptées en contentieux" />
             <Paragraph>
               Chaque contentieux est unique. Nous analysons minutieusement votre
               situation pour élaborer des stratégies adaptées à vos besoins
@@ -218,8 +227,8 @@ export default function Contentieux() {
           </ParagraphContainer>
 
           {/* Section 3 : Protection des droits */}
-          <ParagraphContainer >
-            <StyledImage src={arbitra} alt="Protection des droits" />
+          <ParagraphContainer>
+            <StyledImage src={arbitra} alt="Protection des droits en contentieux" />
             <Paragraph>
               Nous sommes déterminés à protéger vos droits et à défendre vos
               intérêts avec rigueur et professionnalisme. Que ce soit pour des
@@ -230,8 +239,8 @@ export default function Contentieux() {
           </ParagraphContainer>
 
           {/* Section 4 : Communication claire */}
-          <ParagraphContainer >
-            <StyledImage src={travail} alt="Communication claire" />
+          <ParagraphContainer>
+            <StyledImage src={travail} alt="Communication claire en contentieux" />
             <Paragraph>
               Nous croyons en une communication claire et continue avec nos
               clients. Vous serez informé à chaque étape du processus, et nous
@@ -241,8 +250,8 @@ export default function Contentieux() {
           </ParagraphContainer>
 
           {/* Section 5 : Résultats probants */}
-          <ParagraphContainer >
-            <StyledImage src={image} alt="Résultats probants" />
+          <ParagraphContainer>
+            <StyledImage src={image} alt="Résultats probants en contentieux" />
             <Paragraph>
               Notre cabinet est reconnu pour sa capacité à résoudre des
               contentieux complexes avec succès. Nos résultats et la
@@ -253,7 +262,7 @@ export default function Contentieux() {
 
           {/* Conteneur des images */}
           <ImageContainer>
-            <Image src={logoAODnoir} alt="Logo AOD" />
+            <Image src={logoAODnoir} alt="Logo AOD - Expertise en Contentieux" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

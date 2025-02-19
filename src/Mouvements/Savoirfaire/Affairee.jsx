@@ -10,7 +10,7 @@ const Affair = React.lazy(() => import("./Affair"));
 const Affairfinal = React.lazy(() => import("./Affairfinal"));
 
 // Conteneur principal avec superposition sombre
-const AffairesContainer = styled.div`
+const AffairesContainer = styled.section` /* Utilisation d'une balise sémantique */
   width: 100%;
   min-height: 100vh; /* Hauteur minimale de la vue */
   padding: 50px 20px; /* Espacement interne */
@@ -34,7 +34,7 @@ const AffairesContainer = styled.div`
 `;
 
 // Wrapper pour le contenu principal
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.article` /* Utilisation d'une balise sémantique */
   position: relative;
   z-index: 2; /* Positionne au-dessus de la superposition sombre */
   max-width: 1200px; /* Largeur maximale du contenu */
@@ -45,7 +45,7 @@ const ContentWrapper = styled.div`
 `;
 
 // Titre de la section
-const SectionTitle = styled.h2`
+const SectionTitle = styled.h1` /* Utilisation de h1 pour le titre principal (SEO) */
   font-size: 2.8rem; /* Taille de la police */
   font-weight: bold; /* Gras */
   margin-bottom: 40px; /* Marge en bas */
@@ -58,7 +58,7 @@ const SectionTitle = styled.h2`
 `;
 
 // Carte d'article
-const ArticleCard = styled.div`
+const ArticleCard = styled.article` /* Utilisation d'une balise sémantique */
   background: rgba(10, 34, 64, 0.7); /* Fond semi-transparent */
   border-radius: 1px; /* Bordure arrondie */
   overflow: hidden; /* Cache le contenu débordant */
@@ -99,7 +99,7 @@ const ArticleContent = styled.div`
 `;
 
 // Titre de l'article
-const ArticleTitle = styled.h3`
+const ArticleTitle = styled.h2` /* Utilisation de h2 pour le titre de l'article (SEO) */
   font-size: 1.8rem; /* Taille de la police */
   font-weight: bold; /* Gras */
   margin-bottom: 5px; /* Marge en bas */
@@ -122,7 +122,7 @@ const ArticleDescription = styled.p`
     list-style: none; /* Supprime les puces de la liste */
     padding: 0; /* Supprime le padding par défaut */
 
-    h4 {
+    h3 {
       font-size: 1.2rem; /* Taille de la police */
       color: #90e0ef; /* Couleur du texte */
       margin-top: 40px; /* Marge en haut */
@@ -194,15 +194,24 @@ const Affairee = () => {
     });
   }, []);
 
+  // Dynamisation du titre de la page pour le SEO
+  useEffect(() => {
+    document.title = "Les Contrats en Affaires - Expertise Juridique et Stratégique";
+  }, []);
+
   return (
     <div>
-      
+      {/* Balise meta pour le SEO */}
+      <meta name="description" content="Découvrez l'importance des contrats dans les affaires. Notre expertise juridique vous aide à sécuriser vos relations commerciales et à gérer les risques." />
+      <meta name="keywords" content="contrats en affaires, expertise juridique, gestion des risques, droit des sociétés, droit commercial" />
+      <meta name="author" content="Votre Nom ou Entreprise" />
+
       {/* Suspense pour le chargement différé des composants */}
       <Suspense
         fallback={
           <FallbackContainer>
             {/* Logo de l'entreprise avec animation */}
-            <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
+            <FallbackLogo src={tiptamcode} alt="TIPTAMCode - Chargement en cours" />
           </FallbackContainer>
         }
       >
@@ -213,14 +222,14 @@ const Affairee = () => {
         <AffairesContainer>
           <ContentWrapper>
             {/* Titre de la section avec animation */}
-            <SectionTitle data-aos="fade-down">L’importances</SectionTitle>
+            <SectionTitle data-aos="fade-down">L’importance des contrats en affaires</SectionTitle>
             {/* Carte d'article avec animation */}
             <ArticleCard data-aos="fade-up">
               <MediaWrapper>
                 {/* Image de l'article avec chargement différé */}
                 <img
                   src={articleImage}
-                  alt="Contrats en affaires"
+                  alt="Contrats en affaires - Expertise juridique"
                   data-aos="zoom-in"
                   loading="lazy"
                 />
@@ -236,9 +245,9 @@ const Affairee = () => {
                   fonctionnement et le développement du monde des affaires.
                   Voici pourquoi leur importance ne peut être sous-estimée :
                   <ul>
-                    <h4 data-aos="fade-down">
+                    <h3 data-aos="fade-down">
                       Un outil juridique indispensable
-                    </h4>
+                    </h3>
                     <li>
                       Définition des droits et obligations : Les contrats
                       définissent clairement les engagements des parties.
@@ -253,9 +262,9 @@ const Affairee = () => {
                     </li>
                   </ul>
                   <ul>
-                    <h4 data-aos="fade-down">
+                    <h3 data-aos="fade-down">
                       Un outil stratégique pour les entreprises
-                    </h4>
+                    </h3>
                     <li>
                       Sécurisation des relations commerciales : Renforce la
                       confiance entre les parties.
@@ -270,7 +279,7 @@ const Affairee = () => {
                     </li>
                   </ul>
                   <ul>
-                    <h4 data-aos="fade-down">Des applications variées</h4>
+                    <h3 data-aos="fade-down">Des applications variées</h3>
                     <li>
                       Droit des sociétés : Contrats d’association, partenariats.
                     </li>
@@ -284,6 +293,7 @@ const Affairee = () => {
                 <ReadMoreButton
                   href="https://aurelienbamde.com/2020/10/15/les-conditions-de-la-gestion-daffaires/"
                   data-aos="fade-down"
+                  aria-label="En savoir plus sur les contrats en affaires"
                 >
                   Lire plus
                 </ReadMoreButton>

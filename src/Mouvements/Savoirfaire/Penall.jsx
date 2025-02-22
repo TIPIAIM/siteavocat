@@ -6,6 +6,7 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
+import SEO from "./Seoglobale";
 
 // Chargement différé du composant Penal2
 const Penal2 = React.lazy(() => import("./Penal2"));
@@ -17,7 +18,7 @@ AOS.init({
 });
 
 // Styles
-const BackgroundContainer = styled.section`
+const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh;
   background-image: url("img/logoAODnoir.avif");
@@ -36,7 +37,7 @@ const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.8);
 `;
 
-const ContentContainer = styled.article`
+const ContentContainer = styled.article` /* Utilisation d'une balise sémantique */
   position: relative;
   z-index: 10;
   padding: 4rem 2rem;
@@ -92,7 +93,7 @@ const Paragraph = styled.p`
 
   @media (max-width: 480px) {
     font-size: 1rem;
-     padding: 0.5rem;
+    padding: 0.5rem;
   }
 `;
 
@@ -106,6 +107,7 @@ const Divider = styled.div`
     width: 150px;
   }
 `;
+
 const BackButton = styled(Link)`
   display: flex;
   align-items: center;
@@ -167,68 +169,75 @@ export default function Penall() {
 
   return (
     <div>
-      
-          {/* Suspense pour le chargement différé de Penal2 */}
-          <Suspense
+      {/* Intégration du composant SEO */}
+      <SEO
+        title="Droit Pénal - Expertise Juridique en Défense Pénale"
+        description="Notre cabinet spécialisé en droit pénal vous accompagne dans la défense de vos droits. Que vous soyez victime ou accusé, nous vous offrons une représentation rigoureuse et personnalisée."
+        keywords="droit pénal, défense pénale, avocat pénaliste, procédure pénale, justice pénale"
+        url="https://aod-avocats.net/penall"
+        image="https://aod-avocats.net/img/logoAODnoir.avif"
+      />
+
+      {/* Suspense pour le chargement différé de Penal2 */}
+      <Suspense
         fallback={
           <FallbackContainer>
-              <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
+            <FallbackLogo src={tiptamcode} alt="TIPTAMCode - Chargement en cours" />
           </FallbackContainer>
         }
       >
-      <BackgroundContainer>
-        <Overlay />
-        <BardeNavigationpublic />
-        <ContentContainer>
-          <BackButton to="/nosexpertises" data-aos="fade-right">
-            <FaArrowLeft size={20} />
-          </BackButton>
-          <Title data-aos="fade-right">Le droit pénal</Title>
-          <Divider data-aos="fade-down"  />
-          <Paragraph data-aos="fade-up" data-aos-delay="300">
-            Notre cabinet possède une expertise approfondie en droit pénal, avec
-            une équipe d’avocats expérimentés qui maîtrisent toutes les facettes
-            de cette discipline. Que vous soyez victime ou accusé, nous vous
-            garantissons une défense rigoureuse, basée sur une analyse approfondie
-            de votre dossier et des stratégies juridiques adaptées.
-          </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="350">
-            Nous comprenons que les affaires pénales sont souvent complexes et
-            émotionnellement difficiles. C’est pourquoi nous adoptons une approche
-            humaine, en vous écoutant attentivement et en vous accompagnant tout
-            au long du processus judiciaire. Chaque client est unique, et nous
-            nous engageons à vous offrir un soutien sur mesure.
-          </Paragraph>
-          <Paragraph data-aos="zoom-in" >
-            Notre objectif est de protéger vos droits à chaque étape de la
-            procédure pénale. Grâce à notre connaissance des lois, des procédures
-            et des juridictions, nous anticipons les éventuelles complications et
-            mettons tout en œuvre pour obtenir le meilleur résultat possible, que
-            ce soit en négociant une peine réduite ou en plaidant en votre faveur
-            devant les tribunaux.
-          </Paragraph>
-          <Paragraph data-aos="fade-up" >
-            Dans les affaires pénales, chaque minute compte. Notre équipe est
-            disponible pour répondre rapidement à vos besoins urgents, qu’il
-            s’agisse d’une garde à vue, d’une comparution immédiate ou d’une mise
-            en détention. Nous sommes à vos côtés pour agir avec efficacité et
-            réactivité.
-          </Paragraph>
-          <Paragraph data-aos="zoom-in">
-            En choisissant notre cabinet, vous faites appel à des professionnels
-            engagés, compétents et déterminés à défendre vos intérêts. Faites
-            confiance à notre savoir-faire pour vous représenter avec force et
-            conviction face à la justice.
-          </Paragraph>
-          <Paragraph data-aos="fade-up" >
-            Si vous êtes confronté à une affaire pénale, ne restez pas seul.
-            Contactez notre cabinet pour une consultation confidentielle et
-            laissez-nous vous accompagner avec professionnalisme et intégrité.
-          </Paragraph>
-        </ContentContainer>
-      </BackgroundContainer>
+        <BackgroundContainer>
+          <Overlay />
+          <BardeNavigationpublic />
+          <ContentContainer>
+            <BackButton to="/nosexpertises" data-aos="fade-right">
+              <FaArrowLeft size={20} />
+            </BackButton>
+            <Title data-aos="fade-right">Le droit pénal</Title>
+            <Divider data-aos="fade-down" />
+            <Paragraph data-aos="fade-up" >
+              Notre cabinet possède une expertise approfondie en droit pénal, avec
+              une équipe d’avocats expérimentés qui maîtrisent toutes les facettes
+              de cette discipline. Que vous soyez victime ou accusé, nous vous
+              garantissons une défense rigoureuse, basée sur une analyse approfondie
+              de votre dossier et des stratégies juridiques adaptées.
+            </Paragraph>
+            <Paragraph data-aos="fade-up" data-aos-delay="350">
+              Nous comprenons que les affaires pénales sont souvent complexes et
+              émotionnellement difficiles. C’est pourquoi nous adoptons une approche
+              humaine, en vous écoutant attentivement et en vous accompagnant tout
+              au long du processus judiciaire. Chaque client est unique, et nous
+              nous engageons à vous offrir un soutien sur mesure.
+            </Paragraph>
+            <Paragraph data-aos="fade-up">
+              Notre objectif est de protéger vos droits à chaque étape de la
+              procédure pénale. Grâce à notre connaissance des lois, des procédures
+              et des juridictions, nous anticipons les éventuelles complications et
+              mettons tout en œuvre pour obtenir le meilleur résultat possible, que
+              ce soit en négociant une peine réduite ou en plaidant en votre faveur
+              devant les tribunaux.
+            </Paragraph>
+            <Paragraph data-aos="fade-up">
+              Dans les affaires pénales, chaque minute compte. Notre équipe est
+              disponible pour répondre rapidement à vos besoins urgents, qu’il
+              s’agisse d’une garde à vue, d’une comparution immédiate ou d’une mise
+              en détention. Nous sommes à vos côtés pour agir avec efficacité et
+              réactivité.
+            </Paragraph>
+            <Paragraph data-aos="fade-up">
+              En choisissant notre cabinet, vous faites appel à des professionnels
+              engagés, compétents et déterminés à défendre vos intérêts. Faites
+              confiance à notre savoir-faire pour vous représenter avec force et
+              conviction face à la justice.
+            </Paragraph>
+            <Paragraph data-aos="fade-up">
+              Si vous êtes confronté à une affaire pénale, ne restez pas seul.
+              Contactez notre cabinet pour une consultation confidentielle et
+              laissez-nous vous accompagner avec professionnalisme et intégrité.
+            </Paragraph>
+          </ContentContainer>
+        </BackgroundContainer>
 
-  
         <Penal2 />
       </Suspense>
     </div>

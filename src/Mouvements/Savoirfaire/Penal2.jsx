@@ -28,7 +28,7 @@ const PenalContainer = styled.section`
 
   @media (max-width: 480px) {
     font-size: 1.8rem;
-    padding: 1rem;
+    padding: 2rem;
   }
 `;
 
@@ -136,7 +136,7 @@ const PenalDescription = styled.p`
 
   @media (max-width: 768px) {
     font-size: 0.95rem;
-    padding: 1rem;
+
   }
 `;
 
@@ -167,7 +167,7 @@ const Penal2 = () => {
       link: "https://derechos.org/intlaw/doc/gin1.html",
     },
     {
-      title: "Objectifs du droit pénal : Prévention, Répression, et Réinsertion",
+      title: "Objectifs du droit pénal ",
       description:
         "Le droit pénal vise la prévention des actes nuisibles à la société, leur répression, et la réinsertion des condamnés.",
       mediaType: "image",

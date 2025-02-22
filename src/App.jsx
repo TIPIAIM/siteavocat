@@ -36,6 +36,7 @@ import Gclient from "./Mouvements/Administrateur/GestionClient/Gclient";
 import Famillee from "./Mouvements/Savoirfaire/Famillee";
 import Affairee from "./Mouvements/Savoirfaire/Affairee";
 import Petitecrandeux from "./Mouvements/Erreur/Erreur";
+import Assistant from "./Mouvements/Assistant/Assistant";
 
 
 function App() {
@@ -51,8 +52,9 @@ function App() {
         {/**
    <Route path="/login" element={<LoginForm />} />
    <Route path="/register" element={<RegisterForm />} />  
-         <Route path="/Logoutdecconnexion" element={<LogoutButton />} />
- */}
+    */}     
+     <Route path="/assistance" element={<Assistant />} />
+
         {/**donnee prisent dns le serveur  suprimer pres */}
         <Route path="/elementList" element={<ElementList />} />
         {/**donnee des commentires public reçu */}

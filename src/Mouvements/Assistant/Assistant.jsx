@@ -10,6 +10,7 @@ import {
   LampCeiling,
 } from "lucide-react";
 import rightImage from "../../assets/Image/photo-accueil.avif";
+import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 
 const questions = [
   { id: 1, question: "Comment protéger une marque ?", category: "juridique" },
@@ -268,8 +269,8 @@ const EnhancedSidebar = styled.div`
 
 const FloatingToggle = styled.div`
   position: fixed;
-  left: ${(props) => (props.isOpen ? "calc(40px + 1rem)" : "1rem")};
-  top: 1rem;
+  left: ${(props) => (props.isOpen ? "calc(40px + 1rem)" : "2.5rem")};
+  top: 6rem;
   width: 50px;
   height: 45px;
   background: rgb(3, 28, 54);
@@ -643,6 +644,7 @@ const Assistant = () => {
 
   return (
     <ProfessionalContainer>
+      <BardeNavigationpublic />
       <FloatingToggle
         isOpen={isSidebarOpen}
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}

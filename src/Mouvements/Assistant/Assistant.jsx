@@ -643,7 +643,7 @@ const Assistant = () => {
   };
 
   return (
-    <ProfessionalContainer>
+    <ProfessionalContainer >
       <BardeNavigationpublic />
       <FloatingToggle
         isOpen={isSidebarOpen}
@@ -652,9 +652,9 @@ const Assistant = () => {
         {isSidebarOpen ? <Scale /> : <HandshakeIcon />}
       </FloatingToggle>
 
-      <EnhancedSidebar isOpen={isSidebarOpen}>
+      <EnhancedSidebar className=" mt-12"  isOpen={isSidebarOpen}>
         <ChatHeader>
-          <h2>Je suis l`assistant chez AOD-A</h2>
+          <h2></h2>
         </ChatHeader>
 
         <ContentWrapper>

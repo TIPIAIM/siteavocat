@@ -37,6 +37,7 @@ import Famillee from "./Mouvements/Savoirfaire/Famillee";
 import Affairee from "./Mouvements/Savoirfaire/Affairee";
 import Petitecrandeux from "./Mouvements/Erreur/Erreur";
 import Assistant from "./Mouvements/Assistant/Assistant";
+import FloatingButton from "./Mouvements/Assistant/assistboutom";
 
 
 function App() {
@@ -44,15 +45,15 @@ function App() {
     <BrowserRouter>
       <GlobalStyle />
       <StructuredData />
-    
+      <FloatingButton />
       <Routes>
         <Route index element={<Accueil />} />
         <Route path="*" element={<Petitecrandeux />} />
         {/**pge d'erreur */}
         {/**
    <Route path="/login" element={<LoginForm />} />
-   <Route path="/register" element={<RegisterForm />} />  
-    */}     
+   */}   <Route path="/assist" element={<FloatingButton />} />  
+      
      <Route path="/assistance" element={<Assistant />} />
 
         {/**donnee prisent dns le serveur  suprimer pres */}

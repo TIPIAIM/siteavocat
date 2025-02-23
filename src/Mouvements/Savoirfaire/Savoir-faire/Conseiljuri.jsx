@@ -125,7 +125,7 @@ const Conseiljuri = () => {
       {/* Balise meta pour le SEO */}
       <meta name="description" content="Obtenez des conseils juridiques professionnels et personnalisés. Notre équipe d'experts vous accompagne dans tous vos projets juridiques." />
       <meta name="keywords" content="conseils juridiques, avocats, expertise juridique, accompagnement juridique" />
-      <meta name="author" content="Votre Nom ou Entreprise" />
+      <meta name="alpha ousmane" content="TIPTAMCode" />
 
       <Container style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
         <BardeNavigationpublic />

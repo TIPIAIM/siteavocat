@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import rightImage from "../../assets/Image/photo-accueil.avif";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
+import { Helmet } from "react-helmet";
 
 const questions = [
   { id: 1, question: "Comment protéger une marque ?", category: "juridique" },
@@ -643,7 +644,16 @@ const Assistant = () => {
   };
 
   return (
-    <ProfessionalContainer >
+    <ProfessionalContainer>
+      <Helmet>
+        <title>Assistance AOD-Avocats</title>
+        <meta name="description" content="Posez votre question" />
+        <meta
+          name="keywords"
+          content="juridique, entreprise, droit,assistance, comptabilité"
+        />
+        <meta name="TIPTAMCode" content="TIPTAMCode" />
+      </Helmet>
       <BardeNavigationpublic />
       <FloatingToggle
         isOpen={isSidebarOpen}
@@ -652,7 +662,7 @@ const Assistant = () => {
         {isSidebarOpen ? <Scale /> : <HandshakeIcon />}
       </FloatingToggle>
 
-      <EnhancedSidebar className=" mt-12"  isOpen={isSidebarOpen}>
+      <EnhancedSidebar className=" mt-12" isOpen={isSidebarOpen}>
         <ChatHeader>
           <h2></h2>
         </ChatHeader>

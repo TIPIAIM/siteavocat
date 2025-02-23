@@ -202,7 +202,7 @@ export default function AuditJuridique() {
       {/* Balise meta pour le SEO */}
       <meta name="description" content="Obtenez un audit juridique professionnel et personnalisé. Notre équipe d'experts vous accompagne pour garantir la conformité et la sécurité de vos activités." />
       <meta name="keywords" content="audit juridique, expertise juridique, conformité, prévention des risques, accompagnement juridique" />
-      <meta name="author" content="Votre Nom ou Entreprise" />
+      <meta name="alpha ousmane" content="TIPTAMCode" />
 
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>

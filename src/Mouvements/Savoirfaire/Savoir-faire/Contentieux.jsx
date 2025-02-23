@@ -189,7 +189,7 @@ export default function Contentieux() {
       {/* Balise meta pour le SEO */}
       <meta name="description" content="Obtenez une expertise en droit de contentieux. Notre équipe d'avocats expérimentés vous accompagne dans la gestion des litiges complexes." />
       <meta name="keywords" content="droit de contentieux, gestion des litiges, avocats spécialisés, expertise juridique, résolution de conflits" />
-      <meta name="author" content="Votre Nom ou Entreprise" />
+      <meta name="alpha ousmane" content="TIPTAMCode" />
 
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>

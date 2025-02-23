@@ -190,9 +190,10 @@ export default function AuditJuridique() {
   return (
     <div>
       {/* Balise meta pour le SEO */}
+      
       <meta name="description" content="Obtenez une assistance juridique professionnelle et personnalisée. Notre équipe d'experts vous accompagne dans tous vos projets juridiques." />
       <meta name="keywords" content="assistance juridique, avocats, expertise juridique, accompagnement juridique" />
-      <meta name="author" content="Votre Nom ou Entreprise" />
+      <meta name="alpha ousmane" content="TIPTAMCode" />
 
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>

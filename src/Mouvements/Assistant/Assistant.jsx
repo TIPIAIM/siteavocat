@@ -7,7 +7,7 @@ import {
   Scale,
   Building2,
   HandshakeIcon,
-  LampCeiling,
+ 
 } from "lucide-react";
 import rightImage from "../../assets/Image/photo-accueil.avif";
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
@@ -145,7 +145,7 @@ const ModalOverlay = styled.div`
 //cest bon
 const ModalContent = styled.div`
   background: white;
-  border-radius: 16px;
+  border-radius: 1px;
   width: min(90%, 700px);
   max-height: 80vh;
   overflow: hidden;
@@ -157,14 +157,14 @@ const ModalContent = styled.div`
 const ModalHeader = styled.div`
   display: flex;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1rem;
   background: rgb(1, 14, 29);
   color: white;
   position: relative;
 
   h3 {
     margin: 0;
-    font-size: 1.45rem;
+    font-size: 1.25rem;
     flex-grow: 1;
     padding-right: 2rem;
   }
@@ -193,8 +193,8 @@ const ModalBody = styled.div`
 
   p {
     white-space: pre-wrap;
-    line-height: 1.9;
-    font-size: 1.1rem;
+    line-height: 1.4;
+    font-size: 1rem;
     color: rgb(0, 2, 5);
     margin: 0;
   }
@@ -275,7 +275,7 @@ const FloatingToggle = styled.div`
   width: 50px;
   height: 45px;
   background: rgb(3, 28, 54);
-  border-radius: 90%;
+  border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -362,24 +362,24 @@ const ClosedStateContent = styled.div`
     position: relative;
     z-index: 1;
     max-width: 800px;
-    padding: 3rem;
+    padding: 2rem;
     background: rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(12px);
+    border-radius: 2px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transform: translateY(0);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.1, 0, 0.2, 1);
 
     &:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
     }
 
     h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(45deg, #1a365d, #4a90e2);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, white, #00b4d8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 700;
@@ -389,7 +389,7 @@ const ClosedStateContent = styled.div`
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1rem;
       line-height: 1.8;
       color: white;
       margin: 1.5rem 0;
@@ -398,7 +398,7 @@ const ClosedStateContent = styled.div`
 
       svg {
         transform: translateY(-50%);
-        color: #4a90e2;
+        color: #00b4d8;
 
         filter: drop-shadow(0 2px 4px rgba(74, 144, 226, 0.3));
       }
@@ -406,12 +406,12 @@ const ClosedStateContent = styled.div`
   }
 
   .cta-button {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding: 1rem 2.5rem;
-    background: linear-gradient(45deg, #4a90e2, rgb(26, 54, 93));
-    color: white;
+    background: linear-gradient(45deg, gray,);
+    color: #00b4d8;
     border: none;
-    border-radius: 50px;
+    border-radius: 10px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
@@ -419,7 +419,7 @@ const ClosedStateContent = styled.div`
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
-    box-shadow: 0 8px 24px rgba(74, 144, 226, 0.3);
+    box-shadow: 1px 8px 2px #00b4d8;
 
     &:hover {
       transform: translateY(-2px);
@@ -427,6 +427,7 @@ const ClosedStateContent = styled.div`
     }
 
     svg {
+    
       width: 1.4rem;
       height: 1.4rem;
       animation: float 3s ease-in-out infinite;
@@ -455,6 +456,7 @@ const ClosedStateContent = styled.div`
       }
 
       p {
+      
         font-size: 1rem;
         padding-left: 1.5rem;
 
@@ -533,9 +535,9 @@ const NoResultsMessage = styled.div`
   grid-column: 1 / -1;
   text-align: center;
   padding: 3rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #;
+  border-radius: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.01);
 
   p {
     color: #ff6b6b;
@@ -554,10 +556,10 @@ const QuestionCard = styled.div`
     145deg rgba(26, 38, 52, 0.95),
     rgba(16, 28, 42, 0.95)
   );
-  border-radius: 12px;
+  border-radius: 1px;
   padding: 1.5rem;
   transition: all 0.2s ease;
-  border: 1px solid rgba(74, 144, 226, 0.15);
+  border: 1px solid rgba(74, 144, 226, 0.05);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -588,7 +590,7 @@ const QuestionCard = styled.div`
     font-size: 0.85rem;
     font-weight: 600;
     color: ${(props) =>
-      props.category === "juridique" ? "#6aa8ff" : "#3dd68c"};
+      props.category === "juridique" ? "#90e0ef" : "#00b4d8"};
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: flex;
@@ -600,13 +602,14 @@ const QuestionCard = styled.div`
     width: 1.5rem;
     height: 1.5rem;
     color: ${(props) =>
-      props.category === "juridique" ? "#6aa8ff" : "#3dd68c"};
+      props.category === "juridique" ? "#90e0ef" : "#00b4d8"};
     margin-bottom: 0.5rem;
   }
 
   @media (max-width: 480px) {
     min-height: auto;
-    padding: 1.2rem;
+    padding: 1.8rem;
+    gap: 0.5rem;
 
     h3 {
       font-size: 0.95rem;
@@ -710,9 +713,8 @@ const Assistant = () => {
         <ClosedStateContent>
           <div className="welcome-message">
             <h1>Expertise Juridique sur Mesure</h1>
-            <p>
-              <LampCeiling style={{ margin: "0 5px" }} />
-              Accédez à notre intelligence juridique en un clic
+            <hr/>  <p>
+              Vous avez des questions ? <br/> Accédez à notre intelligence juridique en un clic
             </p>
             <button
               className="cta-button"

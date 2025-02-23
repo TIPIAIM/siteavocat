@@ -211,7 +211,7 @@ export default function Accueil() {
               <img
                 src={Image7}
                 alt="Notre équipe"
-                className="rounded-lg shadow-xl mb-6 w-full"
+                className=" shadow-xl mb-6 w-full"
               />
             </motion.div>
           </div>

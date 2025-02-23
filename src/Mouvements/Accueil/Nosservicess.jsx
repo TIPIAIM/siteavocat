@@ -70,7 +70,7 @@ const Grid = styled.div`
 
 const Card = styled.div`
   background: rgba(10, 34, 64, 0.9);
-  border-radius: 12px;
+  border-radius: 1px;
   padding: 0px;
   text-align: center;
   overflow: hidden;
@@ -89,7 +89,7 @@ const CardImage = styled.img`
   width: 100%;
   height: 250px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 1px;
 
   @media (max-width: 768px) {
     max-height: 150px;

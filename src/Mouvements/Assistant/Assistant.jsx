@@ -427,10 +427,10 @@ const ClosedStateContent = styled.div`
   .cta-button {
     margin-top: 1.5rem;
     padding: 1rem 2.5rem;
-    background: linear-gradient(45deg, gray,);
+    background: linear-gradient(45deg, gray);
     color: #00b4d8;
     border: none;
-    border-radius: 10px;
+    border-radius: 1px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
@@ -438,11 +438,12 @@ const ClosedStateContent = styled.div`
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
-    box-shadow: 1px 8px 2px #00b4d8;
+    box-shadow: 2px 6px 0px #00b4d8;
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(74, 144, 226, 0.4);
+      box-shadow: -1px 1px 1px 3px rgba(2, 11, 22, 0.97);
+
     }
 
     svg {

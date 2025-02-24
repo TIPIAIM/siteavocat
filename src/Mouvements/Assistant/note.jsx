@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import styled, { keyframes } from "styled-components";
 import {
@@ -14,15 +14,6 @@ import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { Helmet } from "react-helmet";
 
 //pour les frappe
-const typing = keyframes`
-  from { width: 0 }
-  to { width: 100% }
-`;
-
-const blinkCaret = keyframes`
-  from, to { border-color: transparent }
-  50% { border-color: #00b4d8 }
-`;
 
 
 const questions = [
@@ -201,21 +192,14 @@ const ModalHeader = styled.div`
 const ModalBody = styled.div`
   padding: 2rem;
   overflow-y: auto;
-  max-height: 60vh;
+  max-height: 100vh;
 
   p {
-    color: rgb(0, 2, 5);
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0;
     white-space: pre-wrap;
-    
-    /* Effet machine à écrire */
-    overflow: hidden;
-    border-right: 2px solid #00b4d8
-    animation: 
-      ${typing} 3.5s steps(40, end),
-      ${blinkCaret} 0.75s step-end infinite;
+    line-height: 1.4;
+    font-size: 1rem;
+    color: rgb(0, 2, 5);
+    margin: 0;
   }
 `;
 
@@ -652,42 +636,17 @@ const Assistant = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [showResponse, setShowResponse] = useState(false);
 
-  const [displayText, setDisplayText] = useState("");
-
-  // Ajoutez cet useEffect pour gérer l'animation
-  useEffect(() => {
-    if (selectedQuestion && showResponse) {
-      const answer = answers[selectedQuestion.id] || "";
-      let currentText = "";
-      let i = 0;
-
-      const typingInterval = setInterval(() => {
-        currentText = answer.substring(0, i);
-        setDisplayText(currentText);
-        i++;
-
-        if (i > answer.length) {
-          clearInterval(typingInterval);
-        }
-      }, 30); // Ajustez la vitesse de frappe ici
-
-      return () => clearInterval(typingInterval);
-    }
-  }, [selectedQuestion, showResponse]);
-
-  const handleQuestionClick = (question) => {
-    setSelectedQuestion(question);
-    setShowResponse(true);
-    setDisplayText(""); // Réinitialiser le texte à chaque nouvelle question
-  };
-
   const filteredQuestions = questions.filter((q) =>
     q.question.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleQuestionClick = (question) => {
+    setSelectedQuestion(question);
+    setShowResponse(true);
+  };
+
   const handleCloseModal = () => {
     setShowResponse(false);
-    setDisplayText(""); // Réinitialiser le texte à la fermeture
   };
 
   return (
@@ -772,19 +731,19 @@ const Assistant = () => {
       )}
 
       {showResponse && (
-   <ModalOverlay onClick={handleCloseModal}>
-      <ModalContent onClick={(e) => e.stopPropagation()}>
-        <ModalHeader>
-          <h3>{selectedQuestion?.question}</h3>
-          <button onClick={handleCloseModal}>
-            <X size={20} />
-          </button>
-        </ModalHeader>
-        <ModalBody>
-          <p>{displayText}</p>
-        </ModalBody>
-      </ModalContent>
-    </ModalOverlay>
+        <ModalOverlay onClick={handleCloseModal}>
+          <ModalContent onClick={(e) => e.stopPropagation()}>
+            <ModalHeader>
+              <h3>{selectedQuestion?.question}</h3>
+              <button onClick={handleCloseModal}>
+                <X size={20} />
+              </button>
+            </ModalHeader>
+            <ModalBody>
+              <p>{selectedQuestion && answers[selectedQuestion.id]}</p>
+            </ModalBody>
+          </ModalContent>
+        </ModalOverlay>
       )}
     </ProfessionalContainer>
   );

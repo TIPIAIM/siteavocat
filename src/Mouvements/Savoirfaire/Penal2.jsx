@@ -1,11 +1,11 @@
-import  {  useEffect } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
 import Footer from "../Accueil/Footerr";
-import image from './../../assets/Image/image.avif';
-import assistance from './../../assets/Image/assistance.avif';
-import categor from './../../assets/Image/categor.avif';
+import image from "./../../assets/Image/image.avif";
+import assistance from "./../../assets/Image/assistance.avif";
+import categor from "./../../assets/Image/categor.avif";
 
 // Initialisation de AOS
 AOS.init({
@@ -76,13 +76,13 @@ const PenalGrid = styled.div`
 
 const PenalCard = styled.div`
   background: linear-gradient(to bottom, #0369a1, #0f172a);
-  border-radius: 10px;
+  border-radius: 1px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  min-height: 550px; /* Hauteur minimale pour uniformiser les cartes */
+  min-height: 390px; /* Hauteur minimale pour uniformiser les cartes */
 
   &:hover {
     transform: scale(1.05);
@@ -96,9 +96,9 @@ const PenalCard = styled.div`
 
 const MediaWrapper = styled.div`
   width: 100%;
-  height: 300px;
+  height: 200px;
   overflow: hidden;
-   background: linear-gradient(to bottom, #0369a1, #0f172a);
+  background: linear-gradient(to bottom, #0369a1, #0f172a);
 
   img,
   video {
@@ -130,13 +130,12 @@ const PenalTitle = styled.h2`
 const PenalDescription = styled.p`
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.5;
-  margin-bottom: 15px;
+  line-height: 1.4;
+  margin-bottom: 1px;
   flex: 1; /* Permet à la description de remplir l'espace disponible */
 
   @media (max-width: 768px) {
     font-size: 0.95rem;
-
   }
 `;
 
@@ -217,13 +216,22 @@ const Penal2 = () => {
                 {article.mediaType === "image" ? (
                   <img src={article.mediaSrc} alt={article.title} />
                 ) : (
-                  <video src={article.mediaSrc} controls poster="img/video_poster.png" />
+                  <video
+                    src={article.mediaSrc}
+                    controls
+                    poster="img/video_poster.png"
+                  />
                 )}
               </MediaWrapper>
               <PenalContent>
                 <PenalTitle>{article.title}</PenalTitle>
                 <PenalDescription>{article.description}</PenalDescription>
-                <ReadMoreButton data-aos="zoom-in" href={article.link} target="_blank" rel="noopener noreferrer">
+                <ReadMoreButton
+                  data-aos="zoom-in"
+                  href={article.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Lire plus
                 </ReadMoreButton>
               </PenalContent>

@@ -22,7 +22,7 @@ const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 40px;
-  margin-top:4rem;
+  margin-top: 4rem;
   color: #;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
   text-align: center;
@@ -54,8 +54,7 @@ const Grid = styled.div`
   gap: 30px;
   width: 100%;
   max-width: 1200px;
-  margin-bottom:60px;
-
+  margin-bottom: 60px;
 
   @media (max-width: 768px) {
     gap: 40px;
@@ -65,7 +64,7 @@ const Grid = styled.div`
 
 const Card = styled.div`
   background: #023047;
-  border-radius: 10px;
+  border-radius: 1px;
   padding: 20px;
   text-align: left;
   box-shadow: 0 2px 4px #caf0f8;

@@ -10,7 +10,7 @@ const CarouselContainer = styled.section`
   width: 100%;
   padding: 45px;
   background: linear-gradient(to top, #0369a1, #0f172a);
-  border-radius: 0px;
+  border-radius: 1px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
@@ -69,7 +69,7 @@ const Front = styled.div`
   background-image: url(${image2});
   background-size: cover;
   background-position: center;
-  border-radius: 10px;
+  border-radius: 1px;
 `;
 
 // Face arrière avec texte
@@ -85,7 +85,7 @@ const Back = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 1px;
   padding: 40px;
   font-size: 1rem;
   text-align: center;
@@ -101,7 +101,7 @@ const AboutSection = styled.div`
   flex: 1;
   padding: 20px;
   background: #023047;
-  border-radius: 10px;
+  border-radius: 1px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   color: white;
   text-align: justify;

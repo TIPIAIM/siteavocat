@@ -93,7 +93,7 @@ const ParagraphImage = styled.img`
   width: 180px; /* Largeur fixe */
   height: 180px; /* Hauteur fixe */
   object-fit: cover; /* Ajuste l'image pour couvrir le conteneur */
-  border-radius: 5%; /* Bordures arrondies */
+  border-radius: 1%; /* Bordures arrondies */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre */
 
   @media (max-width: 768px) {
@@ -147,7 +147,7 @@ const Image = styled.img`
   max-width: 200px;
   background: rgba(250, 250, 250, 0.8);
   margin-top: 4rem;
-  border-radius: 12px;
+  border-radius: 1px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {

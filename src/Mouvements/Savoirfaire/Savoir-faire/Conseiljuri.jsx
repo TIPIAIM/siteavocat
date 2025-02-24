@@ -7,7 +7,8 @@ import Footer from "../../Accueil/Footerr";
 import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif";
 
 // Container principal avec fond d'image et dégradé pour la lisibilité
-const Container = styled.section` /* Utilisation d'une balise sémantique */
+const Container = styled.section`
+  /* Utilisation d'une balise sémantique */
   background: url("img/confience.avif") no-repeat center center/cover;
   padding: 5rem 2rem;
   display: flex;
@@ -30,7 +31,8 @@ const Container = styled.section` /* Utilisation d'une balise sémantique */
   }
 `;
 
-const Title = styled.h1` /* Utilisation de h1 pour le titre principal (SEO) */
+const Title = styled.h1`
+  /* Utilisation de h1 pour le titre principal (SEO) */
   font-size: 2.5rem;
   font-weight: bold;
   color: #90e0ef;
@@ -45,7 +47,8 @@ const Title = styled.h1` /* Utilisation de h1 pour le titre principal (SEO) */
   }
 `;
 
-const PointsList = styled.article` /* Utilisation d'une balise sémantique */
+const PointsList = styled.article`
+  /* Utilisation d'une balise sémantique */
   max-width: 800px;
   text-align: left;
   z-index: 10;
@@ -67,7 +70,7 @@ const Image = styled.img`
   max-width: 200px;
   background: #fff; /* Suppression de la transparence (remplacé par un fond blanc) */
   margin-top: 4rem;
-  border-radius: 12px;
+  border-radius: 1px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   image-rendering: crisp-edges; /* Améliore la netteté de l'image */
   backface-visibility: hidden; /* Améliore la performance et la netteté */
@@ -113,7 +116,8 @@ const Divider = styled.div`
 const Conseiljuri = () => {
   // Dynamisation du titre de la page pour le SEO
   useEffect(() => {
-    document.title = "Conseils Juridiques - Expertise et Accompagnement sur Mesure";
+    document.title =
+      "Conseils Juridiques - Expertise et Accompagnement sur Mesure";
     AOS.init({
       duration: 1000,
       once: false,
@@ -123,8 +127,14 @@ const Conseiljuri = () => {
   return (
     <div>
       {/* Balise meta pour le SEO */}
-      <meta name="description" content="Obtenez des conseils juridiques professionnels et personnalisés. Notre équipe d'experts vous accompagne dans tous vos projets juridiques." />
-      <meta name="keywords" content="conseils juridiques, avocats, expertise juridique, accompagnement juridique" />
+      <meta
+        name="description"
+        content="Obtenez des conseils juridiques professionnels et personnalisés. Notre équipe d'experts vous accompagne dans tous vos projets juridiques."
+      />
+      <meta
+        name="keywords"
+        content="conseils juridiques, avocats, expertise juridique, accompagnement juridique"
+      />
       <meta name="alpha ousmane" content="TIPTAMCode" />
 
       <Container style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>

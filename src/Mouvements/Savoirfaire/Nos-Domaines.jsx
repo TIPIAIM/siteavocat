@@ -97,8 +97,8 @@ const GridContainer = styled.div`
 // Carte individuelle
 const Card = styled.div`
   position: relative;
-  background: #03045e; /* Fond bleu foncé */
-  border-radius: 10px; /* Bordures arrondies */
+  background: #90e0ef; /* Fond bleu foncé */
+  border-radius: 1px; /* Bordures arrondies */
   overflow: hidden; /* Cache le contenu débordant */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
   transition: transform 0.2s ease-in-out; /* Animation au survol */

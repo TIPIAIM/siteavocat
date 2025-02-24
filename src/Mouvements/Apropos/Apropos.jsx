@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import image3 from "./../../assets/Image/Maitre1.avif";
+import image3 from "./../../assets/Image/maitreetblouz.avif";
 import image5 from "./../../assets/Image/mbangou.avif";
 import image6 from "./../../assets/Image/maitre13.avif";
 import image7 from "./../../assets/Image/keitaseul2.avif";
@@ -101,7 +101,7 @@ const CarouselContainer = styled.div`
   width: 100%;
   padding: 0px;
   background: linear-gradient(120deg, #0f172a 60%, #0369a1 80%);
-  border-radius: 10px;
+  border-radius: 1px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   @media (max-width: 768px) {
     padding: 10px;
@@ -133,7 +133,7 @@ const Front = styled.div`
   backface-visibility: hidden;
   background-size: cover;
   background-position: center;
-  border-radius: 10px;
+  border-radius: 1px;
 `;
 
 const Back = styled.div`
@@ -184,7 +184,7 @@ const ControlButton = styled.button`
   background-color: #0488b2;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 1px;
   font-size: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -214,8 +214,8 @@ const Indicator = styled.div`
   width: 12px;
   height: 12px;
   margin: 0 12px;
-  border-radius: 50%;
-  background-color: ${({ active }) => (active ? "#0488b2" : "#ffffff")};
+  border-radius: 1%;
+  background-color: ${({ active }) => (active ? "#0488b2" : "#023e8a")};
   transition: background-color 0.3s;
   cursor: pointer;
 `;

@@ -35,7 +35,7 @@ const Logo = styled.div`
 
   img {
     height: 50px;
-    border-radius: 5px;
+    border-radius: 1px;
     margin-right: 0.8rem;
     cursor: pointer;
   }
@@ -195,43 +195,7 @@ const SubMenuIndicator = styled.span`
   transition: transform 0.3s ease;
   transform: ${({ isOpen }) => (isOpen ? "rotate(180deg)" : "rotate(0deg)")};
 `;
-const FloatingToggle = styled.div`
-  position: fixed;
-  left: ${(props) => (props.isOpen ? "calc(40px + 1rem)" : "2.5rem")};
-  top: 6rem;
-  width: 50px;
-  height: 45px;
-  background: rgb(3, 28, 54);
-  border-radius: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 1px rgb(0, 186, 243);
-  transition: all 0.6s ease;
-  z-index: 1001;
 
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  svg {
-    color: white;
-    width: 1.4rem;
-    height: 1.4rem;
-  }
-
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
-    left: ${(props) => (props.isOpen ? "calc(100% - 60px)" : "1rem")};
-
-    svg {
-      width: 1.2rem;
-      height: 1.2rem;
-    }
-  }
-`;
 
 export default function BardeNavigationpublic() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Importez le CSS de AOS
+import "aos/dist/aos.css";
 import Maitre4 from "./../../assets/Image/Maitre4.avif";
 import affaire from "./../../assets/Image/affaire.avif";
 import MOE_0400 from "./../../assets/Image/MOE_0400.avif";
-//import travail from "./../../assets/Image/travail.avif";
 import mine from "./../../assets/Image/mine.avif";
 import MOE_0384 from "./../../assets/Image/MOE_0384.avif";
 import maitaction from "./../../assets/Image/maitaction.avif";
 
-// Styles
+// Styles originaux inchangés
 const Container = styled.div`
   position: relative;
   width: 100%;
@@ -51,6 +50,9 @@ const Description = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1rem;
+     text-align: left;
+      padding: 0 20px 20px 20px;
+
   }
 `;
 
@@ -119,9 +121,10 @@ const CardDescription = styled.p`
   transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
 `;
 
-// Composant réutilisable pour les cartes
+// Composant avec optimisations d'images uniquement
 const ServiceCard = React.memo(({ title, description, image }) => {
   const [expanded, setExpanded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <Card
@@ -129,14 +132,23 @@ const ServiceCard = React.memo(({ title, description, image }) => {
       onClick={() => setExpanded(!expanded)}
       aria-expanded={expanded}
     >
-      <CardImage src={image} alt={title} />
+      <CardImage
+        src={image}
+        alt={title}
+        loading="lazy"
+        decoding="async"
+        width="300"
+        height="250"
+        style={{ opacity: imageLoaded ? 1 : 0 }}
+        onLoad={() => setImageLoaded(true)}
+      />
       <CardTitle data-aos="fade-down">{title}</CardTitle>
       <CardDescription expanded={expanded}>{description}</CardDescription>
     </Card>
   );
 });
 
-// Données des services
+// Données complètes restaurées
 const services = [
   {
     title: "L’ESSENTIEL DANS LES CONTRATS ",
@@ -179,13 +191,12 @@ Le Code Général des Impôts évolue sans cesse avec de nouvelles dispositions.
   },
 ];
 
-// Composant principal
+// Composant principal strictement identique à l'original
 const Nosservicess = () => {
-  // Initialisation de AOS
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: false, // Les animations ne se déclenchent qu'une fois
+      once: false,
     });
   }, []);
 
@@ -193,9 +204,9 @@ const Nosservicess = () => {
     <Container>
       <Title data-aos="zoom-in">Services</Title>
       <Description data-aos="fade-in" data-aos-delay="200">
-        Notre cabinet offre des services juridiques de qualité dans divers
+      Notre cabinet offre des services juridiques de qualité dans divers
         domaines, avec une expertise reconnue et une approche humaine.
-      </Description>
+         </Description>
       <Grid>
         {services.map((service, index) => (
           <ServiceCard

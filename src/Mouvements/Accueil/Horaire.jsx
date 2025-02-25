@@ -48,15 +48,15 @@ const Description = styled.p`
 
 const Card = styled.section`
   background: linear-gradient(to bottom, #90e0ef, #);
-  border-radius: 12px;
+  border-radius: 2px;
   padding: 20px;
   text-align: center;
-  box-shadow: 1px 8px 1px #90e0ef;
+  box-shadow: 1px 6px 1px #90e0ef;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
   margin-bottom: 20px;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(0.97);
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6);
   }
   @media (max-width: 768px) {
@@ -65,7 +65,7 @@ const Card = styled.section`
 `;
 
 const CardTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 10px;
   color: #90e0ef;
@@ -75,7 +75,7 @@ const CardTitle = styled.h2`
 `;
 
 const CardDescription = styled.p`
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
   @media (max-width: 768px) {

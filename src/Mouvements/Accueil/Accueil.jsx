@@ -56,7 +56,7 @@ export default function Accueil() {
             className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"
             style={{ color: "#90e0ef" }}
           >
-            CABINET AOD AVOCATS SCPA
+            CABINET AOD AVOCATS
           </h1>
           <p
             className="text-lg sm:text-xl mb-6 sm:mb-8 max-w-lg mx-auto sm:mx-0"

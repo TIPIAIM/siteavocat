@@ -133,6 +133,8 @@ const answers = {
   18: "Conditions :\n- Accord mutuel\n- Indemnité légale\n- Délai de rétractation\n- Homologation DIRECCTE\n- Exonération chômage possible",
   19: "Fréquence :\n- Mensuelle (CA > 4M€)\n- Trimestrielle\n- Annuelle\nDéclaration via formulaire CA3",
   20: "Protections possibles :\n- Brevet (20 ans)\n- Certificat d'utilité (6 ans)\n- Secret industriel\n- Enveloppe Soleau",
+  // Ajoute des réponses pour les autres questions en suivant ce modèle.
+   
 };
 
 const fadeIn = keyframes`

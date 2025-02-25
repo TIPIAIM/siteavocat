@@ -117,18 +117,18 @@ export default function AccueilFooter() {
                 <Phone className="w-6 h-6 mx-auto sm:mx-0" />
               </IconWrapper>
               <ContactText>
-                <div>
-                  <HomeIcon className="inline-block w-4 h-4 mr-2" />
-                  : +224 625 292 599
-                </div>
-                <div>
-                  <PersonStanding className="inline-block w-4 h-4 mr-2" />
-                  : +224 612 858 506
-                </div>
-                <div>
-                  <LampDesk className="inline-block w-4 h-4 mr-2" />
-                  : +224 612 858 507
-                </div>
+                <a className="hover:text-[#90e0ef] no-underline text-gray-300" href="tel:+224625292599">
+                  <HomeIcon className="  inline-block w-4 h-4 mr-2" />: +224 625
+                  292 599
+                </a>
+                <a href="tel:+224612858506" className="hover:text-[#90e0ef] text-gray-300 block mt-2 no-underline">
+                  <PersonStanding className=" inline-block w-4 h-4 mr-2" />: +224
+                  612 858 506
+                </a>
+                <a href="tel:+224612858507" className=" hover:text-[#90e0ef] text-gray-300 block mt-2 no-underline">
+                  <LampDesk className="inline-block w-4 h-4 mr-2" />: +224 612
+                  858 507
+                </a>
               </ContactText>
             </ContactCard>
 
@@ -154,7 +154,7 @@ export default function AccueilFooter() {
       {/* Section Droits d'auteur */}
       <CopyrightSection>
         <div className="container mx-auto px-4">
-          © 2025 AOD AVOCATS SCPA. Tous droits réservés.
+          © 2025 AOD AVOCATS . Tous droits réservés.
         </div>
       </CopyrightSection>
     </FooterContainer>

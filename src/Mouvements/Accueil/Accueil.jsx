@@ -26,7 +26,6 @@ export default function Accueil() {
         description="Notre cabinet offre des services juridiques d'excellence grâce à une équipe
          d'avocats expérimentés Nous combinons expertise juridique, conseils personnalisés et 
          solutions juridiques adaptées pour répondre à vos besoins."
-         
         keywords="Cabinet d'avocats,avocat,avocats,aod, aod avocat,aod-avocat,aod avocats,
         aod-avocats, Services juridiques, Avocats expérimentés, Expertise juridique, Approche personnalisée,
          Excellence juridique, Assistance juridique, Conseils juridiques, Dossiers juridiques, Équipe d'avocats, 
@@ -62,7 +61,7 @@ export default function Accueil() {
             className="text-lg sm:text-xl mb-6 sm:mb-8 max-w-lg mx-auto sm:mx-0"
             style={{ color: "#90e0ef" }}
           >
-            S’Engager pour protéger vos droits et intérêts
+            S’Engage à protéger vos droits et intérêts
           </p>
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
             <Link

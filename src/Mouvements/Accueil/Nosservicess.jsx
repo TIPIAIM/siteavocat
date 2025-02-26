@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -9,7 +9,7 @@ import mine from "./../../assets/Image/mine.avif";
 import MOE_0384 from "./../../assets/Image/MOE_0384.avif";
 import maitaction from "./../../assets/Image/maitaction.avif";
 
-// Styles originaux inchangés
+// Styles inchangés
 const Container = styled.div`
   position: relative;
   width: 100%;
@@ -51,8 +51,7 @@ const Description = styled.p`
   @media (max-width: 768px) {
     font-size: 1rem;
      text-align: left;
-      padding: 0 20px 20px 20px;
-
+     padding: 0 20px 20px 20px;
   }
 `;
 
@@ -92,6 +91,7 @@ const CardImage = styled.img`
   height: 250px;
   object-fit: cover;
   border-radius: 1px;
+  background: #f8f9fa;
 
   @media (max-width: 768px) {
     max-height: 150px;
@@ -121,26 +121,58 @@ const CardDescription = styled.p`
   transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
 `;
 
-// Composant avec optimisations d'images uniquement
+// Optimisation des images
+const placeholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 250'%3E%3C/svg%3E";
+
 const ServiceCard = React.memo(({ title, description, image }) => {
   const [expanded, setExpanded] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const imgRef = useRef();
+  const cardRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { rootMargin: '100px 0px' }
+    );
+
+    if (cardRef.current) observer.observe(cardRef.current);
+    
+    return () => {
+      if (cardRef.current) observer.unobserve(cardRef.current);
+    };
+  }, []);
 
   return (
     <Card
+      ref={cardRef}
       data-aos="fade-up"
       onClick={() => setExpanded(!expanded)}
       aria-expanded={expanded}
     >
       <CardImage
-        src={image}
+        ref={imgRef}
+        src={isVisible ? image : placeholder}
         alt={title}
         loading="lazy"
         decoding="async"
         width="300"
         height="250"
-        style={{ opacity: imageLoaded ? 1 : 0 }}
-        onLoad={() => setImageLoaded(true)}
+        onLoad={() => {
+          if (imgRef.current) {
+            imgRef.current.style.opacity = 1;
+          }
+        }}
+        style={{
+          opacity: 0,
+          transition: 'opacity 0.3s ease',
+          background: '#f0f0f0'
+        }}
       />
       <CardTitle data-aos="fade-down">{title}</CardTitle>
       <CardDescription expanded={expanded}>{description}</CardDescription>
@@ -191,22 +223,31 @@ Le Code Général des Impôts évolue sans cesse avec de nouvelles dispositions.
   },
 ];
 
-// Composant principal strictement identique à l'original
+// Optimisation AOS
+let aosInitialized = false;
+
 const Nosservicess = () => {
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-    });
+    if (!aosInitialized) {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        easing: 'ease-out-quad'
+      });
+      aosInitialized = true;
+    }
+    return () => AOS.refresh();
   }, []);
 
   return (
     <Container>
       <Title data-aos="zoom-in">Services</Title>
-      <Description data-aos="fade-in" data-aos-delay="200">
-      Notre cabinet offre des services juridiques de qualité dans divers
+      <Description data-aos="fade-up" data-aos-delay="150">
+        Notre cabinet offre des services juridiques de qualité dans divers
         domaines, avec une expertise reconnue et une approche humaine.
-         </Description>
+      </Description>
+      
       <Grid>
         {services.map((service, index) => (
           <ServiceCard
@@ -221,4 +262,4 @@ const Nosservicess = () => {
   );
 };
 
-export default Nosservicess;
+export default React.memo(Nosservicess);

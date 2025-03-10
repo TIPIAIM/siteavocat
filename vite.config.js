@@ -40,9 +40,16 @@ export default defineConfig({
     react(),
   ],
 
-  //
-
   build: {
     outDir: "dist", // Assurez-vous que la sortie est "dist"
+    chunkSizeWarningLimit: 3000, // Ajustez cette valeur à 3000 kB (3 GB)
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Divisez les chunks ici si nécessaire
+          vendor: ["react", "react-dom", "aos"],
+        },
+      },
+    },
   },
 });

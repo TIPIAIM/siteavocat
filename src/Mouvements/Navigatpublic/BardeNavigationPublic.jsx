@@ -8,6 +8,7 @@ const Nav = styled.nav`
   top: 0;
   left: 0;
   width: 100%;
+  background: rgba(15, 23, 42, 0.98);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -196,7 +197,6 @@ const SubMenuIndicator = styled.span`
   transform: ${({ isOpen }) => (isOpen ? "rotate(180deg)" : "rotate(0deg)")};
 `;
 
-
 export default function BardeNavigationpublic() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -221,8 +221,7 @@ export default function BardeNavigationpublic() {
 
   return (
     <>
-      <Nav isScrolled={isScrolled}>
-        
+      <Nav className=" " isScrolled={isScrolled}>
         <Logo onClick={() => (window.location.href = "/")}>
           <img src={aodblanc} alt="Logo du Cabinet" />
         </Logo>
@@ -275,7 +274,7 @@ export default function BardeNavigationpublic() {
           <NavLink href="/apropos">À propos</NavLink>
         </Menu>
       </Nav>
-      <main style={{ paddingTop: "150px" }}></main>
+      <main style={{ paddingTop: "0px" }}></main>
     </>
   );
 }

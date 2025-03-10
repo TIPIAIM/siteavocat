@@ -2,10 +2,12 @@ import { useEffect, memo } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Footer from "../Accueil/Footerr";
 import { Helmet } from "react-helmet";
-import Headerr from "../Headerr/Header";
 
+import { lazy } from "react";
+
+const Accueil = lazy(() => import("./Headercontact"));
+const Footer = lazy(() => import("../Accueil/Footerr"));
 // Styled Components
 const ContactContainer = styled.div`
   display: flex;
@@ -35,7 +37,7 @@ const ImageSection = styled.div`
 const FormSection = styled.div`
   flex: 1;
   padding: 40px;
-  background: #1e293b;
+  background:rgba(15, 23, 42, 1);
 
   display: flex;
   flex-direction: column;
@@ -120,9 +122,8 @@ const Button = styled.button`
   }
 `;
 
-
 // Memoized Components
-const MemoizedBardeNavigationpublic = memo(Headerr);
+const MemoizedBardeNavigationpublic = memo(Accueil);
 const MemoizedFooter = memo(Footer);
 
 // Main Component
@@ -130,7 +131,6 @@ export default function Contact() {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
-
 
   return (
     <div style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
@@ -141,6 +141,7 @@ export default function Contact() {
           content="Contactez le Cabinet AOD-AVOCATS pour toutes vos questions, commentaires ou préoccupations. Nous sommes là pour vous aider."
         />
       </Helmet>
+      <head />
       <MemoizedBardeNavigationpublic />
       <ContactContainer>
         <ImageSection data-aos="fade-right" />

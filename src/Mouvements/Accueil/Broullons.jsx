@@ -217,7 +217,7 @@ const Broullons = () => {
     "Accompagner les entreprises dans leur développement juridique",
     "Fournir des services de médiation et d'arbitrage",
     "Assurer la conformité légale des entreprises",
-    "Proposer des audits juridiques pour évaluer les risques et les opportunités",
+    " des  juridiques pour évaluer les risques et les opportunités",
   ];
 
   const [currentMessage, setCurrentMessage] = useState(0);

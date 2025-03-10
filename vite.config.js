@@ -12,7 +12,6 @@ export default defineConfig({
         "/accueil",
         "/apropos",
         "/contact",
-
         "/article",
         "/affairee",
         "/securitee",

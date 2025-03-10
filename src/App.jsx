@@ -47,6 +47,8 @@ function App() {
       <StructuredData />
       <FloatingButton />
       <Routes>
+
+        
         <Route index element={<Accueil />} />
         <Route path="*" element={<Petitecrandeux />} />
         {/**pge d'erreur */}

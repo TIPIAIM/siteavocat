@@ -1,13 +1,10 @@
-import { useEffect, useState, memo } from "react";
+import { useEffect, memo } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "../Accueil/Footerr";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import { Link } from "react-router-dom";
-import { ChevronsLeftRight } from "lucide-react";
-import LazyLoad from "react-lazyload";
-import photoaccueil from "../../assets/Image/photo-accueil.avif";
+import { Helmet } from "react-helmet";
+import Headerr from "../Headerr/Header";
 
 // Styled Components
 const ContactContainer = styled.div`
@@ -123,17 +120,9 @@ const Button = styled.button`
   }
 `;
 
-const Placeholder = styled.div`
-  background-color: #00b4d8;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: #023e8a;
-`;
 
-// Memoized Footer
+// Memoized Components
+const MemoizedBardeNavigationpublic = memo(Headerr);
 const MemoizedFooter = memo(Footer);
 
 // Main Component
@@ -142,52 +131,21 @@ export default function Contact() {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageError, setImageError] = useState(false);
 
   return (
     <div style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
-      
-      <header className="relative h-[400px] sm:h-[400px] mb-20 overflow-hidden">
-        <BardeNavigationpublic />
-        <div className="absolute inset-0 bg-black/50 z-10" />
-        <LazyLoad height={400} offset={100} debounce={300} once>
-          {!imageLoaded && !imageError && <Placeholder>TIPTAM ...</Placeholder>}
-          {!imageError ? (
-            <img
-              src={photoaccueil}
-              alt="Cabinet d'avocats"
-              className="absolute inset-0 w-full h-full object-cover"
-              onLoad={() => setImageLoaded(true)}
-              onError={() => setImageError(true)}
-              style={imageLoaded ? { display: "block" } : { display: "none" }}
-            />
-          ) : (
-            <Placeholder>Image not available</Placeholder>
-          )}
-        </LazyLoad>
-        <div className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left">
-          <h1
-            className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"
-            style={{ color: "#90e0ef" }}
-          >
-            Cabinet AOD-AVOCATS-SCPA
-          </h1>
-          <Link
-            to="/accueil"
-            className="bg-[rgba(10,34,64,0.9)] no-underline animate-pulse hover:bg-[rgba(0,119,182,1)] px-6 sm:px-8 py-2 sm:py-3 rounded-md inline-flex items-center w-fit mx-auto sm:mx-0"
-            style={{ color: "#00b4d8" }}
-          >
-            Retourner
-            <ChevronsLeftRight className="ml-2 h-5 w-5" />
-          </Link>
-        </div>
-      </header>
-
+      <Helmet>
+        <title>Contactez-nous - Cabinet AOD-AVOCATS</title>
+        <meta
+          name="description"
+          content="Contactez le Cabinet AOD-AVOCATS pour toutes vos questions, commentaires ou préoccupations. Nous sommes là pour vous aider."
+        />
+      </Helmet>
+      <MemoizedBardeNavigationpublic />
       <ContactContainer>
         <ImageSection data-aos="fade-right" />
         <FormSection data-aos="fade-down">
-          <Title  data-aos="fade-right">Contactez-nous</Title>
+          <Title data-aos="fade-right">Contactez-nous</Title>
           <Description>
             Si vous avez des questions, des commentaires ou des préoccupations,
             n’hésitez pas à nous contacter en utilisant le formulaire
@@ -215,7 +173,7 @@ export default function Contact() {
           </Form>
         </FormSection>
       </ContactContainer>
-      <div  className=" mt-40">
+      <div className=" mt-40">
         <MemoizedFooter />
       </div>
     </div>

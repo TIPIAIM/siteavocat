@@ -1,21 +1,26 @@
-import { useEffect } from "react"; // Importation de React et useEffect
+import { useEffect, memo, lazy, Suspense } from "react"; // Importation de React, useEffect, lazy, Suspense et memo
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
 import styled from "styled-components"; // Importation de styled-components pour les styles
-import BardeNavigationpublic from "../../Navigatpublic/BardeNavigationPublic"; // Importation de la barre de navigation publique
-import Footer from "../../Accueil/Footerr"; // Importation du composant Footer
-import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif"; // Importation des images
-import FISCAL from "./../../../assets/Image/FISCAL.avif";
-import arbitra from "./../../../assets/Image/arbitra.avif";
-import travail from "./../../../assets/Image/travail.avif";
-import image from "./../../../assets/Image/FISCAL.avif";
+
+// Importation paresseuse des composants
+const BardeNavigationpublic = lazy(() => import("../../Navigatpublic/BardeNavigationPublic"));
+const Footer = lazy(() => import("../../Accueil/Footerr"));
+
+import EVOL from "./../../../assets/Image/EVOL.avif"; // Importation des images
+import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif";
+import sttis from "./../../../assets/Image/sttis.avif";
+import PREV from "./../../../assets/Image/PREV.avif";
+import conf from "./../../../assets/Image/conf.avif";
+import affaire from "./../../../assets/Image/affaire.avif";
+import jurid1 from "./../../../assets/Image/jurid1.avif";
+import jurid from "./../../../assets/Image/jurid.avif";
 
 // Conteneur principal avec fond fixe
 const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh; /* Hauteur minimale de la vue */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("img/confience.avif"); /* Image de fond avec dégradé sombre */
+  background-image: url("img/confience.avif"); /* Image de fond */
   background-size: cover; /* Couvre tout l'espace disponible */
   background-position: center; /* Centre l'image */
   background-attachment: fixed; /* Fond fixe lors du défilement */
@@ -29,6 +34,7 @@ const BackgroundContainer = styled.section` /* Utilisation d'une balise sémanti
 const Overlay = styled.div`
   position: absolute;
   inset: 0; /* Couvre tout l'espace du conteneur parent */
+  background: rgba(0, 0, 0, 0.9); /* Fond noir semi-transparent */
 `;
 
 // Conteneur du contenu
@@ -43,13 +49,16 @@ const ContentContainer = styled.article` /* Utilisation d'une balise sémantique
   color: black; /* Couleur du texte par défaut */
   max-width: 1200px; /* Largeur maximale du contenu */
   margin: 0 auto; /* Centrage horizontal */
+  margin-top: 5rem; /* Ajout d'une marge supérieure pour espacer du haut */
 
   @media (max-width: 1024px) {
     padding: 2rem 1rem; /* Espacement réduit pour les tablettes */
+    margin-top: 4rem; /* Ajustement de la marge supérieure pour les tablettes */
   }
 
   @media (max-width: 768px) {
-    padding: 1rem; /* Espacement réduit pour les petits écrans */
+    padding: 2.2rem; /* Espacement réduit pour les petits écrans */
+    margin-top: 3rem; /* Ajustement de la marge supérieure pour les petits écrans */
   }
 `;
 
@@ -70,37 +79,48 @@ const Title = styled.h1`
   }
 `;
 
-// Conteneur des paragraphes
-const ParagraphContainer = styled.section` /* Utilisation d'une balise sémantique */
+const ParagraphWrapper = styled.section` /* Utilisation d'une balise sémantique */
   display: flex;
-  align-items: flex-start; /* Alignement en haut */
-  margin-bottom: 2rem; /* Marge en bas */
-  max-width: 1000px; /* Largeur maximale */
-  gap: 2rem; /* Espacement entre les éléments */
-  border-radius: 0px; /* Bordures arrondies */
-  padding: 1.5rem; /* Espacement interne */
-  background: rgba(10, 34, 64, 0.5); /* Fond semi-transparent */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre */
+  align-items: flex-start;
+  margin-bottom: 0rem;
+  max-width: 1000px;
+  gap: 2rem;
+  border-radius: 0px;
+  padding: 1.5rem;
+  background: rgba(10, 34, 64, 0.9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
-    flex-direction: column; /* Disposition en colonne pour les petits écrans */
-    align-items: center; /* Centrage des éléments */
-    padding: 1rem; /* Espacement interne réduit */
+    flex-direction: column;
+    text-align: center;
+    padding: 0rem;
+  }
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
 // Image des paragraphes
-const StyledImage = styled.img`
+const ParagraphImage = styled.img`
   width: 180px; /* Largeur fixe */
   height: 180px; /* Hauteur fixe */
   object-fit: cover; /* Ajuste l'image pour couvrir le conteneur */
   border-radius: 1%; /* Bordures arrondies */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre */
+  loading: lazy; /* Chargement différé */
 
   @media (max-width: 768px) {
-    width: 100%; /* Largeur maximale pour les petits écrans */
-    height: auto; /* Hauteur automatique */
-    margin-bottom: 1rem; /* Marge en bas */
+    border-radius: 0%;
+    width: 400px;
+    height: 250px;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  @media (max-width: 1024px) {
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
   }
 `;
 
@@ -127,7 +147,7 @@ const Paragraph = styled.p`
 const Divider = styled.div`
   height: 3px; /* Hauteur du diviseur */
   width: 500px; /* Largeur du diviseur */
-  background: #4ea8ff; /* Couleur du diviseur */
+  background: #90e0ef; /* Couleur du diviseur */
   margin: 2rem 0; /* Marge externe */
 
   @media (max-width: 768px) {
@@ -157,6 +177,7 @@ const Image = styled.img`
   margin-top: 4rem; /* Marge en haut */
   border-radius: 1px; /* Bordures arrondies */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
+  loading: lazy; /* Chargement différé */
 
   &:hover {
     transform: scale(1.05); /* Effet de zoom au survol */
@@ -170,7 +191,7 @@ const Image = styled.img`
 `;
 
 // Composant principal
-export default function Contentieux() {
+const Contentieux = () => {
   // Initialisation de AOS pour les animations
   useEffect(() => {
     AOS.init({
@@ -187,88 +208,141 @@ export default function Contentieux() {
   return (
     <div>
       {/* Balise meta pour le SEO */}
-      <meta name="description" content="Obtenez une expertise en droit de contentieux. Notre équipe d'avocats expérimentés vous accompagne dans la gestion des litiges complexes." />
-      <meta name="keywords" content="droit de contentieux, gestion des litiges, avocats spécialisés, expertise juridique, résolution de conflits" />
+      <meta name="description" content="Obtenez un conseil juridique professionnel et personnalisé. Notre équipe d'experts vous accompagne pour garantir la conformité et la sécurité de vos activités." />
+      <meta name="keywords" content="droit de contentieux, expertise juridique, gestion des litiges, prévention des risques, accompagnement juridique" />
       <meta name="alpha ousmane" content="TIPTAMCode" />
 
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         <Overlay />
-        {/* Barre de navigation publique */}
-        <BardeNavigationpublic />
+        <Suspense fallback={<div>Loading...</div>}>
+          {/* Barre de navigation publique */}
+          <BardeNavigationpublic />
+        </Suspense>
 
         {/* Contenu principal */}
         <ContentContainer style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
           {/* Titre principal avec animation AOS */}
-          <Title data-aos="fade-up">Le droit de contentieux ?</Title>
+          <Title data-aos="fade-down">Droit de Contentieux</Title>
           <Divider />
 
-          {/* Section 1 : Expertise en contentieux */}
-          <ParagraphContainer data-aos="fade-down">
+          {/* Section 1 : Analyse approfondie */}
+          <ParagraphWrapper data-aos="fade-up">
+            <ParagraphImage src={jurid} alt="Analyse juridique - Expertise en droit" />
             <Paragraph>
-              Notre cabinet dispose d’une équipe de juristes et d’avocats
-              expérimentés, spécialisés dans la gestion des litiges complexes.
-              Nous maîtrisons les procédures judiciaires, garantissant une
-              représentation solide et stratégique à chaque étape de votre
-              dossier.
+              Dans un environnement juridique de plus en plus complexe, un conseil
+              juridique rigoureux est essentiel pour garantir la pérennité de
+              vos activités et la conformité de vos pratiques. Notre cabinet se
+              distingue par son expertise et son approche personnalisée.
             </Paragraph>
-          </ParagraphContainer>
+          </ParagraphWrapper>
 
-          {/* Section 2 : Stratégies adaptées */}
-          <ParagraphContainer data-aos="fade-up">
-            <StyledImage data-aos="fade-up" src={FISCAL} alt="Stratégies adaptées en contentieux" />
+          {/* Section 2 : Analyse stratégique */}
+          <ParagraphWrapper data-aos="fade-up">
+            <ParagraphImage src={jurid1} alt="Stratégie juridique - Optimisation des contrats" />
             <Paragraph>
-              Chaque contentieux est unique. Nous analysons minutieusement votre
-              situation pour élaborer des stratégies adaptées à vos besoins
-              spécifiques. Notre approche proactive vise à résoudre les
-              différends de manière rapide et efficace, tout en minimisant les
-              risques.
+              <strong style={{ color: "#90e0ef" }}>1. Une analyse approfondie et stratégique :</strong>{" "}
+              Notre équipe procède à une évaluation complète de vos documents
+              juridiques, tels que contrats, statuts, accords de partenariat, et
+              politiques internes. Nous identifions non seulement les zones de
+              risque, mais aussi les opportunités pour optimiser vos pratiques
+              et renforcer votre position juridique.
             </Paragraph>
-          </ParagraphContainer>
+          </ParagraphWrapper>
 
-          {/* Section 3 : Protection des droits */}
-          <ParagraphContainer>
-            <StyledImage src={arbitra} alt="Protection des droits en contentieux" />
+          {/* Section 3 : Expertise multidisciplinaire */}
+          <ParagraphWrapper>
+            <ParagraphImage src={affaire} alt="Expertise juridique - Droit des affaires" />
             <Paragraph>
-              Nous sommes déterminés à protéger vos droits et à défendre vos
-              intérêts avec rigueur et professionnalisme. Que ce soit pour des
-              litiges commerciaux, civils, ou administratifs, notre équipe se
-              consacre entièrement à obtenir les meilleurs résultats possibles
-              pour vous.
+              <strong style={{ color: "#90e0ef" }}>2. Une expertise multidisciplinaire unique :</strong>{" "}
+              Nos avocats spécialisés couvrent plusieurs branches du droit,
+              notamment le droit des affaires, le droit du travail, le droit
+              fiscal, et le droit commercial. Cette diversité garantit une
+              vision globale et cohérente de votre environnement juridique.
             </Paragraph>
-          </ParagraphContainer>
+          </ParagraphWrapper>
 
-          {/* Section 4 : Communication claire */}
-          <ParagraphContainer>
-            <StyledImage src={travail} alt="Communication claire en contentieux" />
+          {/* Section 4 : Conformité */}
+          <ParagraphWrapper>
+            <ParagraphImage src={conf} alt="Conformité juridique - Mise à jour des normes" />
             <Paragraph>
-              Nous croyons en une communication claire et continue avec nos
-              clients. Vous serez informé à chaque étape du processus, et nous
-              travaillerons en collaboration étroite avec vous pour garantir une
-              gestion optimale de votre dossier.
+              <strong style={{ color: "#90e0ef" }}>3. Une conformité avec les normes en constante évolution :</strong>{" "}
+              Les lois et réglementations changent rapidement. Nous veillons à
+              ce que vos pratiques soient en adéquation avec les dernières
+              exigences légales, réduisant ainsi les risques de sanctions
+              administratives ou de litiges.
             </Paragraph>
-          </ParagraphContainer>
+          </ParagraphWrapper>
 
-          {/* Section 5 : Résultats probants */}
-          <ParagraphContainer>
-            <StyledImage src={image} alt="Résultats probants en contentieux" />
+          {/* Section 5 : Prévention des risques */}
+          <ParagraphWrapper>
+            <ParagraphImage src={PREV} alt="Prévention juridique - Gestion des risques" />
             <Paragraph>
-              Notre cabinet est reconnu pour sa capacité à résoudre des
-              contentieux complexes avec succès. Nos résultats et la
-              satisfaction de nos clients témoignent de notre engagement envers
-              l’excellence et la justice.
+              <strong style={{ color: "#90e0ef" }}>4. Une prévention proactive des risques :</strong>{" "}
+              Un conseil juridique efficace vous permet de prévoir et d’éviter des
+              problèmes avant qu’ils ne surviennent. Notre approche proactive
+              inclut des recommandations précises pour corriger les anomalies
+              identifiées et protéger vos intérêts.
             </Paragraph>
-          </ParagraphContainer>
+          </ParagraphWrapper>
+
+          {/* Section 6 : Accompagnement sur mesure */}
+          <ParagraphWrapper>
+            <ParagraphImage src={EVOL} alt="Accompagnement juridique - Solutions personnalisées" />
+            <Paragraph>
+              <strong style={{ color: "#90e0ef" }}>5. Un accompagnement sur mesure :</strong>{" "}
+              Au-delà du conseil, nous vous assistons dans la mise en œuvre des
+              solutions proposées. Que ce soit pour la révision de vos contrats,
+              la restructuration juridique ou la négociation de clauses, notre
+              équipe est à vos côtés à chaque étape.
+            </Paragraph>
+          </ParagraphWrapper>
+
+          {/* Section 7 : Avantages concrets */}
+          <ParagraphWrapper>
+            <ParagraphImage src={sttis} alt="Avantages juridiques - Réduction des coûts" />
+            <Paragraph>
+              <strong style={{ color: "#90e0ef" }}>6. Des avantages concrets pour votre organisation :</strong>
+              <ul>
+                <li>
+                  Réduction des coûts liés aux litiges grâce à une prévention
+                  efficace.
+                </li>
+                <li>
+                  Amélioration de la crédibilité de votre entreprise vis-à-vis de
+                  vos partenaires et investisseurs.
+                </li>
+                <li>
+                  Optimisation de vos processus internes pour une gestion plus
+                  fluide et sécurisée.
+                </li>
+              </ul>
+            </Paragraph>
+          </ParagraphWrapper>
+
+          {/* Section 8 : Relation de confiance */}
+          <ParagraphWrapper>
+            <Paragraph>
+              <strong style={{ color: "#90e0ef" }}>7. Une relation de confiance :</strong>{" "}
+              Notre engagement repose sur la transparence, la discrétion, et une
+              écoute active de vos besoins. Chaque client bénéficie d’un suivi
+              personnalisé, car nous comprenons que chaque situation est unique.
+            </Paragraph>
+          </ParagraphWrapper>
 
           {/* Conteneur des images */}
           <ImageContainer>
-            <Image src={logoAODnoir} alt="Logo AOD - Expertise en Contentieux" />
+            <Image src={logoAODnoir} alt="Logo AOD - Expertise Juridique" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>
 
-      {/* Pied de page */}
-      <Footer />
+      <Suspense fallback={<div>Loading...</div>}>
+        {/* Pied de page */}
+        <Footer />
+      </Suspense>
     </div>
   );
 }
+
+export default memo(Contentieux);

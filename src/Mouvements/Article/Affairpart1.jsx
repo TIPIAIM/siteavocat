@@ -2,10 +2,12 @@ import styled from "styled-components";
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
 import { useEffect } from "react"; // Pour initialiser AOS
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
+//import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+import { lazy } from "react";
+const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
 // Conteneur principal avec image d'arrière-plan fixe
 const BackgroundContainer = styled.div`
   position: relative;

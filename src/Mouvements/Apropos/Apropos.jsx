@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy } from "react";
 import image3 from "./../../assets/Image/maitreetblouz.avif";
 import image5 from "./../../assets/Image/mbangou.avif";
 import image6 from "./../../assets/Image/maitre13.avif";
@@ -10,10 +10,10 @@ import image9 from "./../../assets/Image/MOE_0400.avif";
 import image10 from "./../../assets/Image/MOE_0311.avif";
 import image11 from "./../../assets/Image/abdoulayeavoc.avif";
 
-import Footer from "../Accueil/Footerr";
-import Aproposdeux from "./Apropos2";
-import Aproposzeo from "./Aproposzeo";
-import Headerr from "../Headerr/Header";
+const Headerapropos = lazy(() => import("./Headerapropos"));
+const Aproposzeo = lazy(() => import("./Aproposzeo"));
+const Aproposdeux = lazy(() => import("./Apropos2"));
+const Footer = lazy(() => import("../Accueil/Footerr"));
 
 // Images de démonstration
 const images = [
@@ -244,7 +244,7 @@ const Apropos = () => {
 
   return (
     <div>
-      <Headerr />
+      <Headerapropos />
       <CarouselContainer>
         <ScrollWrapper
           style={{ transform: `translateX(-${currentIndex * 350}px)` }}

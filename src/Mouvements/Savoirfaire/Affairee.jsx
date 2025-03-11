@@ -44,6 +44,7 @@ const ContentWrapper = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 `;
 
 // Titre de la section

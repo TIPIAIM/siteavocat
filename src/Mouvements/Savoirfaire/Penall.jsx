@@ -120,6 +120,9 @@ const BackButton = styled(Link)`
   color: ;
   margin-bottom: 2rem;
   transition: background-color 0.3s ease;
+  max-width: 1200px; /* Largeur maximale du contenu */
+  margin: 0 auto; /* Centrage horizontal */
+  margin-top: 5rem; /* Ajout d'une marge supérieure pour espacer du haut */
 
   &:hover {
     background-color: #e2e8f0;

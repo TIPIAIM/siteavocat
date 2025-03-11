@@ -6,7 +6,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
 // Styled Components
 const HeroSection = styled.section`
-  min-height: 10vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -116,9 +116,9 @@ const Particles = ({ mousePosition }) => {
   const [positions] = useState(() => {
     const positions = [];
     for (let i = 0; i < 5000; i++) {
-      positions.push((Math.random() - 0.5) * 10);
-      positions.push((Math.random() - 0.5) * 10);
-      positions.push((Math.random() - 0.5) * 10);
+      positions.push((Math.random() - 0.5) * 20);
+      positions.push((Math.random() - 0.5) * 20);
+      positions.push((Math.random() - 0.5) * 20);
     }
     return new Float32Array(positions);
   });
@@ -165,9 +165,9 @@ const MovingStars = () => {
     <Stars
       ref={starsRef}
       radius={100}
-      depth={2000}
+      depth={50}
       count={100}
-      factor={40}
+      factor={90}
       saturation={0}
       fade
       color="white"
@@ -180,9 +180,9 @@ const WindParticles = () => {
   const [positions] = useState(() => {
     const positions = [];
     for (let i = 0; i < 1000; i++) {
-      positions.push((Math.random() - 0.5) * 10);
-      positions.push((Math.random() - 0.5) * 10);
-      positions.push((Math.random() - 0.5) * 10);
+      positions.push((Math.random() - 0.5) * 20);
+      positions.push((Math.random() - 0.5) * 20);
+      positions.push((Math.random() - 0.5) * 20);
     }
     return new Float32Array(positions);
   });
@@ -207,14 +207,14 @@ const WindParticles = () => {
     </points>
   );
 };
-const Accueilpourservice = () => {
+const Accueilpourarticle = () => {
   const messages = [
-    " Si vous avez des questions",
-    " des commentaires ou",
-    "des préoccupations",
-    " Votre satisfaction est",
-    "notre priorité absolue",
-    "nous apprécions tous les commentaires",
+    "Le droit pénal et la défense des victimes",
+    "  promouvoir la justice sociale dans le pays",
+    "Le droit pénal et la défense des victimes",
+    " La sécurité sociale et le droit du travail",
+    "Importance des contrats en droit des affaires",
+    "La sécurité sociale et le droit du travail",
   ];
 
   const [currentMessage, setCurrentMessage] = useState(0);
@@ -261,6 +261,8 @@ const Accueilpourservice = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
+          Espace 
+          <GradientText> Article</GradientText>
         </MainHeading>
 
         <MessageText
@@ -282,4 +284,4 @@ const Accueilpourservice = () => {
   );
 };
 
-export default Accueilpourservice;
+export default Accueilpourarticle;

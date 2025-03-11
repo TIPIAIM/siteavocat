@@ -1,12 +1,12 @@
-import React, { Suspense, useEffect } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import Footer from "../Accueil/Footerr";
 import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
+const Footer = lazy(() => import("../Accueil/Footerr"));
 
 // Chargement différé du composant Securite
 const Securit = React.lazy(() => import("./Securit"));

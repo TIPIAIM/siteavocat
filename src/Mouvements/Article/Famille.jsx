@@ -1,11 +1,12 @@
-import  { useEffect } from "react";
+import  { lazy, useEffect } from "react";
 import styled from "styled-components";
 import { FaArrowLeft } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "../Accueil/Footerr";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
+//import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { Link } from "react-router-dom";
+const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
 
 // Initialisation de AOS
 AOS.init();

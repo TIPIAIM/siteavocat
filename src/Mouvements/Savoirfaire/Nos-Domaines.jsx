@@ -22,7 +22,10 @@ const BackgroundContainer = styled.div`
   background-size: cover; /* Couvre tout l'espace disponible */
   background-position: center; /* Centre l'image */
   background-attachment: fixed; /* Fixe l'image lors du défilement */
-`;
+
+ @media (max-width: 768px) {
+    background-attachment: scroll; /* Désactive le fond fixe sur les petits écrans */
+  }  `;
 
 // Couche transparente sur l'image d'arrière-plan
 const Overlay = styled.div`
@@ -35,10 +38,12 @@ const Overlay = styled.div`
 const ContentContainer = styled.div`
   position: relative;
   z-index: 10; /* Positionne au-dessus de la superposition */
-  padding: 2rem 1rem; /* Espacement interne */
+  padding: 4rem 2rem; /* Espacement interne */
   display: flex;
   flex-direction: column;
   align-items: center; /* Centre le contenu horizontalement */
+  max-width: 1200px; /* Largeur maximale du contenu */
+  margin: 0 auto; /* Centrage horizontal */
 
   h1 {
     font-size: 2.5rem; /* Taille de la police */
@@ -49,7 +54,11 @@ const ContentContainer = styled.div`
     box-shadow: 0px 4px 10px rgba(144, 224, 239, 0.1); /* Ombre bleue */
     padding: 0.5rem 1rem; /* Espacement interne */
     border-radius: 8px; /* Bordures arrondies */
-  }
+    max-width: 1200px; /* Largeur maximale du contenu */
+  margin: 0 auto; /* Centrage horizontal */
+  margin-top: 5rem; /* Ajout d'une marge supérieure pour espacer du haut */
+
+    }
 
   p {
     font-size: 1rem;

@@ -1,13 +1,13 @@
-import { memo } from "react";
+import { lazy, memo } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import Footer from "../Accueil/Footerr";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import image from "./../../assets/Image/image.avif";
 import assistance from "./../../assets/Image/assistance.avif";
 import categor from "./../../assets/Image/categor.avif";
+const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
+const Footer = lazy(() => import("../Accueil/Footerr"));
 
 // Styled Components
 const PenalContainer = styled.div`

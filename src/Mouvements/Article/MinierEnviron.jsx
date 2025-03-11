@@ -2,9 +2,10 @@ import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
 import Footer from "../Accueil/Footerr";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { lazy } from "react";
+const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
 
 AOS.init(); // Initialisation de AOS dans le composant
 // Conteneur principal avec fond fixe

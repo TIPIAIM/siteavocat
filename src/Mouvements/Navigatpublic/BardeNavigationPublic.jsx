@@ -200,7 +200,7 @@ const SubMenuIndicator = styled.span`
 export default function BardeNavigationpublic() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [openSubMenu, setOpenSubMenu] = useState(null);
+  const [openSubMenu, setOpenSubMenu ] = useState(null);
 
   // Gérer le défilement
   useEffect(() => {
@@ -274,7 +274,7 @@ export default function BardeNavigationpublic() {
           <NavLink href="/apropos">À propos</NavLink>
         </Menu>
       </Nav>
-      <main style={{ paddingTop: "0px" }}></main>
+      <main style={{ paddingTop: "0.1px" }}></main>
     </>
   );
 }

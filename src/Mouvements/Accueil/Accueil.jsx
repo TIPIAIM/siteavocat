@@ -34,47 +34,52 @@ export default function Accueil() {
 
       {/* Hero Section */}
       <header className="relative h-[400px] sm:h-[600px] overflow-hidden">
-        <BardeNavigationpublic />
+  <BardeNavigationpublic />
 
-        <div className="absolute inset-0 bg-black/50 z-10" />
-        <motion.img
-          src={photoaccueil}
-          alt="Cabinet d'avocats"
-          className="absolute inset-0 w-full h-full object-cover"
-          initial={{ scale: 1.2, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1 }}
-        />
-        <motion.div
-          className="relative z-20 container mx-auto px-4 h-full flex flex-col text-center sm:text-left max-w-screen-md"
-          initial={{ y: 90, opacity: 0 }}
-          animate={{ y: 25, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-        >
-          <h1
-            className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"
-            style={{ color: "#90e0ef" }}
-          >
-            CABINET AOD AVOCATS
-          </h1>
-          <p
-            className="text-lg sm:text-xl mb-6 sm:mb-8 max-w-lg mx-auto sm:mx-0"
-            style={{ color: "#90e0ef" }}
-          >
-            S’Engage à protéger vos droits et intérêts
-          </p>
-          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              to="/contact"
-              className="bg-[rgba(10,34,64,0.9)] no-underline animate-pulse hover:bg-[rgba(0,119,182,1)] px-6 sm:px-8 py-2 sm:py-3 rounded-md inline-flex items-center w-fit mx-auto sm:mx-0"
-              style={{ color: "#90e0ef" }}
-            >
-              Consultation
-              <ChevronRight className="ml-2 h-5 w-5" />
-            </Link>
-          </motion.div>
-        </motion.div>
-      </header>
+  {/* Overlay sombre */}
+  <div className="absolute inset-0 bg-black/50 z-20" />
+
+  {/* Image de fond */}
+  <motion.img
+    src={photoaccueil}
+    alt="Cabinet d'avocats"
+    className="absolute inset-0 w-full h-full object-cover"
+    initial={{ scale: 1.2, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    transition={{ duration: 1 }}
+  />
+
+  {/* Contenu centré */}
+  <motion.div
+    className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center"
+    initial={{ y: 90, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }} // Retirez le décalage vertical (y: 25)
+    transition={{ delay: 0.3, duration: 0.8 }}
+  >
+    <h1
+      className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"
+      style={{ color: "#90e0ef" }}
+    >
+      CABINET AOD AVOCATS
+    </h1>
+    <p
+      className="text-lg sm:text-xl mb-6 sm:mb-8 max-w-lg mx-auto"
+      style={{ color: "#90e0ef" }}
+    >
+      S’Engage à protéger vos droits et intérêts
+    </p>
+    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+      <Link
+        to="/contact"
+        className="bg-[rgba(10,34,64,0.9)] no-underline animate-pulse hover:bg-[rgba(0,119,182,1)] px-6 sm:px-8 py-2 sm:py-3 rounded-md inline-flex items-center w-fit"
+        style={{ color: "#90e0ef" }}
+      >
+        Consultation
+        <ChevronRight className="ml-2 h-5 w-5" />
+      </Link>
+    </motion.div>
+  </motion.div>
+</header>
 
       {/* Services Section */}
       <section className="py-12 mt-20 sm:py-20 bg-gray-50">

@@ -1,14 +1,18 @@
 import styled from "styled-components"; // Importation de styled-components pour les styles
-import { useEffect } from "react"; // Importation de useEffect pour les effets de bord
-import BardeNavigationpublic from "../../Navigatpublic/BardeNavigationPublic"; // Importation de la barre de navigation publique
-import Footer from "../../Accueil/Footerr"; // Importation du composant Footer
+import { useEffect, memo } from "react"; // Importation de useEffect pour les effets de bord
+import { lazy, Suspense } from "react"; // Importation de lazy et Suspense pour le chargement paresseux
+import AOS from "aos"; // Importation de AOS pour les animations
+import "aos/dist/aos.css"; // Importation du CSS de AOS
+
+// Importation paresseuse des composants
+const BardeNavigationpublic = lazy(() => import("../../Navigatpublic/BardeNavigationPublic"));
+const Footer = lazy(() => import("../../Accueil/Footerr"));
+
 import EVOL from "./../../../assets/Image/EVOL.avif"; // Importation des images
 import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif";
 import commercial from "../../../assets/Image/commercial.avif";
 import MOE_0400 from "../../../assets/Image/MOE_0400.avif";
 import jurid from "../../../assets/Image/jurid.avif";
-import AOS from "aos"; // Importation de AOS pour les animations
-import "aos/dist/aos.css"; // Importation du CSS de AOS
 
 // Conteneur principal avec fond dégradé et image
 const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
@@ -39,13 +43,16 @@ const ContentContainer = styled.article` /* Utilisation d'une balise sémantique
   color: black; /* Couleur du texte par défaut */
   max-width: 1200px; /* Largeur maximale du contenu */
   margin: 0 auto; /* Centrage horizontal */
+  margin-top: 5rem; /* Ajout d'une marge supérieure pour espacer du haut */
 
   @media (max-width: 1024px) {
     padding: 2rem 1rem; /* Espacement réduit pour les tablettes */
+    margin-top: 4rem; /* Ajustement de la marge supérieure pour les tablettes */
   }
 
   @media (max-width: 768px) {
     padding: 2.5rem; /* Espacement réduit pour les petits écrans */
+    margin-top: 3rem; /* Ajustement de la marge supérieure pour les petits écrans */
   }
 `;
 
@@ -95,6 +102,7 @@ const ParagraphImage = styled.img`
   object-fit: cover; /* Ajuste l'image pour couvrir le conteneur */
   border-radius: 1%; /* Bordures arrondies */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre */
+  loading: lazy; /* Chargement différé */
 
   @media (max-width: 768px) {
     border-radius: 0%;
@@ -149,6 +157,7 @@ const Image = styled.img`
   margin-top: 4rem;
   border-radius: 1px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  loading: lazy; /* Chargement différé */
 
   &:hover {
     transform: scale(1.05);
@@ -173,7 +182,7 @@ const Divider = styled.div`
 `;
 
 // Composant principal
-export default function AuditJuridique() {
+const AuditJuridique = () => {
   // Initialisation de AOS pour les animations
   useEffect(() => {
     AOS.init({
@@ -190,7 +199,6 @@ export default function AuditJuridique() {
   return (
     <div>
       {/* Balise meta pour le SEO */}
-      
       <meta name="description" content="Obtenez une assistance juridique professionnelle et personnalisée. Notre équipe d'experts vous accompagne dans tous vos projets juridiques." />
       <meta name="keywords" content="assistance juridique, avocats, expertise juridique, accompagnement juridique" />
       <meta name="alpha ousmane" content="TIPTAMCode" />
@@ -198,8 +206,11 @@ export default function AuditJuridique() {
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         <Overlay />
-        {/* Barre de navigation publique */}
-        <BardeNavigationpublic />
+        <Suspense fallback={<div>Loading...</div>}>
+          {/* Barre de navigation publique */}
+          <BardeNavigationpublic />
+          
+        </Suspense>
 
         {/* Contenu principal */}
         <ContentContainer
@@ -289,8 +300,12 @@ export default function AuditJuridique() {
         </ContentContainer>
       </BackgroundContainer>
 
-      {/* Pied de page */}
-      <Footer />
+      <Suspense fallback={<div>Loading...</div>}>
+        {/* Pied de page */}
+        <Footer />
+      </Suspense>
     </div>
   );
 }
+
+export default memo(AuditJuridique);

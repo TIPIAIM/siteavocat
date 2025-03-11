@@ -215,7 +215,7 @@ const Aproposdeux = () => {
     <CarouselContainer>
       <ContentWrapper>
         <AboutSection>
-          <AboutTitle>AOD AVOCATS SCPA</AboutTitle>
+          <AboutTitle>AOD AVOCATS </AboutTitle>
           <AboutDescription expanded={expanded}>{description}</AboutDescription>
           <ReadMoreButton onClick={() => setExpanded(!expanded)}>
             {expanded ? "moins" : "plus"}

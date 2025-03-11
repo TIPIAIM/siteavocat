@@ -1,4 +1,4 @@
-import  { memo } from "react";
+import { memo, lazy } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import videohomemoury from "./../../assets/Video/videohomemoury.mp4";
@@ -6,9 +6,9 @@ import articleVideo from "./../../assets/Video/feuillevid.mp4";
 import commercial from "./../../assets/Image/travaiil.avif";
 import traval from "./../../assets/Image/travail.avif";
 import techno from "./../../assets/Image/technologie.avif";
+const Headerarticl = lazy(() => import("./Headerarticl"));
+//const Footerr = lazy(() => import(" ../Accueil/Footerr"));
 import Footer from "../Accueil/Footerr";
-import Headerr from "../Headerr/Header";
-
 // Styles
 const ArticlesContainer = styled.main`
   width: 100%;
@@ -137,8 +137,8 @@ const CodeCivilText = styled.p`
   @media (max-width: 768px) {
     font-size: 1rem;
     padding: 0 1px;
-     text-align: left;
-       margin-bottom: 40px;
+    text-align: left;
+    margin-bottom: 40px;
   }
 `;
 
@@ -202,16 +202,15 @@ const articles = [
 const Articles = () => {
   return (
     <div>
-      
-      <Headerr />
+      <Headerarticl />
       <ArticlesContainer>
         <SectionTitle>Le Code civil guinéen</SectionTitle>
         <CodeCivilText>
           Le Code civil guinéen, inspiré du droit français, régit les relations
           civiles et commerciales en Guinée. Il couvre des domaines tels que les
-          contrats, la propriété, les successions et les obligations. Ce code est
-          essentiel pour garantir la sécurité juridique et promouvoir la justice
-          sociale dans le pays.
+          contrats, la propriété, les successions et les obligations. Ce code
+          est essentiel pour garantir la sécurité juridique et promouvoir la
+          justice sociale dans le pays.
         </CodeCivilText>
         <ArticlesGrid>
           {articles.map((article, index) => (
@@ -230,7 +229,11 @@ const Articles = () => {
                     loading="lazy"
                   />
                 ) : (
-                  <video src={article.mediaSrc} controls aria-label={article.title} />
+                  <video
+                    src={article.mediaSrc}
+                    controls
+                    aria-label={article.title}
+                  />
                 )}
               </MediaWrapper>
               <ArticleContent>

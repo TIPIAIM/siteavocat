@@ -14,7 +14,7 @@ const HeroSection = styled.section`
   text-align: center;
   padding: 4rem 1rem;
   position: relative;
-  background-color:rgba(15, 23, 42,1);
+  background-color: rgba(15, 23, 42, 1);
   overflow: hidden;
 
   @media (max-width: 768px) {
@@ -93,7 +93,7 @@ const MessageText = styled(motion.p)`
 const Instructions = styled(motion.div)`
   position: sticky;
   text-align: center;
- 
+
   left: 50%;
   bottom: 0%;
   transform: translateX(-50%);
@@ -106,7 +106,8 @@ const Instructions = styled(motion.div)`
   @media (max-width: 480px) {
     font-size: 0.975rem;
     position: relative;
-    left: 50%; border-radius: 0rem;
+    left: 50%;
+    border-radius: 0rem;
   }
 `;
 
@@ -260,7 +261,7 @@ const Accueilpourcontact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-         Contactez
+          Contactez
           <GradientText>-nous</GradientText>
         </MainHeading>
 
@@ -278,9 +279,7 @@ const Accueilpourcontact = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-      >
-      Merci de votre confiance
-      </Instructions>
+      ></Instructions>
     </HeroSection>
   );
 };

@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
-import Footer from "../Accueil/Footerr";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { lazy } from "react";
-const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
-
+import { lazy, memo } from "react";
+const BardeNavigationpublic = lazy(() =>
+  import("../Navigatpublic/BardeNavigationPublic")
+);
+const Footer = lazy(() => import("../Accueil/Footerr"));
 AOS.init(); // Initialisation de AOS dans le composant
 // Conteneur principal avec fond fixe
 const BackgroundContainer = styled.div`
@@ -30,7 +31,7 @@ const ContentWrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
   border-radius: px;
   box-shadow: 0 0px 0px #90e0ef;
-  backdrop-filter: blur(8px); /* Flou pour un effet moderne */
+  backdrop-filter: blur(1px); /* Flou pour un effet moderne */
 
   @media (max-width: 1024px) {
     padding: 3rem;
@@ -47,11 +48,14 @@ const ContentWrapper = styled.div`
 
 // Titre principal
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #00b4d8;
   text-align: center;
   margin-bottom: 2rem;
+  max-width: 1200px; /* Largeur maximale du contenu */
+  margin: 0 auto; /* Centrage horizontal */
+  margin-top: 7rem; /* Ajout d'une marge supérieure pour espacer du haut */
 
   @media (max-width: 1024px) {
     font-size: 3rem;
@@ -63,16 +67,17 @@ const Title = styled.h1`
 
   @media (max-width: 480px) {
     font-size: 2rem;
+    margin-bottom: 1rem;
   }
 `;
 // Sous-titres
 const Subtitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #90e0ef;
 
   @media (max-width: 1024px) {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     padding-left: 2rem;
   }
 
@@ -88,29 +93,53 @@ const Subtitle = styled.h2`
 
 // Paragraphe avec espacement et lisibilité
 const Paragraph = styled.p`
+  margin-top: 2rem; /* Ajout d'une marge supérieure pour espacer du haut */
 
   color: #caf0f8;
 
-  font-size: 1.3rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.5;
 
   max-width: 800px;
   text-align: left;
 
     @media (max-width: 480px) {
+   
     font-size: 1rem;
     line-height: 1.6rem;
     text-align: left; /* Alignement du texte à gauche */
-    margin : 2rem;
+    margin : 0 0 2rem 0.9rem;
   }
   @media (max-width: 1024px) {
-    font-size : 1.1rem;
+    font-size : 1rem;
     line-height: 1.7rem;
     text-align: left;
   justify-content: left;
 
 `;
+const BackButton = styled(Link)`
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: white;
+  box-shadow: 0 2px 3px #00b4d8;
+  transition: transform 0.9s ease, box-shadow 0.2s ease;
+  max-width: 1200px; /* Largeur maximale du contenu */
+  margin: 0 auto; /* Centrage horizontal */
+  margin-top: 5rem; /* Ajout d'une marge supérieure pour espacer du haut */
 
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 3px 5px #00b4d8;
+  }
+`;
 // Liste stylisée
 const List = styled.ul`
   list-style-type: disc;
@@ -123,7 +152,7 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #caf0f8;
 
   @media (max-width: 768px) {
@@ -138,27 +167,6 @@ const Overlay = styled.div`
 
   background: rgba(0, 0, 0, 0.9);
 `;
-const BackButton = styled(Link)`
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  color: white;
-  box-shadow: 0 2px 3px #00b4d8;
-  transition: transform 0.9s ease, box-shadow 0.2s ease;
-
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 3px 5px #00b4d8;
-  }
-`;
-
 
 const OverlayBottom = styled.div`
   position: absolute;
@@ -171,7 +179,6 @@ const OverlayBottom = styled.div`
 const Minier = () => {
   return (
     <div className="">
-      
       <BackgroundContainer>
         <BardeNavigationpublic />
         <Overlay />
@@ -293,4 +300,4 @@ const Minier = () => {
   );
 };
 
-export default Minier;
+export default memo(Minier);

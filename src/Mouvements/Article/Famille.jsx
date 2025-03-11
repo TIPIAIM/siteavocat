@@ -3,11 +3,10 @@ import styled from "styled-components";
 import { FaArrowLeft } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Footer from "../Accueil/Footerr";
 //import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { Link } from "react-router-dom";
 const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
-
+const Footer = lazy(() => import("../Accueil/Footerr"));
 // Initialisation de AOS
 AOS.init();
 
@@ -40,8 +39,8 @@ const ContentWrapper = styled.section`
   padding: 4rem;
   background-color: rgba(1, 1, 1, 0.8);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(8px);
-
+  backdrop-filter: blur(5px);
+margin-top: 7rem; /* Ajout d'une marge supérieure pour espacer du haut */
   @media (max-width: 1024px) {
     padding: 3rem;
   }

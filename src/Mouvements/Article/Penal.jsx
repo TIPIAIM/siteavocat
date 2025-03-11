@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 import image from "./../../assets/Image/image.avif";
 import assistance from "./../../assets/Image/assistance.avif";
 import categor from "./../../assets/Image/categor.avif";
-const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
+const BardeNavigationpublic = lazy(() =>
+  import("../Navigatpublic/BardeNavigationPublic")
+);
 const Footer = lazy(() => import("../Accueil/Footerr"));
 
 // Styled Components
@@ -20,6 +22,9 @@ const PenalContainer = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+  max-width: 1200px; /* Largeur maximale du contenu */
+  margin: 0 auto; /* Centrage horizontal */
+  margin-top: 5rem; /* Ajout d'une marge supérieure pour espacer du haut */
 
   &::before {
     content: "";
@@ -36,7 +41,7 @@ const PenalContainer = styled.div`
 const SectionTitle = styled.h2`
   font-size: 2.8rem;
   font-weight: bold;
-  margin-top: 6rem;
+  margin-top: 8rem;
   margin-bottom: 2rem;
   color: #00b4d8;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
@@ -50,7 +55,7 @@ const SectionTitle = styled.h2`
 `;
 
 const Description = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.8;
   text-align: justify;
   margin-bottom: 20px;
@@ -82,7 +87,7 @@ const PenalGrid = styled.div`
 
 const PenalCard = styled(motion.div)`
   background: rgba(15, 23, 42, 0.9);
-  border-radius: 12px;
+  border-radius: 1px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -108,7 +113,7 @@ const MediaWrapper = styled.div`
 `;
 
 const PenalContent = styled.div`
-  margin: 1.5rem;
+  margin: 1rem;
   margin-bottom: 2rem;
 `;
 
@@ -125,11 +130,11 @@ const PenalTitle = styled.h3`
 `;
 
 const PenalDescription = styled.p`
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   margin-bottom: 1rem;
-  text-align: justify;
+  text-align: left;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -170,6 +175,7 @@ const BackButton = styled(Link)`
   color: white;
   box-shadow: 0 2px 3px #00b4d8;
   transition: transform 0.9s ease, box-shadow 0.2s ease;
+  margin-top: 0rem;
 
   &:hover {
     transform: scale(1.1);
@@ -220,7 +226,6 @@ const Penal = () => {
 
   return (
     <div className="bg-gray-900">
-      
       <BardeNavigationpublic />
       <PenalContainer>
         <BackButton data-aos="fade-down" to="/article">

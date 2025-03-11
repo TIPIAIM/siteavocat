@@ -107,6 +107,7 @@ const BackButton = styled(Link)`
   color: white;
   box-shadow: 0 2px 3px #00b4d8;
   transition: transform 0.9s ease, box-shadow 0.2s ease;
+  margin-top: 5rem; /* Ajout d'une marge supérieure pour espacer du haut */
 
   &:hover {
     transform: scale(1.1);

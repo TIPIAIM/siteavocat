@@ -38,6 +38,8 @@ const ContentContainer = styled.article`
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   backdrop-filter: blur(5px);
+  max-width: 1200px; /* Largeur maximale du contenu */
+  margin: 0 auto; /* Centrage horizontal */
 
   @media (max-width: 1024px) {
     padding: 3rem;
@@ -58,6 +60,9 @@ const Title = styled.h1`
   color: #00b4d8;
   text-align: center;
   margin-bottom: 1.5rem;
+  max-width: 1200px; /* Largeur maximale du contenu */
+  margin: 0 auto; /* Centrage horizontal */
+  margin-top: 5rem; /* Ajout d'une marge supérieure pour espacer du haut */
 
   @media (max-width: 1024px) {
     font-size: 2.5rem;
@@ -69,6 +74,8 @@ const Title = styled.h1`
 
   @media (max-width: 480px) {
     font-size: 1.8rem;
+  margin-top: 8rem; /* Ajout d'une marge supérieure pour espacer du haut */
+
   }
 `;
 
@@ -138,6 +145,8 @@ const BackButton = styled(Link)`
   color: white;
   box-shadow: 0 2px 3px #00b4d8;
   transition: transform 0.9s ease, box-shadow 0.2s ease;
+  margin: 0 auto; /* Centrage horizontal */
+  margin-top: 5rem; /* Ajout d'une marge supérieure pour espacer du haut */
 
   &:hover {
     transform: scale(1.1);

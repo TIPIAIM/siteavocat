@@ -7,22 +7,32 @@ import {
   Scale,
   Users,
 } from "lucide-react";
-import Accueilfooter from "./Accueilfooter";
-import Horaire from "./Horaire";
-import Nosservicess from "./Nosservicess";
+import { lazy, memo, Suspense } from "react";
 import { Link } from "react-router-dom";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import SEO from "../../DynamicSeo";
 import "aos/dist/aos.css";
 import Image7 from "../../assets/Image/maitre7.avif";
 import photoaccueil from "../../assets/Image/photo-accueil.avif";
-import SocialLinks from "../Lienlateral/SocialLinks";
+
+// Chargement paresseux des composants
+const Accueilfooter = lazy(() => import("./Accueilfooter"));
+const Horaire = lazy(() => import("./Horaire"));
+const Nosservicess = lazy(() => import("./Nosservicess"));
+const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
+const SocialLinks = lazy(() => import("../Lienlateral/SocialLinks"));
+
+// Mémorisation des composants
+const MemoizedAccueilfooter = memo(Accueilfooter);
+const MemoizedHoraire = memo(Horaire);
+const MemoizedNosservicess = memo(Nosservicess);
+const MemoizedBardeNavigationpublic = memo(BardeNavigationpublic);
+const MemoizedSocialLinks = memo(SocialLinks);
 
 export default function Accueil() {
   return (
     <div style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
       <SEO
-        title="AOD AVOCATS - Expertise juridique - services personnalisés - Cabinet d'avocats " //le titre sera en haut de la ou il ya url
+        title="AOD AVOCATS - Expertise juridique - services personnalisés - Cabinet d'avocats"
         description="Notre cabinet offre des services juridiques d'excellence grâce à une équipe
          d'avocats expérimentés Nous combinons expertise juridique, conseils personnalisés et 
          solutions juridiques adaptées pour répondre à vos besoins."
@@ -34,52 +44,54 @@ export default function Accueil() {
 
       {/* Hero Section */}
       <header className="relative h-[400px] sm:h-[600px] overflow-hidden">
-  <BardeNavigationpublic />
+        <Suspense fallback={<div>Loading...</div>}>
+          <MemoizedBardeNavigationpublic />
+        </Suspense>
 
-  {/* Overlay sombre */}
-  <div className="absolute inset-0 bg-black/50 z-20" />
+        {/* Overlay sombre */}
+        <div className="absolute inset-0 bg-black/50 z-20" />
 
-  {/* Image de fond */}
-  <motion.img
-    src={photoaccueil}
-    alt="Cabinet d'avocats"
-    className="absolute inset-0 w-full h-full object-cover"
-    initial={{ scale: 1.2, opacity: 0 }}
-    animate={{ scale: 1, opacity: 1 }}
-    transition={{ duration: 1 }}
-  />
+        {/* Image de fond */}
+        <motion.img
+          src={photoaccueil}
+          alt="Cabinet d'avocats"
+          className="absolute inset-0 w-full h-full object-cover"
+          initial={{ scale: 1.2, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1 }}
+        />
 
-  {/* Contenu centré */}
-  <motion.div
-    className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center"
-    initial={{ y: 90, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }} // Retirez le décalage vertical (y: 25)
-    transition={{ delay: 0.3, duration: 0.8 }}
-  >
-    <h1
-      className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"
-      style={{ color: "#90e0ef" }}
-    >
-      CABINET AOD AVOCATS
-    </h1>
-    <p
-      className="text-lg sm:text-xl mb-6 sm:mb-8 max-w-lg mx-auto"
-      style={{ color: "#90e0ef" }}
-    >
-      S’Engage à protéger vos droits et intérêts
-    </p>
-    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-      <Link
-        to="/contact"
-        className="bg-[rgba(10,34,64,0.9)] no-underline animate-pulse hover:bg-[rgba(0,119,182,1)] px-6 sm:px-8 py-2 sm:py-3 rounded-md inline-flex items-center w-fit"
-        style={{ color: "#90e0ef" }}
-      >
-        Consultation
-        <ChevronRight className="ml-2 h-5 w-5" />
-      </Link>
-    </motion.div>
-  </motion.div>
-</header>
+        {/* Contenu centré */}
+        <motion.div
+          className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center"
+          initial={{ y: 90, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          <h1
+            className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6"
+            style={{ color: "#90e0ef" }}
+          >
+            CABINET AOD AVOCATS
+          </h1>
+          <p
+            className="text-lg sm:text-xl mb-6 sm:mb-8 max-w-lg mx-auto"
+            style={{ color: "#90e0ef" }}
+          >
+            S’Engage à protéger vos droits et intérêts
+          </p>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              to="/contact"
+              className="bg-[rgba(10,34,64,0.9)] no-underline animate-pulse hover:bg-[rgba(0,119,182,1)] px-6 sm:px-8 py-2 sm:py-3 rounded-md inline-flex items-center w-fit"
+              style={{ color: "#90e0ef" }}
+            >
+              Consultation
+              <ChevronRight className="ml-2 h-5 w-5" />
+            </Link>
+          </motion.div>
+        </motion.div>
+      </header>
 
       {/* Services Section */}
       <section className="py-12 mt-20 sm:py-20 bg-gray-50">
@@ -105,7 +117,7 @@ export default function Accueil() {
                 icon: Gavel,
                 title: "Droit Civil",
                 desc: "Protection des droits et intérêts personnels",
-                link: "/affairee",
+                link: "/travail",
               },
               {
                 icon: Receipt,
@@ -159,12 +171,14 @@ export default function Accueil() {
         </motion.div>
       </section>
 
-      <div className=" mt-20">
-        <Nosservicess />
+      <div className="mt-20">
+        <Suspense fallback={<div>Loading...</div>}>
+          <MemoizedNosservicess />
+        </Suspense>
       </div>
 
       {/* About Section */}
-      <section className="py-12 sm:py-20 mt-20 ">
+      <section className="py-12 sm:py-20 mt-20">
         <motion.div
           className="container mx-auto px-4 max-w-screen-lg"
           initial={{ opacity: 0, y: 50 }}
@@ -174,7 +188,7 @@ export default function Accueil() {
         >
           <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-12">
             <div className="flex-1">
-              <h2 className="text-2xl text-cyan-950 text-center sm:text-3xl  font-bold mb-4 sm:mb-6">
+              <h2 className="text-2xl text-cyan-950 text-center sm:text-3xl font-bold mb-4 sm:mb-6">
                 Notre Cabinet
               </h2>
               <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6 pl-5">
@@ -189,7 +203,7 @@ export default function Accueil() {
                     className="w-10 sm:w-12 h-10 sm:h-12 mb-2"
                     style={{ color: "#0077b6" }}
                   />
-                  <div className="font-bold text-lg  sm:text-2xl">6+</div>
+                  <div className="font-bold text-lg sm:text-2xl">6+</div>
                   <div className="text-gray-600 text-sm">
                     Années d’expérience
                   </div>
@@ -215,13 +229,15 @@ export default function Accueil() {
               <img
                 src={Image7}
                 alt="Notre équipe"
-                className=" shadow-xl mb-6 w-full"
+                className="shadow-xl mb-6 w-full"
               />
             </motion.div>
           </div>
         </motion.div>
-        <div className=" mt-40">
-          <Horaire />
+        <div className="mt-40">
+          <Suspense fallback={<div>TIPTAMCode...</div>}>
+            <MemoizedHoraire />
+          </Suspense>
         </div>
       </section>
 
@@ -234,11 +250,15 @@ export default function Accueil() {
         transition={{ duration: 0.8 }}
       >
         <div className="container mx-auto px-4 max-w-screen-lg flex flex-col items-center sm:flex-row justify-center gap-6 sm:gap-12">
-          <SocialLinks />
+          <Suspense fallback={<div>Loading...</div>}>
+            <MemoizedSocialLinks />
+          </Suspense>
         </div>
       </motion.section>
 
-      <Accueilfooter />
+      <Suspense fallback={<div>TIPTAMCode...</div>}>
+        <MemoizedAccueilfooter />
+      </Suspense>
     </div>
   );
 }

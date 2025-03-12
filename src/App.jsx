@@ -38,7 +38,7 @@ import Affairee from "./Mouvements/Savoirfaire/Affairee";
 import Petitecrandeux from "./Mouvements/Erreur/Erreur";
 import Assistant from "./Mouvements/Assistant/Assistant";
 import FloatingButton from "./Mouvements/Assistant/assistboutom";
-import Broullons from "./Brouillon";
+//import Broullons from "./Brouillon";
 
 
 function App() {
@@ -53,8 +53,8 @@ function App() {
         <Route index element={<Accueil />} />
         <Route path="*" element={<Petitecrandeux />} />
         {/**pge d'erreur */}
-        {/**  */} 
-   <Route path="/Broullons" element={<Broullons/>} />
+        {/** Hor 
+   <Route path="/Broullons" element={<Broullons/>} />*/} 
    <Route path="/assist" element={<FloatingButton />} />  
       
      <Route path="/assistance" element={<Assistant />} />

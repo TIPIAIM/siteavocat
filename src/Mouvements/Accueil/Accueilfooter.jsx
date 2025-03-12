@@ -6,6 +6,7 @@ import {
   PersonStanding,
   LampDesk,
   MapPinHouse,
+  ArrowUp,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -29,7 +30,7 @@ const ContactTitle = styled.h2`
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 `;
 
 const ContactGrid = styled.div`
@@ -78,6 +79,29 @@ const ContactText = styled.div`
 
   &:hover svg {
     color: #00b4d8; // Changez cette couleur selon vos préférences
+  }
+`;
+
+const BackToTop = styled.div`
+  text-align: center;
+  margin-top: 2rem;
+`;
+
+const BackToTopLink = styled.a`
+  color: #90e0ef;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    color: #00b4d8;
+  }
+
+  svg {
+    margin-left: 0.5rem;
   }
 `;
 
@@ -148,6 +172,12 @@ export default function AccueilFooter() {
               </ContactText>
             </ContactCard>
           </ContactGrid>
+          <BackToTop>
+            <BackToTopLink href="#top">
+              Retour en haut
+              <ArrowUp size={16} />
+            </BackToTopLink>
+          </BackToTop>
         </div>
       </ContactSection>
 

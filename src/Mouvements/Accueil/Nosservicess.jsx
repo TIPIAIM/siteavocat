@@ -9,7 +9,7 @@ import mine from "./../../assets/Image/mine.avif";
 import MOE_0384 from "./../../assets/Image/MOE_0384.avif";
 import maitaction from "./../../assets/Image/maitaction.avif";
 
-// Styles inchangés
+// Styles optimisés
 const Container = styled.div`
   position: relative;
   width: 100%;
@@ -31,7 +31,6 @@ const Title = styled.h1`
   text-align: center;
   margin-bottom: 20px;
   color: #0f172a;
-  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
   font-family: "Helvetica55Roman", Arial, sans-serif;
 
   @media (max-width: 768px) {
@@ -50,14 +49,14 @@ const Description = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1rem;
-     text-align: left;
-     padding: 0 20px 20px 20px;
+    text-align: left;
+    padding: 0 20px 20px 20px;
   }
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes par ligne */
   gap: 30px;
   width: 100%;
   max-width: 1200px;
@@ -65,7 +64,7 @@ const Grid = styled.div`
   box-sizing: border-box;
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 1 colonne sur mobile */
   }
 `;
 
@@ -92,6 +91,8 @@ const CardImage = styled.img`
   object-fit: cover;
   border-radius: 1px;
   background: #f8f9fa;
+  opacity: ${({ loaded }) => (loaded ? 1 : 0)};
+  transition: opacity 0.3s ease;
 
   @media (max-width: 768px) {
     max-height: 150px;
@@ -121,12 +122,14 @@ const CardDescription = styled.p`
   transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
 `;
 
-// Optimisation des images
+// Placeholder SVG pour les images
 const placeholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 250'%3E%3C/svg%3E";
 
+// Composant ServiceCard optimisé
 const ServiceCard = React.memo(({ title, description, image }) => {
   const [expanded, setExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const imgRef = useRef();
   const cardRef = useRef();
 
@@ -138,11 +141,11 @@ const ServiceCard = React.memo(({ title, description, image }) => {
           observer.unobserve(entry.target);
         }
       },
-      { rootMargin: '100px 0px' }
+      { rootMargin: "100px 0px" }
     );
 
     if (cardRef.current) observer.observe(cardRef.current);
-    
+
     return () => {
       if (cardRef.current) observer.unobserve(cardRef.current);
     };
@@ -163,16 +166,8 @@ const ServiceCard = React.memo(({ title, description, image }) => {
         decoding="async"
         width="300"
         height="250"
-        onLoad={() => {
-          if (imgRef.current) {
-            imgRef.current.style.opacity = 1;
-          }
-        }}
-        style={{
-          opacity: 0,
-          transition: 'opacity 0.3s ease',
-          background: '#f0f0f0'
-        }}
+        loaded={isLoaded}
+        onLoad={() => setIsLoaded(true)}
       />
       <CardTitle data-aos="fade-down">{title}</CardTitle>
       <CardDescription expanded={expanded}>{description}</CardDescription>
@@ -180,10 +175,10 @@ const ServiceCard = React.memo(({ title, description, image }) => {
   );
 });
 
-// Données complètes restaurées
+// Données complètes des services
 const services = [
   {
-    title: "L’ESSENTIEL DANS LES CONTRATS ",
+    title: "L’ESSENTIEL DANS LES CONTRATS",
     description: `
     Dans l’élaboration et la rédaction de contrats, l’intervention d’un avocat est essentielle pour sécuriser les intérêts de chaque partie. Cela permet de garantir une rédaction rigoureuse, d’anticiper les risques de conflits et d’envisager des solutions adaptées en cas de litige. Le rôle du Cabinet est de veiller à une rédaction claire et précise, en protégeant les droits de ses clients tout en leur offrant une tranquillité d’esprit.
     `,
@@ -197,33 +192,34 @@ const services = [
   {
     title: "DROIT DES AFFAIRES",
     description: `
-Au sein de notre cabinet, nous comprenons que le droit des affaires ne se résume pas simplement à la rédaction de contrats ou à la résolution de litiges. Il s'agit d'un levier essentiel pour la réussite de votre entreprise. Notre rôle est de mettre notre expertise juridique au service de votre savoir-faire pour vous fournir des solutions pratiques et stratégiques. Que vous cherchiez à nouer de nouveaux partenariats, à élaborer des projets ambitieux ou à sécuriser vos contrats, nous vous accompagnons à chaque étape avec des conseils éclairés et personnalisés. Notre objectif est de vous offrir une sécurité juridique optimale, tout en vous permettant de vous concentrer sur la croissance de votre activité.    `,
+    Au sein de notre cabinet, nous comprenons que le droit des affaires ne se résume pas simplement à la rédaction de contrats ou à la résolution de litiges. Il s'agit d'un levier essentiel pour la réussite de votre entreprise. Notre rôle est de mettre notre expertise juridique au service de votre savoir-faire pour vous fournir des solutions pratiques et stratégiques. Que vous cherchiez à nouer de nouveaux partenariats, à élaborer des projets ambitieux ou à sécuriser vos contrats, nous vous accompagnons à chaque étape avec des conseils éclairés et personnalisés. Notre objectif est de vous offrir une sécurité juridique optimale, tout en vous permettant de vous concentrer sur la croissance de votre activité.
+    `,
     image: MOE_0384,
   },
   {
-    title: "LE DROIT DU TRVAIL ET SECURITÉ SOCIALE",
+    title: "LE DROIT DU TRAVAIL ET SÉCURITÉ SOCIALE",
     description: `
     Le droit du travail est un domaine complexe et en constante évolution. Mon objectif est de vous offrir des conseils clairs, adaptés à votre situation, pour sécuriser vos démarches et préserver vos intérêts, quelle que soit votre position. Pour les Employeurs : Nous vous aidons à prévenir les litiges en mettant en place des pratiques conformes à la loi. En cas de conflit, nous vous représentons avec détermination. Pour les Salariés : nous sommes votre défenseur face à des situations de licenciement abusif, de harcèlement ou d’injustice, pour faire valoir vos droits. Dans le monde du travail, chaque droit compte. Nous sommes là pour nous assurer qu’ils soient respectés.
-En tant qu’avocat, nous nous éfforcons de défendre ces principes, que ce soit en conseillant nos clients, en négociant pour eux ou en plaidant en leur nom devant les juridictions compétentes. 
-Ces branches du droit, dynamiques et en constante évolution, reflètent notre engagement collectif pour une société où chacun a droit à la dignité et à la sécurité. Notre mission est de garantir que ces droits soient respectés et appliqués avec rigueur et humanité.
-`,
+    En tant qu’avocat, nous nous efforçons de défendre ces principes, que ce soit en conseillant nos clients, en négociant pour eux ou en plaidant en leur nom devant les juridictions compétentes. 
+    Ces branches du droit, dynamiques et en constante évolution, reflètent notre engagement collectif pour une société où chacun a droit à la dignité et à la sécurité. Notre mission est de garantir que ces droits soient respectés et appliqués avec rigueur et humanité.
+    `,
     image: MOE_0400,
   },
   {
-    title: "DROIT MINIER ET ENVIRONNEMENTALE",
+    title: "DROIT MINIER ET ENVIRONNEMENTAL",
     description: `En matière de droit minier, nous intervenons pour : Assister les entreprises minières dans l'obtention des permis et autorisations nécessaires pour l'exploration et l'exploitation des ressources naturelles. Rédiger et négocier des contrats miniers, en garantissant leur conformité avec les lois nationales et internationales. Conseiller sur les obligations réglementaires, notamment en matière de fiscalité minière et de partage des bénéfices. Du côté environnemental, notre rôle est d'assurer : La conformité avec les lois environnementales. La gestion des litiges environnementaux. Nous sommes là pour vous guider.`,
     image: mine,
   },
   {
     title: "LE DROIT FISCAL",
     description: `
-Le Code Général des Impôts évolue sans cesse avec de nouvelles dispositions. Il concerne tout particulier et toute entreprise, et il faut être au fait de ces différents changements pour conseiller et assister tout contribuable pour tout ce qui concerne le côté imposable en cas de cession d’un bien immeuble ou d’un fonds de commerce, en cas de redressement fiscal, ou d’une imposition que le contribuable ne trouve pas légitime, en cas de besoin d’un quitus fiscal pour les expatriés, ou autres. Le cabinet AOD AVOCATS peut vous conseiller efficacement, vous assister auprès de la Direction des Impôts directs et indirects, en clair, vous faciliter la tâche, en vous trouvant des solutions rapides et appropriées.
+    Le Code Général des Impôts évolue sans cesse avec de nouvelles dispositions. Il concerne tout particulier et toute entreprise, et il faut être au fait de ces différents changements pour conseiller et assister tout contribuable pour tout ce qui concerne le côté imposable en cas de cession d’un bien immeuble ou d’un fonds de commerce, en cas de redressement fiscal, ou d’une imposition que le contribuable ne trouve pas légitime, en cas de besoin d’un quitus fiscal pour les expatriés, ou autres. Le cabinet AOD AVOCATS peut vous conseiller efficacement, vous assister auprès de la Direction des Impôts directs et indirects, en clair, vous faciliter la tâche, en vous trouvant des solutions rapides et appropriées.
     `,
     image: maitaction,
   },
 ];
 
-// Optimisation AOS
+// Initialisation unique de AOS
 let aosInitialized = false;
 
 const Nosservicess = () => {
@@ -233,7 +229,7 @@ const Nosservicess = () => {
         duration: 800,
         once: true,
         offset: 100,
-        easing: 'ease-out-quad'
+        easing: "ease-out-quad",
       });
       aosInitialized = true;
     }
@@ -247,7 +243,7 @@ const Nosservicess = () => {
         Notre cabinet offre des services juridiques de qualité dans divers
         domaines, avec une expertise reconnue et une approche humaine.
       </Description>
-      
+
       <Grid>
         {services.map((service, index) => (
           <ServiceCard

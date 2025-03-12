@@ -2,6 +2,7 @@ import styled from "styled-components";
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
 import { useEffect } from "react";
+import { Clock, HandCoins, Scale, AlertCircle, Info } from "lucide-react"; // Importation des icônes Lucide
 
 // Styled Components
 const Container = styled.main`
@@ -69,6 +70,10 @@ const CardTitle = styled.h2`
   font-weight: bold;
   margin-bottom: 10px;
   color: #90e0ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; // Espace entre l'icône et le texte
   @media (max-width: 768px) {
     font-size: 1.3rem;
   }
@@ -86,33 +91,38 @@ const CardDescription = styled.p`
 `;
 
 export default function Horaire() {
-    useEffect(() => {
-      AOS.init({
-        duration: 1000, // Durée des animations
-        once: false, // Les animations se répètent à chaque fois que l'élément entre dans la vue
-      });
-    }, []);
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durée des animations
+      once: false, // Les animations se répètent à chaque fois que l'élément entre dans la vue
+    });
+  }, []);
+
   const sections = [
-    { title: "Honoraires:", description: "Quelle que soit la formule choisie" },
+    { title: "Honoraires:", description: "Quelle que soit la formule choisie", icon: <HandCoins size={24} /> },
     {
       title: "L’honoraire au temps passé",
       description:
         "L’avocat et son client se mettent d’accord dés le début sur une rémunération horaire. L’honoraire définitif sera calculé par l’avocat en fin de dossier.",
+      icon: <Clock size={24} />,
     },
     {
       title: "L’honoraire forfaitaire",
       description:
         "L’avocat et son client se mettent dés le début de leur relation d’accord sur une rémunération globale pour la prestation définie entre eux. Au-delà, toute prestation non prévue fera l’objet d’une nouvelle rémunération",
+      icon: <Scale size={24} />,
     },
     {
       title: "L’honoraire de résultat",
       description:
         "Il n’est pas possible de déterminer les honoraires de l’avocat par le gain du procès ou en fonction du résultat obtenu. En revanche, il est possible de convenir d’un honoraire de base (forfait ou horaire), complété par une rémunération supplémentaire calculée en fonction du résultat obtenu. Cet honoraire supplémentaire doit faire l’objet d’une convention préalable.",
+      icon: <AlertCircle size={24} />,
     },
     {
       title: "Bon à savoir :",
       description:
         "Quelle que soit la formule choisie, il est recommandé de la déterminer par écrit avec votre avocat. La rémunération de votre avocat ne constitue pas obligatoirement la seule dépense engagée lors d’un procès. Appelées frais ou dépens, ces dépenses supplémentaires couvrent généralement des frais de procédure ou la rémunération d’autres auxiliaires de justice (l’intervention d’un huissier de justice, par exemple). Toute contestation concernant les honoraires relève de la compétence du Bâtonnier à qui vous pouvez écrire par lettre recommandée avec accusé de réception en lui expliquant les arguments qui vous poussent à contester les honoraires de votre avocat.",
+      icon: <Info size={24} />,
     },
   ];
 
@@ -122,7 +132,7 @@ export default function Horaire() {
         <Title>COMBIEN COÛTE UN AVOCAT ?</Title>
         <Description>
           Les honoraires de l’avocat sont libres et fixés en accord avec le
-          client.Il n’existe pas de barème indicatif. Il est donc nécessaire
+          client. Il n’existe pas de barème indicatif. Il est donc nécessaire
           d’aborder avec votre avocat les modalités qui permettent de déterminer
           le montant des honoraires.
         </Description>
@@ -130,7 +140,9 @@ export default function Horaire() {
 
       {sections.map((section, index) => (
         <Card key={index}>
-          <CardTitle data-aos="zoom-in" >{section.title}</CardTitle>
+          <CardTitle data-aos="zoom-in">
+            {section.icon} {section.title}
+          </CardTitle>
           <CardDescription>{section.description}</CardDescription>
         </Card>
       ))}

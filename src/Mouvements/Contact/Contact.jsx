@@ -62,7 +62,7 @@ const Title = styled.h1`
 const Description = styled.p`
   font-size: 1.1rem;
   color: #caf0f8;
-  margin-bottom: 20px;
+  margin: 20px;
   text-align: justify;
 
   @media (max-width: 768px) {

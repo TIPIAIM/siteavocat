@@ -20,7 +20,7 @@ const articlesData = [
     excerpt:
       "Un aperçu des modifications récentes dans le droit des contrats et leurs implications pour les entreprises.",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio.",
+      "Un aperçu des modifications récentes dans le droit des contrats et leurs implications pour les entreprises.",
     imageUrl: "/images/droit-contrats.jpg",
     date: "15 mars 2024",
   },
@@ -30,7 +30,7 @@ const articlesData = [
     excerpt:
       "Un aperçu des modifications récentes dans le droit des contrats et leurs implications pour les entreprises.",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio.",
+      "Un aperçu des modifications récentes dans le droit des contrats et leurs implications pour les entreprises.",
     imageUrl: "/images/droit-contrats.jpg",
     date: "15 mars 2024",
   },
@@ -116,7 +116,6 @@ const ArticleImage = styled.div`
   }
 
   @media (max-width: 768px) {
-    height: 160px;
   }
 `;
 

@@ -159,6 +159,14 @@ const articles = [
     link: "fiscalite",
   },
   {
+    title: "La sécurité sociale et le droit du travail",
+    description:
+      "Une analyse approfondie de la protection des employés en matière de sécurité sociale.",
+    mediaType: "image",
+    mediaSrc: traval,
+    link: "securite",
+  },
+  {
     title: "Les litiges miniers et environnementaux",
     description: "Un aperçu des défis juridiques dans le secteur minier.",
     mediaType: "video",
@@ -181,14 +189,7 @@ const articles = [
     mediaSrc: commercial,
     link: "affaire",
   },
-  {
-    title: "La sécurité sociale et le droit du travail",
-    description:
-      "Une analyse approfondie de la protection des employés en matière de sécurité sociale.",
-    mediaType: "image",
-    mediaSrc: traval,
-    link: "securite",
-  },
+  
   {
     title: "Le droit pénal et la défense des victimes",
     description:

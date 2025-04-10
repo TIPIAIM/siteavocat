@@ -1,3 +1,4 @@
+
 import {
   Phone,
   Mail,
@@ -17,6 +18,16 @@ import styled, { keyframes } from "styled-components";
 import React, { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
+// Points de rupture pour différents appareils
+const breakpoints = {
+  smallPhone: 375,
+  phone: 480,
+  tablet: 768,
+  laptop: 1024,
+  desktop: 1200,
+  largeDesktop: 1440
+};
+
 // Animation pour les modales
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -32,19 +43,28 @@ const LegalLinks = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 2rem;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    gap: 1.5rem;
+  }
 
   button {
     color: #90e0ef;
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     transition: color 0.3s ease;
     display: flex;
     align-items: center;
     padding: 0.5rem 0;
+    white-space: nowrap;
+
+    @media (min-width: ${breakpoints.tablet}px) {
+      font-size: 0.9rem;
+    }
 
     &:hover {
       color: #00b4d8;
@@ -53,6 +73,7 @@ const LegalLinks = styled.div`
 
     svg {
       margin-right: 0.5rem;
+      min-width: 16px;
     }
   }
 `;
@@ -63,7 +84,11 @@ const CopyrightSection = styled.div`
   padding-top: 1.5rem;
   border-top: 1px solid rgba(0, 180, 216, 0.2);
   color: #90e0ef;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const BackToTop = styled.div`
@@ -74,63 +99,97 @@ const BackToTop = styled.div`
 const FooterContainer = styled.footer`
   background-color: #1a365d;
   color: #e5e7eb;
-  padding: 3rem 0;
+  padding: 2rem 0;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    padding: 3rem 0;
+  }
 `;
 
 const FooterGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${breakpoints.phone}px) {
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  @media (min-width: ${breakpoints.laptop}px) {
     grid-template-columns: repeat(4, 1fr);
   }
 `;
 
 const FooterSection = styled.div`
-  padding: 1rem;
+  padding: 0.5rem;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    padding: 1rem;
+  }
 `;
 
 const SectionTitle = styled.h3`
   color: #90e0ef;
   font-weight: 600;
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
   position: relative;
   padding-bottom: 0.5rem;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
 
   &:after {
     content: "";
     position: absolute;
-    width: 80px;
-    height: 3px;
+    width: 60px;
+    height: 2px;
     background-color: #0077b6;
     bottom: 0;
     left: 0;
+
+    @media (min-width: ${breakpoints.tablet}px) {
+      width: 80px;
+      height: 3px;
+    }
   }
 `;
 
 const ContactItem = styled.div`
   display: flex;
   align-items: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   color: #e5e7eb;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
 
   svg {
     margin-right: 0.5rem;
     margin-top: 0.2rem;
-    min-width: 20px;
+    min-width: 18px;
     color: #90e0ef;
+    flex-shrink: 0;
   }
 
   a {
     color: #e5e7eb;
     transition: color 0.3s ease;
     text-decoration: none;
+    word-break: break-word;
 
     &:hover {
       color: #00b4d8;
@@ -141,31 +200,47 @@ const ContactItem = styled.div`
 const ServiceItem = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
   color: #e5e7eb;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
 
   svg {
     margin-right: 0.5rem;
     color: #2ecc71;
+    min-width: 18px;
+    flex-shrink: 0;
   }
 `;
 
 const SocialLinks = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   margin-top: 1rem;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    gap: 1rem;
+  }
 
   a {
     color: #e5e7eb;
     transition: all 0.3s ease;
     background: rgba(255, 255, 255, 0.1);
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (min-width: ${breakpoints.tablet}px) {
+      width: 36px;
+      height: 36px;
+    }
 
     &:hover {
       color: #00b4d8;
@@ -180,20 +255,28 @@ const MissionText = styled.p`
   color: #bdc3c7;
   margin-top: 1rem;
   line-height: 1.6;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const BackToTopLink = styled.a`
   color: #90e0ef;
   cursor: pointer;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 1rem;
   border: 1px solid rgba(144, 224, 239, 0.3);
   border-radius: 4px;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    font-size: 0.9rem;
+  }
 
   &:hover {
     color: #00b4d8;
@@ -217,31 +300,43 @@ const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 1rem;
   animation: ${fadeIn} 0.3s ease-out;
+  backdrop-filter: blur(5px);
 `;
 
 const ModalContent = styled.div`
   background: #1a365d;
-  border-radius: 1px;
-  width: 90%;
+  border-radius: 8px;
+  width: 95%;
   max-width: 800px;
   max-height: 90vh;
   overflow-y: auto;
-  padding: 2rem;
+  padding: 1.5rem;
   position: relative;
   border: 1px solid rgba(0, 180, 216, 0.3);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   animation: ${slideUp} 0.3s ease-out;
+
+  @media (min-width: ${breakpoints.phone}px) {
+    width: 90%;
+    padding: 2rem;
+  }
 `;
 
 const ModalTitle = styled.h3`
   color: #90e0ef;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid rgba(0, 180, 216, 0.3);
   display: flex;
   align-items: center;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
 
   svg {
     margin-right: 10px;
@@ -250,21 +345,39 @@ const ModalTitle = styled.h3`
 
 const ModalText = styled.div`
   color: #e5e7eb;
-  line-height: 1.8;
-  font-size: 1rem;
+  line-height: 1.7;
+  font-size: 0.9rem;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
 
   p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
+
+    @media (min-width: ${breakpoints.tablet}px) {
+      margin-bottom: 1.5rem;
+    }
   }
 
   ul {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
+    margin: 0.8rem 0;
+    padding-left: 1.2rem;
+
+    @media (min-width: ${breakpoints.tablet}px) {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
   }
 
   li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     position: relative;
+
+    @media (min-width: ${breakpoints.tablet}px) {
+      margin-bottom: 0.5rem;
+    }
   }
 
   li::before {
@@ -279,19 +392,24 @@ const ModalText = styled.div`
   .highlight {
     background-color: rgba(0, 180, 216, 0.1);
     border-left: 3px solid #00b4d8;
-    padding: 1rem;
-    margin: 1.5rem 0;
+    padding: 0.8rem;
+    margin: 1.2rem 0;
+
+    @media (min-width: ${breakpoints.tablet}px) {
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
   }
 `;
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.8rem;
+  right: 0.8rem;
   background: rgba(0, 180, 216, 0.1);
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -299,6 +417,13 @@ const CloseButton = styled.button`
   cursor: pointer;
   z-index: 10;
   transition: all 0.2s ease;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
 
   &:hover {
     background: rgba(0, 180, 216, 0.3);
@@ -309,7 +434,6 @@ const CloseButton = styled.button`
     color: #90e0ef;
   }
 `;
-
 // Contenu des modales
 const legalContent = {
   mentions: {

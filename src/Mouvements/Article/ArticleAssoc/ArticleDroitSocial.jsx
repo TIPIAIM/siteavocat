@@ -6,13 +6,75 @@ import paul from "../../../assets/Image/MOE_0311.avif"; // Importation de l'imag
 const articlesData = [
   {
     id: 1,
-    title: "Commentaire de l’article 211.10 ",
-    excerpt:
-      "« L’élaboration d’un règlement intérieur est obligatoire dans toutes les entreprises et tous les établissements employant habituellement au moins vingt-cinq salariés. » ",
-    content:
-      "L'article dispose que « L’élaboration d’un règlement intérieur est obligatoire dans toutes les entreprises et tous les établissements employant habituellement au moins vingt-cinq salariés. » Ce texte engage une réflexion sur la nécessité, les enjeux et les modalités de la mise en place d'un règlement intérieur dans les entreprises guinéennes, en particulier en ce qui concerne les droits des travailleurs et les obligations des employeurs.L’obligation de l’élaboration d’un règlement intérieur vise à encadrer la relation de travail au sein des entreprises, en garantissant un cadre juridique précis pour la gestion des rapports entre l'employeur et les salariés. Le règlement intérieur, étant un document contractuel interne, joue un rôle fondamental en fixant les règles de discipline, les normes de sécurité, les conditions d'hygiène et la discipline au sein de l'entreprise. Ce dispositif met aussi en place un seuil d’obligation : il concerne que les entreprises qui emploient au moins 25 salariés de manière habituelle. Cela est justifié par le fait que dans les grandes entreprises, la gestion des relations de travail devient plus complexe et nécessite un cadre formel pour prévenir les conflits, organiser la discipline, et garantir une certaine harmonisation des pratiques. L'objectif est ainsi de protéger les droits des salariés tout en assurant la bonne marche de l'entreprise.",
+    title: "Commentaire de l'article 211.10 du Code du Travail",
+    excerpt: "« L'élaboration d'un règlement intérieur est obligatoire... »",
+    content: (
+      <>
+        <p className=" text-cyan-950 font-semibold">L'article dispose que :</p>
+        <p className="  font-semibold">
+          « L'élaboration d'un règlement intérieur est obligatoire dans toutes
+          les entreprises et tous les établissements employant habituellement au
+          moins vingt-cinq salariés. »
+        </p>
+
+        <p className=" text-cyan-950 ">
+          Ce texte engage une réflexion sur la nécessité, les enjeux et les
+          modalités de la mise en place d'un règlement intérieur dans les
+          entreprises guinéennes, en particulier en ce qui concerne les droits
+          des travailleurs et les obligations des employeurs.
+        </p>
+
+        <p className=" text-cyan-950 ">
+          <span className=" text-cyan-950 font-semibold">
+            L'obligation de l'élaboration d'un règlement intérieur
+          </span>{" "}
+          vise à encadrer la relation de travail au sein des entreprises, en
+          garantissant un cadre juridique précis pour la gestion des rapports
+          entre l'employeur et les salariés.
+        </p>
+
+        <p className=" text-cyan-950 font-semibold">
+          {" "}
+          Le règlement intérieur, étant un document contractuel interne, joue un
+          rôle fondamental en fixant :
+        </p>
+
+        <ul className=" list-disc pl-5  text-cyan-950">
+          <li>Les règles de discipline</li>
+          <li>Les normes de sécurité</li>
+          <li>Les conditions d'hygiène</li>
+          <li>La discipline au sein de l'entreprise</li>
+        </ul>
+
+        <p className=" text-cyan-950 font-semibold">
+          Ce dispositif met aussi en place un seuil d'obligation : il concerne
+          uniquement les entreprises qui emploient au moins 25 salariés de
+          manière habituelle.
+        </p>
+
+        <p className=" text-cyan-950">
+          Cela est justifié par le fait que dans les grandes entreprises, la
+          gestion des relations de travail devient plus complexe et nécessite un
+          cadre formel pour :
+        </p>
+
+        <ul className=" list-disc pl-5  text-cyan-950">
+          <li>Prévenir les conflits</li>
+          <li>Organiser la discipline</li>
+          <li>Garantir une harmonisation des pratiques</li>
+        </ul>
+
+        <p className=" text-cyan-950">
+          L'objectif est ainsi de{" "}
+          <span className=" text-cyan-950 font-semibold">
+            protéger les droits des salariés
+          </span>{" "}
+          tout en assurant la bonne marche de l'entreprise.
+        </p>
+      </>
+    ),
     imageUrl: paul,
-    date: "9 avril 2025 : Paul Lamah Juriste chez AOD-AVOCATS ",
+    date: "9 avril 2025 : Paul Lamah Juriste chez AOD-AVOCATS",
   },
   {
     id: 2,
@@ -245,23 +307,46 @@ const ModalText = styled.div`
   padding: 2rem;
   overflow-y: auto;
 
+  /* Ajout pour une meilleure lisibilité */
+  line-height: 1.8;
+
+  /* Style pour les listes */
+  ul,
+  ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  li::before {
+    content: "•";
+    color: #0077b6;
+    font-weight: bold;
+    display: inline-block;
+    width: 2em;
+    margin-left: -1rem;
+  }
+
   @media (max-width: 768px) {
     padding: 1.5rem;
   }
 
   @media (max-width: 480px) {
-    padding: 1.25rem;
+    padding: 1.3rem;
   }
 `;
 
 const ModalTitle = styled.h3`
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #1a365d;
   margin-bottom: 1rem;
-  line-height: 1.4;
-
-  @media (max-width: 768px) {
-    font-size: 1.4rem;
+  line-height: 1.3;
+  text-align: center @media (max-width: 768px) {
+    font-size: 1.3rem;
   }
 
   @media (max-width: 480px) {
@@ -270,23 +355,23 @@ const ModalTitle = styled.h3`
 `;
 
 const ModalDate = styled.span`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #666;
   display: block;
   margin-bottom: 1.5rem;
 
   @media (max-width: 768px) {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
 `;
 
 const ModalFullContent = styled.div`
   color: #555;
-  line-height: 1.8;
+  line-height: 1.4;
   font-size: 1rem;
 
   p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.3rem;
   }
 
   @media (max-width: 768px) {
@@ -299,31 +384,32 @@ const CloseButton = styled.button`
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: #f5f5f5;
-  border: none;
-  width: 32px;
-  height: 32px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
 
   &:hover {
-    background: #e0e0e0;
-    transform: scale(1.05);
+    background: #e9ecef;
+    transform: rotate(90deg);
+    border-color: #adb5bd;
   }
 
   &::before,
   &::after {
     content: "";
     position: absolute;
-    width: 16px;
+    width: 20px;
     height: 2px;
-    background-color: #666;
+    background-color: #495057;
+    transition: all 0.2s ease;
   }
 
   &::before {
@@ -333,8 +419,12 @@ const CloseButton = styled.button`
   &::after {
     transform: rotate(-45deg);
   }
-`;
 
+  &:hover::before,
+  &:hover::after {
+    background-color: #212529;
+  }
+`;
 // Animations
 const cardVariants = {
   offscreen: {
@@ -351,25 +441,38 @@ const cardVariants = {
     },
   },
 };
-
+// Modifiez les animations pour un effet plus fluide
 const modalVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-  exit: { opacity: 0 },
+  hidden: { opacity: 0, backdropFilter: "blur(0px)" },
+  visible: {
+    opacity: 1,
+    backdropFilter: "blur(4px)",
+    transition: { duration: 0.3 },
+  },
+  exit: {
+    opacity: 0,
+    backdropFilter: "blur(0px)",
+    transition: { duration: 0.2 },
+  },
 };
 
 const modalContentVariants = {
-  hidden: { scale: 0.96, opacity: 0 },
+  hidden: { y: 20, opacity: 0 },
   visible: {
-    scale: 1,
+    y: 0,
     opacity: 1,
     transition: {
       type: "spring",
       damping: 25,
       stiffness: 300,
+      delay: 0.1,
     },
   },
-  exit: { scale: 0.96, opacity: 0 },
+  exit: {
+    y: 20,
+    opacity: 0,
+    transition: { duration: 0.2 },
+  },
 };
 
 const ArticleDroitSocial = () => {
@@ -450,10 +553,10 @@ const ArticleDroitSocial = () => {
 
               <ModalText>
                 <ModalTitle>{selectedArticle.title}</ModalTitle>
-                <ModalDate>{selectedArticle.date}</ModalDate>
                 <ModalFullContent>
                   <p>{selectedArticle.content}</p>
                 </ModalFullContent>
+                <ModalDate>{selectedArticle.date}</ModalDate>
               </ModalText>
             </ModalContent>
           </ModalOverlay>

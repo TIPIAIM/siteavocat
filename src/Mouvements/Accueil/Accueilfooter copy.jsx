@@ -7,6 +7,7 @@ import {
   Facebook,
   Twitter,
   Instagram,
+  Heart,
   Scale,
   Shield,
   FileText,
@@ -14,8 +15,8 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
-import React, { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import React,{ useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Animation pour les modales
 const fadeIn = keyframes`
@@ -28,53 +29,12 @@ const slideUp = keyframes`
   to { transform: translateY(0); }
 `;
 
-const LegalLinks = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-
-  button {
-    color: #90e0ef;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 0;
-
-    &:hover {
-      color: #00b4d8;
-      text-decoration: underline;
-    }
-
-    svg {
-      margin-right: 0.5rem;
-    }
-  }
-`;
-
-const CopyrightSection = styled.div`
-  text-align: center;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(0, 180, 216, 0.2);
-  color: #90e0ef;
-  font-size: 0.9rem;
-`;
-
-const BackToTop = styled.div`
-  text-align: center;
-  margin-top: 1.5rem;
-`;
-
+// Styles avec Styled Components
 const FooterContainer = styled.footer`
   background-color: #1a365d;
   color: #e5e7eb;
   padding: 3rem 0;
+  position: relative;
 `;
 
 const FooterGrid = styled.div`
@@ -183,6 +143,49 @@ const MissionText = styled.p`
   font-size: 0.9rem;
 `;
 
+const LegalLinks = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+
+  button {
+    color: #90e0ef;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+
+    &:hover {
+      color: #00b4d8;
+      text-decoration: underline;
+    }
+
+    svg {
+      margin-right: 0.5rem;
+    }
+  }
+`;
+
+const CopyrightSection = styled.div`
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 180, 216, 0.2);
+  color: #90e0ef;
+  font-size: 0.9rem;
+`;
+
+const BackToTop = styled.div`
+  text-align: center;
+  margin-top: 1.5rem;
+`;
+
 const BackToTopLink = styled.a`
   color: #90e0ef;
   cursor: pointer;
@@ -206,7 +209,8 @@ const BackToTopLink = styled.a`
   }
 `;
 
-const ModalOverlay = styled.div`
+// Styles pour les modales
+const ModalOverlay = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
@@ -217,12 +221,13 @@ const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  animation: ${fadeIn} 0.3s ease-out;
+  padding: 1rem;
+  backdrop-filter: blur(5px);
 `;
 
-const ModalContent = styled.div`
+const ModalContent = styled(motion.div)`
   background: #1a365d;
-  border-radius: 1px;
+  border-radius: 8px;
   width: 90%;
   max-width: 800px;
   max-height: 90vh;
@@ -231,7 +236,6 @@ const ModalContent = styled.div`
   position: relative;
   border: 1px solid rgba(0, 180, 216, 0.3);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  animation: ${slideUp} 0.3s ease-out;
 `;
 
 const ModalTitle = styled.h3`
@@ -417,6 +421,7 @@ export default function AccueilFooter() {
     document.body.style.overflow = "auto";
   };
 
+  // Fermer le modal avec la touche ESC
   React.useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
@@ -431,7 +436,32 @@ export default function AccueilFooter() {
   return (
     <FooterContainer>
       <FooterGrid>
-       
+        {/* Section Contact */}
+        <FooterSection>
+          <SectionTitle>Contactez-nous</SectionTitle>
+          <ContactItem>
+            <Phone size={18} />
+            <div>
+              <a href="tel:+224625292599">+224 625 292 599</a><br />
+              <a href="tel:+224612858506">+224 612 858 506</a><br />
+              <a href="tel:+224612858507">+224 612 858 507</a>
+            </div>
+          </ContactItem>
+          <ContactItem>
+            <Mail size={18} />
+            <a href="mailto:amadou.diallo@aod-avocats.com">amadou.diallo@aod-avocats.com</a>
+          </ContactItem>
+          <ContactItem>
+            <MapPin size={18} />
+            <div>
+              SIEGE SOCIAL à la Minière Cité 2ème Etage,<br />
+              Immeuble Yansané, Commune de Dixinn,<br />
+              Conakry, République de Guinée
+            </div>
+          </ContactItem>
+        </FooterSection>
+
+        {/* Section Services */}
         <FooterSection>
           <SectionTitle>Nos Services</SectionTitle>
           <ServiceItem>
@@ -448,49 +478,44 @@ export default function AccueilFooter() {
           </ServiceItem>
           <ServiceItem>
             <Check size={18} />
-            <span>Conseil aux entreprises ...</span>
+            <span>Conseil aux entreprises</span>
           </ServiceItem>
         </FooterSection>
 
+        {/* Section Réseaux sociaux */}
         <FooterSection>
           <SectionTitle>Suivez-nous</SectionTitle>
           <SocialLinks>
-            <a href="#" aria-label="Facebook"><Facebook size={20} /></a>
-            <a href="#" aria-label="Twitter"><Twitter size={20} /></a>
-            <a href="#" aria-label="Instagram"><Instagram size={20} /></a>
+            <a href="#" aria-label="Facebook">
+              <Facebook size={20} />
+            </a>
+            <a href="#" aria-label="Twitter">
+              <Twitter size={20} />
+            </a>
+            <a href="#" aria-label="Instagram">
+              <Instagram size={20} />
+            </a>
           </SocialLinks>
-          <MissionText>Votre satisfaction est notre mission</MissionText>
+          
+          <MissionText>
+            Votre satisfaction est notre priorité absolue
+          </MissionText>
         </FooterSection>
 
+        {/* Section Informations */}
         <FooterSection>
           <SectionTitle>Engagement</SectionTitle>
           <MissionText>
-            Nous nous engageons à fournir des services juridiques de qualité.
+            Nous nous engageons à fournir des services juridiques de qualité avec professionnalisme, intégrité et respect du secret professionnel.
           </MissionText>
+          <div style={{ marginTop: '1rem', display: 'flex', alignItems: 'center' }}>
+            <Heart size={18} color="#e74c3c" />
+            <span style={{ marginLeft: '0.5rem' }}>Nous vous remercions de votre confiance</span>
+          </div>
         </FooterSection>
-        <FooterSection>
-          <SectionTitle>Contactez-nous</SectionTitle>
-          <ContactItem>
-            <MapPin size={18} />
-            <div>
-              SIEGE SOCIAL à la Minière Cité 2ème Etage,<br />
-              Immeuble Yansané, Commune de Dixinn,<br />
-              Conakry, République de Guinée
-            </div>
-          </ContactItem>
-          <ContactItem>
-            <Phone size={18} />
-            <a href="tel:+224612858507">+224 612 858 507</a>
-          </ContactItem>
-          <ContactItem>
-            <Mail size={18} />
-            <a href="mailto:amadou.diallo@aod-avocats.com">amadou.diallo@aod-avocats.com</a>
-          </ContactItem>
-          
-        </FooterSection>
-
       </FooterGrid>
 
+      {/* Liens légaux */}
       <LegalLinks>
         <button onClick={() => openModal('mentions')}>
           <Scale size={16} /> Mentions légales
@@ -503,10 +528,12 @@ export default function AccueilFooter() {
         </button>
       </LegalLinks>
 
+      {/* Copyright */}
       <CopyrightSection>
         © {new Date().getFullYear()} AOD AVOCATS - Tous droits réservés
       </CopyrightSection>
 
+      {/* Retour en haut */}
       <BackToTop>
         <BackToTopLink href="#top">
           Retour en haut
@@ -514,10 +541,21 @@ export default function AccueilFooter() {
         </BackToTopLink>
       </BackToTop>
 
+      {/* Modal pour les mentions légales */}
       <AnimatePresence>
         {modalContent && (
-          <ModalOverlay onClick={closeModal}>
-            <ModalContent onClick={(e) => e.stopPropagation()}>
+          <ModalOverlay
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeModal}
+          >
+            <ModalContent
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 20, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
               <CloseButton onClick={closeModal} aria-label="Fermer">
                 <X size={20} />
               </CloseButton>

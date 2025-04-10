@@ -1,13 +1,15 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import  { lazy, Suspense, useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
 import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
-import ArticleDroitSocial from "./ArticleAssoc/ArticleDroitSocial";
 const BardeNavigationpublic = lazy(() =>
   import("../Navigatpublic/BardeNavigationPublic")
+);
+const ArticleDroitSocial = lazy(() =>
+  import("./ArticleAssoc/ArticleDroitSocial")
 );
 const Footer = lazy(() => import("../Accueil/Footerr"));
 

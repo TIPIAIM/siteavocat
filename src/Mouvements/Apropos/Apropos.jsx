@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { useState, useEffect, lazy } from "react";
+import { useState,memo, useEffect, lazy } from "react";
 import image3 from "./../../assets/Image/maitreetblouz.avif";
 import image5 from "./../../assets/Image/mbangou.avif";
 import image6 from "./../../assets/Image/maitre13.avif";
@@ -13,7 +13,10 @@ import image11 from "./../../assets/Image/abdoulayeavoc.avif";
 const Headerapropos = lazy(() => import("./Headerapropos"));
 const Aproposzeo = lazy(() => import("./Aproposzeo"));
 const Aproposdeux = lazy(() => import("./Apropos2"));
-const Footer = lazy(() => import("../Accueil/Footerr"));
+
+const AccueilFooter = lazy(() => import("./AccueilFooter"));
+// Memoized Components
+const MemoizedFooter = memo(AccueilFooter);
 
 // Images de démonstration
 const images = [
@@ -279,7 +282,7 @@ const Apropos = () => {
       </CarouselContainer>
       <Aproposzeo />
       <Aproposdeux />
-      <Footer />
+      <MemoizedFooter />
     </div>
   );
 };

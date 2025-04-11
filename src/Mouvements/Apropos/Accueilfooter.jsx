@@ -12,6 +12,7 @@ import {
   FileText,
   X,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import React, { useState } from "react";
 import { AnimatePresence } from "framer-motion";
@@ -101,11 +102,7 @@ const FooterContainer = styled.footer`
 
   @media (min-width: ${breakpoints.tablet}px) {
     padding: 3rem 0;
-  };
-   @media (min-width: ${breakpoints.phone}px) {
-    padding: 0 1.5rem;
   }
-    
 `;
 
 const FooterGrid = styled.div`
@@ -621,7 +618,7 @@ const legalContent = {
   },
 };
 
-export default function Footer() {
+export default function AccueilFooter() {
   const [modalContent, setModalContent] = useState(null);
 
   const openModal = (contentKey) => {

@@ -3,14 +3,9 @@ import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Helmet } from "react-helmet";
-//import AccueilFooter from "./AccueilFooter";  
-const Accueil = lazy(() => import("./Headercontact"));
-//const Footer = lazy(() => import("../Accueil/Footerr"));
-const AccueilFooter = lazy(() => import("./AccueilFooter"));
-// Memoized Components
-const MemoizedFooter = memo(AccueilFooter);
 
-const MemoizedBardeNavigationpublic = memo(Accueil);
+const Accueil = lazy(() => import("./Headercontact"));
+const Footer = lazy(() => import("../Accueil/Footerr"));
 
 // Styled Components
 const ContactContainer = styled.div`
@@ -134,6 +129,9 @@ const ErrorMessage = styled.p`
   font-size: 0.9rem;
 `;
 
+// Memoized Components
+const MemoizedBardeNavigationpublic = memo(Accueil);
+const MemoizedFooter = memo(Footer);
 
 // Main Component
 export default function Contact() {

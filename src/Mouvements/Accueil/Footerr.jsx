@@ -101,11 +101,10 @@ const FooterContainer = styled.footer`
 
   @media (min-width: ${breakpoints.tablet}px) {
     padding: 3rem 0;
-  };
-   @media (min-width: ${breakpoints.phone}px) {
+  }
+  @media (min-width: ${breakpoints.phone}px) {
     padding: 0 1.5rem;
   }
-    
 `;
 
 const FooterGrid = styled.div`
@@ -115,6 +114,7 @@ const FooterGrid = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+ 
 
   @media (min-width: ${breakpoints.phone}px) {
     padding: 0 1.5rem;
@@ -132,7 +132,7 @@ const FooterGrid = styled.div`
 
 const FooterSection = styled.div`
   padding: 0.5rem;
-
+ margin-top: 3rem;
   @media (min-width: ${breakpoints.tablet}px) {
     padding: 1rem;
   }
@@ -647,7 +647,7 @@ export default function Footer() {
 
   return (
     <FooterContainer>
-      <FooterGrid>
+      <FooterGrid >
         <FooterSection>
           <SectionTitle>Nos Services</SectionTitle>
           <ServiceItem>

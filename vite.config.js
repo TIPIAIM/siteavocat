@@ -6,6 +6,9 @@ import sitemap from "vite-plugin-sitemap";
 export default defineConfig({
   plugins: [
     sitemap({
+      // Désactive robots.txt si tu n'en as pas besoin :
+      generateRobotsTxt: false,
+
       hostname: "https://aod-avocats.net", // Remplacez par l'URL de votre site
       routes: [
         "/",

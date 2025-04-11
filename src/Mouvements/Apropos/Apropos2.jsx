@@ -185,7 +185,7 @@ const Aproposdeux = () => {
   accumulé plusieurs années d’expérience en tant que conseiller
   juridique pour des sociétés opérant dans le secteur minier, et
   exercé en tant que collaborateur au sein de la Société Civile
-  Professionnelle d’Avocats KABELE LAW GROUP (KLG). La SCPA AOD
+  Professionnelle d’Avocats KABELE LAW GROUP . La SCPA AOD
   (Société Civile Professionnelle d’Avocats AOD) est un cabinet
   d’avocats spécialisé en droit des affaires fondé en juillet 2022 et
   géré par Maître Amadou Oury DIALLO. Il a pour but de devenir un

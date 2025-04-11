@@ -253,7 +253,7 @@ const SocialLinks = styled.div`
 `;
 
 const MissionText = styled.p`
-  font-style: italic;
+ // font-style: italic;
   color: #bdc3c7;
   margin-top: 1rem;
   line-height: 1.6;

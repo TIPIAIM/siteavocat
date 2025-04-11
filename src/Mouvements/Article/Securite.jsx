@@ -1,4 +1,4 @@
-import  { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
@@ -12,7 +12,6 @@ const ArticleDroitSocial = lazy(() =>
   import("./ArticleAssoc/ArticleDroitSocial")
 );
 const Footer = lazy(() => import("../Accueil/Footerr"));
-
 
 // Styles
 const BackgroundContainer = styled.section`
@@ -98,7 +97,7 @@ export default function Securite1() {
         <Suspense
           fallback={
             <FallbackContainer>
-              <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
+              <FallbackLogo src={tiptamcode} alt="TIPTAMC" />
             </FallbackContainer>
           }
         >

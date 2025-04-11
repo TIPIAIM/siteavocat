@@ -217,7 +217,7 @@ const Fiscalite = () => {
               sur leurs activités, notamment en matière de gestion des coûts, de
               conformité aux lois en vigueur, et d’optimisation fiscale légale.
               Pour mieux appréhender ces dynamiques et explorer les stratégies
-              possibles, consultez ces articles :
+              possibles, consultez ces articles
               <a
                 href="https://dgi.gov.gn/"
                 target="_blank"

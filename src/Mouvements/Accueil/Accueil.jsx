@@ -18,7 +18,9 @@ import photoaccueil from "../../assets/Image/photo-accueil.avif";
 const Accueilfooter = lazy(() => import("./Accueilfooter"));
 const Horaire = lazy(() => import("./Horaire"));
 const Nosservicess = lazy(() => import("./Nosservicess"));
-const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
+const BardeNavigationpublic = lazy(() =>
+  import("../Navigatpublic/BardeNavigationPublic")
+);
 const SocialLinks = lazy(() => import("../Lienlateral/SocialLinks"));
 
 // Mémorisation des composants
@@ -121,7 +123,7 @@ export default function Accueil() {
               },
               {
                 icon: Receipt,
-                title: "Droit de la Fiscal",
+                title: "Droit de Fiscal",
                 desc: "Encadrement des règles fiscales, des obligations des contribuables et des relations avec l'administration fiscale.",
                 link: "/fiscalitee",
               },

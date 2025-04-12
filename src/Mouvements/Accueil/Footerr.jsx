@@ -447,8 +447,7 @@ const legalContent = {
           <strong>Cabinet d'Avocats AOD AVOCATS</strong>
         </p>
         <p>
-          Société d'Avocats à Responsabilité Professionnelle Individuelle
-          (SELARL)
+          Société civil Professionnelle d'Avocats
         </p>
         <p>Immatriculée au Barreau de Conakry sous le n° RC/XXXX/202X</p>
 

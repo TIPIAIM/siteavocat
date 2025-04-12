@@ -123,7 +123,7 @@ export default function Accueil() {
               },
               {
                 icon: Receipt,
-                title: "Droit de Fiscal",
+                title: "Droit Fiscal",
                 desc: "Encadrement des règles fiscales, des obligations des contribuables et des relations avec l'administration fiscale.",
                 link: "/fiscalitee",
               },

@@ -114,7 +114,6 @@ const FooterGrid = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
- 
 
   @media (min-width: ${breakpoints.phone}px) {
     padding: 0 1.5rem;
@@ -132,7 +131,7 @@ const FooterGrid = styled.div`
 
 const FooterSection = styled.div`
   padding: 0.5rem;
- margin-top: 3rem;
+  margin-top: 3rem;
   @media (min-width: ${breakpoints.tablet}px) {
     padding: 1rem;
   }
@@ -253,7 +252,7 @@ const SocialLinks = styled.div`
 `;
 
 const MissionText = styled.p`
- // font-style: italic;
+  // font-style: italic;
   color: #bdc3c7;
   margin-top: 1rem;
   line-height: 1.6;
@@ -446,14 +445,12 @@ const legalContent = {
         <p>
           <strong>Cabinet d'Avocats AOD AVOCATS</strong>
         </p>
-        <p>
-          Société civil Professionnelle d'Avocats
-        </p>
-        <p>Immatriculée au Barreau de Conakry sous le n° RC/XXXX/202X</p>
+        <p>Société civil Professionnelle d'Avocats</p>
+        <p>Immatriculée au registre de commerce : GN.TCC.2022.B.14430</p>
 
         <div className="highlight">
           <p>
-            <strong>Siège social :</strong>
+            <strong>Siège social : </strong>
           </p>
           <p>
             Minière Cité 2ème Etage, Immeuble Yansané, Commune de Dixinn,
@@ -464,7 +461,7 @@ const legalContent = {
         <p>
           <strong>Directeur de la publication :</strong>
         </p>
-        <p>Maître Amadou DIALLO, Avocat au Barreau de Conakry</p>
+        <p>Maître Amadou DIALLO, Avocat au Barreau de Guinée</p>
 
         <p>
           <strong>Hébergement :</strong>
@@ -597,12 +594,11 @@ const legalContent = {
           <p>
             <strong>Article 5 - Secret professionnel</strong>
           </p>
+
           <p>
-            Conformément à l'article 66 de la Loi organique n°L/2013/021/CNT du
-            25 décembre 2013 portant organisation de la profession d'avocat en
-            Guinée, le Cabinet est tenu au secret professionnel absolu
-            concernant toutes les informations relatives aux dossiers de ses
-            clients.
+            Conformément à la LOI N*L/2016/037/AN RELATIVE À LA CYBER-SECURITE
+            ET LA PROTECTION DES DONNÉES À CARACTÈRE PERSONNEL EN
+            RÉPUBLIQUE DE GUINÉE
           </p>
         </div>
 
@@ -646,7 +642,7 @@ export default function Footer() {
 
   return (
     <FooterContainer>
-      <FooterGrid >
+      <FooterGrid>
         <FooterSection>
           <SectionTitle>Nos Services</SectionTitle>
           <ServiceItem>

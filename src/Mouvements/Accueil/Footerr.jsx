@@ -490,9 +490,9 @@ const legalContent = {
       <>
         <p>
           Le Cabinet AOD AVOCATS s'engage à protéger la confidentialité des
-          données personnelles de ses clients et visiteurs conformément à la loi
-          n°2019/19 du 30 décembre 2019 relative à la protection des données à
-          caractère personnel en République de Guinée.
+          données personnelles de ses clients et visiteurs conformément à la loi :
+          LOI N*L/2016/037/AN RELATIVE À LA CYBER-SECURITE ET LA PROTECTION DES
+          DONNÉES À CARACTÈRE PERSONNEL EN RÉPUBLIQUE DE GUINÉ.
         </p>
 
         <div className="highlight">

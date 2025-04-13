@@ -1,4 +1,3 @@
-
 import {
   Phone,
   Mail,
@@ -11,7 +10,7 @@ import {
   Scale,
   Shield,
   FileText,
-  X
+  X,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
@@ -25,7 +24,7 @@ const breakpoints = {
   tablet: 768,
   laptop: 1024,
   desktop: 1200,
-  largeDesktop: 1440
+  largeDesktop: 1440,
 };
 
 // Animation pour les modales
@@ -435,97 +434,186 @@ const CloseButton = styled.button`
   }
 `;
 // Contenu des modales
+
+// Contenu des modales
 const legalContent = {
   mentions: {
     title: "Mentions légales",
     icon: <Scale size={20} />,
     content: (
       <>
-        <p><strong>Cabinet d'Avocats AOD AVOCATS</strong></p>
-        <p>Société d'Avocats à Responsabilité Professionnelle Individuelle (SELARL)</p>
-        <p>Immatriculée au Barreau de Conakry sous le n° RC/XXXX/202X</p>
-        
+        <p>
+          <strong>Cabinet d'Avocats AOD AVOCATS</strong>
+        </p>
+        <p>Société civil Professionnelle d'Avocats</p>
+        <p>Immatriculée au registre de commerce : GN.TCC.2022.B.14430</p>
+
         <div className="highlight">
-          <p><strong>Siège social :</strong></p>
-          <p>Minière Cité 2ème Etage, Immeuble Yansané, Commune de Dixinn, Conakry, République de Guinée</p>
+          <p>
+            <strong>Siège social : </strong>
+          </p>
+          <p>
+            Minière Cité 2ème Etage, Immeuble Yansané, Commune de Dixinn,
+            Conakry, République de Guinée
+          </p>
         </div>
-        
-        <p><strong>Directeur de la publication :</strong></p>
-        <p>Maître Amadou DIALLO, Avocat au Barreau de Conakry</p>
-        
-        <p><strong>Hébergement :</strong></p>
+
+        <p>
+          <strong>Directeur de la publication :</strong>
+        </p>
+        <p>Maître Amadou DIALLO, Avocat au Barreau de Guinée</p>
+
+        <p>
+          <strong>Hébergement :</strong>
+        </p>
         <p>OVH SAS</p>
         <p>2 rue Kellermann - 59100 Roubaix - France</p>
-        
-        <p><strong>Propriété intellectuelle :</strong></p>
-        <p>L'ensemble de ce site relève de la législation guinéenne et internationale sur le droit d'auteur et la propriété intellectuelle. Toute reproduction ou représentation totale ou partielle de ce site par quelque procédé que ce soit, sans autorisation expresse, est interdite et constituerait une contrefaçon sanctionnée par les articles 404 et suivants du Code de la Propriété Intellectuelle.</p>
+
+        <p>
+          <strong>Propriété intellectuelle :</strong>
+        </p>
+        <p>
+          L'ensemble de ce site relève de la législation guinéenne et
+          internationale sur le droit d'auteur et la propriété intellectuelle.
+          Toute reproduction ou représentation totale ou partielle de ce site
+          par quelque procédé que ce soit, sans autorisation expresse, est
+          interdite et constituerait une contrefaçon sanctionnée par les
+          articles 404 et suivants du Code de la Propriété Intellectuelle.
+        </p>
       </>
-    )
+    ),
   },
   confidentialite: {
     title: "Politique de confidentialité",
     icon: <Shield size={20} />,
     content: (
       <>
-        <p>Le Cabinet AOD AVOCATS s'engage à protéger la confidentialité des données personnelles de ses clients et visiteurs conformément à la loi n°2019/19 du 30 décembre 2019 relative à la protection des données à caractère personnel en République de Guinée.</p>
-        
+        <p>
+          Le Cabinet AOD AVOCATS s'engage à protéger la confidentialité des
+          données personnelles de ses clients et visiteurs conformément à la loi
+          n°2019/19 du 30 décembre 2019 relative à la protection des données à
+          caractère personnel en République de Guinée.
+        </p>
+
         <div className="highlight">
-          <p><strong>Collecte des données :</strong></p>
-          <p>Nous collectons uniquement les données nécessaires à la fourniture de nos services juridiques :</p>
+          <p>
+            <strong>Collecte des données :</strong>
+          </p>
+          <p>
+            Nous collectons uniquement les données nécessaires à la fourniture
+            de nos services juridiques :
+          </p>
           <ul>
             <li>Nom, prénom, coordonnées professionnelles</li>
             <li>Informations relatives à votre demande juridique</li>
             <li>Données de navigation (cookies strictement nécessaires)</li>
           </ul>
         </div>
-        
-        <p><strong>Finalités du traitement :</strong></p>
+
+        <p>
+          <strong>Finalités du traitement :</strong>
+        </p>
         <p>Les données collectées sont utilisées pour :</p>
         <ul>
           <li>Répondre à vos demandes de consultation</li>
           <li>Fournir nos services juridiques</li>
           <li>Respecter nos obligations légales et déontologiques</li>
         </ul>
-        
-        <p><strong>Durée de conservation :</strong></p>
-        <p>Les données sont conservées pendant la durée nécessaire à la réalisation des finalités pour lesquelles elles sont collectées et conformément aux obligations légales applicables (notamment 10 ans pour les documents comptables).</p>
-        
+
+        <p>
+          <strong>Durée de conservation :</strong>
+        </p>
+        <p>
+          Les données sont conservées pendant la durée nécessaire à la
+          réalisation des finalités pour lesquelles elles sont collectées et
+          conformément aux obligations légales applicables (notamment 10 ans
+          pour les documents comptables).
+        </p>
+
         <div className="highlight">
-          <p><strong>Droits des personnes concernées :</strong></p>
-          <p>Conformément à la loi, vous disposez des droits d'accès, de rectification, de suppression et de limitation du traitement de vos données. Pour exercer ces droits, veuillez nous contacter à l'adresse mail du cabinet.</p>
+          <p>
+            <strong>Droits des personnes concernées :</strong>
+          </p>
+          <p>
+            Conformément à la loi, vous disposez des droits d'accès, de
+            rectification, de suppression et de limitation du traitement de vos
+            données. Pour exercer ces droits, veuillez nous contacter à
+            l'adresse mail du cabinet.
+          </p>
         </div>
       </>
-    )
+    ),
   },
   conditions: {
     title: "Conditions générales",
     icon: <FileText size={20} />,
     content: (
       <>
-        <p><strong>Article 1 - Objet</strong></p>
-        <p>Les présentes conditions générales régissent l'utilisation du site web et des services du Cabinet AOD AVOCATS.</p>
-        
+        <p>
+          <strong>Article 1 - Objet</strong>
+        </p>
+        <p>
+          Les présentes conditions générales régissent l'utilisation du site web
+          et des services du Cabinet AOD AVOCATS.
+        </p>
+
         <div className="highlight">
-          <p><strong>Article 2 - Consultation juridique</strong></p>
-          <p>Les informations présentes sur ce site ne constituent pas un conseil juridique. Une consultation formelle est nécessaire pour obtenir un avis juridique adapté à votre situation. Aucune relation avocat-client n'est créée par la simple consultation de ce site.</p>
+          <p>
+            <strong>Article 2 - Consultation juridique</strong>
+          </p>
+          <p>
+            Les informations présentes sur ce site ne constituent pas un conseil
+            juridique. Une consultation formelle est nécessaire pour obtenir un
+            avis juridique adapté à votre situation. Aucune relation
+            avocat-client n'est créée par la simple consultation de ce site.
+          </p>
         </div>
-        
-        <p><strong>Article 3 - Responsabilité</strong></p>
-        <p>Le Cabinet décline toute responsabilité quant à l'utilisation qui pourrait être faite des informations présentes sur ce site. Les contenus sont fournis à titre informatif et peuvent ne pas refléter les évolutions les plus récentes de la jurisprudence ou de la législation guinéenne.</p>
-        
-        <p><strong>Article 4 - Honoraires</strong></p>
-        <p>Nos honoraires sont fixés conformément au Règlement Intérieur de la Profession d'Avocat en Guinée. Un devis personnalisé est établi pour chaque dossier après analyse préalable. Les modalités de paiement sont convenues avec le client préalablement à toute prestation.</p>
-        
+
+        <p>
+          <strong>Article 3 - Responsabilité</strong>
+        </p>
+        <p>
+          Le Cabinet décline toute responsabilité quant à l'utilisation qui
+          pourrait être faite des informations présentes sur ce site. Les
+          contenus sont fournis à titre informatif et peuvent ne pas refléter
+          les évolutions les plus récentes de la jurisprudence ou de la
+          législation guinéenne.
+        </p>
+
+        <p>
+          <strong>Article 4 - Honoraires</strong>
+        </p>
+        <p>
+          Nos honoraires sont fixés conformément au Règlement Intérieur de la
+          Profession d'Avocat en Guinée. Un devis personnalisé est établi pour
+          chaque dossier après analyse préalable. Les modalités de paiement sont
+          convenues avec le client préalablement à toute prestation.
+        </p>
+
         <div className="highlight">
-          <p><strong>Article 5 - Secret professionnel</strong></p>
-          <p>Conformément à l'article 66 de la Loi organique n°L/2013/021/CNT du 25 décembre 2013 portant organisation de la profession d'avocat en Guinée, le Cabinet est tenu au secret professionnel absolu concernant toutes les informations relatives aux dossiers de ses clients.</p>
+          <p>
+            <strong>Article 5 - Secret professionnel</strong>
+          </p>
+
+          <p>
+            Conformément à la LOI N*L/2016/037/AN RELATIVE À LA CYBER-SECURITE
+            ET LA PROTECTION DES DONNÉES À CARACTÈRE PERSONNEL EN RÉPUBLIQUE DE
+            GUINÉE
+          </p>
         </div>
-        
-        <p><strong>Article 6 - Règlement des litiges</strong></p>
-        <p>En cas de litige, les parties s'engagent à rechercher une solution amiable avant toute action en justice. Tout litige relatif à l'interprétation ou à l'exécution des présentes conditions est soumis à la compétence exclusive des tribunaux de Conakry.</p>
+
+        <p>
+          <strong>Article 6 - Règlement des litiges</strong>
+        </p>
+        <p>
+          En cas de litige, les parties s'engagent à rechercher une solution
+          amiable avant toute action en justice. Tout litige relatif à
+          l'interprétation ou à l'exécution des présentes conditions est soumis
+          à la compétence exclusive des tribunaux de Conakry.
+        </p>
       </>
-    )
-  }
+    ),
+  },
 };
 
 export default function AccueilFooter() {
@@ -555,7 +643,6 @@ export default function AccueilFooter() {
   return (
     <FooterContainer>
       <FooterGrid>
-       
         <FooterSection>
           <SectionTitle>Nos Services</SectionTitle>
           <ServiceItem>
@@ -579,9 +666,15 @@ export default function AccueilFooter() {
         <FooterSection>
           <SectionTitle>Suivez-nous</SectionTitle>
           <SocialLinks>
-            <a href="#" aria-label="Facebook"><Facebook size={20} /></a>
-            <a href="#" aria-label="Twitter"><Twitter size={20} /></a>
-            <a href="#" aria-label="Instagram"><Instagram size={20} /></a>
+            <a href="#" aria-label="Facebook">
+              <Facebook size={20} />
+            </a>
+            <a href="#" aria-label="Twitter">
+              <Twitter size={20} />
+            </a>
+            <a href="#" aria-label="Instagram">
+              <Instagram size={20} />
+            </a>
           </SocialLinks>
           <MissionText>Votre satisfaction est notre mission</MissionText>
         </FooterSection>
@@ -597,8 +690,10 @@ export default function AccueilFooter() {
           <ContactItem>
             <MapPin size={18} />
             <div>
-              SIEGE SOCIAL à la Minière Cité 2ème Etage,<br />
-              Immeuble Yansané, Commune de Dixinn,<br />
+              SIEGE SOCIAL à la Minière Cité 2ème Etage,
+              <br />
+              Immeuble Yansané, Commune de Dixinn,
+              <br />
               Conakry, République de Guinée
             </div>
           </ContactItem>
@@ -608,21 +703,21 @@ export default function AccueilFooter() {
           </ContactItem>
           <ContactItem>
             <Mail size={18} />
-            <a href="mailto:amadou.diallo@aod-avocats.com">amadou.diallo@aod-avocats.com</a>
+            <a href="mailto:amadou.diallo@aod-avocats.com">
+              amadou.diallo@aod-avocats.com
+            </a>
           </ContactItem>
-          
         </FooterSection>
-
       </FooterGrid>
 
       <LegalLinks>
-        <button onClick={() => openModal('mentions')}>
+        <button onClick={() => openModal("mentions")}>
           <Scale size={16} /> Mentions légales
         </button>
-        <button onClick={() => openModal('confidentialite')}>
+        <button onClick={() => openModal("confidentialite")}>
           <Shield size={16} /> Politique de confidentialité
         </button>
-        <button onClick={() => openModal('conditions')}>
+        <button onClick={() => openModal("conditions")}>
           <FileText size={16} /> Conditions générales
         </button>
       </LegalLinks>
@@ -649,9 +744,7 @@ export default function AccueilFooter() {
                 {modalContent.icon}
                 {modalContent.title}
               </ModalTitle>
-              <ModalText>
-                {modalContent.content}
-              </ModalText>
+              <ModalText>{modalContent.content}</ModalText>
             </ModalContent>
           </ModalOverlay>
         )}

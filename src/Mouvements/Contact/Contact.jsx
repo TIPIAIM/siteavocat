@@ -203,7 +203,7 @@ export default function Contact() {
             ci-dessous. Nous ferons de notre mieux pour répondre à votre demande
             dans les plus brefs délais. Votre satisfaction est notre priorité
             absolue, et nous apprécions tous les commentaires que vous pourriez
-            avoir sur notre entreprise et nos services. Merci de votre confiance
+            avoir sur notre cabinet et nos services. Merci de votre confiance
             et nous avons hâte de discuter avec vous bientôt.
           </Description>
           <Form

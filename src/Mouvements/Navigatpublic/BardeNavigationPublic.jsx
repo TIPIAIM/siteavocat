@@ -255,19 +255,19 @@ export default function BardeNavigationpublic() {
             </SubMenuIndicator>
             <SubMenu isOpen={openSubMenu === "expertises"}>
               <SubNavLink href="/nosexpertises">Nos expertises</SubNavLink>
-              <SubNavLink href="/fiscalitee">Le droit fiscal</SubNavLink>
-              <SubNavLink href="/affairee">Le droit des affaires</SubNavLink>
+              <SubNavLink href="/fiscalitee">Droit fiscal</SubNavLink>
+              <SubNavLink href="/affairee">Droit des affaires</SubNavLink>
               <SubNavLink href="/minierr">
-                Le droit minier et environnementale
+                Environnementale
               </SubNavLink>
               <SubNavLink href="/travail">
-                Le droit de travail et sécurité social
+                Droit de travail et sécurité social
               </SubNavLink>
-              <SubNavLink href="/sport">Le droit du sport</SubNavLink>
-              <SubNavLink href="/arbitrage">
-                Le droit d’arbitrage et médiation
-              </SubNavLink>
-              <SubNavLink href="/penall">La défense pénale</SubNavLink>
+              <SubNavLink href="/sport">Droit du sport</SubNavLink>
+              
+              <SubNavLink href="/arbitrage">Arbitrage et médiation</SubNavLink>
+
+              <SubNavLink href="/penall">Défense pénale</SubNavLink>
             </SubMenu>
           </NavLink>
           <NavLink href="/article">Articles</NavLink>

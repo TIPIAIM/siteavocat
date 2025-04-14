@@ -197,7 +197,7 @@ const services = [
     image: MOE_0384,
   },
   {
-    title: "LE DROIT DU TRAVAIL ET SÉCURITÉ SOCIALE",
+    title: "DROIT DU TRAVAIL ET SÉCURITÉ SOCIALE",
     description: `
     Le droit du travail est un domaine complexe et en constante évolution. Mon objectif est de vous offrir des conseils clairs, adaptés à votre situation, pour sécuriser vos démarches et préserver vos intérêts, quelle que soit votre position. Pour les Employeurs : Nous vous aidons à prévenir les litiges en mettant en place des pratiques conformes à la loi. En cas de conflit, nous vous représentons avec détermination. Pour les Salariés : nous sommes votre défenseur face à des situations de licenciement abusif, de harcèlement ou d’injustice, pour faire valoir vos droits. Dans le monde du travail, chaque droit compte. Nous sommes là pour nous assurer qu’ils soient respectés.
     En tant qu’avocat, nous nous efforçons de défendre ces principes, que ce soit en conseillant nos clients, en négociant pour eux ou en plaidant en leur nom devant les juridictions compétentes. 
@@ -211,7 +211,7 @@ const services = [
     image: mine,
   },
   {
-    title: "LE DROIT FISCAL",
+    title: "DROIT FISCAL",
     description: `
     Le Code Général des Impôts évolue sans cesse avec de nouvelles dispositions. Il concerne tout particulier et toute entreprise, et il faut être au fait de ces différents changements pour conseiller et assister tout contribuable pour tout ce qui concerne le côté imposable en cas de cession d’un bien immeuble ou d’un fonds de commerce, en cas de redressement fiscal, ou d’une imposition que le contribuable ne trouve pas légitime, en cas de besoin d’un quitus fiscal pour les expatriés, ou autres. Le cabinet AOD AVOCATS peut vous conseiller efficacement, vous assister auprès de la Direction des Impôts directs et indirects, en clair, vous faciliter la tâche, en vous trouvant des solutions rapides et appropriées.
     `,

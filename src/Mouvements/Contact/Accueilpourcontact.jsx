@@ -217,7 +217,7 @@ const Accueilpourcontact = () => {
         </TypingText>
 
         <CTAButton whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          Avocat au barreau de Guinée
+        L'excellence juridique à votre service
         </CTAButton>
       </ContentWrapper>
     </HeroSection>

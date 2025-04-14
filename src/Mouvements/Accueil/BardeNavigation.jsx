@@ -221,7 +221,7 @@ export default function BardeNavigation() {
               <SubNavLink href="/famillee">Droit de la famille</SubNavLink>
               <SubNavLink href="/travail">Droit du travail</SubNavLink>
               <SubNavLink href="/sport">Droit du sport</SubNavLink>
-              <SubNavLink href="/arbitrage">Arbitrage</SubNavLink>
+              <SubNavLink href="/arbitrage">Arbitrage et Mediation</SubNavLink>
               <SubNavLink href="/penall">Défense pénale</SubNavLink>
             </SubMenu>
           </NavLink>

@@ -4,7 +4,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Maitre4 from "./../../assets/Image/Maitre4.avif";
 import affaire from "./../../assets/Image/affaire.avif";
-import MOE_0400 from "./../../assets/Image/MOE_0400.avif";
+//import MOE_0400 from "./../../assets/Image/MOE_0400.avif";//uip
+import abdoulayeavoc from "./../../assets/Image/bdoulye.avif";
+
+
 import mine from "./../../assets/Image/mine.avif";
 import MOE_0384 from "./../../assets/Image/MOE_0384.avif";
 import maitaction from "./../../assets/Image/maitaction.avif";
@@ -203,7 +206,7 @@ const services = [
     En tant qu’avocat, nous nous efforçons de défendre ces principes, que ce soit en conseillant nos clients, en négociant pour eux ou en plaidant en leur nom devant les juridictions compétentes. 
     Ces branches du droit, dynamiques et en constante évolution, reflètent notre engagement collectif pour une société où chacun a droit à la dignité et à la sécurité. Notre mission est de garantir que ces droits soient respectés et appliqués avec rigueur et humanité.
     `,
-    image: MOE_0400,
+    image:abdoulayeavoc,
   },
   {
     title: "DROIT MINIER ET ENVIRONNEMENTAL",

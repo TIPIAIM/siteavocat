@@ -23,7 +23,7 @@ const BackgroundContainer = styled.section`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+ // background: rgba(0, 0, 0, 0.8);
 `;
 
 const FallbackContainer = styled.div`

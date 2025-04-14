@@ -95,7 +95,7 @@ const GlobeWrapper = styled.div`
   }
 `;
 
-const Accueilpourcontact = () => {
+const exHederglob = () => {
   const messages = [
     "Si vous avez des questions",
     "Des commentaires ou préoccupations",
@@ -168,4 +168,4 @@ const Accueilpourcontact = () => {
   );
 };
 
-export default Accueilpourcontact;
+export default exHederglob;

@@ -64,14 +64,14 @@ const Description = styled.p`
   color: #caf0f8;
   margin: 20px;
   text-align: left;
-  margin-left : 2rem;
+  margin-left: 2rem;
 
   @media (max-width: 768px) {
     font-size: 1rem;
     text-align: left;
     padding: 2px;
-      margin: 2px;
-        margin-left: 0.6rem;
+    margin: 2px;
+    margin-left: 0.6rem;
   }
 `;
 

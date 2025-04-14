@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
-import image1 from "../../assets/image/affair.avif";
+import image1 from "../../assets/image/affaire.avif";
 import image2 from "../../assets/image/envir.avif";
 import image3 from "../../assets/image/travaiil.avif";
 import image4 from "../../assets/image/jurid1.avif";
@@ -27,7 +27,7 @@ const fadeInOut = keyframes`
   100% {
     opacity: 0;
   }
-`;fadeInOut
+`;
 
 // Styled Components
 const HeroSection = styled.section`

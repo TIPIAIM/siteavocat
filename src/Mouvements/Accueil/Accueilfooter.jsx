@@ -12,7 +12,6 @@ import {
   FileText,
   X,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import React, { useState } from "react";
 import { AnimatePresence } from "framer-motion";
@@ -49,6 +48,10 @@ const LegalLinks = styled.div`
     gap: 1.5rem;
   }
 
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
+
   button {
     color: #90e0ef;
     background: none;
@@ -67,7 +70,7 @@ const LegalLinks = styled.div`
 
     &:hover {
       color: #00b4d8;
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     svg {
@@ -103,6 +106,9 @@ const FooterContainer = styled.footer`
   @media (min-width: ${breakpoints.tablet}px) {
     padding: 3rem 0;
   }
+  @media (min-width: ${breakpoints.phone}px) {
+    padding: 0 1.5rem;
+  }
 `;
 
 const FooterGrid = styled.div`
@@ -129,9 +135,13 @@ const FooterGrid = styled.div`
 
 const FooterSection = styled.div`
   padding: 0.5rem;
-
+  margin-top: 3rem;
   @media (min-width: ${breakpoints.tablet}px) {
     padding: 1rem;
+  }
+  @media (max-width: 768px) {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
   }
 `;
 
@@ -142,6 +152,7 @@ const SectionTitle = styled.h3`
   margin-bottom: 1rem;
   position: relative;
   padding-bottom: 0.5rem;
+  cursor: pointer;
 
   @media (min-width: ${breakpoints.tablet}px) {
     font-size: 1.2rem;
@@ -151,18 +162,26 @@ const SectionTitle = styled.h3`
   &:after {
     content: "";
     position: absolute;
-    width: 60px;
-    height: 2px;
+    width: 50px;
+    height: 3px;
     background-color: #0077b6;
     bottom: 0;
     left: 0;
-
+    transition: all 0.3s ease;
+ 
     @media (min-width: ${breakpoints.tablet}px) {
-      width: 80px;
-      height: 3px;
+      width: 20px;
+      height: 4px;
+       
     }
   }
+
+  &:hover:after {
+    width: 35%; /* La barre s'étend sur toute la largeur */
+ background-color: #90e0ef;
+    }
 `;
+
 
 const ContactItem = styled.div`
   display: flex;
@@ -207,7 +226,9 @@ const ServiceItem = styled.div`
     font-size: 0.9rem;
     margin-bottom: 0.8rem;
   }
-
+  @media (max-width: 768px) {
+    margin-top: 0.5rem;
+  }
   svg {
     margin-right: 0.5rem;
     color: #2ecc71;
@@ -224,7 +245,9 @@ const SocialLinks = styled.div`
   @media (min-width: ${breakpoints.tablet}px) {
     gap: 1rem;
   }
-
+  @media (max-width: 768px) {
+    margin-top: 0.5rem;
+  }
   a {
     color: #e5e7eb;
     transition: all 0.3s ease;
@@ -250,7 +273,7 @@ const SocialLinks = styled.div`
 `;
 
 const MissionText = styled.p`
-  font-style: italic;
+  // font-style: italic;
   color: #bdc3c7;
   margin-top: 1rem;
   line-height: 1.6;

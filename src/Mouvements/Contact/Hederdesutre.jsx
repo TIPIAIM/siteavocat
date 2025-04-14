@@ -10,7 +10,7 @@ const BardeNavigationpublic = lazy(() =>
 // Styles
 const BackgroundContainer = styled.section`
   position: relative;
-  min-height: 2.5vh;
+  min-height: 1.5vh;
   background-image: url("img/logoAODnoir.avif");
   background-size: cover;
   background-position: center;

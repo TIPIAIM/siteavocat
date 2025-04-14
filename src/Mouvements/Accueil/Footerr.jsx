@@ -170,8 +170,8 @@ const SectionTitle = styled.h3`
     transition: all 0.3s ease;
  
     @media (min-width: ${breakpoints.tablet}px) {
-      width: 80px;
-      height: 6px;
+      width: 20px;
+      height: 4px;
        
     }
   }

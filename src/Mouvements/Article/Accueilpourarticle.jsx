@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
-import image1 from "../../assets/image/affaire.avif";
-import image2 from "../../assets/image/envir.avif";
+import image1 from "../../assets/Image/affaire.avif";
+import image2 from "../../assets/Image/envir.avif";
 import image3 from "../../assets/Image/travaiil.avif";
 import image4 from "../../assets/Image/jurid1.avif";
 import image5 from "../../assets/Image/MOE_0384.avif";
@@ -162,7 +162,7 @@ const CTAButton = styled(motion.button)`
 
 const Accueilpourarticle = () => {
   const messages = [
-   "Le droit pénal et la défense des victimes",
+    "Le droit pénal et la défense des victimes",
     "  promouvoir la justice sociale dans le pays",
     "Le droit pénal et la défense des victimes",
     " La sécurité sociale et le droit du travail",
@@ -180,7 +180,16 @@ const Accueilpourarticle = () => {
     return () => clearInterval(interval);
   }, [messages.length]);
 
-  const images = [image5,image1, image2, image3, image4,  image6, image7,image8];
+  const images = [
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image6,
+    image7,
+    image8,
+  ];
 
   return (
     <HeroSection>
@@ -213,7 +222,7 @@ const Accueilpourarticle = () => {
         </TypingText>
 
         <CTAButton whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        Avocat au barreau de Guinée
+          Avocat au barreau de Guinée
         </CTAButton>
       </ContentWrapper>
     </HeroSection>

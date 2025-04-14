@@ -3,12 +3,12 @@ import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import image1 from "../../assets/image/affaire.avif";
 import image2 from "../../assets/image/envir.avif";
-import image3 from "../../assets/image/travaiil.avif";
-import image4 from "../../assets/image/jurid1.avif";
-import image5 from "../../assets/image/MOE_0384.avif";
-import image6 from "../../assets/image/conf.avif";
-import image7 from "../../assets/image/EVOL.avif";
-import image8 from "../../assets/image/MOE_0384.avif";
+import image3 from "../../assets/Image/travaiil.avif";
+import image4 from "../../assets/Image/jurid1.avif";
+import image5 from "../../assets/Image/MOE_0384.avif";
+import image6 from "../../assets/Image/conf.avif";
+import image7 from "../../assets/Image/EVOL.avif";
+import image8 from "../../assets/Image/MOE_0384.avif";
 
 // Animation pour le défilement des images
 const fadeInOut = keyframes`

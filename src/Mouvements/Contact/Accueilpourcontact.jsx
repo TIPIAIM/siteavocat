@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
-import image1 from "../../assets/image/affair.avif";
-import image2 from "../../assets/image/envir.avif";
-import image3 from "../../assets/image/travaiil.avif";
-import image4 from "../../assets/image/jurid1.avif";
-import image5 from "../../assets/image/MOE_0384.avif";
-import image6 from "../../assets/image/conf.avif";
-import image7 from "../../assets/image/EVOL.avif";
-import image8 from "../../assets/image/MOE_0384.avif";
+import image1 from "../../assets/Image/affaire.avif";
+import image2 from "../../assets/Image/envir.avif";
+import image3 from "../../assets/Image/travaiil.avif";
+import image4 from "../../assets/Image/jurid1.avif";
+import image5 from "../../assets/Image/MOE_0384.avif";
+import image6 from "../../assets/Image/conf.avif";
+import image7 from "../../assets/Image/EVOL.avif";
+import image8 from "../../assets/Image/MOE_0384.avif";
 
 // Animation pour le défilement des images
 const fadeInOut = keyframes`
-  0% {
-    opacity: 0;
-  }
+ 
   25% {
     opacity: 1;
   }
@@ -109,7 +107,6 @@ const GradientText = styled.span`
   background-image: linear-gradient(to right, #00b4d8, #023e8a);
 `;
 
-
 const TypingText = styled(motion.span)`
   display: inline-block;
   font-size: 1.25rem;
@@ -178,7 +175,16 @@ const Accueilpourcontact = () => {
     return () => clearInterval(interval);
   }, [messages.length]);
 
-  const images = [image5,image1, image2, image3, image4,  image6, image7,image8];
+  const images = [
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image6,
+    image7,
+    image8,
+  ];
 
   return (
     <HeroSection>
@@ -211,7 +217,7 @@ const Accueilpourcontact = () => {
         </TypingText>
 
         <CTAButton whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        Avocat au barreau de Guinée
+          Avocat au barreau de Guinée
         </CTAButton>
       </ContentWrapper>
     </HeroSection>

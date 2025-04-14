@@ -135,6 +135,7 @@ const FooterSection = styled.div`
   }
 `;
 
+
 const SectionTitle = styled.h3`
   color: #90e0ef;
   font-weight: 600;
@@ -142,6 +143,7 @@ const SectionTitle = styled.h3`
   margin-bottom: 1rem;
   position: relative;
   padding-bottom: 0.5rem;
+  cursor: pointer;
 
   @media (min-width: ${breakpoints.tablet}px) {
     font-size: 1.2rem;
@@ -151,17 +153,24 @@ const SectionTitle = styled.h3`
   &:after {
     content: "";
     position: absolute;
-    width: 60px;
-    height: 2px;
+    width: 50px;
+    height: 3px;
     background-color: #0077b6;
     bottom: 0;
     left: 0;
-
+    transition: all 0.3s ease;
+ 
     @media (min-width: ${breakpoints.tablet}px) {
       width: 80px;
-      height: 3px;
+      height: 6px;
+       
     }
   }
+
+  &:hover:after {
+    width: 35%; /* La barre s'étend sur toute la largeur */
+ background-color: #90e0ef;
+    }
 `;
 
 const ContactItem = styled.div`

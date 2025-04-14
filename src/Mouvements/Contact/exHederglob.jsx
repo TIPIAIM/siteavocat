@@ -1,0 +1,171 @@
+import { useEffect, useState, useRef } from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import Globe from "react-globe.gl";
+
+// Styled Components
+const HeroSection = styled.section`
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 1rem;
+  position: relative;
+  background-color: rgba(15, 23, 42, 1);
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 0.5rem;
+  }
+`;
+
+const ContentWrapper = styled.div`
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 56rem;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+  }
+`;
+
+const MainHeading = styled(motion.h1)`
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #f4f5f1;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+
+  @media (min-width: 768px) {
+    font-size: 4rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+`;
+
+const GradientText = styled.span`
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #00b4d8, #023e8a);
+`;
+
+const MessageText = styled(motion.p)`
+  font-size: 1.25rem;
+  color: #f4f5f1;
+  max-width: 42rem;
+  margin: 0 auto;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+
+  @media (max-width: 768px) {
+    font-size: 1.125rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+`;
+
+const GlobeWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    height: 400px;
+  }
+
+  @media (max-width: 480px) {
+    height: 300px;
+  }
+`;
+
+const Accueilpourcontact = () => {
+  const messages = [
+    "Si vous avez des questions",
+    "Des commentaires ou préoccupations",
+    "Votre satisfaction est notre priorité",
+    "Nous apprécions vos retours",
+  ];
+
+  const [currentMessage, setCurrentMessage] = useState(0);
+  const globeRef = useRef();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMessage((prev) => (prev + 1) % messages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [messages.length]);
+
+  useEffect(() => {
+    if (globeRef.current) {
+      globeRef.current.controls().autoRotate = true;
+      globeRef.current.controls().autoRotateSpeed = 0.5;
+    }
+  }, []);
+
+  const continents = [
+    { name: "Afrique", lat: 1.6508, lng: 10.2679 },
+    { name: "Europe", lat: 54.526, lng: 15.2551 },
+    { name: "Asie", lat: 34.0479, lng: 100.6197 },
+    { name: "Amérique du Nord", lat: 54.526, lng: -105.2551 },
+    { name: "Amérique du Sud", lat: -14.235, lng: -51.9253 },
+    { name: "Océanie", lat: -25.2744, lng: 133.7751 },
+  ];
+
+  return (
+    <HeroSection>
+      <ContentWrapper>
+        <MainHeading
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Contactez <GradientText>Nous</GradientText>
+        </MainHeading>
+
+        <MessageText
+          key={currentMessage}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          {messages[currentMessage]}
+        </MessageText>
+      </ContentWrapper>
+
+      <GlobeWrapper>
+        <Globe
+          ref={globeRef}
+          globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+          pointsData={continents}
+          pointLat={(d) => d.lat}
+          pointLng={(d) => d.lng}
+          pointLabel={(d) => d.name}
+          pointColor={() => "#00b4d8"}
+          pointAltitude={0.05}
+          pointRadius={0.2}
+        />
+      </GlobeWrapper>
+    </HeroSection>
+  );
+};
+
+export default Accueilpourcontact;

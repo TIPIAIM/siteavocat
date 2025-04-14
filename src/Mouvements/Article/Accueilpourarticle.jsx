@@ -1,12 +1,37 @@
-import { useEffect, useState, useRef } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
-import PropTypes from "prop-types"; // Import PropTypes
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Stars } from "@react-three/drei";
+import image1 from "../../assets/image/affair.avif";
+import image2 from "../../assets/image/envir.avif";
+import image3 from "../../assets/image/travaiil.avif";
+import image4 from "../../assets/image/jurid1.avif";
+import image5 from "../../assets/image/MOE_0384.avif";
+import image6 from "../../assets/image/conf.avif";
+import image7 from "../../assets/image/EVOL.avif";
+import image8 from "../../assets/image/MOE_0384.avif";
+
+// Animation pour le défilement des images
+const fadeInOut = keyframes`
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+    50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`;fadeInOut
+
 // Styled Components
 const HeroSection = styled.section`
-  min-height: 60vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,11 +39,10 @@ const HeroSection = styled.section`
   text-align: center;
   padding: 4rem 1rem;
   position: relative;
-  background-color: rgba(15, 23, 42, 1);
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 2rem 1rem;
+    padding: 3rem 1rem;
   }
 
   @media (max-width: 480px) {
@@ -26,13 +50,29 @@ const HeroSection = styled.section`
   }
 `;
 
-const CanvasWrapper = styled.div`
+const BackgroundImage = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  background-image: url(${(props) => props.image});
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: ${fadeInOut} 24s linear infinite;
+  animation-delay: ${(props) => props.delay}s;
+
+  /* Fond bleu semi-transparent */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 139, 0.5); /* Bleu semi-transparent */
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -48,7 +88,6 @@ const ContentWrapper = styled.div`
     gap: 1.5rem;
   }
 `;
-
 const MainHeading = styled(motion.h1)`
   font-size: 2.25rem;
   font-weight: 700;
@@ -71,145 +110,59 @@ const GradientText = styled.span`
   color: transparent;
   background-image: linear-gradient(to right, #00b4d8, #023e8a);
 `;
-
-const MessageText = styled(motion.p)`
-  font-size: 1.125rem;
+const TypingText = styled(motion.span)`
+  display: inline-block;
+  font-size: 1.25rem;
   color: #f4f5f1;
-  max-width: 42rem;
-  margin: 0 auto;
-  opacity: 1;
-  transition: opacity 0.5s ease;
+  border-right: 2px solid #00b4d8;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(30, end), blink 0.5s step-end infinite alternate;
 
-  @media (max-width: 768px) {
-    font-size: 1.25rem;
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
   }
 
-  @media (max-width: 480px) {
-    font-size: 1rem;
-    padding: 0 0.5rem;
+  @keyframes blink {
+    from {
+      border-color: transparent;
+    }
+    to {
+      border-color: #00b4d8;
+    }
   }
 `;
 
-const Instructions = styled(motion.div)`
-  position: sticky;
-  text-align: center;
-
-  left: 50%;
-  bottom: 0%;
-  transform: translateX(-50%);
-  color: #f4f5f1;
+const CTAButton = styled(motion.button)`
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(to right, #00b4d8, #023e8a);
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
 
-  @media (max-width: 480px) {
-    font-size: 0.975rem;
-    position: relative;
-    left: 50%;
-    border-radius: 0rem;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.5);
   }
 `;
 
-const Particles = ({ mousePosition }) => {
-  const meshRef = useRef();
-  const [positions] = useState(() => {
-    const positions = [];
-    for (let i = 0; i < 5000; i++) {
-      positions.push((Math.random() - 0.5) * 20);
-      positions.push((Math.random() - 0.5) * 20);
-      positions.push((Math.random() - 0.5) * 20);
-    }
-    return new Float32Array(positions);
-  });
-
-  useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = mousePosition.y * 0.5;
-      meshRef.current.rotation.y = mousePosition.x * 0.5;
-    }
-  });
-
-  return (
-    <points ref={meshRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position" // Correction ici
-          array={positions} // Tableau de positions
-          count={positions.length / 3} // Nombre de sommets
-          itemSize={3} // Taille de chaque sommet (x, y, z)
-        />
-      </bufferGeometry>
-      <pointsMaterial color="#00b4d8" size={0.04} />
-    </points>
-  );
-};
-
-Particles.propTypes = {
-  mousePosition: PropTypes.shape({
-    x: PropTypes.number.isRequired,
-    y: PropTypes.number.isRequired,
-  }).isRequired,
-};
-
-const MovingStars = () => {
-  const starsRef = useRef();
-
-  useFrame(() => {
-    if (starsRef.current) {
-      starsRef.current.rotation.y += 0.001;
-    }
-  });
-
-  return (
-    <Stars
-      ref={starsRef}
-      radius={100}
-      depth={50}
-      count={100}
-      factor={90}
-      saturation={0}
-      fade
-      color="white"
-    />
-  );
-};
-
-const WindParticles = () => {
-  const meshRef = useRef();
-  const [positions] = useState(() => {
-    const positions = [];
-    for (let i = 0; i < 1000; i++) {
-      positions.push((Math.random() - 0.5) * 20);
-      positions.push((Math.random() - 0.5) * 20);
-      positions.push((Math.random() - 0.5) * 20);
-    }
-    return new Float32Array(positions);
-  });
-
-  useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.002;
-    }
-  });
-
-  return (
-    <points ref={meshRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position" // Correction ici
-          array={positions} // Tableau de positions
-          count={positions.length / 3} // Nombre de sommets
-          itemSize={3} // Taille de chaque sommet (x, y, z)
-        />
-      </bufferGeometry>
-      <pointsMaterial color="black" size={0.1} />
-    </points>
-  );
-};
 const Accueilpourarticle = () => {
   const messages = [
-    "Le droit pénal et la défense des victimes",
+   "Le droit pénal et la défense des victimes",
     "  promouvoir la justice sociale dans le pays",
     "Le droit pénal et la défense des victimes",
     " La sécurité sociale et le droit du travail",
@@ -218,68 +171,51 @@ const Accueilpourarticle = () => {
   ];
 
   const [currentMessage, setCurrentMessage] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentMessage((prev) => (prev + 1) % messages.length);
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [messages.length]);
 
-  const handleMouseMove = (event) => {
-    setMousePosition({
-      x: (event.clientX / window.innerWidth) * 2 - 1,
-      y: -(event.clientY / window.innerHeight) * 2 + 1,
-    });
-  };
-
-  const handleTouchMove = (event) => {
-    if (event.touches.length > 0) {
-      const touch = event.touches[0];
-      setMousePosition({
-        x: (touch.clientX / window.innerWidth) * 2 - 1,
-        y: -(touch.clientY / window.innerHeight) * 2 + 1,
-      });
-    }
-  };
+  const images = [image5,image1, image2, image3, image4,  image6, image7,image8];
 
   return (
-    <HeroSection onMouseMove={handleMouseMove} onTouchMove={handleTouchMove}>
-      <CanvasWrapper>
-        <Canvas>
-          <MovingStars />
-          <Particles mousePosition={mousePosition} />
-          <WindParticles />
-        </Canvas>
-      </CanvasWrapper>
+    <HeroSection>
+      {/* Images de fond */}
+      {images.map((image, index) => (
+        <BackgroundImage
+          key={index}
+          image={image}
+          delay={index * 3} // Décalage de 2 secondes entre chaque image
+        />
+      ))}
 
+      {/* Contenu principal */}
       <ContentWrapper>
         <MainHeading
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Espace 
-          <GradientText> Article</GradientText>
+          Espace <GradientText>Article</GradientText>
         </MainHeading>
 
-        <MessageText
+        <TypingText
           key={currentMessage}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
           {messages[currentMessage]}
-        </MessageText>
-      </ContentWrapper>
+        </TypingText>
 
-      <Instructions
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-      ></Instructions>
+        <CTAButton whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        Avocat au barreau de Guinée
+        </CTAButton>
+      </ContentWrapper>
     </HeroSection>
   );
 };

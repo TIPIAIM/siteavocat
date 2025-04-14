@@ -6,14 +6,14 @@ import articleVideo from "./../../assets/Video/feuillevid.mp4";
 import commercial from "./../../assets/Image/travaiil.avif";
 import traval from "./../../assets/Image/travail.avif";
 import techno from "./../../assets/Image/technologie.avif";
+
 const Headerarticl = lazy(() => import("./Headerarticl"));
-//const Footerr = lazy(() => import(" ../Accueil/Footerr"));
 import Footer from "../Accueil/Footerr";
+
 // Styles
-const ArticlesContainer = styled.main`
+const ArticlesContainer = styled(motion.main)`
   width: 100%;
   padding: 50px;
-  margin-top: 8rem;
   margin-bottom: 10rem;
   background: linear-gradient(to bottom, #0f172a, #1e293b);
   color: white;
@@ -23,7 +23,7 @@ const ArticlesContainer = styled.main`
   justify-content: center;
 `;
 
-const SectionTitle = styled.h1`
+const SectionTitle = styled(motion.h1)`
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 50px;
@@ -36,7 +36,7 @@ const SectionTitle = styled.h1`
   }
 `;
 
-const ArticlesGrid = styled.section`
+const ArticlesGrid = styled(motion.section)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
@@ -126,7 +126,7 @@ const ReadMoreButton = styled.a`
   }
 `;
 
-const CodeCivilText = styled.p`
+const CodeCivilText = styled(motion.p)`
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
@@ -145,7 +145,24 @@ const CodeCivilText = styled.p`
 // Animation des cartes
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+// Animation du conteneur
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Décalage entre les animations des enfants
+    },
+  },
+};
+
+// Animation du titre et du texte
+const textVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
 // Données des articles
@@ -189,7 +206,6 @@ const articles = [
     mediaSrc: commercial,
     link: "affaire",
   },
-  
   {
     title: "Le droit pénal et la défense des victimes",
     description:
@@ -204,9 +220,15 @@ const Articles = () => {
   return (
     <div>
       <Headerarticl />
-      <ArticlesContainer>
-        <SectionTitle>Le Code civil guinéen</SectionTitle>
-        <CodeCivilText>
+      <ArticlesContainer
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <SectionTitle variants={textVariants}>
+          Le Code civil guinéen
+        </SectionTitle>
+        <CodeCivilText variants={textVariants}>
           Le Code civil guinéen, inspiré du droit français, régit les relations
           civiles et commerciales en Guinée. Il couvre des domaines tels que les
           contrats, la propriété, les successions et les obligations. Ce code

@@ -14,7 +14,7 @@ const ContactContainer = styled.div`
   min-height: 100vh;
   padding: 60px;
   margin: 0.5rem;
-  margin-top: 5rem;
+  margin-top: 3rem;
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 15px;
@@ -63,12 +63,15 @@ const Description = styled.p`
   font-size: 1.1rem;
   color: #caf0f8;
   margin: 20px;
-  text-align: justify;
+  text-align: left;
+  margin-left : 2rem;
 
   @media (max-width: 768px) {
     font-size: 1rem;
     text-align: left;
-    padding: 20px;
+    padding: 2px;
+      margin: 2px;
+        margin-left: 0.6rem;
   }
 `;
 

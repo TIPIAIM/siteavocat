@@ -168,12 +168,12 @@ const textVariants = {
 // Données des articles
 const articles = [
   {
-    title: "L'impact de la fiscalité sur les entreprises",
+    title: "Le droit pénal et la défense des victimes",
     description:
-      "Comprendre les implications fiscales pour une gestion d'entreprise efficace.",
-    mediaType: "image",
-    mediaSrc: techno,
-    link: "fiscalite",
+      "Les procédures juridiques pour garantir justice aux victimes de crimes.",
+    mediaType: "video",
+    mediaSrc: articleVideo,
+    link: "penal",
   },
   {
     title: "La sécurité sociale et le droit du travail",
@@ -182,6 +182,14 @@ const articles = [
     mediaType: "image",
     mediaSrc: traval,
     link: "securite",
+  },
+  {
+    title: "L'impact de la fiscalité sur les entreprises",
+    description:
+      "Comprendre les implications fiscales pour une gestion d'entreprise efficace.",
+    mediaType: "image",
+    mediaSrc: techno,
+    link: "fiscalite",
   },
   {
     title: "Les litiges miniers et environnementaux",
@@ -206,14 +214,7 @@ const articles = [
     mediaSrc: commercial,
     link: "affaire",
   },
-  {
-    title: "Le droit pénal et la défense des victimes",
-    description:
-      "Les procédures juridiques pour garantir justice aux victimes de crimes.",
-    mediaType: "video",
-    mediaSrc: articleVideo,
-    link: "penal",
-  },
+ 
 ];
 
 const Articles = () => {

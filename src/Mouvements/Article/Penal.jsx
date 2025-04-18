@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import image from "./../../assets/Image/image.avif";
 import assistance from "./../../assets/Image/assistance.avif";
 import categor from "./../../assets/Image/categor.avif";
+import ArticleDroitPenl from "./ArticleAssoc/ArticleDroitPenl";
 const BardeNavigationpublic = lazy(() =>
   import("../Navigatpublic/BardeNavigationPublic")
 );
@@ -15,7 +16,6 @@ const Footer = lazy(() => import("../Accueil/Footerr"));
 const PenalContainer = styled.div`
   width: 100%;
   padding: 20px;
-  background: linear-gradient(to bottom, #0d3b66, #14213d);
   color: #f0f4f8;
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@ const PenalContainer = styled.div`
 const SectionTitle = styled.h2`
   font-size: 2.8rem;
   font-weight: bold;
-  margin-top: 8rem;
+  margin-top: 1rem;
   margin-bottom: 2rem;
   color: #00b4d8;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
@@ -49,7 +49,7 @@ const SectionTitle = styled.h2`
 
   @media (max-width: 768px) {
     font-size: 2rem;
-    margin-top: 4rem;
+    margin-top: 1rem;
     margin: 2rem;
   }
 `;
@@ -82,12 +82,13 @@ const PenalGrid = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     padding: 1rem;
+     margin-bottom: 2rem;
   }
 `;
 
 const PenalCard = styled(motion.div)`
   background: rgba(15, 23, 42, 0.9);
-  border-radius: 1px;
+ 
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -163,8 +164,8 @@ const ReadMoreButton = styled.a`
 
 const BackButton = styled(Link)`
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 80px;
+  left: 30px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -182,7 +183,28 @@ const BackButton = styled(Link)`
     box-shadow: 3px 5px #00b4d8;
   }
 `;
-
+const BackgroundContainer = styled.section`
+  position: relative;
+  min-height: 58vh;
+  background-image: url("img/logoAODnoir.avif");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  @media (max-width: 768px) {
+    background-attachment: scroll;
+  }
+`;
+const BackgroundContaine = styled.section`
+  position: relative;
+  min-height: 5vh;
+  background-image: url("img/logoAODnoir.avif");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  @media (max-width: 768px) {
+    background-attachment: scroll;
+  }
+`;
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0 },
@@ -227,69 +249,73 @@ const Penal = () => {
   return (
     <div className="bg-gray-900">
       <BardeNavigationpublic />
-      <PenalContainer>
-        <BackButton data-aos="fade-down" to="/article">
-          <FaArrowLeft size={20} />
-        </BackButton>
-        <SectionTitle data-aos="fade-up">
-          Exploration du Droit Pénal
-        </SectionTitle>
-        <Description data-aos="fade-up">
-          Le droit pénal est une branche essentielle du système juridique,
-          chargée de réprimer les infractions pour protéger l’ordre public et la
-          sécurité des citoyens. Il définit les comportements interdits, les
-          sanctions applicables, et régule les relations entre l’individu et la
-          société. En établissant des règles claires, il vise à prévenir les
-          actes criminels, à punir les auteurs d’infractions, et à assurer la
-          réinsertion des condamnés.
-          <br />
-          <br />
-          Le droit pénal couvre un large éventail de domaines, allant des
-          infractions mineures comme les contraventions aux crimes les plus
-          graves tels que les homicides ou les actes de terrorisme. Il s’appuie
-          sur des principes fondamentaux tels que la présomption d’innocence, la
-          légalité des délits et des peines, et le respect des droits de la
-          défense.
-          <br />
-          <br />
-          En explorant ce domaine, vous découvrirez comment le droit pénal
-          interagit avec d’autres branches du droit, comme le droit civil ou le
-          droit administratif, pour garantir une justice équitable et efficace.
-          Que vous soyez étudiant, professionnel du droit, ou simplement
-          curieux, cette exploration vous offrira une compréhension approfondie
-          des enjeux et des mécanismes du droit pénal.
-        </Description>
-        <PenalGrid>
-          {penalArticles.map((article, index) => (
-            <PenalCard
-              key={index}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-            >
-              <MediaWrapper>
-                {article.mediaType === "image" ? (
-                  <img src={article.mediaSrc} alt={article.title} />
-                ) : (
-                  <video src={article.mediaSrc} controls />
-                )}
-              </MediaWrapper>
-              <PenalContent>
-                <PenalTitle>{article.title}</PenalTitle>
-                <PenalDescription>{article.description}</PenalDescription>
-                <ReadMoreButton
-                  href={article.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Lire plus
-                </ReadMoreButton>
-              </PenalContent>
-            </PenalCard>
-          ))}
-        </PenalGrid>
-      </PenalContainer>
+      <BackgroundContainer></BackgroundContainer>
+      <BackButton data-aos="fade-down" to="/article">
+        <FaArrowLeft size={20} />
+      </BackButton><ArticleDroitPenl />
+      
+      <BackgroundContaine>
+        <PenalContainer>
+          <SectionTitle data-aos="fade-up">
+            Exploration du Droit Pénal
+          </SectionTitle>
+        {/*  <Description data-aos="fade-up">
+            Le droit pénal est une branche essentielle du système juridique,
+            chargée de réprimer les infractions pour protéger l’ordre public et
+            la sécurité des citoyens. Il définit les comportements interdits,
+            les sanctions applicables, et régule les relations entre l’individu
+            et la société. En établissant des règles claires, il vise à prévenir
+            les actes criminels, à punir les auteurs d’infractions, et à assurer
+            la réinsertion des condamnés.
+            <br />
+            <br />
+            Le droit pénal couvre un large éventail de domaines, allant des
+            infractions mineures comme les contraventions aux crimes les plus
+            graves tels que les homicides ou les actes de terrorisme. Il
+            s’appuie sur des principes fondamentaux tels que la présomption
+            d’innocence, la légalité des délits et des peines, et le respect des
+            droits de la défense.
+            <br />
+            <br />
+            En explorant ce domaine, vous découvrirez comment le droit pénal
+            interagit avec d’autres branches du droit, comme le droit civil ou
+            le droit administratif, pour garantir une justice équitable et
+            efficace. Que vous soyez étudiant, professionnel du droit, ou
+            simplement curieux, cette exploration vous offrira une compréhension
+            approfondie des enjeux et des mécanismes du droit pénal.
+          </Description>*/}
+          <PenalGrid>
+            {penalArticles.map((article, index) => (
+              <PenalCard
+                key={index}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                <MediaWrapper>
+                  {article.mediaType === "image" ? (
+                    <img src={article.mediaSrc} alt={article.title} />
+                  ) : (
+                    <video src={article.mediaSrc} controls />
+                  )}
+                </MediaWrapper>
+                <PenalContent>
+                  <PenalTitle>{article.title}</PenalTitle>
+                  <PenalDescription>{article.description}</PenalDescription>
+                  <ReadMoreButton
+                    href={article.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Lire plus
+                  </ReadMoreButton>
+                </PenalContent>
+              </PenalCard>
+            ))}
+          </PenalGrid>
+        </PenalContainer>
+      </BackgroundContaine>
       <Footer />
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import image2 from "./../../assets/Image/maitre13.avif"; // Chemin d'image
+import { images } from "../../assets/images"; // Import des images depuis le fichier images.js
 
 // Container principal
 const CarouselContainer = styled.section`
@@ -27,7 +27,7 @@ const ContentWrapper = styled.article`
   width: 100%;
   max-width: 1200px;
   gap: 40px;
-margin-bottom: 100px;
+  margin-bottom: 100px;
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 20px;
@@ -66,7 +66,7 @@ const Front = styled.div`
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background-image: url(${image2});
+  background-image: url(${images.maitre13});
   background-size: cover;
   background-position: center;
   border-radius: 1px;

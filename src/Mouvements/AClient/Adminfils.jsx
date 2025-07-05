@@ -1,11 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { Button } from "react-bootstrap";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import SocialLinks from "../Lienlateral/SocialLinks";
-import aodblanc from "../../assets/Image/aodblanc.avif";
+//import SocialLinks from "../Lienlateral/SocialLinks";
+import { images } from '../../assets/images'// Import des images depuis le fichier images.js
+
+// Chargement paresseux des composants
+const SocialLinks = lazy(() => import("../Lienlateral/SocialLinks"));
+  
+//import aodblanc from "../../assets/Image/aodblanc.avif";
 import feuillevid from "../../assets/Image/feuillevid.mp4";
 
 import { Link } from "react-router-dom";
@@ -163,7 +168,7 @@ function Adminfils() {
       <Header>
         <div style={{ display: "flex", alignItems: "center" }}>
           <Link href="/adminfils" style={{ fontSize: "1.5rem" }}>
-            <Logo src={aodblanc} alt="Logo" />
+            <Logo src={images.aodblanc} alt="Logo" />
           </Link>
         </div>
         <Nav>

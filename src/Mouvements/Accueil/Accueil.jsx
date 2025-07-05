@@ -11,10 +11,7 @@ import { lazy, memo, Suspense } from "react";
 import { Link } from "react-router-dom";
 import SEO from "../../DynamicSeo";
 import "aos/dist/aos.css";
-import Image7 from "../../assets/Image/maitre7.avif";
-import photoaccueil from "../../assets/Image/photo-accueil.avif";
-
-// Chargement paresseux des composants
+import { images } from '../../assets/images'// Import des images depuis le fichier images.js
 const Accueilfooter = lazy(() => import("./Accueilfooter"));
 const Horaire = lazy(() => import("./Horaire"));
 const Nosservicess = lazy(() => import("./Nosservicess"));
@@ -55,7 +52,7 @@ export default function Accueil() {
 
         {/* Image de fond */}
         <motion.img
-          src={photoaccueil}
+          src={images.photoAccueil}
           alt="Cabinet d'avocats"
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ scale: 1.2, opacity: 0 }}
@@ -229,7 +226,7 @@ export default function Accueil() {
               transition={{ duration: 1 }}
             >
               <img
-                src={Image7}
+                src={images.maitre7}
                 alt="Notre équipe"
                 className="shadow-xl mb-6 w-full"
               />

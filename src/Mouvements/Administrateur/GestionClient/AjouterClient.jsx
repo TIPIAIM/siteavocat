@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
-import styled from "styled-components";
-import MOE_0311 from "./../../../assets/Image/MOE_0311.avif";
-import Footer from "../../Accueil/Footerr";
+import styled from "styled-components"; 
+import { images } from '../../../assets/images'// Import des images depuis le fichier images.js
+const Footer = lazy(() => import("../../Accueil/Footerr"));
+
 import {
   FaUser,
   FaMapMarkerAlt,
@@ -321,7 +322,7 @@ export default function AjouterClient() {
       </BackLink>
       <Container >
         <ImageWrapper data-aos="fade-up">
-          <img src={MOE_0311} alt="Illustration" />
+          <img src={images.MOE_0311} alt="Illustration" />
         </ImageWrapper>
 
         <FormWrapper data-aos="fade-down">

@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import Fond from "./Petitecranzero";
+//import Fond from "./Petitecranzero";
+import { images } from '../../assets/images'// Import des images depuis le fichier images.js
+import { lazy } from "react";
+
+// Chargement paresseux des composants
+const Fond = lazy(() => import("./Petitecranzero"));
 
 // Conteneur principal avec un fond dégradé
 const Container = styled.div`
@@ -98,8 +103,8 @@ const Composantdeux = () => {
       <TopSection>
         {/* Image ou contenu à gauche */}
         <motion.img
-          src="/img/affaire.jpg" // Remplacez par votre URL d'image
-          alt="Example"
+          src={images.affaire} // Remplacez par votre URL d'image
+          alt="ffàire"
           style={{
             borderRadius: "50%",
             boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",

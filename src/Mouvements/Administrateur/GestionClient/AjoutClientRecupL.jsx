@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Footer from "../../Accueil/Footerr";
 import { Link } from "react-router-dom";
 import { ImPencil2 } from "react-icons/im";
 import { MdAutoDelete } from "react-icons/md";
 import { CloseButton } from "react-bootstrap";
+const Footer = lazy(() => import("../../Accueil/Footerr"));
 
 const Container = styled.div`
   padding: 1rem;

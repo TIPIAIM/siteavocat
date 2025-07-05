@@ -1,14 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useState, useEffect, lazy } from "react";
-import image3 from "./../../assets/Image/maitreetblouz.avif";
-import image5 from "./../../assets/Image/mbangou.avif";
-import image6 from "./../../assets/Image/maitre13.avif";
-import image7 from "./../../assets/Image/keitaseul2.avif";
-import image8 from "./../../assets/Image/naroumb.avif";
-import image9 from "./../../assets/Image/MOE_0400.avif";
-import image10 from "./../../assets/Image/MOE_0311.avif";
-import image11 from "./../../assets/Image/abdoulayeavoc.avif";
+ import { images } from "../../assets/images";
 
 const Headerapropos = lazy(() => import("./Headerapropos"));
 const Aproposzeo = lazy(() => import("./Aproposzeo"));
@@ -16,9 +9,9 @@ const Aproposdeux = lazy(() => import("./Apropos2"));
 const Footer = lazy(() => import("../Accueil/Footerr"));
 
 // Images de démonstration
-const images = [
+const imagess = [
   {
-    src: image9,
+    src: images.moe0400,
     title: "NOS solutions ",
     description:
       "Dans un esprit de loyauté, de franchise, nous travaillons régulièrement à offrir à nos clients des solutions adaptées à leurs besoins et à leur situation.",
@@ -27,7 +20,7 @@ const images = [
     phone: "00624138395",
   },
   {
-    src: image6,
+    src: images.maitre13,
     title: "Conseiller ",
     description:
       "Nous apportons une valeur ajoutée dans le traitement des demandes de nos clients tout en les conseillant avec indépendance, objectivité, et ce,dès la première rencontre.",
@@ -37,7 +30,7 @@ const images = [
     phone: "00224624138395",
   },
   {
-    src: image5,
+    src: images.mbangou,
     title: "Engagement ",
     description:
       "Notre identité est également marquée par notre engagement envers l’éthique et l’intégrité. Les Avocats veillent à respecter les normes déontologiques les plus strictes, tout en offrant des services juridiques de qualité dans le respect des Lois et règlements en vigueur.",
@@ -46,7 +39,7 @@ const images = [
     phone: "624138395",
   },
   {
-    src: image8,
+    src: images.naroumb,
     title: "Excellence  ",
     description:
       "Nous travaillons constamment à améliorer nos compétences et, à ce titre, nos avocats suivent régulièrement des formations professionnelles dans leurs champs d’expertise afin de se maintenir à la fine pointe du droit.Le cabinet s‘engage à apporter des solutions juridiques pertinentes et adaptées aux réalités locales tout en tenant compte des normes internationales applicables",
@@ -56,7 +49,7 @@ const images = [
     phone: "00224624138395",
   },
   {
-    src: image7,
+    src: images.keitaseul2,
     title: "Chez AOD Avocats ",
     description:
       "Que vous soyez un particulier ou une entreprise, et quel que soit la nature ou l’ampleur du mandat qui nous est confié, vous bénéficiez d’un service de premier plan et aucun compromis n’est fait au niveau de la qualité de notre travail.Nous nous engageons à vous livrer des résultats satisfaisants dans les délais suivant la complexité du dossier.",
@@ -65,7 +58,7 @@ const images = [
     phone: "00224624138395",
   },
   {
-    src: image11,
+    src: images.abdoulayeavoc,
     title: "NOTRE STRATEGIE ",
     description:
       "Nous posons un diagnostic complet, clair et précis dès le départ afin d’exposer à nos clients les tenants et aboutissants de leur dossier. Nous cernons rapidement les enjeux légaux et d’affaires,les points forts et les points faibles, ainsi que les coûts afférents, et les exposons à nos clients de manière transparente, et objective",
@@ -75,7 +68,7 @@ const images = [
     phone: "624138395",
   },
   {
-    src: image10,
+    src: images.moe0311,
     title: "NOTRE APPROCHE ",
     description:
       "Nous nous distinguons par notre approche stratégique et transparente centrée sur l’obtention de résultats tangibles. Notre action est orientée vers la réalisation d’objectifs concrets et de résultats satisfaisants",
@@ -84,7 +77,7 @@ const images = [
     phone: "622253536",
   },
   {
-    src: image3,
+    src: images.maitreetblouz,
     title: "NOS VALEURS ",
     description:
       "Que vous soyez un particulier ou une entreprise, et quel que soit la nature ou l’ampleur du mandat qui nous est confié, vous bénéficiez d’un service de premier plan et aucun compromis n’est fait au niveau de la qualité de notre travail.Nous nous engageons à vous livrer des résultats satisfaisants dans les délais suivant la complexité du dossier.",
@@ -236,7 +229,7 @@ const Apropos = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isPaused) {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % imagess.length);
       }
     }, 2000);
     return () => clearInterval(interval);
@@ -249,7 +242,7 @@ const Apropos = () => {
         <ScrollWrapper
           style={{ transform: `translateX(-${currentIndex * 350}px)` }}
         >
-          {images.map((item, index) => (
+          {imagess.map((item, index) => (
             <ImageWrapper key={index}>
               <ImageCard>
                 <Front style={{ backgroundImage: `url(${item.src})` }} />
@@ -268,7 +261,7 @@ const Apropos = () => {
         </ControlButton>
 
         <IndicatorWrapper>
-          {images.map((_, index) => (
+          {imagess.map((_, index) => (
             <Indicator
               key={index}
               active={index === currentIndex}

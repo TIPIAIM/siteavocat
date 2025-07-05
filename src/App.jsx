@@ -38,6 +38,7 @@ import Affairee from "./Mouvements/Savoirfaire/Affairee";
 import Petitecrandeux from "./Mouvements/Erreur/Erreur";
 import Assistant from "./Mouvements/Assistant/Assistant";
 import FloatingButton from "./Mouvements/Assistant/assistboutom";
+import MonQRCode from "./MonQRCode";
 //import Broullons from "./Brouillon";
 
 
@@ -102,7 +103,9 @@ function App() {
         />
 
         <Route path="/adminfils" element={<Adminfils />} />
-        {/**page visiteur TIPTAMcode */}
+        {/**page visiteur TIPTAMcode  */}
+        <Route path="/monQRCode" element={<MonQRCode />} />
+
       </Routes>
     </BrowserRouter>
   );

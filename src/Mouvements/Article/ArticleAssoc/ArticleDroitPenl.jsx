@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import maitreetblouz from "../../../assets/Image/maitreetblouz.avif";
+ 
+import { images } from "../../../assets/images";
 
 // Données des articles
 const articlesData = [
@@ -178,7 +180,7 @@ const articlesData = [
         </motion.p>
       </>
     ),
-    imageUrl: maitreetblouz,
+    imageUrl: images.maitreetblouz,
     date: "17 avril 2025: Me Amadou oury Avocat chez AOD-AVOCATS",
   },
   {

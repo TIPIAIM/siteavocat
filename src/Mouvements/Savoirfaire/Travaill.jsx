@@ -2,12 +2,13 @@ import React, { Suspense, useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import { FaArrowLeft } from "react-icons/fa";
+ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Footer from "../Accueil/Footerr";
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
-import SEO from "./Seoglobale";
+ import SEO from "./Seoglobale";
+import { images } from "../../assets/images";
+ // Importation du composant SEO
+const Footer = React.lazy(() => import("../Accueil/Footerr"));
+const BardeNavigationpublic = React.lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
 
 // Chargement différé du composant TravSecuritee
 const TravSecuritee = React.lazy(() => import("./TravSecuritee"));
@@ -22,7 +23,7 @@ AOS.init({
 const BackgroundContainer = styled.section`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/logoAODnoir.avif");
+  background-image: url(${images.logoAODnoir});
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
@@ -189,7 +190,7 @@ export default function Travail() {
         <Suspense
           fallback={
             <FallbackContainer>
-              <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
+              <FallbackLogo src={images.tiptamcode} alt="TIPTAMCode" />
             </FallbackContainer>
           }
         >
@@ -241,7 +242,6 @@ export default function Travail() {
           <TravSecuritee />
         </Suspense>
       </BackgroundContainer>
-
       <Footer />
     </div>
   );

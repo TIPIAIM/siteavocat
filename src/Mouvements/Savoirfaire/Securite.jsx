@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
-import securitesocial from "./../../assets/Image/securitesocial.avif";
+ import { images } from "../../assets/images";
 
+// Chargement différé du composant Penal2
+ 
 // Initialisation de AOS
 AOS.init({
   duration: 1000,
@@ -12,7 +14,7 @@ AOS.init({
 // Styles
 const PageWrapper = styled.section`
   position: relative;
-  background-image: url("/img/logoAODnoir.avif");
+  background-image: url(${images.logoAODnoir} );
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -204,7 +206,7 @@ const Securite = () => {
         <Title data-aos="fade-down">La Sécurité</Title>
 
         <Section data-aos="fade-up">
-          <Image src={securitesocial} alt="Illustration" />
+          <Image src={images.securitesocial} alt="Illustration" />
           <TextContainer>
             <Paragraph>
               Découvrez en détail comment la sécurité sociale et le droit du

@@ -2,24 +2,25 @@ import React, { Suspense, useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import Footer from "../Accueil/Footerr";
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import { images } from "../../assets/images";
 
 // Chargement différé du composant Securite
 const Securite = React.lazy(() => import("./Securite"));
+const Footer = React.lazy(() => import("../Accueil/Footerr"));
+const BardeNavigationpublic = React.lazy(() =>
+  import("../Navigatpublic/BardeNavigationPublic")
+);
 
 // Styles
 const BackgroundContainer = styled.section`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/logoAODnoir.avif");
+  background-image: url(${images.logoAODnoir} ");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-
 
   @media (max-width: 768px) {
     background-attachment: scroll;
@@ -164,72 +165,71 @@ export default function Securitee() {
   return (
     <div>
       <BackgroundContainer>
-            {/* Suspense pour le chargement différé de Securite */}
-            <Suspense
+        {/* Suspense pour le chargement différé de Securite */}
+        <Suspense
           fallback={
             <FallbackContainer>
-              <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
+              <FallbackLogo src={images.tiptamcode} alt="TIPTAMCode" />
             </FallbackContainer>
           }
         >
-        <Overlay data-aos-delay="500"/>
-        <BardeNavigationpublic />
-      
-        <ContentContainer>
-          <BackButton
-            data-aos-delay="300"
-            to="/nosexpertises"
-            data-aos="fade-right"
-          >
-            <FaArrowLeft size={20} />
-          </BackButton>
-          <Title data-aos="fade-down">Sécurité et sécurité sociale</Title>
-          <Divider data-aos="fade-up" data-aos-delay="200" />
-          <Paragraph data-aos="fade-up" data-aos-delay="300">
-            Notre cabinet se distingue par une expertise approfondie dans le
-            domaine du droit de la sécurité et de la sécurité sociale. Nous
-            comprenons les défis complexes auxquels vous êtes confrontés, qu’il
-            s’agisse de la protection de vos droits en tant qu’employé ou de la
-            gestion des obligations légales en tant qu’employeur.
-          </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="400">
-            Nous restons constamment à jour sur les évolutions des lois
-            relatives à la sécurité au travail et à la sécurité sociale. Cela
-            nous permet de vous offrir des solutions juridiques adaptées et
-            efficaces, répondant aux normes en vigueur.
-          </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="500">
-            Que ce soit pour des litiges liés aux accidents de travail, la
-            négociation de prestations sociales, ou la défense de vos droits
-            face à des institutions, nous vous accompagnons à chaque étape. Nous
-            élaborons des stratégies personnalisées pour garantir vos intérêts
-            et résoudre vos problématiques juridiques.
-          </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="600">
-            Notre cabinet aide les employeurs à se conformer aux réglementations
-            en matière de sécurité et de protection sociale tout en minimisant
-            les risques juridiques. Pour les salariés, nous nous assurons que
-            vos droits soient respectés, qu’il s’agisse de congés maladie,
-            d’indemnités ou de pensions.
-          </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="700">
-            Nous savons que les questions de sécurité sociale touchent
-            directement à la vie quotidienne. C’est pourquoi notre équipe
-            s’engage à vous écouter attentivement et à réagir rapidement à vos
-            besoins, avec un suivi rigoureux de chaque dossier.
-          </Paragraph>
-          <Paragraph data-aos="fade-up" data-aos-delay="800">
-            En nous choisissant, vous optez pour un cabinet engagé, compétent et
-            soucieux de protéger vos droits. Faites confiance à notre
-            savoir-faire pour résoudre vos litiges, assurer votre sécurité
-            juridique et garantir une gestion efficace de vos affaires en
-            matière de sécurité sociale. Contactez-nous dès aujourd’hui pour une
-            consultation personnalisée et laissez-nous vous accompagner avec
-            excellence.
-          </Paragraph>
-        </ContentContainer>
+          <Overlay data-aos-delay="500" />
+          <BardeNavigationpublic />
 
-    
+          <ContentContainer>
+            <BackButton
+              data-aos-delay="300"
+              to="/nosexpertises"
+              data-aos="fade-right"
+            >
+              <FaArrowLeft size={20} />
+            </BackButton>
+            <Title data-aos="fade-down">Sécurité et sécurité sociale</Title>
+            <Divider data-aos="fade-up" data-aos-delay="200" />
+            <Paragraph data-aos="fade-up" data-aos-delay="300">
+              Notre cabinet se distingue par une expertise approfondie dans le
+              domaine du droit de la sécurité et de la sécurité sociale. Nous
+              comprenons les défis complexes auxquels vous êtes confrontés,
+              qu’il s’agisse de la protection de vos droits en tant qu’employé
+              ou de la gestion des obligations légales en tant qu’employeur.
+            </Paragraph>
+            <Paragraph data-aos="fade-up" data-aos-delay="400">
+              Nous restons constamment à jour sur les évolutions des lois
+              relatives à la sécurité au travail et à la sécurité sociale. Cela
+              nous permet de vous offrir des solutions juridiques adaptées et
+              efficaces, répondant aux normes en vigueur.
+            </Paragraph>
+            <Paragraph data-aos="fade-up" data-aos-delay="500">
+              Que ce soit pour des litiges liés aux accidents de travail, la
+              négociation de prestations sociales, ou la défense de vos droits
+              face à des institutions, nous vous accompagnons à chaque étape.
+              Nous élaborons des stratégies personnalisées pour garantir vos
+              intérêts et résoudre vos problématiques juridiques.
+            </Paragraph>
+            <Paragraph data-aos="fade-up" data-aos-delay="600">
+              Notre cabinet aide les employeurs à se conformer aux
+              réglementations en matière de sécurité et de protection sociale
+              tout en minimisant les risques juridiques. Pour les salariés, nous
+              nous assurons que vos droits soient respectés, qu’il s’agisse de
+              congés maladie, d’indemnités ou de pensions.
+            </Paragraph>
+            <Paragraph data-aos="fade-up" data-aos-delay="700">
+              Nous savons que les questions de sécurité sociale touchent
+              directement à la vie quotidienne. C’est pourquoi notre équipe
+              s’engage à vous écouter attentivement et à réagir rapidement à vos
+              besoins, avec un suivi rigoureux de chaque dossier.
+            </Paragraph>
+            <Paragraph data-aos="fade-up" data-aos-delay="800">
+              En nous choisissant, vous optez pour un cabinet engagé, compétent
+              et soucieux de protéger vos droits. Faites confiance à notre
+              savoir-faire pour résoudre vos litiges, assurer votre sécurité
+              juridique et garantir une gestion efficace de vos affaires en
+              matière de sécurité sociale. Contactez-nous dès aujourd’hui pour
+              une consultation personnalisée et laissez-nous vous accompagner
+              avec excellence.
+            </Paragraph>
+          </ContentContainer>
+
           <Securite />
         </Suspense>
       </BackgroundContainer>

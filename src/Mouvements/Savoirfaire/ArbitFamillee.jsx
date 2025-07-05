@@ -2,7 +2,7 @@ import { useEffect, Suspense, lazy } from "react"; // Importation de useEffect, 
 import styled from "styled-components"; // Importation de styled-components pour les styles
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
+ import { images } from "../../assets/images";
 
 // Importation dynamique des composants pour le chargement différé (lazy loading)
 
@@ -12,7 +12,7 @@ const Famille2 = lazy(() => import("./Famille2"));
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh; /* Hauteur minimale de la vue */
-  background-image: url("img/abdoul2.avif"); /* Image de fond */
+  background-image: url(${images.abdoul2}); /* Image de fond */
   background-size: cover; /* Couvre tout l'espace disponible */
   background-position: top; /* Alignement en haut */
   background-attachment: fixed; /* Fixe l'image lors du défilement */
@@ -138,7 +138,7 @@ export default function ArbitFamillee() {
           fallback={
             <FallbackContainer>
               {/* Logo de l'entreprise avec animation */}
-              <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
+              <FallbackLogo src={images.tiptamcode} alt="TIPTAMCode" />
             </FallbackContainer>
           }
         >

@@ -1,11 +1,14 @@
 import styled from "styled-components";
+import { images } from "../../assets/images"; // Importation des images
 
 // Conteneur principal avec une image de fond fixe
 const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100vh; /* Couverture totale de l'écran */
-  background: url("/img/MOE_0384.avif") center/cover no-repeat;
+ // background: url("/img/MOE_0384.avif") center/cover no-repeat;
+    background-image: url(${images.moe0384});
+  
   background-attachment: fixed; /* Fixe l'image lors du défilement */
 
   /* Media queries pour assurer la responsivité */

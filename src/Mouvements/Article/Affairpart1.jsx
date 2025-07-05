@@ -6,13 +6,19 @@ import { useEffect } from "react"; // Pour initialiser AOS
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+import { images } from "../../assets/images"; // Importation des images
+
+
 import { lazy } from "react";
 const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
 // Conteneur principal avec image d'arrière-plan fixe
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/logoAODnoir.avif"); /* Remplacez par le chemin de votre image */
+ // background-image: url("img/logoAODnoir.avif"); /* Remplacez par le chemin de votre image */
+  background-image: url(${images.logoAODnoir});
+  
+  
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -167,6 +173,7 @@ export default function Affairpart1() {
           rédaction de contrats, la gestion de litiges ou des conseils
           stratégiques, nous avons les compétences pour défendre vos intérêts.
         </Paragraph>
+        
         <Paragraph data-aos="fade-up" data-aos-delay="300">
           Nous comprenons que chaque entreprise a des besoins uniques. C’est
           pourquoi nous proposons des solutions juridiques sur mesure, adaptées
@@ -174,12 +181,14 @@ export default function Affairpart1() {
           garantit une attention particulière à vos attentes et un suivi
           rigoureux de votre dossier.
         </Paragraph>
+
         <Paragraph data-aos="zoom-in" data-aos-delay="400">
           Dans le monde des affaires, le temps est précieux. Notre équipe
           s’engage à répondre rapidement à vos demandes et à anticiper les
           risques pour minimiser les imprévus. Nous sommes disponibles à tout
           moment pour vous accompagner dans vos démarches juridiques.
         </Paragraph>
+
         <Paragraph data-aos="zoom-in" data-aos-delay="450">
           En choisissant notre cabinet, vous optez pour un partenaire engagé,
           professionnel et déterminé à défendre vos intérêts avec excellence.

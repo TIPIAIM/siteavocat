@@ -6,6 +6,7 @@ import "aos/dist/aos.css"; // Importation du CSS pour AOS
 const BardeNavigationpublic = lazy(() =>
   import("../Navigatpublic/BardeNavigationPublic")
 );
+
 import { images } from "../../assets/images";
 
 // Styles

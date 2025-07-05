@@ -2,12 +2,13 @@ import styled from "styled-components";
 import { motion } from "framer-motion"; // Framer Motion pour des animations avancées
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { images } from "../../assets/images";
 
 AOS.init();
 
 const PageWrapper = styled.div`
   position: relative;
-  background-image: url("/img/logoAODnoir.avif"); /* Remplacez par votre image de fond */
+  background-image: url(${images.logoAODnoir}); /* Remplacez par votre image de fond */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

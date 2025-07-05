@@ -2,25 +2,20 @@ import { useEffect, memo, lazy, Suspense } from "react"; // Importation de React
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
 import styled from "styled-components"; // Importation de styled-components pour les styles
+import { images } from "../../../assets/images";
 
 // Importation paresseuse des composants
-const BardeNavigationpublic = lazy(() => import("../../Navigatpublic/BardeNavigationPublic"));
+const BardeNavigationpublic = lazy(() =>
+  import("../../Navigatpublic/BardeNavigationPublic")
+);
 const Footer = lazy(() => import("../../Accueil/Footerr"));
-
-import EVOL from "./../../../assets/Image/EVOL.avif"; // Importation des images
-import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif";
-import sttis from "./../../../assets/Image/sttis.avif";
-import PREV from "./../../../assets/Image/PREV.avif";
-import conf from "./../../../assets/Image/conf.avif";
-import affaire from "./../../../assets/Image/affaire.avif";
-import jurid1 from "./../../../assets/Image/jurid1.avif";
-import jurid from "./../../../assets/Image/jurid.avif";
 
 // Conteneur principal avec fond fixe
 const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh; /* Hauteur minimale de la vue */
-  background-image: url("img/confience.avif"); /* Image de fond */
+  background-image: url(${images.confience});
+  //url("img/confience.avif"); /* Image de fond */
   background-size: cover; /* Couvre tout l'espace disponible */
   background-position: center; /* Centre l'image */
   background-attachment: fixed; /* Fond fixe lors du défilement */
@@ -38,7 +33,8 @@ const Overlay = styled.div`
 `;
 
 // Conteneur du contenu
-const ContentContainer = styled.article` /* Utilisation d'une balise sémantique */
+const ContentContainer = styled.article`
+  /* Utilisation d'une balise sémantique */
   position: relative;
   z-index: 10; /* Positionne au-dessus de la superposition */
   padding: 4rem 2rem; /* Espacement interne */
@@ -79,7 +75,8 @@ const Title = styled.h1`
   }
 `;
 
-const ParagraphWrapper = styled.section` /* Utilisation d'une balise sémantique */
+const ParagraphWrapper = styled.section`
+  /* Utilisation d'une balise sémantique */
   display: flex;
   align-items: flex-start;
   margin-bottom: 0rem;
@@ -202,14 +199,21 @@ const ConseilJuridique = () => {
 
   // Dynamisation du titre de la page pour le SEO
   useEffect(() => {
-    document.title = "Conseil Juridique - Expertise et Accompagnement sur Mesure";
+    document.title =
+      "Conseil Juridique - Expertise et Accompagnement sur Mesure";
   }, []);
 
   return (
     <div>
       {/* Balise meta pour le SEO */}
-      <meta name="description" content="Obtenez un conseil juridique professionnel et personnalisé. Notre équipe d'experts vous accompagne pour garantir la conformité et la sécurité de vos activités." />
-      <meta name="keywords" content="conseil juridique, expertise juridique, conformité, prévention des risques, accompagnement juridique" />
+      <meta
+        name="description"
+        content="Obtenez un conseil juridique professionnel et personnalisé. Notre équipe d'experts vous accompagne pour garantir la conformité et la sécurité de vos activités."
+      />
+      <meta
+        name="keywords"
+        content="conseil juridique, expertise juridique, conformité, prévention des risques, accompagnement juridique"
+      />
       <meta name="alpha ousmane" content="TIPTAMCode" />
 
       {/* Conteneur avec l'image de fond */}
@@ -221,27 +225,38 @@ const ConseilJuridique = () => {
         </Suspense>
 
         {/* Contenu principal */}
-        <ContentContainer style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}>
+        <ContentContainer
+          style={{ fontFamily: "Helvetica55Roman, Arial, sans-serif" }}
+        >
           {/* Titre principal avec animation AOS */}
           <Title data-aos="fade-down">Conseil Juridique</Title>
           <Divider />
 
           {/* Section 1 : Analyse approfondie */}
           <ParagraphWrapper data-aos="fade-up">
-            <ParagraphImage src={jurid} alt="Analyse juridique - Expertise en droit" />
+            <ParagraphImage
+              src={images.jurid}
+              alt="Analyse juridique - Expertise en droit"
+            />
             <Paragraph>
-              Dans un environnement juridique de plus en plus complexe, un conseil
-              juridique rigoureux est essentiel pour garantir la pérennité de
-              vos activités et la conformité de vos pratiques. Notre cabinet se
-              distingue par son expertise et son approche personnalisée.
+              Dans un environnement juridique de plus en plus complexe, un
+              conseil juridique rigoureux est essentiel pour garantir la
+              pérennité de vos activités et la conformité de vos pratiques.
+              Notre cabinet se distingue par son expertise et son approche
+              personnalisée.
             </Paragraph>
           </ParagraphWrapper>
 
           {/* Section 2 : Analyse stratégique */}
           <ParagraphWrapper data-aos="fade-up">
-            <ParagraphImage src={jurid1} alt="Stratégie juridique - Optimisation des contrats" />
+            <ParagraphImage
+              src={images.jurid1}
+              alt="Stratégie juridique - Optimisation des contrats"
+            />
             <Paragraph>
-              <strong style={{ color: "#90e0ef" }}>1. Une analyse approfondie et stratégique :</strong>{" "}
+              <strong style={{ color: "#90e0ef" }}>
+                1. Une analyse approfondie et stratégique :
+              </strong>{" "}
               Notre équipe procède à une évaluation complète de vos documents
               juridiques, tels que contrats, statuts, accords de partenariat, et
               politiques internes. Nous identifions non seulement les zones de
@@ -252,9 +267,14 @@ const ConseilJuridique = () => {
 
           {/* Section 3 : Expertise multidisciplinaire */}
           <ParagraphWrapper>
-            <ParagraphImage src={affaire} alt="Expertise juridique - Droit des affaires" />
+            <ParagraphImage
+              src={images.affaire}
+              alt="Expertise juridique - Droit des affaires"
+            />
             <Paragraph>
-              <strong style={{ color: "#90e0ef" }}>2. Une expertise multidisciplinaire unique :</strong>{" "}
+              <strong style={{ color: "#90e0ef" }}>
+                2. Une expertise multidisciplinaire unique :
+              </strong>{" "}
               Nos avocats spécialisés couvrent plusieurs branches du droit,
               notamment le droit des affaires, le droit du travail, le droit
               fiscal, et le droit commercial. Cette diversité garantit une
@@ -264,9 +284,14 @@ const ConseilJuridique = () => {
 
           {/* Section 4 : Conformité */}
           <ParagraphWrapper>
-            <ParagraphImage src={conf} alt="Conformité juridique - Mise à jour des normes" />
+            <ParagraphImage
+              src={images.conf}
+              alt="Conformité juridique - Mise à jour des normes"
+            />
             <Paragraph>
-              <strong style={{ color: "#90e0ef" }}>3. Une conformité avec les normes en constante évolution :</strong>{" "}
+              <strong style={{ color: "#90e0ef" }}>
+                3. Une conformité avec les normes en constante évolution :
+              </strong>{" "}
               Les lois et réglementations changent rapidement. Nous veillons à
               ce que vos pratiques soient en adéquation avec les dernières
               exigences légales, réduisant ainsi les risques de sanctions
@@ -276,21 +301,31 @@ const ConseilJuridique = () => {
 
           {/* Section 5 : Prévention des risques */}
           <ParagraphWrapper>
-            <ParagraphImage src={PREV} alt="Prévention juridique - Gestion des risques" />
+            <ParagraphImage
+              src={images.prev}
+              alt="Prévention juridique - Gestion des risques"
+            />
             <Paragraph>
-              <strong style={{ color: "#90e0ef" }}>4. Une prévention proactive des risques :</strong>{" "}
-              Un conseil juridique efficace vous permet de prévoir et d’éviter des
-              problèmes avant qu’ils ne surviennent. Notre approche proactive
-              inclut des recommandations précises pour corriger les anomalies
-              identifiées et protéger vos intérêts.
+              <strong style={{ color: "#90e0ef" }}>
+                4. Une prévention proactive des risques :
+              </strong>{" "}
+              Un conseil juridique efficace vous permet de prévoir et d’éviter
+              des problèmes avant qu’ils ne surviennent. Notre approche
+              proactive inclut des recommandations précises pour corriger les
+              anomalies identifiées et protéger vos intérêts.
             </Paragraph>
           </ParagraphWrapper>
 
           {/* Section 6 : Accompagnement sur mesure */}
           <ParagraphWrapper>
-            <ParagraphImage src={EVOL} alt="Accompagnement juridique - Solutions personnalisées" />
+            <ParagraphImage
+              src={images.evol}
+              alt="Accompagnement juridique - Solutions personnalisées"
+            />
             <Paragraph>
-              <strong style={{ color: "#90e0ef" }}>5. Un accompagnement sur mesure :</strong>{" "}
+              <strong style={{ color: "#90e0ef" }}>
+                5. Un accompagnement sur mesure :
+              </strong>{" "}
               Au-delà du conseil, nous vous assistons dans la mise en œuvre des
               solutions proposées. Que ce soit pour la révision de vos contrats,
               la restructuration juridique ou la négociation de clauses, notre
@@ -300,17 +335,22 @@ const ConseilJuridique = () => {
 
           {/* Section 7 : Avantages concrets */}
           <ParagraphWrapper>
-            <ParagraphImage src={sttis} alt="Avantages juridiques - Réduction des coûts" />
+            <ParagraphImage
+              src={images.sttis}
+              alt="Avantages juridiques - Réduction des coûts"
+            />
             <Paragraph>
-              <strong style={{ color: "#90e0ef" }}>6. Des avantages concrets pour votre organisation :</strong>
+              <strong style={{ color: "#90e0ef" }}>
+                6. Des avantages concrets pour votre organisation :
+              </strong>
               <ul>
                 <li>
                   Réduction des coûts liés aux litiges grâce à une prévention
                   efficace.
                 </li>
                 <li>
-                  Amélioration de la crédibilité de votre entreprise vis-à-vis de
-                  vos partenaires et investisseurs.
+                  Amélioration de la crédibilité de votre entreprise vis-à-vis
+                  de vos partenaires et investisseurs.
                 </li>
                 <li>
                   Optimisation de vos processus internes pour une gestion plus
@@ -323,7 +363,9 @@ const ConseilJuridique = () => {
           {/* Section 8 : Relation de confiance */}
           <ParagraphWrapper>
             <Paragraph>
-              <strong style={{ color: "#90e0ef" }}>7. Une relation de confiance :</strong>{" "}
+              <strong style={{ color: "#90e0ef" }}>
+                7. Une relation de confiance :
+              </strong>{" "}
               Notre engagement repose sur la transparence, la discrétion, et une
               écoute active de vos besoins. Chaque client bénéficie d’un suivi
               personnalisé, car nous comprenons que chaque situation est unique.
@@ -332,7 +374,10 @@ const ConseilJuridique = () => {
 
           {/* Conteneur des images */}
           <ImageContainer>
-            <Image src={logoAODnoir} alt="Logo AOD - Expertise Juridique" />
+            <Image
+              src={images.logoAODnoir}
+              alt="Logo AOD - Expertise Juridique"
+            />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>
@@ -343,6 +388,6 @@ const ConseilJuridique = () => {
       </Suspense>
     </div>
   );
-}
+};
 
 export default memo(ConseilJuridique);

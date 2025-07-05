@@ -5,6 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 //import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { Link } from "react-router-dom";
+import { images } from "../../assets/images"; // Importation des images
 const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
 const Footer = lazy(() => import("../Accueil/Footerr"));
 // Initialisation de AOS
@@ -15,10 +16,10 @@ const BackgroundContainer = styled.main`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: url("/img/MOE_0384.avif") center/cover no-repeat;
+  //background: url("/img/MOE_0384.avif") center/cover no-repeat;
+  background-image: url(${images.moe0384});
   background-attachment: fixed;
   color: black;
-
   @media (max-width: 768px) {
     background-attachment: scroll;
   }

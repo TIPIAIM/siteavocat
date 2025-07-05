@@ -2,14 +2,14 @@ import React, { Suspense, useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import { FaArrowLeft } from "react-icons/fa";
+ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
-import SEO from "./Seoglobale";
+ import SEO from "./Seoglobale";
+import { images } from "../../assets/images";
 
 // Chargement différé du composant Penal2
 const Penal2 = React.lazy(() => import("./Penal2"));
+const BardeNavigationpublic = React.lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
 
 // Initialisation de AOS
 AOS.init({
@@ -21,7 +21,7 @@ AOS.init({
 const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh;
-  background-image: url("img/logoAODnoir.avif");
+  background-image: url( ${images.logoAODnoir});
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
@@ -185,7 +185,7 @@ export default function Penall() {
       <Suspense
         fallback={
           <FallbackContainer>
-            <FallbackLogo src={tiptamcode} alt="TIPTAMCode - Chargement en cours" />
+            <FallbackLogo src={images.tiptamcode} alt="TIPTAMCode - Chargement en cours" />
           </FallbackContainer>
         }
       >

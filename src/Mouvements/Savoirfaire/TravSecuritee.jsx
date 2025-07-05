@@ -2,17 +2,17 @@ import React, { Suspense, useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
-
+import { images } from "../../assets/images";
+ 
 // Chargement différé du composant Securite
 const Securite = React.lazy(() => import("./Securite"));
+const BardeNavigationpublic = React.lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
 
 // Styles
 const BackgroundContainer = styled.section`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/logoAODnoir.avif");
+  background-image: url(${images.logoAODnoir});
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -100,7 +100,7 @@ export default function TravSecuritee() {
         <Suspense
           fallback={
             <FallbackContainer>
-              <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
+              <FallbackLogo src={images.tiptamcode} alt="TIPTAMCode" />
             </FallbackContainer>
           }
         >

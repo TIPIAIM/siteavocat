@@ -3,12 +3,10 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import videohomemoury from "./../../assets/Video/videohomemoury.mp4";
 import articleVideo from "./../../assets/Video/feuillevid.mp4";
-import commercial from "./../../assets/Image/travaiil.avif";
-import traval from "./../../assets/Image/travail.avif";
-import techno from "./../../assets/Image/technologie.avif";
-
+ 
 const Headerarticl = lazy(() => import("./Headerarticl"));
-import Footer from "../Accueil/Footerr";
+const Footer = lazy(() => import("../Accueil/Footerr"));
+import { images } from "../../assets/images"; // Importation des images
 
 // Styles
 const ArticlesContainer = styled(motion.main)`
@@ -180,7 +178,7 @@ const articles = [
     description:
       "Une analyse approfondie de la protection des employés en matière de sécurité sociale.",
     mediaType: "image",
-    mediaSrc: traval,
+    mediaSrc: images.travail,
     link: "securite",
   },
   {
@@ -188,7 +186,7 @@ const articles = [
     description:
       "Comprendre les implications fiscales pour une gestion d'entreprise efficace.",
     mediaType: "image",
-    mediaSrc: techno,
+    mediaSrc: images.technologie,
     link: "fiscalite",
   },
   {
@@ -211,7 +209,7 @@ const articles = [
     description:
       "Découvrez comment un contrat bien rédigé peut protéger vos intérêts juridiques et économiques.",
     mediaType: "image",
-    mediaSrc: commercial,
+    mediaSrc: images.travaiil,
     link: "affaire",
   },
  

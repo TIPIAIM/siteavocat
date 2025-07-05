@@ -1,19 +1,20 @@
 import styled from "styled-components";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import { FaArrowLeft } from "react-icons/fa";
+ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Footer from "../Accueil/Footerr";
-import SEO from "./Seoglobale";
+ import SEO from "./Seoglobale";
+import { images } from "../../assets/images";
  // Importation du composant SEO
+const Footer = React.lazy(() => import("../Accueil/Footerr"));
+const BardeNavigationpublic = React.lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
 
 // Styles
 const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh;
-  background-image: url("img/sport.avif");
+  background-image: url(${images.sport});
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-import paul from "../../../assets/Image/MOE_0311.avif"; // Importation de l'image de l'article
+  
+import { images } from "../../../assets/images";
+
 // Données des articles
 const articlesData = [
   {
@@ -73,7 +75,7 @@ const articlesData = [
         </p>
       </>
     ),
-    imageUrl: paul,
+    imageUrl: images.moe0311,
     date: "9 avril 2025 : Paul Lamah Juriste chez AOD-AVOCATS",
   },
   {

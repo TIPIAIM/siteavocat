@@ -3,6 +3,7 @@ import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Helmet } from "react-helmet";
+import { images } from "../../assets/images";
 
 const Accueil = lazy(() => import("./Headercontact"));
 const Footer = lazy(() => import("../Accueil/Footerr"));
@@ -23,7 +24,9 @@ const ContactContainer = styled.div`
 
 const ImageSection = styled.div`
   flex: 1;
-  background-image: url("img/keitaseul2.avif");
+ // background-image: url("img/keitaseul2.avif");
+    background-image: url(${images.keitaseul2});
+  
   background-size: cover;
   background-position: center;
   min-height: 400px;

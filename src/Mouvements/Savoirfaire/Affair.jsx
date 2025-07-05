@@ -3,12 +3,13 @@ import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
 import { useEffect } from "react"; // Pour initialiser AOS
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
+import { images } from "../../assets/images";
 
 // Conteneur principal avec image d'arrière-plan fixe
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/MOE_0384.avif");
+  background-image: url(${images.moe0384}); 
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Fond fixe */

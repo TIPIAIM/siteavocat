@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import logoAODnoir from "../../assets/Image/logoAODnoir.avif";
-import styled from "styled-components";
+ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import { images } from "../../assets/images";
 
 const BackButton = styled(Link)`
   display: flex;
@@ -72,7 +72,7 @@ export default function Erreur() {
     <div
       className={styles.container}
       style={{
-        backgroundImage: `url(${logoAODnoir})`,
+        backgroundImage: `url(${images.logoAODnoir})`,
         backgroundAttachment: "fixed",
       }}
     >

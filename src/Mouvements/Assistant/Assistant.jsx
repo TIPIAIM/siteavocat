@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 
 import styled, { keyframes } from "styled-components";
 import {
@@ -9,9 +9,12 @@ import {
   HandshakeIcon,
  
 } from "lucide-react";
-import rightImage from "../../assets/Image/photo-accueil.avif";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import { Helmet } from "react-helmet";
+ import { Helmet } from "react-helmet";
+import { images } from "../../assets/images"; // Importation des images
+
+const BardeNavigationpublic = lazy(() =>
+  import("../Navigatpublic/BardeNavigationPublic")
+);
 
 //pour les frappe
 const typing = keyframes`
@@ -374,7 +377,7 @@ const ClosedStateContent = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(${rightImage}) center/cover no-repeat;
+    background: url(${images.photoAccueil}) center/cover no-repeat;
     opacity: 0.4;
     z-index: 0;
   }

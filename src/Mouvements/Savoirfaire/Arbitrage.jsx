@@ -7,6 +7,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "../Accueil/Footerr";
 import SEO from "./Seoglobale";
+import { images } from "../../assets/images";
 
 const ArbitFamillee = lazy(() => import("./ArbitFamillee"));
 
@@ -14,7 +15,7 @@ const ArbitFamillee = lazy(() => import("./ArbitFamillee"));
 const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh;
-  background-image: url("./src/assets/Image/keitaseul22.avif");
+  background-image:url(${images.keitaseul2}) ;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

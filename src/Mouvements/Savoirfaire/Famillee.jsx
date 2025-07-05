@@ -2,10 +2,10 @@ import { useEffect, Suspense, lazy } from "react"; // Importation de useEffect, 
 import styled from "styled-components"; // Importation de styled-components pour les styles
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
-import Footer from "../Accueil/Footerr";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import { images } from "../../assets/images";
+const Footer = lazy(() => import("../Accueil/Footerr"));
 
 // Importation dynamique des composants pour le chargement différé (lazy loading)
 const BardeNavigationpublic = lazy(() =>
@@ -17,7 +17,7 @@ const Famille2 = lazy(() => import("./Famille2"));
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh; /* Hauteur minimale de la vue */
-  background-image: url("img/maitactionn.avif"); /* Image de fond */
+  background-image: url(${images.maitactionn}); /* Image de fond */
   background-size: cover; /* Couvre tout l'espace disponible */
   background-position: top; /* Alignement en haut */
   background-attachment: fixed; /* Fixe l'image lors du défilement */
@@ -162,7 +162,6 @@ export default function Famillee() {
 
   return (
     <div className=" bg-cyan-700">
-      
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         {/* Couche transparente */}
@@ -173,7 +172,7 @@ export default function Famillee() {
           fallback={
             <FallbackContainer>
               {/* Logo de l'entreprise avec animation */}
-              <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
+              <FallbackLogo src={images.tiptamcode} alt="TIPTAMCode" />
             </FallbackContainer>
           }
         >

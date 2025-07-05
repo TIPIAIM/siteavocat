@@ -2,25 +2,18 @@ import { useEffect, memo, lazy, Suspense } from "react"; // Importation de React
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
 import styled from "styled-components"; // Importation de styled-components pour les styles
+import { images } from "../../../assets/images";
 
 // Importation paresseuse des composants
 const BardeNavigationpublic = lazy(() => import("../../Navigatpublic/BardeNavigationPublic"));
 const Footer = lazy(() => import("../../Accueil/Footerr"));
 
-import EVOL from "./../../../assets/Image/EVOL.avif"; // Importation des images
-import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif";
-import sttis from "./../../../assets/Image/sttis.avif";
-import PREV from "./../../../assets/Image/PREV.avif";
-import conf from "./../../../assets/Image/conf.avif";
-import affaire from "./../../../assets/Image/affaire.avif";
-import jurid1 from "./../../../assets/Image/jurid1.avif";
-import jurid from "./../../../assets/Image/jurid.avif";
 
 // Conteneur principal avec fond fixe
 const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh; /* Hauteur minimale de la vue */
-  background-image: url("img/confience.avif"); /* Image de fond */
+  background-image: url(${images.confience}); /* Image de fond */
   background-size: cover; /* Couvre tout l'espace disponible */
   background-position: center; /* Centre l'image */
   background-attachment: fixed; /* Fond fixe lors du défilement */
@@ -228,7 +221,7 @@ const Contentieux = () => {
 
           {/* Section 1 : Analyse approfondie */}
           <ParagraphWrapper data-aos="fade-up">
-            <ParagraphImage src={jurid} alt="Analyse juridique - Expertise en droit" />
+            <ParagraphImage src={images.jurid} alt="Analyse juridique - Expertise en droit" />
             <Paragraph>
               Dans un environnement juridique de plus en plus complexe, un conseil
               juridique rigoureux est essentiel pour garantir la pérennité de
@@ -239,7 +232,7 @@ const Contentieux = () => {
 
           {/* Section 2 : Analyse stratégique */}
           <ParagraphWrapper data-aos="fade-up">
-            <ParagraphImage src={jurid1} alt="Stratégie juridique - Optimisation des contrats" />
+            <ParagraphImage src={images.jurid1} alt="Stratégie juridique - Optimisation des contrats" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>1. Une analyse approfondie et stratégique :</strong>{" "}
               Notre équipe procède à une évaluation complète de vos documents
@@ -252,7 +245,7 @@ const Contentieux = () => {
 
           {/* Section 3 : Expertise multidisciplinaire */}
           <ParagraphWrapper>
-            <ParagraphImage src={affaire} alt="Expertise juridique - Droit des affaires" />
+            <ParagraphImage src={images.affaire} alt="Expertise juridique - Droit des affaires" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>2. Une expertise multidisciplinaire unique :</strong>{" "}
               Nos avocats spécialisés couvrent plusieurs branches du droit,
@@ -264,7 +257,7 @@ const Contentieux = () => {
 
           {/* Section 4 : Conformité */}
           <ParagraphWrapper>
-            <ParagraphImage src={conf} alt="Conformité juridique - Mise à jour des normes" />
+            <ParagraphImage src={images.conf} alt="Conformité juridique - Mise à jour des normes" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>3. Une conformité avec les normes en constante évolution :</strong>{" "}
               Les lois et réglementations changent rapidement. Nous veillons à
@@ -276,7 +269,7 @@ const Contentieux = () => {
 
           {/* Section 5 : Prévention des risques */}
           <ParagraphWrapper>
-            <ParagraphImage src={PREV} alt="Prévention juridique - Gestion des risques" />
+            <ParagraphImage src={images.prev} alt="Prévention juridique - Gestion des risques" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>4. Une prévention proactive des risques :</strong>{" "}
               Un conseil juridique efficace vous permet de prévoir et d’éviter des
@@ -288,7 +281,7 @@ const Contentieux = () => {
 
           {/* Section 6 : Accompagnement sur mesure */}
           <ParagraphWrapper>
-            <ParagraphImage src={EVOL} alt="Accompagnement juridique - Solutions personnalisées" />
+            <ParagraphImage src={images.evol} alt="Accompagnement juridique - Solutions personnalisées" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>5. Un accompagnement sur mesure :</strong>{" "}
               Au-delà du conseil, nous vous assistons dans la mise en œuvre des
@@ -300,7 +293,7 @@ const Contentieux = () => {
 
           {/* Section 7 : Avantages concrets */}
           <ParagraphWrapper>
-            <ParagraphImage src={sttis} alt="Avantages juridiques - Réduction des coûts" />
+            <ParagraphImage src={images.sttis} alt="Avantages juridiques - Réduction des coûts" />
             <Paragraph>
               <strong style={{ color: "#90e0ef" }}>6. Des avantages concrets pour votre organisation :</strong>
               <ul>
@@ -332,7 +325,7 @@ const Contentieux = () => {
 
           {/* Conteneur des images */}
           <ImageContainer>
-            <Image src={logoAODnoir} alt="Logo AOD - Expertise Juridique" />
+            <Image src={images.logoAODnoir} alt="Logo AOD - Expertise Juridique" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

@@ -5,12 +5,13 @@ import { useEffect } from "react"; // Pour initialiser AOS
 import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { images } from "../../assets/images";
 
 // Conteneur principal avec image d'arrière-plan fixe
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/logoAODnoir.avif"); /* Remplacez par le chemin de votre image */
+  background-image:url(${images.logoAODnoir})  ; /* Remplacez par le chemin de votre image */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

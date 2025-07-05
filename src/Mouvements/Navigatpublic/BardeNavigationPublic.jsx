@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import aodblanc from "./../../assets/Image/aodblanc.avif";
-
+import { images } from "../../assets/images";
+ 
 // Conteneur principal de la navigation
 const Nav = styled.nav`
   position: fixed;
@@ -223,7 +223,7 @@ export default function BardeNavigationpublic() {
     <>
       <Nav className=" " isScrolled={isScrolled}>
         <Logo onClick={() => (window.location.href = "/")}>
-          <img src={aodblanc} alt="Logo du Cabinet" />
+          <img src={images.aodblanc} alt="Logo du Cabinet" />
         </Logo>
         {/* Bouton pour le menu hamburger */}
         <HamburgerButton

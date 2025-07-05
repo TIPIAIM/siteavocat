@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
-import image1 from "../../assets/Image/affaire.avif";
-import image2 from "../../assets/Image/envir.avif";
-import image3 from "../../assets/Image/travaiil.avif";
-import image4 from "../../assets/Image/jurid1.avif";
-import image5 from "../../assets/Image/MOE_0384.avif";
-import image6 from "../../assets/Image/conf.avif";
-import image7 from "../../assets/Image/EVOL.avif";
-import image8 from "../../assets/Image/MOE_0384.avif";
+
+import { images } from "../../assets/images";
 
 // Animation pour le défilement des images
 const fadeInOut = keyframes`
@@ -180,25 +174,25 @@ const Accueilpourarticle = () => {
     return () => clearInterval(interval);
   }, [messages.length]);
 
-  const images = [
-    image5,
-    image1,
-    image2,
-    image3,
-    image4,
-    image6,
-    image7,
-    image8,
+  const imagess = [
+    images.affaire,
+    images.envir,
+    images.travaiil,
+    images.jurid1,
+    images.moe0384,
+    images.conf,
+    images.evol,
+    images.moe0384,
   ];
 
   return (
     <HeroSection>
       {/* Images de fond */}
-      {images.map((image, index) => (
+      {imagess.map((image, index) => (
         <BackgroundImage
           key={index}
           image={image}
-          delay={index * 3} // Décalage de 2 secondes entre chaque image
+          delay={index * 2} // Décalage de 2 secondes entre chaque image
         />
       ))}
 

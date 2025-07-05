@@ -2,13 +2,14 @@ import { useEffect } from "react"; // Importation de useEffect pour les effets d
 import styled from "styled-components"; // Importation de styled-components pour les styles
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
+import { images } from "../../assets/images";
 
 // Conteneur principal avec fond fixe
 const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   min-height: 100vh; /* Hauteur minimale de la vue */
-  background: url("/img/MOE_0384.avif") center/cover no-repeat; /* Image de fond */
+  background: url(${images.moe0384}) center/cover no-repeat; /* Image de fond */
   background-attachment: fixed; /* Fond fixe lors du défilement */
   background-size: cover; /* Couvre tout l'espace disponible */
   color: black; /* Couleur du texte par défaut */

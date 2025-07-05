@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
-import Footer from "../Accueil/Footerr";
+import { images } from "../../assets/images";
+const Footer = React.lazy(() => import("../Accueil/Footerr"));
 
 // Initialisation de AOS
 AOS.init({
@@ -15,7 +16,7 @@ const BackgroundContainer = styled.section`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: url("/img/logoAODnoir.avif") center/cover no-repeat;
+  background: url(${images.logoAODnoir}) center/cover no-repeat;
   background-attachment: fixed;
   color: #fff;
 

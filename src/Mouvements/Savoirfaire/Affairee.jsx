@@ -1,9 +1,8 @@
 import React, { useEffect, Suspense } from "react"; // Importation des modules React
 import styled from "styled-components"; // Importation de styled-components pour les styles
 import "aos/dist/aos.css"; // Importation du CSS de AOS pour les animations
-import articleImage from "./../../assets/Image/avoc3.avif"; // Importation de l'image de l'article
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
-
+import { images } from "../../assets/images";
+ 
 // Importation dynamique des composants pour le chargement différé (lazy loading)
 const Footer = React.lazy(() => import("../Accueil/Footerr"));
 const Affair = React.lazy(() => import("./Affair"));
@@ -16,7 +15,7 @@ const AffairesContainer = styled.section`
   min-height: 100vh; /* Hauteur minimale de la vue */
   padding: 50px 20px; /* Espacement interne */
   position: relative; /* Position relative pour les éléments enfants */
-  background: url("img/logoAODnoir.avif") center/cover no-repeat; /* Image de fond */
+  background:  url(${images.moe0384})  ;center/cover no-repeat; /* Image de fond */
   background-attachment: fixed; /* Fond fixe lors du défilement */
   display: flex;
   flex-direction: column;
@@ -225,7 +224,7 @@ const Affairee = () => {
           <FallbackContainer>
             {/* Logo de l'entreprise avec animation */}
             <FallbackLogo
-              src={tiptamcode}
+              src={images.tiptamcode}
               alt="TIPTAMCode - Chargement en cours"
             />
           </FallbackContainer>
@@ -246,7 +245,7 @@ const Affairee = () => {
               <MediaWrapper>
                 {/* Image de l'article avec chargement différé */}
                 <img
-                  src={articleImage}
+                  src={images.avoc3}
                   alt="Contrats en affaires - Expertise juridique"
                   data-aos="zoom-in"
                   loading="lazy"

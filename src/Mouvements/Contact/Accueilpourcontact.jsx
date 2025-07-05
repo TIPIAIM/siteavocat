@@ -1,14 +1,7 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
-import image1 from "../../assets/Image/affaire.avif";
-import image2 from "../../assets/Image/envir.avif";
-import image3 from "../../assets/Image/travaiil.avif";
-import image4 from "../../assets/Image/jurid1.avif";
-import image5 from "../../assets/Image/MOE_0384.avif";
-import image6 from "../../assets/Image/conf.avif";
-import image7 from "../../assets/Image/EVOL.avif";
-import image8 from "../../assets/Image/MOE_0384.avif";
+import { images } from "../../assets/images"; // Importation des images
 
 // Animation pour le défilement des images
 const fadeInOut = keyframes`
@@ -26,7 +19,7 @@ const fadeInOut = keyframes`
 
 // Styled Components
 const HeroSection = styled.section`
-  min-height: 80vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +48,7 @@ const BackgroundImage = styled.div`
   background-size: cover;
   background-position: center;
   opacity: 0;
-  animation: ${fadeInOut} 24s linear infinite;
+  animation: ${fadeInOut} 4s linear infinite;
   animation-delay: ${(props) => props.delay}s;
 
   /* Fond bleu semi-transparent */
@@ -66,7 +59,7 @@ const BackgroundImage = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 139, 0.5); /* Bleu semi-transparent */
+    background-color: rgba(0, 0, 139, 0.3); /* Bleu semi-transparent */
   }
 `;
 
@@ -175,21 +168,21 @@ const Accueilpourcontact = () => {
     return () => clearInterval(interval);
   }, [messages.length]);
 
-  const images = [
-    image5,
-    image1,
-    image2,
-    image3,
-    image4,
-    image6,
-    image7,
-    image8,
+  const imagess = [
+    images.MOE_0384,
+    images.affaire,
+    images.envir,
+    images.travaiil,
+    images.jurid1,
+    images.conf,
+    images.EVOL,
+    images.MOE_0384,
   ];
 
   return (
     <HeroSection>
       {/* Images de fond */}
-      {images.map((image, index) => (
+      {imagess.map((image, index) => (
         <BackgroundImage
           key={index}
           image={image}

@@ -3,13 +3,13 @@ import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; 
 import { Helmet } from "react-helmet"; // Ajout pour le SEO
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import { FaArrowLeft } from "react-icons/fa";
+ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import tiptamcode from "./../../assets/Image/tiptamcode.avif";
-
+import { images } from "../../assets/images";
+ 
 // Chargement asynchrone de Fiscalitee2
 const Fiscalitee2 = React.lazy(() => import("./Fiscalitee2"));
+const BardeNavigationpublic = React.lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
 
 // Fallback Container for Suspense
 const FallbackContainer = styled.div`
@@ -46,7 +46,7 @@ const FallbackLogo = styled.img`
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/logoAODnoir.avif");
+  background-image:url(${images.logoAODnoir});
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -215,7 +215,7 @@ function FiscaliteeWrapper() {
 // Wrapping avec Suspense pour le chargement asynchrone
 export default function Fiscalitee() {
   return (
-    <Suspense fallback={<FallbackContainer><FallbackLogo src={tiptamcode} alt="Chargement..." /></FallbackContainer>}>
+    <Suspense fallback={<FallbackContainer><FallbackLogo src={images.tiptamcode} alt="Chargement..." /></FallbackContainer>}>
       <FiscaliteeWrapper />
       <Fiscalitee2 />
     </Suspense>

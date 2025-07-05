@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import image from "./../../assets/Image/image.avif";
-import assistance from "./../../assets/Image/assistance.avif";
-import categor from "./../../assets/Image/categor.avif";
-import ArticleDroitPenl from "./ArticleAssoc/ArticleDroitPenl";
+ 
+import { images } from "../../assets/images"; // Importation des images
+
 const BardeNavigationpublic = lazy(() =>
   import("../Navigatpublic/BardeNavigationPublic")
 );
 const Footer = lazy(() => import("../Accueil/Footerr"));
+const ArticleDroitPenl = lazy(() => import("./ArticleAssoc/ArticleDroitPenl"));
 
 // Styled Components
 const PenalContainer = styled.div`
@@ -36,7 +36,7 @@ const PenalContainer = styled.div`
     background: rgba(0, 0, 0, 0.6);
     z-index: -1;
   }
-`;
+`; 
 
 const SectionTitle = styled.h2`
   font-size: 2.8rem;
@@ -50,22 +50,6 @@ const SectionTitle = styled.h2`
   @media (max-width: 768px) {
     font-size: 2rem;
     margin-top: 1rem;
-    margin: 2rem;
-  }
-`;
-
-const Description = styled.p`
-  font-size: 1.1rem;
-  line-height: 1.8;
-  text-align: justify;
-  margin-bottom: 20px;
-  margin: 4rem;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 900px;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    text-align: left;
     margin: 2rem;
   }
 `;
@@ -186,7 +170,9 @@ const BackButton = styled(Link)`
 const BackgroundContainer = styled.section`
   position: relative;
   min-height: 58vh;
-  background-image: url("img/logoAODnoir.avif");
+  //background-image: url("img/logoAODnoir.avif");
+  background-image: url(${images.logoAODnoir});
+
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -197,7 +183,9 @@ const BackgroundContainer = styled.section`
 const BackgroundContaine = styled.section`
   position: relative;
   min-height: 5vh;
-  background-image: url("img/logoAODnoir.avif");
+  //background-image: url("img/logoAODnoir.avif");
+  background-image: url(${images.logoAODnoir});
+
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -217,7 +205,7 @@ const Penal = () => {
       description:
         "Découvrez les bases du droit pénal et ses objectifs pour maintenir l'ordre public.",
       mediaType: "image",
-      mediaSrc: image,
+      mediaSrc: images.image,
       link: "https://derechos.org/intlaw/doc/gin1.html",
     },
     {
@@ -225,7 +213,7 @@ const Penal = () => {
       description:
         "Le droit pénal vise la prévention des actes nuisibles à la société, leur répression, et la réinsertion des condamnés.",
       mediaType: "image",
-      mediaSrc: assistance,
+      mediaSrc: images.assistance,
       link: "https://interfacelonny.com/documents/do-1600922216",
     },
     {
@@ -233,7 +221,7 @@ const Penal = () => {
       description:
         "Les infractions sont classées selon leur gravité : contraventions, délits, et crimes, chacune avec des peines adaptées.",
       mediaType: "image",
-      mediaSrc: categor,
+      mediaSrc: images.categor,
       link: "https://derechos.org/intlaw/doc/gin1.html",
     },
     {

@@ -1,8 +1,7 @@
 import React, { useEffect, Suspense } from "react"; // Importation des modules React
 import styled from "styled-components"; // Importation de styled-components pour les styles
 import "aos/dist/aos.css"; // Importation du CSS de AOS pour les animations
-import articleImage from "./../../assets/Image/avoc3.avif"; // Importation de l'image de l'article
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
+ import { images } from "../../assets/images";
 
 // Importation dynamique des composants pour le chargement différé (lazy loading)
 const Footer = React.lazy(() => import("../Accueil/Footerr"));
@@ -202,7 +201,7 @@ const Affairee = () => {
         fallback={
           <FallbackContainer>
             {/* Logo de l'entreprise avec animation */}
-            <FallbackLogo src={tiptamcode} alt="TIPTAMCode" />
+            <FallbackLogo src={images.tiptamcode} alt="TIPTAMCode" />
           </FallbackContainer>
         }
       >
@@ -219,7 +218,7 @@ const Affairee = () => {
               <MediaWrapper>
                 {/* Image de l'article avec chargement différé */}
                 <img
-                  src={articleImage}
+                  src={images.avoc3}
                   alt="Contrats en affaires"
                   data-aos="zoom-in"
                   loading="lazy"

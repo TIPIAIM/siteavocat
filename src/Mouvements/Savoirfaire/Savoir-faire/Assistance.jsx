@@ -3,23 +3,20 @@ import { useEffect, memo } from "react"; // Importation de useEffect pour les ef
 import { lazy, Suspense } from "react"; // Importation de lazy et Suspense pour le chargement paresseux
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
+import { images } from "../../../assets/images";
 
 // Importation paresseuse des composants
 const BardeNavigationpublic = lazy(() => import("../../Navigatpublic/BardeNavigationPublic"));
 const Footer = lazy(() => import("../../Accueil/Footerr"));
 
-import EVOL from "./../../../assets/Image/EVOL.avif"; // Importation des images
-import logoAODnoir from "./../../../assets/Image/logoAODnoir.avif";
-import commercial from "../../../assets/Image/commercial.avif";
-import MOE_0400 from "../../../assets/Image/MOE_0400.avif";
-import jurid from "../../../assets/Image/jurid.avif";
-
+ 
 // Conteneur principal avec fond dégradé et image
 const BackgroundContainer = styled.section` /* Utilisation d'une balise sémantique */
   position: relative;
   min-height: 100vh; /* Hauteur minimale de la vue */
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("img/confience.avif"); /* Image de fond avec dégradé sombre */
+  url(${images.confience}) ;
+ // url("img/confience.avif"); /* Image de fond avec dégradé sombre */
   background-size: cover; /* Couvre tout l'espace disponible */
   background-position: center; /* Centre l'image */
   background-attachment: fixed; /* Fond fixe lors du défilement */
@@ -233,7 +230,7 @@ const AuditJuridique = () => {
               qu’elles soient. Nous mettons à votre disposition un
               accompagnement sur mesure pour chaque situation.
             </Paragraph>
-            <ParagraphImage src={commercial} alt="Expertise juridique - Analyse de documents" />
+            <ParagraphImage src={images.commercial} alt="Expertise juridique - Analyse de documents" />
           </ParagraphWrapper>
 
           {/* Section 2 : Accompagnement dans la régulation */}
@@ -248,7 +245,7 @@ const AuditJuridique = () => {
               requis, la représentation auprès des autorités compétentes, et le
               suivi des modifications législatives.
             </Paragraph>
-            <ParagraphImage src={EVOL} alt="Régulation juridique - Suivi des lois" />
+            <ParagraphImage src={images.evol} alt="Régulation juridique - Suivi des lois" />
           </ParagraphWrapper>
 
           {/* Section 3 : Consultations personnalisées */}
@@ -263,7 +260,7 @@ const AuditJuridique = () => {
               chaque cas avec une attention particulière pour offrir un service
               réellement personnalisé.
             </Paragraph>
-            <ParagraphImage src={MOE_0400} alt="Consultation juridique - Analyse de cas" />
+            <ParagraphImage src={images.moe0400} alt="Consultation juridique - Analyse de cas" />
           </ParagraphWrapper>
 
           {/* Section 4 : Formations spécialisées */}
@@ -277,7 +274,7 @@ const AuditJuridique = () => {
               Ces formations couvrent des sujets variés allant de la gestion des
               contrats à la prévention des litiges.
             </Paragraph>
-            <ParagraphImage src={jurid} alt="Formation juridique - Apprentissage des lois" />
+            <ParagraphImage src={images.jurid} alt="Formation juridique - Apprentissage des lois" />
           </ParagraphWrapper>
 
           {/* Section 5 : Protection juridique */}
@@ -295,7 +292,7 @@ const AuditJuridique = () => {
 
           {/* Conteneur des images */}
           <ImageContainer>
-            <Image src={logoAODnoir} alt="Logo AOD - Expertise Juridique" />
+            <Image src={images.logoAODnoir} alt="Logo AOD - Expertise Juridique" />
           </ImageContainer>
         </ContentContainer>
       </BackgroundContainer>

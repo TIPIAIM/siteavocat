@@ -108,4 +108,7 @@ export const images = {
 
   travail:
     "https://res.cloudinary.com/dueu8nf5j/image/upload/v1751718596/travail_tx27vj.avif",
+    confience:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1751744710/confience_qgqzzc.avif",
+  sport: "https://res.cloudinary.com/dueu8nf5j/image/upload/v1751748601/sport_wc4qzd.avif"
 };

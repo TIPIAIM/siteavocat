@@ -1,11 +1,11 @@
 import {  ChevronsLeftRight } from "lucide-react";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-import photoaccueil from "../../assets/Image/photo-accueil.avif";
 import LazyLoad from "react-lazyload";
 
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Placeholder } from "react-bootstrap";
+import { images } from "./assets/images";
+const BardeNavigationpublic = React.lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
 
 export default function Headerr() {
    const [imageLoaded, setImageLoaded] = useState(false);
@@ -22,7 +22,7 @@ export default function Headerr() {
       )}
       {!imageError ? (
         <img
-          src={photoaccueil}
+          src={images.photoAccueil}
           alt="Cabinet d'avocats"
           className="absolute inset-0 w-full h-full object-cover"
           onLoad={() => setImageLoaded(true)}

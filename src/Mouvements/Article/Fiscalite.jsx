@@ -8,6 +8,8 @@ import { lazy } from "react";
 const BardeNavigationpublic = lazy(() =>
   import("../Navigatpublic/BardeNavigationPublic")
 );
+import { images } from "../../assets/images"; // Importation des images
+
 const Footer = lazy(() => import("../Accueil/Footerr"));
 AOS.init(); // Initialisation de AOS dans le composant
 
@@ -16,7 +18,10 @@ const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: url("/img/logoAODnoir.avif") center/cover no-repeat;
+  //background: url("/img/logoAODnoir.avif") center/cover no-repeat;
+  background-image: url(${images.logoAODnoir});
+ 
+ 
   background-attachment: fixed;
   background-size: cover;
   color: #ffff;

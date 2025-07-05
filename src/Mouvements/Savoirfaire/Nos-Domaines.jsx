@@ -1,31 +1,26 @@
-import { useEffect } from "react"; // Importation de useEffect pour les effets de bord
+import React, { useEffect } from "react"; // Importation de useEffect pour les effets de bord
 import AOS from "aos"; // Importation de AOS pour les animations
 import "aos/dist/aos.css"; // Importation du CSS de AOS
 import styled from "styled-components"; // Importation de styled-components pour les styles
-import Footer from "../Accueil/Footerr"; // Importation du composant Footer
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic"; // Importation de la barre de navigation publique
-import affair from "./../../assets/Image/affair.avif"; // Importation des images
-import familled from "./../../assets/Image/familled.avif";
-import fisc from "./../../assets/Image/fisc.avif";
-import envir from "./../../assets/Image/envir.avif";
-//import securitesocial from "./../../assets/Image/securitesocial.avif";
-import travail from "./../../assets/Image/travail.avif";
-import image from "./../../assets/Image/image.avif";
-import AFFF from "./../../assets/Image/AFFF.webp";
-import arbitra from "./../../assets/Image/arbitra.avif";
+import { images } from "../../assets/images";
+const BardeNavigationpublic = React.lazy(() =>
+  import("../Navigatpublic/BardeNavigationPublic")
+);
+const Footer = React.lazy(() => import("../Accueil/Footerr"));
 
 // Conteneur principal avec l'image d'arrière-plan
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh; /* Hauteur minimale de la vue */
-  background-image: url("img/logoAODnoir.avif"); /* Image de fond */
+  background-image: url(${images.logoAODnoir}); /* Image de fond */
   background-size: cover; /* Couvre tout l'espace disponible */
   background-position: center; /* Centre l'image */
   background-attachment: fixed; /* Fixe l'image lors du défilement */
 
- @media (max-width: 768px) {
+  @media (max-width: 768px) {
     background-attachment: scroll; /* Désactive le fond fixe sur les petits écrans */
-  }  `;
+  }
+`;
 
 // Couche transparente sur l'image d'arrière-plan
 const Overlay = styled.div`
@@ -55,10 +50,9 @@ const ContentContainer = styled.div`
     padding: 0.5rem 1rem; /* Espacement interne */
     border-radius: 8px; /* Bordures arrondies */
     max-width: 1200px; /* Largeur maximale du contenu */
-  margin: 0 auto; /* Centrage horizontal */
-  margin-top: 5rem; /* Ajout d'une marge supérieure pour espacer du haut */
-
-    }
+    margin: 0 auto; /* Centrage horizontal */
+    margin-top: 5rem; /* Ajout d'une marge supérieure pour espacer du haut */
+  }
 
   p {
     font-size: 1rem;
@@ -183,22 +177,22 @@ export default function Nosexpertise() {
   }, []);
 
   // Données des cartes
-  const images = [
+  const imagess = [
     {
-      src: affair,
+      src: images.affair,
       alt: "Droit des affaires",
       text: "Droit des affaires",
       link: "/affairee",
     },
 
     {
-      src: fisc,
+      src: images.fisc,
       alt: "Droit fiscal",
       text: "Droit fiscal",
       link: "/fiscalitee",
     },
     {
-      src: envir,
+      src: images.envir,
       alt: "Minier",
       text: "Minier et Environnementale",
       link: "/minierr",
@@ -210,16 +204,21 @@ export default function Nosexpertise() {
     //   link: "/securitee",
     // },
     {
-      src: travail,
+      src: images.travail,
       alt: "LE DROIT DU TRVAIL ET SECURITÉ SOCIALE",
       text: "Droit du Travail et securité socile",
       link: "/travail",
     },
-    { src: image, alt: "Pénal", text: "Droit Pénal", link: "/penall" },
-    { src: AFFF, alt: "Sport", text: "Droit du Sport", link: "/sport" },
-    { src: arbitra, alt: "Arbitrage", text: "Arbitrage", link: "/arbitrage" },
+    { src: images.image, alt: "Pénal", text: "Droit Pénal", link: "/penall" },
+    { src: images.afff, alt: "Sport", text: "Droit du Sport", link: "/sport" },
     {
-      src: familled,
+      src: images.arbitra,
+      alt: "Arbitrage",
+      text: "Arbitrage",
+      link: "/arbitrage",
+    },
+    {
+      src: images.familled,
       alt: "Droit de la Famille",
       text: "Droit de la Famille",
       link: "/famillee",
@@ -228,7 +227,6 @@ export default function Nosexpertise() {
 
   return (
     <div>
-      
       {/* Conteneur avec l'image de fond */}
       <BackgroundContainer>
         {/* Couche transparente */}
@@ -253,7 +251,7 @@ export default function Nosexpertise() {
 
           {/* Grille d'expertise */}
           <GridContainer>
-            {images.map((image, index) => (
+            {imagess.map((image, index) => (
               <Card
                 key={index}
                 data-aos="fade-up"

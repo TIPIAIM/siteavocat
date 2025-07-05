@@ -4,9 +4,11 @@ import "aos/dist/aos.css"; // Importation du CSS pour AOS
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { lazy, memo } from "react";
+
 const BardeNavigationpublic = lazy(() =>
   import("../Navigatpublic/BardeNavigationPublic")
 );
+import { images } from "../../assets/images"; // Importation des images
 const Footer = lazy(() => import("../Accueil/Footerr"));
 AOS.init(); // Initialisation de AOS dans le composant
 // Conteneur principal avec fond fixe
@@ -14,7 +16,9 @@ const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: url("/img/logoAODnoir.avif") center/cover no-repeat;
+  // background: url("/img/logoAODnoir.avif") center/cover no-repeat;
+  background-image: url(${images.logoAODnoir});
+
   background-attachment: fixed;
   background-size: cover;
   color: #fff;

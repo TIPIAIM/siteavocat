@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
+ import { images } from "../../assets/images";
 const BardeNavigationpublic = lazy(() =>
   import("../Navigatpublic/BardeNavigationPublic")
 );
@@ -11,7 +11,9 @@ const BardeNavigationpublic = lazy(() =>
 const BackgroundContainer = styled.section`
   position: relative;
   min-height: 1.5vh;
-  background-image: url("img/logoAODnoir.avif");
+ // background-image: url("img/logoAODnoir.avif");
+     background-image: url(${images.logoAODnoir});
+  
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -70,7 +72,7 @@ export default function Hederdesutre() {
         <Suspense
           fallback={
             <FallbackContainer>
-              <FallbackLogo src={tiptamcode} alt="TIPTAMC" />
+              <FallbackLogo src={images.tiptamcode} alt="TIPTAMC" />
             </FallbackContainer>
           }
         >

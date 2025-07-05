@@ -4,16 +4,16 @@ import AOS from "aos";
 import "aos/dist/aos.css"; 
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
-// Utilisation de ton gestionnaire SEO
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; 
-import SEO from "./Seoglobale";
+ // Utilisation de ton gestionnaire SEO
+ import SEO from "./Seoglobale";
+import { images } from "../../assets/images";
 const Minier2 = React.lazy(() => import("./MinierEnviron2")); 
+const BardeNavigationpublic = React.lazy(() => import("../Navigatpublic/BardeNavigationPublic")); 
 
 const BackgroundContainer = styled.section`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/logoAODnoir.avif");
+  background-image: url(${images.logoAODnoir});
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -224,7 +224,7 @@ function MinierEnvironnWrapper() {
 
 export default function MinierEnvironn() {
   return (
-    <Suspense fallback={<FallbackContainer><FallbackLogo src={tiptamcode} alt="Chargement..." /></FallbackContainer>}>
+    <Suspense fallback={<FallbackContainer><FallbackLogo src={images.tiptamcode} alt="Chargement..." /></FallbackContainer>}>
       <MinierEnvironnWrapper />
       <Minier2 />
     </Suspense>

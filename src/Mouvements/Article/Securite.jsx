@@ -2,12 +2,13 @@ import { lazy, Suspense, useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
-import tiptamcode from "./../../assets/Image/tiptamcode.avif"; // Importation de l'image de l'article
-import { Link } from "react-router-dom";
+ import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 const BardeNavigationpublic = lazy(() =>
   import("../Navigatpublic/BardeNavigationPublic")
 );
+import { images } from "../../assets/images"; // Importation des images
+
 const ArticleDroitSocial = lazy(() =>
   import("./ArticleAssoc/ArticleDroitSocial")
 );
@@ -17,7 +18,9 @@ const Footer = lazy(() => import("../Accueil/Footerr"));
 const BackgroundContainer = styled.section`
   position: relative;
   min-height: 58vh;
-  background-image: url("img/logoAODnoir.avif");
+ // background-image: url("img/logoAODnoir.avif");
+    background-image: url(${images.logoAODnoir});
+
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -97,7 +100,7 @@ export default function Securite1() {
         <Suspense
           fallback={
             <FallbackContainer>
-              <FallbackLogo src={tiptamcode} alt="TIPTAMC" />
+              <FallbackLogo src={images.tiptamcode} alt="TIPTAMC" />
             </FallbackContainer>
           }
         >

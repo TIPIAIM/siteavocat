@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour AOS
-import Footer from "../Accueil/Footerr";
-import { CheckCheck, Hand, LandPlot } from "lucide-react";
+ import { Hand, LandPlot } from "lucide-react";
+import { images } from "../../assets/images";
+const Footer = React.lazy(() => import("../Accueil/Footerr"));
 
 // Initialisation de AOS
 AOS.init({
@@ -23,7 +24,7 @@ const colors = {
 const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
-  background-image: url("img/logoAODnoir.avif");
+  background-image: url(${images.logoAODnoir});
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

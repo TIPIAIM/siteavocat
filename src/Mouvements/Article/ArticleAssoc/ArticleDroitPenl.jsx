@@ -1,31 +1,30 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-import maitreetblouz from "../../../assets/Image/maitreetblouz.avif";
- 
+
 import { images } from "../../../assets/images";
 
-// Données des articles
 const articlesData = [
   {
     id: 1,
     title: "Analyse sur le récent privilège accordé, par l'effet de la Grâce",
-    excerpt: "Examen des implications juridiques de la grâce présidentielle accordée à Moussa Dadis Camara",
+    excerpt:
+      "Examen des implications juridiques de la grâce présidentielle accordée à Moussa Dadis Camara",
     content: (
       <>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.5 }}
           className="text-cyan-950"
         >
           La grâce présidentielle accordée par le président Mamadi Doumbouya à
-          Moussa Dadis Camara, en vertu de l'article 170 du Code pénal guinéen,
+          Moussa Dadis Camara, en vertu de l’article 170 du Code pénal guinéen,
           alors que ses avocats ont interjeté appel, soulève plusieurs questions
           juridiques quant à son impact sur le procès en appel.
         </motion.p>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -33,7 +32,7 @@ const articlesData = [
         >
           1. Effet de la grâce sur la condamnation
         </motion.p>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -41,13 +40,13 @@ const articlesData = [
         >
           La grâce présidentielle est une mesure de clémence qui ne remet pas en
           cause la culpabilité du condamné. Elle supprime ou réduit la peine,
-          mais ne l'annule pas. Ainsi, sur le plan strictement juridique, la
+          mais ne l’annule pas. Ainsi, sur le plan strictement juridique, la
           condamnation de Moussa Dadis Camara demeure inscrite à son casier
-          judiciaire, même s'il bénéficie d'une réduction ou d'une suppression
+          judiciaire, même s’il bénéficie d’une réduction ou d’une suppression
           de peine.
         </motion.p>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -55,22 +54,22 @@ const articlesData = [
         >
           2. Conséquence sur le procès en appel
         </motion.p>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
           className="text-cyan-950"
         >
           Le recours en appel vise à contester la condamnation rendue en
-          première instance. En principe, l'exercice du droit d'appel par l'une
-          des parties conformément au dispositions de l'article 577 du code de
-          procédure pénale de la république de Guinée, suspend l'exécution de la
-          peine tant que la décision n'est pas définitive.Toutefois, la grâce
-          intervient après une condamnation en première instance et s'applique à
+          première instance. En principe, l’exercice du droit d’appel par l’une
+          des parties conformément au dispositions de l’article 577 du code de
+          procédure pénale de la république de Guinée, suspend l’exécution de la
+          peine tant que la décision n’est pas définitive.Toutefois, la grâce
+          intervient après une condamnation en première instance et s’applique à
           la peine prononcée.
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
@@ -78,8 +77,8 @@ const articlesData = [
         >
           Deux scénarios sont possibles :
         </motion.p>
-        
-        <motion.ul 
+
+        <motion.ul
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.5 }}
@@ -87,7 +86,7 @@ const articlesData = [
         >
           <li>
             Si la grâce concerne uniquement la peine : Le procès en appel peut
-            se poursuivre car l'appel porte également sur la déclaration de
+            se poursuivre car l’appel porte également sur la déclaration de
             culpabilité et les éventuels vices de procédure. La Chambre des
             appels correctionels pourrait confirmer ou infirmer le jugement.
           </li>
@@ -95,43 +94,43 @@ const articlesData = [
             Si la grâce est interprétée comme une extinction de la peine
             empêchant tout procès en appel : Cela pourrait soulever un débat
             juridique. En théorie, la grâce ne fait pas disparaître la
-            condamnation et ne prive pas la juridiction d'appel notammentvla
-            chambre des appels correctionnels de son pouvoir d'examiner
-            l'affaire en fait et en droit.
+            condamnation et ne prive pas la juridiction d’appel notammentvla
+            chambre des appels correctionnels de son pouvoir d’examiner
+            l’affaire en fait et en droit.
           </li>
         </motion.ul>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.5 }}
           className="text-cyan-950 font-semibold mt-4"
         >
-          3. Risque d'un vide juridique ou d'une controverse judiciaire
+          3. Risque d’un vide juridique ou d’une controverse judiciaire
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.5 }}
           className="text-cyan-950"
         >
-          L'application de la grâce en pleine procédure d'appel peut créer une
-          situation où l'accusé bénéficie de la clémence présidentielle avant
+          L’application de la grâce en pleine procédure d’appel peut créer une
+          situation où l’accusé bénéficie de la clémence présidentielle avant
           même que la décision ne soit définitive. Cela pourrait être interprété
           comme une ingérence dans le processus judiciaire. A cet égard la
-          Chambre des appels correctionnels de la Cour d'Appel de Conakry doit
-          se prononcer sur la recevabilité de l'appel après l'intervention de la
+          Chambre des appels correctionnels de la Cour d’Appel de Conakry doit
+          se prononcer sur la recevabilité de l’appel après l’intervention de la
           grâce.
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.0, duration: 0.5 }}
           className="text-cyan-950"
         >
-          L'incidence est majeur quand on sait que l'article préliminaire du
+          L’incidence est majeur quand on sait que l’article préliminaire du
           code de procédure pénal dispose que en son point 4, que les personnes
           se trouvant dans des conditons semblables et poursuivies pour les
           mêmes infractions doivent être jugés selon les mêmes règles. Cette
@@ -139,42 +138,42 @@ const articlesData = [
           poursuivie au mêmes titre que le colonel PIVI, Marcel et autres pour
           les mêmes infractions.
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.5 }}
           className="text-cyan-950"
         >
-          Peut on dire qu'il s'en découle un traitement de faveur? Neéamoins, le
-          président de la n'a pas besoin de justifier sa décision d'accorder la
+          Peut on dire qu’il s’en découle un traitement de faveur? Neéamoins, le
+          président de la n’a pas besoin de justifier sa décision d’accorder la
           grâce pour la totalité de la peine
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.5 }}
           className="text-cyan-950"
         >
-          Pour finir, l'appel intérjeté est en principe valable, car la grâce ne
-          supprime pas la condamnation même si elle provoque, dans l'espèce, une
+          Pour finir, l’appel intérjeté est en principe valable, car la grâce ne
+          supprime pas la condamnation même si elle provoque, dans l’espèce, une
           incidence le procès logé dans le principe du double dégré de
-          juridiction. Notons, si l'appel a un effet dévolutif, comment les
-          juges d'appels apprécierons la grâce inetervenue en faveur de monsieur
+          juridiction. Notons, si l’appel a un effet dévolutif, comment les
+          juges d’appels apprécierons la grâce inetervenue en faveur de monsieur
           CAMARA ?
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.3, duration: 0.5 }}
           className="text-cyan-950 mt-4"
         >
           Cependant, la manière dont la Chambre des appels correctionnels de la
-          cour d'appel de Conakry, interprétera cette situation dépendra de
-          l'argumentation des parties et de la position des juges. Par ailleurs,
-          et il faut dire l'affaire pourrait prendre une tournure hautement
+          cour d’appel de Conakry, interprétera cette situation dépendra de
+          l’argumentation des parties et de la position des juges. Par ailleurs,
+          et il faut dire l’affaire pourrait prendre une tournure hautement
           politique et juridique en fonction des interprétations et des
           réactions des différentes parties prenantes.
         </motion.p>
@@ -186,22 +185,23 @@ const articlesData = [
   {
     id: 1,
     title: "Analyse sur le récent privilège accordé, par l'effet de la Grâce",
-    excerpt: "Examen des implications juridiques de la grâce présidentielle accordée à Moussa Dadis Camara",
+    excerpt:
+      "Examen des implications juridiques de la grâce présidentielle accordée à Moussa Dadis Camara",
     content: (
       <>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.5 }}
           className="text-cyan-950"
         >
           La grâce présidentielle accordée par le président Mamadi Doumbouya à
-          Moussa Dadis Camara, en vertu de l'article 170 du Code pénal guinéen,
+          Moussa Dadis Camara, en vertu de l’article 170 du Code pénal guinéen,
           alors que ses avocats ont interjeté appel, soulève plusieurs questions
           juridiques quant à son impact sur le procès en appel.
         </motion.p>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -209,7 +209,7 @@ const articlesData = [
         >
           1. Effet de la grâce sur la condamnation
         </motion.p>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -217,13 +217,13 @@ const articlesData = [
         >
           La grâce présidentielle est une mesure de clémence qui ne remet pas en
           cause la culpabilité du condamné. Elle supprime ou réduit la peine,
-          mais ne l'annule pas. Ainsi, sur le plan strictement juridique, la
+          mais ne l’annule pas. Ainsi, sur le plan strictement juridique, la
           condamnation de Moussa Dadis Camara demeure inscrite à son casier
-          judiciaire, même s'il bénéficie d'une réduction ou d'une suppression
+          judiciaire, même s’il bénéficie d’une réduction ou d’une suppression
           de peine.
         </motion.p>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -231,22 +231,22 @@ const articlesData = [
         >
           2. Conséquence sur le procès en appel
         </motion.p>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
           className="text-cyan-950"
         >
           Le recours en appel vise à contester la condamnation rendue en
-          première instance. En principe, l'exercice du droit d'appel par l'une
-          des parties conformément au dispositions de l'article 577 du code de
-          procédure pénale de la république de Guinée, suspend l'exécution de la
-          peine tant que la décision n'est pas définitive.Toutefois, la grâce
-          intervient après une condamnation en première instance et s'applique à
+          première instance. En principe, l’exercice du droit d’appel par l’une
+          des parties conformément au dispositions de l’article 577 du code de
+          procédure pénale de la république de Guinée, suspend l’exécution de la
+          peine tant que la décision n’est pas définitive.Toutefois, la grâce
+          intervient après une condamnation en première instance et s’applique à
           la peine prononcée.
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
@@ -254,8 +254,8 @@ const articlesData = [
         >
           Deux scénarios sont possibles :
         </motion.p>
-        
-        <motion.ul 
+
+        <motion.ul
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.5 }}
@@ -263,7 +263,7 @@ const articlesData = [
         >
           <li>
             Si la grâce concerne uniquement la peine : Le procès en appel peut
-            se poursuivre car l'appel porte également sur la déclaration de
+            se poursuivre car l’appel porte également sur la déclaration de
             culpabilité et les éventuels vices de procédure. La Chambre des
             appels correctionels pourrait confirmer ou infirmer le jugement.
           </li>
@@ -271,43 +271,43 @@ const articlesData = [
             Si la grâce est interprétée comme une extinction de la peine
             empêchant tout procès en appel : Cela pourrait soulever un débat
             juridique. En théorie, la grâce ne fait pas disparaître la
-            condamnation et ne prive pas la juridiction d'appel notammentvla
-            chambre des appels correctionnels de son pouvoir d'examiner
-            l'affaire en fait et en droit.
+            condamnation et ne prive pas la juridiction d’appel notammentvla
+            chambre des appels correctionnels de son pouvoir d’examiner
+            l’affaire en fait et en droit.
           </li>
         </motion.ul>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.5 }}
           className="text-cyan-950 font-semibold mt-4"
         >
-          3. Risque d'un vide juridique ou d'une controverse judiciaire
+          3. Risque d’un vide juridique ou d’une controverse judiciaire
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.5 }}
           className="text-cyan-950"
         >
-          L'application de la grâce en pleine procédure d'appel peut créer une
-          situation où l'accusé bénéficie de la clémence présidentielle avant
+          L’application de la grâce en pleine procédure d’appel peut créer une
+          situation où l’accusé bénéficie de la clémence présidentielle avant
           même que la décision ne soit définitive. Cela pourrait être interprété
           comme une ingérence dans le processus judiciaire. A cet égard la
-          Chambre des appels correctionnels de la Cour d'Appel de Conakry doit
-          se prononcer sur la recevabilité de l'appel après l'intervention de la
+          Chambre des appels correctionnels de la Cour d’Appel de Conakry doit
+          se prononcer sur la recevabilité de l’appel après l’intervention de la
           grâce.
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.0, duration: 0.5 }}
           className="text-cyan-950"
         >
-          L'incidence est majeur quand on sait que l'article préliminaire du
+          L’incidence est majeur quand on sait que l’article préliminaire du
           code de procédure pénal dispose que en son point 4, que les personnes
           se trouvant dans des conditons semblables et poursuivies pour les
           mêmes infractions doivent être jugés selon les mêmes règles. Cette
@@ -315,69 +315,70 @@ const articlesData = [
           poursuivie au mêmes titre que le colonel PIVI, Marcel et autres pour
           les mêmes infractions.
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.5 }}
           className="text-cyan-950"
         >
-          Peut on dire qu'il s'en découle un traitement de faveur? Neéamoins, le
-          président de la n'a pas besoin de justifier sa décision d'accorder la
+          Peut on dire qu’il s’en découle un traitement de faveur? Neéamoins, le
+          président de la n’a pas besoin de justifier sa décision d’accorder la
           grâce pour la totalité de la peine
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.5 }}
           className="text-cyan-950"
         >
-          Pour finir, l'appel intérjeté est en principe valable, car la grâce ne
-          supprime pas la condamnation même si elle provoque, dans l'espèce, une
+          Pour finir, l’appel intérjeté est en principe valable, car la grâce ne
+          supprime pas la condamnation même si elle provoque, dans l’espèce, une
           incidence le procès logé dans le principe du double dégré de
-          juridiction. Notons, si l'appel a un effet dévolutif, comment les
-          juges d'appels apprécierons la grâce inetervenue en faveur de monsieur
+          juridiction. Notons, si l’appel a un effet dévolutif, comment les
+          juges d’appels apprécierons la grâce inetervenue en faveur de monsieur
           CAMARA ?
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.3, duration: 0.5 }}
           className="text-cyan-950 mt-4"
         >
           Cependant, la manière dont la Chambre des appels correctionnels de la
-          cour d'appel de Conakry, interprétera cette situation dépendra de
-          l'argumentation des parties et de la position des juges. Par ailleurs,
-          et il faut dire l'affaire pourrait prendre une tournure hautement
+          cour d’appel de Conakry, interprétera cette situation dépendra de
+          l’argumentation des parties et de la position des juges. Par ailleurs,
+          et il faut dire l’affaire pourrait prendre une tournure hautement
           politique et juridique en fonction des interprétations et des
           réactions des différentes parties prenantes.
         </motion.p>
       </>
     ),
-    imageUrl: maitreetblouz,
+    imageUrl: images.maitreetblouz,
     date: "17 avril 2025: Me Amadou oury Avocat chez AOD-AVOCATS",
   },
   {
     id: 1,
     title: "Analyse sur le récent privilège accordé, par l'effet de la Grâce",
-    excerpt: "Examen des implications juridiques de la grâce présidentielle accordée à Moussa Dadis Camara",
+    excerpt:
+      "Examen des implications juridiques de la grâce présidentielle accordée à Moussa Dadis Camara",
     content: (
       <>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.5 }}
           className="text-cyan-950"
         >
           La grâce présidentielle accordée par le président Mamadi Doumbouya à
-          Moussa Dadis Camara, en vertu de l'article 170 du Code pénal guinéen,
+          Moussa Dadis Camara, en vertu de l’article 170 du Code pénal guinéen,
           alors que ses avocats ont interjeté appel, soulève plusieurs questions
           juridiques quant à son impact sur le procès en appel.
         </motion.p>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -385,7 +386,7 @@ const articlesData = [
         >
           1. Effet de la grâce sur la condamnation
         </motion.p>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -393,13 +394,13 @@ const articlesData = [
         >
           La grâce présidentielle est une mesure de clémence qui ne remet pas en
           cause la culpabilité du condamné. Elle supprime ou réduit la peine,
-          mais ne l'annule pas. Ainsi, sur le plan strictement juridique, la
+          mais ne l’annule pas. Ainsi, sur le plan strictement juridique, la
           condamnation de Moussa Dadis Camara demeure inscrite à son casier
-          judiciaire, même s'il bénéficie d'une réduction ou d'une suppression
+          judiciaire, même s’il bénéficie d’une réduction ou d’une suppression
           de peine.
         </motion.p>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -407,22 +408,22 @@ const articlesData = [
         >
           2. Conséquence sur le procès en appel
         </motion.p>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
           className="text-cyan-950"
         >
           Le recours en appel vise à contester la condamnation rendue en
-          première instance. En principe, l'exercice du droit d'appel par l'une
-          des parties conformément au dispositions de l'article 577 du code de
-          procédure pénale de la république de Guinée, suspend l'exécution de la
-          peine tant que la décision n'est pas définitive.Toutefois, la grâce
-          intervient après une condamnation en première instance et s'applique à
+          première instance. En principe, l’exercice du droit d’appel par l’une
+          des parties conformément au dispositions de l’article 577 du code de
+          procédure pénale de la république de Guinée, suspend l’exécution de la
+          peine tant que la décision n’est pas définitive.Toutefois, la grâce
+          intervient après une condamnation en première instance et s’applique à
           la peine prononcée.
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
@@ -430,8 +431,8 @@ const articlesData = [
         >
           Deux scénarios sont possibles :
         </motion.p>
-        
-        <motion.ul 
+
+        <motion.ul
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.5 }}
@@ -439,7 +440,7 @@ const articlesData = [
         >
           <li>
             Si la grâce concerne uniquement la peine : Le procès en appel peut
-            se poursuivre car l'appel porte également sur la déclaration de
+            se poursuivre car l’appel porte également sur la déclaration de
             culpabilité et les éventuels vices de procédure. La Chambre des
             appels correctionels pourrait confirmer ou infirmer le jugement.
           </li>
@@ -447,43 +448,43 @@ const articlesData = [
             Si la grâce est interprétée comme une extinction de la peine
             empêchant tout procès en appel : Cela pourrait soulever un débat
             juridique. En théorie, la grâce ne fait pas disparaître la
-            condamnation et ne prive pas la juridiction d'appel notammentvla
-            chambre des appels correctionnels de son pouvoir d'examiner
-            l'affaire en fait et en droit.
+            condamnation et ne prive pas la juridiction d’appel notammentvla
+            chambre des appels correctionnels de son pouvoir d’examiner
+            l’affaire en fait et en droit.
           </li>
         </motion.ul>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.5 }}
           className="text-cyan-950 font-semibold mt-4"
         >
-          3. Risque d'un vide juridique ou d'une controverse judiciaire
+          3. Risque d’un vide juridique ou d’une controverse judiciaire
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.5 }}
           className="text-cyan-950"
         >
-          L'application de la grâce en pleine procédure d'appel peut créer une
-          situation où l'accusé bénéficie de la clémence présidentielle avant
+          L’application de la grâce en pleine procédure d’appel peut créer une
+          situation où l’accusé bénéficie de la clémence présidentielle avant
           même que la décision ne soit définitive. Cela pourrait être interprété
           comme une ingérence dans le processus judiciaire. A cet égard la
-          Chambre des appels correctionnels de la Cour d'Appel de Conakry doit
-          se prononcer sur la recevabilité de l'appel après l'intervention de la
+          Chambre des appels correctionnels de la Cour d’Appel de Conakry doit
+          se prononcer sur la recevabilité de l’appel après l’intervention de la
           grâce.
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.0, duration: 0.5 }}
           className="text-cyan-950"
         >
-          L'incidence est majeur quand on sait que l'article préliminaire du
+          L’incidence est majeur quand on sait que l’article préliminaire du
           code de procédure pénal dispose que en son point 4, que les personnes
           se trouvant dans des conditons semblables et poursuivies pour les
           mêmes infractions doivent être jugés selon les mêmes règles. Cette
@@ -491,48 +492,48 @@ const articlesData = [
           poursuivie au mêmes titre que le colonel PIVI, Marcel et autres pour
           les mêmes infractions.
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.5 }}
           className="text-cyan-950"
         >
-          Peut on dire qu'il s'en découle un traitement de faveur? Neéamoins, le
-          président de la n'a pas besoin de justifier sa décision d'accorder la
+          Peut on dire qu’il s’en découle un traitement de faveur? Neéamoins, le
+          président de la n’a pas besoin de justifier sa décision d’accorder la
           grâce pour la totalité de la peine
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.5 }}
           className="text-cyan-950"
         >
-          Pour finir, l'appel intérjeté est en principe valable, car la grâce ne
-          supprime pas la condamnation même si elle provoque, dans l'espèce, une
+          Pour finir, l’appel intérjeté est en principe valable, car la grâce ne
+          supprime pas la condamnation même si elle provoque, dans l’espèce, une
           incidence le procès logé dans le principe du double dégré de
-          juridiction. Notons, si l'appel a un effet dévolutif, comment les
-          juges d'appels apprécierons la grâce inetervenue en faveur de monsieur
+          juridiction. Notons, si l’appel a un effet dévolutif, comment les
+          juges d’appels apprécierons la grâce inetervenue en faveur de monsieur
           CAMARA ?
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.3, duration: 0.5 }}
           className="text-cyan-950 mt-4"
         >
           Cependant, la manière dont la Chambre des appels correctionnels de la
-          cour d'appel de Conakry, interprétera cette situation dépendra de
-          l'argumentation des parties et de la position des juges. Par ailleurs,
-          et il faut dire l'affaire pourrait prendre une tournure hautement
+          cour d’appel de Conakry, interprétera cette situation dépendra de
+          l’argumentation des parties et de la position des juges. Par ailleurs,
+          et il faut dire l’affaire pourrait prendre une tournure hautement
           politique et juridique en fonction des interprétations et des
           réactions des différentes parties prenantes.
         </motion.p>
       </>
     ),
-    imageUrl: maitreetblouz,
+    imageUrl: images.maitreetblouz,
     date: "17 avril 2025: Me Amadou oury Avocat chez AOD-AVOCATS",
   },
   // ... autres articles
@@ -986,9 +987,7 @@ const ArticleDroitPenl = () => {
 
               <ModalText>
                 <ModalTitle>{selectedArticle.title}</ModalTitle>
-                <ModalFullContent>
-                  {selectedArticle.content}
-                </ModalFullContent>
+                <ModalFullContent>{selectedArticle.content}</ModalFullContent>
                 <ModalDate>{selectedArticle.date}</ModalDate>
               </ModalText>
             </ModalContent>

@@ -3,13 +3,11 @@ import styled from "styled-components"; // Importation de styled-components pour
 import "aos/dist/aos.css"; // Importation du CSS de AOS pour les animations
  import { images } from "../../assets/images";
 
-// Importation dynamique des composants pour le chargement différé (lazy loading)
-const Footer = React.lazy(() => import("../Accueil/Footerr"));
+ const Footer = React.lazy(() => import("../Accueil/Footerr"));
 const Affair = React.lazy(() => import("./Affairpart2"));
 const Affairfinal = React.lazy(() => import("./Affairpart1"));
 
-// Conteneur principal avec superposition sombre
-const AffairesContainer = styled.div`
+ const AffairesContainer = styled.div`
   width: 100%;
   min-height: 100vh; /* Hauteur minimale de la vue */
   padding: 50px 20px; /* Espacement interne */

@@ -11,8 +11,7 @@ import { images } from "../../assets/images"; // Importation des images
 
 import { lazy } from "react";
 const BardeNavigationpublic = lazy(() => import("../Navigatpublic/BardeNavigationPublic"));
-// Conteneur principal avec image d'arrière-plan fixe
-const BackgroundContainer = styled.div`
+ const BackgroundContainer = styled.div`
   position: relative;
   min-height: 100vh;
  // background-image: url("img/logoAODnoir.avif"); /* Remplacez par le chemin de votre image */
@@ -24,8 +23,7 @@ const BackgroundContainer = styled.div`
   background-attachment: fixed;
 `;
 
-// Couche transparente pour obscurcir le fond
-const Overlay = styled.div`
+ const Overlay = styled.div`
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.9); /* Ajustez la transparence ici */

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-  
+
 import { images } from "../../../assets/images";
 
 // Données des articles
@@ -98,10 +98,8 @@ const articlesData = [
     imageUrl: "/images/droit-contrats.jpg",
     date: "15 mars 2024",
   },
-  // ... autres articles
 ];
 
-// Styles avec styled-components
 const ArticlesContainer = styled.section`
   max-width: 1200px;
   margin: 0 auto;

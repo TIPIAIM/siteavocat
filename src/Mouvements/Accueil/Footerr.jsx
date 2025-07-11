@@ -26,7 +26,7 @@ const breakpoints = {
   largeDesktop: 1440,
 };
 
-// Animation pour les modales
+ 
 const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }

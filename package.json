@@ -80,7 +80,7 @@
     "three": "^0.174.0",
     "typewriter-effect": "^2.21.0",
     "uuid": "^9.0.1",
-    "vercel": "^41.0.2",
+    "vercel": "^41.7.4",
     "web-vitals": "^2.1.4",
     "yup": "^1.6.1"
   },

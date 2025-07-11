@@ -5,17 +5,17 @@ export default function StructuredData() {
         "@context": "https://schema.org",
         "@type": "Website",
         name: "AOD AVOCATS | Cabinet d'avocat Guinée-Conkry",
-        url: "https://aod-avocats.net",
+        url: "https://aod-avocats.com",
 
         description:
           " Notre cabinet est spécialisé en droit des affaires, droit civil, droit minier, droit des affaires ...",
         sameAs: [
           "https://web.facebook.com/people/AOD-Avocats-SCPA/61569855070493/?rdid=nu1hpcE1e9TKytvQ&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F15poedCHYP%2F%3F_rdc%3D1%26_rdr",
-          "https://www.instagram.com/aod.avocats.net/",
+          "https://www.instagram.com/aod-avocats.com/",
         ],
         publisher: {
           "@type": "Organization",
-          name: "TIPTMCode.",
+          name: "aod-avocats.",
         },
         contactPoint: {
           "@type": "ContactPoint",

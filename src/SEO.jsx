@@ -17,7 +17,7 @@ const SEO = () => {
           {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "url": "https://aod-avocats.net",
+            "url": "https://aod-avocats.com",
             
             "name": "AOD AVOCATS",
             "description": "Cabinet d'avocats spécialisé en droit des affaires, droit civil , droit des affaires."

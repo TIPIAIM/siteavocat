@@ -100,8 +100,7 @@
     "react-scripts": "^5.0.1",
     "tailwindcss": "^3.4.6",
     "vite": "^6.2.0",
-    "vite-plugin-html": "^3.2.2",
-    "vite-plugin-sitemap": "^0.7.1"
+    "vite-plugin-html": "^3.2.2"
   },
   "browserslist": [
     ">0.2%",

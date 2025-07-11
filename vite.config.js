@@ -1,4 +1,5 @@
-import { defineConfig } from "vite";
+{/*
+  import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import sitemap from "vite-plugin-sitemap";
 
@@ -34,7 +35,7 @@ export default defineConfig({
         "/contact2",
 
         "/adminmere",
-        "gestclient", //Gestclient
+        "/gestclient", //Gestclient
         "/comptecl", //enregistrement des clients L'utilisateur client
         "/listeCl", //liste
         "/miseajourAclientRecup/:id",
@@ -50,6 +51,28 @@ export default defineConfig({
       output: {
         manualChunks: {
           // Divisez les chunks ici si nécessaire
+          vendor: ["react", "react-dom", "aos"],
+        },
+      },
+    },
+  },
+});
+*/}
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [
+    react()
+  ],
+
+  build: {
+    outDir: "dist",
+    chunkSizeWarningLimit: 3000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
           vendor: ["react", "react-dom", "aos"],
         },
       },

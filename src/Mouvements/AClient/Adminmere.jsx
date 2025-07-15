@@ -133,7 +133,7 @@ const Footer = styled.footer`
   padding: 1rem;
 `;
 
-function Adminfils() {
+function Adminmere() {
   const [isNightMode, setIsNightMode] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const { ref, inView } = useInView();
@@ -168,7 +168,7 @@ function Adminfils() {
 
       <Header>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <Link href="/adminfils" style={{ fontSize: "1.5rem" }}>
+          <Link href="/adminmere" style={{ fontSize: "1.5rem" }}>
             <Logo src={images.aodblanc} alt="Logo" />
           </Link>
         </div>
@@ -176,7 +176,8 @@ function Adminfils() {
           <NavLink href="/gestionaudience">Audiences</NavLink>
           <NavLink href="/gestionsubassement">Documents</NavLink>
           <NavLink href="/gestionfluxclient">Factures</NavLink>
-          <NavLink href="/gestionmessage">Messages</NavLink>
+          <NavLink href="/sessionsecur">Securité</NavLink>
+           <NavLink href="/Profiledmin">Profile</NavLink>
           <Button
             variant="outline-light"
             style={{ padding: "0.5rem 1rem" }}
@@ -217,4 +218,4 @@ function Adminfils() {
   );
 }
 
-export default Adminfils;
+export default Adminmere;

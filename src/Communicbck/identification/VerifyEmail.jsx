@@ -6,13 +6,9 @@ import { motion } from "framer-motion";
 import { FiCheckCircle } from "react-icons/fi";
 import { FaArrowLeft } from "react-icons/fa";
 import { images } from "../../assets/images";
+import { colors } from "../../Styles/colors";
 
-const colors = {
-  blueMarine: "#002B5B",
-  greenDark: "#1A4D2E",
-  goldenYellow: "#F2C94C",
-  white: "#FFFFFF",
-};
+
 
 const Background = styled.div`
   background: url(${images.logoAODnoir}) no-repeat center center fixed;
@@ -34,7 +30,7 @@ const Background = styled.div`
     background: linear-gradient(
       120deg,
       rgba(0, 43, 91, 0.8),
-      rgba(26, 77, 46, 0.8)
+      rgba(0, 43, 91, 0.8)
     );
     z-index: 1;
   }
@@ -43,7 +39,7 @@ const Background = styled.div`
 const Overlay = styled(motion.div)`
   position: relative;
   z-index: 2;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 3rem;
@@ -60,7 +56,7 @@ const Overlay = styled(motion.div)`
 `;
 
 const Title = styled.h2`
-  color: ${colors.goldenYellow};
+  color: ${colors.goldenYellow}80;
   margin-bottom: 1rem;
   font-size: 1.5rem;
   font-weight: bold;
@@ -69,7 +65,7 @@ const BackButton = styled(Link)`
   display: inline-flex;
   align-items: center;
   margin-bottom: 1rem;
-  color: ${colors.goldenYellow};
+  color: ${colors.goldenYellow}80;
   font-weight: bold;
   text-decoration: none;
   &:hover {
@@ -100,8 +96,8 @@ const Input = styled.input`
 `;
 
 const Button = styled(motion.button)`
-  background-color: ${colors.goldenYellow};
-  color: ${colors.greenDark};
+  background-color: ${colors.goldenYellow}60;
+  color: ${colors.bgDark};
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 10px;
@@ -113,7 +109,7 @@ const Button = styled(motion.button)`
   transition: 0.3s;
 
   &:hover {
-    background-color: ${colors.greenDark};
+    background-color: ${colors.bgDark};
     color: ${colors.goldenYellow};
   }
 `;

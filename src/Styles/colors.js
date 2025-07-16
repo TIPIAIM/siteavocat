@@ -10,5 +10,10 @@ export const colors = {
   danger: "#EF4444",
   success: "#059669",
   overlay: "#17192b",      // Pour overlay
-  overlayAlpha: "#101224B3" // Overlay plus transparent
+  overlayAlpha: "#101224B3" ,// Overlay plus transparent
+
+  blueMarine: "#002B5B",
+  greenDark: "#1A4D2E",
+  goldenYellow: "#F2C94C",
+
 };

@@ -2,75 +2,50 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trash2, UserCheck, UserX, ArrowLeft, Download, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, CheckCircle, AlertCircle } from "lucide-react";
-import { colors } from "../../Styles/colors"; // ton fichier palette
+import { colors } from "../../Styles/colors"; // Adapter si ton fichier de couleurs est ailleurs
 import axios from "axios";
 
 const BASE_URL = import.meta.env.VITE_b;
 
-// --- Loader overlay ---
+// Loader
 const LoaderOverlay = styled.div`
-  position: fixed;
-  inset: 0;
-  background: #fff8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
+  position: fixed; inset: 0; background: #fff8;
+  display: flex; align-items: center; justify-content: center; z-index: 9999;
 `;
 const Spinner = styled.div`
   width: 56px; height: 56px; border: 7px solid ${colors.danger}33;
   border-top: 7px solid ${colors.blueMid};
-  border-radius: 20%;
-  animation: spin 1s linear infinite;
+  border-radius: 20%; animation: spin 1s linear infinite;
   @keyframes spin { to { transform: rotate(360deg); } }
 `;
 
-// --- Container principal ---
 const Container = styled(motion.div)`
-  max-width: 1340px;
-  margin: 0px auto 60px auto;
+  max-width: 1340px; margin: 0px auto 60px auto;
   background: ${colors.white};
- 
   padding: 2.1rem 2rem 2rem 2rem;
   box-shadow: 0 10px 48px 0 ${colors.bgDark}22;
 `;
 
-// --- Bouton retour arrière ---
 const BackBtn = styled.button`
   display: flex; align-items: center; gap: 7px;
   background: none; color: ${colors.danger}83;
   border: none; font-size: 1.1em; font-weight: 700;
-  margin-bottom: 1.7rem;
-  cursor: pointer;
-  transition: color 0.15s;
+  margin-bottom: 1.7rem; cursor: pointer; transition: color 0.15s;
   &:hover { color: ${colors.blueMid}; }
 `;
 
-// --- Badge actif/non actif ---
 const Badge = styled.span`
-  display: inline-block;
-  padding: 3.5px 11px;
-  border-radius: 11px;
-  font-size: 0.97em;
-  font-weight: 700;
+  display: inline-block; padding: 3.5px 11px; border-radius: 11px;
+  font-size: 0.97em; font-weight: 700;
   background: ${({ ok }) => (ok ? colors.success : colors.danger)};
-  color: #fff;
-  margin-right: 5px;
-  letter-spacing: 0.01em;
+  color: #fff; margin-right: 5px; letter-spacing: 0.01em;
 `;
 
-// --- Boutons d'action ---
 const DangerButton = styled(motion.button)`
-  background: ${colors.danger};
-  color: ${colors.white};
-  border: none;
-  border-radius: 5px;
-  font-weight: 600;
-  padding: 6px 16px;
-  margin-left: 3px;
-  cursor: pointer;
-  display: flex; align-items: center; gap: 7px;
-  font-size: 1em;
+  background: ${colors.danger}; color: ${colors.white};
+  border: none; border-radius: 5px; font-weight: 600;
+  padding: 6px 16px; margin-left: 3px; cursor: pointer;
+  display: flex; align-items: center; gap: 7px; font-size: 1em;
   transition: background 0.16s;
   &:hover { background: #c30010; }
   svg { margin-right: 2px; }
@@ -79,14 +54,9 @@ const DangerButton = styled(motion.button)`
 const ToggleBtn = styled(motion.button)`
   background: ${({ active }) => (active ? "#cbd5e1" : colors.success)};
   color: ${({ active }) => (active ? "#444" : "#fff")};
-  border: none;
-  border-radius: 5px;
-  font-weight: 700;
-  padding: 6px 18px;
-  margin-left: 4px;
-  cursor: pointer;
-  display: flex; align-items: center; gap: 6px;
-  font-size: 1em;
+  border: none; border-radius: 5px; font-weight: 700;
+  padding: 6px 18px; margin-left: 4px; cursor: pointer;
+  display: flex; align-items: center; gap: 6px; font-size: 1em;
   box-shadow: 0 1px 8px #6ee7b709;
   transition: background 0.17s, color 0.17s;
   &:hover {
@@ -96,34 +66,19 @@ const ToggleBtn = styled(motion.button)`
   svg { margin-right: 2px; }
 `;
 
-// --- Snackbar Feedback ---
+// Snackbar
 const SnackbarWrap = styled.div`
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  position: fixed; right: 30px; bottom: 30px; z-index: 9999;
+  display: flex; flex-direction: column; align-items: flex-end;
 `;
-
 const Snackbar = styled.div`
   background: ${({ error }) => (error ? colors.danger : colors.success)};
-  color: #fff;
-  min-width: 230px;
-  border-radius: 10px;
-  padding: 16px 24px 16px 18px;
-  margin-top: 15px;
-  box-shadow: 0 4px 22px #2222;
-  font-weight: 600;
-  font-size: 1.04em;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  color: #fff; min-width: 230px; border-radius: 10px;
+  padding: 16px 24px 16px 18px; margin-top: 15px; box-shadow: 0 4px 22px #2222;
+  font-weight: 600; font-size: 1.04em; display: flex; align-items: center; gap: 10px;
   animation: fadeInSnack 0.4s;
   @keyframes fadeInSnack { from { opacity: 0; bottom: 0px; } to { opacity: 1; bottom: 30px; } }
 `;
-
 function SnackbarFeedback({ open, message, error = false, onClose }) {
   useEffect(() => {
     if (open) {
@@ -142,7 +97,7 @@ function SnackbarFeedback({ open, message, error = false, onClose }) {
   );
 }
 
-// --- Section/Table abstrait ---
+// Table abstrait
 const SectionHeader = styled.div`
   display: flex; align-items: center; gap: 11px; margin-bottom: 0.4rem;
   margin-top: 2.2rem;
@@ -151,105 +106,64 @@ const CollapseBtn = styled.button`
   background: none; border: none; outline: none;
   display: flex; align-items: center; justify-content: center;
   padding: 3px 4px; cursor: pointer;
-  color: ${colors.blueMid};
-  border-radius: 50%;
-  font-size: 1.5em;
-  transition: background 0.13s;
+  color: ${colors.blueMid}; border-radius: 50%;
+  font-size: 1.5em; transition: background 0.13s;
   &:hover { background: ${colors.bgSecondary}13; }
 `;
 const Title = styled(motion.h2)`
-  font-size: 1.23rem;
-  color: ${colors.bgDark};
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  margin: 0;
+  font-size: 1.23rem; color: ${colors.bgDark};
+  font-weight: 800; letter-spacing: 0.01em; margin: 0;
 `;
 const TableWrap = styled.div`
-  overflow-x: auto;
-  border-radius: 10px;
-  margin-bottom: 1.2rem;
+  overflow-x: auto; border-radius: 10px; margin-bottom: 1.2rem;
 `;
 const PaginationWrap = styled.div`
   display: flex; align-items: center; gap: 8px;
   justify-content: flex-end; margin-top: 0.5rem; margin-bottom: 0.6rem;
 `;
 const PageBtn = styled.button`
-  background: ${colors.bgSecondary}15;
-  color: ${colors.bgDark};
-  border: none;
-  border-radius: 6px;
-  padding: 6px 12px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1em;
-  transition: background 0.14s;
+  background: ${colors.bgSecondary}15; color: ${colors.bgDark};
+  border: none; border-radius: 6px; padding: 6px 12px; cursor: pointer;
+  font-weight: 600; font-size: 1em; transition: background 0.14s;
   display: flex; align-items: center; gap: 3px;
   &:disabled { background: #eee; color: #aaa; cursor: not-allowed; }
   &:hover:not(:disabled) { background: ${colors.blueMid}30; }
 `;
 const Table = styled(motion.table)`
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  font-size: 1rem;
+  width: 100%; border-collapse: separate; border-spacing: 0; font-size: 1rem;
   th, td {
     border-bottom: 1.5px solid #eef2f7;
     padding: 0.88rem 0.65rem;
-    background: ${colors.white}FA;
-    text-align: left;
+    background: ${colors.white}FA; text-align: left;
   }
   th {
     background: ${colors.bgSecondary}08;
-    font-weight: 700;
-    color: ${colors.bgDark};
-    position: sticky;
-    top: 0;
-    z-index: 1;
+    font-weight: 700; color: ${colors.bgDark}; position: sticky; top: 0; z-index: 1;
   }
   tr:last-child td { border-bottom: none; }
   td {
-    font-weight: 500;
-    color: ${colors.bgDark};
-    vertical-align: middle;
+    font-weight: 500; color: ${colors.bgDark}; vertical-align: middle;
   }
 `;
 const FilterInput = styled.input`
-  padding: 7px 12px;
-  border: 1.5px solid ${colors.blueMid}55;
-  border-radius: 7px;
-  margin-right: 13px;
-  font-size: 1.02em;
-  width: 220px;
-  margin-bottom: 12px;
-  background: ${colors.white}EC;
-  box-shadow: 0 2px 8px ${colors.bgSecondary}0A;
-  transition: border 0.18s;
+  padding: 7px 12px; border: 1.5px solid ${colors.blueMid}55;
+  border-radius: 7px; margin-right: 13px; font-size: 1.02em; width: 220px;
+  margin-bottom: 12px; background: ${colors.white}EC;
+  box-shadow: 0 2px 8px ${colors.bgSecondary}0A; transition: border 0.18s;
   &:focus {
-    outline: none;
-    border: 1.8px solid ${colors.accent};
+    outline: none; border: 1.8px solid ${colors.accent};
     background: ${colors.bgSecondary}08;
   }
 `;
 const ExportBtn = styled(motion.button)`
   background: linear-gradient(92deg, ${colors.blueMid} 40%, ${colors.bgSecondary} 100%);
-  color: ${colors.white};
-  border: none;
-  font-weight: 700;
-  border-radius: 6px;
-  padding: 7px 18px 7px 38px;
-  margin-bottom: 12px;
-  margin-right: 13px;
-  cursor: pointer;
-  font-size: 1em;
-  position: relative;
+  color: ${colors.white}; border: none; font-weight: 700; border-radius: 6px;
+  padding: 7px 18px 7px 38px; margin-bottom: 12px; margin-right: 13px;
+  cursor: pointer; font-size: 1em; position: relative;
   box-shadow: 0 3px 10px ${colors.bgSecondary}16;
   transition: background 0.18s, color 0.18s, box-shadow 0.16s;
   svg {
-    position: absolute;
-    left: 13px;
-    top: 8px;
-    width: 19px;
-    height: 19px;
+    position: absolute; left: 13px; top: 8px; width: 19px; height: 19px;
   }
   &:hover {
     background: linear-gradient(88deg, ${colors.bgSecondary} 45%, ${colors.blueMid} 100%);
@@ -258,7 +172,7 @@ const ExportBtn = styled(motion.button)`
   }
 `;
 
-// --- export CSV ---
+// Export CSV
 function exportToCSV(data, columns, fileName) {
   if (!data.length) return;
   const separator = ",";
@@ -283,7 +197,7 @@ function exportToCSV(data, columns, fileName) {
   document.body.removeChild(link);
 }
 
-// --- SectionTable abstrait ---
+// Table abstrait
 function SectionTable({
   title,
   columns,
@@ -296,7 +210,12 @@ function SectionTable({
   csvName = "export.csv",
   collapsedByDefault = false,
   getRowKey = (row) => row._id || Math.random(),
-  perPage = 10
+  perPage = 5,
+  selectable = false,
+  selectedRows = [],
+  onSelectRow = () => {},
+  onSelectAll = () => {},
+  deleteSelectedRows = () => {},
 }) {
   const [show, setShow] = useState(!collapsedByDefault);
   const [page, setPage] = useState(1);
@@ -331,6 +250,11 @@ function SectionTable({
                 onChange={(e) => onFilter(e.target.value)}
               />
             )}
+            {selectable && selectedRows.length > 0 && (
+              <DangerButton onClick={deleteSelectedRows} style={{marginBottom: 14}}>
+                <Trash2 size={18}/> Supprimer la sélection
+              </DangerButton>
+            )}
             <ExportBtn whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.97 }}
               onClick={() => exportToCSV(slice, columns, csvName)}
             ><Download /> Exporter CSV</ExportBtn>
@@ -338,6 +262,22 @@ function SectionTable({
               <Table>
                 <thead>
                   <tr>
+                    {selectable && (
+                      <th>
+                        <input
+                          type="checkbox"
+                          onChange={e => onSelectAll(e.target.checked)}
+                          checked={selectedRows.length > 0 && selectedRows.length === tableData.length}
+                          ref={el => {
+                            if (el) {
+                              el.indeterminate =
+                                selectedRows.length > 0 &&
+                                selectedRows.length < tableData.length;
+                            }
+                          }}
+                        />
+                      </th>
+                    )}
                     {columns.map(col => (
                       <th key={col.key}>{col.label}</th>
                     ))}
@@ -347,14 +287,21 @@ function SectionTable({
                 <tbody>
                   {slice.map((row) => (
                     <motion.tr key={getRowKey(row)} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                      {selectable && (
+                        <td>
+                          <input
+                            type="checkbox"
+                            checked={selectedRows.includes(row._id)}
+                            onChange={() => onSelectRow(row._id)}
+                          />
+                        </td>
+                      )}
                       {columns.map(col => (
                         <td key={col.key}>
                           {typeof col.render === "function" ? col.render(row) : col.key.split('.').reduce((acc, k) => acc?.[k], row) ?? "-"}
                         </td>
                       ))}
-                      {actions &&
-                        <td>{actions(row)}</td>
-                      }
+                      {actions && <td>{actions(row)}</td>}
                     </motion.tr>
                   ))}
                 </tbody>
@@ -377,7 +324,8 @@ function formatDate(dt) {
   return new Date(dt).toLocaleString();
 }
 
-// --- Main ---
+// ---------- PAGE PRINCIPALE ----------
+
 export default function AdminSecurityMonitor() {
   const [loading, setLoading] = useState(true);
   const [connections, setConnections] = useState([]);
@@ -393,6 +341,8 @@ export default function AdminSecurityMonitor() {
   const [filterDisc, setFilterDisc] = useState("");
   const [filterUser, setFilterUser] = useState("");
   const [filterRoute, setFilterRoute] = useState("");
+  // Sélection pour audit log
+  const [selectedAuditIds, setSelectedAuditIds] = useState([]);
 
   // Snackbar
   const [snack, setSnack] = useState({ open: false, message: "", error: false });
@@ -411,6 +361,7 @@ export default function AdminSecurityMonitor() {
     ]).finally(() => setLoading(false));
   }, [refresh]);
 
+  // ----- ACTIONS -----
   const deleteBlacklistToken = async (id) => {
     if (!window.confirm("Supprimer ce token blacklisté ?")) return;
     setLoading(true);
@@ -451,16 +402,34 @@ export default function AdminSecurityMonitor() {
     } catch { onDone("Erreur suppression", true); }
     setLoading(false);
   };
-
-  // Pour page précédente (remplace par ton routing si besoin)
+  // Suppression groupée des audits sélectionnés
+  const deleteSelectedAuditLogs = async () => {
+    if (!selectedAuditIds.length) return;
+    if (!window.confirm(`Supprimer ${selectedAuditIds.length} logs sélectionnés ?`)) return;
+    setLoading(true);
+    try {
+      await axios.post(
+        `${BASE_URL}/api/auth/admin/route-audit/bulk-delete`,
+        { ids: selectedAuditIds },
+        { withCredentials: true }
+      );
+      setRefresh(r => r + 1);
+      setSelectedAuditIds([]);
+      onDone("Logs supprimés !");
+    } catch (err) {
+      onDone("Erreur suppression groupée", true);
+    }
+    setLoading(false);
+  };
+  
+  // page précédente
   const goBack = () => window.history.back();
 
+  // ---- RENDER ----
   return (
     <Container initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
       <BackBtn onClick={goBack}><ArrowLeft /> Retour</BackBtn>
-      {loading && (
-        <LoaderOverlay><Spinner /></LoaderOverlay>
-      )}
+      {loading && (<LoaderOverlay><Spinner /></LoaderOverlay>)}
       <SnackbarFeedback {...snack} onClose={closeSnack} />
 
       {/* Connexions */}
@@ -581,6 +550,14 @@ export default function AdminSecurityMonitor() {
           </DangerButton>
         }
         csvName="audit_routes.csv"
+        selectable
+        selectedRows={selectedAuditIds}
+        onSelectRow={id => setSelectedAuditIds(prev => prev.includes(id) ? prev.filter(_id => _id !== id) : [...prev, id])}
+        onSelectAll={checked => {
+          if (checked) setSelectedAuditIds(routeAudits.map(l => l._id));
+          else setSelectedAuditIds([]);
+        }}
+        deleteSelectedRows={deleteSelectedAuditLogs}
       />
     </Container>
   );

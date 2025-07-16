@@ -116,19 +116,10 @@ function Lesroutes() {
         <Route path="/seconnecter" element={<LoginForm />} />
         <Route path="/seconnectercl" element={<LoginFormclient />} />
 
-        
-       <Route path="/Profiledmin" element={<Profiledmin />} />
+        <Route path="/Profiledmin" element={<Profiledmin />} />
         {/*  <Route path="/sessionsecur" element={<AdminSecurityMonitor />} />
-*/}
-
-        <Route
-          path="/LogoutButton"
-          element={
-            <ProtectedRoute>
-              <LogoutButton />
-            </ProtectedRoute>
-          }
-        />
+         */}
+        <Route path="/LogoutButton" element={<LogoutButton />} />
         <Route
           path="/sessionsecur"
           element={

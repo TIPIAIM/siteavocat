@@ -283,6 +283,7 @@ export default function Profiledmin() {
 
   useEffect(() => {
     setLoading(true);
+   
     axios.get(BASE_URL + "/api/auth/me", { withCredentials: true })
       .then(res => {
         setUser(res.data);

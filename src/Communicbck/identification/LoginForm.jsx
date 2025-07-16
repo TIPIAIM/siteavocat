@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { FiMail, FiLock, FiCheckCircle, FiAlertCircle, FiArrowLeft } from "react-icons/fi";
+import { FiMail, FiLock, FiCheckCircle, FiAlertCircle } from "react-icons/fi";
 import { login, loginAfter2FA } from "./authService";
 import { colors } from "../../Styles/colors";
 import { images } from "../../assets/images"; // images.aodblanc doit contenir ton logo blanc

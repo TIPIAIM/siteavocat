@@ -22,7 +22,7 @@ import { colors } from "../../Styles/colors"; // Palette maison
 import LogoutButton from "../../Communicbck/identification/Deconne";
 import feuillevid from "../../assets/Video/feuillevid.mp4";
 import { images } from "../../assets/images";
-const SocialLinks = lazy(() => import("../Lienlateral/SocialLinks"));
+//const SocialLinks = lazy(() => import("../Lienlateral/SocialLinks"));
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -187,7 +187,7 @@ const Overlay = styled(motion.div)`
   background: linear-gradient(
     180deg,
     ${colors.bgDark}EE 58%,
-    ${colors.bgSecondary}F7 100%
+    ${colors.bgDark}F7 100%
   );
   backdrop-filter: blur(1.5px) saturate(180%);
   z-index: 1;
@@ -208,7 +208,7 @@ const Title = styled(motion.h1)`
   font-size: 2.22rem;
   font-weight: 900;
   letter-spacing: -1px;
-  color: ${colors.goldenYellow};
+  color: ${colors.white};
   margin-bottom: 0.8em;
   text-shadow: 0 8px 34px #000c, 0 1px 0 #000;
   @media (max-width: 650px) {
@@ -231,7 +231,7 @@ const CardRow = styled.div`
   }
   &::-webkit-scrollbar-thumb {
     background: ${colors.goldenYellow}99;
-    border-radius: 8px;
+  //  border-radius: 8px;
   }
   @media (max-width: 700px) {
     flex-direction: column;
@@ -248,21 +248,20 @@ const FeatureCard = styled(motion.div)`
   width: 100%;
   background: ${colors.cardHover}CC;
   color: ${colors.white};
-  border-radius: 22px;
-  box-shadow: 0 5px 38px #0008, 0 1.5px 7px ${colors.accent}26;
+  border-radius: 10px;
+  box-shadow: 0 5px 8px #0008, 0 1.5px 7px ${colors.greenDark}26;
   padding: 2.1em 1.4em 1.3em 1.4em;
   margin: 0 6px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  transition: transform 0.16s, box-shadow 0.16s, background 0.13s;
+  transition: transform 0.06s, box-shadow 0.06s, background 0.03s;
   cursor: pointer;
   backdrop-filter: blur(1.5px);
   &:hover {
     transform: scale(1.04) translateY(-7px);
-    box-shadow: 0 10px 38px ${colors.goldenYellow}40, 0 5px 38px #000a;
-    background: ${colors.bgSecondary}F7;
+     background: ${colors.bgDark}F7;
   }
 
   @media (max-width: 700px) {
@@ -282,36 +281,38 @@ const FeatureCard = styled(motion.div)`
 `;
 
 const FeatureTitle = styled.h2`
-  font-size: 1.17rem;
+  font-size: 1.27rem;
   font-weight: bold;
-  margin: 0 0 0.5em 0;
-  color: ${colors.goldenYellow};
+  margin: 0 0 0.9em 0;
+  color: ${colors.blueDarkSky};
   display: flex;
   align-items: center;
   gap: 8px;
 `;
 
 const FeatureDesc = styled.p`
-  font-size: 1em;
+  font-size: 0.9em;
   margin: 0 0 1.1em 0;
   opacity: 0.96;
 `;
 
 const GoButton = styled.button`
-  background: ${colors.goldenYellow};
+  background: ${colors.blueDarkSky}CC;
   color: ${colors.bgDark};
   border: none;
-  border-radius: 8px;
+  border-radius: 2px;
   font-weight: 700;
   font-size: 1.03rem;
   padding: 0.5em 1.3em;
   margin-top: auto;
   cursor: pointer;
-  box-shadow: 0 2px 7px #0002;
+  box-shadow: 0 2px 1px ${colors.white};
   transition: background 0.16s;
   &:hover {
-    background: ${colors.accent};
-    color: ${colors.bgDark};
+    background: ${colors.bgDark};
+    color: ${colors.blueMid};
+      box-shadow:  0 -4px 0px ${colors.white};
+
   }
 `;
 
@@ -329,6 +330,8 @@ const Footer = styled.footer`
 const actions = [
   {
     label: "Audiences",
+    description:
+      "Consultez, gérez et planifiez toutes vos audiences simplement.",
     to: "/gestionaudience",
     icon: <Users size={21} strokeWidth={2} />,
   },
@@ -340,16 +343,20 @@ const actions = [
   },
   {
     label: "Factures",
+    description: "Suivez la facturation, paiements et historiques clients.",
     to: "/gestionfluxclient",
     icon: <Receipt size={21} strokeWidth={2} />,
   },
   {
     label: "Sécurité",
+    description:
+      "Vérifiez la sécurité, les sessions et les connexions récentes.",
     to: "/sessionsecur",
     icon: <ShieldCheck size={21} strokeWidth={2} />,
   },
   {
     label: "Profil",
+    description: "Gérez votre profil, photo, coordonnées et paramètres.",
     to: "/Profiledmin",
     icon: <User size={21} strokeWidth={2} />,
   },
@@ -472,17 +479,17 @@ function Adminmere() {
             transition={{ duration: 0.7 }}
           >
             Bienvenue chez{" "}
-            <span style={{ color: colors.goldenYellow }}>AOD AVOCATS</span>
+            <span style={{ color: colors.blueDarkSky }}>AOD AVOCATS</span>
             <br />
             <span
               style={{
-                fontSize: "1.13rem",
+                fontSize: "1.23rem",
                 fontWeight: 400,
-                color: colors.blueDarkSky,
+                color: colors.white,
                 textShadow: "none",
               }}
             >
-              Votre interface de gestion professionnelle, inspirée par Netflix.
+              Votre interface de gestion professionnelle, chez AOD AVOCATS .
             </span>
           </Title>
 
@@ -507,10 +514,7 @@ function Adminmere() {
               </FeatureCard>
             ))}
           </CardRow>
-
-          <div style={{ margin: "2em 0 0.2em 0", zIndex: 3 }}>
-            <SocialLinks />
-          </div>
+ 
         </Content>
       </Main>
 

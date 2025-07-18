@@ -1,4 +1,4 @@
-// src/Styles/colors.ts
+// src/Styles/colors.js
 export const colors = {
   bgDark: "#102A43",
   bgSecondary: "#486581",
@@ -17,3 +17,4 @@ export const colors = {
   goldenYellow: "#F2C94C",
 
 };
+ 

@@ -3,20 +3,20 @@
   <!-- Page d'accueil -->
   <url>
     <loc>https://www.aod-avocats.com/accueil</loc>
-    <lastmod>2115-07-11</lastmod>
+    <lastmod>2115-07-30</lastmod>
     <changefreq>daily  </changefreq>
     <priority>1.0</priority>
   </url>
  <url>
     <loc>https://www.aod-avocats.com/</loc>
-    <lastmod>2115-07-11</lastmod>
+    <lastmod>2115-07-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <!-- À propos -->
   <url>
     <loc>https://www.aod-avocats.com/apropos</loc>
-    <lastmod>2115-07-11</lastmod>
+    <lastmod>2115-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -24,7 +24,7 @@
   <!-- Contact -->
   <url>
     <loc>https://www.aod-avocats.com/contact</loc>
-    <lastmod>2115-07-11</lastmod>
+    <lastmod>2115-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -721,7 +721,7 @@ export default function AccueilFooter() {
           </ContactItem>
           <ContactItem>
             <Phone size={18} />
-            <a href="tel:+224612858507">+224 612 858 507</a>
+            <a href="tel:+224622253536">+224 622 253 536</a>
           </ContactItem>
           <ContactItem>
             <Mail size={18} />

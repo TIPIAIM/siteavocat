@@ -726,6 +726,10 @@ export default function Footer() {
             <a href="mailto:amadou.diallo@aod-avocats.com">
               amadou.diallo@aod-avocats.com
             </a>
+            <a href="mailto:aodialloavocat@gmail.com">
+              aodialloavocat@gmail.com
+            </a>
+
           </ContactItem>
         </FooterSection>
       </FooterGrid>

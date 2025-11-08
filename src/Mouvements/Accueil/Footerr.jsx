@@ -26,7 +26,6 @@ const breakpoints = {
   largeDesktop: 1440,
 };
 
- 
 const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }
@@ -168,18 +167,17 @@ const SectionTitle = styled.h3`
     bottom: 0;
     left: 0;
     transition: all 0.3s ease;
- 
+
     @media (min-width: ${breakpoints.tablet}px) {
       width: 20px;
       height: 4px;
-       
     }
   }
 
   &:hover:after {
     width: 35%; /* La barre s'étend sur toute la largeur */
- background-color: #90e0ef;
-    }
+    background-color: #90e0ef;
+  }
 `;
 
 const ContactItem = styled.div`
@@ -662,27 +660,34 @@ export default function Footer() {
 
   return (
     <FooterContainer>
+     
       <FooterGrid>
         <FooterSection>
+
           <SectionTitle>Nos Services</SectionTitle>
+         
           <ServiceItem>
             <Check size={18} />
             <span>Consultation juridique</span>
           </ServiceItem>
+
           <ServiceItem>
             <Check size={18} />
             <span>Représentation en justice</span>
           </ServiceItem>
+
           <ServiceItem>
             <Check size={18} />
             <span>Rédaction d'actes</span>
           </ServiceItem>
+
           <ServiceItem>
             <Check size={18} />
             <span>Conseil aux entreprises ...</span>
           </ServiceItem>
-        </FooterSection>
 
+        </FooterSection>
+                        
         <FooterSection>
           <SectionTitle>Suivez-nous</SectionTitle>
           <SocialLinks>
@@ -729,7 +734,6 @@ export default function Footer() {
             <a href="mailto:aodialloavocat@gmail.com">
               aodialloavocat@gmail.com
             </a>
-
           </ContactItem>
         </FooterSection>
       </FooterGrid>

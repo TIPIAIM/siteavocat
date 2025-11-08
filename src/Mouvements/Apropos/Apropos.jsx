@@ -237,19 +237,7 @@ const Apropos = () => {
 
   return (
     <div>
-      <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9951347176780036"
-        crossorigin="anonymous"
-      ></script>
-      <ins
-        class="adsbygoogle"
-        style="display:block"
-        data-ad-format="fluid"
-        data-ad-layout-key="-f9+5v+4m-d8+7b"
-        data-ad-client="ca-pub-9951347176780036"
-        data-ad-slot="4199450447"
-      ></ins>
+      
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       <Headerapropos />
       <CarouselContainer>

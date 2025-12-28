@@ -48,6 +48,7 @@ import Adminmere from "./Mouvements/AClient/Adminmere";
 import ProtectedRoute from "./Communicbck/identification/ProtectedRoute ";
 import LoginFormclient from "./Communicbck/identification/LoginFormclient";
 import Profiledmin from "./Communicbck/Profile/Profiledmin";
+import EquipeCabinet from "./Mouvements/Equipe/Equipe";
 //import Broullons from "./Brouillon";
 
 function App() {
@@ -99,7 +100,9 @@ function App() {
         <Route path="/conseil" element={<Conseiljuri />} />
         <Route path="/asistance" element={<Assistance />} />
 
-        {/**admin */}
+        <Route path="/equipe-cabinet" element={<EquipeCabinet />} />
+
+        {/**admin  */}
         <Route path="/gestclient" element={<Gclient />} />
         <Route path="/comptecl" element={<AjouterClient />} />
         <Route path="/listeCl" element={<ListeClients />} />

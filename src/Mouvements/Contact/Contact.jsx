@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Helmet } from "react-helmet";
 import { images } from "../../assets/images";
+import Mapfinale from "../../màpping/Màpfinàl";
 
 const Accueil = lazy(() => import("./Headercontact"));
 const Footer = lazy(() => import("../Accueil/Footerr"));
@@ -243,6 +244,8 @@ export default function Contact() {
             <Button type="submit">Envoyer</Button>
           </Form>
         </FormSection>
+        <Mapfinale/>
+        
       </ContactContainer>
       <div className="mt-40">
         <MemoizedFooter />

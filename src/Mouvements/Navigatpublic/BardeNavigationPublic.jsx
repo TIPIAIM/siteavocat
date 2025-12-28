@@ -271,6 +271,7 @@ export default function BardeNavigationpublic() {
             </SubMenu>
           </NavLink>
           <NavLink href="/article">Articles</NavLink>
+          <NavLink href="/equipe-cabinet">Equipe</NavLink>
           <NavLink href="/apropos">À propos</NavLink>
         </Menu>
       </Nav>

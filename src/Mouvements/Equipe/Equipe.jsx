@@ -46,9 +46,9 @@ const TEAM_MEMBERS = [
     phone: "+224 6XX XX XX XX",
     photoUrl: images.maitre3,
     bioShort:
-      "Conseil & contentieux des affaires, sécurisation contractuelle et gestion des litiges stratégiques.",
+      " ",
     bioLong:
-      "Me Aïssata Diallo accompagne les entreprises et dirigeants sur l’ensemble du cycle contractuel (négociation, rédaction, exécution, gestion des risques) ainsi que sur les précontentieux et contentieux complexes. Elle intervient également en structuration juridique (gouvernance, conformité, politiques internes), et apporte une approche pragmatique, orientée preuves et résultats.\n\nAvant de rejoindre AOD-Avocats, elle a exercé au sein de cabinets pluridisciplinaires et a accompagné des projets à forte intensité opérationnelle (services, BTP, commerce, industrie).",
+      " ",
     highlights: [
       "Stratégie contentieuse et référés",
       "Audit & sécurisation contractuelle",
@@ -72,9 +72,9 @@ const TEAM_MEMBERS = [
     phone: "+224 6XX XX XX XX",
     photoUrl: images.mbangou,
     bioShort:
-      "Veille & structuration documentaire : notes juridiques, conformité et qualité des livrables.",
+      " ",
     bioLong:
-      "Fatoumata Bah assure la veille et l’appui juridique sur la préparation des dossiers : recherches, synthèses, rédaction de notes, structuration des pièces et organisation documentaire. Elle contribue également aux dispositifs de conformité (politiques, procédures, checklists) et à la qualité des livrables.",
+      " ",
     highlights: ["Veille & notes", "Qualité documentaire", "Conformité"],
     credentials: ["Licence — Droit", "Formation — Legal drafting"],
   },
@@ -92,9 +92,9 @@ const TEAM_MEMBERS = [
     phone: "+224 6XX XX XX XX",
     photoUrl: Fatoumata,
     bioShort:
-      "Accueil & coordination : rendez-vous, orientation, support administratif, et confidentialité.",
+      " ",
     bioLong:
-      "Assure l’accueil et la coordination administrative : gestion des rendez-vous, orientation, préparation logistique et suivi des échanges. Il contribue à une expérience client fluide et professionnelle, avec une attention particulière à la confidentialité.",
+      " ",
     highlights: [
       "Accueil & relation client",
       "Coordination",
@@ -115,9 +115,9 @@ const TEAM_MEMBERS = [
     photoUrl: pol, // images.moe0311
 
     bioShort:
-      "Paul Astérix LAMAH est collaborateur au sein du cabinet AOD AVOCATS, où il exerce en qualité de juriste avec une orientation affirmée vers le droit des affaires et les enjeux juridiques contemporains de l’entreprise.",
+      " ",
     bioLong:
-      " Paul Astérix LAMAH est collaborateur au sein du cabinet AOD AVOCATS, où il exerce en qualité de juriste avec une orientation affirmée vers le droit des affaires et les enjeux juridiques contemporains de l’entreprise.Titulaire d’une Licence en droit des affaires et d’un Master en droit privé fondamental de l’Université Général Lansana Conté, il poursuit actuellement la finalisation de son parcours académique à travers un mémoire portant sur « La fusion des sociétés commerciales », illustrant son intérêt pour les mécanismes juridiques de transformation et de croissance des sociétés.Il assiste, en conseil, aussi bien les particuliers que les opérateurs économiques dans la création et la structuration de sociétés, les restructurations, ainsi que la gouvernance d’entreprise. Il intervient également dans le cadre des contentieux civils et commerciaux, incluant les procédures de recouvrement de créances.Sensible aux enjeux sociaux et environnementaux, Paul accompagne par ailleurs les entreprises dans les domaines du droit minier, du droit immobilier, du droit maritime, du droit social, ainsi que sur les questions de Responsabilité Sociétale des Entreprises (RSE), d’environnement et de contenu local, qui constituent le cœur de son engagement professionnel.",
+      "  ",
     highlights: [" Négociations ", "rédaction"],
     credentials: [" Licence en droit des affaires , Master 2 BAC+5"],
   },
@@ -133,9 +133,9 @@ const TEAM_MEMBERS = [
     phone: "+224 6XX XX XX XX",
     photoUrl: bdoul, //images.abdoulayeavoc
     bioShort:
-      "Accueil & coordination : rendez-vous, orientation, support administratif, et confidentialité.",
+      " ",
     bioLong:
-      "Ibrahima Sylla assure l’accueil et la coordination administrative : gestion des rendez-vous, orientation, préparation logistique et suivi des échanges. Il contribue à une expérience client fluide et professionnelle, avec une attention particulière à la confidentialité.",
+      " ",
     highlights: [
       "Accueil & relation client",
       "Coordination",
@@ -153,7 +153,7 @@ const TEAM_MEMBERS = [
     location: "Conakry",
     email: "contact@aod-avocats.com",
     phone: "+224 6XX XX XX XX",
-    photoUrl: images.mbangou,
+    photoUrl: images.keitaseul2,
     bioShort:
       "Accueil & coordination : rendez-vous, orientation, support administratif, et confidentialité.",
     bioLong:
@@ -178,9 +178,9 @@ const TEAM_MEMBERS = [
     phone: "+224 6XX XX XX XX",
     photoUrl: images.naroumb,
     bioShort:
-      "Accueil & coordination : rendez-vous, orientation, support administratif, et confidentialité.",
+      " ",
     bioLong:
-      "Assure l’accueil et la coordination administrative : gestion des rendez-vous, orientation, préparation logistique et suivi des échanges. Il contribue à une expérience client fluide et professionnelle, avec une attention particulière à la confidentialité.",
+      " ",
     highlights: [
       "Accueil & relation client",
       "Coordination",
@@ -766,43 +766,7 @@ const HeroSubtitle = styled.p`
   max-width: 68ch;
 `;
 
-const HeroStats = styled.div`
-  margin-top: 16px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-
-  @media (max-width: 860px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const StatCard = styled.div`
-  border-radius: 12px 0 12px 0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 12px 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  svg {
-    color: ${colors.skyBlue};
-  }
-`;
-
-const StatValue = styled.div`
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  font-size: 16px;
-`;
-
-const StatLabel = styled.div`
-  margin-top: 2px;
-  font-size: 12.5px;
-  color: rgba(255, 255, 255, 0.72);
-`;
-
+ 
 /* TOOLBAR */
 const Toolbar = styled(Glass)`
   padding: 14px 14px;
@@ -876,7 +840,7 @@ const Select = styled.select`
 
 const ClearButton = styled.button`
   height: 44px;
-  border-radius: 12px 0 12px 0;
+  border-radius: 10px 0 10px 0;
   border: 1px solid rgba(242, 201, 76, 0.28);
   background: rgba(242, 201, 76, 0.1);
   color: ${colors.goldenYellow};
@@ -1310,7 +1274,7 @@ const Overlay = styled.div`
 
 const Dialog = styled(Glass)`
   width: min(980px, 100%);
-  max-height: min(90vh, 720px);
+  max-height: min(80vh, 720px);
   overflow: auto;
   outline: none;
 

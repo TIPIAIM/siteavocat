@@ -9,13 +9,14 @@ import {
   X,
   Scale,
   BriefcaseBusiness,
+  Award,
   Languages,
   Mail,
   Phone,
   MapPin,
   ArrowUpRight,
+  ShieldCheck,
 } from "lucide-react";
-
 // const Footer = lazy(() => import("../Accueil/Footerr"));
 
 import { images } from "../../assets/images";
@@ -62,6 +63,7 @@ const TEAM_MEMBERS = [
     id: "m-2",
     fullName: "M. Abdoulaye Bangoura",
     role: "Juriste",
+
     title: "Juriste-Conseil",
     practiceAreas: ["Veille juridique", "Rédaction", "Conformité"],
     languages: ["Français"],
@@ -82,8 +84,8 @@ const TEAM_MEMBERS = [
   {
     id: "m-3",
     fullName: "M Paul Astérix LAMAH",
-    role: "Juriste",
-    title: "Juriste conseil",
+    role: " juriste",
+    title: " juriste conseil",
     practiceAreas: ["Droit des affaires ", "Contentieux", "Droit Minier et énergie "],
     languages: ["Français", "Anglais(intermédiaire)"],
     location: "Conakry",
@@ -97,8 +99,9 @@ const TEAM_MEMBERS = [
     highlights: [" Négociations ", "rédaction"],
     credentials: [" Licence en droit des affaires , Master 2 "],
   },
+
   {
-    id: "m-4",
+    id: "m-5",
     fullName: " M. Abdoulaye Keita",
     role: "Juriste",
     title: "Juriste-Conseil",
@@ -130,8 +133,9 @@ const TEAM_MEMBERS = [
       "Licence en droit privé — Master de droit privé fondamental(en start) à l’université Général Lansana CONTE de Sonfonia-Conakry,",
     ],
   },
+
   {
-    id: "m-5",
+    id: "m-6",
     fullName: "M. Kadiatou Camara",
     role: "Stagiaire Juriste",
     title: "Juriste-Conseil",
@@ -156,10 +160,12 @@ const TEAM_MEMBERS = [
     ],
     credentials: ["Diplômée en droit spécialisation carrières judiciaires"],
   },
+
   {
-    id: "m-6",
-    fullName: "M Fatoumata Keita",
+    id: "m-3",
+    fullName: "M Fatoumata Keita  ",
     role: "Juriste",
+
     title: "Juriste-Conseil",
     practiceAreas: ["Accueil", "Organisation", "Relation client"],
     languages: ["Français"],
@@ -173,8 +179,8 @@ const TEAM_MEMBERS = [
     credentials: ["Formation — Administration"],
   },
   {
-    id: "m-7",
-    fullName: "Naromba Keita",
+    id: "m-6",
+    fullName: " Naromba Keita",
     role: "Secretaire",
     title: "Secretaire",
     practiceAreas: ["Accueil", "Organisation", "Relation client"],
@@ -224,134 +230,145 @@ export default function EquipeCabinetPage() {
     []
   );
   const areas = useMemo(
-    () => uniqueFromArrayOfArrays(TEAM_MEMBERS.map((m) => m.practiceAreas || [])),
+    () =>
+      uniqueFromArrayOfArrays(TEAM_MEMBERS.map((m) => m.practiceAreas || [])),
     []
   );
 
   // ✅ SEO (aucun impact UI)
-  const seoCanonicalUrl = "https://www.aod-avocats.com/equipe-cabinet";
+  const SITE_URL = "https://www.aod-avocats.com";
+  const PAGE_PATH = "/equipe-cabinet";
 
-  const seoTitle =
-    "Notre Équipe | AOD AVOCATS — Cabinet d’avocats à Conakry (Guinée)";
-
+  const seoTitle = "Notre Équipe | AOD AVOCATS | Cabinet d’avocats à Conakry";
   const seoDescription =
-    "Découvrez l’équipe AOD AVOCATS : avocats et juristes à Conakry (Guinée). Conseil, contentieux, droit des affaires, contrats, droit pénal, droit minier, conformité et accompagnement stratégique.";
+    "Une équipe structurée, orientée résultats, avec une exigence constante de confidentialité, rigueur et qualité d’exécution.";
+
+  // Canonical exact : https://www.aod-avocats.com/equipe-cabinet
+  const seoCanonicalUrl = useMemo(() => {
+    if (typeof window === "undefined") return `${SITE_URL}${PAGE_PATH}`;
+    return `${SITE_URL}${window.location.pathname}`;
+  }, []);
 
   const seoKeywords = useMemo(() => {
-    // Requêtes fréquentes tapées sur Google (intention + local)
-    const googleIntent = [
-      "avocat",
-      "cabinet avocat",
+    // Mots & expressions fréquents tapés sur Google (FR + variations)
+    const staticKeywords = [
+      "AOD AVOCATS",
+      "AOD Avocats Conakry",
       "cabinet d’avocats",
-      "cabinet d'avocats",
-      "meilleur avocat",
-      "meilleurs avocats",
-      "avocat recommandé",
-      "avocat expérimenté",
-      "avocat proche",
-      "avocat près de moi",
-      "cabinet avocat près de moi",
-      "avocat contact",
-      "avocat téléphone",
-      "consultation avocat",
-      "rendez-vous avocat",
-      "honoraires avocat",
-      "prise de rendez-vous avocat",
-      "avocat entreprise",
-      "avocat société",
-      "avocat litige",
-      "avocat contentieux",
-      "avocat contrats",
-    ];
-
-    const local = [
-      "Conakry",
-      "Guinée",
-      "République de Guinée",
-      "cabinet d’avocats à Conakry",
-      "cabinet d'avocats à Conakry",
+      "cabinet avocat",
       "cabinet d’avocats en Guinée",
-      "cabinet d'avocats en Guinée",
+      "cabinet d’avocats à Conakry",
+      "site d’avocats",
+      "site avocat",
       "avocat Conakry",
+      "avocat Guinée",
+      "avocat à Conakry",
       "avocat en Guinée",
-      "meilleur avocat Conakry",
-      "meilleur avocat Guinée",
       "cabinet avocat Conakry",
       "cabinet avocat Guinée",
-      "avocat Conakry contact",
-      "avocat Conakry téléphone",
-      "consultation avocat Conakry",
-      "rendez-vous avocat Conakry",
-    ];
+      "meilleur avocat",
+      "meilleur avocat Conakry",
+      "meilleur avocat en Guinée",
+      "cabinet d’avocats reconnu",
+      "cabinet d’avocats recommandé",
+      "avocat recommandé",
+      "avocat bien noté",
+      "cabinet d’avocats bien noté",
+      "top avocat",
+      "top cabinet d’avocats",
+      "avocat expérimenté",
+      "avocat sérieux",
+      "avocat professionnel",
+      "consultation avocat",
+      "consultation juridique",
+      "conseil juridique",
+      "rendez-vous avocat",
+      "prendre rendez-vous avocat",
+      "contact avocat",
+      "numéro avocat",
+      "email avocat",
+      "honoraires avocat",
+      "tarif avocat",
+      "prix avocat",
 
-    const brand = [
-      "AOD AVOCATS",
-      "AOD Avocats",
-      "AOD-Avocats",
-      "aod-avocats",
-      "www.aod-avocats.com",
-      "aod-avocats.com",
-    ];
-
-    const practice = [
-      "droit des affaires",
+      // Services / domaines fréquents
       "avocat droit des affaires",
-      "droit commercial",
+      "droit des affaires",
+      "avocat droit des sociétés",
       "droit des sociétés",
-      "contentieux civil",
+      "création de société",
+      "rédaction statuts société",
+      "contrat commercial",
+      "rédaction contrat",
+      "négociation contrat",
+      "litige commercial",
       "contentieux commercial",
       "recouvrement de créances",
-      "rédaction de contrats",
-      "audit contractuel",
+      "mise en demeure",
+      "procédure judiciaire",
+      "référé",
+      "audit juridique",
       "conformité",
-      "risques et conformité",
+      "veille juridique",
+
+      "avocat droit pénal",
       "droit pénal",
+      "avocat pénaliste",
       "procédure pénale",
-      "contentieux pénal",
-      "infractions économiques et financières",
+      "plainte",
+      "défense pénale",
+      "infractions économiques",
+      "infractions financières",
       "blanchiment de capitaux",
+
       "cybersécurité",
       "cybercriminalité",
+      "avocat cybersécurité",
+
+      "avocat droit minier",
       "droit minier",
+      "avocat mines Guinée",
+      "avocat énergie",
       "droit de l’énergie",
+
+      "avocat immobilier",
       "droit immobilier",
+      "avocat foncier",
       "droit foncier",
+      "domanial",
+      "avocat droit maritime",
+      "droit maritime",
+      "avocat droit social",
       "droit social",
-      "droit du travail",
       "RSE",
       "environnement",
       "contenu local",
-      "droit maritime",
+      "juriste",
+      "juriste conseil",
     ];
 
-    // Dynamique (membres / rôles / domaines)
+    // Dynamique: noms / rôles / domaines présents dans ta data
     const names = TEAM_MEMBERS.map((m) => m.fullName).filter(Boolean);
-    const rolesK = Array.from(new Set(TEAM_MEMBERS.map((m) => m.role).filter(Boolean)));
+    const rolesK = Array.from(
+      new Set(TEAM_MEMBERS.map((m) => m.role).filter(Boolean).map(String))
+    );
     const areasK = Array.from(
       new Set(
         TEAM_MEMBERS.flatMap((m) =>
-          (m.practiceAreas || []).map((a) => String(a).trim())
-        ).filter(Boolean)
+          (m.practiceAreas || [])
+            .map((a) => String(a).trim())
+            .filter(Boolean)
+        )
       )
     );
 
-    // Assemble + dédoublonnage
-    const all = [
-      ...brand,
-      ...local,
-      ...googleIntent,
-      ...practice,
-      ...rolesK,
-      ...areasK,
-      ...names,
-    ]
+    // Déduplication finale
+    const all = [...staticKeywords, ...rolesK, ...areasK, ...names]
       .map((s) => String(s).trim())
       .filter(Boolean);
 
-    const uniq = Array.from(new Set(all));
-
-    // Meta keywords n’est pas “magique”, mais on l’aligne sur tes intentions de recherche
-    return uniq.join(", ");
+    const dedup = Array.from(new Set(all));
+    return dedup.join(", ");
   }, []);
 
   const seoOgImage = useMemo(() => {
@@ -365,7 +382,7 @@ export default function EquipeCabinetPage() {
     const employees = TEAM_MEMBERS.map((m) => ({
       "@type": "Person",
       name: m.fullName,
-      jobTitle: m.title || m.role,
+      jobTitle: (m.title || m.role || "").trim() || undefined,
       email: m.email ? `mailto:${String(m.email).trim()}` : undefined,
       telephone: m.phone ? String(m.phone).trim() : undefined,
       address: m.location
@@ -377,50 +394,22 @@ export default function EquipeCabinetPage() {
         : undefined,
     }));
 
-    // On renvoie un tableau JSON-LD (valide) : LegalService + WebPage + Breadcrumbs
-    return [
-      {
-        "@context": "https://schema.org",
-        "@type": "LegalService",
-        name: "AOD AVOCATS",
-        url: seoCanonicalUrl,
-        description: seoDescription,
-        areaServed: [
-          { "@type": "City", name: "Conakry" },
-          { "@type": "Country", name: "Guinée" },
-        ],
-        email: "mailto:contact@aod-avocats.com",
-        image: seoOgImage,
-        employee: employees,
+    return {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      name: "AOD AVOCATS",
+      description: seoDescription,
+      url: seoCanonicalUrl, // ✅ pointe vers /equipe-cabinet
+      image: seoOgImage,
+      areaServed: "Conakry, Guinée",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Conakry",
+        addressCountry: "GN",
       },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        name: seoTitle,
-        url: seoCanonicalUrl,
-        description: seoDescription,
-        isPartOf: { "@type": "WebSite", name: "AOD AVOCATS", url: "https://www.aod-avocats.com/" },
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Accueil",
-            item: "https://www.aod-avocats.com/",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Notre Équipe",
-            item: seoCanonicalUrl,
-          },
-        ],
-      },
-    ];
-  }, [seoOgImage]);
+      employee: employees,
+    };
+  }, [seoCanonicalUrl, seoOgImage, seoDescription]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -471,10 +460,13 @@ export default function EquipeCabinetPage() {
         title={seoTitle}
         description={seoDescription}
         keywords={seoKeywords}
-        canonicalUrl={seoCanonicalUrl}
+        canonicalUrl={seoCanonicalUrl} // ✅ https://www.aod-avocats.com/equipe-cabinet
         ogImage={seoOgImage}
         ogType="website"
         siteName="AOD AVOCATS"
+        ogLocale="fr_GN"
+        lang="fr"
+        imageAlt="AOD AVOCATS — Notre Équipe"
         schema={seoSchema}
       />
 
@@ -622,7 +614,6 @@ export default function EquipeCabinetPage() {
                 }}
                 aria-label={`Ouvrir la biographie de ${m.fullName}`}
               >
-                {/* PHOTO (GRANDE) + OVERLAY BIO AU SURVOL */}
                 <PhotoFrame aria-hidden="false">
                   {m.photoUrl ? (
                     <PhotoImg src={m.photoUrl} alt={m.fullName} />
@@ -656,7 +647,6 @@ export default function EquipeCabinetPage() {
                   <PhotoSheen aria-hidden="true" />
                 </PhotoFrame>
 
-                {/* INFOS SOUS LA PHOTO */}
                 <CardContent>
                   <NameRow>
                     <Name>{m.fullName}</Name>
@@ -678,7 +668,6 @@ export default function EquipeCabinetPage() {
         )}
       </Shell>
 
-      {/* MODAL — BIO */}
       <AnimatePresence>
         {selected ? (
           <Overlay
@@ -699,7 +688,9 @@ export default function EquipeCabinetPage() {
               aria-label={`Biographie complète de ${selected.fullName}`}
               ref={dialogRef}
               tabIndex={-1}
-              initial={reduceMotion ? false : { opacity: 0, y: 18, scale: 0.98 }}
+              initial={
+                reduceMotion ? false : { opacity: 0, y: 18, scale: 0.98 }
+              }
               animate={reduceMotion ? false : { opacity: 1, y: 0, scale: 1 }}
               exit={reduceMotion ? false : { opacity: 0, y: 12, scale: 0.98 }}
               transition={{ duration: reduceMotion ? 0.01 : 0.22 }}
@@ -1041,7 +1032,8 @@ const ClearButton = styled.button`
   color: ${colors.white};
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease;
 
   &:hover {
     transform: translateY(-1px);
@@ -1184,9 +1176,6 @@ const PhotoImg = styled.img.attrs({
   transform: scale(1);
   transition: transform 0.45s ease, filter 0.45s ease;
   will-change: transform;
-
-  &.photoImg {
-  }
 `;
 
 const PhotoFallback = styled.div`
@@ -1340,7 +1329,6 @@ const PhotoSheen = styled.div.attrs({ className: "photoSheen" })`
   inset: 0;
   pointer-events: none;
   opacity: 0;
-
   background: linear-gradient(
     90deg,
     transparent 0%,
@@ -1399,7 +1387,6 @@ const TagMuted = styled(Tag)`
   color: rgba(255, 255, 255, 0.7);
 `;
 
-/* EMPTY STATE */
 const Empty = styled(Glass)`
   padding: 22px;
   text-align: center;
@@ -1445,7 +1432,6 @@ const EmptyAction = styled.button`
   }
 `;
 
-/* MODAL Biographie */
 const Overlay = styled.div`
   position: fixed;
   inset: 0;

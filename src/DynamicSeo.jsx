@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet";
-
 function SEO({ title, description, keywords }) {
   return (
     <Helmet>
@@ -9,5 +8,4 @@ function SEO({ title, description, keywords }) {
     </Helmet>
   );
 }
-
 export default SEO;

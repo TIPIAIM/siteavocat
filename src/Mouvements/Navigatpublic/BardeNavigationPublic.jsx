@@ -235,7 +235,6 @@ export default function BardeNavigationpublic() {
         {/* Menu principal */}
         <Menu isOpen={isMenuOpen}>
           <NavLink href="/">Accueil</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
           <NavLink onClick={() => toggleSubMenu("savoir-faire")}>
             Savoir-faire
             <SubMenuIndicator isOpen={openSubMenu === "savoir-faire"}>
@@ -268,10 +267,19 @@ export default function BardeNavigationpublic() {
               <SubNavLink href="/arbitrage">Arbitrage et médiation</SubNavLink>
 
               <SubNavLink href="/penall">Défense pénale</SubNavLink>
+
             </SubMenu>
           </NavLink>
-          <NavLink href="/article">Articles</NavLink>
           <NavLink href="/equipe-cabinet">Equipe</NavLink>
+          <NavLink href="#">
+            Infos
+            <SubMenu isOpen={isMenuOpen}>
+              <SubNavLink href="/article">Blog</SubNavLink>
+              <SubNavLink href="#">Actualités</SubNavLink>
+              <SubNavLink href="/contact">Contact</SubNavLink>
+
+            </SubMenu>
+            </NavLink>
           <NavLink href="/apropos">À propos</NavLink>
         </Menu>
       </Nav>

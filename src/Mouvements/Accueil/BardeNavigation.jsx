@@ -195,7 +195,6 @@ export default function BardeNavigation() {
         {/* Menu principal */}
         <Menu isOpen={isMenuOpen}>
           <NavLink href="/accueil">Home</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
           <NavLink href="#">
             Savoir-faire
             <SubMenu isOpen={isMenuOpen}>
@@ -225,8 +224,16 @@ export default function BardeNavigation() {
               <SubNavLink href="/penall">Défense pénale</SubNavLink>
             </SubMenu>
           </NavLink>
+          <NavLink href="#">
+            Informations
+            <SubMenu isOpen={isMenuOpen}>
+              <SubNavLink href="/article">Blog</SubNavLink>
+              <SubNavLink href="#">Actualités</SubNavLink>
+            
+            </SubMenu>
+          </NavLink>
+           <NavLink href="/contact">Contact</NavLink>
 
-          <NavLink href="/article">Articles</NavLink>
           <NavLink href="/apropos">À propos</NavLink>
         </Menu>
       </Nav>

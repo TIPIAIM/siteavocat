@@ -66,17 +66,90 @@ const TEAM_MEMBERS = [
 
     title: "Juriste-Conseil",
     practiceAreas: ["Veille juridique", "Rédaction", "Conformité"],
-    languages: ["Français", "Anglais"],
-    location: "Conakry",
+    languages: ["Français"],
+    location: "Hamdalllaye /Conakry ",
     email: "contact@aod-avocats.com",
-    phone: "+224 6XX XX XX XX",
+    phone: "+224  621 40 12 13 ",
     photoUrl: images.mbangou,
     bioShort:
-      " ",
+      " Abdoulaye BANGOUTRA est juriste collaborateur  au sein du cabinet AOD AVOCATS. Titulaire d'une Maîtrise en Droit  de l'Université Général Lansana CONTE de Sonfonia, Conakry. il poursuit actuellement un Master en droit des affaires et du Contentieux. Il a exercé en qualité de Juriste Interne  au sein du Cabinet  KLG de 2012 à 2022. il a été également été membre de la Commission Electorale de la Fédération Guinéenne de Football.",
     bioLong:
-      " ",
+      "Abdoulaye BANGOUTRA est juriste collaborateur  au sein du cabinet AOD AVOCATS. Titulaire d'une Maîtrise en Droit  de l'Université Général Lansana CONTE de Sonfonia, Conakry. il poursuit actuellement un Master en droit des affaires et du Contentieux. Il a exercé en qualité de Juriste Interne  au sein du Cabinet  KLG de 2012 à 2022. il a été également été membre de la Commission Electorale de la Fédération Guinéenne de Football. ",
     highlights: ["Veille & notes", "Qualité documentaire", "Conformité"],
-    credentials: ["Licence — Droit", "Formation — Legal drafting"],
+    credentials: ["Licence — Droit public (’université de général lansana conte)", " Master en droit des affaires et du contentieux en cours"],
+  },
+  {
+    id: "m-3",
+    fullName: "M Paul Astérix LAMAH",
+    role: " juriste",
+    title: " juriste conseil",
+    practiceAreas: ["Droit des affaires ", "Contentieux", "Droit Minier et énergie " ],
+    languages: ["Français", "Anglais(intermédiaire)"],
+    location: "Conakry",
+    email: " paul.lamah5815@icloud.com",
+    phone: "+224 620 32 26 20 ",
+    photoUrl: pol, // images.moe0311
+
+    bioShort:
+      "Paul Astérix LAMAH est collaborateur au sein du cabinet AOD AVOCATS, où il exerce en qualité de juriste avec une orientation affirmée vers le droit des affaires et les enjeux juridiques contemporains de l’entreprise. Il a récemment assisté une multinationale du secteur de l’énergie dans une restructuration sociale d’envergure, et contribué avec succès à la conclusion d’une transaction stratégique pour une compagnie minière, portant sur un enjeu financier de 2 millions de dollars, en collaboration avec la marine marchande et les autorités minières. ",
+    bioLong:
+      "Paul Astérix LAMAH est collaborateur au sein du cabinet AOD AVOCATS, où il exerce en qualité de juriste avec une orientation affirmée vers le droit des affaires et les enjeux juridiques contemporains de l’entreprise.Titulaire d’une Licence en droit des affaires et d’un Master en droit privé fondamental de l’Université Général Lansana Conté, il poursuit actuellement la finalisation de son parcours académique à travers un mémoire portant sur « La fusion des sociétés commerciales », illustrant son intérêt pour les mécanismes juridiques de transformation et de croissance des sociétés. Il assiste, en conseil, aussi bien les particuliers que les opérateurs économiques dans la création et la structuration de sociétés, les restructurations, ainsi que la gouvernance d’entreprise. Il intervient également dans le cadre des contentieux civils et commerciaux, incluant les procédures de recouvrement de créances. Sensible aux enjeux sociaux et environnementaux, Paul accompagne par ailleurs les entreprises dans les domaines du droit minier, du droit immobilier, du droit maritime, du droit social, ainsi que sur les questions de Responsabilité Sociétale des Entreprises (RSE), d’environnement et de contenu local, qui constituent le cœur de son engagement professionnel.",
+    highlights: [" Négociations ", "rédaction"],
+    credentials: [" Licence en droit des affaires , Master 2 "],
+  },
+
+ 
+  {
+    id: "m-5",
+    fullName: " M. Abdoulaye Keita",
+    role: "Juriste",
+    title: "Juriste-Conseil",
+    practiceAreas: ["Aanalyse juridique", "Procédure pénale","Suivi méthodique des procédures", "Relation client",],
+    languages: ["Français", "Anglais(débutant)"],
+    location: "Conakry",
+    email: "contact@aod-avocats.com",
+    phone: "+224 621 10 02 84",
+    photoUrl: bdoul, //images.abdoulayeavoc
+    bioShort:
+      "Abdoulaye KEITA est juriste-conseil au sein du cabinet AOD AVOCATS, où il est chargé du traitement des dossiers relevant du droit pénal. Il intervient à toutes les étapes de la procédure pénale, tant au stade précontentieux que contentieux, en appui aux avocats du cabinet, avec pour priorité la protection des droits et intérêts des clients.",
+    bioLong:
+      "Abdoulaye KEITA Juriste-Conseil – Chargé des affaires pénales Cabinet AOD AVOCATS Abdoulaye KEITA est juriste-conseil au sein du cabinet AOD AVOCATS, où il est chargé du traitement des affaires pénales. Il intervient à toutes les étapes de la procédure pénale, tant au stade précontentieux que contentieux, en appui à l’avocat du cabinet, en veillant à la protection des droits et intérêts des clients. Titulaire d’une Licence en droit privé, spécialisation carrière judiciaire à l’université Général Lansana CONTE de Sonfonia-Conakry, il est actuellement auditeur en Master de droit privé fondamental dans la même Université. Sa formation universitaire, alliée à une pratique soutenue en cabinet, lui permet d’aborder les dossiers pénaux avec méthode, rigueur et sens stratégique.Au sein du cabinet, il participe notamment à l’analyse juridique des infractions et des faits poursuivis, à la préparation, le suivi et la coordination des procédures pénales (enquêtes, instructions et audiences), la rédaction de notes juridiques, plaintes, dénonciations et mémoires pénaux, l’assistance juridique des clients impliqués dans des procédures pénales, le suivi des dossiers devant les juridictions répressives compétentes. Son champ d’intervention couvre aussi bien les infractions de droit commun que les infractions économiques et financières, avec un intérêt particulier pour les questions liées au blanchiment de capitaux, aux atteintes au patrimoine et aux infractions commises dans le cadre des activités professionnelles. Reconnu pour sa discrétion, sa discipline professionnelle et sa capacité d’analyse, Abdoulaye KEITA inscrit son action dans une démarche de défense rigoureuse et éthique des droits des clients, dans le strict respect des règles de procédure pénale et des exigences déontologiques du cabinet. ",
+    highlights: [
+      "Droit pénal",
+      "Contentieux pénal",
+      "Infractions économiques et -",
+      "financière",
+      "Cybersécurité",
+      "Cybercriminalité ",
+      "Suivi des procédures répressives"
+    ],
+    credentials: ["Licence en droit privé — Master de droit privé fondamental(en start) à l’université Général Lansana CONTE de Sonfonia-Conakry,"],
+  },
+
+  {
+    id: "m-6",
+    fullName: "M. Kadiatou Camara",
+    role: "Stagiaire Juriste",
+    title: "Juriste-Conseil",
+    practiceAreas: ["Droit pénal", "Droit foncier et domaniale", "droit patrimonial de la famille","Droit des sûretés"],
+    languages: ["Français","Anglais (niveau intermédiaire)"],
+    location: "Conakry",
+    email: " Kadiatou.camara224@icloud.com ",
+    phone: "+224 625 70 18 20",
+    photoUrl: images.keitaseul2,
+
+    bioShort:
+"",
+    bioLong:
+"",
+    highlights: [
+      "Analyse juridique et orientation",
+
+      "Accueil & relation client",
+      "Coordination",
+      "Confidentialité",
+    ],
+    credentials: ["Diplômée en droit spécialisation carrières judiciaires"],
   },
 
   {
@@ -102,69 +175,9 @@ const TEAM_MEMBERS = [
     ],
     credentials: ["Formation — Administration"],
   },
-  {
-    id: "m-4",
-    fullName: "M Paul Astérix LAMAH",
-    role: " juriste",
-    title: " juriste conseil",
-    practiceAreas: ["Droit des affaires ", "Contentieux", "Droit Minier et énergie " ],
-    languages: ["Français", "Anglais(intermédiaire)"],
-    location: "Conakry",
-    email: " paul.lama5815@icloud.com",
-    phone: "+224 620 32 26 20 ",
-    photoUrl: pol, // images.moe0311
 
-    bioShort:
-      " ",
-    bioLong:
-      "  ",
-    highlights: [" Négociations ", "rédaction"],
-    credentials: [" Licence en droit des affaires , Master 2 BAC+5"],
-  },
-  {
-    id: "m-5",
-    fullName: " M. Abdoulaye Keita",
-    role: "Juriste",
-    title: "Juriste-Conseil",
-    practiceAreas: ["Accueil", "Organisation", "Relation client"],
-    languages: ["Français"],
-    location: "Conakry",
-    email: "contact@aod-avocats.com",
-    phone: "+224 6XX XX XX XX",
-    photoUrl: bdoul, //images.abdoulayeavoc
-    bioShort:
-      " ",
-    bioLong:
-      " ",
-    highlights: [
-      "Accueil & relation client",
-      "Coordination",
-      "Confidentialité",
-    ],
-    credentials: ["Formation — Administration"],
-  },
-  {
-    id: "m-6",
-    fullName: "M. Kadiatou Camara",
-    role: "Stagiaire Juriste",
-    title: "Juriste-Conseil",
-    practiceAreas: ["Accueil", "Organisation", "Relation client"],
-    languages: ["Français"],
-    location: "Conakry",
-    email: "contact@aod-avocats.com",
-    phone: "+224 6XX XX XX XX",
-    photoUrl: images.keitaseul2,
-    bioShort:
-      "Accueil & coordination : rendez-vous, orientation, support administratif, et confidentialité.",
-    bioLong:
-      "Ibrahima Sylla assure l’accueil et la coordination administrative : gestion des rendez-vous, orientation, préparation logistique et suivi des échanges. Il contribue à une expérience client fluide et professionnelle, avec une attention particulière à la confidentialité.",
-    highlights: [
-      "Accueil & relation client",
-      "Coordination",
-      "Confidentialité",
-    ],
-    credentials: ["Formation — Administration"],
-  },
+
+ 
 
   {
     id: "m-6",
@@ -444,7 +457,7 @@ export default function EquipeCabinetPage() {
                         <span>{(m.languages || []).join(", ") || "—"}</span>
                       </OverlayMini>
                       <OverlayCTA>
-                        <span>Biographie</span>
+                        <span>Apropos</span>
                         <ArrowUpRight size={18} />
                       </OverlayCTA>
                     </OverlayBottom>

@@ -1,25 +1,4 @@
 User-agent: *
 Allow: /
 
-# Bloque les zones internes / admin / auth (à ne pas indexer)
-Disallow: /gestion
-Disallow: /adminfils
-Disallow: /gestclient
-Disallow: /comptecl
-Disallow: /listeCl
-Disallow: /miseajourAclientRecup/
-Disallow: /Profiledmin
-Disallow: /register
-Disallow: /confimation-mail
-Disallow: /seconnecter
-Disallow: /seconnectercl
-Disallow: /LogoutButton
-Disallow: /sessionsecur
-
-# Pages/outils techniques (si tu veux éviter l’indexation)
-Disallow: /elementList
-Disallow: /listec
-Disallow: /contact2
- 
-
 Sitemap: https://www.aod-avocats.com/sitemap.xml

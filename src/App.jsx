@@ -49,8 +49,9 @@ import ProtectedRoute from "./Communicbck/identification/ProtectedRoute ";
 import LoginFormclient from "./Communicbck/identification/LoginFormclient";
 import Profiledmin from "./Communicbck/Profile/Profiledmin";
 import EquipeCabinet from "./Mouvements/Equipe/Equipe";
+import EquipeCabinetProfilePage from "./Mouvements/Equipe/EquipeCabinetProfilePage";
 //import Broullons from "./Brouillon";
-
+ 
 function App() {
   return (
     <BrowserRouter>
@@ -58,6 +59,11 @@ function App() {
       <StructuredData />
       <FloatingButton />
       <Routes>
+        <Route
+          path="/equipe-cabinet/:slug"
+          element={<EquipeCabinetProfilePage />}
+        />
+
         <Route index element={<Accueil />} />
         <Route path="*" element={<Petitecrandeux />} />
         {/**pge d'erreur */}
@@ -122,10 +128,9 @@ function App() {
         <Route path="/seconnecter" element={<LoginForm />} />
         <Route path="/seconnectercl" element={<LoginFormclient />} />
 
-        
-       <Route path="/Profiledmin" element={<Profiledmin />} />
+        <Route path="/Profiledmin" element={<Profiledmin />} />
         {/*  <Route path="/sessionsecur" element={<AdminSecurityMonitor />} />
-*/}
+         */}
 
         <Route
           path="/LogoutButton"

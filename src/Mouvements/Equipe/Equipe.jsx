@@ -1,5 +1,5 @@
 // src/pages/EquipeCabinetPage.jsx
-import React, { lazy, useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
@@ -15,8 +15,7 @@ import {
   MapPin,
   ArrowUpRight,
 } from "lucide-react";
-
-// const Footer = lazy(() => import("../Accueil/Footerr"));
+import { useNavigate } from "react-router-dom";
 
 import { images } from "../../assets/images";
 import bdoul from "../../assets/bdoul.jpeg";
@@ -33,10 +32,12 @@ import SEO from "../../DynmikSeo2026";
 
 /* =========================================================
    DONNÉES (EXEMPLE) — remplace par l’équipe AOD-Avocats
+   IMPORTANT : on ajoute "slug" pour /equipe-cabinet/:slug
 ========================================================= */
 const TEAM_MEMBERS = [
   {
     id: "m-1",
+    slug: "me-amadou-oury-diallo",
     fullName: "Me Amadou Oury Diallo",
     role: "Avocat",
     title: "Avocat au Barreau",
@@ -60,6 +61,7 @@ const TEAM_MEMBERS = [
   },
   {
     id: "m-2",
+    slug: "abdoulaye-bangoura",
     fullName: "M. Abdoulaye Bangoura",
     role: "Juriste",
     title: "Juriste-Conseil",
@@ -81,6 +83,7 @@ const TEAM_MEMBERS = [
   },
   {
     id: "m-3",
+    slug: "paul-asterix-lamah",
     fullName: "M Paul Astérix LAMAH",
     role: "Juriste",
     title: "Juriste conseil",
@@ -99,6 +102,7 @@ const TEAM_MEMBERS = [
   },
   {
     id: "m-4",
+    slug: "abdoulaye-keita",
     fullName: " M. Abdoulaye Keita",
     role: "Juriste",
     title: "Juriste-Conseil",
@@ -132,6 +136,7 @@ const TEAM_MEMBERS = [
   },
   {
     id: "m-5",
+    slug: "kadiatou-camara",
     fullName: "M. Kadiatou Camara",
     role: "Stagiaire Juriste",
     title: "Juriste-Conseil",
@@ -158,6 +163,7 @@ const TEAM_MEMBERS = [
   },
   {
     id: "m-6",
+    slug: "fatoumata-keita",
     fullName: "M Fatoumata Keita",
     role: "Juriste",
     title: "Juriste-Conseil",
@@ -174,6 +180,7 @@ const TEAM_MEMBERS = [
   },
   {
     id: "m-7",
+    slug: "naromba-keita",
     fullName: "Naromba Keita",
     role: "Secretaire",
     title: "Secretaire",
@@ -206,11 +213,23 @@ function initialsFromName(name = "") {
   return (a + b).toUpperCase();
 }
 
+// slugify robuste (accents, espaces, ponctuation)
+function slugify(input = "") {
+  return String(input)
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
+
 /* =========================================================
    COMPONENT
 ========================================================= */
 export default function EquipeCabinetPage() {
   const reduceMotion = useReducedMotion();
+  const navigate = useNavigate();
 
   const [query, setQuery] = useState("");
   const [roleFilter, setRoleFilter] = useState("Tous");
@@ -228,17 +247,14 @@ export default function EquipeCabinetPage() {
     []
   );
 
-  // ✅ SEO (aucun impact UI)
+  // ✅ SEO
   const seoCanonicalUrl = "https://www.aod-avocats.com/equipe-cabinet";
-
   const seoTitle =
     "Notre Équipe | AOD AVOCATS — Cabinet d’avocats à Conakry (Guinée)";
-
   const seoDescription =
     "Découvrez l’équipe AOD AVOCATS : avocats et juristes à Conakry (Guinée). Conseil, contentieux, droit des affaires, contrats, droit pénal, droit minier, conformité et accompagnement stratégique.";
 
   const seoKeywords = useMemo(() => {
-    // Requêtes fréquentes tapées sur Google (intention + local)
     const googleIntent = [
       "avocat",
       "cabinet avocat",
@@ -324,7 +340,6 @@ export default function EquipeCabinetPage() {
       "droit maritime",
     ];
 
-    // Dynamique (membres / rôles / domaines)
     const names = TEAM_MEMBERS.map((m) => m.fullName).filter(Boolean);
     const rolesK = Array.from(new Set(TEAM_MEMBERS.map((m) => m.role).filter(Boolean)));
     const areasK = Array.from(
@@ -335,7 +350,6 @@ export default function EquipeCabinetPage() {
       )
     );
 
-    // Assemble + dédoublonnage
     const all = [
       ...brand,
       ...local,
@@ -348,10 +362,7 @@ export default function EquipeCabinetPage() {
       .map((s) => String(s).trim())
       .filter(Boolean);
 
-    const uniq = Array.from(new Set(all));
-
-    // Meta keywords n’est pas “magique”, mais on l’aligne sur tes intentions de recherche
-    return uniq.join(", ");
+    return Array.from(new Set(all)).join(", ");
   }, []);
 
   const seoOgImage = useMemo(() => {
@@ -366,6 +377,7 @@ export default function EquipeCabinetPage() {
       "@type": "Person",
       name: m.fullName,
       jobTitle: m.title || m.role,
+      url: `https://www.aod-avocats.com/equipe-cabinet/${m.slug || slugify(m.fullName)}`,
       email: m.email ? `mailto:${String(m.email).trim()}` : undefined,
       telephone: m.phone ? String(m.phone).trim() : undefined,
       address: m.location
@@ -377,7 +389,6 @@ export default function EquipeCabinetPage() {
         : undefined,
     }));
 
-    // On renvoie un tableau JSON-LD (valide) : LegalService + WebPage + Breadcrumbs
     return [
       {
         "@context": "https://schema.org",
@@ -459,14 +470,11 @@ export default function EquipeCabinetPage() {
 
   // Focus sur le dialog à l’ouverture
   useEffect(() => {
-    if (selected && dialogRef.current) {
-      dialogRef.current.focus();
-    }
+    if (selected && dialogRef.current) dialogRef.current.focus();
   }, [selected]);
 
   return (
     <Page>
-      {/* ✅ SEO intégré (n'affecte pas tes textes/couleurs/fonctionnalités) */}
       <SEO
         title={seoTitle}
         description={seoDescription}
@@ -572,8 +580,8 @@ export default function EquipeCabinetPage() {
               <strong>{filtered.length}</strong>
             </MetaPill>
             <MetaHint>
-              Survole une photo pour lire un extrait, clique pour la biographie
-              complète.
+              Survole une photo pour lire un extrait. Clique sur “Voir le profil”
+              pour ouvrir la page du profil.
             </MetaHint>
           </ToolbarMeta>
         </Toolbar>
@@ -604,81 +612,100 @@ export default function EquipeCabinetPage() {
             animate={reduceMotion ? false : { opacity: 1 }}
             transition={{ duration: 0.35 }}
           >
-            {filtered.map((m, idx) => (
-              <MemberCard
-                key={m.id}
-                as={motion.article}
-                initial={reduceMotion ? false : { opacity: 0, y: 10 }}
-                animate={reduceMotion ? false : { opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.35,
-                  delay: Math.min(idx * 0.04, 0.18),
-                }}
-                onClick={() => setSelected(m)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") setSelected(m);
-                }}
-                aria-label={`Ouvrir la biographie de ${m.fullName}`}
-              >
-                {/* PHOTO (GRANDE) + OVERLAY BIO AU SURVOL */}
-                <PhotoFrame aria-hidden="false">
-                  {m.photoUrl ? (
-                    <PhotoImg src={m.photoUrl} alt={m.fullName} />
-                  ) : (
-                    <PhotoFallback>{initialsFromName(m.fullName)}</PhotoFallback>
-                  )}
+            {filtered.map((m, idx) => {
+              const memberSlug = m.slug || slugify(m.fullName);
 
-                  <PhotoOverlay aria-hidden="true">
-                    <OverlayTop>
-                      <OverlayRole>{m.role}</OverlayRole>
-                      <OverlayChip>
-                        <MapPin size={14} />
-                        <span>{m.location || "—"}</span>
-                      </OverlayChip>
-                    </OverlayTop>
+              return (
+                <MemberCard
+                  key={m.id}
+                  as={motion.article}
+                  initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+                  animate={reduceMotion ? false : { opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.35,
+                    delay: Math.min(idx * 0.04, 0.18),
+                  }}
+                  onClick={() => setSelected(m)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") setSelected(m);
+                  }}
+                  aria-label={`Ouvrir la fiche de ${m.fullName}`}
+                >
+                  <PhotoFrame aria-hidden="false">
+                    {m.photoUrl ? (
+                      <PhotoImg src={m.photoUrl} alt={m.fullName} className="photoImg" />
+                    ) : (
+                      <PhotoFallback>{initialsFromName(m.fullName)}</PhotoFallback>
+                    )}
 
-                    <OverlayBio>{m.bioShort}</OverlayBio>
+                    <PhotoOverlay aria-hidden="true">
+                      <OverlayTop>
+                        <OverlayRole>{m.role}</OverlayRole>
+                        <OverlayChip>
+                          <MapPin size={14} />
+                          <span>{m.location || "—"}</span>
+                        </OverlayChip>
+                      </OverlayTop>
 
-                    <OverlayBottom>
-                      <OverlayMini>
-                        <Languages size={14} />
-                        <span>{(m.languages || []).join(", ") || "—"}</span>
-                      </OverlayMini>
-                      <OverlayCTA>
-                        <span>Apropos</span>
-                        <ArrowUpRight size={18} />
-                      </OverlayCTA>
-                    </OverlayBottom>
-                  </PhotoOverlay>
+                      <OverlayBio>{m.bioShort}</OverlayBio>
 
-                  <PhotoSheen aria-hidden="true" />
-                </PhotoFrame>
+                      <OverlayBottom>
+                        <OverlayMini>
+                          <Languages size={14} />
+                          <span>{(m.languages || []).join(", ") || "—"}</span>
+                        </OverlayMini>
 
-                {/* INFOS SOUS LA PHOTO */}
-                <CardContent>
-                  <NameRow>
-                    <Name>{m.fullName}</Name>
-                    <TitlePill>{m.title}</TitlePill>
-                  </NameRow>
+                        {/* ✅ Remplace “Apropos” par “Voir le profil” et navigue vers /equipe-cabinet/:slug */}
+                        <OverlayCTAButton
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            navigate(`/equipe-cabinet/${memberSlug}`);
+                          }}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              navigate(`/equipe-cabinet/${memberSlug}`);
+                            }
+                          }}
+                          aria-label={`Voir le profil de ${m.fullName}`}
+                        >
+                          <span>Voir le profil</span>
+                          <ArrowUpRight size={18} />
+                        </OverlayCTAButton>
+                      </OverlayBottom>
+                    </PhotoOverlay>
 
-                  <TagsRow>
-                    {(m.practiceAreas || []).slice(0, 3).map((t) => (
-                      <Tag key={t}>{t}</Tag>
-                    ))}
-                    {(m.practiceAreas || []).length > 3 ? (
-                      <TagMuted>+{(m.practiceAreas || []).length - 3}</TagMuted>
-                    ) : null}
-                  </TagsRow>
-                </CardContent>
-              </MemberCard>
-            ))}
+                    <PhotoSheen aria-hidden="true" className="photoSheen" />
+                  </PhotoFrame>
+
+                  <CardContent>
+                    <NameRow>
+                      <Name>{m.fullName}</Name>
+                      <TitlePill>{m.title}</TitlePill>
+                    </NameRow>
+
+                    <TagsRow>
+                      {(m.practiceAreas || []).slice(0, 3).map((t) => (
+                        <Tag key={t}>{t}</Tag>
+                      ))}
+                      {(m.practiceAreas || []).length > 3 ? (
+                        <TagMuted>+{(m.practiceAreas || []).length - 3}</TagMuted>
+                      ) : null}
+                    </TagsRow>
+                  </CardContent>
+                </MemberCard>
+              );
+            })}
           </Grid>
         )}
       </Shell>
 
-      {/* MODAL — BIO */}
+      {/* MODAL — BIO (optionnel, tu peux le garder) */}
       <AnimatePresence>
         {selected ? (
           <Overlay
@@ -708,10 +735,7 @@ export default function EquipeCabinetPage() {
                 <DialogIdentity>
                   <DialogAvatar>
                     {selected.photoUrl ? (
-                      <DialogAvatarImg
-                        src={selected.photoUrl}
-                        alt={selected.fullName}
-                      />
+                      <DialogAvatarImg src={selected.photoUrl} alt={selected.fullName} />
                     ) : (
                       <DialogAvatarFallback>
                         {initialsFromName(selected.fullName)}
@@ -739,7 +763,7 @@ export default function EquipeCabinetPage() {
 
               <DialogGrid>
                 <DialogSection>
-                  <SectionTitle>A propos</SectionTitle>
+                  <SectionTitle>À propos</SectionTitle>
                   <Paragraph>{selected.bioLong}</Paragraph>
                 </DialogSection>
 
@@ -774,11 +798,15 @@ export default function EquipeCabinetPage() {
                     <SideTitle>Coordonnées</SideTitle>
                     <ContactLine>
                       <Mail size={16} />
-                      <a href={`mailto:${selected.email}`}>{selected.email}</a>
+                      <a href={`mailto:${String(selected.email || "").trim()}`}>
+                        {String(selected.email || "").trim()}
+                      </a>
                     </ContactLine>
                     <ContactLine>
                       <Phone size={16} />
-                      <a href={`tel:${selected.phone}`}>{selected.phone}</a>
+                      <a href={`tel:${String(selected.phone || "").replace(/\s+/g, "")}`}>
+                        {String(selected.phone || "").trim()}
+                      </a>
                     </ContactLine>
                     <ContactLine>
                       <MapPin size={16} />
@@ -800,6 +828,18 @@ export default function EquipeCabinetPage() {
               </DialogGrid>
 
               <DialogFooter>
+                {/* ✅ Bouton profil aussi dans le modal */}
+                <PrimaryButton
+                  type="button"
+                  onClick={() => {
+                    const s = selected.slug || slugify(selected.fullName);
+                    setSelected(null);
+                    navigate(`/equipe-cabinet/${s}`);
+                  }}
+                >
+                  Voir le profil
+                </PrimaryButton>
+
                 <SecondaryButton type="button" onClick={() => setSelected(null)}>
                   Fermer
                 </SecondaryButton>
@@ -1184,9 +1224,6 @@ const PhotoImg = styled.img.attrs({
   transform: scale(1);
   transition: transform 0.45s ease, filter 0.45s ease;
   will-change: transform;
-
-  &.photoImg {
-  }
 `;
 
 const PhotoFallback = styled.div`
@@ -1323,7 +1360,8 @@ const OverlayMini = styled.div`
   }
 `;
 
-const OverlayCTA = styled.div`
+// ✅ CTA cliquable (button) pour navigation
+const OverlayCTAButton = styled.button`
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -1333,9 +1371,20 @@ const OverlayCTA = styled.div`
   border-radius: 999px;
   border: 1px solid rgba(135, 206, 235, 0.22);
   background: rgba(135, 206, 235, 0.1);
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(135, 206, 235, 0.14);
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.18);
+  }
 `;
 
-const PhotoSheen = styled.div.attrs({ className: "photoSheen" })`
+const PhotoSheen = styled.div`
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -1666,6 +1715,28 @@ const DialogFooter = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
+`;
+
+const PrimaryButton = styled.button`
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(135, 206, 235, 0.22);
+  background: rgba(135, 206, 235, 0.12);
+  color: ${colors.skyBlue};
+  font-weight: 900;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(135, 206, 235, 0.16);
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.18);
+  }
 `;
 
 const SecondaryButton = styled.button`

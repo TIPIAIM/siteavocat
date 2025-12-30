@@ -3,7 +3,15 @@ import React, { useMemo } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, Mail, Phone, MapPin, Languages, BriefcaseBusiness, BadgeCheck } from "lucide-react";
+import {
+  ArrowLeft,
+  Mail,
+  Phone,
+  MapPin,
+  Languages,
+  BriefcaseBusiness,
+  BadgeCheck,
+} from "lucide-react";
 
 import { images } from "../../assets/images";
 import bdoul from "../../assets/bdoul.jpeg";
@@ -43,6 +51,7 @@ const TEAM_MEMBERS = [
       "Certificat — Techniques de plaidoirie",
     ],
   },
+
   {
     id: "aod-2",
     slug: "abdoulaye-bangoura",
@@ -53,67 +62,71 @@ const TEAM_MEMBERS = [
     languages: ["Français"],
     location: "Hamdalllaye /Conakry ",
     email: "contact@aod-avocats.com",
-    phone: "+224 621 40 12 13",
+    phone: "+224  621 40 12 13 ",
     photoUrl: images.mbangou,
     bioShort:
-      "Abdoulaye BANGOUTRA est juriste collaborateur au sein du cabinet AOD AVOCATS.",
+      " Abdoulaye BANGOUTRA est juriste collaborateur  au sein du cabinet AOD AVOCATS. Titulaire d'une Maîtrise en Droit  de l'Université Général Lansana CONTE de Sonfonia, Conakry. il poursuit actuellement un Master en droit des affaires et du Contentieux. Il a exercé en qualité de Juriste Interne  au sein du Cabinet  KLG de 2012 à 2022. il a été également été membre de la Commission Electorale de la Fédération Guinéenne de Football.",
     bioLong:
-      "Abdoulaye BANGOUTRA est juriste collaborateur au sein du cabinet AOD AVOCATS. Titulaire d'une Maîtrise en Droit de l'Université Général Lansana CONTE de Sonfonia, Conakry. Il poursuit actuellement un Master en droit des affaires et du Contentieux. Il a exercé en qualité de Juriste Interne au sein du Cabinet KLG de 2012 à 2022. Il a été également membre de la Commission Electorale de la Fédération Guinéenne de Football.",
+      "Abdoulaye BANGOUTRA est juriste collaborateur  au sein du cabinet AOD AVOCATS. Titulaire d'une Maîtrise en Droit  de l'Université Général Lansana CONTE de Sonfonia, Conakry. il poursuit actuellement un Master en droit des affaires et du Contentieux. Il a exercé en qualité de Juriste Interne  au sein du Cabinet  KLG de 2012 à 2022. il a été également été membre de la Commission Electorale de la Fédération Guinéenne de Football. ",
     highlights: ["Veille & notes", "Qualité documentaire", "Conformité"],
     credentials: [
-      "Licence — Droit public (Université Général Lansana Conté)",
-      "Master en droit des affaires et du contentieux (en cours)",
+      "Licence — Droit public (’université de général lansana conte)",
+      " Master en droit des affaires et du contentieux en cours",
     ],
   },
   {
     id: "aod-3",
     slug: "paul-asterix-lamah",
     fullName: "M. Paul Astérix LAMAH",
-    role: "Juriste",
-    title: "Juriste-Conseil",
-    practiceAreas: ["Droit des affaires", "Contentieux", "Droit minier & énergie"],
-    languages: ["Français", "Anglais (intermédiaire)"],
-    location: "Conakry",
-    email: "paul.lamah5815@icloud.com",
-    phone: "+224 620 32 26 20",
-    photoUrl: pol,
-    bioShort:
-      "Juriste orienté droit des affaires et enjeux contemporains de l’entreprise.",
-    bioLong:
-      "Paul Astérix LAMAH est collaborateur au sein du cabinet AOD AVOCATS, où il exerce en qualité de juriste avec une orientation affirmée vers le droit des affaires et les enjeux juridiques contemporains de l’entreprise. Il intervient en conseil et en contentieux (création/structuration de sociétés, gouvernance, recouvrement). Il accompagne également sur le droit minier, l’immobilier, le maritime, le social, et les sujets RSE/environnement/contenu local.",
-    highlights: ["Négociations", "Rédaction", "Structuration juridique"],
-    credentials: ["Licence en droit des affaires", "Master 2 (parcours droit privé)"],
+      role: "Juriste",
+      title: "Juriste conseil",
+      practiceAreas: ["Droit des affaires ", "Contentieux", "Droit Minier et énergie "],
+      languages: ["Français", "Anglais(intermédiaire)"],
+      location: "Conakry",
+      email: " paul.lamah5815@icloud.com",
+      phone: "+224 620 32 26 20 ",
+      photoUrl: pol, // images.moe0311
+      bioShort:
+        "Paul Astérix LAMAH est collaborateur au sein du cabinet AOD AVOCATS, où il exerce en qualité de juriste avec une orientation affirmée vers le droit des affaires et les enjeux juridiques contemporains de l’entreprise. Il a récemment assisté une multinationale du secteur de l’énergie dans une restructuration sociale d’envergure, et contribué avec succès à la conclusion d’une transaction stratégique pour une compagnie minière, portant sur un enjeu financier de 2 millions de dollars, en collaboration avec la marine marchande et les autorités minières. ",
+      bioLong:
+        "Paul Astérix LAMAH est collaborateur au sein du cabinet AOD AVOCATS, où il exerce en qualité de juriste avec une orientation affirmée vers le droit des affaires et les enjeux juridiques contemporains de l’entreprise.Titulaire d’une Licence en droit des affaires et d’un Master en droit privé fondamental de l’Université Général Lansana Conté, il poursuit actuellement la finalisation de son parcours académique à travers un mémoire portant sur « La fusion des sociétés commerciales », illustrant son intérêt pour les mécanismes juridiques de transformation et de croissance des sociétés. Il assiste, en conseil, aussi bien les particuliers que les opérateurs économiques dans la création et la structuration de sociétés, les restructurations, ainsi que la gouvernance d’entreprise. Il intervient également dans le cadre des contentieux civils et commerciaux, incluant les procédures de recouvrement de créances. Sensible aux enjeux sociaux et environnementaux, Paul accompagne par ailleurs les entreprises dans les domaines du droit minier, du droit immobilier, du droit maritime, du droit social, ainsi que sur les questions de Responsabilité Sociétale des Entreprises (RSE), d’environnement et de contenu local, qui constituent le cœur de son engagement professionnel.",
+      highlights: [" Négociations ", "rédaction"],
+      credentials: [" Licence en droit des affaires , Master 2 "],
+  
   },
   {
     id: "aod-4",
     slug: "abdoulaye-keita",
     fullName: "M. Abdoulaye Keita",
-    role: "Juriste",
-    title: "Juriste-Conseil",
-    practiceAreas: [
-      "Analyse juridique",
-      "Procédure pénale",
-      "Suivi des procédures",
-      "Relation client",
-    ],
-    languages: ["Français", "Anglais (débutant)"],
-    location: "Conakry",
-    email: "contact@aod-avocats.com",
-    phone: "+224 621 10 02 84",
-    photoUrl: bdoul,
-    bioShort: "Juriste-conseil chargé des dossiers de droit pénal.",
-    bioLong:
-      "Abdoulaye KEITA est juriste-conseil au sein du cabinet AOD AVOCATS, chargé du traitement des affaires pénales. Il intervient à toutes les étapes (précontentieux et contentieux), en appui aux avocats du cabinet, avec pour priorité la protection des droits et intérêts des clients.",
-    highlights: [
-      "Droit pénal & contentieux pénal",
-      "Infractions économiques et financières",
-      "Cybersécurité & cybercriminalité",
-      "Suivi des procédures répressives",
-    ],
-    credentials: [
-      "Licence en droit privé",
-      "Master de droit privé fondamental (en cours) — Université Général Lansana Conté",
-    ],
+     role: "Juriste",
+       title: "Juriste-Conseil",
+       practiceAreas: [
+         "Aanalyse juridique",
+         "Procédure pénale",
+         "Suivi méthodique des procédures",
+         "Relation client",
+       ],
+       languages: ["Français", "Anglais(débutant)"],
+       location: "Conakry",
+       email: "contact@aod-avocats.com",
+       phone: "+224 621 10 02 84",
+       photoUrl: bdoul, //images.abdoulayeavoc
+       bioShort:
+         "Abdoulaye KEITA est juriste-conseil au sein du cabinet AOD AVOCATS, où il est chargé du traitement des dossiers relevant du droit pénal. Il intervient à toutes les étapes de la procédure pénale, tant au stade précontentieux que contentieux, en appui aux avocats du cabinet, avec pour priorité la protection des droits et intérêts des clients.",
+       bioLong:
+         "Abdoulaye KEITA Juriste-Conseil – Chargé des affaires pénales Cabinet AOD AVOCATS Abdoulaye KEITA est juriste-conseil au sein du cabinet AOD AVOCATS, où il est chargé du traitement des affaires pénales. Il intervient à toutes les étapes de la procédure pénale, tant au stade précontentieux que contentieux, en appui à l’avocat du cabinet, en veillant à la protection des droits et intérêts des clients. Titulaire d’une Licence en droit privé, spécialisation carrière judiciaire à l’université Général Lansana CONTE de Sonfonia-Conakry, il est actuellement auditeur en Master de droit privé fondamental dans la même Université. Sa formation universitaire, alliée à une pratique soutenue en cabinet, lui permet d’aborder les dossiers pénaux avec méthode, rigueur et sens stratégique.Au sein du cabinet, il participe notamment à l’analyse juridique des infractions et des faits poursuivis, à la préparation, le suivi et la coordination des procédures pénales (enquêtes, instructions et audiences), la rédaction de notes juridiques, plaintes, dénonciations et mémoires pénaux, l’assistance juridique des clients impliqués dans des procédures pénales, le suivi des dossiers devant les juridictions répressives compétentes. Son champ d’intervention couvre aussi bien les infractions de droit commun que les infractions économiques et financières, avec un intérêt particulier pour les questions liées au blanchiment de capitaux, aux atteintes au patrimoine et aux infractions commises dans le cadre des activités professionnelles. Reconnu pour sa discrétion, sa discipline professionnelle et sa capacité d’analyse, Abdoulaye KEITA inscrit son action dans une démarche de défense rigoureuse et éthique des droits des clients, dans le strict respect des règles de procédure pénale et des exigences déontologiques du cabinet. ",
+       highlights: [
+         "Droit pénal",
+         "Contentieux pénal",
+         "Infractions économiques et -",
+         "financière",
+         "Cybersécurité",
+         "Cybercriminalité ",
+         "Suivi des procédures répressives",
+       ],
+       credentials: [
+         "Licence en droit privé — Master de droit privé fondamental(en start) à l’université Général Lansana CONTE de Sonfonia-Conakry,",
+       ],
   },
   {
     id: "aod-5",
@@ -134,7 +147,11 @@ const TEAM_MEMBERS = [
     photoUrl: images.keitaseul2,
     bioShort: "",
     bioLong: "",
-    highlights: ["Analyse & orientation", "Accueil & relation client", "Confidentialité"],
+    highlights: [
+      "Analyse & orientation",
+      "Accueil & relation client",
+      "Confidentialité",
+    ],
     credentials: ["Diplômée en droit — spécialisation carrières judiciaires"],
   },
   {
@@ -151,7 +168,11 @@ const TEAM_MEMBERS = [
     photoUrl: Fatoumata,
     bioShort: " ",
     bioLong: " ",
-    highlights: ["Accueil & relation client", "Coordination", "Confidentialité"],
+    highlights: [
+      "Accueil & relation client",
+      "Coordination",
+      "Confidentialité",
+    ],
     credentials: ["Formation — Administration"],
   },
   {
@@ -168,7 +189,11 @@ const TEAM_MEMBERS = [
     photoUrl: images.naroumb,
     bioShort: " ",
     bioLong: " ",
-    highlights: ["Accueil & relation client", "Coordination", "Confidentialité"],
+    highlights: [
+      "Accueil & relation client",
+      "Coordination",
+      "Confidentialité",
+    ],
     credentials: ["Formation — Administration"],
   },
 ];
@@ -184,7 +209,10 @@ export default function EquipeCabinetProfilePage() {
   const reduceMotion = useReducedMotion();
   const { slug } = useParams();
 
-  const member = useMemo(() => TEAM_MEMBERS.find((m) => m.slug === slug), [slug]);
+  const member = useMemo(
+    () => TEAM_MEMBERS.find((m) => m.slug === slug),
+    [slug]
+  );
 
   const SITE_URL = "https://www.aod-avocats.com";
   const LIST_PATH = "/equipe-cabinet";
@@ -230,11 +258,17 @@ export default function EquipeCabinetProfilePage() {
   const name = member.fullName?.trim();
   const jobTitle = (member.title || member.role || "Avocat").trim();
   const location = (member.location || "Conakry").trim();
-  const areas = (member.practiceAreas || []).map((a) => String(a).trim()).filter(Boolean);
-  const languages = (member.languages || []).map((l) => String(l).trim()).filter(Boolean);
+  const areas = (member.practiceAreas || [])
+    .map((a) => String(a).trim())
+    .filter(Boolean);
+  const languages = (member.languages || [])
+    .map((l) => String(l).trim())
+    .filter(Boolean);
 
   const seoTitle = `${name} | ${jobTitle} à ${location} | AOD AVOCATS`;
-  const seoDescription = `Découvrez ${name}, ${jobTitle} du cabinet AOD AVOCATS à ${location}. Domaines : ${areas.slice(0, 6).join(", ") || "—"}. Contact et prise de rendez-vous.`;
+  const seoDescription = `Découvrez ${name}, ${jobTitle} du cabinet AOD AVOCATS à ${location}. Domaines : ${
+    areas.slice(0, 6).join(", ") || "—"
+  }. Contact et prise de rendez-vous.`;
 
   const seoKeywords = useMemo(() => {
     const base = [
@@ -273,7 +307,10 @@ export default function EquipeCabinetProfilePage() {
     return Array.from(new Set(all)).join(", ");
   }, [name, jobTitle, location, areas, languages]);
 
-  const ogImage = typeof member.photoUrl === "string" && member.photoUrl.trim() ? member.photoUrl : undefined;
+  const ogImage =
+    typeof member.photoUrl === "string" && member.photoUrl.trim()
+      ? member.photoUrl
+      : undefined;
 
   const schema = useMemo(() => {
     // Breadcrumb schema + Person + LegalService
@@ -318,7 +355,9 @@ export default function EquipeCabinetProfilePage() {
           url: canonicalUrl,
           image: ogImage,
           worksFor: { "@id": `${SITE_URL}#legalservice` },
-          email: member.email ? `mailto:${String(member.email).trim()}` : undefined,
+          email: member.email
+            ? `mailto:${String(member.email).trim()}`
+            : undefined,
           telephone: member.phone ? String(member.phone).trim() : undefined,
           knowsAbout: areas.length ? areas : undefined,
           address: {

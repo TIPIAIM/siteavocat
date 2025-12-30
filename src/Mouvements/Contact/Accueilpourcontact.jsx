@@ -159,9 +159,9 @@ export default function Headercontact() {
             <span>contact@aod-avocats.com</span>
           </InfoChip>
 
-          <InfoChip as="a" href="tel:+224624135550" title="Appeler le cabinet">
+          <InfoChip as="a" href="tel:+224622253536" title="Appeler le cabinet">
             <Phone size={16} />
-            <span>+224 624 13 55 50</span>
+            <span>+224 622 25 35 36</span>
           </InfoChip>
 
           <InfoChip as="button" type="button" onClick={() => scrollToId("contact-map")} title="Voir l’adresse">

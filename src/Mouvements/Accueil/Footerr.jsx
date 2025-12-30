@@ -1,3 +1,7 @@
+// src/pages/Accueil/Footerr.jsx
+import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
+import styled, { keyframes } from "styled-components";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   Phone,
   Mail,
@@ -5,778 +9,756 @@ import {
   ArrowUp,
   Check,
   Facebook,
-  Twitter,
   Instagram,
   Scale,
   Shield,
   FileText,
   X,
 } from "lucide-react";
-import styled, { keyframes } from "styled-components";
-import React, { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { colors } from "../../Styles/colors"; // ✅ IMPORTANT: import nommé
 
-// Points de rupture pour différents appareils
-const breakpoints = {
-  smallPhone: 375,
+// Breakpoints
+const bp = {
   phone: 480,
   tablet: 768,
   laptop: 1024,
-  desktop: 1200,
-  largeDesktop: 1440,
 };
 
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
+const glowShift = keyframes`
+  0%, 100% { transform: translate3d(0,0,0); opacity: .55; }
+  50% { transform: translate3d(14px,-10px,0); opacity: .85; }
 `;
 
-const slideUp = keyframes`
-  from { transform: translateY(20px); }
-  to { transform: translateY(0); }
+const shimmer = keyframes`
+  0% { background-position: -220px 0; }
+  100% { background-position: 220px 0; }
 `;
 
-const LegalLinks = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    margin-top: 2rem;
-  }
-
-  button {
-    color: #90e0ef;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 0.8rem;
-    transition: color 0.3s ease;
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 0;
-    white-space: nowrap;
-
-    @media (min-width: ${breakpoints.tablet}px) {
-      font-size: 0.9rem;
-    }
-
-    &:hover {
-      color: #00b4d8;
-      text-decoration: none;
-    }
-
-    svg {
-      margin-right: 0.5rem;
-      min-width: 16px;
-    }
-  }
-`;
-
-const CopyrightSection = styled.div`
-  text-align: center;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(0, 180, 216, 0.2);
-  color: #90e0ef;
-  font-size: 0.8rem;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    font-size: 0.9rem;
-  }
-`;
-
-const BackToTop = styled.div`
-  text-align: center;
-  margin-top: 1.5rem;
-`;
-
-const FooterContainer = styled.footer`
-  background-color: #1a365d;
-  color: #e5e7eb;
-  padding: 2rem 0;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    padding: 3rem 0;
-  }
-  @media (min-width: ${breakpoints.phone}px) {
-    padding: 0 1.5rem;
-  }
-`;
-
-const FooterGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-
-  @media (min-width: ${breakpoints.phone}px) {
-    padding: 0 1.5rem;
-  }
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  @media (min-width: ${breakpoints.laptop}px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-`;
-
-const FooterSection = styled.div`
-  padding: 0.5rem;
-  margin-top: 3rem;
-  @media (min-width: ${breakpoints.tablet}px) {
-    padding: 1rem;
-  }
-  @media (max-width: 768px) {
-    margin-left: 1rem;
-    margin-top: 0.5rem;
-  }
-`;
-
-const SectionTitle = styled.h3`
-  color: #90e0ef;
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  position: relative;
-  padding-bottom: 0.5rem;
-  cursor: pointer;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-
-  &:after {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 3px;
-    background-color: #0077b6;
-    bottom: 0;
-    left: 0;
-    transition: all 0.3s ease;
-
-    @media (min-width: ${breakpoints.tablet}px) {
-      width: 20px;
-      height: 4px;
-    }
-  }
-
-  &:hover:after {
-    width: 35%; /* La barre s'étend sur toute la largeur */
-    background-color: #90e0ef;
-  }
-`;
-
-const ContactItem = styled.div`
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 0.8rem;
-  color: #e5e7eb;
-  font-size: 0.8rem;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-  }
-
-  svg {
-    margin-right: 0.5rem;
-    margin-top: 0.2rem;
-    min-width: 18px;
-    color: #90e0ef;
-    flex-shrink: 0;
-  }
-
-  a {
-    color: #e5e7eb;
-    transition: color 0.3s ease;
-    text-decoration: none;
-    word-break: break-word;
-
-    &:hover {
-      color: #00b4d8;
-    }
-  }
-`;
-
-const ServiceItem = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.6rem;
-  color: #e5e7eb;
-  font-size: 0.8rem;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    font-size: 0.9rem;
-    margin-bottom: 0.8rem;
-  }
-  @media (max-width: 768px) {
-    margin-top: 0.5rem;
-  }
-  svg {
-    margin-right: 0.5rem;
-    color: #2ecc71;
-    min-width: 18px;
-    flex-shrink: 0;
-  }
-`;
-
-const SocialLinks = styled.div`
-  display: flex;
-  gap: 0.8rem;
-  margin-top: 1rem;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    gap: 1rem;
-  }
-  @media (max-width: 768px) {
-    margin-top: 0.5rem;
-  }
-  a {
-    color: #e5e7eb;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.1);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    @media (min-width: ${breakpoints.tablet}px) {
-      width: 36px;
-      height: 36px;
-    }
-
-    &:hover {
-      color: #00b4d8;
-      background: rgba(0, 180, 216, 0.2);
-      transform: translateY(-3px);
-    }
-  }
-`;
-
-const MissionText = styled.p`
-  // font-style: italic;
-  color: #bdc3c7;
-  margin-top: 1rem;
-  line-height: 1.6;
-  font-size: 0.8rem;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    font-size: 0.9rem;
-  }
-`;
-
-const BackToTopLink = styled.a`
-  color: #90e0ef;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 0.8rem;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  border: 1px solid rgba(144, 224, 239, 0.3);
-  border-radius: 4px;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    font-size: 0.9rem;
-  }
-
-  &:hover {
-    color: #00b4d8;
-    border-color: #00b4d8;
-    background: rgba(0, 180, 216, 0.1);
-  }
-
-  svg {
-    margin-left: 0.5rem;
-  }
-`;
-
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  padding: 1rem;
-  animation: ${fadeIn} 0.3s ease-out;
-  backdrop-filter: blur(5px);
-`;
-
-const ModalContent = styled.div`
-  background: #1a365d;
-  border-radius: 8px;
-  width: 95%;
-  max-width: 800px;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 1.5rem;
-  position: relative;
-  border: 1px solid rgba(0, 180, 216, 0.3);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  animation: ${slideUp} 0.3s ease-out;
-
-  @media (min-width: ${breakpoints.phone}px) {
-    width: 90%;
-    padding: 2rem;
-  }
-`;
-
-const ModalTitle = styled.h3`
-  color: #90e0ef;
-  font-size: 1.3rem;
-  margin-bottom: 1.2rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(0, 180, 216, 0.3);
-  display: flex;
-  align-items: center;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  svg {
-    margin-right: 10px;
-  }
-`;
-
-const ModalText = styled.div`
-  color: #e5e7eb;
-  line-height: 1.7;
-  font-size: 0.9rem;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    font-size: 1rem;
-    line-height: 1.8;
-  }
-
-  p {
-    margin-bottom: 1.2rem;
-
-    @media (min-width: ${breakpoints.tablet}px) {
-      margin-bottom: 1.5rem;
-    }
-  }
-
-  ul {
-    margin: 0.8rem 0;
-    padding-left: 1.2rem;
-
-    @media (min-width: ${breakpoints.tablet}px) {
-      margin: 1rem 0;
-      padding-left: 1.5rem;
-    }
-  }
-
-  li {
-    margin-bottom: 0.4rem;
-    position: relative;
-
-    @media (min-width: ${breakpoints.tablet}px) {
-      margin-bottom: 0.5rem;
-    }
-  }
-
-  li::before {
-    content: "•";
-    color: #00b4d8;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-  }
-
-  .highlight {
-    background-color: rgba(0, 180, 216, 0.1);
-    border-left: 3px solid #00b4d8;
-    padding: 0.8rem;
-    margin: 1.2rem 0;
-
-    @media (min-width: ${breakpoints.tablet}px) {
-      padding: 1rem;
-      margin: 1.5rem 0;
-    }
-  }
-`;
-
-const CloseButton = styled.button`
-  position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
-  background: rgba(0, 180, 216, 0.1);
-  border: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.2s ease;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    top: 1rem;
-    right: 1rem;
-    width: 40px;
-    height: 40px;
-  }
-
-  &:hover {
-    background: rgba(0, 180, 216, 0.3);
-    transform: rotate(90deg);
-  }
-
-  svg {
-    color: #90e0ef;
-  }
-`;
-// Contenu des modales
-const legalContent = {
-  mentions: {
-    title: "Mentions légales",
-    icon: <Scale size={20} />,
-    content: (
-      <>
-        <p>
-          <strong>Cabinet d'Avocats AOD AVOCATS</strong>
-        </p>
-        <p>Société civil Professionnelle d'Avocats</p>
-        <p>Immatriculée au registre de commerce : GN.TCC.2022.B.14430</p>
-
-        <div className="highlight">
-          <p>
-            <strong>Siège social : </strong>
-          </p>
-          <p>
-            Minière Cité 2ème Etage, Immeuble Yansané, Commune de Dixinn,
-            Conakry, République de Guinée
-          </p>
-        </div>
-
-        <p>
-          <strong>Directeur de la publication :</strong>
-        </p>
-        <p>Maître Amadou DIALLO, Avocat au Barreau de Guinée</p>
-
-        <p>
-          <strong>Hébergement :</strong>
-        </p>
-        <p>OVH SAS</p>
-        <p>2 rue Kellermann - 59100 Roubaix - France</p>
-
-        <p>
-          <strong>Propriété intellectuelle :</strong>
-        </p>
-        <p>
-          L'ensemble de ce site relève de la législation guinéenne et
-          internationale sur le droit d'auteur et la propriété intellectuelle.
-          Toute reproduction ou représentation totale ou partielle de ce site
-          par quelque procédé que ce soit, sans autorisation expresse, est
-          interdite et constituerait une contrefaçon sanctionnée par les
-          articles 404 et suivants du Code de la Propriété Intellectuelle.
-        </p>
-      </>
-    ),
-  },
-  confidentialite: {
-    title: "Politique de confidentialité",
-    icon: <Shield size={20} />,
-    content: (
-      <>
-        <p>
-          Le Cabinet AOD AVOCATS s'engage à protéger la confidentialité des
-          données personnelles de ses clients et visiteurs conformément à la loi
-          : LOI N*L/2016/037/AN RELATIVE À LA CYBER-SECURITE ET LA PROTECTION
-          DES DONNÉES À CARACTÈRE PERSONNEL EN RÉPUBLIQUE DE GUINÉ.
-        </p>
-
-        <div className="highlight">
-          <p>
-            <strong>Collecte des données :</strong>
-          </p>
-          <p>
-            Nous collectons uniquement les données nécessaires à la fourniture
-            de nos services juridiques :
-          </p>
-          <ul>
-            <li>Nom, prénom, coordonnées professionnelles</li>
-            <li>Informations relatives à votre demande juridique</li>
-            <li>Données de navigation (cookies strictement nécessaires)</li>
-          </ul>
-        </div>
-
-        <p>
-          <strong>Finalités du traitement :</strong>
-        </p>
-        <p>Les données collectées sont utilisées pour :</p>
-        <ul>
-          <li>Répondre à vos demandes de consultation</li>
-          <li>Fournir nos services juridiques</li>
-          <li>Respecter nos obligations légales et déontologiques</li>
-        </ul>
-
-        <p>
-          <strong>Durée de conservation :</strong>
-        </p>
-        <p>
-          Les données sont conservées pendant la durée nécessaire à la
-          réalisation des finalités pour lesquelles elles sont collectées et
-          conformément aux obligations légales applicables (notamment 10 ans
-          pour les documents comptables).
-        </p>
-
-        <div className="highlight">
-          <p>
-            <strong>Droits des personnes concernées :</strong>
-          </p>
-          <p>
-            Conformément à la loi, vous disposez des droits d'accès, de
-            rectification, de suppression et de limitation du traitement de vos
-            données. Pour exercer ces droits, veuillez nous contacter à
-            l'adresse mail du cabinet.
-          </p>
-        </div>
-      </>
-    ),
-  },
-  conditions: {
-    title: "Conditions générales",
-    icon: <FileText size={20} />,
-    content: (
-      <>
-        <p>
-          <strong>Article 1 - Objet</strong>
-        </p>
-        <p>
-          Les présentes conditions générales régissent l'utilisation du site web
-          et des services du Cabinet AOD AVOCATS.
-        </p>
-
-        <div className="highlight">
-          <p>
-            <strong>Article 2 - Consultation juridique</strong>
-          </p>
-          <p>
-            Les informations présentes sur ce site ne constituent pas un conseil
-            juridique. Une consultation formelle est nécessaire pour obtenir un
-            avis juridique adapté à votre situation. Aucune relation
-            avocat-client n'est créée par la simple consultation de ce site.
-          </p>
-        </div>
-
-        <p>
-          <strong>Article 3 - Responsabilité</strong>
-        </p>
-        <p>
-          Le Cabinet décline toute responsabilité quant à l'utilisation qui
-          pourrait être faite des informations présentes sur ce site. Les
-          contenus sont fournis à titre informatif et peuvent ne pas refléter
-          les évolutions les plus récentes de la jurisprudence ou de la
-          législation guinéenne.
-        </p>
-
-        <p>
-          <strong>Article 4 - Honoraires</strong>
-        </p>
-        <p>
-          Nos honoraires sont fixés conformément au Règlement Intérieur de la
-          Profession d'Avocat en Guinée. Un devis personnalisé est établi pour
-          chaque dossier après analyse préalable. Les modalités de paiement sont
-          convenues avec le client préalablement à toute prestation.
-        </p>
-
-        <div className="highlight">
-          <p>
-            <strong>Article 5 - Secret professionnel</strong>
-          </p>
-
-          <p>
-            Conformément à la LOI N*L/2016/037/AN RELATIVE À LA CYBER-SECURITE
-            ET LA PROTECTION DES DONNÉES À CARACTÈRE PERSONNEL EN
-            RÉPUBLIQUE DE GUINÉE
-          </p>
-        </div>
-
-        <p>
-          <strong>Article 6 - Règlement des litiges</strong>
-        </p>
-        <p>
-          En cas de litige, les parties s'engagent à rechercher une solution
-          amiable avant toute action en justice. Tout litige relatif à
-          l'interprétation ou à l'exécution des présentes conditions est soumis
-          à la compétence exclusive des tribunaux de Conakry.
-        </p>
-      </>
-    ),
-  },
-};
-
-export default function Footer() {
-  const [modalContent, setModalContent] = useState(null);
-
-  const openModal = (contentKey) => {
-    setModalContent(legalContent[contentKey]);
+export default function Footerr() {
+  const [modalKey, setModalKey] = useState(null);
+  const dialogRef = useRef(null);
+
+  const legalContent = useMemo(
+    () => ({
+      mentions: {
+        title: "Mentions légales",
+        icon: <Scale size={20} />,
+        content: (
+          <>
+            <p>
+              <strong>Cabinet d'Avocats AOD AVOCATS</strong>
+            </p>
+            <p>Société civile Professionnelle d'Avocats</p>
+            <p>Immatriculée au registre de commerce : GN.TCC.2022.B.14430</p>
+
+            <Highlight>
+              <p>
+                <strong>Siège social :</strong>
+              </p>
+              <p>
+                Minière Cité 2ème Etage, Immeuble Yansané, Commune de Dixinn,
+                Conakry, République de Guinée
+              </p>
+            </Highlight>
+
+            <p>
+              <strong>Directeur de la publication :</strong>
+            </p>
+            <p>Maître Amadou DIALLO, Avocat au Barreau de Guinée</p>
+
+            <p>
+              <strong>Hébergement :</strong>
+            </p>
+            <p>OVH SAS</p>
+            <p>2 rue Kellermann - 59100 Roubaix - France</p>
+
+            <p>
+              <strong>Propriété intellectuelle :</strong>
+            </p>
+            <p>
+              Toute reproduction totale ou partielle, sans autorisation expresse,
+              est interdite et constituerait une contrefaçon.
+            </p>
+          </>
+        ),
+      },
+
+      confidentialite: {
+        title: "Politique de confidentialité",
+        icon: <Shield size={20} />,
+        content: (
+          <>
+            <p>
+              Le Cabinet AOD AVOCATS protège vos données conformément à la loi :
+              LOI N*L/2016/037/AN relative à la cybersécurité et à la protection
+              des données à caractère personnel en République de Guinée.
+            </p>
+
+            <Highlight>
+              <p>
+                <strong>Collecte :</strong>
+              </p>
+              <ul>
+                <li>Nom, prénom, coordonnées professionnelles</li>
+                <li>Informations relatives à votre demande juridique</li>
+                <li>Données de navigation (cookies strictement nécessaires)</li>
+              </ul>
+            </Highlight>
+
+            <p>
+              <strong>Finalités :</strong>
+            </p>
+            <ul>
+              <li>Répondre à vos demandes</li>
+              <li>Fournir nos services</li>
+              <li>Respecter nos obligations légales et déontologiques</li>
+            </ul>
+          </>
+        ),
+      },
+
+      conditions: {
+        title: "Conditions générales",
+        icon: <FileText size={20} />,
+        content: (
+          <>
+            <p>
+              <strong>Article 1 - Objet</strong>
+            </p>
+            <p>
+              Les présentes conditions régissent l'utilisation du site et des
+              services du Cabinet AOD AVOCATS.
+            </p>
+
+            <Highlight>
+              <p>
+                <strong>Article 2 - Consultation</strong>
+              </p>
+              <p>
+                Les informations du site ne constituent pas un conseil juridique.
+                Une consultation formelle est nécessaire. Aucune relation
+                avocat-client n’est créée par la simple consultation du site.
+              </p>
+            </Highlight>
+
+            <p>
+              <strong>Litiges</strong>
+            </p>
+            <p>
+              Les parties privilégient une solution amiable avant toute action.
+              Compétence : tribunaux de Conakry.
+            </p>
+          </>
+        ),
+      },
+    }),
+    []
+  );
+
+  const openModal = useCallback((key) => {
+    setModalKey(key);
     document.body.style.overflow = "hidden";
-  };
-
-  const closeModal = () => {
-    setModalContent(null);
-    document.body.style.overflow = "auto";
-  };
-
-  React.useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === "Escape") {
-        closeModal();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
+
+  const closeModal = useCallback(() => {
+    setModalKey(null);
+    document.body.style.overflow = "auto";
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") closeModal();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [closeModal]);
+
+  useEffect(() => {
+    if (!modalKey) return;
+    const t = setTimeout(() => dialogRef.current?.focus?.(), 50);
+    return () => clearTimeout(t);
+  }, [modalKey]);
+
+  const goTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const current = modalKey ? legalContent[modalKey] : null;
 
   return (
     <FooterContainer>
-     
-      <FooterGrid>
-        <FooterSection>
+      <TopLine aria-hidden="true" />
+      <BgGlow aria-hidden="true" />
 
-          <SectionTitle>Nos Services</SectionTitle>
-         
-          <ServiceItem>
-            <Check size={18} />
-            <span>Consultation juridique</span>
-          </ServiceItem>
+      <Inner>
+        <Grid>
+          {/* Brand */}
+          <Card>
+            <BrandRow>
+              <BrandName>AOD AVOCATS</BrandName>
+              <BrandTag>Cabinet d’avocats</BrandTag>
+            </BrandRow>
 
-          <ServiceItem>
-            <Check size={18} />
-            <span>Représentation en justice</span>
-          </ServiceItem>
+            <BrandText>
+              Conseil, contentieux et accompagnement stratégique. Une pratique
+              fondée sur la rigueur, la confidentialité et la performance.
+            </BrandText>
 
-          <ServiceItem>
-            <Check size={18} />
-            <span>Rédaction d'actes</span>
-          </ServiceItem>
+            <Social>
+              {/* Remplace les # par tes vrais liens */}
+              <IconLink href="#" aria-label="Facebook" target="_blank" rel="noreferrer">
+                <Facebook size={18} />
+              </IconLink>
+              <IconLink href="#" aria-label="Instagram" target="_blank" rel="noreferrer">
+                <Instagram size={18} />
+              </IconLink>
+              <IconLink href="#" aria-label="X (Twitter)" target="_blank" rel="noreferrer">
+                <X size={18} />
+              </IconLink>
+            </Social>
 
-          <ServiceItem>
-            <Check size={18} />
-            <span>Conseil aux entreprises ...</span>
-          </ServiceItem>
+            <MiniHint>Votre satisfaction est notre mission.</MiniHint>
+          </Card>
 
-        </FooterSection>
-                        
-        <FooterSection>
-          <SectionTitle>Suivez-nous</SectionTitle>
-          <SocialLinks>
-            <a href="#" aria-label="Facebook">
-              <Facebook size={20} />
-            </a>
-            <a href="#" aria-label="Twitter">
-              <Twitter size={20} />
-            </a>
-            <a href="#" aria-label="Instagram">
-              <Instagram size={20} />
-            </a>
-          </SocialLinks>
-          <MissionText>Votre satisfaction est notre mission</MissionText>
-        </FooterSection>
+          {/* Services */}
+          <Card>
+            <Title>Nos services</Title>
+            <List>
+              <Row>
+                <Check size={18} />
+                <span>Consultation juridique</span>
+              </Row>
+              <Row>
+                <Check size={18} />
+                <span>Représentation en justice</span>
+              </Row>
+              <Row>
+                <Check size={18} />
+                <span>Rédaction d’actes</span>
+              </Row>
+              <Row>
+                <Check size={18} />
+                <span>Conseil aux entreprises</span>
+              </Row>
+            </List>
+          </Card>
 
-        <FooterSection>
-          <SectionTitle>Engagement</SectionTitle>
-          <MissionText>
-            Nous nous engageons à fournir des services juridiques de qualité.
-          </MissionText>
-        </FooterSection>
-        <FooterSection>
-          <SectionTitle>Contactez-nous</SectionTitle>
-          <ContactItem>
-            <MapPin size={18} />
-            <div>
-              SIEGE SOCIAL à la Minière Cité 2ème Etage,
-              <br />
-              Immeuble Yansané, Commune de Dixinn,
-              <br />
-              Conakry, République de Guinée
-            </div>
-          </ContactItem>
-          <ContactItem>
-            <Phone size={18} />
-            <a href="tel:+224622253536">+224 622 253 536</a>
-          </ContactItem>
-          <ContactItem>
-            <Mail size={18} />
-            <a href="mailto:amadou.diallo@aod-avocats.com">
-              amadou.diallo@aod-avocats.com
-            </a>
-            <a href="mailto:aodialloavocat@gmail.com">
-              aodialloavocat@gmail.com
-            </a>
-          </ContactItem>
-        </FooterSection>
-      </FooterGrid>
+          {/* Engagement */}
+          <Card>
+            <Title>Engagement</Title>
+            <Text>
+              Nous nous engageons à délivrer un service juridique de haut niveau,
+              en respectant le secret professionnel et les exigences de conformité.
+            </Text>
 
-      <LegalLinks>
-        <button onClick={() => openModal("mentions")}>
-          <Scale size={16} /> Mentions légales
-        </button>
-        <button onClick={() => openModal("confidentialite")}>
-          <Shield size={16} /> Politique de confidentialité
-        </button>
-        <button onClick={() => openModal("conditions")}>
-          <FileText size={16} /> Conditions générales
-        </button>
-      </LegalLinks>
+            <Pills>
+              <Pill>Confidentialité</Pill>
+              <Pill>Rigueur</Pill>
+              <Pill>Disponibilité</Pill>
+              <Pill>Clarté</Pill>
+            </Pills>
+          </Card>
 
-      <CopyrightSection>
-        © {new Date().getFullYear()} AOD AVOCATS - Tous droits réservés
-      </CopyrightSection>
+          {/* Contact */}
+          <Card>
+            <Title>Contact</Title>
 
-      <BackToTop>
-        <BackToTopLink href="#top">
-          Retour en haut
-          <ArrowUp size={16} />
-        </BackToTopLink>
-      </BackToTop>
+            <ContactLine>
+              <MapPin size={18} />
+              <div>
+                <strong>Siège social</strong>
+                <br />
+                Minière Cité 2ème Etage, Immeuble Yansané,
+                <br />
+                Commune de Dixinn, Conakry, République de Guinée
+              </div>
+            </ContactLine>
 
+            <ContactLine>
+              <Phone size={18} />
+              <a href="tel:+224622253536">+224 622 253 536</a>
+            </ContactLine>
+
+            <ContactLine>
+              <Mail size={18} />
+              <EmailStack>
+                <a href="mailto:amadou.diallo@aod-avocats.com">
+                  amadou.diallo@aod-avocats.com
+                </a>
+                <a href="mailto:aodialloavocat@gmail.com">aodialloavocat@gmail.com</a>
+              </EmailStack>
+            </ContactLine>
+
+            <TopBtn type="button" onClick={goTop}>
+              Retour en haut <ArrowUp size={16} />
+            </TopBtn>
+          </Card>
+        </Grid>
+
+        <Divider />
+
+        <LegalBar>
+          <LegalBtn type="button" onClick={() => openModal("mentions")}>
+            <Scale size={16} /> Mentions légales
+          </LegalBtn>
+          <LegalBtn type="button" onClick={() => openModal("confidentialite")}>
+            <Shield size={16} /> Politique de confidentialité
+          </LegalBtn>
+          <LegalBtn type="button" onClick={() => openModal("conditions")}>
+            <FileText size={16} /> Conditions générales
+          </LegalBtn>
+        </LegalBar>
+
+        <Copyright>
+          © {new Date().getFullYear()} AOD AVOCATS — Tous droits réservés
+        </Copyright>
+      </Inner>
+
+      {/* Modal */}
       <AnimatePresence>
-        {modalContent && (
-          <ModalOverlay onClick={closeModal}>
-            <ModalContent onClick={(e) => e.stopPropagation()}>
-              <CloseButton onClick={closeModal} aria-label="Fermer">
-                <X size={20} />
-              </CloseButton>
-              <ModalTitle>
-                {modalContent.icon}
-                {modalContent.title}
-              </ModalTitle>
-              <ModalText>{modalContent.content}</ModalText>
-            </ModalContent>
-          </ModalOverlay>
+        {current && (
+          <Overlay
+            as={motion.div}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeModal}
+          >
+            <Dialog
+              as={motion.div}
+              role="dialog"
+              aria-modal="true"
+              tabIndex={-1}
+              ref={dialogRef}
+              initial={{ opacity: 0, y: 14, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 14, scale: 0.98 }}
+              transition={{ duration: 0.18 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Close type="button" onClick={closeModal} aria-label="Fermer">
+                <X size={18} />
+              </Close>
+
+              <DialogTitle>
+                {current.icon}
+                {current.title}
+              </DialogTitle>
+
+              <DialogBody>{current.content}</DialogBody>
+            </Dialog>
+          </Overlay>
         )}
       </AnimatePresence>
     </FooterContainer>
   );
 }
+
+/* =========================
+   STYLES (100% palette)
+========================= */
+
+const FooterContainer = styled.footer`
+  position: relative;
+  overflow: hidden;
+  padding: 48px 0 26px;
+  color: ${colors.white};
+  background:
+    radial-gradient(1000px 420px at 12% 0%, rgba(135, 206, 235, 0.12), transparent 60%),
+    radial-gradient(900px 420px at 85% 0%, rgba(242, 201, 76, 0.10), transparent 62%),
+    linear-gradient(180deg, ${colors.blueMarine} 0%, ${colors.bgDark} 60%, ${colors.bgDark} 100%);
+`;
+
+const TopLine = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(114, 164, 189, 0.35),
+    rgba(242, 201, 76, 0.22),
+    transparent
+  );
+`;
+
+const BgGlow = styled.div`
+  position: absolute;
+  inset: -40px;
+  pointer-events: none;
+  background:
+    radial-gradient(520px 320px at 15% 10%, rgba(114, 164, 189, 0.16), transparent 62%),
+    radial-gradient(520px 320px at 90% 20%, rgba(242, 201, 76, 0.12), transparent 64%);
+  filter: blur(10px);
+  animation: ${glowShift} 8s ease-in-out infinite;
+`;
+
+const Inner = styled.div`
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  @media (min-width: ${bp.tablet}px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  @media (min-width: ${bp.laptop}px) {
+    grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+    gap: 18px;
+  }
+`;
+
+const Card = styled.div`
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(
+    180deg,
+    rgba(16, 42, 67, 0.55),
+    rgba(23, 25, 43, 0.35)
+  );
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  padding: 16px;
+`;
+
+const BrandRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+`;
+
+const BrandName = styled.div`
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  font-size: 16px;
+`;
+
+const BrandTag = styled.div`
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(242, 201, 76, 0.22);
+  background: rgba(242, 201, 76, 0.10);
+  color: rgba(255, 255, 255, 0.92);
+`;
+
+const BrandText = styled.p`
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 13.5px;
+  line-height: 1.65;
+  max-width: 62ch;
+`;
+
+const Social = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+`;
+
+const IconLink = styled.a`
+  width: 40px;
+  height: 40px;
+  border-radius: 12px 0 12px 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    background: rgba(135, 206, 235, 0.10);
+    border-color: rgba(135, 206, 235, 0.28);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.18);
+  }
+`;
+
+const MiniHint = styled.div`
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 12.5px;
+`;
+
+const Title = styled.h3`
+  margin: 0 0 12px;
+  font-weight: 900;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.95);
+  padding-bottom: 10px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 54px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, ${colors.skyBlue}, ${colors.accent});
+    opacity: 0.85;
+  }
+`;
+
+const List = styled.div`
+  display: grid;
+  gap: 10px;
+`;
+
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.86);
+
+  svg {
+    color: ${colors.success};
+    flex-shrink: 0;
+  }
+`;
+
+const Text = styled.p`
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13.5px;
+  line-height: 1.7;
+`;
+
+const Pills = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+`;
+
+const Pill = styled.span`
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.88);
+`;
+
+const ContactLine = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 13.5px;
+  line-height: 1.6;
+
+  svg {
+    margin-top: 2px;
+    color: ${colors.skyBlue};
+    flex-shrink: 0;
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.90);
+    text-decoration: none;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: ${colors.skyBlue};
+    }
+  }
+`;
+
+const EmailStack = styled.div`
+  display: grid;
+  gap: 6px;
+`;
+
+const TopBtn = styled.button`
+  margin-top: 10px;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(114, 164, 189, 0.28);
+  background: linear-gradient(135deg, ${colors.blueMarine}, ${colors.bgSecondary});
+  color: ${colors.white};
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.32);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.40);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.16),
+      0 20px 60px rgba(0, 0, 0, 0.40);
+  }
+`;
+
+const Divider = styled.div`
+  margin: 18px 0 14px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+`;
+
+const LegalBar = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+`;
+
+const LegalBtn = styled.button`
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(23, 25, 43, 0.35);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.12s ease, background 0.12s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.14);
+  }
+`;
+
+const Copyright = styled.div`
+  margin-top: 14px;
+  text-align: center;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.72);
+`;
+
+/* Modal */
+
+const Overlay = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(6px);
+`;
+
+const Dialog = styled.div`
+  width: min(860px, 100%);
+  max-height: 88vh;
+  overflow: auto;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(16, 42, 67, 0.92);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  padding: 18px;
+  position: relative;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const Close = styled.button`
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 0.12s ease, background 0.12s ease;
+
+  &:hover {
+    transform: rotate(6deg);
+    background: rgba(135, 206, 235, 0.10);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.16);
+  }
+`;
+
+const DialogTitle = styled.h3`
+  margin: 0 0 12px;
+  padding-right: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.95);
+
+  svg {
+    color: ${colors.skyBlue};
+  }
+`;
+
+const DialogBody = styled.div`
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.8;
+  font-size: 13.8px;
+
+  p {
+    margin: 0 0 12px;
+  }
+
+  ul {
+    margin: 10px 0 12px;
+    padding-left: 18px;
+  }
+
+  li {
+    margin: 0 0 6px;
+  }
+
+  strong {
+    color: rgba(255, 255, 255, 0.94);
+  }
+`;
+
+const Highlight = styled.div`
+  margin: 12px 0 14px;
+  padding: 12px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(135, 206, 235, 0.18);
+  background: rgba(135, 206, 235, 0.08);
+`;

@@ -102,9 +102,9 @@ export default function Contact() {
                       <span>contact@aod-avocats.com</span>
                     </MiniItem>
 
-                    <MiniItem as="a" href="tel:+224624135550">
+                    <MiniItem as="a" href="tel:+224622253536">
                       <Phone size={16} />
-                      <span>+224 624 13 55 50</span>
+                      <span>+224 622 25 35 36</span>
                     </MiniItem>
 
                     <MiniItem as="button" type="button" onClick={() => document.getElementById("contact-map")?.scrollIntoView({ behavior: "smooth" })}>
@@ -177,7 +177,7 @@ export default function Contact() {
                       Envoyer
                     </Primary>
 
-                    <Ghost as="a" href="tel:+224624135550" title="Appeler le cabinet">
+                    <Ghost as="a" href="tel:+224622253536" title="Appeler le cabinet">
                       <Phone size={18} />
                       Appeler
                     </Ghost>

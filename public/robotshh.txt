@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://aod-avocats.net/sitemap.xml

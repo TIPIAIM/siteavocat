@@ -2,8 +2,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import colors from "../../../styles/colors";
-
+import { colors } from "../../Styles/colors";
 // ---------- Helpers palette (fallbacks si une clé n'existe pas) ----------
 const c = (key, fallback) => (colors && colors[key] ? colors[key] : fallback);
 
@@ -30,16 +29,16 @@ function haversineKm(lat1, lon1, lat2, lon2) {
 }
 
 export default function TerminalAccessMap({
-  // ✅ Defaults tribunal Dixinn
-  title = "Tribunal de Première Instance de Dixinn",
-  subtitle = "Consultez la localisation et lancez l’itinéraire en un clic.",
-  destination = { lat: 9.53894, lng: -13.68101 },
-  address = "TPI de Dixinn, Conakry",
-  phone = "+224 XX XX XX XX",
-  hours = "Lun–Ven : 08:00–17:00",
+  // ✅ AOD AVOCATS (par défaut)
+  title = "AOD AVOCATS",
+  subtitle = "Localisation du cabinet. Cliquez sur Itinéraire pour lancer la navigation.",
+  destination = { lat: 9.56859049940726, lng: -13.660062530509633 },
+  address = "AOD AVOCATS, Conakry",
+  phone = "+224 624 13 55 50",
+  hours = "Lun–Ven : 08:00–18:00",
 
-  // ✅ Iframe Google Maps (ton embed)
-  embedSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.93339206208!2d-13.683571626191588!3d9.53887099054423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xf1cd14493cbfdad%3A0xefc7927d5fd5e1dc!2sTPI%20de%20Dixinn!5e1!3m2!1sfr!2s!4v1765889356348!5m2!1sfr!2s",
+  // ✅ Iframe Google Maps (NOUVEAU — uniquement celui-ci)
+  embedSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d778.6653665558894!2d-13.660062530509633!3d9.56859049940726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xf1cd78f8870d4b5%3A0x76b48c4973d94356!2sAOD%20AVOCATS!5e1!3m2!1sfr!2s!4v1767099576023!5m2!1sfr!2s",
 
   defaultTravelMode = "driving", // driving | walking
   showDistance = true,
@@ -86,7 +85,6 @@ export default function TerminalAccessMap({
   };
 
   const openOnMaps = () => {
-    // Ouverture simple via coordonnées
     const base = "https://www.google.com/maps/search/?api=1";
     const query = `${destination.lat},${destination.lng}`;
     window.open(`${base}&query=${encodeURIComponent(query)}`, "_blank", "noopener,noreferrer");
@@ -288,7 +286,6 @@ export default function TerminalAccessMap({
         </SideCard>
       </Grid>
 
-      {/* Toast */}
       <AnimatePresence>
         {toast && (
           <ToastWrap

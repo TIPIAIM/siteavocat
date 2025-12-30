@@ -1,180 +1,47 @@
-import { useEffect, memo, lazy, useState } from "react";
+// src/pages/Contact/Contact.jsx
+import { useEffect, memo, lazy, useState, Suspense } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Helmet } from "react-helmet";
+import { Mail, Phone, MapPin, Clock, Send, ShieldCheck } from "lucide-react";
 import { images } from "../../assets/images";
-import Mapfinale from "../../màpping/Màpfinàl";
+import AccesTerminalPage from "../màpping/AccesTerminalPage";
+import { colors } from "../../Styles/colors";
 
-const Accueil = lazy(() => import("./Headercontact"));
+const Headercontact = lazy(() => import("./Headercontact"));
 const Footer = lazy(() => import("../Accueil/Footerr"));
 
-// Styled Components
-const ContactContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 100vh;
-  padding: 60px;
-  margin: 0.5rem;
-  margin-top: 3rem;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    padding: 15px;
-  }
-`;
+const MemoHeader = memo(Headercontact);
+const MemoFooter = memo(Footer);
 
-const ImageSection = styled.div`
-  flex: 1;
- // background-image: url("img/keitaseul2.avif");
-    background-image: url(${images.keitaseul2});
-  
-  background-size: cover;
-  background-position: center;
-  min-height: 400px;
-
-  @media (max-width: 768px) {
-    min-height: 250px;
-    margin-bottom: 0px;
-  }
-`;
-
-const FormSection = styled.div`
-  flex: 1;
-  padding: 20px;
-  background: rgba(15, 23, 42, 1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media (max-width: 768px) {
-    padding: 20px;
-  }
-`;
-
-const Title = styled.h1`
-  font-size: 2.5rem;
-  color: #00b4d8;
-  margin-bottom: 15px;
-  font-weight: bold;
-
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-`;
-
-const Description = styled.p`
-  font-size: 1.1rem;
-  color: #caf0f8;
-  margin: 20px;
-  text-align: left;
-  margin-left: 2rem;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    text-align: left;
-    padding: 2px;
-    margin: 2px;
-    margin-left: 0.6rem;
-  }
-`;
-
-const Form = styled.form`
-  width: 100%;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  @media (max-width: 768px) {
-    padding: 10px;
-  }
-`;
-
-const Input = styled.input`
-  padding: 12px;
-  font-size: 1rem;
-  border: px #00b4d8;
-  border-radius: 1px;
-  outline: none;
-  box-shadow: 0 4px 0px #00b4d8;
-
-  &:focus {
-    border-color: #007bff;
-  }
-`;
-
-const Textarea = styled.textarea`
-  padding: 12px;
-  font-size: 1rem;
-  border: 1px solid #00b4d8;
-  border-radius: 1px;
-  outline: none;
-  resize: none;
-  box-shadow: 0 4px 0px #00b4d8;
-  &:focus {
-    border-color: #007bff;
-  }
-`;
-
-const Button = styled.button`
-  padding: 12px;
-  font-size: 1rem;
-  color: #00b4d8;
-  background-color: #0a223f;
-  border: none;
-  border-radius: 1px;
-  cursor: pointer;
-  box-shadow: 0 4px 0px #00b4d8;
-  &:hover {
-    background-color: #0077b6;
-  }
-`;
-
-const ErrorMessage = styled.p`
-  color: #ff0000;
-  font-size: 0.9rem;
-`;
-
-// Memoized Components
-const MemoizedBardeNavigationpublic = memo(Accueil);
-const MemoizedFooter = memo(Footer);
-
-// Main Component
 export default function Contact() {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({ duration: 900, once: true });
   }, []);
 
-  // Validation côté client
   const validateForm = (event) => {
     const form = event.target;
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
+
+    const name = (form.name.value || "").trim();
+    const email = (form.email.value || "").trim();
+    const message = (form.message.value || "").trim();
+
     const newErrors = {};
 
-    if (!name || name.length < 2 || name.length > 50) {
-      newErrors.name = "Le nom doit contenir entre 2 et 50 caractères.";
-    }
+    // Nom : lettres + accents + espaces + ' -
+    const nameOk = /^[a-zA-ZÀ-ÿ' -]{2,50}$/.test(name);
+    if (!nameOk) newErrors.name = "Nom : 2 à 50 caractères (lettres, espaces, apostrophes, tirets).";
 
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-    if (!email || !emailPattern.test(email) || email.length > 100) {
-      newErrors.email =
-        "Veuillez entrer une adresse email Gmail valide (max 100 caractères).";
-    }
+    // Email : validation simple mais réaliste
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    if (!emailOk || email.length > 120) newErrors.email = "Veuillez entrer une adresse email valide (max 120 caractères).";
 
-    const messagePattern = /^[a-zA-Z\s]*$/;
-    if (
-      !message ||
-      message.length < 10 ||
-      message.length > 500 ||
-      !messagePattern.test(message)
-    ) {
-      newErrors.message =
-        "Le message doit contenir entre 10 et 500 caractères et ne doit contenir que des lettres de l'alphabet.";
+    // Message : longueur (on évite de brider l’utilisateur)
+    if (message.length < 10 || message.length > 1200) {
+      newErrors.message = "Message : entre 10 et 1200 caractères.";
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -188,68 +55,468 @@ export default function Contact() {
   };
 
   return (
-    <div style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+    <Page>
       <Helmet>
-        <title>Contactez-nous - Cabinet AOD-AVOCATS</title>
+        <title>Contact — AOD AVOCATS</title>
         <meta
           name="description"
-          content="Contactez le Cabinet AOD-AVOCATS pour toutes vos questions, commentaires ou préoccupations. Nous sommes là pour vous aider."
+          content="Contactez AOD AVOCATS : conseil, contentieux, droit des affaires, droit pénal, droit minier. Formulaire, téléphone, email et localisation à Conakry."
         />
       </Helmet>
-      <MemoizedBardeNavigationpublic />
-      <ContactContainer>
-        <ImageSection data-aos="fade-right" />
-        <FormSection data-aos="fade-down">
-          <Title data-aos="fade-right">Contactez-nous</Title>
-          <Description>
-            Si vous avez des questions, des commentaires ou des préoccupations,
-            n’hésitez pas à nous contacter en utilisant le formulaire
-            ci-dessous. Nous ferons de notre mieux pour répondre à votre demande
-            dans les plus brefs délais. Votre satisfaction est notre priorité
-            absolue, et nous apprécions tous les commentaires que vous pourriez
-            avoir sur notre cabinet et nos services. Merci de votre confiance
-            et nous avons hâte de discuter avec vous bientôt.
-          </Description>
-          <Form
-            action={import.meta.env.VITE_fo}
-            method="POST"
-            onSubmit={validateForm}
-          >
-            <Input
-              type="text"
-              name="name"
-              placeholder="Votre nom"
-              required
-              pattern="[A-Za-z\s]{1,}"
-              title="Le nom ne doit contenir que des lettres et des espaces."
-              maxLength="50"
-            />
-            {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
-            <Input
-              type="email"
-              name="email"
-              placeholder="Votre email"
-              required
-              maxLength="100"
-            />
-            {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
-            <Textarea
-              name="message"
-              rows="5"
-              placeholder="Votre message"
-              required
-              maxLength="500"
-            />
-            {errors.message && <ErrorMessage>{errors.message}</ErrorMessage>}
-            <Button type="submit">Envoyer</Button>
-          </Form>
-        </FormSection>
-        <Mapfinale/>
-        
-      </ContactContainer>
-      <div className="mt-40">
-        <MemoizedFooter />
-      </div>
-    </div>
+
+      <Suspense fallback={<div />}>
+        <MemoHeader />
+      </Suspense>
+
+      <Main>
+        {/* Section Formulaire */}
+        <Section id="contact-form">
+          <Container>
+            <SectionHead data-aos="fade-up">
+              <Kicker>
+                <ShieldCheck size={16} />
+                <span>Confidentialité & traitement prioritaire</span>
+              </Kicker>
+
+              <H2>Envoyez-nous un message</H2>
+              <Lead>
+                Décrivez brièvement votre situation. Nous vous orientons vers la démarche la plus adaptée
+                et revenons vers vous dans les meilleurs délais.
+              </Lead>
+            </SectionHead>
+
+            <CardGrid>
+              {/* Visuel */}
+              <VisualCard data-aos="fade-right" $img={images.keitaseul2}>
+                <VisualOverlay />
+                <VisualContent>
+                  <VisualTitle>AOD AVOCATS</VisualTitle>
+                  <VisualText>
+                    Conseil, contentieux, conformité et accompagnement stratégique.
+                    Une approche rigoureuse, orientée résultats.
+                  </VisualText>
+
+                  <MiniList>
+                    <MiniItem as="a" href="mailto:contact@aod-avocats.com">
+                      <Mail size={16} />
+                      <span>contact@aod-avocats.com</span>
+                    </MiniItem>
+
+                    <MiniItem as="a" href="tel:+224624135550">
+                      <Phone size={16} />
+                      <span>+224 624 13 55 50</span>
+                    </MiniItem>
+
+                    <MiniItem as="button" type="button" onClick={() => document.getElementById("contact-map")?.scrollIntoView({ behavior: "smooth" })}>
+                      <MapPin size={16} />
+                      <span>Localisation — Conakry</span>
+                    </MiniItem>
+
+                    <MiniItem as="div">
+                      <Clock size={16} />
+                      <span>Lun–Ven : 08:00–18:00</span>
+                    </MiniItem>
+                  </MiniList>
+                </VisualContent>
+              </VisualCard>
+
+              {/* Formulaire */}
+              <FormCard data-aos="fade-left">
+                <FormTitle>Contact</FormTitle>
+                <FormSubtitle>
+                  Remplissez les informations ci-dessous. Nous vous répondrons dès que possible.
+                </FormSubtitle>
+
+                <Form
+                  action={import.meta.env.VITE_fo}
+                  method="POST"
+                  onSubmit={validateForm}
+                  noValidate
+                >
+                  <Row2>
+                    <Field>
+                      <Label htmlFor="name">Nom</Label>
+                      <Input
+                        id="name"
+                        type="text"
+                        name="name"
+                        placeholder="Votre nom"
+                        aria-invalid={Boolean(errors.name)}
+                      />
+                      {errors.name ? <Error role="alert">{errors.name}</Error> : null}
+                    </Field>
+
+                    <Field>
+                      <Label htmlFor="email">Email</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="Votre email"
+                        aria-invalid={Boolean(errors.email)}
+                      />
+                      {errors.email ? <Error role="alert">{errors.email}</Error> : null}
+                    </Field>
+                  </Row2>
+
+                  <Field>
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      rows="6"
+                      placeholder="Expliquez votre besoin (contexte, objectif, urgence éventuelle)…"
+                      aria-invalid={Boolean(errors.message)}
+                    />
+                    {errors.message ? <Error role="alert">{errors.message}</Error> : null}
+                  </Field>
+
+                  <Actions>
+                    <Primary type="submit">
+                      <Send size={18} />
+                      Envoyer
+                    </Primary>
+
+                    <Ghost as="a" href="tel:+224624135550" title="Appeler le cabinet">
+                      <Phone size={18} />
+                      Appeler
+                    </Ghost>
+
+                    <Ghost as="a" href="mailto:contact@aod-avocats.com" title="Envoyer un email">
+                      <Mail size={18} />
+                      Email
+                    </Ghost>
+                  </Actions>
+
+                  <FinePrint>
+                    Vos informations sont utilisées uniquement pour répondre à votre demande.
+                  </FinePrint>
+                </Form>
+              </FormCard>
+            </CardGrid>
+          </Container>
+        </Section>
+
+        {/* Section Map (intégration propre) */}
+        <Section id="contact-map">
+          <Container>
+            <SectionHead data-aos="fade-up">
+              <H2>Localisation du cabinet</H2>
+              <Lead>
+                Consultez la carte et lancez l’itinéraire. Vous pouvez aussi activer “Me localiser” pour démarrer depuis votre position.
+              </Lead>
+            </SectionHead>
+
+            <MapSurface data-aos="fade-up">
+              <AccesTerminalPage />
+            </MapSurface>
+          </Container>
+        </Section>
+      </Main>
+
+      <FooterWrap>
+        <Suspense fallback={<div />}>
+          <MemoFooter />
+        </Suspense>
+      </FooterWrap>
+    </Page>
   );
 }
+
+/* =========================
+   STYLES
+========================= */
+
+const Page = styled.div`
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 520px at 15% 10%, rgba(135,206,235,0.14), transparent 60%),
+    radial-gradient(900px 520px at 85% 0%, rgba(242,201,76,0.10), transparent 60%),
+    linear-gradient(180deg, ${colors.blueMarine} 0%, ${colors.bgDark} 65%, ${colors.bgDark} 100%);
+  color: ${colors.white};
+`;
+
+const Main = styled.main`
+  position: relative;
+`;
+
+const Section = styled.section`
+  padding: 56px 0;
+
+  @media (max-width: 768px) {
+    padding: 42px 0;
+  }
+`;
+
+const Container = styled.div`
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+`;
+
+const SectionHead = styled.div`
+  margin-bottom: 16px;
+`;
+
+const Kicker = styled.div`
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(16,18,36,0.40);
+  backdrop-filter: blur(10px);
+  color: rgba(255,255,255,0.90);
+  font-size: 13px;
+
+  svg { color: ${colors.skyBlue}; }
+`;
+
+const H2 = styled.h2`
+  margin: 12px 0 0;
+  font-size: clamp(22px, 3vw, 30px);
+  letter-spacing: -0.02em;
+  font-weight: 900;
+`;
+
+const Lead = styled.p`
+  margin: 10px 0 0;
+  max-width: 78ch;
+  color: rgba(255,255,255,0.84);
+  font-size: 14.5px;
+  line-height: 1.7;
+`;
+
+const CardGrid = styled.div`
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 14px;
+
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const VisualCard = styled.div`
+  position: relative;
+  border-radius: 12px 0 12px 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  background-image: url(${(p) => p.$img});
+  background-size: cover;
+  background-position: center;
+  min-height: 520px;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+
+  @media (max-width: 980px) {
+    min-height: 360px;
+  }
+`;
+
+const VisualOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 420px at 15% 10%, rgba(135,206,235,0.20), transparent 60%),
+    radial-gradient(900px 420px at 85% 10%, rgba(242,201,76,0.14), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(16,18,36,0.78) 55%, rgba(16,42,67,0.92) 100%);
+`;
+
+const VisualContent = styled.div`
+  position: absolute;
+  inset: 0;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+`;
+
+const VisualTitle = styled.div`
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+`;
+
+const VisualText = styled.div`
+  color: rgba(255,255,255,0.85);
+  font-size: 13.8px;
+  line-height: 1.6;
+  max-width: 54ch;
+`;
+
+const MiniList = styled.div`
+  display: grid;
+  gap: 10px;
+  margin-top: 6px;
+`;
+
+const MiniItem = styled.div`
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(16,18,36,0.40);
+  backdrop-filter: blur(10px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.90);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease;
+
+  svg { color: ${colors.skyBlue}; }
+  &:hover { transform: translateY(-1px); background: rgba(255,255,255,0.07); }
+`;
+
+const FormCard = styled.div`
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(16,18,36,0.55);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+  padding: 18px;
+`;
+
+const FormTitle = styled.div`
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+`;
+
+const FormSubtitle = styled.div`
+  margin-top: 8px;
+  color: rgba(255,255,255,0.82);
+  font-size: 13.8px;
+  line-height: 1.6;
+`;
+
+const Form = styled.form`
+  margin-top: 14px;
+  display: grid;
+  gap: 14px;
+`;
+
+const Row2 = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  @media (max-width: 680px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const Field = styled.div`
+  display: grid;
+  gap: 6px;
+`;
+
+const Label = styled.label`
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.78);
+`;
+
+const baseInput = `
+  width: 100%;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(16,18,36,0.35);
+  color: ${colors.white};
+  padding: 12px 12px;
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease;
+
+  &::placeholder { color: rgba(255,255,255,0.55); }
+
+  &:focus {
+    border-color: rgba(135,206,235,0.35);
+    box-shadow: 0 0 0 4px rgba(135,206,235,0.16);
+  }
+`;
+
+const Input = styled.input`
+  ${baseInput}
+`;
+
+const Textarea = styled.textarea`
+  ${baseInput}
+  resize: vertical;
+  min-height: 140px;
+`;
+
+const Error = styled.div`
+  font-size: 12.5px;
+  color: #ffb4b4;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  border-radius: 12px 0 12px 0;
+  padding: 10px 10px;
+`;
+
+const Actions = styled.div`
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+`;
+
+const Primary = styled.button`
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(135,206,235,0.22);
+  background: linear-gradient(135deg, ${colors.blueMarine}, ${colors.bgSecondary});
+  color: ${colors.white};
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+  transition: transform .15s ease, box-shadow .15s ease;
+
+  &:hover { transform: translateY(-1px); box-shadow: 0 22px 60px rgba(0,0,0,0.45); }
+  &:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(135,206,235,0.18), 0 22px 60px rgba(0,0,0,0.45); }
+`;
+
+const Ghost = styled.a`
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.92);
+  font-weight: 900;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform .15s ease, background .15s ease;
+
+  &:hover { transform: translateY(-1px); background: rgba(255,255,255,0.09); }
+  &:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(135,206,235,0.16); }
+`;
+
+const FinePrint = styled.div`
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.70);
+  line-height: 1.4;
+`;
+
+const MapSurface = styled.div`
+  margin-top: 14px;
+  border-radius: 12px 0 12px 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+`;
+
+const FooterWrap = styled.div`
+  margin-top: 32px;
+`;

@@ -50,6 +50,7 @@ import LoginFormclient from "./Communicbck/identification/LoginFormclient";
 import Profiledmin from "./Communicbck/Profile/Profiledmin";
 import EquipeCabinet from "./Mouvements/Equipe/Equipe";
 import EquipeCabinetProfilePage from "./Mouvements/Equipe/EquipeCabinetProfilePage";
+import AccesTerminalPage from "./Mouvements/màpping/AccesTerminalPage";
 //import Broullons from "./Brouillon";
  
 function App() {
@@ -63,7 +64,7 @@ function App() {
           path="/equipe-cabinet/:slug"
           element={<EquipeCabinetProfilePage />}
         />
-
+<Route path="/acces-cabinet" element={<AccesTerminalPage />} />
         <Route index element={<Accueil />} />
         <Route path="*" element={<Petitecrandeux />} />
         {/**pge d'erreur */}

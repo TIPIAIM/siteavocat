@@ -1,220 +1,380 @@
-import { useEffect, useState } from "react";
+// src/pages/Contact/Headercontact.jsx
+import React, { useEffect, useMemo, useState, useCallback } from "react";
 import styled, { keyframes } from "styled-components";
-import { motion } from "framer-motion";
-import { images } from "../../assets/images"; // Importation des images
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { MapPin, Mail, Phone, ArrowDown, Compass } from "lucide-react";
+import { images } from "../../assets/images";
+import { colors } from "../../Styles/colors";
 
-// Animation pour le défilement des images
-const fadeInOut = keyframes`
- 
-  25% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+const fade = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
 `;
 
-// Styled Components
-const HeroSection = styled.section`
-  min-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 4rem 1rem;
-  position: relative;
-  overflow: hidden;
-
-  @media (max-width: 768px) {
-    padding: 3rem 1rem;
-  }
-
-  @media (max-width: 480px) {
-    padding: 2rem 0.5rem;
-  }
+const floatSoft = keyframes`
+  0%, 100% { transform: translate3d(0,0,0); opacity: .65; }
+  50% { transform: translate3d(12px,-10px,0); opacity: .95; }
 `;
 
-const BackgroundImage = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(${(props) => props.image});
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  animation: ${fadeInOut} 4s linear infinite;
-  animation-delay: ${(props) => props.delay}s;
+export default function Headercontact() {
+  const reduceMotion = useReducedMotion();
 
-  /* Fond bleu semi-transparent */
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 139, 0.3); /* Bleu semi-transparent */
-  }
-`;
+  const slides = useMemo(
+    () => [
 
-const ContentWrapper = styled.div`
-  position: relative;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 56rem;
-  margin: 0 auto;
+       images.envir,
+      images.travaiil,
+      images.jurid1,
+      images.conf,
+   
+    ],
+    []
+  );
 
-  @media (max-width: 768px) {
-    gap: 1.5rem;
-  }
-`;
+  const messages = useMemo(
+    () => [
+      "Une question juridique ? Parlons-en.",
+      "Besoin d’un conseil clair et rapide ?",
+      "Confidentialité, rigueur, accompagnement.",
+      "Nous vous répondons dans les meilleurs délais.",
+    ],
+    []
+  );
 
-const MainHeading = styled(motion.h1)`
-  font-size: 2.25rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #f4f5f1;
-  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
-
-  @media (min-width: 768px) {
-    font-size: 3.75rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1.875rem;
-  }
-`;
-
-const GradientText = styled.span`
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(to right, #00b4d8, #023e8a);
-`;
-
-const TypingText = styled(motion.span)`
-  display: inline-block;
-  font-size: 1.25rem;
-  color: #f4f5f1;
-  border-right: 2px solid #00b4d8;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: typing 3s steps(30, end), blink 0.5s step-end infinite alternate;
-
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-
-  @keyframes blink {
-    from {
-      border-color: transparent;
-    }
-    to {
-      border-color: #00b4d8;
-    }
-  }
-`;
-
-const CTAButton = styled(motion.button)`
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
-  background: linear-gradient(to right, #00b4d8, #023e8a);
-  border: none;
-  border-radius: 1px;
-  cursor: pointer;
-  transition: transform 0.5s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.5);
-  }
-`;
-
-const Accueilpourcontact = () => {
-  const messages = [
-    "Si vous avez des questions",
-    "Des commentaires ou préoccupations",
-    "Votre satisfaction est notre priorité",
-    "Nous apprécions vos retours",
-  ];
-
-  const [currentMessage, setCurrentMessage] = useState(0);
+  const [idx, setIdx] = useState(0);
+  const [msgIdx, setMsgIdx] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentMessage((prev) => (prev + 1) % messages.length);
-    }, 3000);
+    if (reduceMotion) return;
+    const t = setInterval(() => setIdx((p) => (p + 1) % slides.length), 5200);
+    return () => clearInterval(t);
+  }, [slides.length, reduceMotion]);
 
-    return () => clearInterval(interval);
+  useEffect(() => {
+    const t = setInterval(() => setMsgIdx((p) => (p + 1) % messages.length), 3200);
+    return () => clearInterval(t);
   }, [messages.length]);
 
-  const imagess = [
-    images.MOE_0384,
-    images.affaire,
-    images.envir,
-    images.travaiil,
-    images.jurid1,
-    images.conf,
-    images.EVOL,
-    images.MOE_0384,
-  ];
+  const scrollToId = useCallback((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
 
   return (
-    <HeroSection>
-      {/* Images de fond */}
-      {imagess.map((image, index) => (
-        <BackgroundImage
-          key={index}
-          image={image}
-          delay={index * 3} // Décalage de 2 secondes entre chaque image
-        />
-      ))}
+    <Hero>
+      {/* Background slideshow */}
+      <BgWrap aria-hidden="true">
+        <AnimatePresence mode="wait">
+          <BgSlide
+            key={idx}
+            $img={slides[idx]}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0.01 : 0.8, ease: "easeOut" }}
+          />
+        </AnimatePresence>
 
-      {/* Contenu principal */}
-      <ContentWrapper>
-        <MainHeading
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+        <BgOverlay />
+        <GlowA />
+        <GlowB />
+      </BgWrap>
+
+      <Shell>
+        <TopPill
+          as={motion.div}
+          initial={reduceMotion ? false : { opacity: 0, y: -10 }}
+          animate={reduceMotion ? false : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          Contactez <GradientText>Nous</GradientText>
-        </MainHeading>
+          <Compass size={16} />
+          <span>Contact & prise de rendez-vous</span>
+        </TopPill>
 
-        <TypingText
-          key={currentMessage}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+        <Title
+          as={motion.h1}
+          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+          animate={reduceMotion ? false : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.05 }}
         >
-          {messages[currentMessage]}
-        </TypingText>
+          Contactez <Gradient>Nous</Gradient>
+          <Dot aria-hidden="true" />
+        </Title>
 
-        <CTAButton whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        L'excellence juridique à votre service
-        </CTAButton>
-      </ContentWrapper>
-    </HeroSection>
+        <Sub
+          as={motion.p}
+          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+          animate={reduceMotion ? false : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.1 }}
+        >
+          Nous privilégions une réponse claire, structurée et confidentielle. Décrivez brièvement
+          votre besoin : nous vous orientons vers la meilleure démarche.
+        </Sub>
+
+        <RotatingLine
+          as={motion.div}
+          initial={reduceMotion ? false : { opacity: 0 }}
+          animate={reduceMotion ? false : { opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.18 }}
+        >
+          <AnimatePresence mode="wait">
+            <Line
+              key={msgIdx}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: reduceMotion ? 0.01 : 0.35 }}
+            >
+              {messages[msgIdx]}
+            </Line>
+          </AnimatePresence>
+        </RotatingLine>
+
+        <Actions
+          as={motion.div}
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          animate={reduceMotion ? false : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.22 }}
+        >
+          <PrimaryBtn type="button" onClick={() => scrollToId("contact-form")}>
+            Aller au formulaire
+            <ArrowDown size={18} />
+          </PrimaryBtn>
+
+          <GhostBtn type="button" onClick={() => scrollToId("contact-map")}>
+            Voir la localisation
+            <MapPin size={18} />
+          </GhostBtn>
+        </Actions>
+
+        <MiniInfo
+          as={motion.div}
+          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+          animate={reduceMotion ? false : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.28 }}
+        >
+          <InfoChip as="a" href="mailto:contact@aod-avocats.com" title="Envoyer un email">
+            <Mail size={16} />
+            <span>contact@aod-avocats.com</span>
+          </InfoChip>
+
+          <InfoChip as="a" href="tel:+224624135550" title="Appeler le cabinet">
+            <Phone size={16} />
+            <span>+224 624 13 55 50</span>
+          </InfoChip>
+
+          <InfoChip as="button" type="button" onClick={() => scrollToId("contact-map")} title="Voir l’adresse">
+            <MapPin size={16} />
+            <span>AOD AVOCATS — Conakry</span>
+          </InfoChip>
+        </MiniInfo>
+      </Shell>
+    </Hero>
   );
-};
+}
 
-export default Accueilpourcontact;
+/* =========================
+   STYLES
+========================= */
+
+const Hero = styled.section`
+  position: relative;
+  min-height: clamp(520px, 72vh, 820px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: ${colors.white};
+  padding: 110px 16px 56px;
+`;
+
+const BgWrap = styled.div`
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+`;
+
+const BgSlide = styled(motion.div)`
+  position: absolute;
+  inset: 0;
+  background-image: url(${(p) => p.$img});
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.03) contrast(1.05);
+  transform: scale(1.04);
+  animation: ${fade} 0.8s ease;
+`;
+
+const BgOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1100px 520px at 15% 10%, rgba(135,206,235,0.02), transparent 58%),
+    radial-gradient(900px 520px at 85% 15%, rgba(242,201,76,0.01), transparent 60%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(16, 42, 67, 0.28) 45%, ${colors.bgDark} 98%);
+`;
+
+const GlowA = styled.div`
+  position: absolute;
+  inset: -80px;
+  background: radial-gradient(540px 320px at 20% 30%, rgba(135,206,235,0.20), transparent 60%);
+  filter: blur(12px);
+  animation: ${floatSoft} 9s ease-in-out infinite;
+  pointer-events: none;
+`;
+
+const GlowB = styled.div`
+  position: absolute;
+  inset: -80px;
+  background: radial-gradient(580px 360px at 80% 20%, rgba(242,201,76,0.16), transparent 62%);
+  filter: blur(12px);
+  animation: ${floatSoft} 10.5s ease-in-out infinite;
+  pointer-events: none;
+`;
+
+const Shell = styled.div`
+  position: relative;
+  z-index: 2;
+  width: min(980px, 100%);
+  text-align: center;
+`;
+
+const TopPill = styled.div`
+  width: fit-content;
+  margin: 0 auto 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(16,18,36,0.42);
+  backdrop-filter: blur(10px);
+  font-size: 13px;
+  color: rgba(255,255,255,0.90);
+
+  svg { color: ${colors.skyBlue}; }
+`;
+
+const Title = styled(motion.h1)`
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  font-size: clamp(32px, 5vw, 56px);
+  text-shadow: 0 20px 60px rgba(0,0,0,0.55);
+`;
+
+const Gradient = styled.span`
+  background: linear-gradient(90deg, ${colors.skyBlue}, ${colors.goldenYellow});
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+`;
+
+const Dot = styled.span`
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-left: 10px;
+  border-radius: 999px;
+  background: ${colors.white};
+  box-shadow: 0 0 0 7px rgba(242,201,76,0.12);
+`;
+
+const Sub = styled(motion.p)`
+  margin: 14px auto 0;
+  max-width: 70ch;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.86);
+`;
+
+const RotatingLine = styled(motion.div)`
+  margin: 18px auto 0;
+  width: min(680px, 100%);
+  padding: 12px 14px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(16,18,36,0.42);
+  backdrop-filter: blur(10px);
+`;
+
+const Line = styled(motion.div)`
+  font-size: 14px;
+  color: rgba(255,255,255,0.92);
+`;
+
+const Actions = styled(motion.div)`
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+
+const PrimaryBtn = styled.button`
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(135,206,235,0.22);
+  background: linear-gradient(135deg, ${colors.blueMarine}, ${colors.bgSecondary});
+  color: ${colors.white};
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+  transition: transform .15s ease, box-shadow .15s ease;
+
+  &:hover { transform: translateY(-1px); box-shadow: 0 22px 60px rgba(0,0,0,0.45); }
+  &:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(135,206,235,0.18), 0 22px 60px rgba(0,0,0,0.45); }
+`;
+
+const GhostBtn = styled.button`
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(242,201,76,0.18);
+  background: rgba(16,18,36,0.35);
+  color: rgba(255,255,255,0.92);
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+  transition: transform .15s ease, background .15s ease;
+
+  &:hover { transform: translateY(-1px); background: rgba(242,201,76,0.10); }
+  &:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(242,201,76,0.14); }
+`;
+
+const MiniInfo = styled(motion.div)`
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+`;
+
+const InfoChip = styled.div`
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 12px 0 12px 0;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(16,18,36,0.40);
+  backdrop-filter: blur(10px);
+  color: rgba(255,255,255,0.90);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .12s ease, background .12s ease;
+
+  svg { color: ${colors.skyBlue}; }
+  &:hover { transform: translateY(-1px); background: rgba(255,255,255,0.07); }
+  &:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(135,206,235,0.16); }
+`;

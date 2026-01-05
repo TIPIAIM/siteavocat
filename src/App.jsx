@@ -51,6 +51,7 @@ import Profiledmin from "./Communicbck/Profile/Profiledmin";
 import EquipeCabinet from "./Mouvements/Equipe/Equipe";
 import EquipeCabinetProfilePage from "./Mouvements/Equipe/EquipeCabinetProfilePage";
 import AccesTerminalPage from "./Mouvements/màpping/AccesTerminalPage";
+import MonQRCodedocumentekip from "./MonQRCodedocumentekip";
 //import Broullons from "./Brouillon";
  
 function App() {
@@ -121,8 +122,10 @@ function App() {
         <Route path="/adminfils" element={<Adminfils />} />
         <Route path="/gestion" element={<Adminmere />} />
 
-        {/**page  visiteur TIPTAMcode adminmere */}
+        {/**page   visiteur TIPTAMcode adminmere */}
         <Route path="/monQRCode" element={<MonQRCode />} />
+        <Route path="/monQRCodedoc" element={<MonQRCodedocumentekip />} />
+
 
         <Route path="/register" element={<Register />} />
         <Route path="/confimation-mail" element={<VerifyEmail />} />

@@ -181,13 +181,15 @@ export default function Contact() {
                       <Phone size={18} />
                       Appeler
                     </Ghost>
-
+                    <Ghost as="a" href="tel:+224625292599" title="Appeler le cabinet">
+                      <Phone size={18} />
+                      Appeler
+                    </Ghost>
                     <Ghost as="a" href="mailto:contact@aod-avocats.com" title="Envoyer un email">
                       <Mail size={18} />
                       Email
                     </Ghost>
                   </Actions>
-
                   <FinePrint>
                     Vos informations sont utilisées uniquement pour répondre à votre demande.
                   </FinePrint>

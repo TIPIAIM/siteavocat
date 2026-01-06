@@ -38,7 +38,7 @@ const TEAM_MEMBERS = [
   {
     id: "m-1",
     slug: "me-amadou-oury-diallo",
-    fullName: "Me Amadou Oury Diallo",
+    fullName: "Amadou Oury Diallo",
     role: "Avocat",
     title: "Avocat au Barreau",
     practiceAreas: ["Droit des affaires", "Contentieux", "Contrats", "..."],
@@ -62,7 +62,7 @@ const TEAM_MEMBERS = [
   {
     id: "m-2",
     slug: "abdoulaye-bangoura",
-    fullName: "M. Abdoulaye Bangoura",
+    fullName: "Abdoulaye Bangoura",
     role: "Juriste",
     title: "Juriste-Conseil",
     practiceAreas: ["Veille juridique", "Rédaction", "Conformité"],
@@ -84,7 +84,7 @@ const TEAM_MEMBERS = [
   {
     id: "m-3",
     slug: "paul-asterix-lamah",
-    fullName: "M Paul Astérix LAMAH",
+    fullName: "Paul Astérix LAMAH",
     role: "Juriste",
     title: "Juriste conseil",
     practiceAreas: ["Droit des affaires ", "Contentieux", "Droit Minier et énergie "],
@@ -103,7 +103,7 @@ const TEAM_MEMBERS = [
   {
     id: "m-4",
     slug: "abdoulaye-keita",
-    fullName: " M. Abdoulaye Keita",
+    fullName: "Abdoulaye Keita",
     role: "Juriste",
     title: "Juriste-Conseil",
     practiceAreas: [
@@ -137,7 +137,7 @@ const TEAM_MEMBERS = [
   {
     id: "m-5",
     slug: "kadiatou-camara",
-    fullName: "M. Kadiatou Camara",
+    fullName: "Kadiatou Camara",
     role: "Stagiaire Juriste",
     title: "Juriste-Conseil",
     practiceAreas: [
@@ -164,7 +164,7 @@ const TEAM_MEMBERS = [
   {
     id: "m-6",
     slug: "fatoumata-keita",
-    fullName: "M Fatoumata Keita",
+    fullName: "Fatoumata Keita",
     role: "Juriste",
     title: "Juriste-Conseil",
     practiceAreas: ["Accueil", "Organisation", "Relation client"],

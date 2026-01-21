@@ -33,11 +33,15 @@ export default function Contact() {
 
     // Nom : lettres + accents + espaces + ' -
     const nameOk = /^[a-zA-ZÀ-ÿ' -]{2,50}$/.test(name);
-    if (!nameOk) newErrors.name = "Nom : 2 à 50 caractères (lettres, espaces, apostrophes, tirets).";
+    if (!nameOk)
+      newErrors.name =
+        "Nom : 2 à 50 caractères (lettres, espaces, apostrophes, tirets).";
 
     // Email : validation simple mais réaliste
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
-    if (!emailOk || email.length > 120) newErrors.email = "Veuillez entrer une adresse email valide (max 120 caractères).";
+    if (!emailOk || email.length > 120)
+      newErrors.email =
+        "Veuillez entrer une adresse email valide (max 120 caractères).";
 
     // Message : longueur (on évite de brider l’utilisateur)
     if (message.length < 10 || message.length > 1200) {
@@ -80,8 +84,9 @@ export default function Contact() {
 
               <H2>Envoyez-nous un message</H2>
               <Lead>
-                Décrivez brièvement votre situation. Nous vous orientons vers la démarche la plus adaptée
-                et revenons vers vous dans les meilleurs délais.
+                Décrivez brièvement votre situation. Nous vous orientons vers la
+                démarche la plus adaptée et revenons vers vous dans les
+                meilleurs délais.
               </Lead>
             </SectionHead>
 
@@ -92,8 +97,8 @@ export default function Contact() {
                 <VisualContent>
                   <VisualTitle>AOD AVOCATS</VisualTitle>
                   <VisualText>
-                    Conseil, contentieux, conformité et accompagnement stratégique.
-                    Une approche rigoureuse, orientée résultats.
+                    Conseil, contentieux, conformité et accompagnement
+                    stratégique. Une approche rigoureuse, orientée résultats.
                   </VisualText>
 
                   <MiniList>
@@ -107,7 +112,15 @@ export default function Contact() {
                       <span>+224 622 25 35 36</span>
                     </MiniItem>
 
-                    <MiniItem as="button" type="button" onClick={() => document.getElementById("contact-map")?.scrollIntoView({ behavior: "smooth" })}>
+                    <MiniItem
+                      as="button"
+                      type="button"
+                      onClick={() =>
+                        document
+                          .getElementById("contact-map")
+                          ?.scrollIntoView({ behavior: "smooth" })
+                      }
+                    >
                       <MapPin size={16} />
                       <span>Localisation — Conakry</span>
                     </MiniItem>
@@ -124,7 +137,8 @@ export default function Contact() {
               <FormCard data-aos="fade-left">
                 <FormTitle>Contact</FormTitle>
                 <FormSubtitle>
-                  Remplissez les informations ci-dessous. Nous vous répondrons dès que possible.
+                  Remplissez les informations ci-dessous. Nous vous répondrons
+                  dès que possible.
                 </FormSubtitle>
 
                 <Form
@@ -143,7 +157,9 @@ export default function Contact() {
                         placeholder="Votre nom"
                         aria-invalid={Boolean(errors.name)}
                       />
-                      {errors.name ? <Error role="alert">{errors.name}</Error> : null}
+                      {errors.name ? (
+                        <Error role="alert">{errors.name}</Error>
+                      ) : null}
                     </Field>
 
                     <Field>
@@ -155,7 +171,9 @@ export default function Contact() {
                         placeholder="Votre email"
                         aria-invalid={Boolean(errors.email)}
                       />
-                      {errors.email ? <Error role="alert">{errors.email}</Error> : null}
+                      {errors.email ? (
+                        <Error role="alert">{errors.email}</Error>
+                      ) : null}
                     </Field>
                   </Row2>
 
@@ -168,7 +186,9 @@ export default function Contact() {
                       placeholder="Expliquez votre besoin (contexte, objectif, urgence éventuelle)…"
                       aria-invalid={Boolean(errors.message)}
                     />
-                    {errors.message ? <Error role="alert">{errors.message}</Error> : null}
+                    {errors.message ? (
+                      <Error role="alert">{errors.message}</Error>
+                    ) : null}
                   </Field>
 
                   <Actions>
@@ -177,21 +197,34 @@ export default function Contact() {
                       Envoyer
                     </Primary>
 
-                    <Ghost as="a" href="tel:+224622253536" title="Appeler le cabinet">
+                    <Ghost
+                      as="a"
+                      href="tel:+224622253536"
+                      title="Appeler le cabinet"
+                    >
                       <Phone size={18} />
                       Appeler
                     </Ghost>
-                    <Ghost as="a" href="tel:+224625292599" title="Appeler le cabinet">
+                    <Ghost
+                      as="a"
+                      href="tel:+224625292599"
+                      title="Appeler le cabinet"
+                    >
                       <Phone size={18} />
                       Appeler
                     </Ghost>
-                    <Ghost as="a" href="mailto:contact@aod-avocats.com" title="Envoyer un email">
+                    <Ghost
+                      as="a"
+                      href="mailto:contact.info@aod-avocats.net"
+                      title="Envoyer un email"
+                    >
                       <Mail size={18} />
                       Email
                     </Ghost>
                   </Actions>
                   <FinePrint>
-                    Vos informations sont utilisées uniquement pour répondre à votre demande.
+                    Vos informations sont utilisées uniquement pour répondre à
+                    votre demande.
                   </FinePrint>
                 </Form>
               </FormCard>
@@ -205,7 +238,8 @@ export default function Contact() {
             <SectionHead data-aos="fade-up">
               <H2>Localisation du cabinet</H2>
               <Lead>
-                Consultez la carte et lancez l’itinéraire. Vous pouvez aussi activer “Me localiser” pour démarrer depuis votre position.
+                Consultez la carte et lancez l’itinéraire. Vous pouvez aussi
+                activer “Me localiser” pour démarrer depuis votre position.
               </Lead>
             </SectionHead>
 
@@ -231,10 +265,22 @@ export default function Contact() {
 
 const Page = styled.div`
   min-height: 100vh;
-  background:
-    radial-gradient(1200px 520px at 15% 10%, rgba(135,206,235,0.14), transparent 60%),
-    radial-gradient(900px 520px at 85% 0%, rgba(242,201,76,0.10), transparent 60%),
-    linear-gradient(180deg, ${colors.blueMarine} 0%, ${colors.bgDark} 65%, ${colors.bgDark} 100%);
+  background: radial-gradient(
+      1200px 520px at 15% 10%,
+      rgba(135, 206, 235, 0.14),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 520px at 85% 0%,
+      rgba(242, 201, 76, 0.1),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      ${colors.blueMarine} 0%,
+      ${colors.bgDark} 65%,
+      ${colors.bgDark} 100%
+    );
   color: ${colors.white};
 `;
 
@@ -266,13 +312,15 @@ const Kicker = styled.div`
   gap: 8px;
   padding: 10px 12px;
   border-radius: 12px 0 12px 0;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(16,18,36,0.40);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(16, 18, 36, 0.4);
   backdrop-filter: blur(10px);
-  color: rgba(255,255,255,0.90);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 13px;
 
-  svg { color: ${colors.skyBlue}; }
+  svg {
+    color: ${colors.skyBlue};
+  }
 `;
 
 const H2 = styled.h2`
@@ -285,7 +333,7 @@ const H2 = styled.h2`
 const Lead = styled.p`
   margin: 10px 0 0;
   max-width: 78ch;
-  color: rgba(255,255,255,0.84);
+  color: rgba(255, 255, 255, 0.84);
   font-size: 14.5px;
   line-height: 1.7;
 `;
@@ -305,12 +353,12 @@ const VisualCard = styled.div`
   position: relative;
   border-radius: 12px 0 12px 0;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   background-image: url(${(p) => p.$img});
   background-size: cover;
   background-position: center;
   min-height: 520px;
-  box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
 
   @media (max-width: 980px) {
     min-height: 360px;
@@ -320,10 +368,22 @@ const VisualCard = styled.div`
 const VisualOverlay = styled.div`
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(900px 420px at 15% 10%, rgba(135,206,235,0.20), transparent 60%),
-    radial-gradient(900px 420px at 85% 10%, rgba(242,201,76,0.14), transparent 60%),
-    linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(16,18,36,0.78) 55%, rgba(16,42,67,0.92) 100%);
+  background: radial-gradient(
+      900px 420px at 15% 10%,
+      rgba(135, 206, 235, 0.2),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 420px at 85% 10%,
+      rgba(242, 201, 76, 0.14),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(16, 18, 36, 0.78) 55%,
+      rgba(16, 42, 67, 0.92) 100%
+    );
 `;
 
 const VisualContent = styled.div`
@@ -343,7 +403,7 @@ const VisualTitle = styled.div`
 `;
 
 const VisualText = styled.div`
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 13.8px;
   line-height: 1.6;
   max-width: 54ch;
@@ -359,27 +419,32 @@ const MiniItem = styled.div`
   height: 42px;
   padding: 0 12px;
   border-radius: 12px 0 12px 0;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(16,18,36,0.40);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(16, 18, 36, 0.4);
   backdrop-filter: blur(10px);
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: rgba(255,255,255,0.90);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   cursor: pointer;
-  transition: transform .12s ease, background .12s ease;
+  transition: transform 0.12s ease, background 0.12s ease;
 
-  svg { color: ${colors.skyBlue}; }
-  &:hover { transform: translateY(-1px); background: rgba(255,255,255,0.07); }
+  svg {
+    color: ${colors.skyBlue};
+  }
+  &:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.07);
+  }
 `;
 
 const FormCard = styled.div`
   border-radius: 12px 0 12px 0;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(16,18,36,0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(16, 18, 36, 0.55);
   backdrop-filter: blur(10px);
-  box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
   padding: 18px;
 `;
 
@@ -391,7 +456,7 @@ const FormTitle = styled.div`
 
 const FormSubtitle = styled.div`
   margin-top: 8px;
-  color: rgba(255,255,255,0.82);
+  color: rgba(255, 255, 255, 0.82);
   font-size: 13.8px;
   line-height: 1.6;
 `;
@@ -419,7 +484,7 @@ const Field = styled.div`
 
 const Label = styled.label`
   font-size: 12.5px;
-  color: rgba(255,255,255,0.78);
+  color: rgba(255, 255, 255, 0.78);
 `;
 
 const baseInput = `
@@ -470,44 +535,61 @@ const Primary = styled.button`
   height: 46px;
   padding: 0 14px;
   border-radius: 12px 0 12px 0;
-  border: 1px solid rgba(135,206,235,0.22);
-  background: linear-gradient(135deg, ${colors.blueMarine}, ${colors.bgSecondary});
+  border: 1px solid rgba(135, 206, 235, 0.22);
+  background: linear-gradient(
+    135deg,
+    ${colors.blueMarine},
+    ${colors.bgSecondary}
+  );
   color: ${colors.white};
   font-weight: 900;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 18px 48px rgba(0,0,0,0.35);
-  transition: transform .15s ease, box-shadow .15s ease;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 
-  &:hover { transform: translateY(-1px); box-shadow: 0 22px 60px rgba(0,0,0,0.45); }
-  &:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(135,206,235,0.18), 0 22px 60px rgba(0,0,0,0.45); }
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+  }
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.18),
+      0 22px 60px rgba(0, 0, 0, 0.45);
+  }
 `;
 
 const Ghost = styled.a`
   height: 46px;
   padding: 0 14px;
   border-radius: 12px 0 12px 0;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
   font-weight: 900;
   cursor: pointer;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  transition: transform .15s ease, background .15s ease;
+  transition: transform 0.15s ease, background 0.15s ease;
 
-  &:hover { transform: translateY(-1px); background: rgba(255,255,255,0.09); }
-  &:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(135,206,235,0.16); }
+  &:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.09);
+  }
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.16);
+  }
 `;
 
 const FinePrint = styled.div`
   margin-top: 4px;
   font-size: 12px;
-  color: rgba(255,255,255,0.70);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.4;
 `;
 
@@ -515,8 +597,8 @@ const MapSurface = styled.div`
   margin-top: 14px;
   border-radius: 12px 0 12px 0;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
 `;
 
 const FooterWrap = styled.div`

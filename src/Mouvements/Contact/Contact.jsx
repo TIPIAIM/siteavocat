@@ -1,4 +1,4 @@
-// src/pages/Contact/Contact.jsx
+//  /Contact/Contact.jsx
 import { useEffect, memo, lazy, useState, Suspense } from "react";
 import styled from "styled-components";
 import AOS from "aos";

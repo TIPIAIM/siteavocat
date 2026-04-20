@@ -87,7 +87,11 @@ const TEAM_MEMBERS = [
     fullName: "Paul Astérix LAMAH",
     role: "Juriste",
     title: "Juriste conseil",
-    practiceAreas: ["Droit des affaires ", "Contentieux", "Droit Minier et énergie "],
+    practiceAreas: [
+      "Droit des affaires ",
+      "Contentieux",
+      "Droit Minier et énergie ",
+    ],
     languages: ["Français", "Anglais(intermédiaire)"],
     location: "Conakry",
     email: " paul.lamah5815@icloud.com",
@@ -100,7 +104,40 @@ const TEAM_MEMBERS = [
     highlights: [" Négociations ", "rédaction"],
     credentials: [" Licence en droit des affaires , Master 2 "],
   },
- 
+  {
+    id: "m-4",
+    slug: "abdoulaye-keita",
+    fullName: "Abdoulaye Keita",
+    role: "Juriste",
+    title: "Juriste-Conseil",
+    practiceAreas: [
+      "Aanalyse juridique",
+      "Procédure pénale",
+      "Suivi méthodique des procédures",
+      "Relation client",
+    ],
+    languages: ["Français", "Anglais(débutant)"],
+    location: "Conakry",
+    email: "contact@aod-avocats.com",
+    phone: "+224 621 10 02 84",
+    photoUrl: bdoul, //images.abdoulayeavoc
+    bioShort:
+      "Abdoulaye KEITA est juriste-conseil au sein du cabinet AOD AVOCATS, où il est chargé du traitement des dossiers relevant du droit pénal. Il intervient à toutes les étapes de la procédure pénale, tant au stade précontentieux que contentieux, en appui aux avocats du cabinet, avec pour priorité la protection des droits et intérêts des clients.",
+    bioLong:
+      "Abdoulaye KEITA Juriste-Conseil – Chargé des affaires pénales Cabinet AOD AVOCATS Abdoulaye KEITA est juriste-conseil au sein du cabinet AOD AVOCATS, où il est chargé du traitement des affaires pénales. Il intervient à toutes les étapes de la procédure pénale, tant au stade précontentieux que contentieux, en appui à l’avocat du cabinet, en veillant à la protection des droits et intérêts des clients. Titulaire d’une Licence en droit privé, spécialisation carrière judiciaire à l’université Général Lansana CONTE de Sonfonia-Conakry, il est actuellement auditeur en Master de droit privé fondamental dans la même Université. Sa formation universitaire, alliée à une pratique soutenue en cabinet, lui permet d’aborder les dossiers pénaux avec méthode, rigueur et sens stratégique.Au sein du cabinet, il participe notamment à l’analyse juridique des infractions et des faits poursuivis, à la préparation, le suivi et la coordination des procédures pénales (enquêtes, instructions et audiences), la rédaction de notes juridiques, plaintes, dénonciations et mémoires pénaux, l’assistance juridique des clients impliqués dans des procédures pénales, le suivi des dossiers devant les juridictions répressives compétentes. Son champ d’intervention couvre aussi bien les infractions de droit commun que les infractions économiques et financières, avec un intérêt particulier pour les questions liées au blanchiment de capitaux, aux atteintes au patrimoine et aux infractions commises dans le cadre des activités professionnelles. Reconnu pour sa discrétion, sa discipline professionnelle et sa capacité d’analyse, Abdoulaye KEITA inscrit son action dans une démarche de défense rigoureuse et éthique des droits des clients, dans le strict respect des règles de procédure pénale et des exigences déontologiques du cabinet. ",
+    highlights: [
+      "Droit pénal",
+      "Contentieux pénal",
+      "Infractions économiques et -",
+      "financière",
+      "Cybersécurité",
+      "Cybercriminalité ",
+      "Suivi des procédures répressives",
+    ],
+    credentials: [
+      "Licence en droit privé — Master de droit privé fondamental(en start) à l’université Général Lansana CONTE de Sonfonia-Conakry,",
+    ],
+  },
   {
     id: "m-5",
     slug: "kadiatou-camara",
@@ -117,7 +154,7 @@ const TEAM_MEMBERS = [
     location: "Conakry",
     email: " Kadiatou.camara224@icloud.com ",
     phone: "+224 625 70 18 20",
-    photoUrl: images.sport,
+    photoUrl: images.keitaseul2,
     bioShort: "",
     bioLong: "",
     highlights: [
@@ -142,7 +179,11 @@ const TEAM_MEMBERS = [
     photoUrl: Fatoumata,
     bioShort: " ",
     bioLong: " ",
-    highlights: ["Accueil & relation client", "Coordination", "Confidentialité"],
+    highlights: [
+      "Accueil & relation client",
+      "Coordination",
+      "Confidentialité",
+    ],
     credentials: ["Formation — Administration"],
   },
   {
@@ -159,7 +200,11 @@ const TEAM_MEMBERS = [
     photoUrl: images.naroumb,
     bioShort: " ",
     bioLong: " ",
-    highlights: ["Accueil & relation client", "Coordination", "Confidentialité"],
+    highlights: [
+      "Accueil & relation client",
+      "Coordination",
+      "Confidentialité",
+    ],
     credentials: ["Formation — Administration"],
   },
 ];
@@ -210,7 +255,8 @@ export default function EquipeCabinetPage() {
     []
   );
   const areas = useMemo(
-    () => uniqueFromArrayOfArrays(TEAM_MEMBERS.map((m) => m.practiceAreas || [])),
+    () =>
+      uniqueFromArrayOfArrays(TEAM_MEMBERS.map((m) => m.practiceAreas || [])),
     []
   );
 
@@ -308,7 +354,9 @@ export default function EquipeCabinetPage() {
     ];
 
     const names = TEAM_MEMBERS.map((m) => m.fullName).filter(Boolean);
-    const rolesK = Array.from(new Set(TEAM_MEMBERS.map((m) => m.role).filter(Boolean)));
+    const rolesK = Array.from(
+      new Set(TEAM_MEMBERS.map((m) => m.role).filter(Boolean))
+    );
     const areasK = Array.from(
       new Set(
         TEAM_MEMBERS.flatMap((m) =>
@@ -344,7 +392,9 @@ export default function EquipeCabinetPage() {
       "@type": "Person",
       name: m.fullName,
       jobTitle: m.title || m.role,
-      url: `https://www.aod-avocats.com/equipe-cabinet/${m.slug || slugify(m.fullName)}`,
+      url: `https://www.aod-avocats.com/equipe-cabinet/${
+        m.slug || slugify(m.fullName)
+      }`,
       email: m.email ? `mailto:${String(m.email).trim()}` : undefined,
       telephone: m.phone ? String(m.phone).trim() : undefined,
       address: m.location
@@ -377,7 +427,11 @@ export default function EquipeCabinetPage() {
         name: seoTitle,
         url: seoCanonicalUrl,
         description: seoDescription,
-        isPartOf: { "@type": "WebSite", name: "AOD AVOCATS", url: "https://www.aod-avocats.com/" },
+        isPartOf: {
+          "@type": "WebSite",
+          name: "AOD AVOCATS",
+          url: "https://www.aod-avocats.com/",
+        },
       },
       {
         "@context": "https://schema.org",
@@ -547,8 +601,8 @@ export default function EquipeCabinetPage() {
               <strong>{filtered.length}</strong>
             </MetaPill>
             <MetaHint>
-              Survole une photo pour lire un extrait. Clique sur “Voir le profil”
-              pour ouvrir la page du profil.
+              Survole une photo pour lire un extrait. Clique sur “Voir le
+              profil” pour ouvrir la page du profil.
             </MetaHint>
           </ToolbarMeta>
         </Toolbar>
@@ -602,9 +656,15 @@ export default function EquipeCabinetPage() {
                 >
                   <PhotoFrame aria-hidden="false">
                     {m.photoUrl ? (
-                      <PhotoImg src={m.photoUrl} alt={m.fullName} className="photoImg" />
+                      <PhotoImg
+                        src={m.photoUrl}
+                        alt={m.fullName}
+                        className="photoImg"
+                      />
                     ) : (
-                      <PhotoFallback>{initialsFromName(m.fullName)}</PhotoFallback>
+                      <PhotoFallback>
+                        {initialsFromName(m.fullName)}
+                      </PhotoFallback>
                     )}
 
                     <PhotoOverlay aria-hidden="true">
@@ -661,7 +721,9 @@ export default function EquipeCabinetPage() {
                         <Tag key={t}>{t}</Tag>
                       ))}
                       {(m.practiceAreas || []).length > 3 ? (
-                        <TagMuted>+{(m.practiceAreas || []).length - 3}</TagMuted>
+                        <TagMuted>
+                          +{(m.practiceAreas || []).length - 3}
+                        </TagMuted>
                       ) : null}
                     </TagsRow>
                   </CardContent>
@@ -693,7 +755,9 @@ export default function EquipeCabinetPage() {
               aria-label={`Biographie complète de ${selected.fullName}`}
               ref={dialogRef}
               tabIndex={-1}
-              initial={reduceMotion ? false : { opacity: 0, y: 18, scale: 0.98 }}
+              initial={
+                reduceMotion ? false : { opacity: 0, y: 18, scale: 0.98 }
+              }
               animate={reduceMotion ? false : { opacity: 1, y: 0, scale: 1 }}
               exit={reduceMotion ? false : { opacity: 0, y: 12, scale: 0.98 }}
               transition={{ duration: reduceMotion ? 0.01 : 0.22 }}
@@ -702,7 +766,10 @@ export default function EquipeCabinetPage() {
                 <DialogIdentity>
                   <DialogAvatar>
                     {selected.photoUrl ? (
-                      <DialogAvatarImg src={selected.photoUrl} alt={selected.fullName} />
+                      <DialogAvatarImg
+                        src={selected.photoUrl}
+                        alt={selected.fullName}
+                      />
                     ) : (
                       <DialogAvatarFallback>
                         {initialsFromName(selected.fullName)}
@@ -757,7 +824,9 @@ export default function EquipeCabinetPage() {
                     <SideTitle>Langues</SideTitle>
                     <Inline>
                       <Languages size={16} />
-                      <span>{(selected.languages || []).join(", ") || "—"}</span>
+                      <span>
+                        {(selected.languages || []).join(", ") || "—"}
+                      </span>
                     </Inline>
                   </SideCard>
 
@@ -771,7 +840,12 @@ export default function EquipeCabinetPage() {
                     </ContactLine>
                     <ContactLine>
                       <Phone size={16} />
-                      <a href={`tel:${String(selected.phone || "").replace(/\s+/g, "")}`}>
+                      <a
+                        href={`tel:${String(selected.phone || "").replace(
+                          /\s+/g,
+                          ""
+                        )}`}
+                      >
                         {String(selected.phone || "").trim()}
                       </a>
                     </ContactLine>
@@ -807,7 +881,10 @@ export default function EquipeCabinetPage() {
                   Voir le profil
                 </PrimaryButton>
 
-                <SecondaryButton type="button" onClick={() => setSelected(null)}>
+                <SecondaryButton
+                  type="button"
+                  onClick={() => setSelected(null)}
+                >
                   Fermer
                 </SecondaryButton>
               </DialogFooter>

@@ -37,13 +37,11 @@ export default function Contact() {
       newErrors.name =
         "Nom : 2 à 50 caractères (lettres, espaces, apostrophes, tirets).";
 
-    // Email : validation simple mais réaliste
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
     if (!emailOk || email.length > 120)
       newErrors.email =
         "Veuillez entrer une adresse email valide (max 120 caractères).";
 
-    // Message : longueur (on évite de brider l’utilisateur)
     if (message.length < 10 || message.length > 1200) {
       newErrors.message = "Message : entre 10 et 1200 caractères.";
     }
@@ -203,7 +201,7 @@ export default function Contact() {
                       title="Appeler le cabinet"
                     >
                       <Phone size={18} />
-                      Appeler (+622 253 536) 
+                      Appeler (+622 253 536)
                     </Ghost>
                     <Ghost
                       as="a"

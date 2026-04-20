@@ -57,16 +57,7 @@ const imagess = [
     city: "Conakry",
     phone: "00224624138395",
   },
-  {
-    src: images.abdoulayeavoc,
-    title: "NOTRE STRATEGIE ",
-    description:
-      "Nous posons un diagnostic complet, clair et précis dès le départ afin d’exposer à nos clients les tenants et aboutissants de leur dossier. Nous cernons rapidement les enjeux légaux et d’affaires,les points forts et les points faibles, ainsi que les coûts afférents, et les exposons à nos clients de manière transparente, et objective",
-    email:
-      "Une approche stratégique et transparente axée sur l’atteinte de résultat et la communication",
-    city: "Conakry",
-    phone: "624138395",
-  },
+  
   {
     src: images.moe0311,
     title: "NOTRE APPROCHE ",

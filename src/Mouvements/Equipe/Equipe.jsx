@@ -100,40 +100,7 @@ const TEAM_MEMBERS = [
     highlights: [" Négociations ", "rédaction"],
     credentials: [" Licence en droit des affaires , Master 2 "],
   },
-  {
-    id: "m-4",
-    slug: "abdoulaye-keita",
-    fullName: "Abdoulaye Keita",
-    role: "Juriste",
-    title: "Juriste-Conseil",
-    practiceAreas: [
-      "Aanalyse juridique",
-      "Procédure pénale",
-      "Suivi méthodique des procédures",
-      "Relation client",
-    ],
-    languages: ["Français", "Anglais(débutant)"],
-    location: "Conakry",
-    email: "contact@aod-avocats.com",
-    phone: "+224 621 10 02 84",
-    photoUrl: bdoul, //images.abdoulayeavoc
-    bioShort:
-      "Abdoulaye KEITA est juriste-conseil au sein du cabinet AOD AVOCATS, où il est chargé du traitement des dossiers relevant du droit pénal. Il intervient à toutes les étapes de la procédure pénale, tant au stade précontentieux que contentieux, en appui aux avocats du cabinet, avec pour priorité la protection des droits et intérêts des clients.",
-    bioLong:
-      "Abdoulaye KEITA Juriste-Conseil – Chargé des affaires pénales Cabinet AOD AVOCATS Abdoulaye KEITA est juriste-conseil au sein du cabinet AOD AVOCATS, où il est chargé du traitement des affaires pénales. Il intervient à toutes les étapes de la procédure pénale, tant au stade précontentieux que contentieux, en appui à l’avocat du cabinet, en veillant à la protection des droits et intérêts des clients. Titulaire d’une Licence en droit privé, spécialisation carrière judiciaire à l’université Général Lansana CONTE de Sonfonia-Conakry, il est actuellement auditeur en Master de droit privé fondamental dans la même Université. Sa formation universitaire, alliée à une pratique soutenue en cabinet, lui permet d’aborder les dossiers pénaux avec méthode, rigueur et sens stratégique.Au sein du cabinet, il participe notamment à l’analyse juridique des infractions et des faits poursuivis, à la préparation, le suivi et la coordination des procédures pénales (enquêtes, instructions et audiences), la rédaction de notes juridiques, plaintes, dénonciations et mémoires pénaux, l’assistance juridique des clients impliqués dans des procédures pénales, le suivi des dossiers devant les juridictions répressives compétentes. Son champ d’intervention couvre aussi bien les infractions de droit commun que les infractions économiques et financières, avec un intérêt particulier pour les questions liées au blanchiment de capitaux, aux atteintes au patrimoine et aux infractions commises dans le cadre des activités professionnelles. Reconnu pour sa discrétion, sa discipline professionnelle et sa capacité d’analyse, Abdoulaye KEITA inscrit son action dans une démarche de défense rigoureuse et éthique des droits des clients, dans le strict respect des règles de procédure pénale et des exigences déontologiques du cabinet. ",
-    highlights: [
-      "Droit pénal",
-      "Contentieux pénal",
-      "Infractions économiques et -",
-      "financière",
-      "Cybersécurité",
-      "Cybercriminalité ",
-      "Suivi des procédures répressives",
-    ],
-    credentials: [
-      "Licence en droit privé — Master de droit privé fondamental(en start) à l’université Général Lansana CONTE de Sonfonia-Conakry,",
-    ],
-  },
+ 
   {
     id: "m-5",
     slug: "kadiatou-camara",
@@ -150,7 +117,7 @@ const TEAM_MEMBERS = [
     location: "Conakry",
     email: " Kadiatou.camara224@icloud.com ",
     phone: "+224 625 70 18 20",
-    photoUrl: images.keitaseul2,
+    photoUrl: images.sport,
     bioShort: "",
     bioLong: "",
     highlights: [

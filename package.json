@@ -20,7 +20,7 @@
     "@tremor/react": "^3.14.1",
     "@types/styled-components": "^5.1.34",
     "aos": "^2.3.4",
-    "axios": "^1.6.7",
+    "axios": "^1.12.0",
     "barba.js": "^1.0.0",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.1",

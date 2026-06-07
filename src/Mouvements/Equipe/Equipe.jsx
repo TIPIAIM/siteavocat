@@ -18,7 +18,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 import { images } from "../../assets/images";
-import bdoul from "../../assets/djen1.png";
+import bdoul from "../../assets/djen1.PNG";
 import Fatoumata from "../../assets/keit.jpg";
 import pol from "../../assets/pol.jpeg";
 import kadiatou from "../../assets/kadiatou1.jpeg";

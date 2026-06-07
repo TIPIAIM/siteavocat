@@ -60,6 +60,37 @@ const TEAM_MEMBERS = [
     ],
   },
   {
+    id: "m-4",
+    slug: "djeinabou-soumah",
+    fullName: "Djeinabou M Soumah",
+    role: "Juriste",
+    title: "Juriste-Conseil",
+    practiceAreas: [
+      "Aanalyse juridique",
+      "Procédure pénale",
+      "Suivi méthodique des procédures",
+      "Relation client",
+    ],
+    languages: ["Français", "Anglais(débutant)"],
+    location: "Conakry",
+    email: "djenaboumsoumah224@icloud.com",
+    phone: "+224 620 70 75 69",
+    photoUrl: bdoul, //images.abdoulayeavoc
+    bioShort:
+      "Exerce en qualité de juriste au sein du cabinet AOD AVOCATS, où elle intervient principalement en droit des affaires, droit social, droit de la famille et droit pénal.",
+    bioLong:
+      "Exerce en qualité de juriste au sein du cabinet AOD AVOCATS, où elle intervient principalement en droit des affaires, droit social, droit de la famille et droit pénal. Titulaire d’une Licence en droit des affaires, elle poursuit actuellement un Master en droit des affaires, témoignant ainsi de son intérêt soutenu pour les problématiques juridiques liées à l’entreprise et à son environnement.Dans le cadre de ses fonctions, elle accompagne aussi bien les particuliers que les opérateurs économiques dans le traitement de leurs préoccupations juridiques, en conseil comme en contentieux. Attachée à une pratique rigoureuse du droit, elle s’intéresse particulièrement aux questions de gouvernance d’entreprise, de conformité juridique et de sécurisation des activités économiques, qui constituent les principaux axes de son engagement professionnel.      ",
+    highlights: [
+      "Droit des affaires",
+      "Droit social",
+      " Droit de la famille",
+      "Droit pénal",
+    ],
+    credentials: [
+      "Licence en droit des affaires - Master en droit des affaires ",
+    ],
+  },
+  {
     id: "m-2",
     slug: "abdoulaye-bangoura",
     fullName: "Abdoulaye Bangoura",
@@ -104,37 +135,7 @@ const TEAM_MEMBERS = [
     highlights: [" Négociations ", "rédaction"],
     credentials: [" Licence en droit des affaires , Master 2 "],
   },
-  {
-    id: "m-4",
-    slug: "djeinabou-soumah",
-    fullName: "Djeinabou M Soumah",
-    role: "Juriste",
-    title: "Juriste-Conseil",
-    practiceAreas: [
-      "Aanalyse juridique",
-      "Procédure pénale",
-      "Suivi méthodique des procédures",
-      "Relation client",
-    ],
-    languages: ["Français", "Anglais(débutant)"],
-    location: "Conakry",
-    email: "djenaboumsoumah224@icloud.com",
-    phone: "+224 620 70 75 69",
-    photoUrl: bdoul, //images.abdoulayeavoc
-    bioShort:
-      "Exerce en qualité de juriste au sein du cabinet AOD AVOCATS, où elle intervient principalement en droit des affaires, droit social, droit de la famille et droit pénal.",
-    bioLong:
-      "Exerce en qualité de juriste au sein du cabinet AOD AVOCATS, où elle intervient principalement en droit des affaires, droit social, droit de la famille et droit pénal. Titulaire d’une Licence en droit des affaires, elle poursuit actuellement un Master en droit des affaires, témoignant ainsi de son intérêt soutenu pour les problématiques juridiques liées à l’entreprise et à son environnement.Dans le cadre de ses fonctions, elle accompagne aussi bien les particuliers que les opérateurs économiques dans le traitement de leurs préoccupations juridiques, en conseil comme en contentieux. Attachée à une pratique rigoureuse du droit, elle s’intéresse particulièrement aux questions de gouvernance d’entreprise, de conformité juridique et de sécurisation des activités économiques, qui constituent les principaux axes de son engagement professionnel.      ",
-    highlights: [
-      "Droit des affaires",
-      "Droit social",
-      " Droit de la famille",
-      "Droit pénal",
-    ],
-    credentials: [
-      "Licence en droit des affaires - Master en droit des affaires ",
-    ],
-  },
+
   {
     id: "m-5",
     slug: "kadiatou-camara",

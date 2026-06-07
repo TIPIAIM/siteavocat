@@ -17,15 +17,14 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import { images } from "../../assets/images";
-import bdoul from "../../assets/djen1.PNG";
-import Fatoumata from "../../assets/keit.jpg";
+import { images } from "../images";
+ import Fatoumata from "../../assets/keit.jpg";
 import pol from "../../assets/pol.jpeg";
 import kadiatou from "../../assets/kadiatou1.jpeg";
 // IMPORTANT : ton fichier exporte "export const colors = {...}"
 import { colors } from "../../Styles/colors";
-import Footer from "../Accueil/Footerr";
-import BardeNavigationpublic from "../Navigatpublic/BardeNavigationPublic";
+import Footer from "../../Mouvements/Accueil/Footerr";
+import BardeNavigationpublic from "../../Mouvements/Navigatpublic/BardeNavigationPublic";
 
 // ✅ SEO (Helmet)
 import SEO from "../../DynmikSeo2026";
@@ -75,7 +74,7 @@ const TEAM_MEMBERS = [
     location: "Conakry",
     email: "djenaboumsoumah224@icloud.com",
     phone: "+224 620 70 75 69",
-    photoUrl: bdoul, //images.abdoulayeavoc
+    photoUrl: images.mbangou, //images.abdoulayeavoc
     bioShort:
       "Exerce en qualité de juriste au sein du cabinet AOD AVOCATS, où elle intervient principalement en droit des affaires, droit social, droit de la famille et droit pénal.",
     bioLong:
@@ -152,7 +151,7 @@ const TEAM_MEMBERS = [
     location: "Conakry",
     email: " Kadiatou.camara224@icloud.com ",
     phone: "+224 625 70 18 20",
-    photoUrl: kadiatou,
+    photoUrl: images.mbangou,
     bioShort: "",
     bioLong: "",
     highlights: [

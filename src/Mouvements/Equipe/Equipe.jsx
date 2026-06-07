@@ -18,10 +18,10 @@ import {
 import { useNavigate } from "react-router-dom";
 
 import { images } from "../../assets/images";
-import bdoul from "../../assets/bdoul.jpeg";
+import bdoul from "../../assets/djen1.png";
 import Fatoumata from "../../assets/keit.jpg";
 import pol from "../../assets/pol.jpeg";
-
+import kadiatou from "../../assets/kadiatou1.jpeg";
 // IMPORTANT : ton fichier exporte "export const colors = {...}"
 import { colors } from "../../Styles/colors";
 import Footer from "../Accueil/Footerr";
@@ -106,8 +106,8 @@ const TEAM_MEMBERS = [
   },
   {
     id: "m-4",
-    slug: "abdoulaye-keita",
-    fullName: "Abdoulaye Keita",
+    slug: "djeinabou-soumah",
+    fullName: "Djeinabou M Soumah",
     role: "Juriste",
     title: "Juriste-Conseil",
     practiceAreas: [
@@ -118,24 +118,21 @@ const TEAM_MEMBERS = [
     ],
     languages: ["Français", "Anglais(débutant)"],
     location: "Conakry",
-    email: "contact@aod-avocats.com",
-    phone: "+224 621 10 02 84",
+    email: "djenaboumsoumah224@icloud.com",
+    phone: "+224 620 70 75 69",
     photoUrl: bdoul, //images.abdoulayeavoc
     bioShort:
-      "Abdoulaye KEITA est juriste-conseil au sein du cabinet AOD AVOCATS, où il est chargé du traitement des dossiers relevant du droit pénal. Il intervient à toutes les étapes de la procédure pénale, tant au stade précontentieux que contentieux, en appui aux avocats du cabinet, avec pour priorité la protection des droits et intérêts des clients.",
+      "Exerce en qualité de juriste au sein du cabinet AOD AVOCATS, où elle intervient principalement en droit des affaires, droit social, droit de la famille et droit pénal.",
     bioLong:
-      "Abdoulaye KEITA Juriste-Conseil – Chargé des affaires pénales Cabinet AOD AVOCATS Abdoulaye KEITA est juriste-conseil au sein du cabinet AOD AVOCATS, où il est chargé du traitement des affaires pénales. Il intervient à toutes les étapes de la procédure pénale, tant au stade précontentieux que contentieux, en appui à l’avocat du cabinet, en veillant à la protection des droits et intérêts des clients. Titulaire d’une Licence en droit privé, spécialisation carrière judiciaire à l’université Général Lansana CONTE de Sonfonia-Conakry, il est actuellement auditeur en Master de droit privé fondamental dans la même Université. Sa formation universitaire, alliée à une pratique soutenue en cabinet, lui permet d’aborder les dossiers pénaux avec méthode, rigueur et sens stratégique.Au sein du cabinet, il participe notamment à l’analyse juridique des infractions et des faits poursuivis, à la préparation, le suivi et la coordination des procédures pénales (enquêtes, instructions et audiences), la rédaction de notes juridiques, plaintes, dénonciations et mémoires pénaux, l’assistance juridique des clients impliqués dans des procédures pénales, le suivi des dossiers devant les juridictions répressives compétentes. Son champ d’intervention couvre aussi bien les infractions de droit commun que les infractions économiques et financières, avec un intérêt particulier pour les questions liées au blanchiment de capitaux, aux atteintes au patrimoine et aux infractions commises dans le cadre des activités professionnelles. Reconnu pour sa discrétion, sa discipline professionnelle et sa capacité d’analyse, Abdoulaye KEITA inscrit son action dans une démarche de défense rigoureuse et éthique des droits des clients, dans le strict respect des règles de procédure pénale et des exigences déontologiques du cabinet. ",
+      "Exerce en qualité de juriste au sein du cabinet AOD AVOCATS, où elle intervient principalement en droit des affaires, droit social, droit de la famille et droit pénal. Titulaire d’une Licence en droit des affaires, elle poursuit actuellement un Master en droit des affaires, témoignant ainsi de son intérêt soutenu pour les problématiques juridiques liées à l’entreprise et à son environnement.Dans le cadre de ses fonctions, elle accompagne aussi bien les particuliers que les opérateurs économiques dans le traitement de leurs préoccupations juridiques, en conseil comme en contentieux. Attachée à une pratique rigoureuse du droit, elle s’intéresse particulièrement aux questions de gouvernance d’entreprise, de conformité juridique et de sécurisation des activités économiques, qui constituent les principaux axes de son engagement professionnel.      ",
     highlights: [
+      "Droit des affaires",
+      "Droit social",
+      " Droit de la famille",
       "Droit pénal",
-      "Contentieux pénal",
-      "Infractions économiques et -",
-      "financière",
-      "Cybersécurité",
-      "Cybercriminalité ",
-      "Suivi des procédures répressives",
     ],
     credentials: [
-      "Licence en droit privé — Master de droit privé fondamental(en start) à l’université Général Lansana CONTE de Sonfonia-Conakry,",
+      "Licence en droit des affaires - Master en droit des affaires ",
     ],
   },
   {
@@ -154,7 +151,7 @@ const TEAM_MEMBERS = [
     location: "Conakry",
     email: " Kadiatou.camara224@icloud.com ",
     phone: "+224 625 70 18 20",
-    photoUrl: images.keitaseul2,
+    photoUrl: kadiatou,
     bioShort: "",
     bioLong: "",
     highlights: [
